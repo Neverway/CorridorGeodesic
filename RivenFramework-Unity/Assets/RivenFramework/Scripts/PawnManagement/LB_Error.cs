@@ -1,6 +1,6 @@
 //===================== (Neverway 2024) Written by Liz M. =====================
 //
-// Purpose:
+// Purpose: If any key is pressed, return to title screen
 // Notes:
 //
 //=============================================================================

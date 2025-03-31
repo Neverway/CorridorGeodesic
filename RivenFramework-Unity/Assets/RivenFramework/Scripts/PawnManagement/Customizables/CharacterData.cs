@@ -7,7 +7,6 @@
 
 using System;
 using UnityEngine;
-using Neverway.Framework;
 
 namespace Neverway.Framework.PawnManagement
 {

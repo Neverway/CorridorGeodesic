@@ -1,12 +1,11 @@
 //===================== (Neverway 2024) Written by Liz M. =====================
 //
-// Purpose: Created to keep track of held physics objects
-// Notes:
+// Purpose: Attached to an object on a pawn to be used like a socket for other
+//      objects, such as held physics props, swords on backs, guns on hips, etc.
+// Notes: This was originally created to keep track of held physics objects 
 //
 //=============================================================================
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Neverway.Framework.PawnManagement
@@ -16,7 +15,8 @@ namespace Neverway.Framework.PawnManagement
         //=-----------------=
         // Public Variables
         //=-----------------=
-        public GameObject heldObject;
+        [Tooltip("The object that is attached to this point, this is set, not assigned, don't touch this")]
+        public GameObject attachedObject;
 
 
         //=-----------------=
@@ -32,15 +32,7 @@ namespace Neverway.Framework.PawnManagement
         //=-----------------=
         // Mono Functions
         //=-----------------=
-        private void Start()
-        {
-
-        }
-
-        private void Update()
-        {
-
-        }
+        
 
         //=-----------------=
         // Internal Functions

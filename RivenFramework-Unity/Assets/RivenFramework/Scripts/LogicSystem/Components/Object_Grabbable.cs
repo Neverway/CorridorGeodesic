@@ -156,12 +156,12 @@ namespace Neverway.Framework.LogicSystem
                 if (!isHeld)
                 {
                     // If this isn't being held, and the pawn is already holding something, exit
-                    if (targetPawn.physObjectAttachmentPoint.heldObject != null)
+                    if (targetPawn.physObjectAttachmentPoint.attachedObject != null)
                     {
                         return;
                     }
 
-                    targetPawn.physObjectAttachmentPoint.heldObject = gameObject;
+                    targetPawn.physObjectAttachmentPoint.attachedObject = gameObject;
                     wasGravityEnabled =
                         propRigidbody.useGravity; // Store whether gravity was enabled before we get picked up
                     // Lerp to the position of the object to go to the position of the holding point
@@ -169,7 +169,7 @@ namespace Neverway.Framework.LogicSystem
                 else
                 {
                     propRigidbody.useGravity = wasGravityEnabled; // Restore gravity if it was enabled before pickup
-                    targetPawn.physObjectAttachmentPoint.heldObject = null;
+                    targetPawn.physObjectAttachmentPoint.attachedObject = null;
                 }
 
                 ToggleHeld();
@@ -211,7 +211,7 @@ namespace Neverway.Framework.LogicSystem
             if (!isHeld)
             {
                 propRigidbody.useGravity = wasGravityEnabled; // Restore gravity if it was enabled before pickup
-                targetPawn.physObjectAttachmentPoint.GetComponent<Pawn_AttachmentPoint>().heldObject = null;
+                targetPawn.physObjectAttachmentPoint.GetComponent<Pawn_AttachmentPoint>().attachedObject = null;
 
             }
         }
@@ -221,7 +221,7 @@ namespace Neverway.Framework.LogicSystem
             if (isHeld)
             {
                 propRigidbody.useGravity = wasGravityEnabled; // Restore gravity if it was enabled before pickup
-                targetPawn.physObjectAttachmentPoint.heldObject = null;
+                targetPawn.physObjectAttachmentPoint.attachedObject = null;
                 ToggleHeld();
             }
         }

@@ -72,8 +72,7 @@ namespace Neverway.Framework.PawnManagement
         {
             // NEED FUNCTION TO FIND VALID PLAYER START POINT
             var startpoint = GetPlayerStartPoint().transform;
-            localPlayerCharacter = Instantiate(_gamemode.defaultPawnClass, startpoint.position, startpoint.rotation)
-                .GetComponent<Pawn>();
+            localPlayerCharacter = Instantiate(_gamemode.gamemodePawns[0], startpoint.position, startpoint.rotation).GetComponent<Pawn>();
             localPlayerCharacter.isPossessed = false;
             localPlayerCharacter.name = localPlayerCharacter.name.Replace("(Clone)", "").Trim();
         }
@@ -82,8 +81,7 @@ namespace Neverway.Framework.PawnManagement
         {
             // NEED FUNCTION TO FIND VALID PLAYER START POINT
             var startpoint = GetPlayerStartPoint().transform;
-            localPlayerCharacter = Instantiate(_gamemode.defaultPawnClass, startpoint.position, startpoint.rotation)
-                .GetComponent<Pawn>();
+            localPlayerCharacter = Instantiate(_gamemode.gamemodePawns[0], startpoint.position, startpoint.rotation).GetComponent<Pawn>();
             localPlayerCharacter.isPossessed = _isLocalPlayer;
             localPlayerCharacter.name = localPlayerCharacter.name.Replace("(Clone)", "").Trim();
         }
@@ -94,14 +92,12 @@ namespace Neverway.Framework.PawnManagement
             if (_usePlayerStart && FindObjectOfType<PlayerStart>())
             {
                 var startpoint = GetPlayerStartPoint().transform;
-                localPlayerCharacter = Instantiate(_gamemode.defaultPawnClass, startpoint.position, startpoint.rotation)
-                    .GetComponent<Pawn>();
+                localPlayerCharacter = Instantiate(_gamemode.gamemodePawns[0], startpoint.position, startpoint.rotation).GetComponent<Pawn>();
             }
             else
             {
                 localPlayerCharacter =
-                    Instantiate(_gamemode.defaultPawnClass, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0))
-                        .GetComponent<Pawn>();
+                    Instantiate(_gamemode.gamemodePawns[0], new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0)).GetComponent<Pawn>();
             }
 
             localPlayerCharacter.isPossessed = _isLocalPlayer;
@@ -121,9 +117,22 @@ namespace Neverway.Framework.PawnManagement
 
         }
 
-        public string GetCurrentGamemode()
+        /// <summary>
+        /// Returns the active gamemode name
+        /// </summary>
+        /// <returns></returns>
+        public string GetActiveGamemode()
         {
             return localPlayerCharacter.currentController.ToString();
+        }
+        /// <summary>
+        /// Returns true if the gamemode name matches the active gamemode
+        /// </summary>
+        /// <param name="_gamemodeName"></param>
+        /// <returns></returns>
+        public bool GetActiveGamemode(string _gamemodeName)
+        {
+            return localPlayerCharacter.currentController.ToString().Contains(_gamemodeName);
         }
 
         public static void AddWidget(GameObject _widgetBlueprint)
@@ -187,6 +196,7 @@ namespace Neverway.Framework.PawnManagement
         //=-----------------=
         // User External Functions
         //=-----------------=
+        
         // 0
         public void UI_ShowTitle()
         {

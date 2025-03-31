@@ -1,12 +1,10 @@
 //===================== (Neverway 2024) Written by Liz M. =====================
 //
-// Purpose:
+// Purpose: If any key is pressed, skip forwards to title screen
 // Notes:
 //
 //=============================================================================
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

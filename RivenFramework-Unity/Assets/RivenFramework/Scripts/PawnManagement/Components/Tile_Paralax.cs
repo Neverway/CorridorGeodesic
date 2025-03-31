@@ -9,12 +9,15 @@ using UnityEngine;
 
 namespace Neverway.Framework.PawnManagement
 {
-    public class Tile_Paralax : MonoBehaviour
+    public class Tile_Parallax : MonoBehaviour
     {
         //=-----------------=
         // Public Variables
         //=-----------------=
+        [Tooltip("How much the tiles will shift from their starting position")]
         [SerializeField] private Vector2 parallaxAmount;
+        [Tooltip("Which gamemode should the parallaxing be active during")]
+        [SerializeField] private string activeGameMode = "Topdown2D";
 
 
         //=-----------------=
@@ -29,7 +32,7 @@ namespace Neverway.Framework.PawnManagement
         // Reference Variables
         //=-----------------=
         private GameInstance gameInstance;
-        private Camera currentCamera;
+        private Transform localPlayer;
 
 
         //=-----------------=
@@ -37,30 +40,32 @@ namespace Neverway.Framework.PawnManagement
         //=-----------------=
         private void Start()
         {
-            gameInstance = FindObjectOfType<GameInstance>();
             // Calculate the new local scale based on the parallax amount
             originalPosition = transform.position;
             originalScale = transform.localScale;
-            parallaxScale = new Vector3(originalScale.x + (parallaxAmount.x / 2),
-                originalScale.y + (parallaxAmount.y / 2), originalScale.z);
+            parallaxScale = new Vector3(
+                originalScale.x + (parallaxAmount.x / 2), 
+                originalScale.y + (parallaxAmount.y / 2), 
+                originalScale.z);
         }
 
         private void Update()
         {
-            currentCamera = FindObjectOfType<Camera>(false);
-            if (!currentCamera) return;
+            if (GetLocalPlayer() is false) return;
 
             // Only set the scale to the parallax scale if the correct gamemode is active
-            transform.localScale =
-                gameInstance.GetCurrentGamemode().Contains("Topdown2D") ? parallaxScale : originalScale;
-            if (!gameInstance.GetCurrentGamemode().Contains("Topdown2D"))
+            if (gameInstance.GetActiveGamemode("Topdown2D"))
             {
+                transform.localScale = parallaxScale;
+            }
+            else
+            {
+                transform.localScale = originalScale;
                 transform.position = originalPosition;
-                return;
             }
 
             // Calculate the distance to move based on the parallax amount
-            Vector3 position = currentCamera.transform.position;
+            Vector3 position = localPlayer.position;
             Vector2 distance = new Vector2(position.x * -parallaxAmount.x, position.y * -parallaxAmount.y);
             Vector3 newPosition = new Vector3(distance.x, distance.y, originalPosition.z);
 
@@ -72,6 +77,29 @@ namespace Neverway.Framework.PawnManagement
         //=-----------------=
         // Internal Functions
         //=-----------------=
+        private bool GetLocalPlayer()
+        {
+            if (localPlayer is null)
+            {
+                if (gameInstance is null)
+                {
+                    gameInstance = FindObjectOfType<GameInstance>();
+                    if (gameInstance is null)
+                    {
+                        return false;
+                    }
+                }
+
+                if (gameInstance.localPlayerCharacter is null)
+                {
+                    return false;
+                }
+
+                localPlayer = gameInstance.localPlayerCharacter.transform;
+            }
+
+            return true;
+        }
 
 
         //=-----------------=

@@ -1,7 +1,7 @@
 //===================== (Neverway 2024) Written by Liz M. =====================
 //
 // Purpose: Handle loading scenes including showing a loading screen
-// Notes:
+// Notes: This script is still quite messy, future me will clean it up eventually
 //
 //=============================================================================
 
@@ -21,11 +21,14 @@ namespace Neverway.Framework.PawnManagement
         public static WorldLoader Instance;
 
         [SerializeField] public float delayBeforeWorldChange = 0.25f;
+        [Tooltip("The minimum amount of time to wait on the loading screen between level changes")]
         [SerializeField] public float minimumRequiredLoadTime = 1f;
+        [Tooltip("The ID of the level that we will wait on during loading (It's the loading screen level)")]
         [SerializeField] private string loadingWorldID = "_Travel";
+        [Tooltip("The ID of the level that we store objects in between level changes to avoid them being unloaded")]
         public string streamingWorldID = "_Streaming";
-        //[IsDomainReloaded] 
         public static event Action OnWorldLoaded;
+        [Tooltip("An exposed value used for referencing if the game is currently in the process of loading the level")]
         public bool isLoading;
 
 
@@ -49,11 +52,6 @@ namespace Neverway.Framework.PawnManagement
             Instance = this;
         }
 
-        private void Start()
-        {
-
-        }
-
         private void Update()
         {
             // Make sure the streaming world is loaded, so we can store actors there if needed
@@ -63,20 +61,18 @@ namespace Neverway.Framework.PawnManagement
             }
         }
 
-        private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
-        {
-            throw new NotImplementedException();
-        }
-
         //=-----------------=
         // Internal Functions
         //=-----------------=
-        private IEnumerator Load()
+        /// <summary>
+        /// Set up the loading screen level and loading screen UI, then start loading the target level
+        /// </summary>
+        private IEnumerator StartLoadWithTravelLevel()
         {
             isLoading = true;
             yield return new WaitForSeconds(delayBeforeWorldChange);
 
-            // Load the transition screen over top everything else
+            // Load the transition level over top everything else
             SceneManager.LoadScene(loadingWorldID);
 
             // The following should execute on the loading screen scene
@@ -84,7 +80,53 @@ namespace Neverway.Framework.PawnManagement
             if (loadingBarObject) loadingBar = loadingBarObject.GetComponent<Image>();
 
             yield return new WaitForSeconds(minimumRequiredLoadTime);
-            StartCoroutine(LoadAsyncOperation());
+            StartCoroutine(StartAsyncLoadOperation());
+        }
+
+        /// <summary>
+        /// Asynchronously load the target level and update the loading screen accordingly (if applicable)
+        /// </summary>
+        private IEnumerator StartAsyncLoadOperation()
+        {
+            // Create an async operation (Will automatically switch to target scene once it's finished loading)
+            var targetLevel = SceneManager.LoadSceneAsync(targetWorldID);
+
+            // Set loading bar to reflect async progress
+            while (targetLevel.progress < 1)
+            {
+                if (loadingBar) loadingBar.fillAmount = targetLevel.progress;
+                yield return new WaitForEndOfFrame();
+            }
+
+            // Scene has finished loading, trigger the on world loaded event
+            isLoading = false;
+            if (OnWorldLoaded is not null) OnWorldLoaded.Invoke();
+        }
+        
+        /// <summary>
+        /// A strange blend of StartLoadWithTravelLevel and StartAsyncLoadOperation that seems to handle ejecting streamed actors correctly
+        /// </summary>
+        private IEnumerator LoadAsync()
+        {
+            isLoading = true;
+
+            yield return new WaitForSeconds(delayBeforeWorldChange);
+
+            AsyncOperation loadAsync = SceneManager.LoadSceneAsync(targetWorldID);
+            loadAsync.allowSceneActivation = false;
+
+            while (loadAsync.progress < 0.9f)
+            {
+                yield return null;
+            }
+
+            loadAsync.allowSceneActivation = true;
+
+            yield return null;
+
+            EjectStreamedActors();
+
+            isLoading = false;
         }
 
         private IEnumerator ForceLoad(float _loadDelay)
@@ -121,93 +163,25 @@ namespace Neverway.Framework.PawnManagement
 
             //EjectStreamedActors(streamedObjects);
         }
-        //private IEnumerator StreamLoadDos()
-        //{
-        //    isLoading = true;
-        //    yield return new WaitForSeconds(delayBeforeWorldChange);
-        //    print("Active scene was " + SceneManager.GetActiveScene().name);
 
-        //    // Load the target scene
-        //    AsyncOperation targetLevel = SceneManager.LoadSceneAsync(targetWorldID, LoadSceneMode.Additive);
-        //    print("Active scene is " + SceneManager.GetActiveScene().name);
-
-        //    targetLevel.allowSceneActivation = false;
-
-        //    // Unload the active scene
-        //    SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-        //    while (targetLevel != null && targetLevel.progress < 0.9f)
-        //    {
-        //        yield return null;
-        //    }
-        //    isLoading = false;
-
-        //    GameObject[] streamedObjects = SceneManager.GetSceneByName(streamingWorldID).GetRootGameObjects();
-
-        //    targetLevel.allowSceneActivation = true;
-
-        //    while (!targetLevel.isDone)
-        //        yield return null;
-        //    SceneManager.SetActiveScene(SceneManager.GetSceneByName(targetWorldID)); // Assign the new scene to be the active scene
-
-        //    print(streamedObjects.Length);
-
-        //    EjectStreamedActors(streamedObjects);
-        //}
-        private IEnumerator LoadAsync()
+        /// <summary>
+        /// When the level is loaded, this will remove any objects we wanted to keep during a level change, from the streaming level
+        /// </summary>
+        private void EjectStreamedActors()
         {
-            isLoading = true;
-
-            yield return new WaitForSeconds(delayBeforeWorldChange);
-
-            AsyncOperation loadAsync = SceneManager.LoadSceneAsync(targetWorldID);
-            loadAsync.allowSceneActivation = false;
-
-            while (loadAsync.progress < 0.9f)
-            {
-                yield return null;
-            }
-
-            GameObject[] streamedObjects = SceneManager.GetSceneByName(streamingWorldID).GetRootGameObjects();
-
-            loadAsync.allowSceneActivation = true;
-
-            yield return null;
-
-            EjectStreamedActors(streamedObjects);
-
-            isLoading = false;
-
-            print("Active scene is " + SceneManager.GetActiveScene().name);
-        }
-
-        private IEnumerator LoadAsyncOperation()
-        {
-            // Create an async operation (Will automatically switch to target scene once it's finished loading)
-            var targetLevel = SceneManager.LoadSceneAsync(targetWorldID);
-
-            while (targetLevel.progress < 1)
-            {
-                // Set loading bar to reflect async progress
-                if (loadingBar) loadingBar.fillAmount = targetLevel.progress;
-                yield return new WaitForEndOfFrame();
-            }
-
-            isLoading = false;
-            // Scene has finished loading, trigger the SceneLoaded event
-            if (OnWorldLoaded != null)
-            {
-                OnWorldLoaded.Invoke();
-            }
-        }
-
-        private void EjectStreamedActors( GameObject[] streamedObjects)
-        {
-            //DevConsole.Log($"Ejecting streamed actors...", "WorldLoader");
             foreach (var actor in SceneManager.GetSceneByName(streamingWorldID).GetRootGameObjects())
             {
-                //DevConsole.Log($"Ejected {actor.gameObject.name}", "WorldLoader");
                 SceneManager.MoveGameObjectToScene(actor.gameObject, SceneManager.GetActiveScene());
             }
+        }
+        
+        /// <summary>
+        /// This seems to update the OnWorldLoaded event to see if it should be fired
+        /// </summary>
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void InitializeStaticFields()
+        {
+            OnWorldLoaded = null;
         }
 
 
@@ -224,7 +198,7 @@ namespace Neverway.Framework.PawnManagement
                 Destroy(GameInstance.GetWidget("WB_Loading"));
             }
 
-            StartCoroutine(Load());
+            StartCoroutine(StartLoadWithTravelLevel());
         }
 
         public void ForceLoadWorld(string _targetSceneID, float _delay)
@@ -261,21 +235,11 @@ namespace Neverway.Framework.PawnManagement
 
         public void StreamLoadWorld(int _targetSceneIDnum)
         {
-            Scene targetScene = SceneManager.GetSceneByBuildIndex(_targetSceneIDnum);
             targetWorldID = SceneManager.GetSceneByBuildIndex(_targetSceneIDnum).name;
-            /*if (SceneManager.GetSceneByBuildIndex(_targetSceneIDnum).name == "")
-            {
-                Debug.LogWarning(_targetSceneIDnum + " Is not a valid level! Loading fallback scene...");
-                targetWorldID = "_Error";
-                Destroy(GameInstance.GetWidget("WB_Loading"));
-            }*/
 
             if (isLoading) return;
             StartCoroutine(StreamLoad());
-            // TODO: Identify purpose of Graphics_SliceableObjectManager
-            //Graphics_SliceableObjectManager.Instance.ClearList();
             StartCoroutine(LoadAsync());
-            //StartCoroutine(StreamLoadDos());
         }
 
         public void LoadByIndex(int _targetSceneID)
@@ -285,11 +249,10 @@ namespace Neverway.Framework.PawnManagement
 
         // This code was expertly copied from @Yagero on github.com
         // https://gist.github.com/yagero/2cd50a12fcc928a6446539119741a343
-        // (Seriously though, this function is a life saver, so thanks!)
+        // (Seriously though, this function is a lifesaver, so thanks!)
         public static bool DoesSceneExist(string _targetSceneID)
         {
-            if (string.IsNullOrEmpty(_targetSceneID))
-                return false;
+            if (string.IsNullOrEmpty(_targetSceneID)) return false;
 
             for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
             {
@@ -297,18 +260,10 @@ namespace Neverway.Framework.PawnManagement
                 var lastSlash = scenePath.LastIndexOf("/");
                 var sceneName = scenePath.Substring(lastSlash + 1, scenePath.LastIndexOf(".") - lastSlash - 1);
 
-                if (string.Compare(_targetSceneID, sceneName, true) == 0)
-                    return true;
+                if (string.Compare(_targetSceneID, sceneName, true) == 0) return true;
             }
 
             return false;
-        }
-
-        //=----Reload Static Fields----=
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        static void InitializeStaticFields()
-        {
-            OnWorldLoaded = null;
         }
     }
 }

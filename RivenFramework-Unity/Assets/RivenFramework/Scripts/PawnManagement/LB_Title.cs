@@ -1,6 +1,6 @@
 //===================== (Neverway 2024) Written by Liz M. =====================
 //
-// Purpose:
+// Purpose: Show the title screen widget and unlock the mouse cursor
 // Notes: 
 //
 //=============================================================================

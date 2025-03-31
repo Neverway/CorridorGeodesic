@@ -81,8 +81,8 @@ namespace Neverway.Framework.LogicSystem
         {
             base.OnTriggerExit2D(_other); // Call the base class method
             if (_other.CompareTag("Pawn"))
-                if (targetEntity.isPossessed)
-                    targetEntity.isNearInteractable = false;
+                //if (targetEntity.isPossessed)
+                    //targetEntity.isNearInteractable = false;
             SetInteractionIndicatorState();
         }
 
@@ -108,7 +108,7 @@ namespace Neverway.Framework.LogicSystem
             // (Shouldn't `SetInteractionIndicatorState();` already take care of this?? ~Liz)
             if (_other.CompareTag("Pawn") && targetEntity.isPossessed)
             {
-                targetEntity.isNearInteractable = false;
+                //targetEntity.isNearInteractable = false;
             }
         }
 

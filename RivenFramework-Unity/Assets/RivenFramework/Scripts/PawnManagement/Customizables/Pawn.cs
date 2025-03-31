@@ -25,12 +25,10 @@ namespace Neverway.Framework.PawnManagement
         public bool isPossessed;
         public bool isPaused;
 
-        public bool
-            wasPaused; // used to restore a paused state when all pawns isPaused state is modified by the game instance
+        public bool wasPaused; // used to restore a paused state when all pawns isPaused state is modified by the game instance
 
         public bool isInvulnerable;
         public bool isDead;
-        public bool isNearInteractable; // Imported from old system
         public bool destroyOnDeath; // Should this object be deleted once it dies
         public float destroyOnDeathDelay; // How long, in seconds, should we wait before deleting the pawn after death
 
