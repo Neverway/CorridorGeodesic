@@ -19,7 +19,7 @@ using Neverway.Framework.PawnManagement;
 namespace Neverway.Framework
 {
     public class ToolFrameworkManagerCharacters : EditorWindow
-    {
+    {/*
         //=-----------------=
         // Public Variables
         //=-----------------=
@@ -285,6 +285,6 @@ namespace Neverway.Framework
             string assetPath = $"{ActorsFolder}/{_characterName}.asset";
             AssetDatabase.CreateAsset(newCharacter, assetPath);
             initialized = false;
-        }
+        }*/
     }
 }

@@ -26,7 +26,8 @@ namespace Neverway.Framework.PawnManagement
         // Reference Variables
         //=-----------------=
         private WorldLoader worldLoader;
-        [SerializeField] private Button buttonBack, buttonExtra1, buttonExtra2, buttonExtra3;
+        [SerializeField] private Button buttonBack;
+        [SerializeField] private Button[] buttonExtras;
 
 
         //=-----------------=
@@ -35,7 +36,7 @@ namespace Neverway.Framework.PawnManagement
         private void Start()
         {
             buttonBack.onClick.AddListener(() => { Destroy(gameObject); });
-            buttonExtra1.onClick.AddListener(() =>
+            /*buttonExtra1.onClick.AddListener(() =>
             {
                 if (!worldLoader)
                 {
@@ -43,7 +44,7 @@ namespace Neverway.Framework.PawnManagement
                 }
 
                 worldLoader.LoadWorld("_LevelEditor");
-            });
+            });*/
         }
 
 

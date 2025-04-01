@@ -137,7 +137,7 @@ namespace Neverway.Framework.PawnManagement
         // MODIFY ME TO MATCH YOUR CharacterState & CharacterData CLASSES!!!
         // ------------------------------------------------------------------
         private void PassCharacterDataToCurrentState()
-        {
+        {/*
             currentState.characterName = defaultState.actorName;
             currentState.health = defaultState.health;
             currentState.invulnerabilityTime = defaultState.invulnerabilityTime;
@@ -166,7 +166,7 @@ namespace Neverway.Framework.PawnManagement
             currentState.fallDamage = defaultState.fallDamage;
             currentState.minFallDamage = defaultState.minFallDamage;
             currentState.fallDamageVelocity = defaultState.fallDamageVelocity;
-            currentState.minFallDamageVelocity = defaultState.minFallDamageVelocity;
+            currentState.minFallDamageVelocity = defaultState.minFallDamageVelocity;*/
         }
         // ------------------------------------------------------------------
 
