@@ -130,7 +130,7 @@
      <Folder Include="Assets/Packages/DOTween/Modules" />
      <Folder Include="Assets/Packages/QuickOutline/Resources" />
      <Folder Include="Assets/RivenFramework/Sprites/System/Animations" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Gestures" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Materials" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Models" />
@@ -146,7 +146,7 @@
      <Folder Include="Assets/RivenFramework/Other" />
      <Folder Include="Assets/RivenFramework/Widgets/Framework" />
      <Folder Include="Assets/Resources/Scripts/Gamemodes/Default/Pawns" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox 360" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Blanks" />
@@ -157,18 +157,18 @@
      <Folder Include="Assets/Packages/Xelu_Prompts" />
      <Folder Include="Assets/Resources/Sprites/VeryImportantDoNotDelete" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated/OLD" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <Folder Include="Assets/Resources/Widgets/Integratables" />
      <Folder Include="Assets/Resources/Widgets" />
      <Folder Include="Assets/Resources/Materials/Textures/Buddies/Liz" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/DitheringFilter.shader" />
-     <Folder Include="Assets/Packages/TextMesh Pro" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMPro.cginc" />
+     <Folder Include="Assets/TextMesh Pro" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/Resources/Materials/Shaders/SXToonSurfaceRemix.shader" />
      <Folder Include="Assets/Packages/ProBuilder Data" />
      <Folder Include="Assets/RivenFramework/Objects/Level" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface_Oil.shader" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
      <Folder Include="Assets/Resources/Materials/Shaders/Unsorted" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/RockySoil" />
      <Folder Include="Assets/Resources/Materials/Textures/Effects/Grayscales" />
@@ -181,22 +181,22 @@
      <None Include="Assets/RivenFramework/Other/80-C# NeverwayTemplates__Standard-New Standard Script.cs.txt" />
      <None Include="Assets/Packages/QuickOutline/Resources/Shaders/OutlineMask.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/Buddies/Connorses" />
-     <None Include="Assets/Packages/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
+     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
      <Folder Include="Assets/Resources/Scripts/Gamemodes/Default" />
      <Folder Include="Assets/RivenFramework/Sprites/System/Materials" />
-     <Folder Include="Assets/Packages/TextMesh Pro/Shaders" />
+     <Folder Include="Assets/TextMesh Pro/Shaders" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Switch" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered" />
      <Folder Include="Assets/Resources/Sprites/Level" />
      <Folder Include="Assets/Resources/Objects" />
      <Folder Include="Assets/Resources/Materials/Textures/Buddies/Soulex" />
      <Folder Include="Assets/Resources/Scripts/Integratables/_Depreciated" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS3" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Amazon Luna" />
      <Folder Include="Assets/Resources/Other" />
-     <None Include="Assets/Packages/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
+     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Xbox Series" />
      <None Include="Assets/Packages/DOTween/readme.txt" />
      <None Include="Assets/Resources/Materials/Shaders/SX_NullSpace.shader" />
@@ -205,11 +205,11 @@
      <Folder Include="Assets/Resources/Materials/Textures/Effects" />
      <Folder Include="Assets/Packages" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Helpers.cginc" />
-     <None Include="Assets/Packages/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
+     <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
      <Folder Include="Assets/Resources/Scripts/Gamemodes/FirstPerson/Pawns" />
      <Folder Include="Assets/RivenFramework/Scripts/_Depreciated" />
      <Folder Include="Assets/RivenFramework/Sprites/System" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Wall_HB2JB" />
      <Folder Include="Assets/Packages/DynamicBone" />
      <Folder Include="Assets/RivenFramework" />
@@ -220,9 +220,9 @@
      <Folder Include="Assets/Resources/Materials/Shaders/LizShaders" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Decal.shader" />
      <Folder Include="Assets/Resources/Sprites/Tilesets/Collision" />
-     <Folder Include="Assets/Packages/TextMesh Pro/Resources/Fonts &amp; Materials" />
+     <Folder Include="Assets/TextMesh Pro/Resources/Fonts &amp; Materials" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardSurface_NoFog.shader" />
-     <None Include="Assets/Packages/TextMesh Pro/Sprites/EmojiOne.json" />
+     <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse" />
      <Folder Include="Assets/RivenFramework/Sprites/System/NeverwayLogo/Materials" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS4" />
@@ -232,29 +232,30 @@
      <Folder Include="Assets/RivenFramework/Sprites/LocalizationFlags" />
      <Folder Include="Assets/Resources/Materials/Effects" />
      <Folder Include="Assets/Resources/Scripts/Integratables" />
-     <Folder Include="Assets/Packages/TextMesh Pro/Resources" />
+     <Folder Include="Assets/TextMesh Pro/Resources" />
      <None Include="Assets/Resources/Materials/Shaders/Unsorted/ScreenCutoutShader.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/LizsSuperAmazingMaterialPack" />
      <Folder Include="Assets/Resources/Materials/Textures/RenderTextures" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
+     <Folder Include="Assets/Resources/Materials/Developer/DevMats" />
      <Folder Include="Assets/Resources/Materials/Textures/Buddies" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets/Resources/Materials/PhysicsMaterials" />
-     <Folder Include="Assets/Packages/TextMesh Pro/Resources/Style Sheets" />
+     <Folder Include="Assets/TextMesh Pro/Resources/Style Sheets" />
      <Folder Include="Assets/Packages/DOTween" />
      <Folder Include="Assets/Resources" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Models/TestCube" />
-     <Folder Include="Assets/Packages/TextMesh Pro/Documentation" />
+     <Folder Include="Assets/TextMesh Pro/Documentation" />
      <Folder Include="Assets/Packages/Fonts" />
      <Folder Include="Assets/Packages/DynamicBone/Scripts" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Google Stadia" />
      <Folder Include="Assets/Resources/Sprites/Tilesets/Dev" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_Sprite.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
      <Folder Include="Assets/Resources/Sprites/Items" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
      <Folder Include="Assets/Resources/Scripts" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Ouya" />
-     <Folder Include="Assets/Packages/TextMesh Pro/Fonts" />
+     <Folder Include="Assets/TextMesh Pro/Fonts" />
      <Folder Include="Assets/Resources/Objects/Map Entities" />
      <Folder Include="Assets/Resources/Materials/Textures/Effects/Quicktex" />
      <Folder Include="Assets/Resources/Objects/Generated Entities" />
@@ -278,7 +279,7 @@
      <Folder Include="Assets/Resources/Models/_Characters" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Rocks" />
      <Folder Include="Assets/Resources/Sprites/Characters" />
-     <Folder Include="Assets/Packages/TextMesh Pro/Sprites" />
+     <Folder Include="Assets/TextMesh Pro/Sprites" />
      <Folder Include="Assets/Resources/Scripts/Gamemodes/FirstPerson/CharacterData" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Rocks_CopperOre" />
      <Folder Include="Assets/RivenFramework/Widgets/Components" />
@@ -298,17 +299,17 @@
      <Folder Include="Assets/Packages/QuickOutline/Scripts" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Positional Prompts" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
      <None Include="Assets/Resources/Materials/Shaders/SX_LitVertex.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Oculus" />
      <Folder Include="Assets/Resources/Sprites/Effects" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Dark" />
      <None Include="Assets/Resources/Materials/Shaders/Blur.shader" />
      <None Include="Assets/Packages/QuickOutline/Resources/Shaders/OutlineFill.shader" />
-     <Folder Include="Assets/Packages/TextMesh Pro/Resources/Sprite Assets" />
+     <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Steam" />
-     <None Include="Assets/Packages/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
+     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
      <Folder Include="Assets/Packages/DOTween/Resources" />
      <Folder Include="Assets/Resources/Materials/Textures/Generic" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Oil.shader" />
@@ -316,11 +317,11 @@
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Models/ElevatorShaft" />
      <Folder Include="Assets/Resources/Sprites/VeryImportantDoNotDelete/Materials" />
      <Folder Include="Assets/Resources/Sound/Effects" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
      <Folder Include="Assets/Resources/Objects/Map Entities/Ready" />
      <Folder Include="Assets/RivenFramework/Sprites/System/NeverwayLogo" />
      <Folder Include="Assets/Resources/Materials/Textures/Skyboxes" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_SDF.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
      <None Include="Assets/Resources/Materials/Shaders/UIImageBlur.shader" />
      <Folder Include="Assets/Resources/Sprites/Characters/Portraits" />
      <Folder Include="Assets/RivenFramework/Sprites/Widgets" />
@@ -328,7 +329,7 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/PS5" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others" />
      <Folder Include="Assets/RivenFramework/Scripts" />
-     <None Include="Assets/Packages/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
+     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox One" />
      <Folder Include="Assets/Packages/QuickOutline" />
      <Folder Include="Assets/Resources/Materials/Textures" />
@@ -1083,11 +1084,11 @@
      <Reference Include="Unity.Localization">
      <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Localization.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
      <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualStudio.Editor">
+     <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>

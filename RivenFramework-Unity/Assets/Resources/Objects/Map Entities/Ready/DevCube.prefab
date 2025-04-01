@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 2226271983780043456}
   - component: {fileID: 9167582484236959254}
   - component: {fileID: 4191761204280129028}
-  - component: {fileID: 987500398036674575}
-  - component: {fileID: 1439939656909927504}
   m_Layer: 0
   m_Name: DevCube
   m_TagString: Untagged
@@ -326,33 +324,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &987500398036674575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4957853899631979595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSliceMaterial: {fileID: 0}
-  asynchronously: 0
-  waitIfBusy: 1
-  objectGrouping: 0
---- !u!114 &1439939656909927504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4957853899631979595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f82c6a1759183168b083db79bcd1b54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isReflective: 0
-  partsReference: {fileID: 0}

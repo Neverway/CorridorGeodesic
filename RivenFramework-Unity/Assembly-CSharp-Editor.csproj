@@ -868,11 +868,11 @@
      <Reference Include="Unity.Localization">
      <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Localization.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
      <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualStudio.Editor">
+     <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
      <HintPath>/home/lizband/KBMServer/Development Files/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
