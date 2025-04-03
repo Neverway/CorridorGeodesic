@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7116100b736c4bba4957837d8df60753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentController: {fileID: 11400000, guid: 61948f24ae5cb18c0811e24b3b101e51, type: 2}
+  currentController: {fileID: 11400000, guid: bcfb01d702376694990c736b964b45da, type: 2}
   defaultState: {fileID: 11400000, guid: c7fd906db0f6b48ac9edfa06bca8b0b4, type: 2}
   currentState:
     characterName: 
@@ -90,6 +90,7 @@ MonoBehaviour:
   isDead: 0
   destroyOnDeath: 0
   destroyOnDeathDelay: 0
+  viewCamera: {fileID: 0}
   faceDirection: {x: 0, y: 0, z: 0, w: 0}
   physObjectAttachmentPoint: {fileID: 0}
   groundDetectionLayerMask:

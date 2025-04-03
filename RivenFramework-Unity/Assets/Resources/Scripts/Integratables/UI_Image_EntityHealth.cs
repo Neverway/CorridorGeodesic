@@ -49,20 +49,20 @@ namespace Neverway.Framework.PawnManagement
                 targetPawn = FindPossessedPawn();
                 if (targetPawn != null )
                 {
-                    previousHealth = targetPawn.currentState.health;
-                    image.fillAmount = (targetPawn.currentState.health / targetPawn.defaultState.health) * 100 * 0.01f;
+                    previousHealth = targetPawn.currentStats.health;
+                    image.fillAmount = (targetPawn.currentStats.health / targetPawn.defaultStats.stats.health) * 100 * 0.01f;
                 }
             }
             if (targetPawn)
             {
                 //If health has changed, animate health.
-                if (targetPawn.currentState.health != previousHealth)
+                if (targetPawn.currentStats.health != previousHealth)
                 {
                     image.DOKill();
                     //image.DoFillAmount((targetPawn.currentState.health / targetPawn.defaultState.health) * 100 * 0.01f, 0.3f);
-                    image.fillAmount=((targetPawn.currentState.health / targetPawn.defaultState.health) * 100 * 0.01f);
+                    image.fillAmount=((targetPawn.currentStats.health / targetPawn.defaultStats.stats.health) * 100 * 0.01f);
                 }
-                previousHealth = targetPawn.currentState.health;
+                previousHealth = targetPawn.currentStats.health;
             }
             else
             {

@@ -61,7 +61,7 @@ namespace Neverway.Framework.LogicSystem
                     }
                 }
                 // If teams match and self-infliction enabled
-                else if (owningTeam == entity.currentState.team && affectsOwnTeam)
+                else if (owningTeam == entity.currentStats.team && affectsOwnTeam)
                 {
                     if (entity.gameObject.GetComponent<Rigidbody>())
                     {
@@ -75,7 +75,7 @@ namespace Neverway.Framework.LogicSystem
                     }
                 }
                 // If teams don't match and self-infliction disabled
-                else if (owningTeam != entity.currentState.team && !affectsOwnTeam)
+                else if (owningTeam != entity.currentStats.team && !affectsOwnTeam)
                 {
                     if (entity.gameObject.GetComponent<Rigidbody>())
                     {

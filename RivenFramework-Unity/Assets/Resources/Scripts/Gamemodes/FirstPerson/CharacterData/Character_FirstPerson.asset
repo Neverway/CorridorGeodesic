@@ -19,7 +19,7 @@ MonoBehaviour:
   characterName: 
   health: 0
   invulnerabilityTime: 0
-  movementSpeed: 0
+  movementSpeed: 5
   team: 
   animationController: {fileID: 0}
   characterSounds:
@@ -32,23 +32,24 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
-  groundDrag: 0
-  airDrag: 0
-  maxHorizontalMovementSpeed: 0
-  maxHorizontalAirSpeed: 0
-  movementMultiplier: 0
-  airMovementMultiplier: 0
-  gravityMultiplier: 0
-  jumpForce: 0
-  sprintSpeedMultiplier: 0
-  sprintAcceleration: 0
-  maxStepHeight: 0
-  stepSearchOvershoot: 0
-  steepSlopeAngle: 0
-  autoRegenHealth: 0
-  healthRegenPerSecond: 0
-  healthRegenDelay: 0
-  fallDamage: 0
-  minFallDamage: 0
-  fallDamageVelocity: 0
-  minFallDamageVelocity: 0
+  structure:
+    groundDrag: 0
+    airDrag: 0
+    maxHorizontalMovementSpeed: 0
+    maxHorizontalAirSpeed: 0
+    movementMultiplier: 0
+    airMovementMultiplier: 0
+    gravityMultiplier: 0
+    jumpForce: 0
+    sprintSpeedMultiplier: 0
+    sprintAcceleration: 0
+    maxStepHeight: 0
+    stepSearchOvershoot: 0
+    steepSlopeAngle: 0
+    autoRegenHealth: 0
+    healthRegenPerSecond: 0
+    healthRegenDelay: 0
+    fallDamage: 0
+    minFallDamage: 0
+    fallDamageVelocity: 0
+    minFallDamageVelocity: 0

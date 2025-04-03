@@ -808,13 +808,13 @@ namespace Neverway.Framework.Cartographer
                 {
                     viewCamera.orthographicSize--;
                     if (!editorPlayer) editorPlayer = FindObjectOfType<GameInstance>().localPlayerCharacter;
-                    editorPlayer.currentState.movementSpeed--;
+                    editorPlayer.currentStats.movementSpeed--;
                 }
                 else if (_direction > 0 && viewCamera.orthographicSize < viewZoomRange.y)
                 {
                     viewCamera.orthographicSize++;
                     if (!editorPlayer) editorPlayer = FindObjectOfType<GameInstance>().localPlayerCharacter;
-                    editorPlayer.currentState.movementSpeed++;
+                    editorPlayer.currentStats.movementSpeed++;
                 }
             }
             else

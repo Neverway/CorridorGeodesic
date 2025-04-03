@@ -46,12 +46,12 @@ namespace Neverway.Framework.LogicSystem
                 else
                 {
                     // If teams match allow healing only
-                    if (entity.currentState.team == owningTeam && damageAmount < 0 && !affectsOwnTeam)
+                    if (entity.currentStats.team == owningTeam && damageAmount < 0 && !affectsOwnTeam)
                     {
                         entity.ModifyHealth(-damageAmount);
                     }
                     // If teams don't match allow pain only
-                    else if (entity.currentState.team != owningTeam && damageAmount > 0 && !affectsOwnTeam)
+                    else if (entity.currentStats.team != owningTeam && damageAmount > 0 && !affectsOwnTeam)
                     {
                         entity.ModifyHealth(-damageAmount);
                     }

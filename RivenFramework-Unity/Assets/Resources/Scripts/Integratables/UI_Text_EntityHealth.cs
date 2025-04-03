@@ -45,7 +45,7 @@ namespace Neverway.Framework.PawnManagement
             if (targetPawn)
             {
                 GetComponent<TMP_Text>().text =
-                    $"{(targetPawn.currentState.health / targetPawn.defaultState.health) * 100}";
+                    $"{(targetPawn.currentStats.health / targetPawn.defaultStats.stats.health) * 100}";
             }
             else
             {

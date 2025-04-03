@@ -37,7 +37,7 @@ namespace Neverway.Framework
         {
             pawn = GetComponent<Pawn>();
         }
-
+/*
         private void OnCollisionEnter(Collision collision)
         {
             foreach (var contact in collision.contacts)
@@ -58,7 +58,7 @@ namespace Neverway.Framework
                 }
             }
         }
-
+*/
         //=-----------------=
         // Internal Functions
         //=-----------------=

@@ -12,13 +12,24 @@ namespace Neverway.Framework.PawnManagement
 {
     public class CharacterData : Actor
     {
-        public string characterName;
-        public float health;
-        public float invulnerabilityTime;
-        public float movementSpeed;
-        public string team;
+        public CharacterStats stats;
+    }
+    
+    [Serializable]
+    public class CharacterStats
+    {
+        [Header("Appearance")]
         public RuntimeAnimatorController animationController;
-        public CharacterSounds characterSounds;
+        public CharacterSounds sounds;
+        public string name;
+
+        [Header("Stats")] 
+        public string team;
+        public float invulnerabilityTime;
+        public float health;
+        public float movementSpeed;
+        
+        [Header("Logic Checks")]
         public Vector3 groundCheckOffset;
         public float groundCheckRadius;
         [Tooltip("The collision layers that will be checked when testing if the entity is grounded")]

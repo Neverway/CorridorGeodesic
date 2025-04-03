@@ -19,8 +19,8 @@ namespace Neverway.Framework.PawnManagement
         // Public Variables
         //=-----------------=
         public PawnController currentController;
-        public CharacterData defaultState;
-        public CharacterState currentState;
+        public CharacterData defaultStats;
+        public CharacterStats currentStats;
 
         public bool isPossessed;
         public bool isPaused;
@@ -32,8 +32,7 @@ namespace Neverway.Framework.PawnManagement
         public bool destroyOnDeath; // Should this object be deleted once it dies
         public float destroyOnDeathDelay; // How long, in seconds, should we wait before deleting the pawn after death
 
-        private List<ContactPoint>
-            contactPoints = new List<ContactPoint>(); // Used to perform advanced collision checks (like step-up checks)
+        private List<ContactPoint> contactPoints = new List<ContactPoint>(); // Used to perform advanced collision checks (like step-up checks)
 
         public event Action OnPawnHurt;
         public event Action OnPawnHeal;
@@ -44,15 +43,16 @@ namespace Neverway.Framework.PawnManagement
         //=-----------------=
         // Private Variables
         //=-----------------=
-
         private Coroutine pawnHurtRoutine;
         private Coroutine pawnAutoHealRoutine;
+        
 
         //=-----------------=
         // Reference Variables
         //=-----------------=
         private GameInstance gameInstance;
-        public Quaternion faceDirection; // Imported from old system
+        public Camera viewCamera;
+        public Quaternion faceDirection; // Imported from old system, used to calculate a 2D direction vector from a quaternion rotation
         public RaycastHit slopeHit;
         public Pawn_AttachmentPoint physObjectAttachmentPoint;
         [SerializeField] private LayerMask groundDetectionLayerMask;
@@ -79,17 +79,17 @@ namespace Neverway.Framework.PawnManagement
             }
 
             // Quick slapped together check to figure out if a pawn is a player (since volumes look for isPossesed to determin player)
-            isPossessed = gameInstance.PlayerControllerClasses.Contains(currentController);
+            //isPossessed = gameInstance.PlayerControllerClasses.Contains(currentController);
 
             CheckCameraState();
             if (isDead) return;
             currentController.PawnUpdate(this);
 
-            if (currentState.autoRegenHealth && pawnHurtRoutine == null && pawnAutoHealRoutine == null &&
-                currentState.health < defaultState.health)
+            // TODO
+            /*if (currentState.autoRegenHealth && pawnHurtRoutine == null && pawnAutoHealRoutine == null && currentState.health < defaultState.health)
             {
                 pawnAutoHealRoutine = StartCoroutine(PawnAutoHealRoutine());
-            }
+            }*/
         }
 
         private void FixedUpdate()
@@ -115,7 +115,7 @@ namespace Neverway.Framework.PawnManagement
         //=-----------------=
         private void CheckCameraState()
         {
-            var viewCamera = GetComponentInChildren<Camera>(true);
+            viewCamera = GetComponentInChildren<Camera>(true);
             if (IsPlayerControlled() && viewCamera)
             {
                 viewCamera.gameObject.SetActive(true);
@@ -129,7 +129,7 @@ namespace Neverway.Framework.PawnManagement
         private IEnumerator InvulnerabilityCooldown()
         {
             isInvulnerable = true;
-            yield return new WaitForSeconds(currentState.invulnerabilityTime);
+            yield return new WaitForSeconds(currentStats.invulnerabilityTime);
             isInvulnerable = false;
         }
 
@@ -137,7 +137,9 @@ namespace Neverway.Framework.PawnManagement
         // MODIFY ME TO MATCH YOUR CharacterState & CharacterData CLASSES!!!
         // ------------------------------------------------------------------
         private void PassCharacterDataToCurrentState()
-        {/*
+        {
+            currentStats = defaultStats.stats;
+            /*
             currentState.characterName = defaultState.actorName;
             currentState.health = defaultState.health;
             currentState.invulnerabilityTime = defaultState.invulnerabilityTime;
@@ -181,21 +183,21 @@ namespace Neverway.Framework.PawnManagement
 
             //return hit.distance < 1.5f;
 
-            return Physics.CheckSphere(transform.position - currentState.groundCheckOffset,
-                currentState.groundCheckRadius,
-                currentState.groundMask,
+            return Physics.CheckSphere(transform.position - currentStats.groundCheckOffset,
+                currentStats.groundCheckRadius,
+                currentStats.groundMask,
                 QueryTriggerInteraction.Ignore);
         }
 
         private void OnDrawGizmos()
         {
-            Gizmos.DrawSphere(transform.position - currentState.groundCheckOffset, currentState.groundCheckRadius);
+            Gizmos.DrawSphere(transform.position - currentStats.groundCheckOffset, currentStats.groundCheckRadius);
         }
 
         public bool IsGroundSloped3D()
         {
-            if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, currentState.groundCheckOffset.y + 0.5f,
-                    currentState.groundMask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, currentStats.groundCheckOffset.y + 0.5f,
+                    currentStats.groundMask, QueryTriggerInteraction.Ignore))
             {
                 return slopeHit.normal != Vector3.up;
             }
@@ -209,11 +211,12 @@ namespace Neverway.Framework.PawnManagement
         /// <returns></returns>
         public bool IsGroundSteep3D()
         {
-            if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, currentState.groundCheckOffset.y + 0.5f,
+            if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, currentStats.groundCheckOffset.y + 0.5f,
                     groundDetectionLayerMask, QueryTriggerInteraction.Ignore))
             {
                 float angle = Vector3.Angle(slopeHit.normal, Vector3.up);
-                return angle > currentState.steepSlopeAngle;
+                //TODO
+                //return angle > currentState.steepSlopeAngle;
             }
 
             return false;
@@ -221,15 +224,16 @@ namespace Neverway.Framework.PawnManagement
 
         public bool IsPlayerControlled()
         {
-            if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
-            return gameInstance.PlayerControllerClasses.Contains(currentController);
+            //if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
+            //return gameInstance.PlayerControllerClasses.Contains(currentController);
+            return currentController.name.Contains("Player");
         }
 
         public void Move(Vector3 _movement, string _mode)
         {
             if (_mode == "translate")
                 transform.Translate(_movement * (
-                    currentState.movementSpeed * Time.deltaTime));
+                    currentStats.movementSpeed * Time.deltaTime));
         }
 
         public void Move(Vector3 _movement, string _mode, float _movementSpeed)
@@ -246,7 +250,7 @@ namespace Neverway.Framework.PawnManagement
                 case > 0:
                     OnPawnHeal?.Invoke();
                     isDead = false;
-                    if (currentState.characterSounds.heal)
+                    if (currentStats.sounds.heal)
                         //GetComponent<AudioSource_PitchVarienceModulator>().PlaySound(currentState.characterSounds.heal);
                     break;
                     break;
@@ -262,13 +266,13 @@ namespace Neverway.Framework.PawnManagement
                         Console.WriteLine(e);
                     }
 
-                    if (currentState.characterSounds.hurt)
+                    if (currentStats.sounds.hurt)
                         //GetComponent<AudioSource_PitchVarienceModulator>().PlaySound(currentState.characterSounds.hurt);
                         break;
                     break;
             }
 
-            if (currentState.health + _value <= 0)
+            if (currentStats.health + _value <= 0)
             {
                 if (isDead) return;
                 //GetComponent<AudioSource_PitchVarienceModulator>().PlaySound(currentState.characterSounds.death);
@@ -280,17 +284,18 @@ namespace Neverway.Framework.PawnManagement
                 }
             }
 
-            if (currentState.health + _value > defaultState.health) currentState.health = defaultState.health;
-            else if (currentState.health + _value < 0) currentState.health = 0;
-            else currentState.health += _value;
+            if (currentStats.health + _value > currentStats.health) currentStats.health = currentStats.health;
+            else if (currentStats.health + _value < 0) currentStats.health = 0;
+            else currentStats.health += _value;
         }
 
         private void StartHealthRegen()
         {
-            if (!currentState.autoRegenHealth)
+            //TODO
+            /*if (!currentState.autoRegenHealth)
             {
                 return;
-            }
+            }*/
 
             if (pawnHurtRoutine != null)
             {
@@ -325,13 +330,15 @@ namespace Neverway.Framework.PawnManagement
         public void SetPawnDefaultState(CharacterData _playerState)
         {
             // Sets the type of character
-            defaultState = _playerState;
+            defaultStats = _playerState;
             PassCharacterDataToCurrentState();
         }
 
         private IEnumerator PawnHurtRoutine()
         {
-            yield return new WaitForSeconds(currentState.healthRegenDelay);
+            //TODO
+            //yield return new WaitForSeconds(currentState.healthRegenDelay);
+            yield return new WaitForSeconds(1);
             if (pawnAutoHealRoutine != null)
             {
                 StopCoroutine(pawnAutoHealRoutine);
@@ -343,11 +350,12 @@ namespace Neverway.Framework.PawnManagement
 
         private IEnumerator PawnAutoHealRoutine()
         {
-            while (currentState.health > 0 && currentState.health < defaultState.health)
+            while (currentStats.health > 0 && currentStats.health < currentStats.health)
             {
                 yield return new WaitForSeconds(1f);
                 Debug.Log("Auto-healing");
-                ModifyHealth(currentState.healthRegenPerSecond);
+                //TODO
+                //ModifyHealth(currentState.healthRegenPerSecond);
             }
 
             pawnAutoHealRoutine = null;

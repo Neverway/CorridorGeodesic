@@ -225,12 +225,12 @@ namespace Neverway.Framework.LogicSystem
                 if (affectsOwnTeam)
                 {
                     // Return if target is a part of team
-                    return _targetPawn.currentState.team == owningTeam;
+                    return _targetPawn.currentStats.team == owningTeam;
                 }
 
                 // If targeting non-team
                 // Return if target is not a part of team
-                return _targetPawn.currentState.team != owningTeam;
+                return _targetPawn.currentStats.team != owningTeam;
             }
 
             // Owning team wasn't specified, so result is that all are affected

@@ -5,16 +5,20 @@
 //
 //=============================================================================
 
+using System;
 using UnityEngine;
 
 namespace Neverway.Framework.PawnManagement
 {
-    [CreateAssetMenu(
-        fileName = "Character_FirstPerson", 
-        menuName = "Gamemodes/FirstPerson/Characters/Character_FirstPerson")]
+    [CreateAssetMenu(fileName = "Character_FirstPerson", menuName = "Gamemodes/FirstPerson/Characters/Character_FirstPerson")]
     public class CharacterData_FirstPerson : CharacterData
     {
-        // Add project specific variables below this line!
+        public CharacterStats_FirstPerson substats;
+    }
+
+    [Serializable]
+    public class CharacterStats_FirstPerson : CharacterStats
+    {
         public float groundDrag;
         public float airDrag;
         public float maxHorizontalMovementSpeed;
@@ -43,4 +47,5 @@ namespace Neverway.Framework.PawnManagement
         public float fallDamageVelocity;
         public float minFallDamageVelocity;
     }
+    
 }

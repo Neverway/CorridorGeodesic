@@ -45,7 +45,7 @@ namespace Neverway.Framework
 
             if (targetPawn)
             {
-                GetComponent<TMP_Text>().text = targetPawn.currentState.characterName;
+                GetComponent<TMP_Text>().text = targetPawn.currentStats.name;
             }
             else
             {
