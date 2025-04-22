@@ -45,7 +45,8 @@ namespace Neverway.Framework
 
             if (targetPawn)
             {
-                GetComponent<TMP_Text>().text = targetPawn.currentStats.name;
+                //TODO RevampFix
+                //GetComponent<TMP_Text>().text = targetPawn.currentStats.name;
             }
             else
             {
@@ -60,7 +61,8 @@ namespace Neverway.Framework
         {
             foreach (var entity in FindObjectsByType<Pawn>(FindObjectsSortMode.None))
             {
-                if (entity.isPossessed) return entity;
+                //TODO RevampFix
+                //if (entity.isPossessed) return entity;
             }
 
             return null;

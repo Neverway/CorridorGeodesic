@@ -39,7 +39,8 @@ public class Pawn_CrushDetection: MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
 	    print($"Colliding with {other.gameObject.name}");
-	    pawn.ModifyHealth(-5);
+	    //TODO RevampFix
+	    //pawn.ModifyHealth(-5);
     }
 
 

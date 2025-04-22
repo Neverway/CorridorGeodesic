@@ -88,13 +88,14 @@ public class Pawn_PlaceAttachmentPoint : MonoBehaviour
             nearestHit = nearestHit - 0.25f;
             if (nearestHit < 0.35)
             {
-                if (
+                //TODO RevampFix
+                /*if (
                     targetPawn.physObjectAttachmentPoint.attachedObject != null &&
                     targetPawn.physObjectAttachmentPoint.attachedObject.TryGetComponent<Object_Grabbable> (out var heldObject)
                     )
                 {
                     heldObject.Drop ();
-                }
+                }*/
             }
             resultPos = resultPos.normalized * (nearestHit);
         }
