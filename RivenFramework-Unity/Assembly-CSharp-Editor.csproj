@@ -988,9 +988,9 @@
       <Project>{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}</Project>
       <Name>Neverway.Framework.PawnManagement</Name>
     </ProjectReference>
-    <ProjectReference Include="Framework.PawnManagement.csproj">
-      <Project>{ea65f825-920b-2bda-be7e-a490333c25ec}</Project>
-      <Name>Framework.PawnManagement</Name>
+    <ProjectReference Include="RivenFramework.PawnMangement.csproj">
+      <Project>{bdf120d6-5854-7f7d-4f1a-9673abd83232}</Project>
+      <Name>RivenFramework.PawnMangement</Name>
     </ProjectReference>
     <ProjectReference Include="Neverway.Framework.ApplicationManagement.csproj">
       <Project>{61656594-5bb6-9487-24de-31d98f3bd98e}</Project>
@@ -1000,9 +1000,17 @@
       <Project>{86afc6e2-dcf4-bae0-5d9b-904144009090}</Project>
       <Name>Neverway.Framework</Name>
     </ProjectReference>
+    <ProjectReference Include="RivenFramework.csproj">
+      <Project>{8c9feb55-197c-c0d9-f4c0-534f1bc09483}</Project>
+      <Name>RivenFramework</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.Cartographer.csproj">
       <Project>{e39674fd-0230-c101-9fec-c610ab55f0a5}</Project>
       <Name>Neverway.Framework.Cartographer</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFramework.Examples.csproj">
+      <Project>{3ad1012d-e5c2-53a5-b091-5a904d808bd3}</Project>
+      <Name>RivenFramework.Examples</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
