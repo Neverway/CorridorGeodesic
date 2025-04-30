@@ -50,11 +50,14 @@
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/UI_Image_EntityEquippedItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_DialogueEvent.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/_OLD For Ref Only/OLD Example FPS/FPS_StatsData.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/UI_Text_EntityItems.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Pawn_CrushDetection.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Actor_SFX_Impact.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/Volume2D_Force.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Text_EntityHealth.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/_OLD For Ref Only/OLD Example FPS/FPS_PlayerController.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/_OLD For Ref Only/OLD Example FPS/GameInstance_CameraManager.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Pawn_PlaceAttachmentPoint.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/GameObject_Flicker.cs" />
      <Compile Include="Assets/Resources/Scripts/LB_World.cs" />
@@ -72,6 +75,7 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUtils.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Object_DepthAssigner.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/_OLD For Ref Only/OLD Example FPS/FPS_NPCController_EnemyWolf.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
@@ -100,6 +104,7 @@
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Text_EntityName.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/NEW_LogicProcessor.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/_OLD For Ref Only/OLD Example FPS/FPS_Actions.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Toggle.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Resources/Scripts/Integratables/CorGeo" />
@@ -137,6 +142,7 @@
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/ComicFilter.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts" />
      <Folder Include="Assets/Resources/Sprites/VeryImportantDoNotDelete" />
+     <Folder Include="Assets/RivenFramework-Revamp/ActorSystem" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated/OLD" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <Folder Include="Assets/Resources/Widgets/Integratables" />
@@ -187,13 +193,13 @@
      <Folder Include="Assets/RivenFramework/Scripts/_Depreciated" />
      <Folder Include="Assets/RivenFramework/Sprites/System" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+     <Folder Include="Assets/RivenFramework-Revamp/_OLD For Ref Only/OLD Example FPS/Example Assets" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Wall_HB2JB" />
      <Folder Include="Assets/Packages/DynamicBone" />
      <Folder Include="Assets/RivenFramework" />
      <Folder Include="Assets/RivenFramework/Levels" />
      <Folder Include="Assets/RivenFramework/Objects/Framework" />
      <Folder Include="Assets/Resources/Materials/Shaders/PostProcessing" />
-     <Folder Include="Assets/Resources/Materials/Shaders/LizShaders" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Decal.shader" />
      <Folder Include="Assets/Resources/Sprites/Tilesets/Collision" />
      <Folder Include="Assets/TextMesh Pro/Resources/Fonts &amp; Materials" />
@@ -251,6 +257,7 @@
      <Folder Include="Assets/RivenFramework/Objects" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Models/NixieCross/ALT" />
      <Folder Include="Assets/Resources/Materials/Textures/Effects/Noise" />
+     <Folder Include="Assets/RivenFramework-Revamp/_OLD For Ref Only/OLD Example FPS" />
      <Folder Include="Assets/Resources/Models/_Characters" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Rocks" />
      <Folder Include="Assets/Resources/Sprites/Characters" />
@@ -274,9 +281,11 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
      <None Include="Assets/Resources/Materials/Shaders/SX_LitVertex.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Oculus" />
+     <Folder Include="Assets/RivenFramework-Revamp/_OLD For Ref Only/Template FPS" />
      <Folder Include="Assets/Resources/Sprites/Effects" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Dark" />
+     <Folder Include="Assets/RivenFramework-Revamp/_OLD For Ref Only" />
      <None Include="Assets/Resources/Materials/Shaders/Blur.shader" />
      <None Include="Assets/Packages/QuickOutline/Resources/Shaders/OutlineFill.shader" />
      <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
