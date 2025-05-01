@@ -68,7 +68,6 @@ public class FPPawn_Player : FPPawn
     public new void Awake()
     {
         base.Awake();
-        Debug.Log("test");
         // Setup inputs
         inputActions = new InputActions().FirstPerson;
         inputActions.Enable();

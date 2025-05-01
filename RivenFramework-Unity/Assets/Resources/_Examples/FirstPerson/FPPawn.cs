@@ -14,9 +14,9 @@ public class FPPawn : Pawn
     //=-----------------=
     // Public Variables
     //=-----------------=
-    public List<Pawn> visiblePawns = new List<Pawn>();
-    public List<Pawn> visibleHostiles = new List<Pawn>();
-    public List<Pawn> visibleAllies = new List<Pawn>();
+    [HideInInspector] public List<Pawn> visiblePawns = new List<Pawn>();
+    [HideInInspector] public List<Pawn> visibleHostiles = new List<Pawn>();
+    [HideInInspector] public List<Pawn> visibleAllies = new List<Pawn>();
 
 
     //=-----------------=
@@ -30,8 +30,8 @@ public class FPPawn : Pawn
     public new FPPawnStats defaultStats;
     public new FPPawnStats currentStats;
     public new FPPawnActions action;
-    public Rigidbody physicsbody;
-    public GameObject viewPoint;
+    [HideInInspector] public Rigidbody physicsbody;
+    [HideInInspector] public GameObject viewPoint;
 
 
     //=-----------------=

@@ -512,7 +512,7 @@ PrefabInstance:
     - target: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: m_Name
-      value: FP_NPC_Wolf Variant
+      value: FP_NPC_Wolf
       objectReference: {fileID: 0}
     - target: {fileID: 4899505641578781819, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
@@ -718,9 +718,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: FP_NPC_Wolf
   displayName: Wolf
+  uniqueId: 
   isPaused: 0
   visiblePawns: []
-  visibleHositles: []
+  visibleHostiles: []
   visibleAllies: []
   defaultStats:
     health: 100
@@ -790,7 +791,7 @@ MonoBehaviour:
     headCheckDistance: 0.5
     crouchDistance: 0.5
     crouchColliderOffset: {x: 0, y: 0.25, z: 0}
-  rigidbody: {fileID: 0}
+  physicsbody: {fileID: 0}
   viewPoint: {fileID: 0}
   logBehaviour: 0
 --- !u!4 &5079953542159447693 stripped

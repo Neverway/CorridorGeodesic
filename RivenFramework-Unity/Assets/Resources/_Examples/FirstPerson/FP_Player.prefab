@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: m_Name
-      value: FP_Player Variant
+      value: FP_Player
       objectReference: {fileID: 0}
     - target: {fileID: 4998263260262590189, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
@@ -93,9 +93,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: FP_Player
   displayName: Player
+  uniqueId: 
   isPaused: 0
   visiblePawns: []
-  visibleHositles: []
+  visibleHostiles: []
   visibleAllies: []
   defaultStats:
     health: 100
@@ -163,5 +164,5 @@ MonoBehaviour:
     headCheckDistance: 0.5
     crouchDistance: 0.5
     crouchColliderOffset: {x: 0, y: 0.25, z: 0}
-  rigidbody: {fileID: 0}
+  physicsbody: {fileID: 0}
   viewPoint: {fileID: 0}

@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.SoundSystem", "RivenFramework.SoundSystem.csproj", "{8b850d7d-ff16-e78f-1ebe-a52b5e79da48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{270b9d29-22cc-2f11-dbce-cafe75d71080}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,8 +62,6 @@ Global
 		{a3115a23-f2fd-12bf-52f4-918bd684c303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8b850d7d-ff16-e78f-1ebe-a52b5e79da48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8b850d7d-ff16-e78f-1ebe-a52b5e79da48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{270b9d29-22cc-2f11-dbce-cafe75d71080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{270b9d29-22cc-2f11-dbce-cafe75d71080}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
