@@ -94,7 +94,6 @@ public class FPPawn_Player : FPPawn
         // Crouching
         if (inputActions.Crouch.IsPressed())
         {
-            Debug.Log("Wants to crouch");
             action.Crouch(this, true);
         }
         else

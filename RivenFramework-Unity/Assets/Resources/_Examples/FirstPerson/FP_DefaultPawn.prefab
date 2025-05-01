@@ -161,7 +161,7 @@ Rigidbody:
   m_GameObject: {fileID: 2388545363728601757}
   serializedVersion: 4
   m_Mass: 225
-  m_Drag: 0.01
+  m_Drag: 255
   m_AngularDrag: 8
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -174,7 +174,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -216,9 +216,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: FP_Pawn
   displayName: FPPawn
+  uniqueId: 
   isPaused: 0
   visiblePawns: []
-  visibleHositles: []
+  visibleHostiles: []
   visibleAllies: []
   defaultStats:
     health: 100
@@ -286,7 +287,7 @@ MonoBehaviour:
     headCheckDistance: 0.5
     crouchDistance: 0.5
     crouchColliderOffset: {x: 0, y: 0.25, z: 0}
-  rigidbody: {fileID: 0}
+  physicsbody: {fileID: 0}
   viewPoint: {fileID: 0}
 --- !u!1 &2429653748589542475
 GameObject:

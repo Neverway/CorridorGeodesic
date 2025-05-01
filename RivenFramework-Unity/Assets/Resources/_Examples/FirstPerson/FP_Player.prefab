@@ -119,7 +119,7 @@ MonoBehaviour:
     groundDrag: 8
     airDrag: 0
     slopeDrag: 8
-    slopeCheckDistance: 0.2
+    slopeCheckDistance: 0.3
     groundMask:
       serializedVersion: 2
       m_Bits: 1

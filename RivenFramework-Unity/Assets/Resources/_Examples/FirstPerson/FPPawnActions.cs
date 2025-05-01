@@ -98,7 +98,6 @@ public class FPPawnActions : PawnActions
         else if (IsOnGround(_pawn) && !IsOnSlope(_pawn) && isCrouching)
         {
             rigidbody.useGravity = true;
-            Debug.Log("Crouching");
             rigidbody.drag = ((FPPawnStats)_pawn.currentStats).groundDrag;
             // if current is less than target and target is positive, or current is greater than target and target is negative
             if (currentVelocity.x < desiredCrouchVelocity.x && desiredCrouchVelocity.x > 0f || currentVelocity.x > desiredCrouchVelocity.x && desiredCrouchVelocity.x < 0f )
@@ -235,6 +234,8 @@ public class FPPawnActions : PawnActions
         if (_enable is false && isCrouching && IsHeadClear(_pawn))
         {
             var collider = _pawn.GetComponent<CapsuleCollider>();
+            var rigidbody = _pawn.GetComponent<Rigidbody>();
+            _pawn.transform.position += new Vector3(0, ((FPPawnStats)_pawn.currentStats).crouchDistance / 2, 0);
             collider.height += ((FPPawnStats)_pawn.currentStats).crouchDistance;
             collider.center -= ((FPPawnStats)_pawn.currentStats).crouchColliderOffset;
             isCrouching = false;
