@@ -117,15 +117,15 @@ namespace Neverway.Framework
                 {
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField("Default Gamemode:", GUILayout.Width(120));
-                    EditorGUILayout.ObjectField(gameInstance.defaultGamemode, typeof(GameMode), false);
+                    //EditorGUILayout.ObjectField(gameInstance.defaultGamemode, typeof(GameMode), false);
                     EditorGUILayout.EndHorizontal();
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField("HUD Widget:", GUILayout.Width(120));
-                    EditorGUILayout.ObjectField(gameInstance.UserInterfaceWidgets[4], typeof(GameObject), false);
+                    //EditorGUILayout.ObjectField(gameInstance.UserInterfaceWidgets[4], typeof(GameObject), false);
                     EditorGUILayout.EndHorizontal();
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField("Inventory Widget:", GUILayout.Width(120));
-                    EditorGUILayout.ObjectField(gameInstance.UserInterfaceWidgets[5], typeof(GameObject), false);
+                    //EditorGUILayout.ObjectField(gameInstance.UserInterfaceWidgets[5], typeof(GameObject), false);
                     EditorGUILayout.EndHorizontal();
                 }
                 else

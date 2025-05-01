@@ -33,8 +33,8 @@ namespace Neverway
         //=-----------------=
         private void Start()
         {
-            gameInstance = FindObjectOfType<GameInstance>();
-            gameInstance.UI_ShowHUD();
+            //gameInstance = FindObjectOfType<GameInstance>();
+            //gameInstance.UI_ShowHUD();
         }
 
         private void Update()
