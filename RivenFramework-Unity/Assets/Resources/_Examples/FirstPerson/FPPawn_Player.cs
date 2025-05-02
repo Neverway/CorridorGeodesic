@@ -37,18 +37,19 @@ public class FPPawn_Player : FPPawn
     //=-----------------=
     private void UpdatePauseMenu()
     {
+        if (!widgetManager)
+        {
+            widgetManager = FindObjectOfType<GI_WidgetManager>();
+            if (!widgetManager) return;
+        }
+        isPaused = widgetManager.GetExistingWidget("WB_Pause");
+        
         // Pause Game
         if (inputActions.Pause.WasPressedThisFrame())
         {
-            if (!widgetManager)
-            {
-                widgetManager = FindObjectOfType<GI_WidgetManager>();
-                if (!widgetManager) return;
-            }
-            isPaused =  widgetManager.ToggleWidget("WB_Pause");
-
+            widgetManager.ToggleWidget("WB_Pause");
         }
-
+        
         // Lock mouse when unpaused, unlock when paused
         if (isPaused)
         {

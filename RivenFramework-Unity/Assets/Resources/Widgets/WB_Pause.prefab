@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2952812045129916625}
   - component: {fileID: 9002703129240621938}
-  - component: {fileID: 8837076759360149249}
+  - component: {fileID: 5040334028196785254}
   m_Layer: 0
   m_Name: WB_Pause
   m_TagString: Untagged
@@ -46,7 +46,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507811972370413053}
   m_CullTransparentMesh: 1
---- !u!114 &8837076759360149249
+--- !u!114 &5040334028196785254
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1507811972370413053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfb53717662e6d388798465a415bb52, type: 3}
+  m_Script: {fileID: 11500000, guid: b643673da21379c17970e0615e06e8b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonResume: {fileID: 9167164560954650841}
@@ -63,8 +63,7 @@ MonoBehaviour:
   buttonTitle: {fileID: 4702915901047901598}
   buttonQuit: {fileID: 6470450962239039471}
   buttonRestart: {fileID: 5058135914685864959}
-  settingsWidget: {fileID: 1507811972370413053, guid: c3d017bb5f69358838c96c998d88733d,
-    type: 3}
+  settingsWidget: {fileID: 0}
 --- !u!1001 &1324594946384334379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -904,7 +903,7 @@ PrefabInstance:
     - target: {fileID: 6528802222171230684, guid: 65213ca033cf463c3ac6e2e39d60ecb1,
         type: 3}
       propertyPath: m_Name
-      value: Button_Resume (1)
+      value: Button_Restart
       objectReference: {fileID: 0}
     - target: {fileID: 8748352976048957533, guid: 65213ca033cf463c3ac6e2e39d60ecb1,
         type: 3}
