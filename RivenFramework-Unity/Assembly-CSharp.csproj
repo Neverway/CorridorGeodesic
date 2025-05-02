@@ -166,9 +166,11 @@
      <Folder Include="Assets/RivenFramework/Sprites/System/Materials" />
      <Folder Include="Assets/TextMesh Pro/Shaders" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Switch" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Objects" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered" />
      <Folder Include="Assets/Resources/Sprites/Level" />
+     <Folder Include="Assets/Resources/Objects/Framework/Animations" />
      <Folder Include="Assets/Resources/Objects" />
      <Folder Include="Assets/Resources/Scripts/Integratables/_Depreciated" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS3" />

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8250020033609799064}
   - component: {fileID: 1828522638123269138}
   - component: {fileID: 2186262665364879735}
+  - component: {fileID: 8734900888977172164}
   - component: {fileID: 1119601117232352500}
   - component: {fileID: 7341293665338298491}
   m_Layer: 0
@@ -59,6 +60,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd83623f1c19bb783b571c93571af9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8734900888977172164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b198e7f3505e47b7bd2ddce7ff81949e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultPawn: {fileID: 0}
+  localPlayerCharacter: {fileID: 0}
 --- !u!114 &1119601117232352500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71,7 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0730303bd283634caa82a4cad8b71854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  widgets: []
+  widgets:
+  - {fileID: 1507811972370413053, guid: 8c9da1ff2c0e3f8819b3be7b04866c01, type: 3}
 --- !u!114 &7341293665338298491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,3 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395bfb43bd58bfcafb8d6598a88f2401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  primaryTrackPlayer: {fileID: 0}
+  secondaryTrackPlayer: {fileID: 0}
