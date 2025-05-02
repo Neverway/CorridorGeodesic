@@ -45,19 +45,28 @@
     <Analyzer Include="/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Editor/LogicValueLinkToolSettings.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolScatterPlacer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerItems.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Editor/ComponentFieldReferenceDrawer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/PreviewIcons.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerActorDatabase.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerCharacters.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Editor/LogicValueLinkTool.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Editor/PolymorphicDrawer.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Editor/EasyDrawer.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Editor/LogicOutputDrawer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolAssetManager.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManager.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Editor/EditorIcons.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerProps.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Editor/LogicInputDrawer.cs" />
      <Folder Include="Assets/Resources/Editor" />
      <Folder Include="Assets/RivenFramework/Scripts/Editor" />
      <Folder Include="Assets/Packages/DOTween/Editor" />
      <Folder Include="Assets/Packages/DOTween/Editor/Imgs" />
      <Folder Include="Assets/Editor" />
+     <Folder Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Editor" />
      <Reference Include="UnityEngine">
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

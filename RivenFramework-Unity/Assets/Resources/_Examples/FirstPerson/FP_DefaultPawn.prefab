@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1640347545061574247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5097250950848075558}
+  m_Layer: 11
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5097250950848075558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640347545061574247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8874334129262957140}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1672555384984386505
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +42,7 @@ GameObject:
   - component: {fileID: 8781764385399309182}
   - component: {fileID: 7139564049263450996}
   - component: {fileID: 9142363168371126924}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8874334129262957140}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: ViewPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,6 +145,7 @@ Transform:
   m_Children:
   - {fileID: 2224517659817797691}
   - {fileID: 4664602558321327606}
+  - {fileID: 5097250950848075558}
   m_Father: {fileID: 4998263260262590189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2388545363728601757
@@ -128,7 +160,7 @@ GameObject:
   - component: {fileID: 465781218653721637}
   - component: {fileID: 6790299077824223532}
   - component: {fileID: 6118868544368584257}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: FP_DefaultPawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +332,7 @@ GameObject:
   - component: {fileID: 4899505641578781819}
   - component: {fileID: 185329877332925175}
   - component: {fileID: 1704693168116563821}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +415,7 @@ GameObject:
   - component: {fileID: 4664602558321327606}
   - component: {fileID: 7433042105189875717}
   - component: {fileID: 3964129887753519482}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +501,7 @@ GameObject:
   - component: {fileID: 4432944888810785421}
   - component: {fileID: 1855139366178312969}
   - component: {fileID: 3109591734563405310}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: EarR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +584,7 @@ GameObject:
   - component: {fileID: 8604602473787619522}
   - component: {fileID: 5306539657703718461}
   - component: {fileID: 2964009909479727681}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: EarL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +667,7 @@ GameObject:
   - component: {fileID: 6867906600832139752}
   - component: {fileID: 1262357802023807227}
   - component: {fileID: 3736427035276936517}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +751,7 @@ GameObject:
   - component: {fileID: 2224517659817797691}
   - component: {fileID: 32800741723492415}
   - component: {fileID: 2913034851827866821}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: ViewCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -780,7 +812,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 29327359
+    m_Bits: 29327167
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

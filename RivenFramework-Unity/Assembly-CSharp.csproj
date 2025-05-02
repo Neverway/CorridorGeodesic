@@ -45,6 +45,7 @@
     <Analyzer Include="/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/PolymorphicAttribute.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Not.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneCollider.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
@@ -52,14 +53,18 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_DialogueEvent.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/UI_Text_EntityItems.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Pawn_CrushDetection.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicValueChangedHandler.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Actor_SFX_Impact.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/Volume2D_Force.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/Gates/LogicAnd.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Text_EntityHealth.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicOutputAttribute.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Pawn_PlaceAttachmentPoint.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/GameObject_Flicker.cs" />
      <Compile Include="Assets/Resources/Scripts/LB_World.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/Object_LiveThrowable.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CorGeo_AntiProjectile.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/IOnLogicInputChanged.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleSprite.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/EventSignal_Interactcs.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
@@ -71,17 +76,20 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Or.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUtils.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicValue.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_Pause.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Object_DepthAssigner.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBonePlaneCollider.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/StateMachine.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics2D.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Pawn_FallDamage.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Actor_StepUp.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_And.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/ComponentFieldReference.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/SignalEventPlayer.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/EventSignal.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics.cs" />
@@ -99,6 +107,7 @@
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicInputAttribute.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Text_EntityName.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/NEW_LogicProcessor.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Toggle.cs" />
@@ -116,6 +125,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Gestures" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Materials" />
+     <Folder Include="Assets/RivenFramework-Revamp/LogicSystem/Volumes" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Steam Deck" />
      <None Include="Assets/Resources/Materials/Shaders/SX_FogPlane.shader" />
      <Folder Include="Assets/Resources/Models/Materials" />
@@ -123,6 +133,7 @@
      <Folder Include="Assets/Resources/Sprites/Widgets" />
      <Folder Include="Assets/RivenFramework/Sprites" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR" />
+     <Folder Include="Assets/RivenFramework-Revamp/LogicSystem/Gates" />
      <Folder Include="Assets/RivenFramework/Other" />
      <Folder Include="Assets/RivenFramework/Widgets/Framework" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
@@ -167,6 +178,7 @@
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Xbox Series" />
      <None Include="Assets/Packages/DOTween/readme.txt" />
+     <Folder Include="Assets/Logic Value System" />
      <None Include="Assets/Resources/Materials/Shaders/SX_NullSpace.shader" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Lava.shader" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/ColorQuantizationFilter.shader" />
@@ -256,6 +268,7 @@
      <Folder Include="Assets/Packages/QuickOutline/Scripts" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Positional Prompts" />
+     <Folder Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
      <None Include="Assets/Resources/Materials/Shaders/SX_LitVertex.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Oculus" />
@@ -287,6 +300,7 @@
      <Folder Include="Assets/Packages/QuickOutline" />
      <Folder Include="Assets/Resources/Materials/Textures" />
      <Folder Include="Assets/RivenFramework/Widgets" />
+     <Folder Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime" />
      <Reference Include="UnityEngine">
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

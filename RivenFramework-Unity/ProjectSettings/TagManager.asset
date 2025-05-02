@@ -14,32 +14,33 @@ TagManager:
   - '[FXContainer]'
   - '[StructureContainer]'
   - TilemapContainer
+  - AssetContainer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Trigger
+  - 
   - Water
   - UI
-  - Depth Layer 1
-  - Depth Layer 2
-  - Depth Layer 3
+  - <( x )> Hidden Logic
+  - <( x )> Hidden Barriers
+  - '[2D] Depth Layer 1'
+  - '[2D] Depth Layer 2'
+  - '[2D] Depth Layer 3'
   - Pawn
-  - ProjectileIsolated
-  - Dynamic Cable
   - NoPawnCollision
-  - LaserWall
-  - NoWallRun
-  - ViewModel
-  - Enemy
-  - Ignore Player
-  - Ignore Enemy
-  - Ignore Projectile
-  - Projectile
-  - BarrierNoRender
-  - ViewPortraitCharacter
-  - NoPostProcess
-  - TriggerChain
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -60,6 +61,6 @@ TagManager:
   - name: Depth Layer 3
     uniqueID: 445256555
     locked: 0
-  - name: Trigger
+  - name: Hidden Logic
     uniqueID: 871958853
     locked: 0
