@@ -7,7 +7,6 @@
 
 using System.Collections;
 using UnityEngine;
-using Neverway.Framework.ApplicationManagement;
 
 namespace Neverway.Framework.AudioManagement
 {
@@ -94,9 +93,9 @@ namespace Neverway.Framework.AudioManagement
             SetNextTrack(_nextTrack);
             nextTrackSource.Play();
             // Lerp volumes
-            GetComponent<ApplicationSettings>().audioMixer.GetFloat("music", out var _volume);
+            //GetComponent<ApplicationSettings>().audioMixer.GetFloat("music", out var _volume);
             Mathf.Lerp(currentTrackSource.volume, 0, transitionTime);
-            Mathf.Lerp(nextTrackSource.volume, _volume, transitionTime);
+            //Mathf.Lerp(nextTrackSource.volume, _volume, transitionTime);
             // Once volumes have been crossfaded, set the current track to the next track and clear the next track queue
             StartCoroutine(WaitForCrossfade(transitionTime));
         }

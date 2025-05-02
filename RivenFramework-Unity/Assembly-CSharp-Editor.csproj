@@ -1005,10 +1005,6 @@
       <Project>{bdf120d6-5854-7f7d-4f1a-9673abd83232}</Project>
       <Name>RivenFramework.PawnMangement</Name>
     </ProjectReference>
-    <ProjectReference Include="Neverway.Framework.ApplicationManagement.csproj">
-      <Project>{61656594-5bb6-9487-24de-31d98f3bd98e}</Project>
-      <Name>Neverway.Framework.ApplicationManagement</Name>
-    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.csproj">
       <Project>{86afc6e2-dcf4-bae0-5d9b-904144009090}</Project>
       <Name>Neverway.Framework</Name>

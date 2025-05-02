@@ -13,7 +13,6 @@ using UnityEngine;
 using UnityEngine.Audio;
 //using UnityEngine.Localization.Settings;
 using UnityEngine.Rendering.PostProcessing;
-using Neverway.Framework.PawnManagement;
 using UnityEngine.SceneManagement;
 
 
@@ -53,10 +52,11 @@ namespace Neverway.Framework.ApplicationManagement
         //=-----------------=
         // Reference Variables
         //=-----------------=
-        private GameInstance gameInstance;
+        private GI_WidgetManager widgetManager;
         public AudioMixer audioMixer;
         public GameObject cameraPrefab;
         public PostProcessProfile postProcessProfile;
+        public GameObject framecounterWidget;
 
         //private FMOD.Studio.Bus masterBus;
         //private FMOD.Studio.Bus sfxBus;
@@ -86,7 +86,7 @@ namespace Neverway.Framework.ApplicationManagement
         //=-----------------=
         private void InitializeReferenceVariables()
         {
-            gameInstance = GetComponent<GameInstance>();
+            widgetManager = GetComponent<GI_WidgetManager>();
 
             // Pretty sure this is Soulex's FMOD stuff (RAH I HATE FMOD RAH!!!! ~Liz)
             //masterBus = RuntimeManager.GetBus("bus:/Master");
@@ -98,7 +98,6 @@ namespace Neverway.Framework.ApplicationManagement
 
         private void InitialConfigurationSetup()
         {
-            DevConsole.Log("Initializing application settings...", "App Config");
             // If we have a config file...
             if (File.Exists(configurationFilePath) && !debugForceEnableFirstTimeSetup)
             {
@@ -118,7 +117,6 @@ namespace Neverway.Framework.ApplicationManagement
                         // Skip to the next scene
                         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                     }
-                    DevConsole.LogSuccess("Successfully loaded config file", "App Config");
                     return;
                 }
             }
@@ -128,7 +126,6 @@ namespace Neverway.Framework.ApplicationManagement
             bufferedSettingsData.configurationFileCompatibilityVersion = configVersion;
             GetCurrentResolutionFromList();
             ApplySettings();
-            DevConsole.Log("No valid config file found, default config created", "App Config");
             
             // The config was not valid...
             // If we are not on the firstTimeSetup scene...
@@ -136,10 +133,8 @@ namespace Neverway.Framework.ApplicationManagement
             {
                 return;
             }
-            DevConsole.Log("Continuing with first-time setup", "App Config");
             // Set the resolution to the highest supported by the display
             bufferedSettingsData.targetResolution = resolutions.Length-1;
-            DevConsole.Log($"Setting the display resolution to {resolutions[resolutions.Length-1].width}x{resolutions[resolutions.Length-1].height}", "App Config");
             ApplySettings();
         }
 
@@ -186,16 +181,16 @@ namespace Neverway.Framework.ApplicationManagement
             switch (currentSettingsData.showFramecounter)
             {
                 case true:
-                    if (!GameInstance.GetWidget("WB_Framecounter"))
+                    if (!widgetManager.GetExistingWidget("WB_Framecounter"))
                     {
-                        gameInstance.UI_ShowFramecounter();
+                        widgetManager.AddWidget(framecounterWidget);
                     }
 
                     break;
                 case false:
-                    if (GameInstance.GetWidget("WB_Framecounter"))
+                    if (widgetManager.GetExistingWidget("WB_Framecounter"))
                     {
-                        Destroy(GameInstance.GetWidget("WB_Framecounter"));
+                        Destroy(widgetManager.GetExistingWidget("WB_Framecounter"));
                     }
 
                     break;
@@ -321,16 +316,16 @@ namespace Neverway.Framework.ApplicationManagement
             switch (currentSettingsData.showFramecounter)
             {
                 case true:
-                    if (!GameInstance.GetWidget("WB_Framecounter"))
+                    if (!widgetManager.GetExistingWidget("WB_Framecounter"))
                     {
-                        gameInstance.UI_ShowFramecounter();
+                        widgetManager.AddWidget(framecounterWidget);
                     }
 
                     break;
                 case false:
-                    if (GameInstance.GetWidget("WB_Framecounter"))
+                    if (widgetManager.GetExistingWidget("WB_Framecounter"))
                     {
-                        Destroy(GameInstance.GetWidget("WB_Framecounter"));
+                        Destroy(widgetManager.GetExistingWidget("WB_Framecounter"));
                     }
 
                     break;

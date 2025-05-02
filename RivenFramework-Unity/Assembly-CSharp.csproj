@@ -65,7 +65,9 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/Object_LiveThrowable.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CorGeo_AntiProjectile.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/IOnLogicInputChanged.cs" />
+     <Compile Include="Assets/Resources/Widgets/WB_Title.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleSprite.cs" />
+     <Compile Include="Assets/Resources/Widgets/WB_FirstTimeSetup.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/EventSignal_Interactcs.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
@@ -82,6 +84,7 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
+     <Compile Include="Assets/Resources/Widgets/WB_Language.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBonePlaneCollider.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/StateMachine.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics2D.cs" />
@@ -90,6 +93,7 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Actor_StepUp.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_And.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/ComponentFieldReference.cs" />
+     <Compile Include="Assets/Resources/Widgets/WB_NotificationBox_Keyhint.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/SignalEventPlayer.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/EventSignal.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics.cs" />
@@ -105,6 +109,7 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/IK/IKTargetMatcher.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
+     <Compile Include="Assets/Resources/Widgets/WB_NotificationBox.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicInputAttribute.cs" />
@@ -254,7 +259,6 @@
      <Folder Include="Assets/Resources/Models/_Characters" />
      <Folder Include="Assets/Resources/Sprites/Characters" />
      <Folder Include="Assets/TextMesh Pro/Sprites" />
-     <Folder Include="Assets/RivenFramework/Widgets/Components" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Triplanar.shader" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface.shader" />
      <Folder Include="Assets/Resources/Sound" />
@@ -1176,10 +1180,6 @@
     <ProjectReference Include="RivenFramework.PawnMangement.csproj">
       <Project>{bdf120d6-5854-7f7d-4f1a-9673abd83232}</Project>
       <Name>RivenFramework.PawnMangement</Name>
-    </ProjectReference>
-    <ProjectReference Include="Neverway.Framework.ApplicationManagement.csproj">
-      <Project>{61656594-5bb6-9487-24de-31d98f3bd98e}</Project>
-      <Name>Neverway.Framework.ApplicationManagement</Name>
     </ProjectReference>
     <ProjectReference Include="Neverway.Framework.csproj">
       <Project>{86afc6e2-dcf4-bae0-5d9b-904144009090}</Project>

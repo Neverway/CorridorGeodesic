@@ -8,7 +8,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using Neverway.Framework.PawnManagement;
 
 namespace Neverway.Framework.ApplicationManagement
 {
@@ -27,7 +26,7 @@ namespace Neverway.Framework.ApplicationManagement
         //=-----------------=
         // Reference Variables
         //=-----------------=
-        private GameInstance gameInstance;
+        private GI_WidgetManager widgetManager;
         private ApplicationSettings applicationSettings;
 
         [SerializeField] private Button buttonBack,
@@ -46,7 +45,7 @@ namespace Neverway.Framework.ApplicationManagement
         //=-----------------=
         private void Start()
         {
-            gameInstance = FindObjectOfType<GameInstance>();
+            widgetManager = FindObjectOfType<GI_WidgetManager>();
             applicationSettings = FindObjectOfType<ApplicationSettings>();
             //applicationSettings.LoadSettings();
             buttonBack.onClick.AddListener(delegate { OnClick("buttonBack"); });
@@ -84,24 +83,24 @@ namespace Neverway.Framework.ApplicationManagement
                     applicationSettings.ResetSettings();
                     break;
                 case "buttonGraphics":
-                    if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
+                    if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
                     RemoveSubwidgets();
-                    GameInstance.AddWidget(graphicsWidget);
+                    widgetManager.AddWidget(graphicsWidget);
                     break;
                 case "buttonAudio":
-                    if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
+                    if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
                     RemoveSubwidgets();
-                    GameInstance.AddWidget(audioWidget);
+                    widgetManager.AddWidget(audioWidget);
                     break;
                 case "buttonControls":
-                    if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
+                    if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
                     RemoveSubwidgets();
-                    GameInstance.AddWidget(controlsWidget);
+                    widgetManager.AddWidget(controlsWidget);
                     break;
                 case "buttonGameplay":
-                    if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
+                    if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
                     RemoveSubwidgets();
-                    GameInstance.AddWidget(gameplayWidget);
+                    widgetManager.AddWidget(gameplayWidget);
                     break;
             }
         }
@@ -114,15 +113,15 @@ namespace Neverway.Framework.ApplicationManagement
         public void Init()
         {
             RemoveSubwidgets();
-            GameInstance.AddWidget(graphicsWidget);
+            widgetManager.AddWidget(graphicsWidget);
         }
 
         public void RemoveSubwidgets()
         {
-            Destroy(GameInstance.GetWidget("WB_Settings_Graphics"));
-            Destroy(GameInstance.GetWidget("WB_Settings_Audio"));
-            Destroy(GameInstance.GetWidget("WB_Settings_Controls"));
-            Destroy(GameInstance.GetWidget("WB_Settings_Gameplay"));
+            Destroy(widgetManager.GetExistingWidget("WB_Settings_Graphics"));
+            Destroy(widgetManager.GetExistingWidget("WB_Settings_Audio"));
+            Destroy(widgetManager.GetExistingWidget("WB_Settings_Controls"));
+            Destroy(widgetManager.GetExistingWidget("WB_Settings_Gameplay"));
         }
     }
 }

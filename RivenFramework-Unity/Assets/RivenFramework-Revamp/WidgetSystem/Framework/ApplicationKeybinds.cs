@@ -12,8 +12,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Neverway.Framework;
-using Neverway.Framework.PawnManagement;
 
 namespace Neverway.Framework.ApplicationManagement
 {
@@ -37,6 +35,7 @@ namespace Neverway.Framework.ApplicationManagement
         //=-----------------=
         // Reference Variables
         //=-----------------=
+        private GI_WidgetManager widgetManager;
 
 
         //=-----------------=
@@ -45,6 +44,7 @@ namespace Neverway.Framework.ApplicationManagement
         private void Update()
         {
             GetCurrentInputDevice();
+            if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
         }
 
 
@@ -140,7 +140,7 @@ namespace Neverway.Framework.ApplicationManagement
             if (!isOperationCompleted)
             {
                 Debug.LogWarning("Rebind operation timed out.");
-                Destroy(GameInstance.GetWidget("WB_Settings_Controls_Rebinding"));
+                Destroy(widgetManager.GetExistingWidget("WB_Settings_Controls_Rebinding"));
                 rebindOperation?.Cancel();
                 rebindOperation?.Dispose();
                 rebindOperation = null;
@@ -174,7 +174,7 @@ namespace Neverway.Framework.ApplicationManagement
                     {
                         isOperationCompleted = true; // Set flag to true if operation completed successfully
                         StopAllCoroutines();
-                        Destroy(GameInstance.GetWidget("WB_Settings_Controls_Rebinding"));
+                        Destroy(widgetManager.GetExistingWidget("WB_Settings_Controls_Rebinding"));
                         // Save
                         string device = string.Empty;
                         string key = string.Empty;
@@ -198,7 +198,7 @@ namespace Neverway.Framework.ApplicationManagement
                     {
                         isOperationCompleted = true; // Set flag to true if operation completed successfully
                         StopAllCoroutines();
-                        Destroy(GameInstance.GetWidget("WB_Settings_Controls_Rebinding"));
+                        Destroy(widgetManager.GetExistingWidget("WB_Settings_Controls_Rebinding"));
                         // Save
                         string device = string.Empty;
                         string key = string.Empty;

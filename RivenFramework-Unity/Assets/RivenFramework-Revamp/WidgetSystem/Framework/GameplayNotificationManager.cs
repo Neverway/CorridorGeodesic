@@ -5,7 +5,6 @@
 //
 //=============================================================================
 
-using Neverway.Framework.PawnManagement;
 using UnityEngine;
 
 namespace Neverway.Framework.ApplicationManagement
@@ -49,6 +48,7 @@ public class GameplayNotificationManager : MonoBehaviour
     //=-----------------=
     // External Functions
     //=-----------------=
+    /*
     public void DisplayKeyHint(float _duration, string _keyhintText, Sprite _keyhintImage)
     {
         if (!GameInstance.GetWidget(notificationBoxWidget.name))
@@ -64,6 +64,6 @@ public class GameplayNotificationManager : MonoBehaviour
             GameInstance.AddWidget(notificationBoxWidget);
         }
         FindObjectOfType<WB_NotificationBox>().DisplayKeyHint(_duration, _keyhintText, _targetActionMap, _targetAction);
-    }
+    }*/
 }
 }

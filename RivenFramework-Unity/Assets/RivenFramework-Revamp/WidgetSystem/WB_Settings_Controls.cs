@@ -7,7 +7,6 @@
 //=============================================================================
 
 using System.Collections.Generic;
-using Neverway.Framework.PawnManagement;
 using UnityEngine;
 
 namespace Neverway.Framework.ApplicationManagement
@@ -28,6 +27,7 @@ namespace Neverway.Framework.ApplicationManagement
         //=-----------------=
         // Reference Variables
         //=-----------------=
+        private GI_WidgetManager widgetManager;
         public ApplicationKeybinds applicationKeybinds;
         public GameObject contentRoot;
         public GameObject bindingObject;
@@ -42,6 +42,7 @@ namespace Neverway.Framework.ApplicationManagement
         {
             //Debug.Log($"[{this.name}] Executing function 'Start()'");
             applicationKeybinds = FindObjectOfType<ApplicationKeybinds>();
+            widgetManager = FindObjectOfType<GI_WidgetManager>();
 
             // Check if the input action asset is assigned
             if (applicationKeybinds.inputActionAsset == null)
@@ -148,9 +149,8 @@ namespace Neverway.Framework.ApplicationManagement
         //=-----------------=
         public void Rebind(string _actionMap, string _action, bool _isComposite)
         {
-            Debug.Log(
-                $"[{this.name}] Executing function 'Rebind(actionMap={_actionMap}, action={_action}, isComposite={_isComposite})'");
-            GameInstance.AddWidget(bindingWidget);
+            Debug.Log($"[{this.name}] Executing function 'Rebind(actionMap={_actionMap}, action={_action}, isComposite={_isComposite})'");
+            widgetManager.AddWidget(bindingWidget);
             applicationKeybinds.SetBinding(_actionMap, _action, _isComposite);
         }
     }

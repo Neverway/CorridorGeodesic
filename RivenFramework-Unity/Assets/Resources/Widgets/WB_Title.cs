@@ -7,8 +7,6 @@
 
 using UnityEngine;
 using UnityEngine.UI;
-using Neverway.Framework.PawnManagement;
-using Neverway.Framework;
 
 namespace Neverway.Framework.ApplicationManagement
 {
@@ -28,8 +26,8 @@ namespace Neverway.Framework.ApplicationManagement
         //=-----------------=
         // Reference Variables
         //=-----------------=
-        private GameInstance gameInstance;
-        private WorldLoader worldLoader;
+        private GI_WidgetManager widgetManager;
+        //private WorldLoader worldLoader;
         //private LevelManager levelLoader; // Added for loading the overworld levels from Cartographer
 
         [SerializeField] private Button buttonMainGame,
@@ -48,8 +46,8 @@ namespace Neverway.Framework.ApplicationManagement
         //=-----------------=
         private void Start()
         {
-            gameInstance = FindObjectOfType<GameInstance>();
-            worldLoader = FindObjectOfType<WorldLoader>();
+            widgetManager = FindObjectOfType<GI_WidgetManager>();
+            //worldLoader = FindObjectOfType<WorldLoader>();
             //levelLoader = FindObjectOfType<LevelManager>();
             buttonMainGame.onClick.AddListener(delegate { OnClick("buttonMainGame"); });
             buttonExtras.onClick.AddListener(delegate { OnClick("buttonExtras"); });
@@ -73,22 +71,22 @@ namespace Neverway.Framework.ApplicationManagement
             switch (button)
             {
                 case "buttonMainGame":
-                    if (!worldLoader) worldLoader = FindObjectOfType<WorldLoader>();
+                    //if (!worldLoader) worldLoader = FindObjectOfType<WorldLoader>();
                     //if (!levelLoader) levelLoader = FindObjectOfType<LevelManager>();
-                    worldLoader.LoadWorld(targetLevelID);
+                    //worldLoader.LoadWorld(targetLevelID);
                     // levelLoader.Load("", true); // Replace with function to load save file level
                     break;
                 case "buttonExtras":
-                    if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
-                    GameInstance.AddWidget(extrasWidget);
+                    if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
+                    widgetManager.AddWidget(extrasWidget);
                     break;
                 case "buttonRanking":
-                    if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
-                    GameInstance.AddWidget(rankingWidget);
+                    if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
+                    widgetManager.AddWidget(rankingWidget);
                     break;
                 case "buttonSettings":
-                    if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
-                    GameInstance.AddWidget(settingsWidget); // Create the settings widget
+                    if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
+                    widgetManager.AddWidget(settingsWidget); // Create the settings widget
                     //Destroy(gameObject); // Remove the current widget
                     //GameInstance.GetWidget("WB_Settings").GetComponent<WB_Settings>().Init();
                     break;
@@ -96,12 +94,12 @@ namespace Neverway.Framework.ApplicationManagement
                     Application.Quit();
                     break;
                 case "buttonCredits":
-                    if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
-                    GameInstance.AddWidget(creditsWidget);
+                    if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
+                    widgetManager.AddWidget(creditsWidget);
                     break;
                 case "buttonLanguage":
-                    if (!gameInstance) gameInstance = FindObjectOfType<GameInstance>();
-                    GameInstance.AddWidget(languageWidget);
+                    if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
+                    widgetManager.AddWidget(languageWidget);
                     break;
             }
         }
