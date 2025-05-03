@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8250020033609799064}
   - component: {fileID: 1828522638123269138}
   - component: {fileID: 2186262665364879735}
+  - component: {fileID: 1509201448382192203}
   - component: {fileID: 8734900888977172164}
   - component: {fileID: 1119601117232352500}
   - component: {fileID: 7341293665338298491}
@@ -63,6 +64,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd83623f1c19bb783b571c93571af9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1509201448382192203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2325b3aeb8771fa6aab3a6d3c815ae1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBeforeWorldChange: 0.25
+  minimumRequiredLoadTime: 1
+  loadingWorldID: _Travel
+  streamingWorldID: _Streaming
+  isLoading: 0
 --- !u!114 &8734900888977172164
 MonoBehaviour:
   m_ObjectHideFlags: 0

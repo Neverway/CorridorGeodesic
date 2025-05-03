@@ -39,7 +39,7 @@ public class WB_Pause : MonoBehaviour
     {
         widgetManager = FindObjectOfType<GI_WidgetManager>();
         gameInstance = FindObjectOfType<GameInstance>();
-        //worldLoader = FindObjectOfType<WorldLoader>();
+        worldLoader = FindObjectOfType<GI_WorldLoader>();
         buttonResume.onClick.AddListener(delegate { OnClick("buttonResume"); });
         buttonSettings.onClick.AddListener(delegate { OnClick("buttonSettings"); });
         buttonTitle.onClick.AddListener(delegate { OnClick("buttonTitle"); });
