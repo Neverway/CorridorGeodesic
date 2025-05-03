@@ -61,7 +61,7 @@ public class WB_Pause : MonoBehaviour
                 break;
             case "buttonSettings":
                 if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
-                widgetManager.AddWidget("WB_Settings");
+                widgetManager.AddWidget(settingsWidget);
                 //GameInstance.GetWidget("WB_Settings").GetComponent<WB_Settings>().Init();
                 break;
             case "buttonTitle":

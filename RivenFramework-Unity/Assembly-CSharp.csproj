@@ -65,9 +65,7 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/Object_LiveThrowable.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CorGeo_AntiProjectile.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/IOnLogicInputChanged.cs" />
-     <Compile Include="Assets/Resources/Widgets/WB_Title.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleSprite.cs" />
-     <Compile Include="Assets/Resources/Widgets/WB_FirstTimeSetup.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/EventSignal_Interactcs.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
@@ -84,7 +82,6 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
-     <Compile Include="Assets/Resources/Widgets/WB_Language.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBonePlaneCollider.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/StateMachine.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics2D.cs" />
@@ -93,7 +90,6 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Actor_StepUp.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_And.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/ComponentFieldReference.cs" />
-     <Compile Include="Assets/Resources/Widgets/WB_NotificationBox_Keyhint.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/SignalEventPlayer.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/EventSignal.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics.cs" />
@@ -109,7 +105,6 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/IK/IKTargetMatcher.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
-     <Compile Include="Assets/Resources/Widgets/WB_NotificationBox.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicInputAttribute.cs" />
@@ -140,7 +135,6 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR" />
      <Folder Include="Assets/RivenFramework-Revamp/LogicSystem/Gates" />
      <Folder Include="Assets/RivenFramework/Other" />
-     <Folder Include="Assets/RivenFramework/Widgets/Framework" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox 360" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated" />
@@ -265,7 +259,6 @@
      <Folder Include="Assets/Resources/Models/Materials/DevCharacter" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroups" />
      <Folder Include="Assets/Resources/Widgets/Project Specifics" />
-     <Folder Include="Assets/RivenFramework/Widgets/Customizables" />
      <Folder Include="Assets/RivenFramework-Revamp" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Vive" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS Vita" />
@@ -305,7 +298,6 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox One" />
      <Folder Include="Assets/Packages/QuickOutline" />
      <Folder Include="Assets/Resources/Materials/Textures" />
-     <Folder Include="Assets/RivenFramework/Widgets" />
      <Folder Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime" />
      <Reference Include="UnityEngine">
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -63,7 +63,8 @@ MonoBehaviour:
   buttonTitle: {fileID: 4702915901047901598}
   buttonQuit: {fileID: 6470450962239039471}
   buttonRestart: {fileID: 5058135914685864959}
-  settingsWidget: {fileID: 0}
+  settingsWidget: {fileID: 1507811972370413053, guid: c3d017bb5f69358838c96c998d88733d,
+    type: 3}
 --- !u!1001 &1324594946384334379
 PrefabInstance:
   m_ObjectHideFlags: 0
