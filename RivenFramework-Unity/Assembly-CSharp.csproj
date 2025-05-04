@@ -51,6 +51,7 @@
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/UI_Image_EntityEquippedItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_DialogueEvent.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/Components/Light_DistanceCulling.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/UI_Text_EntityItems.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Pawn_CrushDetection.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicValueChangedHandler.cs" />
@@ -58,11 +59,13 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/Volume2D_Force.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/Gates/LogicAnd.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Text_EntityHealth.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/Components/Tile_Paralax.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicOutputAttribute.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Pawn_PlaceAttachmentPoint.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/GameObject_Flicker.cs" />
      <Compile Include="Assets/Resources/Scripts/LB_World.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/Object_LiveThrowable.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/Components/UIText_Speedometer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CorGeo_AntiProjectile.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/IOnLogicInputChanged.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleSprite.cs" />
@@ -79,6 +82,7 @@
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicValue.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_Pause.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Object_DepthAssigner.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/Components/Pawn_AttachmentPoint.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
@@ -165,7 +169,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Sprites/System/Materials" />
      <Folder Include="Assets/TextMesh Pro/Shaders" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Switch" />
-     <Folder Include="Assets/RivenFramework-Revamp/_Objects" />
+     <Folder Include="Assets/RivenFramework-Revamp/_MapObjects" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered" />
      <Folder Include="Assets/Resources/Sprites/Level" />
@@ -235,6 +239,7 @@
      <Folder Include="Assets/Resources/Objects/Map Entities" />
      <Folder Include="Assets/Resources/Objects/Generated Entities" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Light" />
+     <Folder Include="Assets/RivenFramework-Revamp/Components" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Shaders" />
      <Folder Include="Assets/RivenFramework-Revamp/LogicSystem" />
      <None Include="Assets/Resources/Materials/Shaders/SX_SGHelpers.cginc" />
@@ -253,6 +258,7 @@
      <Folder Include="Assets/Resources/Models/_Characters" />
      <Folder Include="Assets/Resources/Sprites/Characters" />
      <Folder Include="Assets/TextMesh Pro/Sprites" />
+     <Folder Include="Assets/RivenFramework-Revamp/_WidgetComponents" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Triplanar.shader" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface.shader" />
      <Folder Include="Assets/Resources/Sound" />
@@ -286,6 +292,7 @@
      <Folder Include="Assets/Resources/Sound/Effects" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/_Sprites/System/NeverwayLogo" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Widgets" />
      <Folder Include="Assets/Resources/Materials/Textures/Skyboxes" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
      <None Include="Assets/Resources/Materials/Shaders/UIImageBlur.shader" />
