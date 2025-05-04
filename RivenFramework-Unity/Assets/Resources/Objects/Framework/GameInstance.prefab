@@ -93,7 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b198e7f3505e47b7bd2ddce7ff81949e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultPawn: {fileID: 0}
+  defaultPawn: {fileID: 8932372165829005355, guid: 73ba1428878f3501589c7154d5f290fd,
+    type: 3}
   localPlayerCharacter: {fileID: 0}
 --- !u!114 &1119601117232352500
 MonoBehaviour:

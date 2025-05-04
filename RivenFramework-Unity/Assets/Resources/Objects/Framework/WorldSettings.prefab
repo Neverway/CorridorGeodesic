@@ -126,4 +126,3 @@ MonoBehaviour:
   disableWorldKillHeight: 0
   worldKillVolumeDistance: 32767
   worldKillHeightDistance: -100
-  pawnManager: {fileID: 0}

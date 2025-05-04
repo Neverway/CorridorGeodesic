@@ -15,9 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework.AudioMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.PawnMangement", "RivenFramework.PawnMangement.csproj", "{bdf120d6-5854-7f7d-4f1a-9673abd83232}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.WidgetSystem", "RivenFramework.WidgetSystem.csproj", "{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework", "Neverway.Framework.csproj", "{86afc6e2-dcf4-bae0-5d9b-904144009090}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.WidgetSystem", "RivenFramework.WidgetSystem.csproj", "{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework", "RivenFramework.csproj", "{8c9feb55-197c-c0d9-f4c0-534f1bc09483}"
 EndProject
@@ -48,10 +48,10 @@ Global
 		{3b7df345-bd9a-eee0-b323-cd18f735389d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bdf120d6-5854-7f7d-4f1a-9673abd83232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{bdf120d6-5854-7f7d-4f1a-9673abd83232}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86afc6e2-dcf4-bae0-5d9b-904144009090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86afc6e2-dcf4-bae0-5d9b-904144009090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8c9feb55-197c-c0d9-f4c0-534f1bc09483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8c9feb55-197c-c0d9-f4c0-534f1bc09483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7fdcced8-84e3-3bd8-fceb-7f97a0535f44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
