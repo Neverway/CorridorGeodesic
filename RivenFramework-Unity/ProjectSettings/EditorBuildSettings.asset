@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/RivenFramework-Revamp/_Levels/_Start.unity
-    guid: b4cb78796e3535cc5a70b816af99ce34
+    path: Assets/RivenFramework-Revamp/_Levels/_-Start.unity
+    guid: f2b66097ac8552b7488e509da76d407f
   - enabled: 1
     path: Assets/RivenFramework-Revamp/_Levels/_Splash.unity
     guid: 6d54de344b112fe249c33640be011733
