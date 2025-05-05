@@ -22,8 +22,7 @@ namespace Neverway.Framework.LogicSystem
         [Tooltip("If this is false, this trigger can only be activated once")]
         public bool resetsAutomatically = true;
 
-        [Tooltip(
-            "If this is false, a little indicator will appear above this volume to show the player it can be interacted with")]
+        [Tooltip("If this is false, a little indicator will appear above this volume to show the player it can be interacted with")]
         public bool hideIndicator;
 
         [Tooltip("If enabled, the indicator will show a speech bubble instead of the interact indicator")]
@@ -48,8 +47,7 @@ namespace Neverway.Framework.LogicSystem
         [Tooltip("A variable to keep track of if this volume has already been trigger")] [HideInInspector]
         public bool hasBeenTriggered;
 
-        private bool
-            previousIsPoweredState; // Used to check for any overrides to the initial isPowered state in the level editor
+        private bool previousIsPoweredState; // Used to check for any overrides to the initial isPowered state in the level editor
 
 
         //=-----------------=

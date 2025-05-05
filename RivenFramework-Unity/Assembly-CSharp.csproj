@@ -125,6 +125,7 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/IK/IKTargetMatcher.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/Components/Object_Grabbable.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/LogicSystem/LinkSystem/Runtime/LogicInputAttribute.cs" />
@@ -283,6 +284,7 @@
      <Folder Include="Assets/Resources/Models/Materials/DevCharacter" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroups" />
      <Folder Include="Assets/Resources/Widgets/Project Specifics" />
+     <Folder Include="Assets/RivenFramework-Revamp/LogicSystem/Components" />
      <Folder Include="Assets/RivenFramework-Revamp" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Vive" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS Vita" />

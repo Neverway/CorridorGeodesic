@@ -54,7 +54,7 @@ namespace Neverway.Framework.PawnManagement
         public Camera viewCamera;
         public Quaternion faceDirection; // Imported from old system, used to calculate a 2D direction vector from a quaternion rotation
         public RaycastHit slopeHit;
-        public Pawn_AttachmentPoint physObjectAttachmentPoint;
+        //public Pawn_AttachmentPoint physObjectAttachmentPoint;
         [SerializeField] private LayerMask groundDetectionLayerMask;
 
         //=-----------------=

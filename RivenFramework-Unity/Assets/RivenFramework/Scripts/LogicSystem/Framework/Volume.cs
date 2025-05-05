@@ -16,8 +16,7 @@ namespace Neverway.Framework.LogicSystem
         //=-----------------=
         // Public Variables
         //=-----------------=
-        [Tooltip(
-            "Depending on which team owns this trigger will change the functionality. For example, pain volumes normally don't affect their own team.")]
+        [Tooltip("Depending on which team owns this trigger will change the functionality. For example, pain volumes normally don't affect their own team.")]
         public string owningTeam; // Which team owns the trigger
 
         [Tooltip("If enabled, the trigger will only affect targets that are on the same team")]
@@ -116,6 +115,7 @@ namespace Neverway.Framework.LogicSystem
             // A physics prop has entered the trigger
             if (_other.CompareTag("PhysProp"))
             {
+                /*
                 // Don't register held objects
                 if (_other.gameObject.transform.parent.GetComponent<Object_Grabbable>())
                 {
@@ -123,7 +123,7 @@ namespace Neverway.Framework.LogicSystem
                     {
                         return;
                     }
-                }
+                }*/
 
                 // Get a reference to the entity component
                 targetProp = _other.gameObject.transform.parent.gameObject;
@@ -168,7 +168,7 @@ namespace Neverway.Framework.LogicSystem
 
             // A physics prop has entered the trigger
             if (_other.CompareTag("PhysProp"))
-            {
+            {/*
                 // Don't register held objects
                 if (_other.gameObject.GetComponent<Object_Grabbable>() && ignoreHeldObjects)
                 {
@@ -176,7 +176,7 @@ namespace Neverway.Framework.LogicSystem
                     {
                         return;
                     }
-                }
+                }*/
 
                 // Get a reference to the entity component
                 targetProp = _other.gameObject;
