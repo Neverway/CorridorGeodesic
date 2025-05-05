@@ -27,7 +27,7 @@ MonoBehaviour:
     value: 0.5
   clamp:
     overrideState: 1
-    value: 65472
+    value: 0.9
   diffusion:
     overrideState: 1
     value: 7
@@ -41,12 +41,12 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   dirtTexture:
-    overrideState: 0
-    value: {fileID: 2800000, guid: 48ca4cc2d06a438a9822740a16ccda17, type: 3}
+    overrideState: 1
+    value: {fileID: 2800000, guid: 7d713197b072c87d1b669b45ca664f41, type: 3}
     defaultState: 1
   dirtIntensity:
-    overrideState: 0
-    value: 125
+    overrideState: 1
+    value: 1
 --- !u!114 &-6532598893503993614
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1431,13 +1431,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
   shutterAngle:
     overrideState: 1
-    value: 100
+    value: 200
   sampleCount:
     overrideState: 1
     value: 10
@@ -1505,9 +1505,6 @@ MonoBehaviour:
   - {fileID: -4110732194176603622}
   - {fileID: 5977108932207599525}
   - {fileID: 1160765500471503049}
-  - {fileID: -6532598893503993614}
-  - {fileID: 3982782308721169403}
-  - {fileID: 4052998543056291606}
   - {fileID: -867587464913695539}
   - {fileID: 5980392836088833046}
 --- !u!114 &1160765500471503049
