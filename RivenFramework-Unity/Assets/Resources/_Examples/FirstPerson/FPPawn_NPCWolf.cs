@@ -133,7 +133,7 @@ public class FPPawn_NPCWolf : FPPawn
             }
         }
         
-        action.Move(this, moveDirection, currentStats.movementSpeed);
+        action.Move(this, moveDirection, FPCurrentStats.movementSpeed);
     }
 
     

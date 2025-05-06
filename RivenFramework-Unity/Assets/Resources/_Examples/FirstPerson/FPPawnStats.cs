@@ -14,7 +14,8 @@ using UnityEngine;
 public class FPPawnStats : PawnStats
 {
     [Header("Personality")]
-    public float health = 100f;
+    //public float health = 100f;
+    //public float invulnerabilityTime = 1f;
     [Tooltip("Represents how much the entity wants to engage with a situation")]
     public float courage = 0;
     [Tooltip("Represents how much the entity wants to investigate unknown observations")]
@@ -51,7 +52,7 @@ public class FPPawnStats : PawnStats
     public float slopeDrag = 8;
 
     [Header("Ground Detection & Jumping")] 
-    public float slopeCheckDistance = 0.2f;
+    public float slopeCheckDistance = 0.3f;
     public LayerMask groundMask = 0;
     public float groundCheckRadius = 0.25f;
     public Vector3 groundCheckOffset = new Vector3();

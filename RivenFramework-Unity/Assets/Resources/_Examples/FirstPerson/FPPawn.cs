@@ -27,9 +27,9 @@ public class FPPawn : Pawn
     //=-----------------=
     // Reference Variables
     //=-----------------=
-    public new FPPawnStats defaultStats;
-    public new FPPawnStats currentStats;
-    public new FPPawnActions action;
+    public FPPawnStats FPDefaultStats;
+    public FPPawnStats FPCurrentStats => (FPPawnStats)currentStats;
+    public FPPawnActions action;
     [HideInInspector] public Rigidbody physicsbody;
     [HideInInspector] public GameObject viewPoint;
 
@@ -42,6 +42,8 @@ public class FPPawn : Pawn
         // Get references
         physicsbody = GetComponent<Rigidbody>();
         viewPoint = transform.Find("ViewPoint").gameObject;
+        
+        defaultStats = FPDefaultStats;     
         currentStats = defaultStats;
     }
     

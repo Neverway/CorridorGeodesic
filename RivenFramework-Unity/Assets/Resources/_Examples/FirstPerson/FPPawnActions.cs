@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RivenFramework;
 
 public class FPPawnActions : PawnActions
 {
@@ -245,9 +246,11 @@ public class FPPawnActions : PawnActions
     /// <summary>
     /// TODO
     /// </summary>
-    public void Interact()
+    public void Interact(FPPawn _pawn, GameObject _interactionTrigger, Transform _viewPoint)
     {
-        
+        var interaction = Object.Instantiate(_interactionTrigger, _viewPoint);
+        Object.Destroy(interaction,  0.2f);
+        //interaction.transform.GetChild(0).GetComponent<>().owningPawn = _pawn;
     }
 
     /// <summary>
@@ -338,7 +341,7 @@ public class FPPawnActions : PawnActions
                     // Add it to the list of visible pawns
                     _pawn.visiblePawns.Add(targetPawn);
                     // If it's an enemy, add it to the list of visible hostiles
-                    if (_pawn.currentStats.opposedTeams.Contains(((FPPawnStats)targetPawn.currentStats).team))
+                    if (_pawn.FPCurrentStats.opposedTeams.Contains(((FPPawnStats)targetPawn.currentStats).team))
                     {
                         _pawn.visibleHostiles.Add(targetPawn);
                     }

@@ -30,6 +30,7 @@ public class FPPawn_Player : FPPawn
     private GI_WidgetManager widgetManager;
     private new FPPawnActions action = new FPPawnActions();
     private InputActions.FirstPersonActions inputActions;
+    [SerializeField] private GameObject interactionPrefab;
 
 
     //=-----------------=
@@ -102,6 +103,8 @@ public class FPPawn_Player : FPPawn
             action.Crouch(this, false);
         }
         
+        // Interact 
+        if (inputActions.Interact.WasPressedThisFrame()) action.Interact(this, interactionPrefab, viewPoint.transform);
     }
 
     public void FixedUpdate()

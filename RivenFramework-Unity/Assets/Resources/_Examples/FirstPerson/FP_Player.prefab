@@ -85,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 32800741723492415, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 29327359
+      value: 29327167
       objectReference: {fileID: 0}
     - target: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
@@ -155,6 +155,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7360750914834237688}
+    - targetCorrespondingSourceObject: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7359837663768399800}
   m_SourcePrefab: {fileID: 100100000, guid: 9ed3a4da35b3ca57e9b7424f51915e87, type: 3}
 --- !u!4 &247292550062513950 stripped
 Transform:
@@ -184,18 +188,23 @@ MonoBehaviour:
   displayName: Player
   uniqueId: 
   isPaused: 0
+  isDead: 0
+  despawnOnDeath: 1
+  despawnOnDeathDelay: 0
   physObjectAttachmentPoint: {fileID: 0}
   visiblePawns: []
   visibleHostiles: []
   visibleAllies: []
-  defaultStats:
+  FPDefaultStats:
     health: 100
+    invulnerabilityTime: 1
     courage: 20
-    curiosity: 0
-    intelligence: 0
-    wisdom: 0
+    curiosity: 20
+    intelligence: 20
+    wisdom: 20
     team: Player
-    alliedTeams: []
+    alliedTeams:
+    - Player
     opposedTeams: []
     lookRange: 20
     listenRange: 30
@@ -221,8 +230,36 @@ MonoBehaviour:
     headCheckDistance: 0.5
     crouchDistance: 0.5
     crouchColliderOffset: {x: 0, y: 0.25, z: 0}
-  currentStats:
+  physicsbody: {fileID: 0}
+  viewPoint: {fileID: 0}
+  interactionPrefab: {fileID: 2444235702127718979, guid: 725c5b70fb134786d8042beab3ac77f3,
+    type: 3}
+--- !u!114 &7359837663768399800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275086507616164517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a5024121484beff814f587708058be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  displayName: 
+  uniqueId: 
+  isPaused: 0
+  isDead: 0
+  despawnOnDeath: 0
+  despawnOnDeathDelay: 3
+  physObjectAttachmentPoint: {fileID: 0}
+  visiblePawns: []
+  visibleHostiles: []
+  visibleAllies: []
+  FPDefaultStats:
     health: 100
+    invulnerabilityTime: 1
     courage: 0
     curiosity: 0
     intelligence: 0
@@ -242,7 +279,7 @@ MonoBehaviour:
     groundDrag: 8
     airDrag: 0
     slopeDrag: 8
-    slopeCheckDistance: 0.2
+    slopeCheckDistance: 0.3
     groundMask:
       serializedVersion: 2
       m_Bits: 0

@@ -720,15 +720,20 @@ MonoBehaviour:
   displayName: Wolf
   uniqueId: 
   isPaused: 0
+  isDead: 0
+  despawnOnDeath: 1
+  despawnOnDeathDelay: 3
+  physObjectAttachmentPoint: {fileID: 0}
   visiblePawns: []
   visibleHostiles: []
   visibleAllies: []
-  defaultStats:
+  FPDefaultStats:
     health: 100
+    invulnerabilityTime: 1
     courage: 10
-    curiosity: 0
-    intelligence: 0
-    wisdom: 0
+    curiosity: 10
+    intelligence: 10
+    wisdom: 10
     team: Wolf
     alliedTeams:
     - Wolf
@@ -737,7 +742,7 @@ MonoBehaviour:
     lookRange: 20
     listenRange: 30
     comfortableAllyDistance: 5
-    movementSpeed: 5
+    movementSpeed: 7
     airMovementMultiplier: 0.25
     crouchMovementMultiplier: 0.25
     groundAccelerationRate: 0.1
@@ -746,43 +751,10 @@ MonoBehaviour:
     groundDrag: 8
     airDrag: 0
     slopeDrag: 8
-    slopeCheckDistance: 0.2
+    slopeCheckDistance: 0.3
     groundMask:
       serializedVersion: 2
       m_Bits: 1
-    groundCheckRadius: 0.25
-    groundCheckOffset: {x: 0, y: 0, z: 0}
-    jumpForce: 2600
-    headCheckRadius: 0.25
-    headCheckOffset: {x: 0, y: 1.75, z: 0}
-    headCheckDistance: 0.5
-    crouchDistance: 0.5
-    crouchColliderOffset: {x: 0, y: 0.25, z: 0}
-  currentStats:
-    health: 100
-    courage: 0
-    curiosity: 0
-    intelligence: 0
-    wisdom: 0
-    team: 
-    alliedTeams: []
-    opposedTeams: []
-    lookRange: 20
-    listenRange: 30
-    comfortableAllyDistance: 5
-    movementSpeed: 10
-    airMovementMultiplier: 0.25
-    crouchMovementMultiplier: 0.25
-    groundAccelerationRate: 0.1
-    airAccelerationRate: 0.2
-    slopeAccelerationRate: 0.25
-    groundDrag: 8
-    airDrag: 0
-    slopeDrag: 8
-    slopeCheckDistance: 0.2
-    groundMask:
-      serializedVersion: 2
-      m_Bits: 0
     groundCheckRadius: 0.25
     groundCheckOffset: {x: 0, y: 0, z: 0}
     jumpForce: 2600
