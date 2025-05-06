@@ -27,9 +27,11 @@ public class FPPawn : Pawn
     //=-----------------=
     // Reference Variables
     //=-----------------=
+    // These values are cast back to the base pawn classes currentStats and defaultStats
     public FPPawnStats FPDefaultStats;
     public FPPawnStats FPCurrentStats => (FPPawnStats)currentStats;
-    public FPPawnActions action;
+    public FPPawnActions FPaction => (FPPawnActions)action;
+    
     [HideInInspector] public Rigidbody physicsbody;
     [HideInInspector] public GameObject viewPoint;
 
@@ -42,9 +44,10 @@ public class FPPawn : Pawn
         // Get references
         physicsbody = GetComponent<Rigidbody>();
         viewPoint = transform.Find("ViewPoint").gameObject;
-        
-        defaultStats = FPDefaultStats;     
-        currentStats = defaultStats;
+
+        defaultStats = FPDefaultStats;
+        currentStats = (FPPawnStats)FPDefaultStats.Clone(); // Don't forget to clone so that you don't overwrite the pawns default values! ~Liz
+        action = FPaction;
     }
     
 

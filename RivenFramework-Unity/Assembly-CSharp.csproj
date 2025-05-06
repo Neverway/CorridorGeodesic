@@ -63,6 +63,7 @@
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleSprite.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/EventSignal_Interactcs.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
+     <Compile Include="Assets/Resources/Scripts/Framework/Image_EntityPain.cs" />
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CanvasForceGetActiveCamera.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/Pawn_Inventory.cs" />
@@ -77,6 +78,7 @@
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBonePlaneCollider.cs" />
+     <Compile Include="Assets/Resources/Scripts/Framework/Tile_Paralax.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics2D.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/CorGeo/Pawn_FallDamage.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
@@ -94,11 +96,13 @@
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleAudio.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/_Depreciated/UI_Image_EntityPortrait.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUnityVersion.cs" />
+     <Compile Include="Assets/Resources/Scripts/Framework/UIText_Speedometer.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/IK/IKTargetMatcher.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
+     <Compile Include="Assets/Resources/Scripts/Framework/Light_DistanceCulling.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Text_EntityName.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/NEW_LogicProcessor.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Toggle.cs" />
@@ -261,6 +265,7 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Oculus" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroupTemplates" />
      <Folder Include="Assets/Resources/Sprites/Effects" />
+     <Folder Include="Assets/Resources/Scripts/Framework" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Dark" />
      <None Include="Assets/Resources/Materials/Shaders/Blur.shader" />

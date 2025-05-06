@@ -26,19 +26,16 @@ namespace Neverway
         //=-----------------=
         // Reference Variables
         //=-----------------=
-        private GameInstance gameInstance;
-
+        private GI_WidgetManager widgetManager;
+        [SerializeField] private GameObject HUDWidget;
+        
         //=-----------------=
         // Mono Functions
         //=-----------------=
         private void Start()
         {
-            //gameInstance = FindObjectOfType<GameInstance>();
-            //gameInstance.UI_ShowHUD();
-        }
-
-        private void Update()
-        {
+            widgetManager = FindObjectOfType<GI_WidgetManager>();
+            widgetManager.AddWidget(HUDWidget);
         }
 
 

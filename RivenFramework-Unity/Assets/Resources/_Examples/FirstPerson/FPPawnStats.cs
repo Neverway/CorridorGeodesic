@@ -12,10 +12,12 @@ using UnityEngine;
 
 [Serializable]
 public class FPPawnStats : PawnStats
-{
+{    
+    public override object Clone()
+    {
+        return MemberwiseClone();
+    }
     [Header("Personality")]
-    //public float health = 100f;
-    //public float invulnerabilityTime = 1f;
     [Tooltip("Represents how much the entity wants to engage with a situation")]
     public float courage = 0;
     [Tooltip("Represents how much the entity wants to investigate unknown observations")]
