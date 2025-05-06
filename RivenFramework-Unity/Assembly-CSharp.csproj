@@ -98,6 +98,7 @@
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets/Resources/Scripts/Framework/UIText_Speedometer.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/IK/IKTargetMatcher.cs" />
+     <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
      <Compile Include="Assets/Resources/Scripts/Integratables/UI_Image_EntityHealth.cs" />

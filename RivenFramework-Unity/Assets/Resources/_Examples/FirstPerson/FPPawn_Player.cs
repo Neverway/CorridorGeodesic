@@ -30,7 +30,7 @@ public class FPPawn_Player : FPPawn
     private GI_WidgetManager widgetManager;
     private new FPPawnActions action = new FPPawnActions();
     private InputActions.FirstPersonActions inputActions;
-    [SerializeField] private GameObject interactionPrefab;
+    [SerializeField] private GameObject DeathScreenWidget;
 
 
     //=-----------------=
@@ -70,6 +70,10 @@ public class FPPawn_Player : FPPawn
     public new void Awake()
     {
         base.Awake();
+        
+        // Subscribe to events
+        OnPawnDeath += () => { OnDeath(); };
+        
         // Setup inputs
         inputActions = new InputActions().FirstPerson;
         inputActions.Enable();
@@ -86,9 +90,13 @@ public class FPPawn_Player : FPPawn
         // Pausing
         UpdatePauseMenu();
         
-        if (isPaused) return;
+        
+        if (isPaused || isDead) return;
         UpdateMovement();
         UpdateRotation();
+        
+        // Kill bind
+        if (Input.GetKeyDown(KeyCode.Delete)) Kill();
         
         // Jumping
         if (inputActions.Jump.WasPressedThisFrame()) action.Jump(this);
@@ -109,7 +117,7 @@ public class FPPawn_Player : FPPawn
 
     public void FixedUpdate()
     {
-        if (isPaused) return;
+        if (isPaused || isDead) return;
         ApplyMovement();
         ApplyRotation();
     }
@@ -161,6 +169,28 @@ public class FPPawn_Player : FPPawn
     }
 
 
+    private void OnDeath()
+    {
+        // Drop held props
+        if (physObjectAttachmentPoint)
+        {
+            if (physObjectAttachmentPoint.attachedObject)
+            {
+                if (physObjectAttachmentPoint.attachedObject.GetComponent<Object_Grabbable>())
+                {
+                    physObjectAttachmentPoint.attachedObject.GetComponent<Object_Grabbable>().ToggleHeld();
+                }
+            }
+        }
+
+        // Remove the HUD
+        Destroy(widgetManager.GetExistingWidget("WB_HUD"));
+        // Add the respawn HUD
+        widgetManager.AddWidget(DeathScreenWidget);
+
+        // Play the death animation
+        if (GetComponent<Animator>()) GetComponent<Animator>().Play("Death");
+    }
     //=-----------------=
     // External Functions
     //=-----------------=

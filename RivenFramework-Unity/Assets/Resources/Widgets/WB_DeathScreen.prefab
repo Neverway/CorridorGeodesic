@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2280372157298583087}
-  - component: {fileID: 5341772761106728397}
+  - component: {fileID: -2500288008851543733}
   m_Layer: 0
   m_Name: WB_DeathScreen
   m_TagString: Untagged
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5341772761106728397
+--- !u!114 &-2500288008851543733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5675289539813747590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff33fcc9e0e8fb1fdaedf8949a8bb3e8, type: 3}
+  m_Script: {fileID: 11500000, guid: f47b65ab19a6378a5b46975ce7f8b162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8629236179701815004

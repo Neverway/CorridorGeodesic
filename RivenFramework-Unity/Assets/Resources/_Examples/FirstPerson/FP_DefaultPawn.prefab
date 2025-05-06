@@ -293,6 +293,8 @@ MonoBehaviour:
     crouchColliderOffset: {x: 0, y: 0.25, z: 0}
   physicsbody: {fileID: 0}
   viewPoint: {fileID: 0}
+  interactionPrefab: {fileID: 2444235702127718979, guid: 725c5b70fb134786d8042beab3ac77f3,
+    type: 3}
 --- !u!1 &2429653748589542475
 GameObject:
   m_ObjectHideFlags: 0

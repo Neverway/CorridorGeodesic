@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using RivenFramework;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -63,14 +64,9 @@ public class Image_EntityPain : MonoBehaviour
     // Internal Functions
     //=-----------------=
     private Pawn FindPossessedPawn()
-    {/*
-        foreach (var entity in FindObjectsByType<Pawn>(FindObjectsSortMode.None))
-        {
-            if (entity.isPossessed)
-            {
-                return entity;
-            }
-        }*/
+    {
+        if (FindObjectOfType<GI_PawnManager>().localPlayerCharacter)
+            return FindObjectOfType<GI_PawnManager>().localPlayerCharacter.GetComponent<Pawn>();
         return null;
     }
 
