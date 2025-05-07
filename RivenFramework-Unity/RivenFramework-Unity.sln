@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework.LogicSys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework.Cartographer", "Neverway.Framework.Cartographer.csproj", "{e39674fd-0230-c101-9fec-c610ab55f0a5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.Examples", "RivenFramework.Examples.csproj", "{3ad1012d-e5c2-53a5-b091-5a904d808bd3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework.AudioManagement", "Neverway.Framework.AudioManagement.csproj", "{3b7df345-bd9a-eee0-b323-cd18f735389d}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.PawnMangement", "RivenFramework.PawnMangement.csproj", "{bdf120d6-5854-7f7d-4f1a-9673abd83232}"
@@ -42,8 +40,6 @@ Global
 		{ec2bcf95-64bf-125f-d106-ec12a8016db9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e39674fd-0230-c101-9fec-c610ab55f0a5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{e39674fd-0230-c101-9fec-c610ab55f0a5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3ad1012d-e5c2-53a5-b091-5a904d808bd3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3ad1012d-e5c2-53a5-b091-5a904d808bd3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3b7df345-bd9a-eee0-b323-cd18f735389d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3b7df345-bd9a-eee0-b323-cd18f735389d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bdf120d6-5854-7f7d-4f1a-9673abd83232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
