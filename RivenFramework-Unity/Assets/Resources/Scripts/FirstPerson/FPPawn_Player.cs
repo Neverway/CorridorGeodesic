@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using RivenFramework;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -182,9 +183,9 @@ public class FPPawn_Player : FPPawn
         {
             if (physObjectAttachmentPoint.attachedObject)
             {
-                if (physObjectAttachmentPoint.attachedObject.GetComponent<Object_Grabbable>())
+                if (physObjectAttachmentPoint.attachedObject.GetComponent<Object_PhysPickup>())
                 {
-                    physObjectAttachmentPoint.attachedObject.GetComponent<Object_Grabbable>().ToggleHeld();
+                    physObjectAttachmentPoint.attachedObject.GetComponent<Object_PhysPickup>().ToggleHeld();
                 }
             }
         }

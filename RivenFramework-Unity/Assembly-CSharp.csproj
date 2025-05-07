@@ -165,7 +165,6 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered" />
      <Folder Include="Assets/Resources/Sprites/Level" />
-     <Folder Include="Assets/Resources/Objects/Animations" />
      <Folder Include="Assets/Resources/Objects" />
      <Folder Include="Assets/Resources/Scripts/Integratables/_Depreciated" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS3" />
@@ -242,7 +241,7 @@
      <None Include="Assets/_REMOVE_/SX_FogSkybox.shader" />
      <Folder Include="Assets/RivenFramework/Objects" />
      <Folder Include="Assets/AddressableAssetsData" />
-     <Folder Include="Assets/Resources/Models/_Characters" />
+     <Folder Include="Assets/_REMOVE_/_Characters" />
      <Folder Include="Assets/Resources/Sprites/Characters" />
      <Folder Include="Assets/TextMesh Pro/Sprites" />
      <Folder Include="Assets/RivenFramework-Revamp/_WidgetComponents" />
