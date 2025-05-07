@@ -26,11 +26,6 @@ public class FPPawnStats : PawnStats
     public float intelligence = 0;
     [Tooltip("Represents how much the entity will know to use elements in the environment")]
     public float wisdom = 0;
-
-    [Header("Teaming")] 
-    public string team = "";
-    public List<string> alliedTeams = new List<string>();
-    public List<string> opposedTeams = new List<string>();
     
     [Header("Traits")]
     [Tooltip("The distance an entity will detect objects when firing the look function")]

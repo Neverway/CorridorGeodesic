@@ -249,8 +249,8 @@ public class FPPawnActions : PawnActions
     public void Interact(FPPawn _pawn, GameObject _interactionTrigger, Transform _viewPoint)
     {
         var interaction = Object.Instantiate(_interactionTrigger, _viewPoint);
+        interaction.transform.GetChild(0).GetComponent<VolumeTriggerInteraction>().owningPawn = _pawn;
         Object.Destroy(interaction,  0.2f);
-        //interaction.transform.GetChild(0).GetComponent<>().owningPawn = _pawn;
     }
 
     /// <summary>
