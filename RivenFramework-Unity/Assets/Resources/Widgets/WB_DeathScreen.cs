@@ -53,7 +53,7 @@ public class WB_DeathScreen : MonoBehaviour
     //=-----------------=
     private IEnumerator InputDelay()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.2f);
         acceptingInputs = true;
     }
 

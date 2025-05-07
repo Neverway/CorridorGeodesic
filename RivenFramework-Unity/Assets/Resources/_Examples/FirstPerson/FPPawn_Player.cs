@@ -113,6 +113,12 @@ public class FPPawn_Player : FPPawn
         
         // Interact 
         if (inputActions.Interact.WasPressedThisFrame()) action.Interact(this, interactionPrefab, viewPoint.transform);
+        
+        // Throw held object
+        if (inputActions.ItemAction1.WasPressedThisFrame() && physObjectAttachmentPoint.attachedObject)
+        {
+            action.ThrowPhysProp(this);
+        }
     }
 
     public void FixedUpdate()

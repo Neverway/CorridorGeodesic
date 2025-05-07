@@ -359,6 +359,12 @@ public class FPPawnActions : PawnActions
     {
         
     }
+    
+    public void ThrowPhysProp(FPPawn _pawn)
+    {
+        _pawn.physObjectAttachmentPoint.attachedObject.GetComponent<Rigidbody>().AddForce(viewCamera.transform.forward * ((FPPawnStats)_pawn.currentStats).throwForce, ForceMode.Impulse);
+        _pawn.physObjectAttachmentPoint.attachedObject.GetComponent<Object_PhysPickup>().Drop();
+    }
 
     public FPPawn GetClosest(FPPawn _pawn, List<Pawn> _pawns)
     {

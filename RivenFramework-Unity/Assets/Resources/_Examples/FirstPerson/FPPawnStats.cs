@@ -26,8 +26,9 @@ public class FPPawnStats : PawnStats
     public float intelligence = 0;
     [Tooltip("Represents how much the entity will know to use elements in the environment")]
     public float wisdom = 0;
-    
-    [Header("Traits")]
+
+    [Header("Traits")] 
+    public float throwForce=350;
     [Tooltip("The distance an entity will detect objects when firing the look function")]
     public float lookRange = 20f;
     [Tooltip("The distance an entity will be able to hear sound events when firing the listen function")]

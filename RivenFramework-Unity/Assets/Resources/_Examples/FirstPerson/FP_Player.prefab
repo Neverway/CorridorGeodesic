@@ -392,6 +392,7 @@ MonoBehaviour:
     curiosity: 20
     intelligence: 20
     wisdom: 20
+    throwForce: 350
     lookRange: 20
     listenRange: 30
     comfortableAllyDistance: 5
