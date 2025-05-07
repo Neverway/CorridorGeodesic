@@ -33,7 +33,6 @@ public class FPPawn : Pawn
     public FPPawnActions FPaction => (FPPawnActions)action;
     
     [HideInInspector] public Rigidbody physicsbody;
-    [HideInInspector] public GameObject viewPoint;
     [SerializeField] public GameObject interactionPrefab;
 
 
@@ -44,7 +43,7 @@ public class FPPawn : Pawn
     {
         // Get references
         physicsbody = GetComponent<Rigidbody>();
-        viewPoint = transform.Find("ViewPoint").gameObject;
+        viewPoint = transform.Find("ViewPoint");
 
         defaultStats = FPDefaultStats;
         currentStats = (FPPawnStats)FPDefaultStats.Clone(); // Don't forget to clone so that you don't overwrite the pawns default values! ~Liz

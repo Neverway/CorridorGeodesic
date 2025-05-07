@@ -664,6 +664,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 7415143793264607929, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: targetPawn
+      value: 
+      objectReference: {fileID: 1021060626462872164}
+    - target: {fileID: 8225315359643588643, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: targetPawn
+      value: 
+      objectReference: {fileID: 1021060626462872164}
     - target: {fileID: 8874334129262957140, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -723,22 +733,23 @@ MonoBehaviour:
   isDead: 0
   despawnOnDeath: 1
   despawnOnDeathDelay: 3
-  physObjectAttachmentPoint: {fileID: 0}
+  viewPoint: {fileID: 0}
+  physObjectAttachmentPoint: {fileID: 3063684271374201707}
   visiblePawns: []
   visibleHostiles: []
   visibleAllies: []
   FPDefaultStats:
     health: 100
     invulnerabilityTime: 1
-    courage: 10
-    curiosity: 10
-    intelligence: 10
-    wisdom: 10
     team: Wolf
     alliedTeams:
     - Wolf
     opposedTeams:
     - Player
+    courage: 10
+    curiosity: 10
+    intelligence: 10
+    wisdom: 10
     lookRange: 20
     listenRange: 30
     comfortableAllyDistance: 5
@@ -764,8 +775,20 @@ MonoBehaviour:
     crouchDistance: 0.5
     crouchColliderOffset: {x: 0, y: 0.25, z: 0}
   physicsbody: {fileID: 0}
-  viewPoint: {fileID: 0}
+  interactionPrefab: {fileID: 0}
   logBehaviour: 0
+--- !u!114 &3063684271374201707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3001261832045667083, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+    type: 3}
+  m_PrefabInstance: {fileID: 226019050376974432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bb67116f18d64a4823df6d4137ac1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5079953542159447693 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4998263260262590189, guid: 9ed3a4da35b3ca57e9b7424f51915e87,

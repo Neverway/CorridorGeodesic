@@ -29,7 +29,7 @@ TagManager:
   - '[2D] Depth Layer 3'
   - Pawn
   - NoPawnCollision
-  - 
+  - PhysProps
   - 
   - 
   - 

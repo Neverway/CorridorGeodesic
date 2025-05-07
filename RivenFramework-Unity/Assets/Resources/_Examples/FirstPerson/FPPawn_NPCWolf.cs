@@ -41,7 +41,7 @@ public class FPPawn_NPCWolf : FPPawn
         base.Awake();
         // Get references
         physicsbody = GetComponent<Rigidbody>();
-        viewPoint = transform.Find("ViewPoint").gameObject;
+        viewPoint = transform.Find("ViewPoint");
     }
 
     public void FixedUpdate()
