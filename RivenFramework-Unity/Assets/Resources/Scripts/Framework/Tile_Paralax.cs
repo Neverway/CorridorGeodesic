@@ -16,7 +16,7 @@ using UnityEngine;
         [Tooltip("How much the tiles will shift from their starting position")]
         [SerializeField] private Vector2 parallaxAmount;
         [Tooltip("Which gamemode should the parallaxing be active during")]
-        [SerializeField] private string activeGameMode = "Topdown2D";
+        //[SerializeField] private string activeGameMode = "Topdown2D";
 
 
         //=-----------------=
