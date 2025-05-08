@@ -65,6 +65,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Unknown/LevelStreamer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Or.cs" />
+     <Compile Include="Assets/Testing file/Test2.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUtils.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Text_EntityName.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawnActions.cs" />
@@ -119,6 +120,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sound" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Wii" />
      <Folder Include="Assets/Packages/Samples/Folder Icons" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Materials" />
      <Folder Include="Assets/Packages/DOTween/Modules" />
      <Folder Include="Assets/Packages/QuickOutline/Resources" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System/Animations" />
@@ -128,10 +130,12 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Steam Deck" />
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/RVFR_Menu_ES.json" />
      <None Include="Assets/_REMOVE_/SX_FogPlane.shader" />
-     <Folder Include="Assets/Resources/Objects/Animations" />
-     <Folder Include="Assets/Resources/Models/Materials" />
+     <Folder Include="Assets/Resources/Objects/FirstPersonExample/Animations" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials" />
      <Folder Include="Assets/_REMOVE_/Integratables/IK" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models" />
      <Folder Include="Assets/Resources/Sprites/Widgets" />
+     <Folder Include="Assets/Resources/Objects/FirstPersonExample" />
      <Folder Include="Assets/Packages/Samples/Folder Icons/0.1.3/Folder Textures" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sound/Music" />
@@ -156,6 +160,7 @@
      <Folder Include="Assets/RivenFramework/Objects/Level" />
      <None Include="Assets/_REMOVE_/SX_StandardToonSurface_Oil.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
+     <Folder Include="Assets/Testing file" />
      <Folder Include="Assets/Resources/Materials/Shaders/Unsorted" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS Move" />
@@ -168,7 +173,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System/Materials" />
      <Folder Include="Assets/TextMesh Pro/Shaders" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Switch" />
-     <Folder Include="Assets/Resources/Objects/_Framework/MapObjects" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/MapObjects" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered" />
      <Folder Include="Assets/Resources/Objects" />
@@ -180,14 +185,15 @@
      <Folder Include="Assets/Resources/Other" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Xbox Series" />
+     <Folder Include="Assets/Resources/Objects/Generated" />
      <None Include="Assets/Packages/DOTween/readme.txt" />
      <None Include="Assets/_REMOVE_/SX_NullSpace.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/Widgets" />
      <None Include="Assets/_REMOVE_/SX_Lava.shader" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/ColorQuantizationFilter.shader" />
-     <Folder Include="Assets/Resources/Objects/_Framework/Animations" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/MapObjects/Animations" />
      <Folder Include="Assets/Resources/Materials/Textures/Effects" />
-     <Folder Include="Assets/Resources/Models/Materials/DevOrientation" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials/DevOrientation" />
      <Folder Include="Assets/Packages" />
      <None Include="Assets/_REMOVE_/SX_Helpers.cginc" />
      <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
@@ -195,7 +201,6 @@
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/OldGenericTextures" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
-     <Folder Include="Assets/Resources/Objects/_Framework" />
      <Folder Include="Assets/Packages/DynamicBone" />
      <Folder Include="Assets/RivenFramework" />
      <Folder Include="Assets/RivenFramework/Objects/Framework" />
@@ -218,7 +223,7 @@
      <None Include="Assets/Resources/Materials/Shaders/ScreenCutoutShader.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/RenderTextures" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
-     <Folder Include="Assets/Resources/Materials/Developer/DevMats" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Materials/Developer/DevMats" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets/Resources/Materials/PhysicsMaterials" />
      <Folder Include="Assets/TextMesh Pro/Resources/Style Sheets" />
@@ -248,8 +253,8 @@
      <Folder Include="Assets/Resources/Sprites/Tilesets" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/WiiU" />
      <Folder Include="Assets/Resources/Materials" />
-     <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/Developer" />
-     <Folder Include="Assets/Resources/Materials/Developer" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Textures/Developer" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Materials/Developer" />
      <None Include="Assets/Packages/Xelu_Prompts/Readme.txt" />
      <None Include="Assets/_REMOVE_/SX_FogSkybox.shader" />
      <Folder Include="Assets/RivenFramework/Objects" />
@@ -262,7 +267,7 @@
      <Folder Include="Assets/_REMOVE_" />
      <None Include="Assets/_REMOVE_/SX_StandardToonSurface.shader" />
      <Folder Include="Assets/Resources/Sound" />
-     <Folder Include="Assets/Resources/Models/Materials/DevCharacter" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials/DevCharacter" />
      <Folder Include="Assets/Packages/Samples" />
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/CorGeo_Menu_EN.json" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroups" />
@@ -295,12 +300,12 @@
      <Folder Include="Assets/Resources/Sound/Effects" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System/NeverwayLogo" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Textures" />
      <Folder Include="Assets/RivenFramework-Revamp/_Widgets" />
      <Folder Include="Assets/Resources/Materials/Textures/Skyboxes" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
      <None Include="Assets/Resources/Materials/Shaders/UIImageBlur.shader" />
      <Folder Include="Assets/Resources/Sprites/Characters/Portraits" />
-     <Folder Include="Assets/Resources/Objects/GeneratedObjects" />
      <Folder Include="Assets/Packages/Xelu_Prompts/PS5" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/Framework_Menus" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others" />
