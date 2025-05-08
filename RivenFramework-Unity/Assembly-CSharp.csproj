@@ -50,6 +50,7 @@
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_DialogueEvent.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_StepUp.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/Tile_Paralax.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityPortrait.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Particle_DataExposer.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Object_LiveThrowable.cs" />
@@ -59,7 +60,6 @@
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SplashScreenPlayer.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKTargetMatcher.cs" />
-     <Compile Include="Assets/Resources/Scripts/Framework/Image_EntityPain.cs" />
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CanvasForceGetActiveCamera.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
@@ -76,7 +76,6 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBonePlaneCollider.cs" />
-     <Compile Include="Assets/Resources/Scripts/Framework/Tile_Paralax.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics2D.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_FallDamage.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Volume2D_Force.cs" />
@@ -85,13 +84,14 @@
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Pawn_Inventory.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Timer.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/Light_DistanceCulling.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Counter.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawn_Player.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SignalEventPlayer.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/Image_EntityPain.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityEquippedItems.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleAudio.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUnityVersion.cs" />
-     <Compile Include="Assets/Resources/Scripts/Framework/UIText_Speedometer.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawn.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_Flicker.cs" />
@@ -102,7 +102,6 @@
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Text_EntityItems.cs" />
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_Billboard.cs" />
-     <Compile Include="Assets/Resources/Scripts/Framework/Light_DistanceCulling.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_CrushDetection.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKFootSolver.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
@@ -111,6 +110,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_SFX_Impact.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Toggle.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/UIText_Speedometer.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/_REMOVE_/Integratables/CorGeo" />
      <Folder Include="Assets/Resources/Maps" />
@@ -126,6 +126,7 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Gestures" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Materials" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Steam Deck" />
+     <None Include="Assets/Resources/Other/LocalizationFiles/OLD/RVFR_Menu_ES.json" />
      <None Include="Assets/_REMOVE_/SX_FogPlane.shader" />
      <Folder Include="Assets/Resources/Objects/Animations" />
      <Folder Include="Assets/Resources/Models/Materials" />
@@ -138,12 +139,12 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox 360" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Blanks" />
-     <Folder Include="Assets/Resources/Maps/_Framework" />
      <None Include="Assets/_REMOVE_/SX_SlicePreview.shader" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/ComicFilter.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts" />
      <Folder Include="Assets/Resources/Sprites/VeryImportantDoNotDelete" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated/OLD" />
+     <Folder Include="Assets/Resources/Other/LocalizationFiles" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <Folder Include="Assets/Resources/Widgets" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/DitheringFilter.shader" />
@@ -173,6 +174,7 @@
      <Folder Include="Assets/_REMOVE_/Integratables/_Depreciated" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS3" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
+     <Folder Include="Assets/Resources/Other/LocalizationFiles/OLD" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Amazon Luna" />
      <Folder Include="Assets/Resources/Other" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
@@ -220,6 +222,7 @@
      <Folder Include="Assets/TextMesh Pro/Resources/Style Sheets" />
      <Folder Include="Assets/Packages/DOTween" />
      <Folder Include="Assets/Resources" />
+     <None Include="Assets/Resources/Other/LocalizationFiles/OLD/CorGeo_Dialouge_EN.json" />
      <Folder Include="Assets/TextMesh Pro/Documentation" />
      <Folder Include="Assets/Packages/Fonts" />
      <Folder Include="Assets/Packages/DynamicBone/Scripts" />
@@ -258,6 +261,7 @@
      <Folder Include="Assets/Resources/Sound" />
      <Folder Include="Assets/Resources/Models/Materials/DevCharacter" />
      <Folder Include="Assets/Packages/Samples" />
+     <None Include="Assets/Resources/Other/LocalizationFiles/OLD/CorGeo_Menu_EN.json" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroups" />
      <Folder Include="Assets/RivenFramework-Revamp" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Vive" />
@@ -272,7 +276,7 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Oculus" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroupTemplates" />
      <Folder Include="Assets/Resources/Sprites/Effects" />
-     <Folder Include="Assets/Resources/Scripts/Framework" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Scripts" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Dark" />
      <None Include="Assets/Resources/Materials/Shaders/Blur.shader" />
@@ -280,6 +284,7 @@
      <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Steam" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
+     <None Include="Assets/Resources/Other/LocalizationFiles/OLD/RVFR_Menu_EN.json" />
      <Folder Include="Assets/Packages/DOTween/Resources" />
      <None Include="Assets/_REMOVE_/SX_Oil.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Levels" />
@@ -294,6 +299,7 @@
      <Folder Include="Assets/Resources/Sprites/Characters/Portraits" />
      <Folder Include="Assets/Resources/Objects/GeneratedObjects" />
      <Folder Include="Assets/Packages/Xelu_Prompts/PS5" />
+     <Folder Include="Assets/Resources/Other/LocalizationFiles/RVFR_Menus" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others" />
      <Folder Include="Assets/RivenFramework/Scripts" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />

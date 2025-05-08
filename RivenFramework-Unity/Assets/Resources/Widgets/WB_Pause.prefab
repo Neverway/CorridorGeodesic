@@ -780,7 +780,22 @@ PrefabInstance:
     - target: {fileID: 1732088717169147424, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
       propertyPath: m_Name
-      value: '[Text]'
+      value: Text (Resume)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 11159212580864
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a0c347858c235e5d7bf0f2ce5c61182a
       objectReference: {fileID: 0}
     - target: {fileID: 4116690135669473716, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
@@ -1229,7 +1244,22 @@ PrefabInstance:
     - target: {fileID: 1732088717169147424, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
       propertyPath: m_Name
-      value: '[Text] Project Title'
+      value: Text (Paused)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 11090434383872
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a0c347858c235e5d7bf0f2ce5c61182a
       objectReference: {fileID: 0}
     - target: {fileID: 4116690135669473716, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
@@ -1550,7 +1580,22 @@ PrefabInstance:
     - target: {fileID: 1732088717169147424, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
       propertyPath: m_Name
-      value: '[Text]'
+      value: Text (Settings)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 11243518091264
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a0c347858c235e5d7bf0f2ce5c61182a
       objectReference: {fileID: 0}
     - target: {fileID: 4116690135669473716, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
@@ -1871,7 +1916,22 @@ PrefabInstance:
     - target: {fileID: 1732088717169147424, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
       propertyPath: m_Name
-      value: '[Text]'
+      value: Text (Main Menu)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 11280847396864
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a0c347858c235e5d7bf0f2ce5c61182a
       objectReference: {fileID: 0}
     - target: {fileID: 4116690135669473716, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
@@ -2308,7 +2368,22 @@ PrefabInstance:
     - target: {fileID: 1732088717169147424, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
       propertyPath: m_Name
-      value: '[Text]'
+      value: Text (Exit Game)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 11324191334400
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a0c347858c235e5d7bf0f2ce5c61182a
       objectReference: {fileID: 0}
     - target: {fileID: 4116690135669473716, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
@@ -2737,7 +2812,22 @@ PrefabInstance:
     - target: {fileID: 1732088717169147424, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
       propertyPath: m_Name
-      value: '[Text]'
+      value: Text (Restart Level)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 11195996626944
+      objectReference: {fileID: 0}
+    - target: {fileID: 4017326338698437437, guid: e939f13b17fb3bcb582ebe98d53fc04a,
+        type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:a0c347858c235e5d7bf0f2ce5c61182a
       objectReference: {fileID: 0}
     - target: {fileID: 4116690135669473716, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
