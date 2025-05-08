@@ -65,7 +65,6 @@
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Unknown/LevelStreamer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Or.cs" />
-     <Compile Include="Assets/Testing file/Test2.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUtils.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Text_EntityName.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawnActions.cs" />
@@ -129,10 +128,11 @@
      <Folder Include="Assets/Packages/QuickOutline/Resources/Materials" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Steam Deck" />
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/RVFR_Menu_ES.json" />
-     <None Include="Assets/_REMOVE_/SX_FogPlane.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_FogPlane.shader" />
      <Folder Include="Assets/Resources/Objects/FirstPersonExample/Animations" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials" />
      <Folder Include="Assets/_REMOVE_/Integratables/IK" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/Generic/Copper" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models" />
      <Folder Include="Assets/Resources/Sprites/Widgets" />
      <Folder Include="Assets/Resources/Objects/FirstPersonExample" />
@@ -144,28 +144,32 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox 360" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Blanks" />
-     <None Include="Assets/_REMOVE_/SX_SlicePreview.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_SlicePreview.shader" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/ComicFilter.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/Generic/Brass" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/VeryImportantDoNotDelete" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated/OLD" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <Folder Include="Assets/Resources/Widgets" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/DitheringFilter.shader" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/IndustrialWall" />
      <Folder Include="Assets/TextMesh Pro" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/Generic/Plywood" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
-     <None Include="Assets/_REMOVE_/SXToonSurfaceRemix.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SXToonSurfaceRemix.shader" />
      <Folder Include="Assets/Packages/ProBuilder Data" />
      <Folder Include="Assets/RivenFramework/Objects/Level" />
-     <None Include="Assets/_REMOVE_/SX_StandardToonSurface_Oil.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface_Oil.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/IndustrialFloor" />
      <Folder Include="Assets/Testing file" />
      <Folder Include="Assets/Resources/Materials/Shaders/Unsorted" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS Move" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites" />
-     <None Include="Assets/_REMOVE_/SX_Fizzler.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_Fizzler.shader" />
      <None Include="Assets/RivenFramework/Other/80-C# NeverwayTemplates__Standard-New Standard Script.cs.txt" />
      <None Include="Assets/Packages/QuickOutline/Resources/Shaders/OutlineMask.shader" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroups/Schemas" />
@@ -177,44 +181,52 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered" />
      <Folder Include="Assets/Resources/Objects" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/Generic/DarkSteel" />
      <Folder Include="Assets/_REMOVE_/Integratables/_Depreciated" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS3" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Amazon Luna" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/LizsMaterialPack" />
      <Folder Include="Assets/Resources/Other" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Xbox Series" />
      <Folder Include="Assets/Resources/Objects/Generated" />
      <None Include="Assets/Packages/DOTween/readme.txt" />
-     <None Include="Assets/_REMOVE_/SX_NullSpace.shader" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/LizsMaterialPack/BrickWall" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_NullSpace.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/Widgets" />
-     <None Include="Assets/_REMOVE_/SX_Lava.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_Lava.shader" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/ColorQuantizationFilter.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/MapObjects/Animations" />
      <Folder Include="Assets/Resources/Materials/Textures/Effects" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials/DevOrientation" />
      <Folder Include="Assets/Packages" />
-     <None Include="Assets/_REMOVE_/SX_Helpers.cginc" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/IndustrialMetalPlate" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_Helpers.cginc" />
      <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/IndustrialCeiling" />
      <Folder Include="Assets/RivenFramework/Scripts/_Depreciated" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered/OldGenericTextures" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/LizsMaterialPack/WoodPlanks" />
      <Folder Include="Assets/Packages/DynamicBone" />
      <Folder Include="Assets/RivenFramework" />
      <Folder Include="Assets/RivenFramework/Objects/Framework" />
      <Folder Include="Assets/Resources/Materials/Shaders/PostProcessing" />
-     <None Include="Assets/_REMOVE_/SX_Decal.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_Decal.shader" />
      <Folder Include="Assets/Resources/Sprites/Tilesets/Collision" />
      <Folder Include="Assets/TextMesh Pro/Resources/Fonts &amp; Materials" />
-     <None Include="Assets/_REMOVE_/SX_StandardSurface_NoFog.shader" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/ConcreteFloor" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_StandardSurface_NoFog.shader" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System/NeverwayLogo/Materials" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS4" />
      <Folder Include="Assets/RivenFramework/Scripts/_Unknown" />
-     <None Include="Assets/_REMOVE_/SX_StandardSurface.shader" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/Generic/RockOne" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_StandardSurface.shader" />
      <Folder Include="Assets/RivenFramework/Objects/Customizables" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/LocalizationFlags" />
      <Folder Include="Assets/Resources/Materials/Effects" />
@@ -231,6 +243,7 @@
      <Folder Include="Assets/Resources" />
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/CorGeo_Dialouge_EN.json" />
      <Folder Include="Assets/TextMesh Pro/Documentation" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack" />
      <Folder Include="Assets/Packages/Fonts" />
      <Folder Include="Assets/Packages/DynamicBone/Scripts" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Google Stadia" />
@@ -246,7 +259,8 @@
      <Folder Include="Assets/TextMesh Pro/Fonts" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Light" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Shaders" />
-     <None Include="Assets/_REMOVE_/SX_SGHelpers.cginc" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/Generic/Wood" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_SGHelpers.cginc" />
      <Folder Include="Assets/Resources/Materials/Shaders" />
      <Folder Include="Assets/Resources/Materials/Skyboxes" />
      <Folder Include="Assets/Resources/Sprites" />
@@ -256,16 +270,19 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Textures/Developer" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Materials/Developer" />
      <None Include="Assets/Packages/Xelu_Prompts/Readme.txt" />
-     <None Include="Assets/_REMOVE_/SX_FogSkybox.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_FogSkybox.shader" />
      <Folder Include="Assets/RivenFramework/Objects" />
      <Folder Include="Assets/AddressableAssetsData" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/IndustrialMetalPlate2" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/Generic" />
      <Folder Include="Assets/_REMOVE_/_Characters" />
      <Folder Include="Assets/Resources/Sprites/Characters" />
      <Folder Include="Assets/TextMesh Pro/Sprites" />
      <Folder Include="Assets/RivenFramework-Revamp/_WidgetComponents" />
-     <None Include="Assets/_REMOVE_/SX_Triplanar.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_Triplanar.shader" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/LizsMaterialPack/Dirt" />
      <Folder Include="Assets/_REMOVE_" />
-     <None Include="Assets/_REMOVE_/SX_StandardToonSurface.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface.shader" />
      <Folder Include="Assets/Resources/Sound" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials/DevCharacter" />
      <Folder Include="Assets/Packages/Samples" />
@@ -280,9 +297,10 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Positional Prompts" />
      <Folder Include="Assets/Resources/Scripts/FirstPersonExample" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
-     <None Include="Assets/_REMOVE_/SX_LitVertex.shader" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_LitVertex.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Oculus" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroupTemplates" />
+     <Folder Include="Assets/Resources/Materials/CorGeo" />
      <Folder Include="Assets/Resources/Sprites/Effects" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Scripts" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
@@ -294,8 +312,10 @@
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/RVFR_Menu_EN.json" />
      <Folder Include="Assets/Packages/DOTween/Resources" />
-     <None Include="Assets/_REMOVE_/SX_Oil.shader" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/Generic/Fence" />
+     <None Include="Assets/Resources/Materials/Shaders/SX_Oil.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Levels" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/SoulexsMaterialPack/ConcreteWall" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/VeryImportantDoNotDelete/Materials" />
      <Folder Include="Assets/Resources/Sound/Effects" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
@@ -561,19 +581,19 @@
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Collections.LowLevel.ILSupport">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll</HintPath>
      </Reference>
      <Reference Include="ReportGeneratorMerged">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
      </Reference>
      <Reference Include="DOTween">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Assets/Packages/DOTween/DOTween.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Assets/Packages/DOTween/DOTween.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -942,238 +962,238 @@
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Runtime">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Postprocessing.Runtime">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ResourceManager">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ResourceManager.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ResourceManager.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Path.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Common.Path.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Common.Path.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Animation.Rigging.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Animation.Rigging.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Animation.Rigging.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Localization.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Localization.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Localization.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ScriptableBuildPipeline">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProBuilder.AddOns.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Aseprite.Common">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Aseprite.Common.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Aseprite.Common.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="SimpleFileBrowser.Runtime">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/SimpleFileBrowser.Runtime.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/SimpleFileBrowser.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Collections">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.SpriteShape.Runtime">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Aseprite.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Aseprite.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Aseprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Animation.Rigging">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Animation.Rigging.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Animation.Rigging.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Sysroot.Linux_x86_64">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
      </Reference>
      <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
      </Reference>
      <Reference Include="PsdPlugin">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Toolchain.Linux-x86_64">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProBuilder">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Localization">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Localization.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Localization.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Runtime">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Extras">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Tilemap.Extras.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEditorBridge.005">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.005.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.005.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.001">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Runtime">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ProBuilder.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InputSystem">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InputSystem.ForUI">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Addressables.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Addressables.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Addressables.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.SysrootPackage.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Psdimporter.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEditorBridge.001">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Postprocessing.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
      <Reference Include="FolderIconsEditor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/FolderIconsEditor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/FolderIconsEditor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ScriptableBuildPipeline.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Tilemap.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Addressables">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Addressables.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Addressables.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/RivenFramework-Unity/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
