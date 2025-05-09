@@ -327,6 +327,11 @@ PrefabInstance:
       propertyPath: targetPawn
       value: 
       objectReference: {fileID: 7360750914834237688}
+    - target: {fileID: 8874334129262957140, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.95
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6118868544368584257, guid: 9ed3a4da35b3ca57e9b7424f51915e87, type: 3}
     m_RemovedGameObjects: []

@@ -1504,46 +1504,7 @@ MonoBehaviour:
   - {fileID: -1877621458505242862}
   - {fileID: -4110732194176603622}
   - {fileID: 5977108932207599525}
-  - {fileID: 1160765500471503049}
   - {fileID: -867587464913695539}
-  - {fileID: 5980392836088833046}
---- !u!114 &1160765500471503049
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
-  m_Name: ScreenSpaceReflections
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  preset:
-    overrideState: 1
-    value: 1
-  maximumIterationCount:
-    overrideState: 0
-    value: 16
-  resolution:
-    overrideState: 0
-    value: 0
-  thickness:
-    overrideState: 0
-    value: 8
-  maximumMarchDistance:
-    overrideState: 1
-    value: 100
-  distanceFade:
-    overrideState: 1
-    value: 0
-  vignette:
-    overrideState: 1
-    value: 1
 --- !u!114 &1831703949906613702
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1556,7 +1517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1677,31 +1638,3 @@ MonoBehaviour:
   speedDown:
     overrideState: 0
     value: 1
---- !u!114 &5980392836088833046
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
-  m_Name: Grain
-  m_EditorClassIdentifier: 
-  active: 0
-  enabled:
-    overrideState: 1
-    value: 1
-  colored:
-    overrideState: 0
-    value: 1
-  intensity:
-    overrideState: 1
-    value: 0.2
-  size:
-    overrideState: 0
-    value: 1
-  lumContrib:
-    overrideState: 0
-    value: 0.8

@@ -109,7 +109,7 @@ Material:
     - _Metallic: 0.6
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.01
+    - _Parallax: 0
     - _RampSmoothness: 0.1
     - _RoughnessPower: 1
     - _SmoothnessTextureChannel: 0

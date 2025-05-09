@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: d094f4f866cba614abf04a8b2ad0674d
+labels:
+- TextureEnv
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
