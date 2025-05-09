@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2d2fee9aad19a6c3b26ec1be4ae7792
+guid: 564136b3197b5051db321c7854b38282
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.ControlPanel
-    second: {fileID: 2100000, guid: 4f29b42aa9b1e3046a0d9d993e9a10b7, type: 2}
+      name: Prop.Door
+    second: {fileID: 2100000, guid: f99cb773b972e47ef887323781e7cbf1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.Door.Frame
+    second: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.Door.Handel
+    second: {fileID: 2100000, guid: f8f28e1b4e456034caa6ae3cffa01850, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.Door.HandelPlate
+    second: {fileID: 2100000, guid: f8f28e1b4e456034caa6ae3cffa01850, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.Door.Plates
+    second: {fileID: 2100000, guid: f8f28e1b4e456034caa6ae3cffa01850, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +57,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1

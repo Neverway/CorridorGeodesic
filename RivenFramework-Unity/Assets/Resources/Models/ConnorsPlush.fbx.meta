@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2d2fee9aad19a6c3b26ec1be4ae7792
+guid: aebf47cf266dccf4d9565f5b65370d7e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.ControlPanel
-    second: {fileID: 2100000, guid: 4f29b42aa9b1e3046a0d9d993e9a10b7, type: 2}
+      name: Palette
+    second: {fileID: 2100000, guid: cd9a48bbad62cf840b2dd6cc86913de7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

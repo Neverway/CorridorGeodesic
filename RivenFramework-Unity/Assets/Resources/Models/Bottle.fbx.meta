@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2d2fee9aad19a6c3b26ec1be4ae7792
+guid: a8b15a93a2cbcc3e09ebc1581a88dd15
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.ControlPanel
-    second: {fileID: 2100000, guid: 4f29b42aa9b1e3046a0d9d993e9a10b7, type: 2}
+      name: Prop.Bottle
+    second: {fileID: 2100000, guid: f626d4fbb2d93a3f3a41284102ae930a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +37,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
