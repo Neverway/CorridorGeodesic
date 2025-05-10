@@ -3,7 +3,12 @@ guid: 3100045be8baa430fb610189c163a3be
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.MetalRailing
+    second: {fileID: 2100000, guid: f8f28e1b4e456034caa6ae3cffa01850, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

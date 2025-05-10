@@ -171,7 +171,6 @@
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface_Oil.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/IndustrialFloor" />
-     <Folder Include="Assets/Testing file" />
      <Folder Include="Assets/Resources/Materials/Shaders/Unsorted" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Grayscales" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_" />
@@ -333,6 +332,7 @@
      <Folder Include="Assets/Packages/DOTween/Resources" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/Fence" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Oil.shader" />
+     <Folder Include="Assets/Resources/Models/Materials" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Levels" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/ConcreteWall" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/VeryImportantDoNotDelete/Materials" />

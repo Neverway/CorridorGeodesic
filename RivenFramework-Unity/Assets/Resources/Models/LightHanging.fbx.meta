@@ -3,7 +3,27 @@ guid: a35984b1128767664a57ad7da7860ff9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.LightHanging
+    second: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.LightHanging2
+    second: {fileID: 2100000, guid: 368b6dfbc2b831c4a92ed92b2a08b63d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.LightHanging3
+    second: {fileID: 2100000, guid: f8f28e1b4e456034caa6ae3cffa01850, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.LightHanging4
+    second: {fileID: 2100000, guid: 38178dbcc79fe871aba4cdfebc9c5361, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

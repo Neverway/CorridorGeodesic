@@ -3,7 +3,12 @@ guid: 59bdeed2cedacce5ba6373633c6e08e9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.MetalBeam
+    second: {fileID: 2100000, guid: f99cb773b972e47ef887323781e7cbf1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

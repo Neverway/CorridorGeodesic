@@ -3,7 +3,17 @@ guid: af4850428e261f2b08d1405efbc0e9bf
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.Window.Frame
+    second: {fileID: 2100000, guid: 08ea606a7c282094386144506cd44996, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.Window.Pane
+    second: {fileID: 2100000, guid: 02a307ed605de8321b5c95743db3b0af, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
