@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 8fb72bc353e2f3840bd4ba117e66b967
+labels:
+- Model
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -9,6 +11,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Brass
     second: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: f54525b00307135ec946208d7196b2e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SteelDark
+    second: {fileID: 2100000, guid: 368b6dfbc2b831c4a92ed92b2a08b63d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

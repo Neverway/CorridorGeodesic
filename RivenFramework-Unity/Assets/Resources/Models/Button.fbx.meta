@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 37d572ded4abf2ee8ab15d11de8636ca
+guid: c1c8b1ea1989f474384f08c2bfede52d
 labels:
 - Model
-- NeedsTextures
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -10,8 +9,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.TapeComputer.Body
-    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
+      name: Brass
+    second: {fileID: 2100000, guid: f8f28e1b4e456034caa6ae3cffa01850, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Button
+    second: {fileID: 2100000, guid: 98eb3b6f9148a19468e7857f766f3745, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Copper
+    second: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plywood
+    second: {fileID: 2100000, guid: e1758cdc5e4b1ec4493243850a29fdf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SteelDark
+    second: {fileID: 2100000, guid: 368b6dfbc2b831c4a92ed92b2a08b63d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -40,7 +59,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1

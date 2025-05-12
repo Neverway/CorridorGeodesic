@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: f4212c0a9d37cd845b479492d76f66d8
+labels:
+- Model
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,17 +10,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Copper
-    second: {fileID: 2100000, guid: 8df4fc1f792d1b24786262efcf4974c4, type: 2}
+    second: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Fins
-    second: {fileID: 2100000, guid: 8b776512b02732e4eb322a092e415fee, type: 2}
+    second: {fileID: 2100000, guid: 368b6dfbc2b831c4a92ed92b2a08b63d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ShinyMetal
-    second: {fileID: 2100000, guid: 2bd5cf305ac5ba3c18250db62488c36c, type: 2}
+    second: {fileID: 2100000, guid: f8f28e1b4e456034caa6ae3cffa01850, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

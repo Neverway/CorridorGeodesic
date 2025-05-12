@@ -1,9 +1,21 @@
 fileFormatVersion: 2
 guid: a7ffafc4d1a40d64b8348c4eb6956947
+labels:
+- Model
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.OutletPoint
+    second: {fileID: 2100000, guid: 11a948daddd4e2f48aa2c67a57b71772, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.OutletPoint.001
+    second: {fileID: 2100000, guid: 320e217250e84dd42b03611e7632fef4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

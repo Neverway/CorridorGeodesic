@@ -1,12 +1,17 @@
 fileFormatVersion: 2
-guid: f4481acb556cacba383983915e053a24
+guid: 077cc98ae2eafa257a7c334fdd047fbb
 labels:
 - Model
 - NeedsTextures
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.Vending2
+    second: {fileID: 2100000, guid: 7e726072869739e9f852c038e981a041, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

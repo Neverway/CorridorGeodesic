@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: c62f6264a2ffe3b4a833036f4a8cbd92
+labels:
+- Model
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -13,7 +15,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Cube
-    second: {fileID: 2100000, guid: 9886379b51d6dab4d861029b70374dd1, type: 2}
+    second: {fileID: 2100000, guid: eaa5eeb1b272f6e458803c15023e635c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

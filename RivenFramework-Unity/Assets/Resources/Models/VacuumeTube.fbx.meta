@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 00d2ec81996f993409a1c6eb47a83cdf
+labels:
+- Model
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -18,17 +20,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Glass
-    second: {fileID: 2100000, guid: 03e8a9ec0315a3c4f819ba4557fd6f19, type: 2}
+    second: {fileID: 2100000, guid: 14589d688cfc8b652b1e6c870bb2c0fc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: HexagonMesh
-    second: {fileID: 2100000, guid: 80ebb9fa144b3a045b1e6359c0fd5adf, type: 2}
+    second: {fileID: 2100000, guid: d2447c3d1ba40f345a26562ee1720b00, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: InfinityText
-    second: {fileID: 2100000, guid: 293d199a244c4a1ea87047ceaf69c5c5, type: 2}
+    second: {fileID: 2100000, guid: 508c81e589cabf5e3bdc0469cbecec2b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -38,7 +40,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Invisible
-    second: {fileID: 2100000, guid: b855771b44de73043ad9484304869a1f, type: 2}
+    second: {fileID: 2100000, guid: a62b29bb85776d5ad9c71ba928c1c514, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

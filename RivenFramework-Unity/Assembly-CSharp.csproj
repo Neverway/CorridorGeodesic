@@ -256,6 +256,7 @@
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/CorGeo_Dialouge_EN.json" />
      <Folder Include="Assets/TextMesh Pro/Documentation" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack" />
+     <Folder Include="Assets/Resources/Models/Checked" />
      <Folder Include="Assets/Packages/Fonts" />
      <Folder Include="Assets/Packages/DynamicBone/Scripts" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Google Stadia" />

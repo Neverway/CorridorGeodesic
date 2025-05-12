@@ -1,12 +1,22 @@
 fileFormatVersion: 2
-guid: 077cc98ae2eafa257a7c334fdd047fbb
+guid: 37d572ded4abf2ee8ab15d11de8636ca
 labels:
 - Model
 - NeedsTextures
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.ComputerTapedeck
+    second: {fileID: 2100000, guid: 7e726072869739e9f852c038e981a041, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.TapeComputer.Body
+    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -35,7 +45,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1

@@ -1,9 +1,22 @@
 fileFormatVersion: 2
-guid: fc8fa1741afd740609921beda6ae4208
+guid: b2d2fee9aad19a6c3b26ec1be4ae7792
+labels:
+- Model
+- NeedsTextures
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.ComputerControlDesk
+    second: {fileID: 2100000, guid: 7e726072869739e9f852c038e981a041, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Prop.ControlPanel
+    second: {fileID: 2100000, guid: 4f29b42aa9b1e3046a0d9d993e9a10b7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -32,7 +45,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1

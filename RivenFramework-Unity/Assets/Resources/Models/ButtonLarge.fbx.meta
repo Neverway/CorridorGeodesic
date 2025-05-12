@@ -1,5 +1,7 @@
 fileFormatVersion: 2
-guid: b7fd6756a639f6c408f652106f62715b
+guid: adc4811ce822d2744be4ba21b2e215b8
+labels:
+- Model
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,22 +9,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Brass
-    second: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Brass.001
-    second: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Button
-    second: {fileID: 2100000, guid: 98eb3b6f9148a19468e7857f766f3745, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Button.001
     second: {fileID: 2100000, guid: 98eb3b6f9148a19468e7857f766f3745, type: 2}
   - first:
       type: UnityEngine:Material
@@ -32,22 +19,12 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Copper.001
-    second: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
+      name: Material.001
     second: {fileID: 2100000, guid: f54525b00307135ec946208d7196b2e4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: SteelDark
-    second: {fileID: 2100000, guid: 368b6dfbc2b831c4a92ed92b2a08b63d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SteelDark.001
     second: {fileID: 2100000, guid: 368b6dfbc2b831c4a92ed92b2a08b63d, type: 2}
   materials:
     materialImportMode: 2
