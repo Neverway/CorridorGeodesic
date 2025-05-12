@@ -114,6 +114,7 @@
      <Folder Include="Assets" />
      <Folder Include="Assets/_REMOVE_/Integratables/CorGeo" />
      <Folder Include="Assets/Resources/Maps" />
+     <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1 1/Poiyomi Toon.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Arrows" />
      <Folder Include="Assets/Resources/Models" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Errynei" />
@@ -140,7 +141,9 @@
      <Folder Include="Assets/Resources/Sprites/Widgets" />
      <Folder Include="Assets/Resources/Objects/FirstPersonExample" />
      <Folder Include="Assets/Packages/Samples/Folder Icons/0.1.3/Folder Textures" />
+     <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/Shaders" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sound/Music" />
      <Folder Include="Assets/RivenFramework/Other" />
@@ -148,14 +151,18 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox 360" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Blanks" />
+     <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat" />
      <None Include="Assets/Resources/Materials/Shaders/SX_SlicePreview.shader" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/ComicFilter.shader" />
+     <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Fur" />
      <Folder Include="Assets/Packages/Xelu_Prompts" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/Brass" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/VeryImportantDoNotDelete" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated/OLD" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles" />
+     <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1/Poiyomi Toon.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Fur/Poiyomi Toon.shader" />
      <Folder Include="Assets/Resources/Widgets" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Liz" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures" />
@@ -172,6 +179,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/IndustrialFloor" />
      <Folder Include="Assets/Resources/Materials/Shaders/Unsorted" />
+     <Folder Include="Assets/Resources/Models/Materials/Kellory" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Grayscales" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS Move" />
@@ -216,6 +224,7 @@
      <Folder Include="Assets/Packages" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/IndustrialMetalPlate" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Helpers.cginc" />
+     <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1 1" />
      <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/IndustrialCeiling" />
      <Folder Include="Assets/RivenFramework/Scripts/_Depreciated" />
@@ -225,6 +234,7 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/WoodPlanks" />
      <Folder Include="Assets/Packages/DynamicBone" />
      <Folder Include="Assets/RivenFramework" />
+     <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Head" />
      <Folder Include="Assets/RivenFramework/Objects/Framework" />
      <Folder Include="Assets/Resources/Materials/Shaders/PostProcessing" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Decal.shader" />
@@ -238,6 +248,7 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS4" />
      <Folder Include="Assets/RivenFramework/Scripts/_Unknown" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/RockOne" />
+     <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Body/Poiyomi Toon.shader" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardSurface.shader" />
      <Folder Include="Assets/RivenFramework/Objects/Customizables" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/LocalizationFlags" />
@@ -248,6 +259,7 @@
      <Folder Include="Assets/Resources/Materials/Textures/RenderTextures" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Materials/Developer/DevMats" />
+     <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets/Resources/Materials/PhysicsMaterials" />
      <Folder Include="Assets/TextMesh Pro/Resources/Style Sheets" />
@@ -255,8 +267,8 @@
      <Folder Include="Assets/Resources" />
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/CorGeo_Dialouge_EN.json" />
      <Folder Include="Assets/TextMesh Pro/Documentation" />
+     <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Head/Poiyomi Toon.shader" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack" />
-     <Folder Include="Assets/Resources/Models/Checked" />
      <Folder Include="Assets/Packages/Fonts" />
      <Folder Include="Assets/Packages/DynamicBone/Scripts" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Google Stadia" />
@@ -318,6 +330,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
      <None Include="Assets/Resources/Materials/Shaders/SX_LitVertex.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Oculus" />
+     <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat/Poiyomi Toon.shader" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroupTemplates" />
      <Folder Include="Assets/Resources/Materials/CorGeo" />
      <Folder Include="Assets/Resources/Sprites/Effects" />
@@ -328,8 +341,10 @@
      <None Include="Assets/Packages/QuickOutline/Resources/Shaders/OutlineFill.shader" />
      <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Steam" />
+     <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Body" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/RVFR_Menu_EN.json" />
+     <None Include="Assets/Resources/Materials/Shaders/Unsorted/ScreenCutoutShader.shader" />
      <Folder Include="Assets/Packages/DOTween/Resources" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/Fence" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Oil.shader" />
