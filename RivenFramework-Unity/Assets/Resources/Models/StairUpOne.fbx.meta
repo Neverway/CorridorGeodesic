@@ -1,8 +1,5 @@
 fileFormatVersion: 2
-guid: 37d572ded4abf2ee8ab15d11de8636ca
-labels:
-- Model
-- NeedsTextures
+guid: d889f8540d2c86c4ead1ff8400fb3925
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -10,13 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.ComputerTapedeck
-    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
+      name: Copper_Toon
+    second: {fileID: 2100000, guid: 1049cfa030a88ed40b0532ad5dbe771c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.TapeComputer.Body
-    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
+      name: IndustrialFloor
+    second: {fileID: 2100000, guid: 2380f26b1fb7a0048a2f4f3b26ff8e52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plywood_Toon
+    second: {fileID: 2100000, guid: e1758cdc5e4b1ec4493243850a29fdf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 4fea80feda67d834ebcd1c7c66bcd482, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,7 +52,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1

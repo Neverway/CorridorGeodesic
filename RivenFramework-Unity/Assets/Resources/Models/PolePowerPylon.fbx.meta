@@ -1,8 +1,5 @@
 fileFormatVersion: 2
-guid: 37d572ded4abf2ee8ab15d11de8636ca
-labels:
-- Model
-- NeedsTextures
+guid: 844388b25adcc04a582c6f3c347c73f4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -10,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.ComputerTapedeck
-    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Prop.TapeComputer.Body
-    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
+      name: Wood
+    second: {fileID: 2100000, guid: 4fea80feda67d834ebcd1c7c66bcd482, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

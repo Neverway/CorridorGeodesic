@@ -1,8 +1,5 @@
 fileFormatVersion: 2
-guid: 37d572ded4abf2ee8ab15d11de8636ca
-labels:
-- Model
-- NeedsTextures
+guid: 173629fb9b6a60efba0bd4e952c6485a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -10,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.ComputerTapedeck
-    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
+      name: ElevatorShaft
+    second: {fileID: 2100000, guid: f99cb773b972e47ef887323781e7cbf1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.TapeComputer.Body
-    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
+      name: Invisible
+    second: {fileID: 2100000, guid: eb2aa8e528376ea4bad7b7dd63732b8f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

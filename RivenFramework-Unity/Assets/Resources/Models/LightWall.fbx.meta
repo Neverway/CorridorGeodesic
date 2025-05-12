@@ -1,8 +1,5 @@
 fileFormatVersion: 2
-guid: 37d572ded4abf2ee8ab15d11de8636ca
-labels:
-- Model
-- NeedsTextures
+guid: 42c51f6b0b2971e388ed0ac94e00555a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -10,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.ComputerTapedeck
-    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
+      name: Brass
+    second: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prop.TapeComputer.Body
-    second: {fileID: 2100000, guid: 897963cd22707f41183841fdc2c3f948, type: 2}
+      name: Copper
+    second: {fileID: 2100000, guid: 1049cfa030a88ed40b0532ad5dbe771c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light
+    second: {fileID: 2100000, guid: 38178dbcc79fe871aba4cdfebc9c5361, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
