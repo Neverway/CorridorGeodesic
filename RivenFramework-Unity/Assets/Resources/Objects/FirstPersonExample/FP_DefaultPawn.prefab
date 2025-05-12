@@ -212,6 +212,9 @@ MonoBehaviour:
   minYPos: -0.7
   attachmentPointTransform: {fileID: 2830109595195003579}
   targetPawn: {fileID: 6118868544368584257}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &2388545363728601757
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +335,7 @@ MonoBehaviour:
     curiosity: 0
     intelligence: 0
     wisdom: 0
-    throwForce: 350
+    throwForce: 16000
     lookRange: 20
     listenRange: 30
     comfortableAllyDistance: 5
