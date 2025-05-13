@@ -63,6 +63,7 @@
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CanvasForceGetActiveCamera.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Actor_SFXImpact.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Unknown/LevelStreamer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Or.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUtils.cs" />
@@ -82,6 +83,7 @@
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_And.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Pawn_Inventory.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ChangeMaterialProperty.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Timer.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/Light_DistanceCulling.cs" />
@@ -111,6 +113,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Toggle.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/UIText_Speedometer.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_AnimatorSetBool.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/_REMOVE_/Integratables/CorGeo" />
      <Folder Include="Assets/Resources/Maps" />
@@ -188,6 +191,7 @@
      <None Include="Assets/Resources/Materials/Shaders/SX_Fizzler.shader" />
      <None Include="Assets/RivenFramework/Other/80-C# NeverwayTemplates__Standard-New Standard Script.cs.txt" />
      <None Include="Assets/Packages/QuickOutline/Resources/Shaders/OutlineMask.shader" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroups/Schemas" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Connorses" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
@@ -282,6 +286,7 @@
      <Folder Include="Assets/AddressableAssetsData/DataBuilders" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/RocksCopperOre" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sound/Effects" />
+     <Folder Include="Assets/Resources/Models/Animations" />
      <Folder Include="Assets/TextMesh Pro/Fonts" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Quicktex" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Light" />
@@ -312,6 +317,7 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/Dirt" />
      <Folder Include="Assets/_REMOVE_" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface.shader" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Graphics" />
      <Folder Include="Assets/Resources/Sound" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials/DevCharacter" />
      <Folder Include="Assets/Packages/Samples" />
