@@ -10,18 +10,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LogicToggle : Logic
+public class Logic_Door : MonoBehaviour
 {
     //=-----------------=
     // Public Variables
     //=-----------------=
     public LogicInput<bool> input = new(false);
-    public LogicOutput<bool> output = new(false);
-    
-    [Tooltip("This event will only fire when the output is powered")]
-    public UnityEvent onOutputPowered;
-    [Tooltip("This event will only fire when the output is unpowered")]
-    public UnityEvent onOutputUnpowered;
+    public UnityEvent onPowered;
+    public UnityEvent onUnpowered;
 
 
     //=-----------------=
@@ -47,10 +43,8 @@ public class LogicToggle : Logic
     //=-----------------=
     private void Toggle()
     {
-        if (input.Get() is false) return;
-        output.Set(!output);
-        if (output) onOutputPowered.Invoke();
-        else onOutputUnpowered.Invoke();
+        if (input.Get()) onPowered.Invoke();
+        else onUnpowered.Invoke();
     }
 
 
