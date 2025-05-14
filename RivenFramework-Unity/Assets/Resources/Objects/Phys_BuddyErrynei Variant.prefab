@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: displayName
       value: Buddy Errynei
       objectReference: {fileID: 0}
+    - target: {fileID: 5666194294599035471, guid: 9a4aef5a1bebd876db8d1e5811db7076,
+        type: 3}
+      propertyPath: m_TagString
+      value: PhysProp
+      objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 9a4aef5a1bebd876db8d1e5811db7076,
         type: 3}
       propertyPath: m_LocalPosition.x
