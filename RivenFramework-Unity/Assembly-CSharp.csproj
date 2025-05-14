@@ -146,6 +146,7 @@
      <Folder Include="Assets/Packages/Samples/Folder Icons/0.1.3/Folder Textures" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR" />
+     <Folder Include="Assets/Resources/Maps/MainLevels" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Shaders" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sound/Music" />
@@ -240,6 +241,7 @@
      <Folder Include="Assets/RivenFramework" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Head" />
      <Folder Include="Assets/RivenFramework/Objects/Framework" />
+     <Folder Include="Assets/Resources/Maps/OldDemoLevels" />
      <Folder Include="Assets/Resources/Materials/Shaders/PostProcessing" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Decal.shader" />
      <Folder Include="Assets/Resources/Sprites/Tilesets/Collision" />
