@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
       propertyPath: onOutputUnpowered.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
       propertyPath: onOutputPowered.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
@@ -47,7 +47,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onOutputPowered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 8431925425059871445}
+      objectReference: {fileID: 4225029508749982302}
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
       propertyPath: onOutputUnpowered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -106,7 +106,7 @@ PrefabInstance:
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
       propertyPath: onOutputPowered.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
       propertyPath: onOutputPowered.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.ParticleSystem, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
@@ -187,6 +187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onOutputPowered.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
       value: Throw
+      objectReference: {fileID: 0}
+    - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
+        type: 3}
+      propertyPath: onOutputUnpowered.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3636600676619493287, guid: f373739b7ac0de4adab86f232ece16c9,
         type: 3}
@@ -714,7 +719,7 @@ PrefabInstance:
     - target: {fileID: 283035556803801237, guid: c5a231b323625a4f49f8bb90189a69fd,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1134847039480085226, guid: c5a231b323625a4f49f8bb90189a69fd,
         type: 3}
@@ -774,7 +779,12 @@ PrefabInstance:
     - target: {fileID: 5497749294214197278, guid: c5a231b323625a4f49f8bb90189a69fd,
         type: 3}
       propertyPath: stopAction
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5497749294214197278, guid: c5a231b323625a4f49f8bb90189a69fd,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5497749294214197278, guid: c5a231b323625a4f49f8bb90189a69fd,
         type: 3}
@@ -791,6 +801,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5a231b323625a4f49f8bb90189a69fd, type: 3}
+--- !u!198 &4225029508749982302 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5497749294214197278, guid: c5a231b323625a4f49f8bb90189a69fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 8568586651056425536}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8431925425059871445 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 283035556803801237, guid: c5a231b323625a4f49f8bb90189a69fd,
