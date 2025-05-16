@@ -61,20 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\RivenFramework-Revamp\Editor\ToolAssetManager.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\EasyInspector\Editor\EasyInspector.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\EasyInspector\Editor\EasyEditorWindow.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\Editor\ToolFrameworkManagerItems.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\EasyInspector\Editor\EasyEditorTool.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\Editor\PreviewIcons.cs" />
     <Compile Include="Assets\RivenFramework-Revamp\Editor\ToolScatterPlacer.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\Editor\ToolFrameworkManagerActorDatabase.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\Editor\ToolFrameworkManagerCharacters.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\SimplifiedFields\Editor\SimplifiedFieldsPropertiesEditor.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\EasyInspector\Editor\EasyPropertyDrawer.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\Editor\ToolFrameworkManager.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\EasyInspector\Editor\EasyDecoratorDrawer.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\EasyInspector\Editor\EasyEditor.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\SimplifiedFields\Editor\SimplifiedFieldsEditor.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\Editor\ToolFrameworkManagerProps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1348,6 +1340,10 @@
       <Project>{D5166975-EED3-EF6F-A1BB-50F8C0F9AD26}</Project>
       <Name>RivenFramework.LogicSystem</Name>
     </ProjectReference>
+    <ProjectReference Include="LogicValues.csproj">
+      <Project>{DC414B15-633A-CDED-EDCA-8ED9ACC89065}</Project>
+      <Name>LogicValues</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.AudioManagement.csproj">
       <Project>{45F37D3B-9ABD-E0EE-B323-CD18F735389D}</Project>
       <Name>Neverway.Framework.AudioManagement</Name>
@@ -1379,6 +1375,18 @@
     <ProjectReference Include="RivenFramework.SoundSystem.csproj">
       <Project>{7D0D858B-16FF-8FE7-1EBE-A52B5E79DA48}</Project>
       <Name>RivenFramework.SoundSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="EasyInspector.csproj">
+      <Project>{9CEA7472-1EBB-D453-357C-D854942D69C3}</Project>
+      <Name>EasyInspector</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleFields.csproj">
+      <Project>{9728FBA5-AF4A-5816-BE7C-A9E257C41EEB}</Project>
+      <Name>SimpleFields</Name>
+    </ProjectReference>
+    <ProjectReference Include="LogicValues.Editor.csproj">
+      <Project>{755944D3-3F72-CA08-5402-8B0B2470C36D}</Project>
+      <Name>LogicValues.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="RivenFramework.ItemSystem.csproj">
       <Project>{D8CEDC7F-E384-D83B-FCEB-7F97A0535F44}</Project>
