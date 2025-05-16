@@ -257,9 +257,30 @@ public class FPPawnActions : PawnActions
     /// TODO
     /// </summary>
     /// <param name="_action"></param>
-    public void UseItem(int _action = 0)
+    public void ItemUseAction(FPPawn _pawn, int _action = 0, bool _pressing = true)
     {
-        
+        var inventory = _pawn.GetComponentInChildren<Pawn_Inventory>();
+        if (inventory is null) return;
+        var item = inventory.GetComponentInChildren<Item>(false);
+        if (item is null)
+        {
+            return;
+        }
+        switch (_action)
+        {
+            case 0:
+                if (_pressing) item.ItemAction1();
+                else  item.ItemReleaseAction1();
+                break;
+            case 1:
+                if (_pressing) item.ItemAction2();
+                else  item.ItemReleaseAction2();
+                break;
+            case 2:
+                if (_pressing) item.ItemAction3();
+                else  item.ItemReleaseAction3();
+                break;
+        }
     }
 
     /// <summary>
@@ -399,5 +420,19 @@ public class FPPawnActions : PawnActions
             Vector3.Distance(closestAlly.transform.position, _pawn.transform.position) > ((FPS_Stats)_pawn.stats).comfortableAllyDistance
         }*/
         return collectiveAllyCourage;
+    }
+    
+    public void ItemSwapNext(FPPawn _pawn)
+    {
+        var inventory = _pawn.GetComponentInChildren<Pawn_Inventory>();
+        if (inventory is null) return;
+        inventory.SwitchNext();
+    }
+
+    public void ItemSwapPrevious(FPPawn _pawn)
+    {
+        var inventory = _pawn.GetComponentInChildren<Pawn_Inventory>();
+        if (inventory is null) return;
+        inventory.SwitchPreviouse();
     }
 }

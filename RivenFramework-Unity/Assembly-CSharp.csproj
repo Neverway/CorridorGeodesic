@@ -57,12 +57,14 @@
      <Compile Include="Assets/Resources/Scripts/LB_World.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CorGeo_AntiProjectile.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleSprite.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Item_Utility_Geogun.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SplashScreenPlayer.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKTargetMatcher.cs" />
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CanvasForceGetActiveCamera.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Item_Dev_KINMachine.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Unknown/LevelStreamer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Or.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUtils.cs" />
@@ -79,6 +81,7 @@
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics2D.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_FallDamage.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Volume2D_Force.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Pawn_Inventory.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_And.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Pawn_Inventory.cs" />
@@ -101,9 +104,11 @@
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Text_EntityHealth.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Text_EntityItems.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Item.cs" />
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_Billboard.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic_Door.cs" />
+     <Compile Include="Assets/Resources/Test.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_CrushDetection.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKFootSolver.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
