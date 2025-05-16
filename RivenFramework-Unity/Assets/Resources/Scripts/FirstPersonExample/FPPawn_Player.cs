@@ -1,42 +1,44 @@
-//===================== (Neverway 2024) Written by Liz M. =====================
+//==========================================( Neverway 2025 )=========================================================//
+// Author
+//  Liz M.
+// 
+// Contributors: 
+//  Connorses, Errynei, Soulex
 //
-// Purpose:
-// Notes:
-//
-//=============================================================================
+//====================================================================================================================//
 
-using System.Collections;
-using System.Collections.Generic;
 using RivenFramework;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class FPPawn_Player : FPPawn
 {
-    //=-----------------=
-    // Public Variables
-    //=-----------------=
+    #region========================================( Variables )======================================================//
+    /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
+    
+    
+    /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
 
-
-    //=-----------------=
-    // Private Variables
-    //=-----------------=
+    
+    /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
     private Vector3 moveDirection;
     private Vector2 lookRotation;
-
-
-    //=-----------------=
-    // Reference Variables
-    //=-----------------=
+    
+    /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
     private GI_WidgetManager widgetManager;
     private new FPPawnActions action = new FPPawnActions();
     private InputActions.FirstPersonActions inputActions;
     [SerializeField] private GameObject DeathScreenWidget;
+    
+    #endregion
 
 
-    //=-----------------=
-    // Mono Functions
-    //=-----------------=
+    #region=======================================( Functions )=======================================================//
+    /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
     private void UpdatePauseMenu()
     {
         if (!widgetManager)
@@ -120,6 +122,18 @@ public class FPPawn_Player : FPPawn
         {
             action.ThrowPhysProp(this);
         }
+        
+        // Switch item
+        if (inputActions.ItemSwapNext.WasPressedThisFrame()) action.ItemSwapNext(this);
+        if (inputActions.ItemSwapPrevious.WasPressedThisFrame()) action.ItemSwapPrevious(this);
+        
+        // Use Item
+        if (inputActions.ItemAction1.WasPressedThisFrame()) action.ItemUseAction(this, 0);
+        if (inputActions.ItemAction2.WasPressedThisFrame()) action.ItemUseAction(this, 1);
+        if (inputActions.ItemAction3.WasPressedThisFrame()) action.ItemUseAction(this, 2);
+        if (inputActions.ItemAction1.WasReleasedThisFrame()) action.ItemUseAction(this, 0, false);
+        if (inputActions.ItemAction2.WasReleasedThisFrame()) action.ItemUseAction(this, 1, false);
+        if (inputActions.ItemAction3.WasReleasedThisFrame()) action.ItemUseAction(this, 2, false);
     }
 
     public void FixedUpdate()
@@ -128,11 +142,11 @@ public class FPPawn_Player : FPPawn
         ApplyMovement();
         ApplyRotation();
     }
-    
 
-    //=-----------------=
-    // Internal Functions
-    //=-----------------=
+    /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
+
+    
     private void UpdateMovement()
     {
         moveDirection = new Vector3(inputActions.Move.ReadValue<Vector2>().x, 0, inputActions.Move.ReadValue<Vector2>().y);
@@ -198,7 +212,10 @@ public class FPPawn_Player : FPPawn
         // Play the death animation
         if (GetComponent<Animator>()) GetComponent<Animator>().Play("Death");
     }
-    //=-----------------=
-    // External Functions
-    //=-----------------=
+
+    /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------------------*/
+
+
+    #endregion
 }

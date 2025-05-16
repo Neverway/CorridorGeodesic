@@ -5,7 +5,17 @@ labels:
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 02a307ed605de8321b5c95743db3b0af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: a62b29bb85776d5ad9c71ba928c1c514, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

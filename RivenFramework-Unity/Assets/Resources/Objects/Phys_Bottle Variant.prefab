@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 6860228584438697348, guid: 9a4aef5a1bebd876db8d1e5811db7076,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 9a4aef5a1bebd876db8d1e5811db7076,
         type: 3}
@@ -157,6 +157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a8b15a93a2cbcc3e09ebc1581a88dd15,
+        type: 3}
+      propertyPath: m_TagString
+      value: PhysProp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
