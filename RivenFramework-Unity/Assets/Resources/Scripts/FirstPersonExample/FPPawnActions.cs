@@ -257,28 +257,21 @@ public class FPPawnActions : PawnActions
     /// TODO
     /// </summary>
     /// <param name="_action"></param>
-    public void ItemUseAction(FPPawn _pawn, int _action = 0, bool _pressing = true)
+    public void ItemUseAction(Pawn_Inventory _inventory, int _action = 0, string _mode = "press")
     {
-        var inventory = _pawn.GetComponentInChildren<Pawn_Inventory>();
-        if (inventory is null) return;
-        var item = inventory.GetComponentInChildren<Item>(false);
-        if (item is null)
-        {
-            return;
-        }
+        var item = _inventory.GetComponentInChildren<Item>(false);
+        if (item is null) return;
+
         switch (_action)
         {
             case 0:
-                if (_pressing) item.ItemAction1();
-                else  item.ItemReleaseAction1();
+                item.UsePrimary(_mode);
                 break;
             case 1:
-                if (_pressing) item.ItemAction2();
-                else  item.ItemReleaseAction2();
+                item.UseSecondary(_mode);
                 break;
             case 2:
-                if (_pressing) item.ItemAction3();
-                else  item.ItemReleaseAction3();
+                item.UseTertiary(_mode);
                 break;
         }
     }

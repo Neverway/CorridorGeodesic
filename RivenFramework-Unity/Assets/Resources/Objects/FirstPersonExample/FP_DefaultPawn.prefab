@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentIndex: 0
   items: []
+  owner: {fileID: 2388545363728601757}
 --- !u!1 &1672555384984386505
 GameObject:
   m_ObjectHideFlags: 0

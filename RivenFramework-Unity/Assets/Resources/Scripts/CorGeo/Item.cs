@@ -1,66 +1,75 @@
-//===================== (Neverway 2024) Written by Liz M. =====================
+//==========================================( Neverway 2025 )=========================================================//
+// Author
+//  Liz M.
 //
-// Purpose: When in a pawn's inventory, the pawn can call the use functions here
-// Notes:
+// Contributors
 //
-//=============================================================================
+//
+//====================================================================================================================//
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// When in a pawn's inventory, the pawn can call the use functions here
+/// </summary>
 public class Item : MonoBehaviour
 {
-    //=-----------------=
-    // Public Variables
-    //=-----------------=
+    #region========================================( Variables )======================================================//
+    /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
 
 
-    //=-----------------=
-    // Private Variables
-    //=-----------------=
+    /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
 
 
-    //=-----------------=
-    // Reference Variables
-    //=-----------------=
+    /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
 
 
-    //=-----------------=
-    // Mono Functions
-    //=-----------------=
+    /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+
+
+    #endregion
+
+
+    #region=======================================( Functions )=======================================================//
+    /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+
+
+    /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+
+
+    /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
+   public virtual void UsePrimary(string _mode = "press")
+    {
+        switch (_mode)
+        {
+            case "press":
+                break;
+            case "release":
+                break;
+        }
+    }
     
+    public virtual void UseSecondary(string _mode = "press")
+    {
+        switch (_mode)
+        {
+            case "press":
+                break;
+            case "release":
+                break;
+        }
+    }
+    
+    public virtual void UseTertiary(string _mode = "press")
+    {
+        switch (_mode)
+        {
+            case "press":
+                break;
+            case "release":
+                break;
+        }
+    }
 
-    //=-----------------=
-    // Internal Functions
-    //=-----------------=
-
-
-    //=-----------------=
-    // External Functions
-    //=-----------------=
-    public virtual void ItemAction1()
-    {
-        
-    }
-    public virtual void ItemAction2()
-    {
-        
-    }
-    public virtual void ItemAction3()
-    {
-        
-    }
-    public virtual void ItemReleaseAction1()
-    {
-        
-    }
-    public virtual void ItemReleaseAction2()
-    {
-        
-    }
-    public virtual void ItemReleaseAction3()
-    {
-        
-    }
+    #endregion
 }

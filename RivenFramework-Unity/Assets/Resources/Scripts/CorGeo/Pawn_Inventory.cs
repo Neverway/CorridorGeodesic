@@ -27,6 +27,7 @@ public class Pawn_Inventory : MonoBehaviour
     //=-----------------=
     // Reference Variables
     //=-----------------=
+    public GameObject owner;
 
 
     //=-----------------=

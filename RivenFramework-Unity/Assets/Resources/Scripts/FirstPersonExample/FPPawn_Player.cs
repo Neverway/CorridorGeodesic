@@ -128,12 +128,13 @@ public class FPPawn_Player : FPPawn
         if (inputActions.ItemSwapPrevious.WasPressedThisFrame()) action.ItemSwapPrevious(this);
         
         // Use Item
-        if (inputActions.ItemAction1.WasPressedThisFrame()) action.ItemUseAction(this, 0);
-        if (inputActions.ItemAction2.WasPressedThisFrame()) action.ItemUseAction(this, 1);
-        if (inputActions.ItemAction3.WasPressedThisFrame()) action.ItemUseAction(this, 2);
-        if (inputActions.ItemAction1.WasReleasedThisFrame()) action.ItemUseAction(this, 0, false);
-        if (inputActions.ItemAction2.WasReleasedThisFrame()) action.ItemUseAction(this, 1, false);
-        if (inputActions.ItemAction3.WasReleasedThisFrame()) action.ItemUseAction(this, 2, false);
+        var inventory = GetComponentInChildren<Pawn_Inventory>();
+        if (inputActions.ItemAction1.WasPressedThisFrame()) action.ItemUseAction(inventory, 0);
+        if (inputActions.ItemAction2.WasPressedThisFrame()) action.ItemUseAction(inventory, 1);
+        if (inputActions.ItemAction3.WasPressedThisFrame()) action.ItemUseAction(inventory, 2);
+        if (inputActions.ItemAction1.WasReleasedThisFrame()) action.ItemUseAction(inventory, 0, "release");
+        if (inputActions.ItemAction2.WasReleasedThisFrame()) action.ItemUseAction(inventory, 1, "release");
+        if (inputActions.ItemAction3.WasReleasedThisFrame()) action.ItemUseAction(inventory, 2, "release");
     }
 
     public void FixedUpdate()
