@@ -11,11 +11,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : MonoBehaviour
+/// <summary>
+/// Handles the travel, placement, and shattering of CorGeo markers
+/// </summary>
+public class Projectile_Marker : MonoBehaviour
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
-
+    public int speed = 3;
+    public LayerMask layerMask;
+    public List<Material> validPlacementMaterials;
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
 
@@ -29,7 +34,8 @@ public class Test : MonoBehaviour
     #endregion
 
 
-    #region=======================================( Functions )=======================================================//
+    #region=======================================( Functions )======================================================= //
+
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
 
 

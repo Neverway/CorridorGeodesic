@@ -53,13 +53,13 @@
      <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/Tile_Paralax.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityPortrait.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole/DebugConsole.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Projectile_Marker.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Particle_DataExposer.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Object_LiveThrowable.cs" />
      <Compile Include="Assets/Resources/Scripts/LB_World.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CorGeo_AntiProjectile.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole/DevTools.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleSprite.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/Item_Utility_Geogun.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SplashScreenPlayer.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKTargetMatcher.cs" />
@@ -68,6 +68,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Unknown/LevelStreamer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Or.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Item_Utility_Geogun.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUtils.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Text_EntityName.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawnActions.cs" />
@@ -78,6 +79,7 @@
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawnStats.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Item_Utility_DevGun.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBonePlaneCollider.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics2D.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_FallDamage.cs" />
@@ -98,12 +100,12 @@
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleAudio.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawn.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/Item_Dev_PhysGun.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_Flicker.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/CrushDetector.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/NewBehaviourScript.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Text_EntityHealth.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/SOEventSystem/SOEvent.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Text_EntityItems.cs" />
@@ -111,7 +113,6 @@
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_Billboard.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic_Door.cs" />
-     <Compile Include="Assets/Resources/Test.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_CrushDetection.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKFootSolver.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
@@ -208,7 +209,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System/Materials" />
      <Folder Include="Assets/TextMesh Pro/Shaders" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Switch" />
-     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/MapObjects" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Objects" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered" />
      <Folder Include="Assets/Resources/Objects" />
@@ -233,7 +234,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/Widgets" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Lava.shader" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/ColorQuantizationFilter.shader" />
-     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/MapObjects/Animations" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Objects/Animations" />
      <Folder Include="Assets/Resources/Materials/Textures/Effects" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials/DevOrientation" />
      <Folder Include="Assets/Packages" />
@@ -283,6 +284,7 @@
      <Folder Include="Assets/Packages/DOTween" />
      <Folder Include="Assets/Resources" />
      <Folder Include="Assets/RivenFramework-Revamp/SimpleFields" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/GeoGun" />
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/CorGeo_Dialouge_EN.json" />
      <Folder Include="Assets/TextMesh Pro/Documentation" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Head/Poiyomi Toon.shader" />
@@ -368,6 +370,7 @@
      <None Include="Assets/Resources/Materials/Shaders/Unsorted/ScreenCutoutShader.shader" />
      <Folder Include="Assets/Packages/DOTween/Resources" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/Fence" />
+     <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Objects/Generated" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Oil.shader" />
      <Folder Include="Assets/Resources/Models/Materials" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Levels" />
