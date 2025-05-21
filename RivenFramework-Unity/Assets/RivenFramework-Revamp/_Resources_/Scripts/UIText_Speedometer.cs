@@ -49,7 +49,7 @@ using UnityEngine;
 
             if (targetRigidbody is not null)
             {
-                velocityText.text = "Velocity: " + targetRigidbody.velocity.magnitude.ToString("F2") + " m/s";
+                velocityText.text = "Velocity: " + targetRigidbody.linearVelocity.magnitude.ToString("F2") + " m/s";
             }
         }
 

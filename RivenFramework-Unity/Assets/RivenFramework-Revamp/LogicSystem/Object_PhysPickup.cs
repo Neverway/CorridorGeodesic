@@ -151,7 +151,7 @@ public class Object_PhysPickup : MonoBehaviour
         transform.rotation = new Quaternion(targetRotation.x+holdRotationOffset.x, targetRotation.y+holdRotationOffset.y, targetRotation.z+holdRotationOffset.z, targetRotation.w);
         
         // Remove any existing velocity, so it doesn't bug out while holding it
-        propRigidbody.velocity = Vector3.zero;
+        propRigidbody.linearVelocity = Vector3.zero;
         propRigidbody.angularVelocity = Vector3.zero;
         propRigidbody.useGravity = false;
 

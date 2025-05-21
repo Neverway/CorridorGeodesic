@@ -46,7 +46,7 @@ public class Actor_StepUp : MonoBehaviour
     //=-----------------=
     private void FixedUpdate()
     {
-        Vector3 velocity = this.GetComponent<Rigidbody>().velocity;
+        Vector3 velocity = this.GetComponent<Rigidbody>().linearVelocity;
         
         //Filter through the ContactPoints to see if we're grounded and to see if we can step up
         ContactPoint groundCP = default(ContactPoint);
@@ -64,7 +64,7 @@ public class Actor_StepUp : MonoBehaviour
         {
             //print("Attempting stepup");
             this.GetComponent<Rigidbody>().position += stepUpOffset*additionalStepUpOffset;
-            this.GetComponent<Rigidbody>().velocity = lastVelocity;
+            this.GetComponent<Rigidbody>().linearVelocity = lastVelocity;
         }
 
         foreach (var contact in contactPoints)

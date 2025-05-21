@@ -180,7 +180,7 @@ public class Item_Utility_DevGun : Item
             if (attachedObject is null) return;
             if (attachedObject.GetComponent<Rigidbody>())
             {
-                attachedObject.GetComponent<Rigidbody>().velocity = new Vector3();
+                attachedObject.GetComponent<Rigidbody>().linearVelocity = new Vector3();
             }
             attachedObject = null;
         }
@@ -198,7 +198,7 @@ public class Item_Utility_DevGun : Item
         {
             if (attachedObject is null) return;
             animator.SetBool("Firing", true);
-            attachedObject.GetComponent<Rigidbody>().velocity = new Vector3();
+            attachedObject.GetComponent<Rigidbody>().linearVelocity = new Vector3();
             attachedObject.GetComponent<Rigidbody>().AddForce(transform.forward*50,ForceMode.VelocityChange);
             attachedObject = null;
             toolFX[2].SetActive(true);
@@ -224,7 +224,7 @@ public class Item_Utility_DevGun : Item
                 else if (attachedObject && !secondaryInputCooldown)
                 {
                     secondaryInputCooldown = true;
-                    attachedObject.GetComponent<Rigidbody>().velocity = new Vector3();
+                    attachedObject.GetComponent<Rigidbody>().linearVelocity = new Vector3();
                     attachedObject = null;
                 }
             }

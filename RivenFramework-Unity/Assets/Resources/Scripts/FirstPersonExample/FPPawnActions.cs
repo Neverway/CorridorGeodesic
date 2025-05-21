@@ -61,7 +61,7 @@ public class FPPawnActions : PawnActions
         
         // Make sure that the axis passed for the direction are always relative to the direction the pawn is facing
         var localMoveDirection = _pawn.transform.right * _direction.x + _pawn.transform.up * _direction.y + _pawn.transform.forward * _direction.z;
-        var currentVelocity = rigidbody.velocity;
+        var currentVelocity = rigidbody.linearVelocity;
         
         // Get desired velocities
         var desiredGroundVelocity = localMoveDirection.normalized * _speed;
@@ -80,76 +80,76 @@ public class FPPawnActions : PawnActions
         if (IsOnGround(_pawn) && !IsOnSlope(_pawn) && !isCrouching)
         {
             rigidbody.useGravity = true;
-            rigidbody.drag = ((FPPawnStats)_pawn.currentStats).groundDrag;
+            rigidbody.linearDamping = ((FPPawnStats)_pawn.currentStats).groundDrag;
             // if current is less than target and target is positive, or current is greater than target and target is negative
             if (currentVelocity.x < desiredGroundVelocity.x && desiredGroundVelocity.x > 0f || currentVelocity.x > desiredGroundVelocity.x && desiredGroundVelocity.x < 0f )
             {
-                rigidbody.velocity += new Vector3(desiredGroundVelocity.x*groundAccelerationRate, 0, 0);
+                rigidbody.linearVelocity += new Vector3(desiredGroundVelocity.x*groundAccelerationRate, 0, 0);
             }
             if (currentVelocity.y < desiredGroundVelocity.y && desiredGroundVelocity.y > 0f || currentVelocity.y > desiredGroundVelocity.y && desiredGroundVelocity.y < 0f )
             {
-                rigidbody.velocity += new Vector3(0, desiredGroundVelocity.y*groundAccelerationRate, 0);
+                rigidbody.linearVelocity += new Vector3(0, desiredGroundVelocity.y*groundAccelerationRate, 0);
             }
             if (currentVelocity.z < desiredGroundVelocity.z && desiredGroundVelocity.z > 0f || currentVelocity.z > desiredGroundVelocity.z && desiredGroundVelocity.z < 0f )
             {
-                rigidbody.velocity += new Vector3(0, 0, desiredGroundVelocity.z*groundAccelerationRate);
+                rigidbody.linearVelocity += new Vector3(0, 0, desiredGroundVelocity.z*groundAccelerationRate);
             }
         }
         // Crouch Movement
         else if (IsOnGround(_pawn) && !IsOnSlope(_pawn) && isCrouching)
         {
             rigidbody.useGravity = true;
-            rigidbody.drag = ((FPPawnStats)_pawn.currentStats).groundDrag;
+            rigidbody.linearDamping = ((FPPawnStats)_pawn.currentStats).groundDrag;
             // if current is less than target and target is positive, or current is greater than target and target is negative
             if (currentVelocity.x < desiredCrouchVelocity.x && desiredCrouchVelocity.x > 0f || currentVelocity.x > desiredCrouchVelocity.x && desiredCrouchVelocity.x < 0f )
             {
-                rigidbody.velocity += new Vector3(desiredCrouchVelocity.x*groundAccelerationRate, 0, 0);
+                rigidbody.linearVelocity += new Vector3(desiredCrouchVelocity.x*groundAccelerationRate, 0, 0);
             }
             if (currentVelocity.y < desiredCrouchVelocity.y && desiredCrouchVelocity.y > 0f || currentVelocity.y > desiredCrouchVelocity.y && desiredCrouchVelocity.y < 0f )
             {
-                rigidbody.velocity += new Vector3(0, desiredCrouchVelocity.y*groundAccelerationRate, 0);
+                rigidbody.linearVelocity += new Vector3(0, desiredCrouchVelocity.y*groundAccelerationRate, 0);
             }
             if (currentVelocity.z < desiredCrouchVelocity.z && desiredCrouchVelocity.z > 0f || currentVelocity.z > desiredCrouchVelocity.z && desiredCrouchVelocity.z < 0f )
             {
-                rigidbody.velocity += new Vector3(0, 0, desiredCrouchVelocity.z*groundAccelerationRate);
+                rigidbody.linearVelocity += new Vector3(0, 0, desiredCrouchVelocity.z*groundAccelerationRate);
             }
         }
         // Slope Movement
         else if (IsOnGround(_pawn) && IsOnSlope(_pawn))
         {
             rigidbody.useGravity = false;
-            rigidbody.drag = ((FPPawnStats)_pawn.currentStats).slopeDrag;
+            rigidbody.linearDamping = ((FPPawnStats)_pawn.currentStats).slopeDrag;
             // if current is less than target and target is positive, or current is greater than target and target is negative
             if (currentVelocity.x < desiredSlopeVelocity.x && desiredSlopeVelocity.x > 0f || currentVelocity.x > desiredSlopeVelocity.x && desiredSlopeVelocity.x < 0f )
             {
-                rigidbody.velocity += new Vector3(desiredSlopeVelocity.x*slopeAccelerationRate, 0, 0);
+                rigidbody.linearVelocity += new Vector3(desiredSlopeVelocity.x*slopeAccelerationRate, 0, 0);
             }
             if (currentVelocity.y < desiredSlopeVelocity.y && desiredSlopeVelocity.y > 0f || currentVelocity.y > desiredSlopeVelocity.y && desiredSlopeVelocity.y < 0f )
             {
-                rigidbody.velocity += new Vector3(0, desiredSlopeVelocity.y*slopeAccelerationRate, 0);
+                rigidbody.linearVelocity += new Vector3(0, desiredSlopeVelocity.y*slopeAccelerationRate, 0);
             }
             if (currentVelocity.z < desiredSlopeVelocity.z && desiredSlopeVelocity.z > 0f || currentVelocity.z > desiredSlopeVelocity.z && desiredSlopeVelocity.z < 0f )
             {
-                rigidbody.velocity += new Vector3(0, 0, desiredSlopeVelocity.z*slopeAccelerationRate);
+                rigidbody.linearVelocity += new Vector3(0, 0, desiredSlopeVelocity.z*slopeAccelerationRate);
             }
         }
         // Air Movement
         else
         {
             rigidbody.useGravity = true;
-            rigidbody.drag = ((FPPawnStats)_pawn.currentStats).airDrag;
+            rigidbody.linearDamping = ((FPPawnStats)_pawn.currentStats).airDrag;
             // if current is less than target and target is positive, or current is greater than target and target is negative
             if (currentVelocity.x < desiredAirVelocity.x && desiredAirVelocity.x > 0f || currentVelocity.x > desiredAirVelocity.x && desiredAirVelocity.x < 0f )
             {
-                rigidbody.velocity += new Vector3(desiredAirVelocity.x*airAccelerationRate, 0, 0);
+                rigidbody.linearVelocity += new Vector3(desiredAirVelocity.x*airAccelerationRate, 0, 0);
             }
             if (currentVelocity.y < desiredAirVelocity.y && desiredAirVelocity.y > 0f || currentVelocity.y > desiredAirVelocity.y && desiredAirVelocity.y < 0f )
             {
-                rigidbody.velocity += new Vector3(0, desiredAirVelocity.y*airAccelerationRate, 0);
+                rigidbody.linearVelocity += new Vector3(0, desiredAirVelocity.y*airAccelerationRate, 0);
             }
             if (currentVelocity.z < desiredAirVelocity.z && desiredAirVelocity.z > 0f || currentVelocity.z > desiredAirVelocity.z && desiredAirVelocity.z < 0f )
             {
-                rigidbody.velocity += new Vector3(0, 0, desiredAirVelocity.z*airAccelerationRate);
+                rigidbody.linearVelocity += new Vector3(0, 0, desiredAirVelocity.z*airAccelerationRate);
             }
         }
     }
@@ -214,7 +214,7 @@ public class FPPawnActions : PawnActions
     {
         if (IsOnGround(_pawn) is false) return;
         var rigidbody = _pawn.GetComponent<Rigidbody>();
-        rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
+        rigidbody.linearVelocity = new Vector3(rigidbody.linearVelocity.x, 0, rigidbody.linearVelocity.z);
         rigidbody.AddForce(Vector3.up * ((FPPawnStats)_pawn.currentStats).jumpForce, ForceMode.Impulse);
     }
     
