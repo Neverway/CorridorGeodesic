@@ -51,6 +51,7 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_DialogueEvent.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_StepUp.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/Tile_Paralax.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Dev_ActorCarousel.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityPortrait.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole/DebugConsole.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Projectile_Marker.cs" />
@@ -89,6 +90,7 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_And.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Pawn_Inventory.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ChangeMaterialProperty.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic_ObjectActiveToggle.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Timer.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/Light_DistanceCulling.cs" />
