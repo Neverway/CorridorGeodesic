@@ -8,11 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 32800741723492415, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 29327167
-      objectReference: {fileID: 0}
     - target: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: m_Name

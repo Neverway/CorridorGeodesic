@@ -338,6 +338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61260f22307e7ecc8867f9ae3dcaa5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: Item_Utility_Geogun
+  displayName: Rift Gun
+  uniqueId: 
   allowNonLinearSlicing: 1
   allowExpandingRift: 0
   allowSlammingRift: 0
