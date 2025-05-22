@@ -12,7 +12,7 @@ using UnityEngine;
 /// <summary>
 /// When in a pawn's inventory, the pawn can call the use functions here
 /// </summary>
-public class Item : MonoBehaviour
+public class Item : Actor
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
