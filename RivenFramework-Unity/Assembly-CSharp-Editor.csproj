@@ -47,13 +47,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolAssetManager.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGModelInspector.cs" />
     <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerItems.cs" />
     <Compile Include="Assets/RivenFramework/Scripts/Editor/PreviewIcons.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/PrimitiveBrushInspector.cs" />
     <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerActorDatabase.cs" />
     <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerCharacters.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/BrushGroupInspector.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/AssetBrowserContextMenu.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorWindow.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/TrimBrushInspector.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/KeyMappingsInspector.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Utilities/UtilityShortcuts.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CompoundBrushInspector.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/ExpandPropertiesDrawer.cs" />
     <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerProps.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/BrushBaseInspector.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/StairBrushInspector.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorBrushInspector.cs" />
     <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolScatterPlacer.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Editor/UnityEventDrawer.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGBuildContextInspector.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/HollowBoxBrushInspector.cs" />
     <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManager.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorWindowPopup.cs" />
+    <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/CurvedStairBrushInspector.cs" />
     <Reference Include="UnityEngine">
       <HintPath>/home/lizband/Unity/Hub/Editor/6000.0.49f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -1112,6 +1130,10 @@
       <Project>{e39674fd-0230-c101-9fec-c610ab55f0a5}</Project>
       <Name>Neverway.Framework.Cartographer</Name>
     </ProjectReference>
+    <ProjectReference Include="BzKovSoft.ObjectSlicer.csproj">
+      <Project>{9245b8b1-c66b-a156-2c87-adc9c5dee130}</Project>
+      <Name>BzKovSoft.ObjectSlicer</Name>
+    </ProjectReference>
     <ProjectReference Include="RivenFramework.PawnMangement.csproj">
       <Project>{bdf120d6-5854-7f7d-4f1a-9673abd83232}</Project>
       <Name>RivenFramework.PawnMangement</Name>
@@ -1144,6 +1166,10 @@
       <Project>{d3445975-723f-08ca-5402-8b0b2470c36d}</Project>
       <Name>LogicValues.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="BzKovSoft.ObjectSlicer.Samples.csproj">
+      <Project>{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}</Project>
+      <Name>BzKovSoft.ObjectSlicer.Samples</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.LogicSystem.csproj">
       <Project>{ec2bcf95-64bf-125f-d106-ec12a8016db9}</Project>
       <Name>Neverway.Framework.LogicSystem</Name>
@@ -1163,6 +1189,10 @@
     <ProjectReference Include="Neverway.Framework.AudioManagement.csproj">
       <Project>{3b7df345-bd9a-eee0-b323-cd18f735389d}</Project>
       <Name>Neverway.Framework.AudioManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="BzKovSoft.CharacterSlicer.csproj">
+      <Project>{37048d4b-ea61-7c10-8fea-607907a56d48}</Project>
+      <Name>BzKovSoft.CharacterSlicer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
