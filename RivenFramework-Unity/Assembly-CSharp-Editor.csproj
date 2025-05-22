@@ -45,19 +45,42 @@
     <Analyzer Include="/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/BrushBaseInspector.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/StairBrushInspector.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolAssetManager.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGModelInspector.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorBrushInspector.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/PreviewIcons.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/PrimitiveBrushInspector.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolScatterPlacer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerActorDatabase.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerCharacters.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Editor/UnityEventDrawer.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGBuildContextInspector.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/BrushGroupInspector.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/AssetBrowserContextMenu.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/HollowBoxBrushInspector.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorWindow.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/TrimBrushInspector.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManager.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/KeyMappingsInspector.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorWindowPopup.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Utilities/UtilityShortcuts.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CompoundBrushInspector.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/ExpandPropertiesDrawer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerProps.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/CurvedStairBrushInspector.cs" />
+     <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors" />
      <Folder Include="Assets/RivenFramework-Revamp/Editor" />
+     <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor" />
+     <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor" />
+     <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Editor" />
      <Folder Include="Assets/RivenFramework/Scripts/Editor" />
      <Folder Include="Assets/Packages/DOTween/Editor" />
      <Folder Include="Assets/Packages/DOTween/Editor/Imgs" />
      <Folder Include="Assets/Editor" />
+     <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Utilities" />
      <Reference Include="UnityEngine">
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
