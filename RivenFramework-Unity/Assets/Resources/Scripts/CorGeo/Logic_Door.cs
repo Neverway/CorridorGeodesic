@@ -23,6 +23,7 @@ public class Logic_Door : MonoBehaviour
     //=-----------------=
     // Private Variables
     //=-----------------=
+    
 
 
     //=-----------------=

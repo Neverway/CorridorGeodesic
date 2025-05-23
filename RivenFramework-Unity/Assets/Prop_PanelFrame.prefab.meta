@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 54e77421b6acab7a68e913cce1a0b3ed
+guid: edcb8fea7ebff14e3b04a3ab94d6dd7a
 labels:
-- Material
-NativeFormatImporter:
+- Actor3D
+PrefabImporter:
   externalObjects: {}
-  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
