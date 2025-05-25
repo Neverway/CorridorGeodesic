@@ -12,6 +12,7 @@ namespace Sabresaurus.SabreCSG
         // Build settings for the next build
 
         private SerializedProperty generateCollisionMeshesProperty;
+        private SerializedProperty collapseMeshesToOneObjectProperty;
         private SerializedProperty generateTangentsProperty;
         private SerializedProperty optimizeGeometryProperty;
         private SerializedProperty saveMeshesAsAssetsProperty;
@@ -42,6 +43,7 @@ namespace Sabresaurus.SabreCSG
         {
             // Build settings for the next build
             generateCollisionMeshesProperty = serializedObject.FindProperty("buildSettings.GenerateCollisionMeshes");
+            collapseMeshesToOneObjectProperty = serializedObject.FindProperty("buildSettings.CollapseMeshesToOneObject");
             generateTangentsProperty = serializedObject.FindProperty("buildSettings.GenerateTangents");
             optimizeGeometryProperty = serializedObject.FindProperty("buildSettings.OptimizeGeometry");
             saveMeshesAsAssetsProperty = serializedObject.FindProperty("buildSettings.SaveMeshesAsAssets");
@@ -79,9 +81,10 @@ namespace Sabresaurus.SabreCSG
                 scope.WikiLink = "Build-Settings";
 
                 EditorGUIUtility.fieldWidth = 0;
-                EditorGUIUtility.labelWidth = 160;
+                EditorGUIUtility.labelWidth = 225;
 
                 EditorGUILayout.PropertyField(generateCollisionMeshesProperty, new GUIContent("Generate Collision Meshes"));
+                EditorGUILayout.PropertyField(collapseMeshesToOneObjectProperty, new GUIContent("Collapse Meshes To One Object"));
                 EditorGUILayout.PropertyField(generateTangentsProperty, new GUIContent("Generate Tangents"));
 
                 EditorGUILayout.PropertyField(generateLightmapUVsProperty, new GUIContent("Generate Lightmap UVs"));

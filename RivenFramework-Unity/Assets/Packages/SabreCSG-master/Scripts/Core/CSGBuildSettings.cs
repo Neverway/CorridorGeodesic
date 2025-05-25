@@ -12,6 +12,8 @@ namespace Sabresaurus.SabreCSG
         // Whether to also do a collision pass
         public bool GenerateCollisionMeshes = true;
 
+        public bool CollapseMeshesToOneObject = true;
+        
         // Also calculate tangents (needed for Unity's built in bump mapping)
         public bool GenerateTangents = true;
 

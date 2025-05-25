@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Sabresaurus.SabreCSG
@@ -538,13 +539,29 @@ namespace Sabresaurus.SabreCSG
                     meshGroup.parent = rootTransform;
                 }
 
-                GameObject colliderMesh = new GameObject("CollisionMesh", typeof(MeshCollider));
-                colliderMesh.transform.SetParent(meshGroup, false);
+                Debug.Log("Test 0");
+                if (buildSettings.CollapseMeshesToOneObject)
+                {
+	                Debug.Log("Test 1");
+	                var firstMesh = meshGroup.transform.GetChild(0);
+	                firstMesh.AddComponent<MeshCollider>();
+	                firstMesh.GetComponent<MeshCollider>().sharedMesh = mesh;
+	                return firstMesh.gameObject;
+                }
+                
+                if (!buildSettings.CollapseMeshesToOneObject)
+                {
+	                Debug.Log("Test 2");
+	                GameObject colliderMesh = new GameObject("CollisionMesh", typeof(MeshCollider));
+	                colliderMesh.transform.SetParent(meshGroup, false);
 
-                // Set the mesh to be rendered
-                colliderMesh.GetComponent<MeshCollider>().sharedMesh = mesh;
+	                // Set the mesh to be rendered
+	                colliderMesh.GetComponent<MeshCollider>().sharedMesh = mesh;
 
-                return colliderMesh;
+	                return colliderMesh;
+                }
+
+                return null;
             }
     }
     }

@@ -53,7 +53,8 @@ public class Item_Utility_Geogun : Item
     private void FireMarker()
     {
         if (spawnedProjectiles.Count >= maxProjectiles) return;
-        var projectile = Instantiate(projectilePrefab, gunBarrel.position, new Quaternion(), null);
+        var projectile = Instantiate(projectilePrefab, gunBarrel.position, gunBarrel.rotation, null);
+        
         spawnedProjectiles.Add(projectile);
     }
 
