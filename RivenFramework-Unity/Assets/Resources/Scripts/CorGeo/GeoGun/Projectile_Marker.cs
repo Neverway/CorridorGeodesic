@@ -3,12 +3,10 @@
 //  Liz M.
 //
 // Contributors
-//
+//  Connorses, Errynei, Soulex
 //
 //====================================================================================================================//
 
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,12 +22,15 @@ public class Projectile_Marker : MonoBehaviour
     public List<Material> validPlacementMaterials;
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
-    
+    public bool pinned;
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-    private bool pinned;
     private RaycastHit hit;
+    private Vector3 startPos, endPos;
+    private float travelDistance;
+    
 
+    
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
 
 
@@ -40,14 +41,36 @@ public class Projectile_Marker : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     public void Awake()
     {
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 255, layerMask))
+        // Good placement
+            // Travel distance
+                // Pin
+        // Bad placement
+            // Travel distance
+                // Shatter
+        // Null placement
+            // Travel for N seconds
+                // Shatter
+
+        var placement = GetPlacement();
+        
+        if (placement is "good")
         {
-            if (GetIsValidTarget())
-            {
-                transform.position = hit.point;
-                transform.rotation = Quaternion.LookRotation(-hit.normal);
-            }
+            MarkerPin();
         }
+        else if (placement is "bad")
+        {
+            MarkerBreak();
+        }
+        else if (placement is "null")
+        {
+            MarkerBreak();
+        }
+                
+    }
+
+    private void OnDestroy()
+    {
+        MarkerBreak();
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
@@ -56,14 +79,14 @@ public class Projectile_Marker : MonoBehaviour
     /// This is used by the hud's crosshair
     /// </summary>
     /// <returns></returns>
-    public bool GetIsValidTarget()
+    private bool GetIsValidTarget()
     {
         // Gun is pointed at a bulb snapping point (That is valid!)
         // TODO - BulbCollisionBehaviour has not been ported!
         if (hit.collider.gameObject.TryGetComponent<MarkerCollisionBehaviour>(out _)) return true;
 
         // Gun is pointed at a sliceable object
-        if (hit.collider.gameObject.TryGetComponent<CorGeo_MeshSlicable>(out _) is false) return false;
+        if (hit.collider.gameObject.TryGetComponent<Mesh_Sliceable>(out _) is false) return false;
         // Non-mesh colliders don't support getting the polygon information, so we exit if it's not a mesh collider
         if (hit.collider is not MeshCollider mCollider) return false;
         // Get if the raycast hit a polygon with a valid material to place markers on
@@ -77,7 +100,7 @@ public class Projectile_Marker : MonoBehaviour
         return subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
     }
 
-    int GetSubMeshIndex(Mesh mesh, int triIndex)
+    private int GetSubMeshIndex(Mesh mesh, int triIndex)
     {
         int triangleCounter = 0;
         for (int i = 0; i < mesh.subMeshCount; i++)
@@ -89,6 +112,27 @@ public class Projectile_Marker : MonoBehaviour
             }
         }
         return -1;
+    }
+
+    private string GetPlacement()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 255, layerMask))
+        {
+            return GetIsValidTarget() ? "good" : "bad";
+        }
+        return "null";
+    }
+
+    private void MarkerPin()
+    {
+        pinned = true;
+        transform.position = hit.point;
+        transform.rotation = Quaternion.LookRotation(-hit.normal);
+    }
+    
+    private void MarkerBreak()
+    {
+        Destroy(gameObject, 0.25f);
     }
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/

@@ -3,15 +3,16 @@
 //  Liz M.
 //
 // Contributors
-//
+//  Connorses, Errynei, Soulex
 //
 //====================================================================================================================//
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CorGeo_MeshSlicable : MonoBehaviour
+/// <summary>
+/// Added to a mesh to allow it to be sliced
+/// </summary>
+public class Mesh_Sliceable : MonoBehaviour
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/

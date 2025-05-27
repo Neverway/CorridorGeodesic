@@ -3,14 +3,18 @@
 //  Liz M.
 //
 // Contributors
-//
+//  Connorses, Errynei, Soulex
 //
 //====================================================================================================================//
 
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Spawns & clears the marker projectiles, and sends signals to the rift manager to expand or compress
+/// </summary>
 public class Item_Utility_Geogun : Item
 {
     #region========================================( Variables )======================================================//
@@ -45,9 +49,11 @@ public class Item_Utility_Geogun : Item
 
 
     #region=======================================( Functions )======================================================= //
-
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-
+    private void Update()
+    {
+        spawnedProjectiles = spawnedProjectiles.Where(projectile => !projectile.IsUnityNull()).ToList();
+    }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     private void FireMarker()

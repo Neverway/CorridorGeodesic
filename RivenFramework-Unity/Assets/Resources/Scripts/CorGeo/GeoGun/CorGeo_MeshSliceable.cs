@@ -7,11 +7,12 @@
 //
 //====================================================================================================================//
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MarkerCollisionBehaviour : MonoBehaviour
+/// <summary>
+/// Added to a mesh to allow it to be sliced
+/// </summary>
+public class CorGeo_MeshSliceable : MonoBehaviour
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/

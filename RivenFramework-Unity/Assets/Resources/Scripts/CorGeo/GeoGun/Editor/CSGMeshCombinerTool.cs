@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 
+/// <summary>
+/// Used to convert CSG level meshes into one object, so it's compatible with CorGeo's mesh slicing
+/// </summary>
 public static class CSGMeshCombinerTool
 {
     [MenuItem("Neverway/CorGeo/Combine and bake level mesh")]
@@ -128,7 +131,7 @@ public static class CSGMeshCombinerTool
         MeshCollider meshColliderFinal = combinedMeshObject.AddComponent<MeshCollider>();
 
         // Add custom slicable component
-        combinedMeshObject.AddComponent<CorGeo_MeshSlicable>();
+        combinedMeshObject.AddComponent<Mesh_Sliceable>();
 
         meshFilterFinal.sharedMesh = combinedMesh;
         meshRendererFinal.sharedMaterials = uniqueMaterials.ToArray();
