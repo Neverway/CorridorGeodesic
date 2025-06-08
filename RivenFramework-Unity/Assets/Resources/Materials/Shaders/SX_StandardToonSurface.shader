@@ -165,7 +165,9 @@ Shader "Soulex/Surface/Standard Toon"
             half steps;
 
             #ifdef _SPECULARMODE_TRUEPBR
-                steps = _RampSmoothness * _RampSmoothness * 100 * 64;
+                // Changing this to linear scale ~Liz
+                //steps = _RampSmoothness * _RampSmoothness * 100 * 64;
+                steps = lerp(8, 128, _RampSmoothness);
     
                 //steps = 64;
                 
@@ -237,7 +239,7 @@ Shader "Soulex/Surface/Standard Toon"
 
             o.viewDir = IN.viewDir;
             o.worldPos = IN.worldPos;
-            //o.screenUv = IN.screenPos.xy / IN.screenPos.w;
+            o.screenUv = IN.screenPos.xy / IN.screenPos.w;
             //o.screenUv.x *= (_ScreenParams.x / _ScreenParams.y);
 
             //o.screenUv *= 8;
