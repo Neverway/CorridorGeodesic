@@ -473,6 +473,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/LocalizationFlags" />
      <Folder Include="Assets/Resources/Materials/Effects" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor" />
+     <Folder Include="Assets/Resources/Models/Materials/DynamiclyFiltered" />
      <Folder Include="Assets/_REMOVE_/Integratables" />
      <Folder Include="Assets/TextMesh Pro/Resources" />
      <None Include="Assets/Resources/Materials/Shaders/ScreenCutoutShader.shader" />
@@ -558,6 +559,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Geometry" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Audio" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Input" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/MainLevels/cube" />
      <Folder Include="Assets/RivenFramework-Revamp" />
      <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Vive" />

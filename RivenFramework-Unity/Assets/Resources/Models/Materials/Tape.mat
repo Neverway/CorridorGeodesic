@@ -82,6 +82,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - AOIntensity: 0
+    - _AOIntensity: 1
     - _AlphaClip: 0
     - _BUILTIN_AlphaClip: 0
     - _BUILTIN_Blend: 0
@@ -111,6 +113,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.0098
     - _RampSmoothness: 0.1
+    - _RoughnessMax: 0.5
     - _RoughnessPower: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

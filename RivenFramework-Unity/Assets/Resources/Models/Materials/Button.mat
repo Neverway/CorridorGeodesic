@@ -67,6 +67,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - AOIntensity: 0
+    - _AOIntensity: 1
     - _AlphaClip: 0.5
     - _BumpScale: 1
     - _ColorOnly: 0
@@ -83,6 +85,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampSmoothness: 0.1
+    - _RoughnessMax: 0.002
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpecularMode: 0
