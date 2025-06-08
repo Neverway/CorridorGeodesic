@@ -52,6 +52,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/TransformData.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreToolbarOverlay.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume/PhysicsVolumeForceMode.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_Door.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Pair.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/GI_RiftManager.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneCollider.cs" />
@@ -69,7 +70,6 @@
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_StepUp.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices/Matrix3x2.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/_Resources_/Scripts/Tile_Paralax.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/Dev_ActorCarousel.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityPortrait.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UpdateUtility.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole/DebugConsole.cs" />
@@ -103,6 +103,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/MathHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/MarkerCollisionBehaviour.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/StairBrush.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Dev/Item_Utility_DevGun.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleSprite.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/Vertex Weld Ops/VertexWeldOperation.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/AudioVolume/VolumetricAudioVolume.cs" />
@@ -128,6 +129,7 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CanvasForceGetActiveCamera.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dImporter.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_DeploymentVent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ResizeHandlePair.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/GridManager.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Unknown/LevelStreamer.cs" />
@@ -163,10 +165,10 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/AudioVolume/VolumetricAudioVolumeComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreCSGPreferences.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/GeometryHelper.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Prop_Respawner.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/AdjacencyFilters.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapBrush.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/Item_Utility_DevGun.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/EditorHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Input/EditorKeyMappings.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreCSGResources.cs" />
@@ -192,13 +194,13 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreEditorGUI.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Project.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/PolygonFactory.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Dev/Dev_ActorCarousel.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dBrushFlags.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGraphics.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Pawn_Inventory.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ChangeMaterialProperty.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/PaintEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/UVUtility.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic_ObjectActiveToggle.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/SegmentType.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/TrimBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/OBJFactory.cs" />
@@ -237,6 +239,7 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Shape.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfEntity.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_ObjectActiveToggle.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolumeTriggerType.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/Vertex Weld Ops/VertexWeldToleranceOperation.cs" />
@@ -252,7 +255,6 @@
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_Billboard.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/Optimizer.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic_Door.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/MeshExtensions.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfSolid.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dVector3.cs" />
@@ -334,6 +336,7 @@
      <Folder Include="Assets/Packages/Xelu_Prompts" />
      <Folder Include="Assets/Resources/Maps/CorGeo" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/Brass" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Dev" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/VeryImportantDoNotDelete" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated/OLD" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles" />
@@ -425,6 +428,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials/DevOrientation" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/UINoAlpha.shader" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Logic" />
      <Folder Include="Assets/Packages" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/Tri-Planar.shader" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/IndustrialMetalPlate" />

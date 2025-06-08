@@ -26,7 +26,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _MultBackground: 0
-    - _Strength: 0.2
+    - _Strength: 0.1
     m_Colors:
     - _DeepColor: {r: 1, g: 0.07058824, b: 0, a: 1}
     - _ShallowColor: {r: 1, g: 0.36153623, b: 0, a: 0}
