@@ -1431,13 +1431,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   shutterAngle:
     overrideState: 1
-    value: 200
+    value: 170
   sampleCount:
     overrideState: 1
     value: 10
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
   m_Name: ScreenSpaceReflections
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1564,7 +1564,7 @@ MonoBehaviour:
     value: 0
   intensity:
     overrideState: 1
-    value: 0.75
+    value: 0.5
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1666,12 +1666,12 @@ MonoBehaviour:
     value: 0
   keyValue:
     overrideState: 1
-    value: 1
+    value: 2
   eyeAdaptation:
     overrideState: 0
     value: 0
   speedUp:
-    overrideState: 0
+    overrideState: 1
     value: 1
   speedDown:
     overrideState: 0

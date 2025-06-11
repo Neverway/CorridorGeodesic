@@ -51,6 +51,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGModelInspector.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolStripVariant.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorBrushInspector.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/Editor/SceneReferenceDrawer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/PreviewIcons.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/PrimitiveBrushInspector.cs" />
@@ -1043,6 +1044,14 @@
       <Project>{8c9feb55-197c-c0d9-f4c0-534f1bc09483}</Project>
       <Name>RivenFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="SimpleFields.csproj">
+      <Project>{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}</Project>
+      <Name>SimpleFields</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFrameworkEditor.csproj">
+      <Project>{151a37ac-f391-173b-590e-1da35887fec1}</Project>
+      <Name>RivenFrameworkEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="RivenFramework.WidgetSystem.csproj">
       <Project>{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}</Project>
       <Name>RivenFramework.WidgetSystem</Name>
@@ -1058,10 +1067,6 @@
     <ProjectReference Include="EasyInspector.csproj">
       <Project>{7274ea9c-bb1e-53d4-357c-d854942d69c3}</Project>
       <Name>EasyInspector</Name>
-    </ProjectReference>
-    <ProjectReference Include="SimpleFields.csproj">
-      <Project>{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}</Project>
-      <Name>SimpleFields</Name>
     </ProjectReference>
     <ProjectReference Include="LogicValues.Editor.csproj">
       <Project>{d3445975-723f-08ca-5402-8b0b2470c36d}</Project>

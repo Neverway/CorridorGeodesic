@@ -7,9 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-
 public class Graphics_ChangeMaterialProperty: MonoBehaviour
 {
     //=-----------------=
@@ -20,6 +18,7 @@ public class Graphics_ChangeMaterialProperty: MonoBehaviour
     //=-----------------=
     // Private Variables
     //=-----------------=
+    public enum PropertyType { Color, Float }
     [SerializeField] private PropertyType propertyType;
     [SerializeField] private string propertyName;
     [SerializeField] private Color changeToColor;

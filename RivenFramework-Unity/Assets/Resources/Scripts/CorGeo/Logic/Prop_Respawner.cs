@@ -42,6 +42,9 @@ public class Prop_Respawner : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
+        // TODO: CallOnSourceChange needs HasLogicOutputSource to fix possible null refs for unlinked logic I/Os
+        // Using this 'if' statement as a quick fix for now ~Liz
+        if (respawnProp.HasLogicOutputSource is false) return;
         respawnProp.CallOnSourceChanged(RespawnProp);
     }
 

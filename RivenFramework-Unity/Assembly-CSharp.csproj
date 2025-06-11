@@ -450,6 +450,7 @@
      <Folder Include="Assets/RivenFramework" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Head" />
      <Folder Include="Assets/RivenFramework-Revamp/EasyInspector" />
+     <Folder Include="Assets/AddressableAssetsData/Linux" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/Diffuse-VertexColored.shader" />
      <Folder Include="Assets/RivenFramework/Objects/Framework" />
      <Folder Include="Assets/Resources/Maps/CorGeo/OldDemoLevels" />
@@ -488,7 +489,6 @@
      <Folder Include="Assets/TextMesh Pro/Resources/Style Sheets" />
      <Folder Include="Assets/Packages/DOTween" />
      <Folder Include="Assets/Resources" />
-     <Folder Include="Assets/RivenFramework-Revamp/SimpleFields" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/GeoGun" />
      <None Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles/OLD/CorGeo_Dialouge_EN.json" />
      <Folder Include="Assets/TextMesh Pro/Documentation" />
@@ -559,7 +559,6 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Geometry" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Audio" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Input" />
-     <Folder Include="Assets/Resources/Maps/CorGeo/MainLevels/cube" />
      <Folder Include="Assets/RivenFramework-Revamp" />
      <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Vive" />
@@ -1520,6 +1519,14 @@
       <Project>{8c9feb55-197c-c0d9-f4c0-534f1bc09483}</Project>
       <Name>RivenFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="SimpleFields.csproj">
+      <Project>{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}</Project>
+      <Name>SimpleFields</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFrameworkEditor.csproj">
+      <Project>{151a37ac-f391-173b-590e-1da35887fec1}</Project>
+      <Name>RivenFrameworkEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="RivenFramework.WidgetSystem.csproj">
       <Project>{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}</Project>
       <Name>RivenFramework.WidgetSystem</Name>
@@ -1535,10 +1542,6 @@
     <ProjectReference Include="EasyInspector.csproj">
       <Project>{7274ea9c-bb1e-53d4-357c-d854942d69c3}</Project>
       <Name>EasyInspector</Name>
-    </ProjectReference>
-    <ProjectReference Include="SimpleFields.csproj">
-      <Project>{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}</Project>
-      <Name>SimpleFields</Name>
     </ProjectReference>
     <ProjectReference Include="LogicValues.Editor.csproj">
       <Project>{d3445975-723f-08ca-5402-8b0b2470c36d}</Project>

@@ -32,6 +32,7 @@ public class Projectile_Marker : MonoBehaviour
 
     
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+    private GI_RiftManager riftManager;
 
 
     #endregion
@@ -41,6 +42,8 @@ public class Projectile_Marker : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     public void Awake()
     {
+        riftManager = FindObjectOfType<GI_RiftManager>();
+        
         // Good placement
             // Travel distance
                 // Pin
@@ -128,10 +131,20 @@ public class Projectile_Marker : MonoBehaviour
         pinned = true;
         transform.position = hit.point;
         transform.rotation = Quaternion.LookRotation(-hit.normal);
+        
+        // Add itself from the rift manager if possible
+        if (riftManager.markerA == null) riftManager.markerA = this;
+        else if (riftManager.markerB == null) riftManager.markerB = this;
     }
     
     private void MarkerBreak()
     {
+        // Remove itself from the rift manager if present
+        if (pinned)
+        {
+            if (riftManager.markerA == this) riftManager.markerA = null;
+            else if (riftManager.markerB == this) riftManager.markerB = null;
+        }
         Destroy(gameObject, 0.25f);
     }
 
