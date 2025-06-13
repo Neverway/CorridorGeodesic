@@ -814,9 +814,6 @@
      <Reference Include="Unity.2D.Aseprite.Common">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Aseprite.Common.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-     </Reference>
      <Reference Include="SimpleFileBrowser.Runtime">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/SimpleFileBrowser.Runtime.dll</HintPath>
      </Reference>
@@ -825,6 +822,9 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.2D.Sprite.Editor">
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
@@ -946,11 +946,11 @@
      <Reference Include="Unity.InputSystem">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InputSystem.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.InputSystem.ForUI">
-     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.InputSystem.ForUI">
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Addressables.Editor">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Addressables.Editor.dll</HintPath>
@@ -1024,6 +1024,10 @@
       <Project>{154b41dc-3a63-edcd-edca-8ed9acc89065}</Project>
       <Name>LogicValues</Name>
     </ProjectReference>
+    <ProjectReference Include="BzKovSoft.ObjectSlicer.csproj">
+      <Project>{9245b8b1-c66b-a156-2c87-adc9c5dee130}</Project>
+      <Name>BzKovSoft.ObjectSlicer</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.AudioManagement.csproj">
       <Project>{3b7df345-bd9a-eee0-b323-cd18f735389d}</Project>
       <Name>Neverway.Framework.AudioManagement</Name>
@@ -1035,6 +1039,10 @@
     <ProjectReference Include="RivenFramework.PawnMangement.csproj">
       <Project>{bdf120d6-5854-7f7d-4f1a-9673abd83232}</Project>
       <Name>RivenFramework.PawnMangement</Name>
+    </ProjectReference>
+    <ProjectReference Include="BzKovSoft.ObjectSlicer.Samples.csproj">
+      <Project>{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}</Project>
+      <Name>BzKovSoft.ObjectSlicer.Samples</Name>
     </ProjectReference>
     <ProjectReference Include="Neverway.Framework.csproj">
       <Project>{86afc6e2-dcf4-bae0-5d9b-904144009090}</Project>
@@ -1063,6 +1071,10 @@
     <ProjectReference Include="RivenFramework.SoundSystem.csproj">
       <Project>{8b850d7d-ff16-e78f-1ebe-a52b5e79da48}</Project>
       <Name>RivenFramework.SoundSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="BzKovSoft.CharacterSlicer.csproj">
+      <Project>{37048d4b-ea61-7c10-8fea-607907a56d48}</Project>
+      <Name>BzKovSoft.CharacterSlicer</Name>
     </ProjectReference>
     <ProjectReference Include="EasyInspector.csproj">
       <Project>{7274ea9c-bb1e-53d4-357c-d854942d69c3}</Project>

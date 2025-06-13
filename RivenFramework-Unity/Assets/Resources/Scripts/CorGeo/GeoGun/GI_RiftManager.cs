@@ -30,7 +30,8 @@ public class GI_RiftManager : MonoBehaviour
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [SerializeField] private GameObject cutPlanePrefab;
-    private GameObject cutPlaneA, cutPlaneB, spaceContainerA, spaceContainerB, spaceContainerNull;
+    public GameObject cutPlaneA, cutPlaneB, spaceContainerA, spaceContainerB, spaceContainerNull;
+    [HideInInspector] public Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
     
 
@@ -133,11 +134,19 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void PositionCutPlanes()
     {
+        // Set the positions and rotations of the cut plane objects
         cutPlaneA.transform.position = markerA.transform.position;
         cutPlaneB.transform.position = markerB.transform.position;
         
         cutPlaneA.transform.LookAt(markerB.transform);
         cutPlaneB.transform.LookAt(markerA.transform);
+        
+        // Assign the mathematical plane values
+        planeA = new Plane(cutPlaneA.transform.forward, cutPlaneA.transform.position);
+        planeB = new Plane(cutPlaneB.transform.forward, cutPlaneB.transform.position);
+        
+        // Slice the cut planes (This is for debugging right now)
+        SliceCutPlanes();
     }
 
     /// <summary>
@@ -145,7 +154,11 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void SliceCutPlanes()
     {
-        
+        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable> ();
+        foreach (var sliceableMesh in sliceableMeshes)
+        {
+            sliceableMesh.ApplyCuts();
+        }
     }
 
     /// <summary>
