@@ -29,10 +29,11 @@ public class GI_RiftManager : MonoBehaviour
     
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-    [SerializeField] private GameObject cutPlanePrefab;
-    public GameObject cutPlaneA, cutPlaneB, spaceContainerA, spaceContainerB, spaceContainerNull;
+    [SerializeField] private GameObject cutPlanePrefab, spaceContainerA, spaceContainerB, spaceContainerNull;
+    public GameObject cutPlaneA, cutPlaneB;
     [HideInInspector] public Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
+    public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes;
     
 
     #endregion

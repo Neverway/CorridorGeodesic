@@ -9,19 +9,25 @@
 //          @DitzelGames on YouTube. (See source)
 //          Also thanks to Connorses for helping fix the bridgeMeshGaps function
 //          and for putting up with my crazed rambling about polygons. ~Liz
+//
+// Notes (Rework 1): The code was rewritten by Connorses to use the BzMeshslicer instead of the custom system ~Liz
+//
+// Notes (Rework 2): I have rewritten the code to work with the ground up rebuild of the project. It currently does not 
+//          Handel any of the logic for supporting sliceable trigger volumes yet as I don't fully understand that system
+//          yet. ~Liz
+//      
 // Source: https://www.youtube.com/watch?v=VwGiwDLQ40A
 //
 //====================================================================================================================//
 
-using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using BzKovSoft.ObjectSlicer;
-using DG.Tweening.Core.Easing;
 
 /// <summary>
-/// Added to a mesh to allow it to be sliced
+/// Added to meshes to allow them to be sliced
 /// </summary>
-/// 
 [RequireComponent (typeof (BzSliceableObject))]
 public class Mesh_Sliceable : MonoBehaviour
 {
@@ -33,9 +39,16 @@ public class Mesh_Sliceable : MonoBehaviour
     
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-
+    [Tooltip("")]
+    private bool isSlicedByPlane;
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+    [Tooltip("")]
+    private BzSliceableObject slicer;
+    [Tooltip("")]
+    private IBzMeshSlicer sliceData;
+    [Tooltip("Reference to the riftManager so the cut meshes can sort themselves into the manager's correct space lists")]
+    private GI_RiftManager riftManager;
 
 
     #endregion
@@ -51,54 +64,105 @@ public class Mesh_Sliceable : MonoBehaviour
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
-    /// Slices the mesh if it intersects with either of the rift planes
+    /// Slices the mesh if it intersects with either of the rift planes, then sorts the pieces into the correct space
     /// This should only ever be called on clones of a mesh to avoid destroying the original!
     /// </summary>
     private async void AttemptSlice(GameObject _originalMesh)
     {
+        List<GameObject> objs = new List<GameObject>();
         // This will stay false if the attempt to slice fails
         // (aka the objects is not intersecting with a rift cut plane)
-        bool slicedByPlane = false;
-        var slicer = GetComponent<BzSliceableObject>();
-        var sliceData = GetComponent<IBzMeshSlicer>();
-        var riftManager = FindObjectOfType<GI_RiftManager>();
+        isSlicedByPlane = false;
+        slicer = GetComponent<BzSliceableObject>();
+        sliceData = GetComponent<IBzMeshSlicer>();
+        riftManager = FindObjectOfType<GI_RiftManager>();
 
+        // --- PART ONE ---
         // Attempt to slice across the rift's 'A Plane'
-        if (slicedByPlaneA)
+        var resultOfPlaneASlice = await slicer.SliceAsync(riftManager.planeA, sliceData);
+        if (resultOfPlaneASlice.sliced)
         {
-            
-        }
-
-        // Even if A plane fails, still attempt to slice across the rift's 'B Plane'
-        if (slicedByPlaneB)
-        {
-            
-        }
-
-        // If both slices fail, the clone should be destroyed, and the original needs to be set to the correct space container
-        if (slicedByPlaneA is false && slicedByPlaneB is false)
-        {
-            
-        }
-        
-        // Attempt to slice across the rift's 'A Plane'
-        var resultOfAPlaneSlice = await slicer.SliceAsync(riftManager.planeA, sliceData);
-        if (resultOfAPlaneSlice.sliced)
-        {
+            // Hide the original and set the isSlicedByPlane to true, so we can skip Part Three
             _originalMesh.SetActive(false);
-            slicedByPlane = true;
+            isSlicedByPlane = true;
             
-            foreach (var obj in resultOfAPlaneSlice.resultObjects)
+            // Since the slice across the 'A Plane' was successful, attempt to slice the new meshes across the rift's 'B Plane'
+            foreach (var newACutMesh in resultOfPlaneASlice.resultObjects)
             {
-                // Get if this is the positive or negative side of the plane
-                if (obj.side)
+                // Only cut the new meshes on the positive side (the side that faces towards where the B plane should be)
+                if (newACutMesh.side)
                 {
+                    // Slice the new objects on the positive side of the cut, this time with the B plane
+                    IBzMeshSlicer subSliceData = newACutMesh.gameObject.GetComponent<IBzMeshSlicer>();
+                    var resultOfSecondPlaneSlice = await subSliceData.SliceAsync(riftManager.planeB);
+                    if (resultOfSecondPlaneSlice.sliced)
+                    {
+                        foreach (var newBCutMesh in resultOfSecondPlaneSlice.resultObjects)
+                        {
+                            Mesh_Sliceable newBCutMeshSliceable = newBCutMesh.gameObject.GetComponent<Mesh_Sliceable>();
+                            newBCutMeshSliceable.isSlicedByPlane = true;
+
+                            /* OLD CODE FOR 'PartsReference' STUFF (Which is used for allowing sliceable logic volumes)
+                            // I have not fully re-created this in the new system yet as I don't fully understand it ~Liz
+                            if (partsReference)
+                            {
+                                partsReference.AddSlice(objMesh2);
+                                // objMesh2 is now called newBCutMeshSliceable
+                            }
+                            */
+
+                            // Sort A meshes into rift manager list
+                            // This... did not work. I don't know why. 
+                            // It does work when I move it down to the else statement below though! ~Liz
+                            //CleanupExtraMeshColliders(newBCutMesh.gameObject);
+                            //riftManager.spaceAMeshes.Add(newACutMesh.gameObject);
+                            //newACutMesh.gameObject.name = $"{name} [A]";
+
+                            // Sort NULL meshes into rift manager list
+                            if (newBCutMesh.side)
+                            {
+                                riftManager.spaceNullMeshes.Add(newBCutMesh.gameObject);
+                                newBCutMesh.gameObject.name = $"{name} [NULL]";
+                            }
+
+                            // Finally sort B meshes into rift manager list
+                            else
+                            {
+                                riftManager.spaceBMeshes.Add(newBCutMesh.gameObject);
+                                newBCutMesh.gameObject.name = $"{name} [B]";
+                            }
+                        }
+                    }
+                    // If B plane slice fails, the rest of the mesh was in null space
+                    else
+                    {
+                        //obj2.gameObject.transform.SetParent(Alt_Item_Geodesic_Utility_GeoGun.planeBMeshes.transform);
+                        riftManager.spaceNullMeshes.Add(newACutMesh.gameObject);
+                        newACutMesh.gameObject.name = $"{name} [NULL2]";
+                    }
+                }
+                // Sort A meshes into rift manager list
+                else
+                {
+                    riftManager.spaceAMeshes.Add(newACutMesh.gameObject);
+                    newACutMesh.gameObject.name = $"{name} [A]";
                 }
             }
         }
-            
-            
         
+        // --- PART TWO ---
+        // Even if A plane fails, still attempt to slice across the rift's 'B Plane'
+        else
+        {
+            
+        }
+        
+        // --- PART THREE ---
+        // If both slices fail, the clone should be destroyed, and the original needs to be set to the correct space container
+        
+            
+            
+        /*
         bool sliced = false;
         Collider coll = GetComponent<Collider> ();
         if (!coll) return;
@@ -261,7 +325,7 @@ public class Mesh_Sliceable : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
     
     /// <summary>
@@ -276,6 +340,19 @@ public class Mesh_Sliceable : MonoBehaviour
                 meshCollider.convex = false;
             }
             meshCollider.sharedMesh = meshCollider.sharedMesh;
+        }
+    }
+
+    /// <summary>
+    /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixes those
+    /// </summary>
+    /// <param name="_targetObject">The mesh to remove the duplicate colliders from</param>
+    private void CleanupExtraMeshColliders(GameObject _targetObject)
+    {
+        var meshColliders = GetComponents<MeshCollider> ();
+        if (meshColliders.Length > 1)
+        {
+            Destroy (meshColliders[0]);
         }
     }
 
@@ -298,6 +375,8 @@ public class Mesh_Sliceable : MonoBehaviour
         
         // Make a clone of this mesh to be cut
         Mesh_Sliceable meshClone = Instantiate(this, transform.position, transform.rotation);
+
+        meshClone.name = $"[CUT] {name}";
 
         // Slice the clone ONLY!!! Never slice the original objects!!
         meshClone.AttemptSlice(gameObject);
