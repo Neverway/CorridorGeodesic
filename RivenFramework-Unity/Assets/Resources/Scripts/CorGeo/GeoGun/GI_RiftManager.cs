@@ -7,7 +7,9 @@
 //
 //====================================================================================================================//
 
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -159,6 +161,38 @@ public class GI_RiftManager : MonoBehaviour
         foreach (var sliceableMesh in sliceableMeshes)
         {
             sliceableMesh.ApplyCuts();
+        }
+
+        // Clean up glitched duplicate mesh colliders that sometimes appear on sub-cuts
+        StartCoroutine(CleanupExtraMeshColliders());
+    }
+    
+    /// <summary>
+    /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixes those
+    /// </summary>
+    /// <param name="_targetObject">The mesh to remove the duplicate colliders from</param>
+    private IEnumerator CleanupExtraMeshColliders()
+    {
+        // Wait for a bit so the async await operations have time to finish creating their new meshes
+        // is 0.25 seconds enough? ~Liz
+        // It was not, I have changed it to wait for the end of the frame and that seems to have done the trick! ~Liz
+        yield return new WaitForEndOfFrame();
+        foreach (var newMesh in spaceBMeshes)
+        {
+            var meshColliders = newMesh.GetComponents<MeshCollider>();
+            if (meshColliders.Length > 1)
+            {
+                Destroy (meshColliders[0]);
+            }
+        }
+
+        foreach (var newMesh in spaceNullMeshes)
+        {
+            var meshColliders = newMesh.GetComponents<MeshCollider>();
+            if (meshColliders.Length > 1)
+            {
+                Destroy (meshColliders[0]);
+            }
         }
     }
 

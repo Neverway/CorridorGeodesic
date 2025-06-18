@@ -50,6 +50,8 @@ public class Mesh_Sliceable : MonoBehaviour
     [Tooltip("Reference to the riftManager so the cut meshes can sort themselves into the manager's correct space lists")]
     private GI_RiftManager riftManager;
 
+    public List<MeshCollider> meshColliders = new List<MeshCollider>();
+
 
     #endregion
 
@@ -340,19 +342,6 @@ public class Mesh_Sliceable : MonoBehaviour
                 meshCollider.convex = false;
             }
             meshCollider.sharedMesh = meshCollider.sharedMesh;
-        }
-    }
-
-    /// <summary>
-    /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixes those
-    /// </summary>
-    /// <param name="_targetObject">The mesh to remove the duplicate colliders from</param>
-    private void CleanupExtraMeshColliders(GameObject _targetObject)
-    {
-        var meshColliders = GetComponents<MeshCollider> ();
-        if (meshColliders.Length > 1)
-        {
-            Destroy (meshColliders[0]);
         }
     }
 
