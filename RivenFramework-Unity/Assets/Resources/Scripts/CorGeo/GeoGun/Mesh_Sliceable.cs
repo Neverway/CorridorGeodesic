@@ -36,11 +36,11 @@ public class Mesh_Sliceable : MonoBehaviour
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+    [Tooltip("")]
+    public bool isSlicedByPlane;
     
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-    [Tooltip("")]
-    private bool isSlicedByPlane;
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Tooltip("")]
@@ -86,11 +86,16 @@ public class Mesh_Sliceable : MonoBehaviour
         {
             // Hide the original and set the isSlicedByPlane to true, so we can skip Part Three
             _originalMesh.SetActive(false);
+            riftManager.hiddenOriginalMeshes.Add(_originalMesh);
             isSlicedByPlane = true;
             
             // Since the slice across the 'A Plane' was successful, attempt to slice the new meshes across the rift's 'B Plane'
             foreach (var newACutMesh in resultOfPlaneASlice.resultObjects)
             {
+                // Make sure the part knows that it's a cut mesh
+                Mesh_Sliceable newACutMeshSliceable = newACutMesh.gameObject.GetComponent<Mesh_Sliceable>();
+                newACutMeshSliceable.isSlicedByPlane = true;
+                
                 // Only cut the new meshes on the positive side (the side that faces towards where the B plane should be)
                 if (newACutMesh.side)
                 {
@@ -101,6 +106,7 @@ public class Mesh_Sliceable : MonoBehaviour
                     {
                         foreach (var newBCutMesh in resultOfSecondPlaneSlice.resultObjects)
                         {
+                            // Make sure the part knows that it's a cut mesh
                             Mesh_Sliceable newBCutMeshSliceable = newBCutMesh.gameObject.GetComponent<Mesh_Sliceable>();
                             newBCutMeshSliceable.isSlicedByPlane = true;
 
@@ -161,11 +167,12 @@ public class Mesh_Sliceable : MonoBehaviour
             {
                 // Hide the original and set the isSlicedByPlane to true, so we can skip Part Three
                 _originalMesh.SetActive(false);
+                riftManager.hiddenOriginalMeshes.Add(_originalMesh);
                 isSlicedByPlane = true;
 
                 foreach (var newBCutMesh in resultOfPlaneBSlice.resultObjects)
                 {
-                    
+                    // Make sure the part knows that it's a cut mesh
                     Mesh_Sliceable newBCutMeshSliceable = newBCutMesh.gameObject.GetComponent<Mesh_Sliceable>();
                     newBCutMeshSliceable.isSlicedByPlane = true;
 

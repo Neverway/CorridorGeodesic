@@ -7,6 +7,7 @@
 //
 //====================================================================================================================//
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,8 @@ public class GI_RiftManager : MonoBehaviour
     public GameObject cutPlaneA, cutPlaneB;
     [HideInInspector] public Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
-    public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes;
+    public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes;
+    public Item_Utility_Geogun linkedGeogun;
     
 
     #endregion
@@ -45,6 +47,12 @@ public class GI_RiftManager : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Update()
     {
+        // Link the manager to a geogun if it's not yet
+        if (!linkedGeogun)
+        {
+            LinkToGeogun();
+        }
+        
         // Initialize rift objects if they are missing
         if (IsRiftInitialized() is false) InitializeRiftObjects();
         
@@ -61,7 +69,27 @@ public class GI_RiftManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (linkedGeogun) linkedGeogun.OnGunDestroyMarkers -= RestoreRift;
+    }
+
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    private void LinkToGeogun()
+    {
+        if (linkedGeogun) return; // Sanity check to avoid multiple function calls
+        foreach (var geogun in FindObjectsOfType<Item_Utility_Geogun>())
+        {
+            if (geogun.isLinkedToManager is false)
+            {
+                linkedGeogun = geogun;
+                linkedGeogun.isLinkedToManager = true;
+                linkedGeogun.OnGunDestroyMarkers += () => RestoreRift();
+                return;
+            }
+        }
+    }
+    
     /// <summary>
     /// Detects if any of the rift objects are missing
     /// </summary>
@@ -204,19 +232,70 @@ public class GI_RiftManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 
+    /// </summary>
+    private void EmptyMatterInSpaceContainers()
+    {
+        // Un-parent matter
+        for (int i = 0; i < spaceContainerA.transform.childCount; i++)
+        {
+            spaceContainerA.transform.GetChild(i).parent = null;
+        }
+        for (int i = 0; i < spaceContainerB.transform.childCount; i++)
+        {
+            spaceContainerB.transform.GetChild(i).parent = null;
+        }
+        for (int i = 0; i < spaceContainerNull.transform.childCount; i++)
+        {
+            spaceContainerNull.transform.GetChild(i).parent = null;
+        }
+        
+        // Clear lists
+        spaceAMeshes.Clear();
+        spaceBMeshes.Clear();
+        spaceNullMeshes.Clear();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void RestoreCutGeometry()
+    {
+        // Destroy cloned cut geometry
+        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable>();
+        foreach (var sliceableMesh in sliceableMeshes)
+        {
+            if (sliceableMesh.isSlicedByPlane)
+            {
+                Destroy(sliceableMesh.gameObject);
+            }
+        }
+
+        // Un-hide the original meshes
+        foreach (var hiddenMesh in hiddenOriginalMeshes)
+        {
+            hiddenMesh.SetActive(true);
+        }
+    }
+
+    /// <summary>
     /// Sets the rift back to it's zero point and restores cut geometry
     /// </summary>
-    private void RestoreRift()
+    public void RestoreRift()
     {
-        
+        AdjustRiftPosition(0);
+        RestoreCutGeometry();
+        EmptyMatterInSpaceContainers();
     }
     
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
-    /// 
+    /// Controls the collapsing and expanding of a deployed rift
+    /// 0 is the start position (no compression/expansion), -1 is fully collapsed, and 1 is expanded to twice the distance of the rift planes
+    /// (I'm not exactly sure how the upper limit of expanding would work ~Liz)
     /// </summary>
-    /// <param name="_amount"></param>
+    /// <param name="_amount">The amount that the rift is expanded or collapsed</param>
     public void AdjustRiftPosition(float _amount)
     {
         

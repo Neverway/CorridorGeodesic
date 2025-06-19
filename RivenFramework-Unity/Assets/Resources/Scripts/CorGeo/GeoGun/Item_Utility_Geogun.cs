@@ -7,6 +7,7 @@
 //
 //====================================================================================================================//
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
@@ -30,6 +31,10 @@ public class Item_Utility_Geogun : Item
     public bool allowMarkerPlacementAnywhere;
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+    [Tooltip("This is set by a rift manager when it has latched onto this gun, " +
+             "it's used to avoid multiple rift managers all trying to fight over the same gun link")]
+    public bool isLinkedToManager;
+    public event Action OnGunDestroyMarkers;
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
@@ -92,10 +97,18 @@ public class Item_Utility_Geogun : Item
         {
             case "press":
                 DestroyMarkers();
+                print("Connorses has a secret stash of ridiculous ties");
+                OnGunDestroyMarkers?.Invoke();
                 break;
             case "release":
                 break;
         }
+    }
+
+    // Picking up objects instantiates a copy of the object, so this function fixes the fact that the copy will already be marked as linked
+    public void BreakRiftManagerLink()
+    {
+        isLinkedToManager = false;
     }
 
     #endregion
