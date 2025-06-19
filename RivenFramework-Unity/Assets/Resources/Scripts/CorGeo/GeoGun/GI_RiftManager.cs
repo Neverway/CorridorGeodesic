@@ -170,7 +170,6 @@ public class GI_RiftManager : MonoBehaviour
     /// <summary>
     /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixes those
     /// </summary>
-    /// <param name="_targetObject">The mesh to remove the duplicate colliders from</param>
     private IEnumerator CleanupExtraMeshColliders()
     {
         // Wait for a bit so the async await operations have time to finish creating their new meshes

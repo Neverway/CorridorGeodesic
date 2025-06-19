@@ -156,12 +156,90 @@ public class Mesh_Sliceable : MonoBehaviour
         // Even if A plane fails, still attempt to slice across the rift's 'B Plane'
         else
         {
-            
+            var resultOfPlaneBSlice = await slicer.SliceAsync(riftManager.planeB, sliceData);
+            if (resultOfPlaneBSlice.sliced)
+            {
+                // Hide the original and set the isSlicedByPlane to true, so we can skip Part Three
+                _originalMesh.SetActive(false);
+                isSlicedByPlane = true;
+
+                foreach (var newBCutMesh in resultOfPlaneBSlice.resultObjects)
+                {
+                    
+                    Mesh_Sliceable newBCutMeshSliceable = newBCutMesh.gameObject.GetComponent<Mesh_Sliceable>();
+                    newBCutMeshSliceable.isSlicedByPlane = true;
+
+                    /* OLD CODE FOR 'PartsReference' STUFF (Which is used for allowing sliceable logic volumes)
+                    // I have not fully re-created this in the new system yet as I don't fully understand it ~Liz
+                    if (partsReference)
+                    {
+                        partsReference.AddSlice(objMesh2);
+                        // objMesh3 is now called newBCutMeshSliceable
+                    }
+                    */
+
+                    // Sort A meshes into rift manager list
+                    // This... did not work. I don't know why. 
+                    // It does work when I move it down to the else statement below though! ~Liz
+                    //CleanupExtraMeshColliders(newBCutMesh.gameObject);
+                    //riftManager.spaceAMeshes.Add(newACutMesh.gameObject);
+                    //newACutMesh.gameObject.name = $"{name} [A]";
+
+                    // Sort NULL meshes into rift manager list
+                    if (newBCutMesh.side)
+                    {
+                        riftManager.spaceNullMeshes.Add(newBCutMesh.gameObject);
+                        newBCutMesh.gameObject.name = $"{name} [NULL]";
+                    }
+
+                    // Finally sort B meshes into rift manager list
+                    else
+                    {
+                        riftManager.spaceBMeshes.Add(newBCutMesh.gameObject);
+                        newBCutMesh.gameObject.name = $"{name} [B]";
+                    }
+                }
+            }
         }
         
         // --- PART THREE ---
         // If both slices fail, the clone should be destroyed, and the original needs to be set to the correct space container
-        
+        if (isSlicedByPlane is false)
+        {
+            // If all the slices miss, we have to figure out where this mesh is.
+
+            MeshFilter meshFilter = GetComponent<MeshFilter> ();
+            if (meshFilter && meshFilter.mesh.vertices.Length > 0)
+            {
+                var vert = meshFilter.mesh.vertices[0];
+                Vector3 testPoint = new Vector3 (vert.x, vert.y, vert.z);
+                Vector3 worldPoint = transform.TransformPoint (testPoint);
+                // Object is in A Space
+                if (riftManager.planeA.GetDistanceToPoint (worldPoint) < 0)
+                {
+                    // Set the original to correct space
+                    riftManager.spaceAMeshes.Add(_originalMesh);
+                    // Destroy ourselves (The clone)
+                    Destroy (gameObject);
+                }
+                // Object is in B Space
+                else if (riftManager.planeB.GetDistanceToPoint (worldPoint) < 0)
+                {
+                    // Set the original to correct space
+                    riftManager.spaceBMeshes.Add(_originalMesh);
+                    // Destroy ourselves (The clone)
+                    Destroy (gameObject);
+                }
+                // Object is in NULL Space
+                else
+                {
+                    // Set the original to correct space
+                    riftManager.spaceNullMeshes.Add(_originalMesh);
+                    // Destroy ourselves (The clone)
+                    Destroy (gameObject);
+                }
+            }
+        }
             
             
         /*
