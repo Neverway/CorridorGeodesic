@@ -268,6 +268,15 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void EmptyMatterInSpaceContainers()
     {
+        // Clear lists
+        spaceAMeshes.Clear();
+        spaceBMeshes.Clear();
+        spaceNullMeshes.Clear();
+     
+        // There is a possibility that when calling this from OnDestroy, the spaceContainers don't exist, which is fine
+        // This just exits if that's the case, so it doesn't throw a null error
+        if (!spaceContainerA || !spaceContainerB || !spaceContainerNull) return;
+        
         // Un-parent matter
         for (int i = 0; i < spaceContainerA.transform.childCount; i++)
         {
@@ -281,11 +290,6 @@ public class GI_RiftManager : MonoBehaviour
         {
             spaceContainerNull.transform.GetChild(i).parent = null;
         }
-        
-        // Clear lists
-        spaceAMeshes.Clear();
-        spaceBMeshes.Clear();
-        spaceNullMeshes.Clear();
     }
 
     /// <summary>
@@ -297,17 +301,19 @@ public class GI_RiftManager : MonoBehaviour
         var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable>();
         foreach (var sliceableMesh in sliceableMeshes)
         {
-            if (sliceableMesh.isSlicedByPlane)
+            if (sliceableMesh.isSlicedByPlane && !hiddenOriginalMeshes.Contains(sliceableMesh.gameObject))
             {
                 Destroy(sliceableMesh.gameObject);
             }
         }
 
         // Un-hide the original meshes
-        foreach (var hiddenMesh in hiddenOriginalMeshes)
+        for (int i = 0; i < hiddenOriginalMeshes.Count; i++)
         {
-            hiddenMesh.SetActive(true);
+            hiddenOriginalMeshes[i].SetActive(true);
         }
+        
+        hiddenOriginalMeshes.Clear();
     }
 
     /// <summary>
