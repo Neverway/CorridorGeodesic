@@ -32,12 +32,13 @@ public class GI_RiftManager : MonoBehaviour
     
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+    private Item_Utility_Geogun linkedGeogun;
     [SerializeField] private GameObject cutPlanePrefab, spaceContainerA, spaceContainerB, spaceContainerNull;
-    public GameObject cutPlaneA, cutPlaneB;
+    [HideInInspector] public GameObject cutPlaneA, cutPlaneB;
     [HideInInspector] public Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
     public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes;
-    public Item_Utility_Geogun linkedGeogun;
+    public Graphics_RiftPreviewEffects riftPreviewEffects;
     
 
     #endregion
@@ -60,6 +61,7 @@ public class GI_RiftManager : MonoBehaviour
         if (GetPinnedMarkers() && riftActive is false)
         {
             SetRiftHidden(false);
+            StartCoroutine(riftPreviewEffects.OnRiftCreated(this));
             PositionCutPlanes();
         }
         // Markers lost, disable rift
