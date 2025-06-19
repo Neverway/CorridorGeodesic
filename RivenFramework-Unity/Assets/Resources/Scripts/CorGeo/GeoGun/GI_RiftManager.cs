@@ -66,15 +66,21 @@ public class GI_RiftManager : MonoBehaviour
         else if (GetPinnedMarkers() is false && riftActive)
         {
             SetRiftHidden(true);
+            RestoreRift();
         }
     }
 
     private void OnDestroy()
     {
-        if (linkedGeogun) linkedGeogun.OnGunDestroyMarkers -= RestoreRift;
+        RestoreRift();
+        //if (linkedGeogun) linkedGeogun.OnGunDestroyMarkers -= RestoreRift;
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// Gets a reference to an unlinked Geogun in the scene so the rift manager can subscribe to the guns action events
+    /// (Like clearing, collapsing, or expanding the rift)
+    /// </summary>
     private void LinkToGeogun()
     {
         if (linkedGeogun) return; // Sanity check to avoid multiple function calls
@@ -84,7 +90,7 @@ public class GI_RiftManager : MonoBehaviour
             {
                 linkedGeogun = geogun;
                 linkedGeogun.isLinkedToManager = true;
-                linkedGeogun.OnGunDestroyMarkers += () => RestoreRift();
+                //linkedGeogun.OnGunDestroyMarkers += () => RestoreRift();
                 return;
             }
         }
@@ -193,6 +199,8 @@ public class GI_RiftManager : MonoBehaviour
 
         // Clean up glitched duplicate mesh colliders that sometimes appear on sub-cuts
         StartCoroutine(CleanupExtraMeshColliders());
+
+        StartCoroutine(AssignSpaceContainerForMeshes());
     }
     
     /// <summary>
@@ -224,9 +232,31 @@ public class GI_RiftManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Sorts all objects into 'A', 'B', and 'Null' spaces
+    /// Sets the parent for all the meshes in the lists to the correct space container
     /// </summary>
-    private void UpdateMatterInSpaces()
+    private IEnumerator AssignSpaceContainerForMeshes()
+    {
+        // Wait for a bit so the async await operations have time to finish creating their new meshes
+        yield return new WaitForEndOfFrame();
+        
+        foreach (var mesh in spaceAMeshes)
+        {
+            mesh.transform.parent = spaceContainerA.transform;
+        }
+        foreach (var mesh in spaceBMeshes)
+        {
+            mesh.transform.parent = spaceContainerB.transform;
+        }
+        foreach (var mesh in spaceNullMeshes)
+        {
+            mesh.transform.parent = spaceContainerNull.transform;
+        }
+    }
+
+    /// <summary>
+    /// Sorts all dynamic (moving/movable) actors into 'A', 'B', and 'Null' spaces
+    /// </summary>
+    private void UpdateActorSpaces()
     {
         
     }
@@ -257,7 +287,7 @@ public class GI_RiftManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Cleans up cloned cut meshes and restores original meshes
     /// </summary>
     private void RestoreCutGeometry()
     {
@@ -281,7 +311,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <summary>
     /// Sets the rift back to it's zero point and restores cut geometry
     /// </summary>
-    public void RestoreRift()
+    private void RestoreRift()
     {
         AdjustRiftPosition(0);
         RestoreCutGeometry();
