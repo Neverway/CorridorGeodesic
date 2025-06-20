@@ -71,6 +71,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7104800978306438575}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 844388b25adcc04a582c6f3c347c73f4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8582866095441924563}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 844388b25adcc04a582c6f3c347c73f4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4067754910927068340}
   m_SourcePrefab: {fileID: 100100000, guid: 844388b25adcc04a582c6f3c347c73f4, type: 3}
 --- !u!4 &4684921423963124787 stripped
 Transform:
@@ -106,6 +114,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8065425486815526952, guid: 844388b25adcc04a582c6f3c347c73f4, type: 3}
+--- !u!114 &8582866095441924563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354779518877838985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSliceMaterial: {fileID: 0}
+  asynchronously: 0
+  waitIfBusy: 0
+  objectGrouping: 0
+--- !u!114 &4067754910927068340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5354779518877838985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSlicedByPlane: 0
+  meshColliders: []
 --- !u!1001 &6956118632047380180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,7 +222,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2147754228552126005, guid: 0691e5206c095094690805245502b274, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5666194294599035471, guid: 0691e5206c095094690805245502b274, type: 3}
     m_AddedGameObjects:

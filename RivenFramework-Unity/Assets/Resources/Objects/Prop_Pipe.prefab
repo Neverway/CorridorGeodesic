@@ -78,7 +78,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2147754228552126005, guid: 0691e5206c095094690805245502b274, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5666194294599035471, guid: 0691e5206c095094690805245502b274, type: 3}
     m_AddedGameObjects:
@@ -161,11 +162,63 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7404272462139363200, guid: 52ec3517e9df41cd98bdaa7921e9d721,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4934065743219907797}
+    - targetCorrespondingSourceObject: {fileID: 7404272462139363200, guid: 52ec3517e9df41cd98bdaa7921e9d721,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3407505921632843498}
     - targetCorrespondingSourceObject: {fileID: -6258905272943287902, guid: 52ec3517e9df41cd98bdaa7921e9d721,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3089550483201242218}
+    - targetCorrespondingSourceObject: {fileID: -6258905272943287902, guid: 52ec3517e9df41cd98bdaa7921e9d721,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1382147962671336776}
+    - targetCorrespondingSourceObject: {fileID: -6258905272943287902, guid: 52ec3517e9df41cd98bdaa7921e9d721,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 375305752474148769}
   m_SourcePrefab: {fileID: 100100000, guid: 52ec3517e9df41cd98bdaa7921e9d721, type: 3}
+--- !u!1 &1595304063971390489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7404272462139363200, guid: 52ec3517e9df41cd98bdaa7921e9d721,
+    type: 3}
+  m_PrefabInstance: {fileID: 8134321210751613849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4934065743219907797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595304063971390489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSliceMaterial: {fileID: 0}
+  asynchronously: 0
+  waitIfBusy: 0
+  objectGrouping: 0
+--- !u!114 &3407505921632843498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595304063971390489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSlicedByPlane: 0
+  meshColliders: []
 --- !u!1 &6467464677111831099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6258905272943287902, guid: 52ec3517e9df41cd98bdaa7921e9d721,
@@ -194,6 +247,36 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1631424540131675432, guid: 52ec3517e9df41cd98bdaa7921e9d721, type: 3}
+--- !u!114 &1382147962671336776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467464677111831099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSliceMaterial: {fileID: 0}
+  asynchronously: 0
+  waitIfBusy: 0
+  objectGrouping: 0
+--- !u!114 &375305752474148769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467464677111831099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSlicedByPlane: 0
+  meshColliders: []
 --- !u!4 &8604218855729601650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 52ec3517e9df41cd98bdaa7921e9d721,

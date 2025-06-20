@@ -79,6 +79,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5518091119748364436}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 312310edb6fa07a07aeb86228601eccf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7546669469480189575}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 312310edb6fa07a07aeb86228601eccf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7123599222678571268}
   m_SourcePrefab: {fileID: 100100000, guid: 312310edb6fa07a07aeb86228601eccf, type: 3}
 --- !u!1 &55747496458801537 stripped
 GameObject:
@@ -108,6 +116,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5781133480543440549, guid: 312310edb6fa07a07aeb86228601eccf, type: 3}
+--- !u!114 &7546669469480189575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55747496458801537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSliceMaterial: {fileID: 0}
+  asynchronously: 0
+  waitIfBusy: 0
+  objectGrouping: 0
+--- !u!114 &7123599222678571268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55747496458801537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSlicedByPlane: 0
+  meshColliders: []
 --- !u!4 &832566292983253819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 312310edb6fa07a07aeb86228601eccf,
@@ -266,7 +304,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2147754228552126005, guid: 0691e5206c095094690805245502b274, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5666194294599035471, guid: 0691e5206c095094690805245502b274, type: 3}
     m_AddedGameObjects:
