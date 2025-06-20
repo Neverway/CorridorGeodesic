@@ -60,6 +60,12 @@ public class Mesh_Sliceable : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
+        slicer = FindObjectOfType<BzSliceableObject>();
+        riftManager = FindObjectOfType<GI_RiftManager>();
+        if (!slicer.defaultSliceMaterial)
+        {
+            slicer.defaultSliceMaterial = riftManager.nullSpaceMaterial;
+        }
         EnsureNonConvexWhenCloned();
     }
 

@@ -25,10 +25,10 @@ public class GI_RiftManager : MonoBehaviour
     
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+    public bool riftActive;
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-    public bool riftActive;
     private float maxRiftWidth = 30;
     private float currentRiftPercent; //current percent scaling of the rift
     private float currentRiftWidth; //current width after applying percent scale
@@ -45,8 +45,9 @@ public class GI_RiftManager : MonoBehaviour
     [HideInInspector] public GameObject cutPlaneA, cutPlaneB;
     [HideInInspector] public Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
-    public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes;
+    [HideInInspector] public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes;
     public Graphics_RiftPreviewEffects riftPreviewEffects;
+    public Material nullSpaceMaterial;
     
 
     #endregion
