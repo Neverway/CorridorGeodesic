@@ -75,7 +75,6 @@ public class GI_RiftManager : MonoBehaviour
     private void OnDestroy()
     {
         RestoreRift();
-        //if (linkedGeogun) linkedGeogun.OnGunDestroyMarkers -= RestoreRift;
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/

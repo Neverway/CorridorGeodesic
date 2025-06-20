@@ -34,7 +34,10 @@ public class Item_Utility_Geogun : Item
     [Tooltip("This is set by a rift manager when it has latched onto this gun, " +
              "it's used to avoid multiple rift managers all trying to fight over the same gun link")]
     public bool isLinkedToManager;
-    public event Action OnGunDestroyMarkers;
+    public event Action OnCollapseHeld;
+    public event Action OnCollapseReleased;
+    public event Action OnExpandHeld;
+    public event Action OnExpandReleased;
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
@@ -63,9 +66,9 @@ public class Item_Utility_Geogun : Item
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
-    private void FireMarker()
+    private bool FireMarker()
     {
-        if (spawnedProjectiles.Count >= maxProjectiles) return;
+        if (spawnedProjectiles.Count >= maxProjectiles) return false;
         animator1.SetTrigger("Shoot");
         animator2.SetTrigger("Shoot");
         var projectile = Instantiate(projectilePrefab, gunBarrel.position, gunBarrel.rotation, null);
@@ -76,6 +79,8 @@ public class Item_Utility_Geogun : Item
             animator1.SetBool("Empty", true);
             animator2.SetBool("Empty", true);
         }
+
+        return true;
     }
 
     private void DestroyMarkers()
@@ -98,8 +103,35 @@ public class Item_Utility_Geogun : Item
         {
             case "press":
                 FireMarker();
+                if (spawnedProjectiles.Count >= maxProjectiles)
+                {
+                    OnCollapseHeld?.Invoke();
+                }
                 break;
             case "release":
+                if (spawnedProjectiles.Count >= maxProjectiles)
+                {
+                    OnCollapseReleased?.Invoke();
+                }
+                break;
+        }
+    }
+
+    public override void UseSecondary(string _mode = "press")
+    {
+        switch (_mode)
+        {
+            case "press":
+                if (spawnedProjectiles.Count >= maxProjectiles)
+                {
+                    OnExpandHeld?.Invoke();
+                }
+                break;
+            case "release":
+                if (spawnedProjectiles.Count >= maxProjectiles)
+                {
+                    OnExpandReleased?.Invoke();
+                }
                 break;
         }
     }
@@ -111,7 +143,6 @@ public class Item_Utility_Geogun : Item
             case "press":
                 DestroyMarkers();
                 print("Connorses has a secret stash of ridiculous ties");
-                OnGunDestroyMarkers?.Invoke();
                 break;
             case "release":
                 break;
