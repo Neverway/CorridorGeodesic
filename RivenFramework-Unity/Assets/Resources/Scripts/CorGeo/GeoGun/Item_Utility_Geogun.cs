@@ -50,6 +50,8 @@ public class Item_Utility_Geogun : Item
     [Tooltip("This is what collision layers the raycast will collide with")] 
     [SerializeField] private LayerMask projectileLayerMask;
 
+    [SerializeField] private Animator animator1, animator2;
+
     #endregion
 
 
@@ -64,13 +66,24 @@ public class Item_Utility_Geogun : Item
     private void FireMarker()
     {
         if (spawnedProjectiles.Count >= maxProjectiles) return;
+        animator1.SetTrigger("Shoot");
+        animator2.SetTrigger("Shoot");
         var projectile = Instantiate(projectilePrefab, gunBarrel.position, gunBarrel.rotation, null);
         
         spawnedProjectiles.Add(projectile);
+        if (spawnedProjectiles.Count >= maxProjectiles)
+        {
+            animator1.SetBool("Empty", true);
+            animator2.SetBool("Empty", true);
+        }
     }
 
     private void DestroyMarkers()
     {
+        animator1.SetBool("Empty", false);
+        animator2.SetBool("Empty", false);
+        animator1.SetTrigger("Clear");
+        animator2.SetTrigger("Clear");
         foreach (var _projectile in spawnedProjectiles)
         {
             Destroy(_projectile);

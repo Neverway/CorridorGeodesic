@@ -73,6 +73,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityPortrait.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UpdateUtility.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole/DebugConsole.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/GameObject_ProceduralSway.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/Volume.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapPlane.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfSolidSide.cs" />
@@ -266,7 +267,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Pivot.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_CrushDetection.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKFootSolver.cs" />
-     <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_ProceduralSway.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/EventSignal_Interactcs.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ClipEditor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Mesh_Sliceable.cs" />

@@ -21,7 +21,6 @@ public class GameObject_ProceduralSway : MonoBehaviour
     [SerializeField] private float yRotMultiplier=1;
     
     [SerializeField] private bool sway = true;
-    [SerializeField] private bool bob = true;
     [SerializeField] private float smoothingPosition = 10f;
     [SerializeField] private float smoothingRotation = 12f;
     [SerializeField] private float smoothingRotation2 = 12f;
@@ -33,19 +32,12 @@ public class GameObject_ProceduralSway : MonoBehaviour
     
     [Header("Sway Threshold")]
     [SerializeField] private float rotationThreshold = 0.1f;
-    
-    [Header("Bob")]
-    [SerializeField] private float bobIntensity = 0.01f;
-    [SerializeField] private float bobFrequency = 10f;
-    [SerializeField] private float bobSmoothing = 5f;
-    [SerializeField] private float movementThreshold = 0.01f;
 
 
     //=-----------------=
     // Private Variables
     //=-----------------=
     private Vector2 moveInput;
-    private Vector2 lastLook;
     private Vector2 currentLook;
     private Vector2 lookInput;
     private Vector3 swayPosition;
@@ -56,35 +48,22 @@ public class GameObject_ProceduralSway : MonoBehaviour
     private float currentYRot;
     private float lastXRot;
     private float lastYRot;
-    
-    private Vector3 lastBodyPosition;
-    private float bobTimer;
-    private Vector3 bobOffset;
 
 
 
     //=-----------------=
     // Reference Variables
     //=-----------------=
-    //[SerializeField] private Rigidbody positionReference;
-    //[SerializeField] private Pawn pawn;
-    //[SerializeField] private PlayerController_FirstPerson_CorGeo pawnController;
     [SerializeField] private Transform xRotationRef, yRotationRef, bodyRef;
 
 
     //=-----------------=
     // Mono Functions
     //=-----------------=
-    private void Start()
-    {
-        if (bodyRef != null) lastBodyPosition = bodyRef.position;
-    }
-
     private void Update()
     {
         GetInput();
         Sway();
-        Bob();
     }
 
     //=-----------------=
@@ -112,7 +91,6 @@ public class GameObject_ProceduralSway : MonoBehaviour
 
         lastXRot = rawXRot;
         lastYRot = rawYRot;
-        lastLook = currentLook;
     }
 
     private float NormalizeAngle(float angle)
@@ -154,40 +132,8 @@ public class GameObject_ProceduralSway : MonoBehaviour
         swayRotation = new Vector3(invertLook.y, invertLook.x, invertLook.x);
         
         // Apply movement & rotation
-        transform.localPosition = Vector3.Lerp(transform.localPosition, swayPosition, Time.deltaTime * smoothingPosition);
+        //transform.localPosition = Vector3.Lerp(transform.localPosition, swayPosition, Time.deltaTime * smoothingPosition);
         transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(swayRotation), Time.deltaTime*smoothingRotation);
-    }
-
-    private void Bob()
-    {
-        if (!bob || bodyRef == null)
-            return;
-
-        // Movement delta
-        Vector3 bodyDelta = bodyRef.position - lastBodyPosition;
-        float movementSpeed = bodyDelta.magnitude / Time.deltaTime;
-
-        // If movement is significant, advance bobbing
-        if (movementSpeed > movementThreshold)
-        {
-            bobTimer += Time.deltaTime * bobFrequency;
-            float bobAmount = Mathf.Sin(bobTimer) * bobIntensity;
-
-            // Up-down bob on local Y
-            bobOffset = new Vector3(0, bobAmount, 0);
-        }
-        else
-        {
-            // Reset timer slowly when standing still to avoid jitter
-            bobTimer = Mathf.Lerp(bobTimer, 0, Time.deltaTime * bobSmoothing);
-            bobOffset = Vector3.Lerp(bobOffset, Vector3.zero, Time.deltaTime * bobSmoothing);
-        }
-
-        // Apply bob offset additively on top of swayPosition
-        transform.localPosition = Vector3.Lerp(transform.localPosition, swayPosition + bobOffset, Time.deltaTime * smoothingPosition);
-
-        // Update for next frame
-        lastBodyPosition = bodyRef.position;
     }
 
 
