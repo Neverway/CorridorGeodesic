@@ -29,7 +29,15 @@ public class GI_RiftManager : MonoBehaviour
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     public bool riftActive;
-    
+    private float maxRiftWidth = 30;
+    private float currentRiftPercent; //current percent scaling of the rift
+    private float currentRiftWidth; //current width after applying percent scale
+    private float riftStartingWidth; //width of the rift when it was first placed
+    private bool collapseHeld = false;
+    private bool expandHeld = false;
+    //Waits for you to release collapse so that the player has to press it again to collapse rift.
+    private bool waitForCollapseReleased = false;
+    private Vector3 riftNullSpacePosition;
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     private Item_Utility_Geogun linkedGeogun;
@@ -70,6 +78,25 @@ public class GI_RiftManager : MonoBehaviour
             SetRiftHidden(true);
             RestoreRift();
         }
+
+        if (waitForCollapseReleased && collapseHeld == false)
+        {
+            waitForCollapseReleased = false;
+        }
+
+        if (riftActive)
+        {
+            if (collapseHeld && waitForCollapseReleased == false)
+            {
+                currentRiftPercent -= .5f * Time.deltaTime;
+                SetRiftPosition(currentRiftPercent);
+            }
+            else if (expandHeld)
+            {
+                currentRiftPercent += .5f * Time.deltaTime;
+                SetRiftPosition (currentRiftPercent);
+            }
+        }
     }
 
     private void OnDestroy()
@@ -92,6 +119,10 @@ public class GI_RiftManager : MonoBehaviour
                 linkedGeogun = geogun;
                 linkedGeogun.isLinkedToManager = true;
                 //linkedGeogun.OnGunDestroyMarkers += () => RestoreRift();
+                linkedGeogun.OnCollapseHeld += () => collapseHeld = true;
+                linkedGeogun.OnCollapseReleased += () => collapseHeld = false;
+                linkedGeogun.OnExpandHeld += () => expandHeld = true;
+                linkedGeogun.OnExpandReleased += () => expandHeld = false;
                 return;
             }
         }
@@ -182,6 +213,18 @@ public class GI_RiftManager : MonoBehaviour
         // Assign the mathematical plane values
         planeA = new Plane(cutPlaneA.transform.forward, cutPlaneA.transform.position);
         planeB = new Plane(cutPlaneB.transform.forward, cutPlaneB.transform.position);
+
+        //Place the Space Containers at the edges of the rift.
+        spaceContainerNull.transform.position = cutPlaneA.transform.position;
+        spaceContainerB.transform.position = cutPlaneB.transform.position;
+        //Aim spaceContainerNull so that when we scale it, it will squish parallel to the rift planes.
+        spaceContainerNull.transform.LookAt (cutPlaneB.transform.position);
+        //Initialize the rift measurements
+        riftStartingWidth = Vector3.Distance(cutPlaneA.transform.position, cutPlaneB.transform.position);
+        currentRiftPercent = 1;
+        currentRiftWidth = riftStartingWidth;
+
+        riftNullSpacePosition = spaceContainerNull.transform.position; //I'm preserving this position because negative scaling moves the object.
         
         // Slice the cut planes (This is for debugging right now)
         SliceCutPlanes();
@@ -202,6 +245,8 @@ public class GI_RiftManager : MonoBehaviour
         StartCoroutine(CleanupExtraMeshColliders());
 
         StartCoroutine(AssignSpaceContainerForMeshes());
+
+        waitForCollapseReleased = true;
     }
     
     /// <summary>
@@ -320,7 +365,7 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void RestoreRift()
     {
-        AdjustRiftPosition(0);
+        SetRiftPosition(1);
         RestoreCutGeometry();
         EmptyMatterInSpaceContainers();
     }
@@ -329,13 +374,31 @@ public class GI_RiftManager : MonoBehaviour
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
     /// Controls the collapsing and expanding of a deployed rift
-    /// 0 is the start position (no compression/expansion), -1 is fully collapsed, and 1 is expanded to twice the distance of the rift planes
-    /// (I'm not exactly sure how the upper limit of expanding would work ~Liz)
+    /// 1 is the start position (no compression/expansion), 0 is fully collapsed, and 2 is expanded to twice the distance of the rift planes
     /// </summary>
-    /// <param name="_amount">The amount that the rift is expanded or collapsed</param>
-    public void AdjustRiftPosition(float _amount)
+    /// <param name="_percent">The size of the rift relative to it's starting size.</param>
+    public void SetRiftPosition(float _percent)
     {
-        
+        currentRiftPercent = _percent;
+        currentRiftWidth = riftStartingWidth * currentRiftPercent;
+        MoveGeometryWithRift ();
+    }
+
+    private void MoveGeometryWithRift ()
+    {
+        spaceContainerNull.transform.localScale = new Vector3 (1, 1, currentRiftPercent);
+        if (currentRiftPercent < 0)
+        {
+            spaceContainerNull.transform.position = riftNullSpacePosition + spaceContainerNull.transform.forward * -currentRiftWidth;
+            spaceContainerB.transform.position = spaceContainerNull.transform.position;
+        }
+        else
+        {
+            spaceContainerB.transform.position = spaceContainerNull.transform.position + spaceContainerNull.transform.forward * currentRiftWidth;
+            spaceContainerNull.transform.position = riftNullSpacePosition;
+        }
+
+        cutPlaneB.transform.position = spaceContainerB.transform.position;
     }
 
 
