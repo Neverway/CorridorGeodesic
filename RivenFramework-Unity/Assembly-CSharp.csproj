@@ -188,6 +188,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Volume2D_Force.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_RiftPreviewEffects.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_Actor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dPolygon.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/BrushFactory.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildMetrics.cs" />
