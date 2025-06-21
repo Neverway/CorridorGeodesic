@@ -142,7 +142,7 @@ public class Item_Utility_Geogun : Item
         {
             case "press":
                 DestroyMarkers();
-                print("Connorses has a secret stash of ridiculous ties");
+                print("UseTertiary");
                 break;
             case "release":
                 break;

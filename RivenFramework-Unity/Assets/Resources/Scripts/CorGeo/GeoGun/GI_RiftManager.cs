@@ -30,14 +30,26 @@ public class GI_RiftManager : MonoBehaviour
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     private float maxRiftWidth = 30;
+    private float minRiftWidth = -30;
+    private float minAbsoluteRiftWidth = 0.15f; // This is to prevent physics bugs if nullspace scales too close to 0 without being 0.
     private float currentRiftPercent; //current percent scaling of the rift
     private float currentRiftWidth; //current width after applying percent scale
     private float riftStartingWidth; //width of the rift when it was first placed
     private bool collapseHeld = false;
     private bool expandHeld = false;
-    //Waits for you to release collapse so that the player has to press it again to collapse rift.
-    private bool waitForCollapseReleased = false;
-    private Vector3 riftNullSpacePosition;
+    private bool waitForCollapseReleased = false; //Waits for you to release collapse so that the player has to press it again to collapse rift.
+    private Vector3 riftNullSpacePosition; //The starting position of the null space container.
+
+
+    //  rift movement speed stuff:  //
+    private float minRiftSpeed = 0.5f;
+    private float maxRiftSpeed = 6f;
+    private float riftAcceleration = 2f;
+    private float currentRiftMoveSpeed;
+
+    // state stuff //
+    private bool riftIsMoving;
+
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     private Item_Utility_Geogun linkedGeogun;
@@ -85,18 +97,33 @@ public class GI_RiftManager : MonoBehaviour
             waitForCollapseReleased = false;
         }
 
+        riftIsMoving = false;
         if (riftActive)
         {
             if (collapseHeld && waitForCollapseReleased == false)
             {
-                currentRiftPercent -= .5f * Time.deltaTime;
-                SetRiftPosition(currentRiftPercent);
+                MoveRiftByDistance (-currentRiftMoveSpeed * Time.deltaTime);
+                AccelerateRift ();
             }
             else if (expandHeld)
             {
-                currentRiftPercent += .5f * Time.deltaTime;
-                SetRiftPosition (currentRiftPercent);
+                MoveRiftByDistance (currentRiftMoveSpeed * Time.deltaTime);
+                AccelerateRift ();
             }
+            else
+            {
+                currentRiftMoveSpeed = 0;
+                riftIsMoving = false;
+            }
+        }
+    }
+
+    private void AccelerateRift ()
+    {
+        currentRiftMoveSpeed += riftAcceleration * Time.deltaTime;
+        if (currentRiftMoveSpeed > maxRiftSpeed)
+        {
+            currentRiftMoveSpeed = maxRiftSpeed;
         }
     }
 
@@ -369,6 +396,7 @@ public class GI_RiftManager : MonoBehaviour
         SetRiftPosition(1);
         RestoreCutGeometry();
         EmptyMatterInSpaceContainers();
+        currentRiftMoveSpeed = 0;
     }
     
 
@@ -385,22 +413,59 @@ public class GI_RiftManager : MonoBehaviour
         MoveGeometryWithRift ();
     }
 
+    /// <summary>
+    /// Changes the size of the rift by the specified number of units.
+    /// </summary>
+    /// <param name="distance"></param>
+    public void MoveRiftByDistance(float distance)
+    {
+        if (currentRiftWidth + distance > maxRiftWidth)
+        {
+            distance = maxRiftWidth - currentRiftWidth;
+        }
+        if (currentRiftWidth + distance < minRiftWidth)
+        {
+            currentRiftWidth = minRiftWidth;
+        }
+        float percentChange = 1 / riftStartingWidth * distance;
+
+        SetRiftPosition (currentRiftPercent + percentChange);
+        riftIsMoving = true;
+    }
+
     private void MoveGeometryWithRift ()
     {
+        //  We use minAbsoluteRiftWidth to prevent the rift scale from getting too close to zero
+        //  because collision mesh generation will bug out if the mesh is too skinny.
+
+        float moddedRiftPercent = currentRiftPercent;
+
         if (currentRiftPercent < 0)
         {
             //Special case for negative rift scaling.
-            //Don't know if we will use this mechanic or not, but you can flip the rift space by collapsing past zero.
-            spaceContainerNull.transform.localScale = new Vector3 (1, 1, currentRiftPercent);
+            //Don't know if we will use this mechanic or not, but you can flip the rift space by collapsing past zero percent.
+
+            if (currentRiftWidth > -minAbsoluteRiftWidth)
+            {
+                moddedRiftPercent = 1 / riftStartingWidth * -minAbsoluteRiftWidth;
+                currentRiftWidth = -minAbsoluteRiftWidth;
+            }
+            spaceContainerNull.transform.localScale = new Vector3 (1, 1, moddedRiftPercent);
             spaceContainerNull.transform.position = riftNullSpacePosition + spaceContainerNull.transform.forward * -currentRiftWidth;
             spaceContainerB.transform.position = spaceContainerNull.transform.position;
         }
-        else
+        if (currentRiftPercent >= 0)
         {
-            spaceContainerNull.transform.localScale = new Vector3 (1, 1, currentRiftPercent);
+            if (currentRiftWidth < minAbsoluteRiftWidth)
+            {
+                moddedRiftPercent = 1 / riftStartingWidth * minAbsoluteRiftWidth;
+                currentRiftWidth = minAbsoluteRiftWidth;
+            }
+            spaceContainerNull.transform.localScale = new Vector3 (1, 1, moddedRiftPercent);
             spaceContainerB.transform.position = spaceContainerNull.transform.position + spaceContainerNull.transform.forward * currentRiftWidth;
             spaceContainerNull.transform.position = riftNullSpacePosition;
         }
+        cutPlaneB.transform.position = spaceContainerB.transform.position;
     }
 
 
