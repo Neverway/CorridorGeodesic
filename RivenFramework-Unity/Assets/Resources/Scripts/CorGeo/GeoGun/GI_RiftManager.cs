@@ -387,19 +387,20 @@ public class GI_RiftManager : MonoBehaviour
 
     private void MoveGeometryWithRift ()
     {
-        spaceContainerNull.transform.localScale = new Vector3 (1, 1, currentRiftPercent);
         if (currentRiftPercent < 0)
         {
+            //Special case for negative rift scaling.
+            //Don't know if we will use this mechanic or not, but you can flip the rift space by collapsing past zero.
+            spaceContainerNull.transform.localScale = new Vector3 (1, 1, currentRiftPercent);
             spaceContainerNull.transform.position = riftNullSpacePosition + spaceContainerNull.transform.forward * -currentRiftWidth;
             spaceContainerB.transform.position = spaceContainerNull.transform.position;
         }
         else
         {
+            spaceContainerNull.transform.localScale = new Vector3 (1, 1, currentRiftPercent);
             spaceContainerB.transform.position = spaceContainerNull.transform.position + spaceContainerNull.transform.forward * currentRiftWidth;
             spaceContainerNull.transform.position = riftNullSpacePosition;
         }
-
-        cutPlaneB.transform.position = spaceContainerB.transform.position;
     }
 
 
