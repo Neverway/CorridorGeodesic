@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2325b3aeb8771fa6aab3a6d3c815ae1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeWorldChange: 0.25
-  minimumRequiredLoadTime: 1
+  delayBeforeWorldChange: 0
+  minimumRequiredLoadTime: 0
   loadingWorldID: _Travel
   streamingWorldID: _Streaming
   isLoading: 0

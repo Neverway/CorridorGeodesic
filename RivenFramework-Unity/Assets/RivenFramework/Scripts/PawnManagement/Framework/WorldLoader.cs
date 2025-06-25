@@ -157,8 +157,7 @@ namespace Neverway.Framework.PawnManagement
 
             GameObject[] streamedObjects = SceneManager.GetSceneByName(streamingWorldID).GetRootGameObjects();
 
-            SceneManager.SetActiveScene(
-                SceneManager.GetSceneByName(targetWorldID)); // Assign the new scene to be the active scene
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(targetWorldID)); // Assign the new scene to be the active scene
             DevConsole.Log($"Set active scene to {targetWorldID}", "WorldLoader");
 
             //EjectStreamedActors(streamedObjects);

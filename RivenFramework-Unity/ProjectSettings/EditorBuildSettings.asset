@@ -32,12 +32,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Maps/CorGeo/MainLevels/3basicMechanics.unity
     guid: f5905f0cb341b04f0a8160e2ee170829
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Maps/CorGeo/MainLevels/crossingGaps.unity
     guid: a1162097afa77e42984eea2c8b49ad0d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Resources/Maps/CorGeo/MainLevels/cubeGaps.unity
     guid: 5b098e5c6824c228abec09a8ffc28ffc
+  - enabled: 1
+    path: Assets/Resources/Maps/CorGeo/_WorldA.unity
+    guid: 3e9dd4e20910d10c09108daa0bd093ab
+  - enabled: 1
+    path: Assets/Resources/Maps/CorGeo/_WorldB.unity
+    guid: e7dd92b30c161da87adf22d46331eeca
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f15e32241878d7bdda685b0a87c02c59,
       type: 2}

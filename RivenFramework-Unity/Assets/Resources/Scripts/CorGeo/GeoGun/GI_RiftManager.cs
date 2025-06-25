@@ -435,6 +435,7 @@ public class GI_RiftManager : MonoBehaviour
 
     private void MoveGeometryWithRift ()
     {
+        if (!spaceContainerNull) return;
         //  We use minAbsoluteRiftWidth to prevent the rift scale from getting too close to zero
         //  because collision mesh generation will bug out if the mesh is too skinny.
 
