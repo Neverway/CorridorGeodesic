@@ -33,6 +33,7 @@ public class Projectile_Marker : MonoBehaviour
     
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     private GI_RiftManager riftManager;
+    [SerializeField] private GameObject outlineFX;
 
 
     #endregion
@@ -131,6 +132,8 @@ public class Projectile_Marker : MonoBehaviour
         pinned = true;
         transform.position = hit.point;
         transform.rotation = Quaternion.LookRotation(-hit.normal);
+
+        outlineFX.SetActive(true);
         
         // Add itself from the rift manager if possible
         if (riftManager.markerA == null) riftManager.markerA = this;

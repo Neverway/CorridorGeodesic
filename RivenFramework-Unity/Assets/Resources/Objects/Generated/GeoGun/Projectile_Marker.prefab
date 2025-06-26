@@ -542,6 +542,7 @@ MonoBehaviour:
   validPlacementMaterials:
   - {fileID: 2100000, guid: 11a948daddd4e2f48aa2c67a57b71772, type: 2}
   pinned: 0
+  outlineFX: {fileID: 7724267459502678210}
 --- !u!4 &8247110394794156890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
@@ -724,6 +725,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VacuumeTube
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411075344075658417, guid: 00d2ec81996f993409a1c6eb47a83cdf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

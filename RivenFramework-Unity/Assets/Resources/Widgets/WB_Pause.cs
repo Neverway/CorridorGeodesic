@@ -5,6 +5,7 @@
 //
 //=============================================================================
 
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -45,6 +46,11 @@ public class WB_Pause : MonoBehaviour
         buttonTitle.onClick.AddListener(delegate { OnClick("buttonTitle"); });
         buttonQuit.onClick.AddListener(delegate { OnClick("buttonQuit"); });
         buttonRestart.onClick.AddListener(delegate { OnClick("buttonRestart"); });
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(widgetManager.GetExistingWidget(settingsWidget.name));
     }
 
 
