@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public static class CSGMeshCombinerTool
 {
     [MenuItem("Neverway/CorGeo/Combine and bake level mesh")]
+    [RuntimeInitializeOnLoadMethod]
     public static void CombineLevelMeshes()
     {
         GameObject meshGroupRoot = GameObject.Find("MeshGroup");
