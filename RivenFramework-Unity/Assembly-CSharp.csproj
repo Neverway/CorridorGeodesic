@@ -260,6 +260,7 @@
     <Compile Include="Assets\RivenFramework\Scripts\_Depreciated\Logic_Processor.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Shape.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfEntity.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\CSGForceRebuildOnUndo.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\Logic_ObjectActiveToggle.cs" />
     <Compile Include="Assets\Packages\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\Volumes\TriggerVolume\TriggerVolumeTriggerType.cs" />
