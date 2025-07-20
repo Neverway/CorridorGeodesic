@@ -1,10 +1,9 @@
 using UnityEngine;
-using System.Reflection;
-
 
 #if UNITY_EDITOR
-using UnityEditor;
+using static CSG_HotFix_Utility;
 #endif
+
 
 [ExecuteAlways]
 public class KeepAsUnselectable : MonoBehaviour
@@ -15,17 +14,7 @@ public class KeepAsUnselectable : MonoBehaviour
 
     void Update()
     {
-        bool isCurrentlySelectable = false;
-        if (includeChildren)
-            isCurrentlySelectable = !SceneVisibilityManager.instance.IsPickingDisabledOnAllDescendants(gameObject);
-        else
-            isCurrentlySelectable = !SceneVisibilityManager.instance.IsPickingDisabled(gameObject);
-
-        if (isSelectable ^ isCurrentlySelectable)
-            SceneVisibilityManager.instance.EnablePicking(gameObject, includeChildren);
-        else
-            SceneVisibilityManager.instance.DisablePicking(gameObject, includeChildren);
-
+        PickabilityUtility.SetPickabilityWithoutUndo(gameObject, isSelectable, includeChildren);
     }
 #endif
 }

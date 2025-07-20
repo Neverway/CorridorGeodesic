@@ -137,6 +137,7 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\EdgeEditor.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Extensions\Extensions.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\GroupBrush.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\CSGTool_MaterialPaint.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\IK\IKTargetMatcher.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSGBuildSettings.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreMouse.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="Assets\Resources\Scripts\FirstPersonExample\FPPawn_Player.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfAxis.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfVector3.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\CSG_HotFix_Settings.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\SignalEventPlayer.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\_Depreciated\UI_Image_EntityEquippedItems.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\BuildEngine\MeshGroupManager.cs" />

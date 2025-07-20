@@ -16,7 +16,6 @@ namespace Sabresaurus.SabreCSG
     public class CSGModel : CSGModelBase
     {
 #if UNITY_EDITOR
-
         [SerializeField, HideInInspector]
         private bool firstRun = true;
 
@@ -32,6 +31,8 @@ namespace Sabresaurus.SabreCSG
 
         [SerializeField, HideInInspector]
         private bool autoRebuild = false;
+
+
 
         private bool editMode = false;
         private static CSGModel editModeModel = null;
@@ -76,7 +77,10 @@ namespace Sabresaurus.SabreCSG
 			{ MainMode.Face, new SurfaceEditor() },
 			{ MainMode.Clip, new ClipEditor() },
 			{ MainMode.Draw, new DrawEditor() },
-            { MainMode.Paint, new PaintEditor() },
+            { MainMode.Paint, new PaintEditor() }
+            //---------- CSG HOTFIX START : By Errynei
+            ,{ MainMode.Mats, new CSGTool_MaterialPaint()}
+             ///---------- END OF HOTFIX}
 		};
 
         private Dictionary<OverrideMode, Tool> overrideTools = new Dictionary<OverrideMode, Tool>()
@@ -735,6 +739,17 @@ namespace Sabresaurus.SabreCSG
 
         private void OnGenericKeyAction(SceneView sceneView, Event e)
         {
+            //---------- CSG HOTFIX START : By Errynei
+            if (CSG_HotFix_Settings.ResizeModeKeybindsAlsoWorkOnOtherTools && CurrentSettings.CurrentMode != MainMode.Resize)
+            {
+                if (((ResizeEditor)GetTool(MainMode.Resize)).OnKeyActionFromOtherTools(sceneView, e))
+                {
+                    SetCurrentMode(MainMode.Resize);
+                    return;
+                }
+            }
+            //---------- END OF HOTFIX
+
             if (KeyMappings.EventsMatch(e, Event.KeyboardEvent(KeyMappings.Instance.ToggleMode))
                 || KeyMappings.EventsMatch(e, Event.KeyboardEvent(KeyMappings.Instance.ToggleModeBack)))
             {
@@ -1305,6 +1320,10 @@ namespace Sabresaurus.SabreCSG
 
             if (EditMode)
             {
+                //---------- CSG HOTFIX START : By Errynei
+                CSG_HotFix_Utility.LastEditedCSGModel = this;
+                //---------- END OF HOTFIX
+
                 frameIndex++;
                 if (frameIndex > 1000)
                 {
@@ -1641,7 +1660,7 @@ namespace Sabresaurus.SabreCSG
                 if (editMode != value)
                 {
                     editMode = value;
-
+                    
                     editModeModel = this;
 
                     CSGModel[] csgModels = Resources.FindObjectsOfTypeAll<CSGModel>();
@@ -1787,6 +1806,11 @@ namespace Sabresaurus.SabreCSG
                     meshFilters[i].ForceRefreshSharedMesh();
                 }
             }
+
+            //---------- CSG HOTFIX START : By Errynei
+            if (CSG_HotFix_Settings.AutoRebuildOnUndoOrRedo && AutoRebuild)
+                Build(true, false);
+            //---------- END OF HOTFIX
 
             EditorApplication.RepaintHierarchyWindow();
         }

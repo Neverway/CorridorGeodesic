@@ -1,5 +1,4 @@
-#if UNITY_EDITOR
-
+﻿#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using Array = System.Array;
 
 namespace Sabresaurus.SabreCSG
 {
-    public class SurfaceEditor : Tool
+    public class CSGTool_MaterialPaint : Tool
     {
         private bool selectHelpersVisible = false;
 
@@ -276,28 +275,16 @@ namespace Sabresaurus.SabreCSG
                         lastWorldPoint = worldPoint;
                     }
 
-
-                    //---------- CSG HOTFIX START : By Errynei
-                    //Also replaced all "e.shift" in this method with "isHoldingShift"
-                    bool isHoldingShift = e.shift;
-                    //Also replaced all "e.control" in this method with "isHoldingCtrl"
-                    bool isHoldingCtrl = e.control;
-
-                    //Toggles isHoldingShift only if Setting for swapping shift is enabled
-                    bool swapShiftUsage = !isHoldingCtrl && CSG_HotFix_Settings.SwapShiftAndNonShiftControlsForFaceEdit;
-                    isHoldingShift ^= swapShiftUsage;
-                    //---------- END OF HOTFIX (except for mentioned variable replacements)
-
                     // Set the appropiate mode based on whether the user wants to rotate or translate
-                    if (e.control && !isHoldingShift)
+                    if (e.control && !e.shift)
                     {
                         currentMode = Mode.Rotate;
                     }
-                    else if (!e.control && !isHoldingShift)
+                    else if (!e.control && !e.shift)
                     {
                         currentMode = Mode.Translate;
                     }
-                    else if (!e.control && isHoldingShift)
+                    else if (!e.control && e.shift)
                     {
                         QuickSelectMode = QuickSelectModes.Additive;
                         // Detect whether quick mode will select or deselect polygons
@@ -338,7 +325,7 @@ namespace Sabresaurus.SabreCSG
 
                         currentMode = Mode.QuickSelect;
                     }
-                    else if (e.control && isHoldingShift)
+                    else if (e.control && e.shift)
                     {
                         currentMode = Mode.FollowLastFace;
                         OnMouseDragFollowLastFace(sceneView, e);
@@ -492,7 +479,7 @@ namespace Sabresaurus.SabreCSG
                         undoRecorded = true;
                     }
 
-                    TransformUVs(UVUtility.TranslateUV, new UVUtility.TransformData(uvDelta, 0), recordUndo || CSG_HotFix_Settings.FixUVEditingUndoRegistering);
+                    TransformUVs(UVUtility.TranslateUV, new UVUtility.TransformData(uvDelta, 0), recordUndo);
 
                     lastWorldPoint = currentWorldPoint;
 
@@ -584,7 +571,7 @@ namespace Sabresaurus.SabreCSG
                         }
 
                         // Rotate the UV using the supplied angle
-                        RotateAroundCenter(deltaAngle, recordUndo || CSG_HotFix_Settings.FixUVEditingUndoRegistering);
+                        RotateAroundCenter(deltaAngle, recordUndo);
 
                         e.Use();
                     }
@@ -1588,7 +1575,7 @@ namespace Sabresaurus.SabreCSG
 
                         float originalEastScale = SurfaceUtility.GetNorthEastVectors(polygon, matchedBrushes[polygon].transform).EastScale;
 
-                        TransformUVs(polygon, UVUtility.ScaleUV, new UVUtility.TransformData(new Vector2(newEastScale / originalEastScale, 1), 0), CSG_HotFix_Settings.FixUVEditingUndoRegistering);
+                        TransformUVs(polygon, UVUtility.ScaleUV, new UVUtility.TransformData(new Vector2(newEastScale / originalEastScale, 1), 0), false);
                     }
                 }
             }
@@ -1688,7 +1675,8 @@ namespace Sabresaurus.SabreCSG
 #endif
             if (GUI.Button(rect, "Color", inspectorSkin.button))
             {
-                vertexColorWindow = VertexColorWindow.CreateAndShow(csgModel, this);
+                //COMMENTEDOUT
+                //vertexColorWindow = VertexColorWindow.CreateAndShow(csgModel, this);
             }
 
             GUIStyle newStyle = new GUIStyle(EditorStyles.miniButton);
@@ -3012,5 +3000,4 @@ namespace Sabresaurus.SabreCSG
         }
     }
 }
-
 #endif
