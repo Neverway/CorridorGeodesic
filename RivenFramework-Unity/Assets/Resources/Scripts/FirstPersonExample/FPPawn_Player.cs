@@ -32,6 +32,7 @@ public class FPPawn_Player : FPPawn
     private new FPPawnActions action = new FPPawnActions();
     private InputActions.FirstPersonActions inputActions;
     [SerializeField] private GameObject DeathScreenWidget;
+    private ApplicationSettings applicationSettings;
     
     #endregion
 
@@ -83,9 +84,6 @@ public class FPPawn_Player : FPPawn
         
         // Enable the view camera
         action.EnableViewCamera(this, true);
-        
-        // Disable the mouse cursor
-        
     }
 
     public void Update()
@@ -159,13 +157,15 @@ public class FPPawn_Player : FPPawn
 
     private void UpdateRotation()
     {
+        if (!applicationSettings) applicationSettings = FindObjectOfType<ApplicationSettings>();
+        
         // Get the look speed
-        float horizontalLookSpeed = 3; // = applicationSettings.currentSettingsData.horizontalLookSpeed
-        float verticalLookSpeed = 2; // = applicationSettings.currentSettingsData.verticalLookSpeed
+        float horizontalLookSpeed = applicationSettings.currentSettingsData.horizontalLookSpeed;
+        float verticalLookSpeed = applicationSettings.currentSettingsData.verticalLookSpeed;
         
         // Separate multipliers for mouse and joystick
-        float mouseMultiplier = 0.01f;
-        float joystickMultiplier = 0.2f;
+        float mouseMultiplier = applicationSettings.currentSettingsData.mouseLookSensitivity;
+        float joystickMultiplier = applicationSettings.currentSettingsData.joystickLookSensitivity;
 
         // Determine the input method (mouse or joystick)
         bool isUsingMouse = false;
@@ -181,8 +181,8 @@ public class FPPawn_Player : FPPawn
         var multiplier = isUsingMouse ? mouseMultiplier : joystickMultiplier;
         
         // Store the rotation values
-        lookRotation.x -= inputActions.LookAxis.ReadValue<Vector2>().y * (20 * verticalLookSpeed) * multiplier;
-        lookRotation.y += inputActions.LookAxis.ReadValue<Vector2>().x * (20 * horizontalLookSpeed) * multiplier;
+        lookRotation.x -= inputActions.LookAxis.ReadValue<Vector2>().y * (10 * verticalLookSpeed) * (multiplier/10);
+        lookRotation.y += inputActions.LookAxis.ReadValue<Vector2>().x * (10 * horizontalLookSpeed) * (multiplier/10);
         lookRotation.x = Mathf.Clamp(lookRotation.x, -90f, 90f);
     }
     private void ApplyRotation()
