@@ -86,6 +86,8 @@ public class HUD_GeogunCrosshair : MonoBehaviour
             AMarkerIndicator.color = activeIndicator;
             BMarkerIndicator.color = inactiveIndicator;
             hasInitializedCrosshairSine = false;
+            ASine.fillAmount = 0;
+            BSine.fillAmount = 0;
         }
         // No Markers
         else
@@ -120,7 +122,7 @@ public class HUD_GeogunCrosshair : MonoBehaviour
     IEnumerator LerpSineFill()
     {
         float time = 0;
-        float duration = 0.25f;
+        float duration = 0.5f;
 
         while (time < duration)
         {

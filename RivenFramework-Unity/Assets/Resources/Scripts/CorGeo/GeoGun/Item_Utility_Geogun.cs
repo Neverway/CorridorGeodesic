@@ -50,7 +50,7 @@ public class Item_Utility_Geogun : Item
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-    [HideInInspector] public List<GameObject> spawnedProjectiles = new List<GameObject>();
+    public List<GameObject> spawnedProjectiles = new List<GameObject>();
     [Tooltip("This is the object to spawn when firing the gun")]
     [SerializeField] private GameObject projectilePrefab;
     [Tooltip("This is where the raycast for firing the gun starts from")]
