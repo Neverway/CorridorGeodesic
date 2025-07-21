@@ -29,6 +29,10 @@ public class Item_Utility_Geogun : Item
     public bool allowSlammingRift;
     [Tooltip("Debug parameter to... well, you get it")]
     public bool allowMarkerPlacementAnywhere;
+    [Tooltip("The materials that markers can be placed on")]
+    public List<Material> validPlacementMaterials;
+    [Tooltip("The layermask for firing projectiles")]
+    public LayerMask layerMask;
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
     [Tooltip("This is set by a rift manager when it has latched onto this gun, " +
@@ -42,10 +46,11 @@ public class Item_Utility_Geogun : Item
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     private int maxProjectiles = 2;
+    public RaycastHit hit;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-    private List<GameObject> spawnedProjectiles = new List<GameObject>();
+    [HideInInspector] public List<GameObject> spawnedProjectiles = new List<GameObject>();
     [Tooltip("This is the object to spawn when firing the gun")]
     [SerializeField] private GameObject projectilePrefab;
     [Tooltip("This is where the raycast for firing the gun starts from")]
@@ -68,12 +73,20 @@ public class Item_Utility_Geogun : Item
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     private bool FireMarker()
     {
+        // Exit if the gun has already shot both markers
         if (spawnedProjectiles.Count >= maxProjectiles) return false;
+        
+        // Play the shoot anim for the gun and it's outline
         animator1.SetTrigger("Shoot");
         animator2.SetTrigger("Shoot");
-        var projectile = Instantiate(projectilePrefab, gunBarrel.position, gunBarrel.rotation, null);
         
-        spawnedProjectiles.Add(projectile);
+        // Spawn the projectile
+        var projectile = Instantiate(projectilePrefab, gunBarrel.position, gunBarrel.rotation, null).GetComponent<Projectile_Marker>();
+        
+        projectile.geogun = this;
+        
+        // Keep track of fired markers
+        spawnedProjectiles.Add(projectile.gameObject);
         if (spawnedProjectiles.Count >= maxProjectiles)
         {
             animator1.SetBool("Empty", true);
@@ -153,6 +166,56 @@ public class Item_Utility_Geogun : Item
     public void BreakRiftManagerLink()
     {
         isLinkedToManager = false;
+    }
+    
+    public string GetValidPlacement()
+    {
+        if (Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out hit, 255, layerMask))
+        {
+            return GetIsValidTarget() ? "good" : "bad";
+        }
+
+        return "null";
+    }
+    
+    /// <summary>
+    /// Returns true if the gun is pointed at a target it's allowed to shoot
+    /// This is used by the hud's crosshair & the projectile markers
+    /// </summary>
+    /// <returns></returns>
+    private bool GetIsValidTarget()
+    {
+        // Gun is pointed at a bulb snapping point (That is valid!)
+        // TODO - BulbCollisionBehaviour has not been ported!
+        if (hit.collider.gameObject.TryGetComponent<MarkerCollisionBehaviour>(out _)) return true;
+
+        // Gun is pointed at a sliceable object
+        if (hit.collider.gameObject.TryGetComponent<Mesh_Sliceable>(out _) is false) return false;
+        // Non-mesh colliders don't support getting the polygon information, so we exit if it's not a mesh collider
+        if (hit.collider is not MeshCollider mCollider) return false;
+        // Get if the raycast hit a polygon with a valid material to place markers on
+        if (hit.collider.gameObject.TryGetComponent(out Renderer rend) is false) return false;
+
+        // Gather information about the mesh
+        Mesh colMesh = mCollider.sharedMesh;
+        int triIndex = hit.triangleIndex;
+        int subMeshIndex = GetSubMeshIndex(colMesh, triIndex);
+
+        return subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
+    }
+    
+    private int GetSubMeshIndex(Mesh mesh, int triIndex)
+    {
+        int triangleCounter = 0;
+        for (int i = 0; i < mesh.subMeshCount; i++)
+        {
+            triangleCounter += mesh.GetSubMesh(i).indexCount / 3;
+            if (triIndex < triangleCounter)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     #endregion
