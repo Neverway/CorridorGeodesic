@@ -13,7 +13,7 @@
 // Notes (Rework 1): The code was rewritten by Connorses to use the BzMeshslicer instead of the custom system ~Liz
 //
 // Notes (Rework 2): I have rewritten the code to work with the ground up rebuild of the project. It currently does not 
-//          Handel any of the logic for supporting sliceable trigger volumes yet as I don't fully understand that system
+//          Handel any of the logic for supporting sliceable trigger volumes as I don't fully understand that system
 //          yet. ~Liz
 //      
 // Source: https://www.youtube.com/watch?v=VwGiwDLQ40A
@@ -21,36 +21,33 @@
 //====================================================================================================================//
 
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using BzKovSoft.ObjectSlicer;
 
 /// <summary>
-/// Added to meshes to allow them to be sliced
+/// Added to meshes to allow them to be sliced by the geogun
 /// </summary>
 [RequireComponent (typeof (BzSliceableObject))]
-public class Mesh_Sliceable : MonoBehaviour
+public class CorGeo_SliceableMesh : MonoBehaviour
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
-    [Tooltip("")]
+    [Tooltip("Used by slice clones to identify when planes have cut them")]
     public bool isSlicedByPlane;
     
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-    [Tooltip("")]
+    [Tooltip("The BZSlicer script that actually cuts the mesh")]
     private BzSliceableObject slicer;
-    [Tooltip("")]
+    [Tooltip("The data that the BZSlicer returns when cutting the mesh")]
     private IBzMeshSlicer sliceData;
     [Tooltip("Reference to the riftManager so the cut meshes can sort themselves into the manager's correct space lists")]
     private GI_RiftManager riftManager;
-
-    public List<MeshCollider> meshColliders = new List<MeshCollider>();
 
 
     #endregion
@@ -100,8 +97,8 @@ public class Mesh_Sliceable : MonoBehaviour
             foreach (var newACutMesh in resultOfPlaneASlice.resultObjects)
             {
                 // Make sure the part knows that it's a cut mesh
-                Mesh_Sliceable newACutMeshSliceable = newACutMesh.gameObject.GetComponent<Mesh_Sliceable>();
-                newACutMeshSliceable.isSlicedByPlane = true;
+                CorGeo_SliceableMesh newACutCorGeoSliceableMesh = newACutMesh.gameObject.GetComponent<CorGeo_SliceableMesh>();
+                newACutCorGeoSliceableMesh.isSlicedByPlane = true;
                 
                 // Only cut the new meshes on the positive side (the side that faces towards where the B plane should be)
                 if (newACutMesh.side)
@@ -114,8 +111,8 @@ public class Mesh_Sliceable : MonoBehaviour
                         foreach (var newBCutMesh in resultOfSecondPlaneSlice.resultObjects)
                         {
                             // Make sure the part knows that it's a cut mesh
-                            Mesh_Sliceable newBCutMeshSliceable = newBCutMesh.gameObject.GetComponent<Mesh_Sliceable>();
-                            newBCutMeshSliceable.isSlicedByPlane = true;
+                            CorGeo_SliceableMesh newBCutCorGeoSliceableMesh = newBCutMesh.gameObject.GetComponent<CorGeo_SliceableMesh>();
+                            newBCutCorGeoSliceableMesh.isSlicedByPlane = true;
 
                             /* OLD CODE FOR 'PartsReference' STUFF (Which is used for allowing sliceable logic volumes)
                             // I have not fully re-created this in the new system yet as I don't fully understand it ~Liz
@@ -180,8 +177,8 @@ public class Mesh_Sliceable : MonoBehaviour
                 foreach (var newBCutMesh in resultOfPlaneBSlice.resultObjects)
                 {
                     // Make sure the part knows that it's a cut mesh
-                    Mesh_Sliceable newBCutMeshSliceable = newBCutMesh.gameObject.GetComponent<Mesh_Sliceable>();
-                    newBCutMeshSliceable.isSlicedByPlane = true;
+                    CorGeo_SliceableMesh newBCutCorGeoSliceableMesh = newBCutMesh.gameObject.GetComponent<CorGeo_SliceableMesh>();
+                    newBCutCorGeoSliceableMesh.isSlicedByPlane = true;
 
                     /* OLD CODE FOR 'PartsReference' STUFF (Which is used for allowing sliceable logic volumes)
                     // I have not fully re-created this in the new system yet as I don't fully understand it ~Liz
@@ -455,12 +452,12 @@ public class Mesh_Sliceable : MonoBehaviour
         if (gameObject.name.StartsWith("[CUT]")) return;
         
         // Make a clone of this mesh to be cut
-        Mesh_Sliceable meshClone = Instantiate(this, transform.position, transform.rotation);
+        CorGeo_SliceableMesh corGeoSliceableMeshClone = Instantiate(this, transform.position, transform.rotation);
 
-        meshClone.name = $"[CUT] {name}";
+        corGeoSliceableMeshClone.name = $"[CUT] {name}";
 
         // Slice the clone ONLY!!! Never slice the original objects!!
-        meshClone.AttemptSlice(gameObject);
+        corGeoSliceableMeshClone.AttemptSlice(gameObject);
 
 
         /*

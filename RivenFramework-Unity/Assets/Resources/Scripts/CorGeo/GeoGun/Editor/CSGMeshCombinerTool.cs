@@ -173,7 +173,7 @@ public static class CSGMeshCombinerTool
         MeshCollider meshColliderFinal = combinedMeshObject.AddComponent<MeshCollider>();
 
         // Add custom slicable component
-        combinedMeshObject.AddComponent<Mesh_Sliceable>();
+        combinedMeshObject.AddComponent<CorGeo_SliceableMesh>();
 
         meshFilterFinal.sharedMesh = combinedMesh;
         meshRendererFinal.sharedMaterials = uniqueMaterials.ToArray();

@@ -263,7 +263,7 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void SliceCutPlanes()
     {
-        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable> ();
+        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh> ();
         foreach (var sliceableMesh in sliceableMeshes)
         {
             sliceableMesh.ApplyCuts();
@@ -370,7 +370,7 @@ public class GI_RiftManager : MonoBehaviour
     private void RestoreCutGeometry()
     {
         // Destroy cloned cut geometry
-        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable>();
+        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>();
         foreach (var sliceableMesh in sliceableMeshes)
         {
             if (sliceableMesh.isSlicedByPlane && !hiddenOriginalMeshes.Contains(sliceableMesh.gameObject))

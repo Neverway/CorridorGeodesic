@@ -190,7 +190,7 @@ public class Item_Utility_Geogun : Item
         if (hit.collider.gameObject.TryGetComponent<MarkerCollisionBehaviour>(out _)) return true;
 
         // Gun is pointed at a sliceable object
-        if (hit.collider.gameObject.TryGetComponent<Mesh_Sliceable>(out _) is false) return false;
+        if (hit.collider.gameObject.TryGetComponent<CorGeo_SliceableMesh>(out _) is false) return false;
         // Non-mesh colliders don't support getting the polygon information, so we exit if it's not a mesh collider
         if (hit.collider is not MeshCollider mCollider) return false;
         // Get if the raycast hit a polygon with a valid material to place markers on
