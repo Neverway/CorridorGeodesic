@@ -270,7 +270,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfSolid.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dVector3.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfWorld.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_MeshSliceable.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Pivot.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_CrushDetection.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKFootSolver.cs" />
@@ -297,6 +296,7 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Arrows" />
      <Folder Include="Assets/Resources/Models" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Errynei" />
+     <None Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/README.txt" />
      <None Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Decomposition/LICENSE.txt" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sound" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Wii" />
