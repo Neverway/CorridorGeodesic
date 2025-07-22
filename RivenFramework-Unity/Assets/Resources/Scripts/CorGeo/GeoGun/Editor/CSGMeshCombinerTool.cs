@@ -1,3 +1,12 @@
+//==========================================( Neverway 2025 )=========================================================//
+// Author
+//  Liz M.
+//
+// Contributors
+//  Errynei
+//
+//====================================================================================================================//
+
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
@@ -7,37 +16,62 @@ using System.Collections.Generic;
 /// </summary>
 public static class CSGMeshCombinerTool
 {
-    [MenuItem("Neverway/CorGeo/Combine and bake level mesh")]
-    [RuntimeInitializeOnLoadMethod]
-    public static void CombineLevelMeshes()
+    #region========================================( Variables )======================================================//
+    /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+
+
+    /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+
+
+    /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+    private static List<Transform> materialMeshTransforms = new List<Transform>();
+    private static List<Material> uniqueMaterials = new List<Material>();
+    private static Dictionary<Material, List<CombineInstance>> materialToCombineInstances = new Dictionary<Material, List<CombineInstance>>();
+    private static List<Mesh> materialGroupedMeshes = new List<Mesh>();
+    private static Mesh combinedMesh = new Mesh();
+    
+    /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+    private static GameObject meshGroupRoot;
+
+
+    #endregion
+
+
+    #region=======================================( Functions )=======================================================//
+    /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+
+
+    /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    private static void FindCSGMeshGroup()
     {
-        GameObject meshGroupRoot = GameObject.Find("MeshGroup");
+        meshGroupRoot = GameObject.Find("MeshGroup");
         if (!meshGroupRoot)
         {
             Debug.LogError("No GameObject named 'MeshGroup' found in scene");
             return;
         }
+    }
 
-        var materialMeshTransforms = new List<Transform>();
+    private static void GetMaterialMeshesFromMeshGroup()
+    {
+        materialMeshTransforms = new List<Transform>();
 
-        foreach (Transform child in meshGroupRoot.transform)
-        {
-            if (child.name == "MaterialMesh")
-                materialMeshTransforms.Add(child);
-        }
+            foreach (Transform child in meshGroupRoot.transform)
+            {
+                if (child.name == "MaterialMesh") materialMeshTransforms.Add(child);
+            }
 
-        if (materialMeshTransforms.Count == 0)
-        {
-            Debug.LogError("No 'MaterialMesh' children found under 'MeshGroup'");
-            return;
-        }
+            if (materialMeshTransforms.Count == 0)
+            {
+                Debug.LogError("No 'MaterialMesh' children found under 'MeshGroup'");
+                return;
+            }
 
-        Debug.Log($"Combining {materialMeshTransforms.Count} MaterialMesh objects");
-
-        var uniqueMaterials = new List<Material>();
-        var materialToCombineInstances = new Dictionary<Material, List<CombineInstance>>();
-
-        // 1. Group meshes by material
+            Debug.Log($"Combining {materialMeshTransforms.Count} MaterialMesh objects");
+    }
+    
+    private static void GroupMeshesByMaterial()
+    {
         foreach (Transform materialMeshTransform in materialMeshTransforms)
         {
             MeshFilter meshFilter = materialMeshTransform.GetComponent<MeshFilter>();
@@ -64,9 +98,11 @@ public static class CSGMeshCombinerTool
                 materialToCombineInstances[material].Add(combineInstance);
             }
         }
-
-        // 2. Combine meshes by material (one per submesh)
-        List<Mesh> materialGroupedMeshes = new List<Mesh>();
+    }  
+    
+    private static void CombineMeshesByMaterialToSubmesh()
+    {
+        materialGroupedMeshes = new List<Mesh>();
         foreach (var materialEntry in materialToCombineInstances)
         {
             var groupedMesh = new Mesh
@@ -76,9 +112,11 @@ public static class CSGMeshCombinerTool
             groupedMesh.CombineMeshes(materialEntry.Value.ToArray(), true, true);
             materialGroupedMeshes.Add(groupedMesh);
         }
-
-        // 3. Combine into one mesh with multiple submeshes
-        Mesh combinedMesh = new Mesh
+    }  
+    
+    private static void CombineSubmeshesIntoOne()
+    {
+        combinedMesh = new Mesh
         {
             name = "CombinedLevelMesh",
             indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
@@ -112,7 +150,10 @@ public static class CSGMeshCombinerTool
         combinedMesh.RecalculateNormals();
         combinedMesh.RecalculateBounds();
 
-        // 4. Create new GameObject to hold final mesh
+    }  
+    
+    private static void CreateNewCombinedLevelMeshObject()
+    {
         foreach (GameObject obj in Resources.FindObjectsOfTypeAll<GameObject>())
         {
             if (obj.name == "CombinedLevelMesh" && obj.scene.IsValid())
@@ -138,13 +179,51 @@ public static class CSGMeshCombinerTool
         meshRendererFinal.sharedMaterials = uniqueMaterials.ToArray();
         meshColliderFinal.sharedMesh = combinedMesh;
         meshColliderFinal.convex = false;
-        
-        // 5. Disable all the old level mesh data
+    }
+    
+    private static void HideCSGLevelMeshes()
+    {
         for (int i = 0; i < meshGroupRoot.transform.childCount; i++)
         {
             meshGroupRoot.transform.GetChild(i).gameObject.SetActive(false);
         }
-
+        
         Debug.Log($"CombinedLevelMesh created with {combinedMesh.subMeshCount} submeshes");
+    }
+
+
+    /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
+
+
+    #endregion
+    
+    [MenuItem("Neverway/CorGeo/Combine and bake level mesh")]
+    [RuntimeInitializeOnLoadMethod]
+    public static void CombineLevelMeshes()
+    {
+        // Find the CSG MeshGroup
+        FindCSGMeshGroup();
+
+        // Get each material mesh in the MeshGroup
+        GetMaterialMeshesFromMeshGroup();
+
+        // Clean list and dictionary data
+        uniqueMaterials = new List<Material>();
+        materialToCombineInstances = new Dictionary<Material, List<CombineInstance>>();
+
+        // 1. Group meshes by material
+        GroupMeshesByMaterial();
+
+        // 2. Combine meshes by material (one per submesh)
+        CombineMeshesByMaterialToSubmesh();
+
+        // 3. Combine into one mesh with multiple submeshes
+        CombineSubmeshesIntoOne();
+        
+        // 4. Create new GameObject to hold final mesh
+        CreateNewCombinedLevelMeshObject();
+        
+        // 5. Disable all the old level mesh data
+        HideCSGLevelMeshes();
     }
 }
