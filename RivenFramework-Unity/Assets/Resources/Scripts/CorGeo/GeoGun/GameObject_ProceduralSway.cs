@@ -6,10 +6,11 @@
 //
 //=============================================================================
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Add some procedural bobbing and swaying to things like weapons for when a pawn looks around
+/// </summary>
 public class GameObject_ProceduralSway : MonoBehaviour
 {
     //=-----------------=
@@ -92,11 +93,6 @@ public class GameObject_ProceduralSway : MonoBehaviour
         lastXRot = rawXRot;
         lastYRot = rawYRot;
     }
-
-    private float NormalizeAngle(float angle)
-    {
-        return (angle > 180f) ? angle - 360f : angle;
-    }
     
     private void Sway()
     {
@@ -109,24 +105,26 @@ public class GameObject_ProceduralSway : MonoBehaviour
         
         // Sway position
         Vector3 invertLook = lookInput * -swayPositionStep;
+        
         // Apply lock
         if (lockXRot) invertLook.x = 0;
         if (lockYRot) invertLook.y = 0;
-        //
+        
         invertLook.x = Mathf.Clamp(invertLook.x, -maxSwayDistance, maxSwayDistance);
         invertLook.y = Mathf.Clamp(invertLook.y, -maxSwayDistance, maxSwayDistance);
         swayPosition = invertLook;
         
         // Sway Rotation
         invertLook = lookInput * -swayRotationStep;
+        
         // Apply multiplier
         invertLook.x *= xRotMultiplier;
         invertLook.y *= yRotMultiplier;
-        //
+        
         // Apply lock again
         if (lockXRot) invertLook.x = 0;
         if (lockYRot) invertLook.y = 0;
-        //
+        
         invertLook.x = Mathf.Clamp(invertLook.x, -maxSwayRotation, maxSwayRotation);
         invertLook.y = Mathf.Clamp(invertLook.y, -maxSwayRotation, maxSwayRotation);
         swayRotation = new Vector3(invertLook.y, invertLook.x, invertLook.x);

@@ -7,9 +7,7 @@
 //
 //====================================================================================================================//
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using RivenFramework;
 using UnityEngine;
 using UnityEngine.UI;
@@ -45,11 +43,9 @@ public class HUD_GeogunCrosshair : MonoBehaviour
     {
         FindReferences();
 
-        if (geogun)
-        {
-            SetMarkerIndicators();
-            SetPlacementIndicator();
-        }
+        if (!geogun) return;
+        SetMarkerIndicators();
+        SetPlacementIndicator();
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
@@ -73,30 +69,30 @@ public class HUD_GeogunCrosshair : MonoBehaviour
 
     private void SetMarkerIndicators()
     {
-        // Both Markers (Or too many markers (Which should never happen... riiiight?))
-        if (geogun.spawnedProjectiles.Count >= 2)
+        switch (geogun.spawnedProjectiles.Count)
         {
-            AMarkerIndicator.color = activeIndicator;
-            BMarkerIndicator.color = activeIndicator;
-            InitializeCrosshairSine();
-        }
-        // One Marker
-        else if (geogun.spawnedProjectiles.Count == 1)
-        {
-            AMarkerIndicator.color = activeIndicator;
-            BMarkerIndicator.color = inactiveIndicator;
-            hasInitializedCrosshairSine = false;
-            ASine.fillAmount = 0;
-            BSine.fillAmount = 0;
-        }
-        // No Markers
-        else
-        {
-            AMarkerIndicator.color = inactiveIndicator;
-            BMarkerIndicator.color = inactiveIndicator;
-            hasInitializedCrosshairSine = false;
-            ASine.fillAmount = 0;
-            BSine.fillAmount = 0;
+            // Both Markers (Or too many markers (Which should never happen... riiiight?))
+            case >= 2:
+                AMarkerIndicator.color = activeIndicator;
+                BMarkerIndicator.color = activeIndicator;
+                InitializeCrosshairSine();
+                break;
+            // One Marker
+            case 1:
+                AMarkerIndicator.color = activeIndicator;
+                BMarkerIndicator.color = inactiveIndicator;
+                hasInitializedCrosshairSine = false;
+                ASine.fillAmount = 0;
+                BSine.fillAmount = 0;
+                break;
+            // No Markers
+            default:
+                AMarkerIndicator.color = inactiveIndicator;
+                BMarkerIndicator.color = inactiveIndicator;
+                hasInitializedCrosshairSine = false;
+                ASine.fillAmount = 0;
+                BSine.fillAmount = 0;
+                break;
         }
     }
 
@@ -107,7 +103,7 @@ public class HUD_GeogunCrosshair : MonoBehaviour
         {
             PlacementIndicator.color = activeIndicator;
         }
-        else if (placement is "bad" || placement is "null")
+        else if (placement is "bad" or "null")
         {
             PlacementIndicator.color = inactiveIndicator;
         }
