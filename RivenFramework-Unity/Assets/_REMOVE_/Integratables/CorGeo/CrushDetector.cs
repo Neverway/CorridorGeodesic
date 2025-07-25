@@ -43,8 +43,22 @@ public class CrushDetector : MonoBehaviour
         pawn = GetComponent<Pawn>();
     }
 
+
     private void FixedUpdate ()
     {
+        //skip detection if objects are frozen to calculate mesh colliders. (avoids false positives)
+        //if (Alt_Item_Geodesic_Utility_GeoGun.delayRiftCollapse)
+        //{
+        //    return;
+        //}
+        if (CheckForOverlaps ())
+        {
+            if (pawn)
+            {
+                onCrushed?.Invoke ();
+                pawn.ModifyHealth (-crushDamageAmount);
+            }
+        }
     }
 
     //=-----------------=
