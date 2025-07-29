@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.5
+    value: 1.5
   threshold:
     overrideState: 1
     value: 0.8
@@ -126,14 +126,14 @@ MonoBehaviour:
     value: 1
   gradingMode:
     overrideState: 1
-    value: 1
+    value: 0
   externalLut:
     overrideState: 0
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 1
-    value: 1
+    overrideState: 0
+    value: 0
   toneCurveToeStrength:
     overrideState: 0
     value: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
     value: -5
   brightness:
     overrideState: 0
-    value: 4000
+    value: 100
   postExposure:
     overrideState: 0
     value: 0
@@ -1431,13 +1431,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   shutterAngle:
     overrideState: 1
-    value: 170
+    value: 200
   sampleCount:
     overrideState: 1
     value: 10
@@ -1564,7 +1564,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.5
+    value: 0.75
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
