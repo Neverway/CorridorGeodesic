@@ -402,5 +402,4 @@ namespace Sabresaurus.SabreCSG
         }
     }
 }
-
 #endif
