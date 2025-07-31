@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Light
+  m_Name: LightDim
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -18,7 +18,7 @@ Material:
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2001
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -122,9 +122,9 @@ Material:
     - _UseSlice: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.6086957, b: 0, a: 1}
+    - _Color: {r: 0.46226418, g: 0.35623145, b: 0.19406372, a: 1}
     - _DetailColor: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 4.107973, g: 0.6880072, b: 0.25190413, a: 1}
+    - _EmissionColor: {r: 2.1185472, g: 0.5767773, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SliceCenterOne: {r: 0, g: 0, b: 0, a: 0}
     - _SliceCenterTwo: {r: 0, g: 0, b: 0, a: 0}
