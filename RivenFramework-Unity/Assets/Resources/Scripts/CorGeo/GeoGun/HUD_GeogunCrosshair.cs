@@ -98,12 +98,12 @@ public class HUD_GeogunCrosshair : MonoBehaviour
 
     private void SetPlacementIndicator()
     {
-        var placement = geogun.GetValidPlacement();
-        if (placement is "good")
+        var isValidTarget = geogun.GetIsValidTarget();
+        if (isValidTarget)
         {
             PlacementIndicator.color = activeIndicator;
         }
-        else if (placement is "bad" or "null")
+        else
         {
             PlacementIndicator.color = inactiveIndicator;
         }

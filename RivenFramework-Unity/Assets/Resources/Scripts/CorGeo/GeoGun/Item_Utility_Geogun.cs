@@ -168,23 +168,15 @@ public class Item_Utility_Geogun : Item
         isLinkedToManager = false;
     }
     
-    public string GetValidPlacement()
-    {
-        if (Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out hit, 255, layerMask))
-        {
-            return GetIsValidTarget() ? "good" : "bad";
-        }
-
-        return "null";
-    }
-    
     /// <summary>
     /// Returns true if the gun is pointed at a target it's allowed to shoot
     /// This is used by the hud's crosshair & the projectile markers
     /// </summary>
     /// <returns></returns>
-    private bool GetIsValidTarget()
+    public bool GetIsValidTarget()
     {
+        Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out hit, 255, layerMask);
+            
         // Gun is pointed at a bulb snapping point (That is valid!)
         // TODO - BulbCollisionBehaviour has not been ported!
         if (hit.collider.gameObject.TryGetComponent<MarkerCollisionBehaviour>(out _)) return true;
