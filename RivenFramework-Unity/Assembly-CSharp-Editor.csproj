@@ -87,6 +87,7 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Editor\Utilities\UtilityShortcuts.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Editor\Inspectors\CompoundBrushInspector.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Editor\ExpandPropertiesDrawer.cs" />
+    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\Editor\FetchComponentAttributeHandler.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\Editor\ToolFrameworkManagerProps.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\Editor\CurvedStairBrushInspector.cs" />
   </ItemGroup>
@@ -1353,6 +1354,14 @@
       <Project>{AF9434CB-ACBF-6DD3-033E-6DDA0FC7BD5B}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="RivenFramework.Utils.Reflection.csproj">
+      <Project>{6C6FD30E-45A3-8E9B-2D92-E48D1C7AB0FC}</Project>
+      <Name>RivenFramework.Utils.Reflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="CoreAttributes.csproj">
+      <Project>{72123C6B-2D53-122E-FDB1-80CCCB741992}</Project>
+      <Name>CoreAttributes</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.LogicSystem.csproj">
       <Project>{95CF2BEC-BF64-5F12-D106-EC12A8016DB9}</Project>
       <Name>Neverway.Framework.LogicSystem</Name>
@@ -1389,6 +1398,10 @@
       <Project>{E2C6AF86-F4DC-E0BA-5D9B-904144009090}</Project>
       <Name>Neverway.Framework</Name>
     </ProjectReference>
+    <ProjectReference Include="EasyEditorGUI.csproj">
+      <Project>{90FD0F7C-97FF-EE8D-F013-81D64E206F99}</Project>
+      <Name>EasyEditorGUI</Name>
+    </ProjectReference>
     <ProjectReference Include="RivenFramework.csproj">
       <Project>{55EB9F8C-7C19-D9C0-F4C0-534F1BC09483}</Project>
       <Name>RivenFramework</Name>
@@ -1416,10 +1429,6 @@
     <ProjectReference Include="BzKovSoft.CharacterSlicer.csproj">
       <Project>{4B8D0437-61EA-107C-8FEA-607907A56D48}</Project>
       <Name>BzKovSoft.CharacterSlicer</Name>
-    </ProjectReference>
-    <ProjectReference Include="EasyInspector.csproj">
-      <Project>{9CEA7472-1EBB-D453-357C-D854942D69C3}</Project>
-      <Name>EasyInspector</Name>
     </ProjectReference>
     <ProjectReference Include="LogicValues.Editor.csproj">
       <Project>{755944D3-3F72-CA08-5402-8B0B2470C36D}</Project>
