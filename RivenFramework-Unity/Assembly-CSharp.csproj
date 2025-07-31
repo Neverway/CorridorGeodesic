@@ -69,8 +69,8 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\Volumes\PhysicsVolume\PhysicsVolumeForceMode.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\Logic_Door.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Pair.cs" />
-    <Compile Include="Assets\Packages\DynamicBone\Scripts\DynamicBoneCollider.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\GI_RiftManager.cs" />
+    <Compile Include="Assets\Packages\DynamicBone\Scripts\DynamicBoneCollider.cs" />
     <Compile Include="Assets\RivenFramework-Revamp\Resources\Scripts\UIText_Speedometer.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSG\Brush.cs" />
     <Compile Include="Assets\Packages\DynamicBone\Scripts\DynamicBoneColliderBase.cs" />
@@ -110,8 +110,8 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\Utilities\VertexUtility.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\Utilities\SurfaceUtility.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\Volumes\TriggerVolume\TriggerVolumeComponent.cs" />
-    <Compile Include="Assets\RivenFramework\Scripts\_Depreciated\CorGeo_AntiProjectile.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\UnrealGold\T3dPolygonFlags.cs" />
+    <Compile Include="Assets\RivenFramework\Scripts\_Depreciated\CorGeo_AntiProjectile.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\ResizeEditor.cs" />
     <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\DebugConsole\DevTools.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\SurfaceEditor.cs" />
@@ -172,10 +172,10 @@
     <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Graphics_NixieBulbEffects.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\_Depreciated\Object_DepthAssigner.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSG\Vertex.cs" />
-    <Compile Include="Assets\Resources\Scripts\CorGeo\KeepAsUnselectable.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\UnrealGold\T3dBrush.cs" />
-    <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\ShapeEditorBrush.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\KeepAsUnselectable.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Compatibility\Vector2Int.cs" />
+    <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\ShapeEditorBrush.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\CSGModelRuntime.cs" />
     <Compile Include="Assets\Resources\Scripts\FirstPersonExample\FPPawnStats.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Extensions\WorldTransformData.cs" />
@@ -191,8 +191,8 @@
     <Compile Include="Assets\RivenFramework\Scripts\_Depreciated\LogicGate_Comparator.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Geometry\AdjacencyFilters.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\Quake1\MapBrush.cs" />
-    <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Input\EditorKeyMappings.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Extensions\EditorHelper.cs" />
+    <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Input\EditorKeyMappings.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreCSGResources.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfImporter.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\UnrealGold\T3dActor.cs" />
@@ -210,8 +210,8 @@
     <Compile Include="Assets\Packages\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\CorGeo_Actor.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\UnrealGold\T3dPolygon.cs" />
-    <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\BuildMetrics.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Geometry\BrushFactory.cs" />
+    <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\BuildMetrics.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\_Depreciated\LogicGate_And.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Geometry\AdjacencyHelper.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\ISelectable.cs" />
@@ -284,8 +284,8 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfSolid.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\UnrealGold\T3dVector3.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfWorld.cs" />
-    <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Pivot.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\CorGeo_MeshSliceable.cs" />
+    <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Pivot.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\Pawn_CrushDetection.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\IK\IKFootSolver.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\EventSignal_Interactcs.cs" />
@@ -1273,16 +1273,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Animation.Rigging.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Localization.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Localization.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline">
       <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Animation.Rigging.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
@@ -1301,10 +1301,6 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="SimpleFileBrowser.Runtime">
       <HintPath>Library\ScriptAssemblies\SimpleFileBrowser.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -1315,6 +1311,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
@@ -1477,12 +1477,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.InputSystem.ForUI">
+      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Addressables.Editor">
@@ -1571,13 +1571,13 @@
       <Project>{DC414B15-633A-CDED-EDCA-8ED9ACC89065}</Project>
       <Name>LogicValues</Name>
     </ProjectReference>
-    <ProjectReference Include="Neverway.Framework.AudioManagement.csproj">
-      <Project>{45F37D3B-9ABD-E0EE-B323-CD18F735389D}</Project>
-      <Name>Neverway.Framework.AudioManagement</Name>
-    </ProjectReference>
     <ProjectReference Include="BzKovSoft.ObjectSlicer.csproj">
       <Project>{B1B84592-6BC6-56A1-2C87-ADC9C5DEE130}</Project>
       <Name>BzKovSoft.ObjectSlicer</Name>
+    </ProjectReference>
+    <ProjectReference Include="Neverway.Framework.AudioManagement.csproj">
+      <Project>{45F37D3B-9ABD-E0EE-B323-CD18F735389D}</Project>
+      <Name>Neverway.Framework.AudioManagement</Name>
     </ProjectReference>
     <ProjectReference Include="Neverway.Framework.PawnManagement.csproj">
       <Project>{FD490BC0-E584-B78B-74B4-255AFB71D1F6}</Project>
@@ -1603,6 +1603,10 @@
       <Project>{9728FBA5-AF4A-5816-BE7C-A9E257C41EEB}</Project>
       <Name>SimpleFields</Name>
     </ProjectReference>
+    <ProjectReference Include="RivenFrameworkEditor.csproj">
+      <Project>{AC371A15-91F3-3B17-590E-1DA35887FEC1}</Project>
+      <Name>RivenFrameworkEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="RivenFramework.WidgetSystem.csproj">
       <Project>{55F2D8DF-7DE4-4782-9C05-2B1823B6CCF0}</Project>
       <Name>RivenFramework.WidgetSystem</Name>
@@ -1618,10 +1622,6 @@
     <ProjectReference Include="BzKovSoft.CharacterSlicer.csproj">
       <Project>{4B8D0437-61EA-107C-8FEA-607907A56D48}</Project>
       <Name>BzKovSoft.CharacterSlicer</Name>
-    </ProjectReference>
-    <ProjectReference Include="RivenFrameworkEditor.csproj">
-      <Project>{AC371A15-91F3-3B17-590E-1DA35887FEC1}</Project>
-      <Name>RivenFrameworkEditor</Name>
     </ProjectReference>
     <ProjectReference Include="EasyInspector.csproj">
       <Project>{9CEA7472-1EBB-D453-357C-D854942D69C3}</Project>
