@@ -11,6 +11,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using RivenFramework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -263,6 +264,7 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void SliceCutPlanes()
     {
+        Benchmark.StartTiming();
         var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh> ();
         foreach (var sliceableMesh in sliceableMeshes)
         {
@@ -275,6 +277,7 @@ public class GI_RiftManager : MonoBehaviour
         StartCoroutine(AssignSpaceContainerForMeshes());
 
         waitForCollapseReleased = true;
+        Benchmark.StopTiming("SliceCutPlanes");
     }
     
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using RivenFramework;
 using UnityEngine;
 
 public class BulbOutlet : MonoBehaviour, BulbCollisionBehaviour
@@ -42,7 +43,7 @@ public class BulbOutlet : MonoBehaviour, BulbCollisionBehaviour
     //=-----------------=
     public bool OnBulbCollision(Projectile_Marker bulb, RaycastHit hit)
     {
-        //bulb.Attach(attachPoint.position, attachPoint.forward);
+        bulb.MarkerPinAt(attachPoint.position, attachPoint.forward);
         return true;
     }
 }

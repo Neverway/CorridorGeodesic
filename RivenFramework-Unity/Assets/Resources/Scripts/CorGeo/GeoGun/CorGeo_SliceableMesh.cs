@@ -61,7 +61,6 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         riftManager = FindObjectOfType<GI_RiftManager>();
         if (!slicer.defaultSliceMaterial)
         {
-            print("Wowza!");
             slicer.defaultSliceMaterial = riftManager.nullSpaceMaterial;
         }
         EnsureNonConvexWhenCloned();

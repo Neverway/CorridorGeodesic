@@ -5,11 +5,13 @@ using UnityEditor.ProBuilder;
 using UnityEditor.SceneManagement;
 #endif
 
+using RivenFramework;
 using UnityEngine;
 using UnityEngine.ProBuilder;
 using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
+[Todo("Erryneeiiiiiii, the undos for the handles don't workkkkkkkk! ~Liz")]
 public class BulbOutletStrip : MonoBehaviour, BulbCollisionBehaviour
 {
     public Transform startPoint;
@@ -31,7 +33,7 @@ public class BulbOutletStrip : MonoBehaviour, BulbCollisionBehaviour
         attachPos = SnapPosition(attachPos);
 
         //Attach bulb to position
-        //bulb.Attach(attachPos, startPoint.forward);
+        bulb.MarkerPinAt(attachPos, startPoint.forward);
         return true;
     }
 

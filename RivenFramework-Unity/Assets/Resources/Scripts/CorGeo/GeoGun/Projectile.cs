@@ -6,6 +6,7 @@
 //=============================================================================
 
 using DG.Tweening;
+using RivenFramework;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -88,6 +89,7 @@ public class Projectile : MonoBehaviour
         transform.position = position;
         transform.forward = forward;
     }
+    
     public void InitializeProjectile (float moveSpeed)
     {
         this.moveSpeed = moveSpeed;

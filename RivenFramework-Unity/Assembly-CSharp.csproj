@@ -60,6 +60,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Brush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSG_HotFix_Settings.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TESTA.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreToolsOverlay.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Ported/BulbOutlet.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices/Matrix2x2.cs" />
@@ -124,6 +125,7 @@
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/EdgeEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Extensions.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/TestComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/GroupBrush.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKTargetMatcher.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSGBuildSettings.cs" />
@@ -168,6 +170,7 @@
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/Light_DistanceCulling.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BrushBase.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TestProj.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/ExpandPropertiesAttribute.cs.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/AudioVolume/VolumetricAudioVolumeComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreCSGPreferences.cs" />
@@ -176,6 +179,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/KeepAsUnselectable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Prop_Respawner.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Ported/BulbOutletStrip.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TESTB.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/AdjacencyFilters.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapBrush.cs" />
@@ -194,6 +198,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume/PhysicsVolumeForceSpace.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_FallDamage.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSGTool_MaterialPaint.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/FetchComponentAttribute.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Volume2D_Force.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_Actor.cs" />
@@ -469,7 +474,6 @@
      <Folder Include="Assets/Packages/DynamicBone" />
      <Folder Include="Assets/RivenFramework" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Head" />
-     <Folder Include="Assets/RivenFramework-Revamp/EasyInspector" />
      <Folder Include="Assets/AddressableAssetsData/Linux" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/Diffuse-VertexColored.shader" />
      <Folder Include="Assets/RivenFramework/Objects/Framework" />
@@ -579,6 +583,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Geometry" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Audio" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Input" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/GeoGun/DELETE?" />
      <Folder Include="Assets/RivenFramework-Revamp" />
      <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Vive" />
@@ -624,6 +629,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Levels" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/ConcreteWall" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/VeryImportantDoNotDelete/Materials" />
+     <Folder Include="Assets/RivenFramework-Revamp/EasyEditorGUI" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Logic/TempPort" />
      <Folder Include="Assets/Resources/Sound/Effects" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
@@ -1511,6 +1517,14 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="CoreAttributes.csproj">
+      <Project>{6b3c1272-532d-2e12-fdb1-80cccb741992}</Project>
+      <Name>CoreAttributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFramework.Utils.Reflection.csproj">
+      <Project>{0ed36f6c-a345-9b8e-2d92-e48d1c7ab0fc}</Project>
+      <Name>RivenFramework.Utils.Reflection</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.LogicSystem.csproj">
       <Project>{ec2bcf95-64bf-125f-d106-ec12a8016db9}</Project>
       <Name>Neverway.Framework.LogicSystem</Name>
@@ -1543,6 +1557,10 @@
       <Project>{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}</Project>
       <Name>BzKovSoft.ObjectSlicer.Samples</Name>
     </ProjectReference>
+    <ProjectReference Include="EasyEditorGUI.csproj">
+      <Project>{7c0ffd90-ff97-8dee-f013-81d64e206f99}</Project>
+      <Name>EasyEditorGUI</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.csproj">
       <Project>{86afc6e2-dcf4-bae0-5d9b-904144009090}</Project>
       <Name>Neverway.Framework</Name>
@@ -1574,10 +1592,6 @@
     <ProjectReference Include="BzKovSoft.CharacterSlicer.csproj">
       <Project>{37048d4b-ea61-7c10-8fea-607907a56d48}</Project>
       <Name>BzKovSoft.CharacterSlicer</Name>
-    </ProjectReference>
-    <ProjectReference Include="EasyInspector.csproj">
-      <Project>{7274ea9c-bb1e-53d4-357c-d854942d69c3}</Project>
-      <Name>EasyInspector</Name>
     </ProjectReference>
     <ProjectReference Include="LogicValues.Editor.csproj">
       <Project>{d3445975-723f-08ca-5402-8b0b2470c36d}</Project>

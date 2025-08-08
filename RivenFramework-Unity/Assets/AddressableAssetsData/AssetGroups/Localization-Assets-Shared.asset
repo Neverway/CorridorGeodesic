@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: b57552c94e991d2f4b78bdc45817509b
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: a0c347858c235e5d7bf0f2ce5c61182a
+    m_Address: Assets/RivenFramework-Revamp/Resources/LocalizationFiles/Framework_Menus/FrameworkMenus
+      Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: a9cbc202bf79e7800a29933018def474, type: 2}
   m_SchemaSet:

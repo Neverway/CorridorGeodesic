@@ -46,7 +46,7 @@ public class Item_Utility_Geogun : Item
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     private int maxProjectiles = 2;
-    public RaycastHit hit;
+    //public RaycastHit hit;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -59,6 +59,7 @@ public class Item_Utility_Geogun : Item
     [SerializeField] private LayerMask projectileLayerMask;
 
     [SerializeField] private Animator animator1, animator2;
+    private Transform playerViewPoint;
 
     #endregion
 
@@ -67,6 +68,17 @@ public class Item_Utility_Geogun : Item
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Update()
     {
+        // Get a reference to the player view point
+        if (!playerViewPoint)
+        {
+            playerViewPoint = GetComponentInParent<Pawn>().viewPoint;
+            return;
+        }
+        
+        
+        AimBarrelTowardsCenterOfView();
+        
+        // Auto-removes null projectiles from the spawnedProjectiles list
         spawnedProjectiles = spawnedProjectiles.Where(projectile => !projectile.IsUnityNull()).ToList();
     }
 
@@ -81,9 +93,12 @@ public class Item_Utility_Geogun : Item
         animator2.SetTrigger("Shoot");
         
         // Spawn the projectile
-        var projectile = Instantiate(projectilePrefab, gunBarrel.position, gunBarrel.rotation, null).GetComponent<Projectile_Marker>();
+        var projectile = Instantiate(projectilePrefab, playerViewPoint.position, playerViewPoint.rotation, null).GetComponent<Projectile_Marker>();
         
         projectile.geogun = this;
+        Physics.Raycast(playerViewPoint.position, playerViewPoint.forward, out RaycastHit hit2, 255, layerMask);
+        projectile.InitializeProjectile(25, gunBarrel.position, Vector3.Distance(gunBarrel.position, hit2.point));
+        projectile.allowMarkerPlacementAnywhere = allowMarkerPlacementAnywhere;
         
         // Keep track of fired markers
         spawnedProjectiles.Add(projectile.gameObject);
@@ -107,6 +122,20 @@ public class Item_Utility_Geogun : Item
             Destroy(_projectile);
         }
         spawnedProjectiles.Clear();
+    }
+    
+    
+    /// <summary>
+    /// Ensures that the actual point in which projectiles are fired from is facing where the player's crosshair is aimed
+    /// </summary>
+    private void AimBarrelTowardsCenterOfView ()
+    {
+        // Perform the raycast, ignoring the trigger layer
+        if (Physics.Raycast (playerViewPoint.position, playerViewPoint.forward, out RaycastHit viewPoint, Mathf.Infinity, layerMask))
+        {
+            // If the raycast hits something, aim the barrel towards the hit point
+            gunBarrel.LookAt (viewPoint.point);
+        }
     }
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
@@ -167,30 +196,35 @@ public class Item_Utility_Geogun : Item
     {
         isLinkedToManager = false;
     }
+
+    public bool GetIsValidTargetFromView()
+    {
+        Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out RaycastHit hit25, 255, layerMask);
+        return GetIsValidTarget(hit25);
+    }
     
     /// <summary>
     /// Returns true if the gun is pointed at a target it's allowed to shoot
     /// This is used by the hud's crosshair & the projectile markers
     /// </summary>
     /// <returns></returns>
-    public bool GetIsValidTarget()
+    public bool GetIsValidTarget(RaycastHit _hit)
     {
-        Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out hit, 255, layerMask);
             
         // Gun is pointed at a bulb snapping point (That is valid!)
         // TODO - BulbCollisionBehaviour has not been ported!
-        if (hit.collider.gameObject.TryGetComponent<MarkerCollisionBehaviour>(out _)) return true;
+        if (_hit.collider.gameObject.TryGetComponent<MarkerCollisionBehaviour>(out _)) return true;
 
         // Gun is pointed at a sliceable object
-        if (hit.collider.gameObject.TryGetComponent<CorGeo_SliceableMesh>(out _) is false) return false;
+        if (_hit.collider.gameObject.TryGetComponent<CorGeo_SliceableMesh>(out _) is false) return false;
         // Non-mesh colliders don't support getting the polygon information, so we exit if it's not a mesh collider
-        if (hit.collider is not MeshCollider mCollider) return false;
+        if (_hit.collider is not MeshCollider mCollider) return false;
         // Get if the raycast hit a polygon with a valid material to place markers on
-        if (hit.collider.gameObject.TryGetComponent(out Renderer rend) is false) return false;
+        if (_hit.collider.gameObject.TryGetComponent(out Renderer rend) is false) return false;
 
         // Gather information about the mesh
         Mesh colMesh = mCollider.sharedMesh;
-        int triIndex = hit.triangleIndex;
+        int triIndex = _hit.triangleIndex;
         int subMeshIndex = GetSubMeshIndex(colMesh, triIndex);
 
         return subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);

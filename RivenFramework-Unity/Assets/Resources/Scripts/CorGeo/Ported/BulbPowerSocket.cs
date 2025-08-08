@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Neverway.Framework.LogicSystem;
+using RivenFramework;
 
-public class BulbPowerSocket : LogicComponent, BulbCollisionBehaviour
+public class BulbPowerSocket : MonoBehaviour, BulbCollisionBehaviour
 {
     //=-----------------=
     // Public Variables
     //=-----------------=
+    public LogicOutput<bool> isPowered = new(false);
 
     //=-----------------=
     // Private Variables
@@ -23,6 +25,7 @@ public class BulbPowerSocket : LogicComponent, BulbCollisionBehaviour
     // Mono Functions
     //=-----------------=
 
+    [Todo("The new actor class does not have a variable called HomeParent yet ~Liz")]
     private IEnumerator Start()
     {
         yield return null;
@@ -35,7 +38,7 @@ public class BulbPowerSocket : LogicComponent, BulbCollisionBehaviour
     }
     private void Update()
     {
-        isPowered = fittedBulb != null;
+        isPowered.Set(fittedBulb != null);
     }
 
     //=-----------------=
@@ -50,12 +53,12 @@ public class BulbPowerSocket : LogicComponent, BulbCollisionBehaviour
     {
         if (fittedBulb != null)
         {
-            //bulb.KillProjectile();
-            return true;
+            bulb.MarkerBreak();
+            return false;
         }
 
         fittedBulb = bulb;
-        //bulb.Attach(attachPoint.position, attachPoint.forward);
+        bulb.MarkerPinAt(attachPoint.position, attachPoint.forward);
         return true;
     }
 }
