@@ -55,8 +55,8 @@ public class Item_Utility_Geogun : Item
     [SerializeField] private GameObject projectilePrefab;
     [Tooltip("This is where the raycast for firing the gun starts from")]
     [SerializeField] private Transform gunBarrel;
-    [Tooltip("This is what collision layers the raycast will collide with")] 
-    [SerializeField] private LayerMask projectileLayerMask;
+    //[Tooltip("This is what collision layers the raycast will collide with")] 
+    //[SerializeField] private LayerMask projectileLayerMask;
 
     [SerializeField] private Animator animator1, animator2;
     private Transform playerViewPoint;
@@ -71,7 +71,8 @@ public class Item_Utility_Geogun : Item
         // Get a reference to the player view point
         if (!playerViewPoint)
         {
-            playerViewPoint = GetComponentInParent<Pawn>().viewPoint;
+            var targetPawn = GetComponentInParent<Pawn>();
+            if (targetPawn) playerViewPoint = targetPawn.viewPoint;
             return;
         }
         
@@ -199,8 +200,8 @@ public class Item_Utility_Geogun : Item
 
     public bool GetIsValidTargetFromView()
     {
-        Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out RaycastHit hit25, 255, layerMask);
-        return GetIsValidTarget(hit25);
+        Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out RaycastHit _hit, 255, layerMask);
+        return GetIsValidTarget(_hit);
     }
     
     /// <summary>
@@ -210,10 +211,9 @@ public class Item_Utility_Geogun : Item
     /// <returns></returns>
     public bool GetIsValidTarget(RaycastHit _hit)
     {
-            
         // Gun is pointed at a bulb snapping point (That is valid!)
         // TODO - BulbCollisionBehaviour has not been ported!
-        if (_hit.collider.gameObject.TryGetComponent<MarkerCollisionBehaviour>(out _)) return true;
+        if (_hit.collider.gameObject.GetComponent<BulbCollisionBehaviour>() != null) return true;
 
         // Gun is pointed at a sliceable object
         if (_hit.collider.gameObject.TryGetComponent<CorGeo_SliceableMesh>(out _) is false) return false;
