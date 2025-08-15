@@ -179,7 +179,7 @@ public class Projectile_Marker : UProjectile
             if (riftManager.markerA == this) riftManager.markerA = null;
             else if (riftManager.markerB == this) riftManager.markerB = null;
         }
-        Destroy(gameObject, 0.25f);
+        Destroy(gameObject, 0.01f);
     }
 
 

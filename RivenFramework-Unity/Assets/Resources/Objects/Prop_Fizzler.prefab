@@ -1,5 +1,223 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1941731479171206000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3629795816109616287}
+  - component: {fileID: 2539790919891336897}
+  m_Layer: 0
+  m_Name: Auto Resizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3629795816109616287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941731479171206000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5865729270631506834}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2539790919891336897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941731479171206000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48792f634091553c99acd754dc7cd7f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fizzlerStart: {fileID: 4982979965777198511}
+  fizzlerEnd: {fileID: 3202592605996592100}
+  fizzler: {fileID: 3023658838380390896}
+  offsetMultiplier: {x: 0, y: 4, z: 0}
+  thickness: 0.025
+--- !u!1 &6255710823389514319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3023658838380390896}
+  - component: {fileID: 6079684306436634844}
+  - component: {fileID: 6867974181539327377}
+  - component: {fileID: 7404425958273147121}
+  - component: {fileID: 175477761558178403}
+  - component: {fileID: 1675350223753946240}
+  m_Layer: 0
+  m_Name: FizzlerField
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3023658838380390896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255710823389514319}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 2, z: 0}
+  m_LocalScale: {x: 4, y: 3.9, z: 0.025}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5865729270631506834}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6079684306436634844
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255710823389514319}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6867974181539327377
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255710823389514319}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 8db4704d2702db1449165563d0ab29f1, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7404425958273147121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255710823389514319}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &175477761558178403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255710823389514319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b9aaf05ea232b2eaed79f7ade9f923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buddyID: 
+  fizzleDust: {fileID: 7338686446746172535, guid: f4485c653c9d855d3a4cabe2c2b54395,
+    type: 3}
+  fizzleParty: {fileID: 6271697737164727327, guid: 25f39eade9d42c71488e518259f612d7,
+    type: 3}
+--- !u!114 &1675350223753946240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255710823389514319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573ce29f1529cd8fc9da0e48f4249471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unaffectedTeams: []
+  ignoreUnaffectedTeamsFilter: 0
+  ignoreHeldObjects: 1
+  disabledObjectsExitVolume: 1
+  pawnsInTrigger: []
+  propsInTrigger: []
+  resetsAutomatically: 1
+  reset:
+    editorHandles_showHandle: 0
+    editorHandles_handleTarget: {fileID: 0}
+    editorHandles_customName: 
+    value: 0
+    sourceField:
+      EDITOR_targetGameObject: {fileID: 0}
+      EDITOR_hideTypeFilterText: 0
+      targetComponent: {fileID: 0}
+      fieldName: 
+  triggerFilter: 3
+  onOccupied:
+    editorHandles_showHandle: 0
+    editorHandles_handleTarget: {fileID: 0}
+    editorHandles_customName: 
+    value: 0
+    OnOutputChanged:
+      m_PersistentCalls:
+        m_Calls: []
+  onFirstOccupied:
+    m_PersistentCalls:
+      m_Calls: []
+  onFirstUnoccupied:
+    m_PersistentCalls:
+      m_Calls: []
+  hasBeenTriggered: 0
 --- !u!1001 &1032217382147927574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,13 +303,64 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 3629795816109616287}
+    - targetCorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 4982979965777198511}
     - targetCorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3202592605996592100}
-    m_AddedComponents: []
+    - targetCorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3023658838380390896}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2453111393515251842}
   m_SourcePrefab: {fileID: 100100000, guid: 0691e5206c095094690805245502b274, type: 3}
+--- !u!1 &1282301185082072179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
+    type: 3}
+  m_PrefabInstance: {fileID: 1032217382147927574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2453111393515251842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282301185082072179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc61f22595eb480186ee0053d450dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputClearRift:
+    editorHandles_showHandle: 1
+    editorHandles_handleTarget: {fileID: 0}
+    editorHandles_customName: 
+    value: 0
+    sourceField:
+      EDITOR_targetGameObject: {fileID: 6255710823389514319}
+      EDITOR_hideTypeFilterText: 0
+      targetComponent: {fileID: 1675350223753946240}
+      fieldName: onOccupied
+  inputDisableFizzler:
+    editorHandles_showHandle: 1
+    editorHandles_handleTarget: {fileID: 0}
+    editorHandles_customName: 
+    value: 0
+    sourceField:
+      EDITOR_targetGameObject: {fileID: 0}
+      EDITOR_hideTypeFilterText: 0
+      targetComponent: {fileID: 0}
+      fieldName: onOccupied
+  fizzlerObjectToDisable: {fileID: 6255710823389514319}
 --- !u!4 &5865729270631506834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
@@ -159,7 +428,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f0a11298cf659d244ae72e1b9b9c1873,
         type: 3}
       propertyPath: m_Name
-      value: Fizzler (1)
+      value: FizzlerFrameR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -264,7 +533,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f0a11298cf659d244ae72e1b9b9c1873,
         type: 3}
       propertyPath: m_Name
-      value: Fizzler
+      value: FizzlerFrameL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

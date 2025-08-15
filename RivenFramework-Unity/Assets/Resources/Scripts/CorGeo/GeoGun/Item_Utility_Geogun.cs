@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RivenFramework;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -112,7 +113,7 @@ public class Item_Utility_Geogun : Item
         return true;
     }
 
-    private void DestroyMarkers()
+    public void DestroyMarkers()
     {
         animator1.SetBool("Empty", false);
         animator2.SetBool("Empty", false);
@@ -192,12 +193,20 @@ public class Item_Utility_Geogun : Item
         }
     }
 
-    // Picking up objects instantiates a copy of the object, so this function fixes the fact that the copy will already be marked as linked
+    /// <summary>
+    /// Picking up objects instantiates a copy of the object, so this function fixes the fact that the copy will already be marked as linked
+    /// This is called by VolumeItemPickup's OnAttemptItemPickup UnityEvent
+    /// </summary>
     public void BreakRiftManagerLink()
     {
         isLinkedToManager = false;
     }
 
+    /// <summary>
+    /// A version of the GetIsValidTarget function that's setup to use the player's view point raycast as the point to check
+    /// This is used by the placement indicator on the crosshair
+    /// </summary>
+    /// <returns>Returns true if the player is looking at a target they are allowed to shoot</returns>
     public bool GetIsValidTargetFromView()
     {
         Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out RaycastHit _hit, 255, layerMask);
@@ -205,10 +214,9 @@ public class Item_Utility_Geogun : Item
     }
     
     /// <summary>
-    /// Returns true if the gun is pointed at a target it's allowed to shoot
-    /// This is used by the hud's crosshair & the projectile markers
+    /// Used by the projectile markers to see if they are pointed at an object they can pin to
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Returns true if the gun is pointed at a target it's allowed to shoot</returns>
     public bool GetIsValidTarget(RaycastHit _hit)
     {
         // Gun is pointed at a bulb snapping point (That is valid!)
@@ -230,6 +238,11 @@ public class Item_Utility_Geogun : Item
         return subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
     }
     
+    /// <summary>
+    /// Used by GetIsValidTarget to get the index of the tri that was hit on a mesh
+    /// (So GetIsValidTarget can check for valid placement materials)
+    /// </summary>
+    [Todo("Can someone fact check me on this function's summary? ~Liz")]
     private int GetSubMeshIndex(Mesh mesh, int triIndex)
     {
         int triangleCounter = 0;
