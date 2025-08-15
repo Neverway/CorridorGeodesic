@@ -115,19 +115,18 @@ public class FPPawn_Player : FPPawn
         // Interact 
         if (inputActions.Interact.WasPressedThisFrame()) action.Interact(this, interactionPrefab, viewPoint.transform);
         
-        // Throw held object
-        if (inputActions.ItemAction1.WasPressedThisFrame() && physObjectAttachmentPoint.attachedObject)
-        {
-            action.ThrowPhysProp(this);
-        }
-        
         // Switch item
         if (inputActions.ItemSwapNext.WasPressedThisFrame()) action.ItemSwapNext(this);
         if (inputActions.ItemSwapPrevious.WasPressedThisFrame()) action.ItemSwapPrevious(this);
         
         // Use Item
         var inventory = GetComponentInChildren<Pawn_Inventory>();
-        if (inputActions.ItemAction1.WasPressedThisFrame()) action.ItemUseAction(inventory, 0);
+        if (inputActions.ItemAction1.WasPressedThisFrame())
+        {
+            // Throw held object, or Item Use Action 0
+            if (physObjectAttachmentPoint.attachedObject) action.ThrowPhysProp(this);
+            else action.ItemUseAction(inventory, 0);
+        }
         if (inputActions.ItemAction2.WasPressedThisFrame()) action.ItemUseAction(inventory, 1);
         if (inputActions.ItemAction3.WasPressedThisFrame()) action.ItemUseAction(inventory, 2);
         if (inputActions.ItemAction1.WasReleasedThisFrame()) action.ItemUseAction(inventory, 0, "release");
