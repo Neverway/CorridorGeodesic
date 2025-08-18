@@ -107,6 +107,148 @@ CapsuleCollider:
   m_Height: 2.037031
   m_Direction: 1
   m_Center: {x: 0, y: 0.9727922, z: 0}
+--- !u!1001 &3663287028701101982
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 403556276900034001}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c85de168e6266b55ba33204777df77c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c85de168e6266b55ba33204777df77c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c85de168e6266b55ba33204777df77c, type: 2}
+    - target: {fileID: -7511558181221131132, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c85de168e6266b55ba33204777df77c, type: 2}
+    - target: {fileID: 919132149155446097, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      propertyPath: m_Name
+      value: TeslaCoil (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f4212c0a9d37cd845b479492d76f66d8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 637748760502438086}
+  m_SourcePrefab: {fileID: 100100000, guid: f4212c0a9d37cd845b479492d76f66d8, type: 3}
+--- !u!4 &3844989249115592821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f4212c0a9d37cd845b479492d76f66d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3663287028701101982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4474315188170605263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f4212c0a9d37cd845b479492d76f66d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3663287028701101982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &637748760502438086
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4474315188170605263}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1142267
+  m_Height: 2.037031
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9727922, z: 0}
 --- !u!1001 &6534113686652614741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +335,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2326796746770684724}
+    - targetCorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3844989249115592821}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0691e5206c095094690805245502b274, type: 3}
 --- !u!4 &403556276900034001 stripped

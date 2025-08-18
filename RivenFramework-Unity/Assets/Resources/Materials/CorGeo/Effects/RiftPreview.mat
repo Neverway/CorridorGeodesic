@@ -15,8 +15,8 @@ Material:
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -56,10 +56,10 @@ Material:
     - _EmissionStrength: 6
     - _OverlayScale: 1
     - _ScalingSize: 10
-    - _SphereSize: 0.5
+    - _SphereSize: 1.4142135
     - _TriplanarSharpness: 64
     m_Colors:
-    - _BulbsCenter: {r: 7.578525, g: 1.5000012, b: 2.0000043, a: 0}
+    - _BulbsCenter: {r: 7.578525, g: 2.0000012, b: 2.0000043, a: 0}
     - _DeepColor: {r: 1, g: 0.8980392, b: 0, a: 0.003921569}
     - _ScrollDirection: {r: 1, g: 1, b: 0, a: 0}
     - _ShallowColor: {r: 1, g: 0.36078432, b: 0, a: 0.5019608}

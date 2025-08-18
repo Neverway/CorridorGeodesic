@@ -237,6 +237,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfAxis.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfVector3.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SignalEventPlayer.cs" />
+     <Compile Include="Assets/Resources/Models/Experimental/FenRigPart.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityEquippedItems.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/MeshGroupManager.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/Vertex Weld Ops/VertexWeldCentroidOperation.cs" />
@@ -562,6 +563,7 @@
      <None Include="Assets/Packages/Xelu_Prompts/Readme.txt" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/NormalMaps" />
      <None Include="Assets/Resources/Materials/Shaders/SX_FogSkybox.shader" />
+     <Folder Include="Assets/Resources/Models/Experimental" />
      <Folder Include="Assets/RivenFramework/Objects" />
      <Folder Include="Assets/AddressableAssetsData" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Noise" />
