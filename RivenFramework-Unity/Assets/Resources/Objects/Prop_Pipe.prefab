@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSlicedByPlane: 0
-  meshColliders: []
+  isReflective: 0
 --- !u!1 &6467464677111831099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6258905272943287902, guid: 52ec3517e9df41cd98bdaa7921e9d721,
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSlicedByPlane: 0
-  meshColliders: []
+  isReflective: 0
 --- !u!4 &8604218855729601650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 52ec3517e9df41cd98bdaa7921e9d721,

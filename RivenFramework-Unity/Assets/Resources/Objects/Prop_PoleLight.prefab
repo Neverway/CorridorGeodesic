@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSlicedByPlane: 0
-  meshColliders: []
+  isReflective: 0
 --- !u!4 &832566292983253819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 312310edb6fa07a07aeb86228601eccf,

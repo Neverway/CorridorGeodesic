@@ -237,4 +237,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSlicedByPlane: 0
-  meshColliders: []
+  isReflective: 0

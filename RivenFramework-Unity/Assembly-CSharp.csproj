@@ -127,6 +127,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbOutlet.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/EdgeEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Extensions.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers/GameObject_Flicker.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/TestComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/GroupBrush.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKTargetMatcher.cs" />
@@ -170,8 +171,8 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CSGModelRuntime.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawnStats.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/WorldTransformData.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaReceiver.cs" />
+     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/Light_DistanceCulling.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BrushBase.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TestProj.cs" />
@@ -222,6 +223,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/HUD_GeogunCrosshair.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dBrushFlags.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGraphics.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers/Laser_Detector.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Pawn_Inventory.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ChangeMaterialProperty.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/PaintEditor.cs" />
@@ -264,7 +266,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreInput.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/RadialMenu.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
-     <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_Flicker.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Projectile.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/VertexColorWindow.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/CrushDetector.cs" />
@@ -307,6 +308,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/EdgeUtility.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Toggle.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/BrushCache.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers/Laser_Raycast.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/MeshHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/VertexList.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Tool.cs" />
@@ -379,6 +381,7 @@
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Fur/Poiyomi Toon.shader" />
      <Folder Include="Assets/Resources/Widgets" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Liz" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/DitheringFilter.shader" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/LineDashedAlpha.shader" />

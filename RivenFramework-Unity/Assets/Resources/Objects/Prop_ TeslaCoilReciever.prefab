@@ -5513,27 +5513,27 @@ PrefabInstance:
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: id
-      value: Prop_ TeslaCoilReceiver
+      value: Prop_ TeslaCoilReciever
       objectReference: {fileID: 0}
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: displayName
-      value: ' Tesla Coil Receiver'
+      value: ' Tesla Coil Reciever'
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000333786
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}

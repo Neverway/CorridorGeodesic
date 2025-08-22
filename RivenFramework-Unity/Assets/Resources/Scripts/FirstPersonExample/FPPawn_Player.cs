@@ -124,8 +124,14 @@ public class FPPawn_Player : FPPawn
         if (inputActions.ItemAction1.WasPressedThisFrame())
         {
             // Throw held object, or Item Use Action 0
-            if (physObjectAttachmentPoint.attachedObject) action.ThrowPhysProp(this);
-            else action.ItemUseAction(inventory, 0);
+            if (physObjectAttachmentPoint.attachedObject)
+            {
+                action.ThrowPhysProp(this);
+            }
+            else
+            {
+                action.ItemUseAction(inventory, 0);
+            }
         }
         if (inputActions.ItemAction2.WasPressedThisFrame()) action.ItemUseAction(inventory, 1);
         if (inputActions.ItemAction3.WasPressedThisFrame()) action.ItemUseAction(inventory, 2);

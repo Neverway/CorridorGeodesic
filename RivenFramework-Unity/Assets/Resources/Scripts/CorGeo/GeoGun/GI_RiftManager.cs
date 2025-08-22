@@ -36,8 +36,8 @@ public class GI_RiftManager : MonoBehaviour
     private float currentRiftPercent; //current percent scaling of the rift
     private float currentRiftWidth; //current width after applying percent scale
     private float riftStartingWidth; //width of the rift when it was first placed
-    private bool collapseHeld = false;
-    private bool expandHeld = false;
+    [SerializeField] private bool collapseHeld = false;
+    [SerializeField] private bool expandHeld = false;
     private bool waitForCollapseReleased = false; //Waits for you to release collapse so that the player has to press it again to collapse rift.
     private Vector3 riftNullSpacePosition; //The starting position of the null space container.
 

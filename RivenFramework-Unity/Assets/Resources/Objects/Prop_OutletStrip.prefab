@@ -2115,6 +2115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSlicedByPlane: 0
+  isReflective: 0
 --- !u!1 &6393156507388990385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,27 +2168,27 @@ PrefabInstance:
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: id
-      value: Prop_OutletPoint
+      value: Prop_OutletStrip
       objectReference: {fileID: 0}
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: displayName
-      value: Outlet Point
+      value: Outlet Strip
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.874
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000333786
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.105
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}

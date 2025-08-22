@@ -37,6 +37,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
     [Tooltip("Used by slice clones to identify when planes have cut them")]
     public bool isSlicedByPlane;
+    [Tooltip("If enabled, lasers are reflected off this mesh")]
+    public bool isReflective;
     
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
