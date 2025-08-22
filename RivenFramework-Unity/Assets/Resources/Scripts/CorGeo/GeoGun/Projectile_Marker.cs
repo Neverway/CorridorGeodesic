@@ -86,6 +86,15 @@ public class Projectile_Marker : UProjectile
             // Stop logic if OnBulbCollision returns true, denoting that it has overriden the collision behaviour, and we should stop checking logic
             if (bulbBehaviourObj.OnBulbCollision(this, _hit)) return true;
         }
+        else
+        {
+            var bulbCollisionBehaviour = _hit.collider.gameObject.GetComponentInParent<BulbCollisionBehaviour>();
+            if (bulbCollisionBehaviour != null)
+            {
+                // Stop logic if OnBulbCollision returns true, denoting that it has overriden the collision behaviour, and we should stop checking logic
+                if (bulbCollisionBehaviour.OnBulbCollision(this, _hit)) return true;
+            }
+        }
 
         return false;
     }

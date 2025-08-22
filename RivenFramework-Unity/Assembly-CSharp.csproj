@@ -56,6 +56,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Pair.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/GI_RiftManager.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneCollider.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/DynamicCable.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/UIText_Speedometer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Brush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSG_HotFix_Settings.cs" />

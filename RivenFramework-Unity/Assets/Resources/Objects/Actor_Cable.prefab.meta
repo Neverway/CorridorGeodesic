@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-guid: 750d840f18cf3ac479c0136c58a590a8
-labels:
-- Actor3D
-- Broken
-- Logic
+guid: 1a5504e41b2ec637b8aff629304df23d
 PrefabImporter:
   externalObjects: {}
   userData: 

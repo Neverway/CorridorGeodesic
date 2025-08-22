@@ -282,7 +282,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: -0.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -400,7 +400,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
+      scalar: 0.2
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -864,7 +864,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.25
+      value: 0.45
       mode: 0
       spread: 0
       speed:
@@ -4233,7 +4233,7 @@ ParticleSystem:
   LightsModule:
     enabled: 0
     ratio: 0
-    light: {fileID: 5907421708904559722}
+    light: {fileID: 0}
     randomDistribution: 1
     color: 1
     range: 1
@@ -5211,7 +5211,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 4
   m_MinParticleSize: 0
@@ -5503,7 +5503,7 @@ PrefabInstance:
     - target: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_Name
-      value: Prop_ TeslaCoilEmitter
+      value: Prop_TeslaCoilReciever
       objectReference: {fileID: 0}
     - target: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
         type: 3}
@@ -5513,12 +5513,12 @@ PrefabInstance:
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: id
-      value: Prop_ TeslaCoilEmitter
+      value: Prop_TeslaCoilReciever
       objectReference: {fileID: 0}
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: displayName
-      value: ' Tesla Coil Emitter'
+      value: Tesla Coil Reciever
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
@@ -5594,7 +5594,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7399328429391771697}
+      addedObject: {fileID: 2639887895729308289}
   m_SourcePrefab: {fileID: 100100000, guid: 0691e5206c095094690805245502b274, type: 3}
 --- !u!4 &403556276900034001 stripped
 Transform:
@@ -5622,7 +5622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zapPosition: {fileID: 6242728107491575373}
   increaseRangeAwayFromPlayer: 0
---- !u!114 &7399328429391771697
+--- !u!114 &2639887895729308289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5631,17 +5631,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4986997545327282736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b511d802e4a3bc74ab661e5d9c4cf727, type: 3}
+  m_Script: {fileID: 11500000, guid: 49fee1eb0b7cf0f488872d342fb3dbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputSignal:
+  isPowered:
     editorHandles_showHandle: 1
     editorHandles_handleTarget: {fileID: 0}
     editorHandles_customName: 
     value: 0
-    sourceField:
-      EDITOR_targetGameObject: {fileID: 0}
-      EDITOR_hideTypeFilterText: 0
-      targetComponent: {fileID: 0}
-      fieldName: onOccupied
+    OnOutputChanged:
+      m_PersistentCalls:
+        m_Calls: []
   lightObject: {fileID: 1802728974825112225}

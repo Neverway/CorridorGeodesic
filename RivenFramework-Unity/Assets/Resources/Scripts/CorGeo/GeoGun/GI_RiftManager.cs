@@ -33,7 +33,7 @@ public class GI_RiftManager : MonoBehaviour
     private float maxRiftWidth = 30;
     private float minRiftWidth = -30;
     private float minAbsoluteRiftWidth = 0.15f; // This is to prevent physics bugs if nullspace scales too close to 0 without being 0.
-    private float currentRiftPercent; //current percent scaling of the rift
+    [HideInInspector] public float currentRiftPercent; //current percent scaling of the rift
     private float currentRiftWidth; //current width after applying percent scale
     private float riftStartingWidth; //width of the rift when it was first placed
     [SerializeField] private bool collapseHeld = false;
