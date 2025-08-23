@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.Linq;
 using System.Reflection;
+using RivenFramework;
 using UnityEditor.Callbacks;
 namespace Sabresaurus.SabreCSG
 {
@@ -1308,6 +1309,10 @@ namespace Sabresaurus.SabreCSG
 
         private int frameIndex;
 
+        [Todo("Editor error with CSG when domain reloading is off")]
+        // MissingReferenceException: The object of type 'CSGModel' has been destroyed but you are still trying to access it.
+        // Your script should either check if it is null or you should not destroy the object.
+        // Sabresaurus.SabreCSG.CSGModel.OnEditorUpdate () (at Assets/Packages/SabreCSG-master/Scripts/CSGModel.cs:1339)
         private void OnEditorUpdate()
         {
             if (deferredSelection != null)
@@ -1330,6 +1335,7 @@ namespace Sabresaurus.SabreCSG
                     frameIndex -= 1000;
                 }
 
+                // This line throws errors VVVV
                 if (AutoRebuild && gameObject.activeInHierarchy && this.enabled)
                 {
                     //					if(frameIndex % 30 == 0)
