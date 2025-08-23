@@ -20,9 +20,8 @@ public class CrushDetector : MonoBehaviour
     //=-----------------=
     // Private Variables
     //=-----------------=
-
     [SerializeField] private Vector3 rayDistance;
-    [SerializeField] private float downDistance;
+    [SerializeField] public float downDistanceCurrent;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float crushDamageAmount = 40f;
     private Pawn pawn;
@@ -67,7 +66,7 @@ public class CrushDetector : MonoBehaviour
 
     private bool CheckForOverlaps ()
     {
-        Collider[] colliders = Physics.OverlapCapsule (transform.position + transform.up * rayDistance.y, transform.position - transform.up * downDistance, rayDistance.x, layerMask);
+        Collider[] colliders = Physics.OverlapCapsule (transform.position + transform.up * rayDistance.y, transform.position - transform.up * downDistanceCurrent, rayDistance.x, layerMask);
         foreach (Collider collider in colliders)
         {
             if (collider.gameObject == gameObject)

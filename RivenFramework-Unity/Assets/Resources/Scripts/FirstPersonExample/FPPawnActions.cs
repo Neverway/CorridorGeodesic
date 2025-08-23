@@ -235,7 +235,6 @@ public class FPPawnActions : PawnActions
         if (_enable is false && isCrouching && IsHeadClear(_pawn))
         {
             var collider = _pawn.GetComponent<CapsuleCollider>();
-            var rigidbody = _pawn.GetComponent<Rigidbody>();
             _pawn.transform.position += new Vector3(0, ((FPPawnStats)_pawn.currentStats).crouchDistance / 2, 0);
             collider.height += ((FPPawnStats)_pawn.currentStats).crouchDistance;
             collider.center -= ((FPPawnStats)_pawn.currentStats).crouchColliderOffset;

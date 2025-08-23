@@ -126,6 +126,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/IPostBuildListener.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbOutlet.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/CrushDetector.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/EdgeEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Extensions.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers/GameObject_Flicker.cs" />
@@ -269,7 +270,6 @@
      <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Projectile.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/VertexColorWindow.cs" />
-     <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/CrushDetector.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbPowerSocket.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Shape.cs" />
@@ -620,6 +620,7 @@
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat/Poiyomi Toon.shader" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroupTemplates" />
      <Folder Include="Assets/Resources/Materials/CorGeo" />
+     <Folder Include="Assets/Resources/Objects/NotProperActors" />
      <Folder Include="Assets/Resources/Sprites/Effects" />
      <Folder Include="Assets/Packages/SabreCSG-master" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Scripts" />
