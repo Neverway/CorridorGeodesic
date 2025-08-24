@@ -265,6 +265,7 @@ MonoBehaviour:
   uniqueId: 
   allowNonLinearSlicing: 1
   allowExpandingRift: 0
+  allowInvertingRift: 0
   allowSlammingRift: 0
   allowMarkerPlacementAnywhere: 0
   validPlacementMaterials:
@@ -273,14 +274,12 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 129
+  projectileMarkerSpeed: 50
   isLinkedToManager: 0
   spawnedProjectiles: []
   projectilePrefab: {fileID: 3665781277444283579, guid: e7bea5ed6ed8a80d29df50dbb1fbefc3,
     type: 3}
   gunBarrel: {fileID: 8912260600610800372}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 10113
   animator1: {fileID: 5197929100667846040}
   animator2: {fileID: 8646921104399528452}
 --- !u!1001 &7884057557956848956
