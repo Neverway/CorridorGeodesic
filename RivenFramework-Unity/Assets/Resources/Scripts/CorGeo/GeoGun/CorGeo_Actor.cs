@@ -7,6 +7,8 @@
 //
 //====================================================================================================================//
 
+using System;
+using System.Linq;
 using UnityEngine;
 
 public class CorGeo_Actor : MonoBehaviour
@@ -39,7 +41,7 @@ public class CorGeo_Actor : MonoBehaviour
 
     #endregion
 }
-/*
+
 public class CorGeo_ActorData : MonoBehaviour
 {
     //=-----------------=
@@ -52,17 +54,18 @@ public class CorGeo_ActorData : MonoBehaviour
     
     [Header("Debugging")]
     [Tooltip("Used to restore static actors back to their initial position when uncollapsing rifts")]
-    [ReadOnly] [SerializeField] public Vector3 homePosition;
+    [SerializeField] public Vector3 homePosition;
     [Tooltip("Used to restore static actors back to their initial scale when uncollapsing rifts")]
-    [ReadOnly] [SerializeField] public Vector3 homeScale;
+    [SerializeField] public Vector3 homeScale;
     [Tooltip("Used to restore static actors back to their initial parent object when uncollapsing rifts")]
-    [ReadOnly] [SerializeField] public Transform homeParent;
+    [SerializeField] public Transform homeParent;
     [Tooltip("Check this if the actor can move around")]
-    [ReadOnly] [SerializeField] public bool dynamic = false;
+    [SerializeField] public bool dynamic = false;
     // TODO: I don't understand what this is used for, can someone add a tooltip here? ~Liz
-    [ReadOnly] [SerializeField] public bool crushInNullSpace = true;
+    // Nah. ~Connor
+    [SerializeField] public bool crushInNullSpace = true;
     // TODO: This one doesn't make sense to me either. When do we not want to restore an actors transforms when undoing rifts? ~Liz
-    [ReadOnly] [SerializeField] public bool isParentedIgnoreOffsets = false;
+    [SerializeField] public bool isParentedIgnoreOffsets = false;
 
     [Tooltip("Enabled when an object is picked up by a pawn, this prevents the object from being moved during rift movements, otherwise the object would be pulled out of their hands")]
     public bool isHeld = false;
@@ -101,7 +104,7 @@ public class CorGeo_ActorData : MonoBehaviour
         homePosition = transform.position;
         homeScale = transform.localScale;
         homeParent = transform.parent;
-        Alt_Item_Geodesic_Utility_GeoGun.CorGeo_ActorDatas.Add(this);
+        GI_RiftManager.CorGeo_Actors.Add(this);
         // Automatically avoid hiding lights when a rift is collapsed
         if (TryGetComponent<Light> (out Light light))
         {
@@ -112,7 +115,7 @@ public class CorGeo_ActorData : MonoBehaviour
     private void OnDestroy ()
     {
         // Cleanly remove this from the list of tracked actors on the GeoGun when destoryed
-        Alt_Item_Geodesic_Utility_GeoGun.CorGeo_ActorDatas.Remove(this);
+        GI_RiftManager.CorGeo_Actors.Remove(this);
     }
 
     //=-----------------=
@@ -122,6 +125,8 @@ public class CorGeo_ActorData : MonoBehaviour
     /// Called by the GeoGun when a rift is reset
     /// This resets the actors back to the transform state they were in prior to being affected by a rift
     /// </summary>
+    /// 
+    //todo: actually trigger GoHome and move the actor
     public void GoHome ()
     {
         OnRiftRestore?.Invoke();
@@ -133,14 +138,12 @@ public class CorGeo_ActorData : MonoBehaviour
         {
             transform.position = homePosition;
             return;
-        }
-        if (space != Space.Null && Alt_Item_Geodesic_Utility_GeoGun.planeA.GetDistanceToPoint (transform.position) > 0)
+        }//todo: move this, or make the planes statics like they were previously
+        if (space != Space.Null && GI_RiftManager.planeA.GetDistanceToPoint (transform.position) > 0)
         {
-            if (!Alt_Item_Geodesic_Utility_GeoGun.deployedRift) return;
+            if (!GI_RiftManager.riftActive) return;
             // Move actor away from collapse direction scaled by the rift timer's progress
-            transform.position += Alt_Item_Geodesic_Utility_GeoGun.deployedRift.transform.forward *
-                                  Alt_Item_Geodesic_Utility_GeoGun.riftWidth *
-                                  (Alt_Item_Geodesic_Utility_GeoGun.lerpAmount);
+            transform.position -= GI_RiftManager.currentRiftOffset;
         }
     }
 
@@ -170,4 +173,4 @@ public class CorGeo_ActorData : MonoBehaviour
     //=-----------------=
     // External Functions
     //=-----------------=
-}*/
+}

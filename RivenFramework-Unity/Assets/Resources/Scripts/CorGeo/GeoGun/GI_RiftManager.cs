@@ -25,7 +25,11 @@ public class GI_RiftManager : MonoBehaviour
     
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
-    public bool riftActive;
+    public static bool riftActive;
+    //Amount the B-Space is currently offset from it's starting position.
+    public static Vector3 currentRiftOffset;
+    //Direction the rift space is facing (this is the line the rift moves along when expanding and contracting).
+    public static Vector3 riftNormal;
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
@@ -55,12 +59,13 @@ public class GI_RiftManager : MonoBehaviour
     private Item_Utility_Geogun linkedGeogun;
     [SerializeField] private GameObject cutPlanePrefab, spaceContainerA, spaceContainerB, spaceContainerNull;
     [HideInInspector] public GameObject cutPlaneA, cutPlaneB;
-    [HideInInspector] public Plane planeA, planeB;
+    [HideInInspector] public static Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
     [HideInInspector] public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes;
     public Graphics_RiftPreviewEffects riftPreviewEffects;
     public Material nullSpaceMaterial;
-    
+
+    public static List<CorGeo_ActorData> CorGeo_Actors = new List<CorGeo_ActorData> { };
 
     #endregion
 
@@ -253,9 +258,12 @@ public class GI_RiftManager : MonoBehaviour
         currentRiftWidth = riftStartingWidth;
 
         riftNullSpacePosition = spaceContainerNull.transform.position; //I'm preserving this position because negative scaling moves the object.
-        
+
+        //Saves the direction the rift is facing so we can easily reference it.
+        riftNormal = spaceContainerNull.transform.forward;
+
         // Slice the cut planes (This is for debugging right now)
-        SliceCutPlanes();
+        SliceCutPlanes ();
     }
 
     /// <summary>
@@ -429,6 +437,8 @@ public class GI_RiftManager : MonoBehaviour
         }
         float percentChange = 1 / riftStartingWidth * distance;
 
+        currentRiftOffset = (currentRiftWidth - riftStartingWidth) * riftNormal;
+
         SetRiftPosition (currentRiftPercent + percentChange);
         riftIsMoving = true;
     }
@@ -468,7 +478,6 @@ public class GI_RiftManager : MonoBehaviour
         }
         cutPlaneB.transform.position = spaceContainerB.transform.position;
     }
-
 
     #endregion
 }
