@@ -31,12 +31,23 @@ public class GI_RiftManager : MonoBehaviour
     //Direction the rift space is facing (this is the line the rift moves along when expanding and contracting).
     public static Vector3 riftNormal;
 
+    // Alright jeez here's your comments, are these descriptive enough? - Connorses
+
+    //Tells things what state the rift is changing from.
+    public static RiftState previousState = RiftState.None;
+    //The current rift state  :O
+    public static RiftState currentState = RiftState.None;
+
+    // This event allows things to respond to any changes in the the RiftState, such as the animated plane visuals or the rift audio effects.
+    public delegate void StateChanged ();
+    public static event StateChanged OnStateChanged;
+
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-    private float maxRiftWidth = 30;
-    private float minRiftWidth = -30;
+    private float maxRiftWidth = 30;  // Max size a rift can *expand* to in worldspace units.
+    private float minRiftWidth = -30; // Max size an *inverted* rift can expand to in the negative direction.
     private float minAbsoluteRiftWidth = 0.15f; // This is to prevent physics bugs if nullspace scales too close to 0 without being 0.
-    private float currentRiftPercent; //current percent scaling of the rift
+    private float currentRiftPercent; //current percent scaling of the rift (the local scale)
     private float currentRiftWidth; //current width after applying percent scale
     private float riftStartingWidth; //width of the rift when it was first placed
     private bool collapseHeld = false;
@@ -77,8 +88,9 @@ public class GI_RiftManager : MonoBehaviour
         // Link the manager to a geogun if it's not yet
         if (!linkedGeogun)
         {
-            LinkToGeogun();
+            LinkToGeogun(); //todo: talk to Liz about game loops and initialization lmao
         }
+
         
         // Initialize rift objects if they are missing
         if (IsRiftInitialized() is false) InitializeRiftObjects();
@@ -89,12 +101,14 @@ public class GI_RiftManager : MonoBehaviour
             SetRiftHidden(false);
             StartCoroutine(riftPreviewEffects.OnRiftCreated(this));
             PositionCutPlanes();
+            UpdateState (RiftState.Preview);
         }
         // Markers lost, disable rift
         else if (GetPinnedMarkers() is false && riftActive)
         {
             SetRiftHidden(true);
             RestoreRift();
+            UpdateState (RiftState.None);
         }
 
         if (waitForCollapseReleased && collapseHeld == false)
@@ -109,16 +123,22 @@ public class GI_RiftManager : MonoBehaviour
             {
                 MoveRiftByDistance (-currentRiftMoveSpeed * Time.deltaTime);
                 AccelerateRift ();
+                UpdateState (RiftState.Collapsing);
             }
             else if (expandHeld)
             {
                 MoveRiftByDistance (currentRiftMoveSpeed * Time.deltaTime);
                 AccelerateRift ();
+                UpdateState (RiftState.Expanding);
             }
             else
             {
                 currentRiftMoveSpeed = 0;
                 riftIsMoving = false;
+                if (currentState != RiftState.Preview)
+                {
+                    UpdateState (RiftState.Idle);
+                }
             }
         }
     }
@@ -287,6 +307,7 @@ public class GI_RiftManager : MonoBehaviour
     
     /// <summary>
     /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixes those
+    /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixeus those
     /// </summary>
     private IEnumerator CleanupExtraMeshColliders()
     {
@@ -405,6 +426,7 @@ public class GI_RiftManager : MonoBehaviour
         RestoreCutGeometry();
         EmptyMatterInSpaceContainers();
         currentRiftMoveSpeed = 0;
+        UpdateState (RiftState.None);
     }
     
 
@@ -477,6 +499,24 @@ public class GI_RiftManager : MonoBehaviour
             spaceContainerNull.transform.position = riftNullSpacePosition;
         }
         cutPlaneB.transform.position = spaceContainerB.transform.position;
+    }
+
+    /// <summary>
+    /// Update the state of the Rift and, if the new state is different, trigger OnStateChanged so things can respond to what he Rift is doing.
+    /// </summary>
+    /// <param name="_newState"></param>
+    private void UpdateState (RiftState _newState)
+    {
+        if (currentState == _newState)
+        {
+            return;
+        }
+        previousState = currentState;
+
+        currentState = _newState;
+
+        OnStateChanged?.Invoke ();
+        Debug.Log("RiftState: " + currentState);
     }
 
     #endregion
