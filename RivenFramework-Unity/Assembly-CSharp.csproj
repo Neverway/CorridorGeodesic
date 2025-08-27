@@ -319,6 +319,7 @@
      <Folder Include="Assets/_REMOVE_/Integratables/CorGeo" />
      <Folder Include="Assets/Resources/Maps" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1 1/Poiyomi Toon.shader" />
+     <Folder Include="Assets/Resources/Sprites/Level/Materials" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Arrows" />
      <Folder Include="Assets/Resources/Models" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Errynei" />
@@ -405,6 +406,7 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Grayscales" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS Move" />
+     <Folder Include="Assets/Resources/Sprites/Level" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/SeeExcluded.shader" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Utility" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Particles" />

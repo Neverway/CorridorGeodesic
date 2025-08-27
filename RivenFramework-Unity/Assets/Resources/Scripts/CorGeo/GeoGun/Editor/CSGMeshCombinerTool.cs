@@ -47,7 +47,7 @@ public static class CSGMeshCombinerTool
         meshGroupRoot = GameObject.Find("MeshGroup");
         if (!meshGroupRoot)
         {
-            Debug.LogError("No GameObject named 'MeshGroup' found in scene");
+            //Debug.LogError("No GameObject named 'MeshGroup' found in scene");
             return;
         }
     }
@@ -203,7 +203,8 @@ public static class CSGMeshCombinerTool
     {
         // Find the CSG MeshGroup
         FindCSGMeshGroup();
-
+        if (!meshGroupRoot) return;
+        
         // Get each material mesh in the MeshGroup
         GetMaterialMeshesFromMeshGroup();
 
