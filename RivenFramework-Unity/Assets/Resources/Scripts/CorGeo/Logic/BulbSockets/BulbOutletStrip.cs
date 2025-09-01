@@ -49,31 +49,59 @@ public class BulbOutletStrip : MonoBehaviour, BulbCollisionBehaviour
     }
 
 #if UNITY_EDITOR
-    public void EDITOR_StretchProbuilderMesh(Vector3 oldPoint, Vector3 newPoint, Vector3 otherPoint)
+    //bleh
+    public void EDITOR_StretchProbuilderMesh(Vector3 handle1_position, Vector3 handle2_position)
     {
-        oldPoint = meshToModify.transform.InverseTransformPoint(oldPoint);
-        newPoint = meshToModify.transform.InverseTransformPoint(newPoint);
-        otherPoint = meshToModify.transform.InverseTransformPoint(otherPoint);
+        //Convert global positions of handles into local mesh positions
+        handle1_position = meshToModify.transform.InverseTransformPoint(handle1_position);
+        handle2_position = meshToModify.transform.InverseTransformPoint(handle2_position);
 
-        Vector3 moveVector = newPoint - oldPoint;
+        List<int> vertexIndexes_handle1 = new List<int>(); //List of vertices closest to handle 1
+        Vector3 averageVertexPos_handle1 = Vector3.zero; //Average position of all those vertices
 
-        // Get mesh vertices
-        var positions = meshToModify.GetVertices();
+        List<int> vertexIndexes_handle2 = new List<int>(); //List of vertices closest to handle 1
+        Vector3 averageVertexPos_handle2 = Vector3.zero; //Average position of all those vertices
 
-        // Move all vertices above the threshold
-        for (int i = 0; i < positions.Length; i++)
+        // Get mesh vertices from probuilder mesh
+        Vertex[] vertices = meshToModify.GetVertices();
+        //Loop through all of those verticies
+        for (int i = 0; i < vertices.Length; i++)
         {
-            Vertex vertex = positions[i];
+            //Get distance from this vertex to each handle
+            float distanceToHandle1 = Vector3.Distance(handle1_position, vertices[i].position);
+            float distanceToHandle2 = Vector3.Distance(handle2_position, vertices[i].position);
 
-            //if newPoint is closer
-            if (Vector3.Distance(newPoint, vertex.position) <= Vector3.Distance(otherPoint, vertex.position))
-                vertex.position = vertex.position + moveVector;
+            //Check which handle is closer
+            if (distanceToHandle1 <= distanceToHandle2) {
+                //For handle 1 : 
+                vertexIndexes_handle1.Add(i); //Add to handle 1 vertex list
+                averageVertexPos_handle1 += vertices[i].position; //Add to handle 1 vertex position sum (to average later)
+            } else {
+                //For handle 2 : 
+                vertexIndexes_handle2.Add(i); //Add to handle 1 vertex list
+                averageVertexPos_handle2 += vertices[i].position; //Add to handle 1 vertex position sum (to average later)
+            }
         }
 
+        //With vertices collected and associated with each handle, move them such that their average position is AT the handle
+
+        //For handle 1 : 
+        averageVertexPos_handle1 /= vertexIndexes_handle1.Count; //Get final average of vertices position
+        Vector3 moveVector_handle1 = handle1_position - averageVertexPos_handle1; //Get offset from average position to handle
+        foreach (int i in vertexIndexes_handle1)
+            vertices[i].position = vertices[i].position + moveVector_handle1; //Apply offset to all vertices closest to this handle
+
+        //For handle 2 : 
+        averageVertexPos_handle2 /= vertexIndexes_handle2.Count; //Get final average of vertices position
+        Vector3 moveVector_handle2 = handle2_position - averageVertexPos_handle2; //Get offset from average position to handle
+        foreach (int i in vertexIndexes_handle2)
+            vertices[i].position = vertices[i].position + moveVector_handle2; //Apply offset to all vertices closest to this handle
+
         // Apply the changes to the mesh
-        meshToModify.SetVertices(positions);
+        meshToModify.SetVertices(vertices, true);
         meshToModify.ToMesh();
-        meshToModify.Refresh();
+        meshToModify.Refresh(RefreshMask.All);
+        ProBuilderEditor.Refresh(true);
     }
 #endif
 
@@ -98,64 +126,128 @@ public class BulbOutletStrip : MonoBehaviour, BulbCollisionBehaviour
     }
 }
 
+
+
+
+
+
+
+
 #if UNITY_EDITOR
 [CustomEditor(typeof(BulbOutletStrip))]
 public class BulbOutletStripEditor : Editor
 {
+    private bool holdingHandle = false;
+    private bool registeredUndo = false;
+
+    private void OnEnable()
+    {
+        Undo.undoRedoPerformed -= RefreshMesh;
+        Undo.undoRedoPerformed += RefreshMesh;
+    }
+    private void OnDisable()
+    {
+        Undo.undoRedoPerformed -= RefreshMesh;
+    }
+
+    private void RefreshMesh()
+    {
+        BulbOutletStrip outletStrip = (BulbOutletStrip)target;
+        outletStrip.meshToModify.ToMesh();
+        outletStrip.meshToModify.Refresh(RefreshMask.All);
+        ProBuilderEditor.Refresh(true);
+    }
+
+
     private void OnSceneGUI()
     {
         BulbOutletStrip outletStrip = (BulbOutletStrip)target;
         Vector3 oldStartPos = outletStrip.startPoint.position;
         Vector3 oldEndPos = outletStrip.endPoint.position;
 
+        bool changeOccurred = false;
+
         // Start Handle
         EditorGUI.BeginChangeCheck();
-        Vector3 newStartPosition = Handles.PositionHandle(oldStartPos, Quaternion.identity);
+        Vector3 newStartPosition = Handles.Slider(oldStartPos, outletStrip.StripVector * -1f);
 
         if (EditorGUI.EndChangeCheck())
         {
+            changeOccurred = true;
             newStartPosition = outletStrip.SnapPosition(newStartPosition);
             newStartPosition = BulbOutletStrip.GetClosestPointOnLineSegment(
                 newStartPosition, 
                 oldStartPos + outletStrip.StripVectorNormalized * -20f,
                 oldEndPos + outletStrip.StripVectorNormalized * 20f);
-            if (Vector3.Distance(newStartPosition, oldEndPos) > 1f)
+
+            if (Vector3.Distance(newStartPosition, oldEndPos) > 1.5f && 
+                Vector3.Angle(newStartPosition - outletStrip.transform.position, outletStrip.StripVector * -1f) == 0)
             {
-                Object[] undoObjects = { outletStrip.GetComponent<ProBuilderMesh>(), outletStrip.startPoint };
-                Undo.RecordObjects(undoObjects, "Moved Start Handle of Bulb Outlet Strip and modified ProBuilder Mesh");
-
-                outletStrip.EDITOR_StretchProbuilderMesh(outletStrip.startPoint.position, newStartPosition, outletStrip.endPoint.position);
+                //Record a change occurring if there is a change in final position
+                //changeOccurred |= outletStrip.startPoint.position != newStartPosition;
                 outletStrip.startPoint.position = newStartPosition;
-
-                UnityEditor.EditorUtility.SetDirty(outletStrip);
                 UnityEditor.EditorUtility.SetDirty(outletStrip.startPoint);
-                ProBuilderEditor.Refresh(true);
             }
         }
 
         // End Handle
         EditorGUI.BeginChangeCheck();
-        Vector3 newEndPosition = Handles.PositionHandle(oldEndPos, Quaternion.identity);
+        Vector3 newEndPosition = Handles.Slider(oldEndPos, outletStrip.StripVector * 1f);
 
         if (EditorGUI.EndChangeCheck())
         {
+            changeOccurred = true;
             newEndPosition = outletStrip.SnapPosition(newEndPosition);
             newEndPosition = BulbOutletStrip.GetClosestPointOnLineSegment(
                 newEndPosition,
                 oldStartPos + outletStrip.StripVectorNormalized * -20f,
                 oldEndPos + outletStrip.StripVectorNormalized * 20f);
-            if (Vector3.Distance(newEndPosition, oldStartPos) > 1f)
+            if (Vector3.Distance(newEndPosition, oldStartPos) > 1.5f &&
+                Vector3.Angle(newEndPosition - outletStrip.transform.position, outletStrip.StripVector * 1f) == 0)
             {
-                Object[] undoObjects = { outletStrip.GetComponent<ProBuilderMesh>(), outletStrip.endPoint };
-                Undo.RecordObjects(undoObjects, "Moved End Handle of Bulb Outlet Strip and modified ProBuilder Mesh");
-
-                outletStrip.EDITOR_StretchProbuilderMesh(outletStrip.endPoint.position, newEndPosition, outletStrip.startPoint.position);
+                //Record a change occurring if there is a change in final position
+                //changeOccurred |= outletStrip.endPoint.position != newEndPosition;
                 outletStrip.endPoint.position = newEndPosition;
-
-                UnityEditor.EditorUtility.SetDirty(outletStrip);
                 UnityEditor.EditorUtility.SetDirty(outletStrip.endPoint);
-                ProBuilderEditor.Refresh(true);
             }
+        }
+
+        if (changeOccurred)
+        {
+            holdingHandle = true;
+            if (!registeredUndo)
+            {
+                //undoGroup = Undo.GetCurrentGroup();
+                //Object[] objectsToRecord = { 
+                //    outletStrip.meshToModify, outletStrip.meshToModify.gameObject,
+                //    outletStrip.startPoint.transform, outletStrip.startPoint.gameObject,
+                //    outletStrip.endPoint.transform, outletStrip.endPoint.gameObject 
+                //};
+                //Undo.RecordObjects(objectsToRecord, "Modified BulbOutletStrip Mesh");
+                //Undo.RecordObject(outletStrip.meshToModify, "BulbOutlet probuilder mesh");
+                //Undo.RecordObject(outletStrip.meshToModify.gameObject, "BulbOutlet probuilder mesh gameobject");
+                //Undo.RecordObject(outletStrip.startPoint.transform, "BulbOutlet start Handle Transform");
+                //Undo.RecordObject(outletStrip.startPoint.gameObject, "BulbOutlet start Handle");
+                //Undo.RecordObject(outletStrip.endPoint.transform, "BulbOutlet end Handle Transform");
+                //Undo.RecordObject(outletStrip.endPoint.gameObject, "BulbOutlet end Handle");
+                Undo.RegisterCompleteObjectUndo(outletStrip.gameObject, "OutletStrip");
+                registeredUndo = true;
+            }
+
+            outletStrip.EDITOR_StretchProbuilderMesh(outletStrip.startPoint.position, outletStrip.endPoint.position);
+        }
+        if (holdingHandle && GUIUtility.hotControl == 0)
+        {
+            holdingHandle = false;
+            registeredUndo = false;
+
+            UnityEditor.EditorUtility.SetDirty(outletStrip.meshToModify);
+            UnityEditor.EditorUtility.SetDirty(outletStrip.meshToModify.gameObject);
+            UnityEditor.EditorUtility.SetDirty(outletStrip.startPoint.transform);
+            UnityEditor.EditorUtility.SetDirty(outletStrip.endPoint.transform);
+
+            //Undo.CollapseUndoOperations(undoGroup);
+            Undo.IncrementCurrentGroup();
         }
     }
 }
