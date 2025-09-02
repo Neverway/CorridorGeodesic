@@ -1048,6 +1048,10 @@
       <Project>{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}</Project>
       <Name>BzKovSoft.ObjectSlicer.Samples</Name>
     </ProjectReference>
+    <ProjectReference Include="SimpleFieldsEditor.csproj">
+      <Project>{0f036705-ccf9-06a1-b516-b17dcd859022}</Project>
+      <Name>SimpleFieldsEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="EasyEditorGUI.csproj">
       <Project>{7c0ffd90-ff97-8dee-f013-81d64e206f99}</Project>
       <Name>EasyEditorGUI</Name>

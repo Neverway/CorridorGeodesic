@@ -2,7 +2,6 @@ fileFormatVersion: 2
 guid: cb10602fb098a274dbaa00a2af619417
 labels:
 - Actor3D
-- Broken
 - Prop
 PrefabImporter:
   externalObjects: {}

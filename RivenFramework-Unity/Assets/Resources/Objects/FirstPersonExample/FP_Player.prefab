@@ -70,16 +70,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1704693168116563821, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: m_Name
       value: FP_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2964009909479727681, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109591734563405310, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3171295537266024931, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: targetPawn
       value: 
       objectReference: {fileID: 7360750914834237688}
+    - target: {fileID: 3736427035276936517, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964129887753519482, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4998263260262590189, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -144,6 +169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 9142363168371126924, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6118868544368584257, guid: 9ed3a4da35b3ca57e9b7424f51915e87, type: 3}
@@ -222,10 +252,10 @@ MonoBehaviour:
     lookRange: 20
     listenRange: 30
     comfortableAllyDistance: 5
-    movementSpeed: 10
+    movementSpeed: 7
     airMovementMultiplier: 0.25
     crouchMovementMultiplier: 0.25
-    groundAccelerationRate: 0.1
+    groundAccelerationRate: 0.15
     airAccelerationRate: 0.2
     slopeAccelerationRate: 0.25
     groundDrag: 8
