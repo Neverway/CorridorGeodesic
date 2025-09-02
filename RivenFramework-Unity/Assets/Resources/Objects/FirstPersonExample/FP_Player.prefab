@@ -255,7 +255,7 @@ MonoBehaviour:
     movementSpeed: 7
     airMovementMultiplier: 0.25
     crouchMovementMultiplier: 0.25
-    groundAccelerationRate: 0.15
+    groundAccelerationRate: 0.1
     airAccelerationRate: 0.2
     slopeAccelerationRate: 0.25
     groundDrag: 8
