@@ -178,6 +178,7 @@
      <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/Light_DistanceCulling.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BrushBase.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TestProj.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ComicFilter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/ExpandPropertiesAttribute.cs.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/AudioVolume/VolumetricAudioVolumeComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreCSGPreferences.cs" />
@@ -208,6 +209,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSGTool_MaterialPaint.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/FetchComponentAttribute.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Volume2D_Force.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ColorQuantizationFilter.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_Actor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Graphics_NixieBulbEffects.cs" />
@@ -253,6 +255,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/LightningLine.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CSGModel.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/BrushBuilder.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_DitheringFilter.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleAudio.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/Toolbar.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/MaterialSearcher.cs" />
