@@ -88,7 +88,7 @@ public class Mesh_Sliceable : MonoBehaviour
 
         // --- PART ONE ---
         // Attempt to slice across the rift's 'A Plane'
-        var resultOfPlaneASlice = await slicer.SliceAsync(riftManager.planeA, sliceData);
+        var resultOfPlaneASlice = await slicer.SliceAsync(GI_RiftManager.planeA, sliceData);
         if (resultOfPlaneASlice.sliced)
         {
             // Hide the original and set the isSlicedByPlane to true, so we can skip Part Three
@@ -108,7 +108,7 @@ public class Mesh_Sliceable : MonoBehaviour
                 {
                     // Slice the new objects on the positive side of the cut, this time with the B plane
                     IBzMeshSlicer subSliceData = newACutMesh.gameObject.GetComponent<IBzMeshSlicer>();
-                    var resultOfSecondPlaneSlice = await subSliceData.SliceAsync(riftManager.planeB);
+                    var resultOfSecondPlaneSlice = await subSliceData.SliceAsync(GI_RiftManager.planeB);
                     if (resultOfSecondPlaneSlice.sliced)
                     {
                         foreach (var newBCutMesh in resultOfSecondPlaneSlice.resultObjects)
@@ -169,7 +169,7 @@ public class Mesh_Sliceable : MonoBehaviour
         // Even if A plane fails, still attempt to slice across the rift's 'B Plane'
         else
         {
-            var resultOfPlaneBSlice = await slicer.SliceAsync(riftManager.planeB, sliceData);
+            var resultOfPlaneBSlice = await slicer.SliceAsync(GI_RiftManager.planeB, sliceData);
             if (resultOfPlaneBSlice.sliced)
             {
                 // Hide the original and set the isSlicedByPlane to true, so we can skip Part Three
@@ -229,7 +229,7 @@ public class Mesh_Sliceable : MonoBehaviour
                 Vector3 testPoint = new Vector3 (vert.x, vert.y, vert.z);
                 Vector3 worldPoint = transform.TransformPoint (testPoint);
                 // Object is in A Space
-                if (riftManager.planeA.GetDistanceToPoint (worldPoint) < 0)
+                if (GI_RiftManager.planeA.GetDistanceToPoint (worldPoint) < 0)
                 {
                     // Set the original to correct space
                     riftManager.spaceAMeshes.Add(_originalMesh);
@@ -237,7 +237,7 @@ public class Mesh_Sliceable : MonoBehaviour
                     Destroy (gameObject);
                 }
                 // Object is in B Space
-                else if (riftManager.planeB.GetDistanceToPoint (worldPoint) < 0)
+                else if (GI_RiftManager.planeB.GetDistanceToPoint (worldPoint) < 0)
                 {
                     // Set the original to correct space
                     riftManager.spaceBMeshes.Add(_originalMesh);

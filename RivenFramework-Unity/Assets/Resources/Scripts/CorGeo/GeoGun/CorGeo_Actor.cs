@@ -13,37 +13,6 @@ using UnityEngine;
 
 public class CorGeo_Actor : MonoBehaviour
 {
-    #region========================================( Variables )======================================================//
-    /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
-
-
-    /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
-
-
-    /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-
-
-    /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-
-
-    #endregion
-
-
-    #region=======================================( Functions )=======================================================//
-    /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-
-
-    /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
-
-
-    /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
-
-
-    #endregion
-}
-
-public class CorGeo_ActorData : MonoBehaviour
-{
     //=-----------------=
     // Public Variables
     //=-----------------=
@@ -138,13 +107,43 @@ public class CorGeo_ActorData : MonoBehaviour
         {
             transform.position = homePosition;
             return;
-        }//todo: move this, or make the planes statics like they were previously
+        }
         if (space != Space.Null && GI_RiftManager.planeA.GetDistanceToPoint (transform.position) > 0)
         {
             if (!GI_RiftManager.riftActive) return;
             // Move actor away from collapse direction scaled by the rift timer's progress
             transform.position -= GI_RiftManager.currentRiftOffset;
         }
+    }
+
+    /// <summary>
+    /// Finds which space (A/B/Null) the actor is in and sets the actor's space variable accordingly.
+    /// </summary>
+    public void DetermineRiftSpace ()
+    {
+        if (GI_RiftManager.planeB.GetDistanceToPoint (transform.position) < 0)
+        {
+            space = Space.B;
+            if (debugLogData)
+            {
+                Debug.Log ("B Space");
+            }
+            return;
+        }
+        if (GI_RiftManager.planeA.GetDistanceToPoint (transform.position) < 0)
+        {
+            space = Space.A;
+            if (debugLogData)
+            {
+                Debug.Log ("A Space");
+            }
+            return;
+        }
+        if (debugLogData)
+        {
+            Debug.Log ("Null Space");
+        }
+        space = Space.Null;
     }
 
     /// <summary>

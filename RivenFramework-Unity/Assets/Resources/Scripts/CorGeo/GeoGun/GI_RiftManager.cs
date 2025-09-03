@@ -76,7 +76,7 @@ public class GI_RiftManager : MonoBehaviour
     public Graphics_RiftPreviewEffects riftPreviewEffects;
     public Material nullSpaceMaterial;
 
-    public static List<CorGeo_ActorData> CorGeo_Actors = new List<CorGeo_ActorData> { };
+    public static List<CorGeo_Actor> CorGeo_Actors = new List<CorGeo_Actor> { };
 
     #endregion
 
@@ -88,7 +88,7 @@ public class GI_RiftManager : MonoBehaviour
         // Link the manager to a geogun if it's not yet
         if (!linkedGeogun)
         {
-            LinkToGeogun(); //todo: talk to Liz about game loops and initialization lmao
+            LinkToGeogun(); //todo: move this out of update somehow
         }
 
         
@@ -284,6 +284,7 @@ public class GI_RiftManager : MonoBehaviour
 
         // Slice the cut planes (This is for debugging right now)
         SliceCutPlanes ();
+        AssignSpaceForActors ();
     }
 
     /// <summary>
@@ -356,12 +357,25 @@ public class GI_RiftManager : MonoBehaviour
         }
     }
 
+    //todo: call this on rift creation for statics (dynamic actors get checked every frame the rift moves)
     /// <summary>
     /// Sorts all dynamic (moving/movable) actors into 'A', 'B', and 'Null' spaces
     /// </summary>
-    private void UpdateActorSpaces()
+    private void AssignSpaceForActors()
     {
-        
+        foreach (CorGeo_Actor actor in CorGeo_Actors)
+        {
+            actor.DetermineRiftSpace();
+            if (actor.space == CorGeo_Actor.Space.B)
+            {
+                actor.transform.SetParent(spaceContainerB.transform);
+                continue;
+            }
+            if (actor.space == CorGeo_Actor.Space.Null)
+            {
+                actor.transform.SetParent (spaceContainerNull.transform);
+            }
+        }
     }
 
     /// <summary>
@@ -427,6 +441,15 @@ public class GI_RiftManager : MonoBehaviour
         EmptyMatterInSpaceContainers();
         currentRiftMoveSpeed = 0;
         UpdateState (RiftState.None);
+        RestoreActors ();
+    }
+
+    private void RestoreActors ()
+    {
+        foreach (CorGeo_Actor actor in CorGeo_Actors)
+        {
+            actor.GoHome ();
+        }
     }
     
 
@@ -441,6 +464,7 @@ public class GI_RiftManager : MonoBehaviour
         currentRiftPercent = _percent;
         currentRiftWidth = riftStartingWidth * currentRiftPercent;
         MoveGeometryWithRift ();
+        MoveActorsWithRift ();
     }
 
     /// <summary>
@@ -499,6 +523,17 @@ public class GI_RiftManager : MonoBehaviour
             spaceContainerNull.transform.position = riftNullSpacePosition;
         }
         cutPlaneB.transform.position = spaceContainerB.transform.position;
+    }
+
+    private void MoveActorsWithRift ()
+    {
+        foreach (CorGeo_Actor actor in CorGeo_Actors)
+        {
+            if (actor.dynamic && actor.isHeld == false)
+            {
+
+            }
+        }
     }
 
     /// <summary>
