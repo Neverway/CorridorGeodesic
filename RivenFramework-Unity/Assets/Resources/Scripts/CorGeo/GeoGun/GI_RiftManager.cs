@@ -580,7 +580,7 @@ public class GI_RiftManager : MonoBehaviour
         float riftDistance = planeA.GetDistanceToPoint (_position);
         float riftPercent = riftDistance / currentRiftWidth;
         //Calculate where the transform would be if null-space were not scaled.
-        float newDistance = riftPercent * (riftStartingWidth * _newPercent);
+        float newDistance = Mathf.Abs( riftPercent * (riftStartingWidth * _newPercent) );
         Vector3 answer = _position + ( riftNormal * (newDistance - riftDistance) );
         return answer;
     }
