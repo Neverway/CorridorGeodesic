@@ -47,9 +47,9 @@ public class GI_RiftManager : MonoBehaviour
     private float maxRiftWidth = 30;  // Max size a rift can *expand* to in worldspace units.
     private float minRiftWidth = -30; // Max size an *inverted* rift can expand to in the negative direction.
     private float minAbsoluteRiftWidth = 0.15f; // This is to prevent physics bugs if nullspace scales too close to 0 without being 0.
-    private static float currentRiftPercent; //current percent scaling of the rift (the local scale)
-    private static float currentRiftWidth; //current width after applying percent scale
-    private static float riftStartingWidth; //width of the rift when it was first placed
+    [HideInInspector] public static float currentRiftPercent; //current percent scaling of the rift (the local scale)
+    [HideInInspector] public static float currentRiftWidth; //current width after applying percent scale
+    [HideInInspector] public static float riftStartingWidth; //width of the rift when it was first placed
     private bool collapseHeld = false;
     private bool expandHeld = false;
     private bool waitForCollapseReleased = false; //Waits for you to release collapse so that the player has to press it again to collapse rift.
@@ -292,7 +292,7 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void SliceCutPlanes()
     {
-        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable> ();
+        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh> ();
         foreach (var sliceableMesh in sliceableMeshes)
         {
             sliceableMesh.ApplyCuts();
@@ -415,7 +415,7 @@ public class GI_RiftManager : MonoBehaviour
     private void RestoreCutGeometry()
     {
         // Destroy cloned cut geometry
-        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable>();
+        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>();
         foreach (var sliceableMesh in sliceableMeshes)
         {
             if (sliceableMesh.isSlicedByPlane && !hiddenOriginalMeshes.Contains(sliceableMesh.gameObject))
