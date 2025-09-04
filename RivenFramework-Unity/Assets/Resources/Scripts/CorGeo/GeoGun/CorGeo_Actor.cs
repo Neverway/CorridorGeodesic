@@ -30,10 +30,12 @@ public class CorGeo_Actor : MonoBehaviour
     [SerializeField] public Transform homeParent;
     [Tooltip("Check this if the actor can move around")]
     [SerializeField] public bool dynamic = false;
-    // TODO: I don't understand what this is used for, can someone add a tooltip here? ~Liz
-    // Nah. ~Connor
+
+    //todo: Either reimplement crushInNullSpace, or get rid of it. I'm considering replacing it with something like "dynamicCrushable" since it only applies to dynamic actors anyway.
+
+    // If true, this actor gets distorted when inside nullspace, for example a cube that's not held by player.
     [SerializeField] public bool crushInNullSpace = true;
-    // TODO: This one doesn't make sense to me either. When do we not want to restore an actors transforms when undoing rifts? ~Liz
+    // Set this "true" if the actor is a child of something, and shouldn't be moved by the rift.
     [SerializeField] public bool isParentedIgnoreOffsets = false;
 
     [Tooltip("Enabled when an object is picked up by a pawn, this prevents the object from being moved during rift movements, otherwise the object would be pulled out of their hands")]
@@ -92,34 +94,30 @@ public class CorGeo_Actor : MonoBehaviour
     //=-----------------=
     /// <summary>
     /// Called by the GeoGun when a rift is reset
-    /// This resets the actors back to the transform state they were in prior to being affected by a rift
+    /// This resets the actors back to the transform state they were in prior to being affected by a rift.
+    /// It also moved dynamic actors relative to rift-space.
     /// </summary>
-    /// 
-    //todo: actually trigger GoHome and move the actor
+    ///
     public void GoHome ()
     {
         OnRiftRestore?.Invoke();
-        gameObject.SetActive(true); 
         if (isParentedIgnoreOffsets) return;
-        transform.SetParent(homeParent);
+        transform.SetParent (homeParent);
         transform.localScale = homeScale;
-        if (space == Space.Null && !dynamic)
+        if (dynamic)
         {
-            transform.position = homePosition;
+            space = Space.None;
             return;
         }
-        if (space != Space.Null && GI_RiftManager.planeA.GetDistanceToPoint (transform.position) > 0)
-        {
-            if (!GI_RiftManager.riftActive) return;
-            // Move actor away from collapse direction scaled by the rift timer's progress
-            transform.position -= GI_RiftManager.currentRiftOffset;
-        }
+        gameObject.SetActive(true); //todo: make the special cases where this SetActive doesn't apply
+        transform.position = homePosition;
+        space = Space.None;
     }
 
-    /// <summary>
-    /// Finds which space (A/B/Null) the actor is in and sets the actor's space variable accordingly.
-    /// </summary>
-    public void DetermineRiftSpace ()
+/// <summary>
+/// Finds which space (A/B/Null) the actor is in and sets the actor's space variable accordingly.
+/// </summary>
+public void DetermineRiftSpace ()
     {
         if (GI_RiftManager.planeB.GetDistanceToPoint (transform.position) < 0)
         {
