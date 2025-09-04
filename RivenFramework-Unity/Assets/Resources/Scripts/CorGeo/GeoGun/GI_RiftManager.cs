@@ -11,7 +11,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using RivenFramework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -26,18 +25,33 @@ public class GI_RiftManager : MonoBehaviour
     
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
-    public bool riftActive;
+    public static bool riftActive;
+    //Amount the B-Space is currently offset from it's starting position.
+    public static Vector3 currentRiftOffset;
+    //Direction the rift space is facing (this is the line the rift moves along when expanding and contracting).
+    public static Vector3 riftNormal;
+
+    // Alright jeez here's your comments, are these descriptive enough? - Connorses
+
+    //Tells things what state the rift is changing from.
+    public static RiftState previousState = RiftState.None;
+    //The current rift state  :O
+    public static RiftState currentState = RiftState.None;
+
+    // This event allows things to respond to any changes in the the RiftState, such as the animated plane visuals or the rift audio effects.
+    public delegate void StateChanged ();
+    public static event StateChanged OnStateChanged;
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-    private float maxRiftWidth = 30;
-    private float minRiftWidth = -30;
+    private float maxRiftWidth = 30;  // Max size a rift can *expand* to in worldspace units.
+    private float minRiftWidth = -30; // Max size an *inverted* rift can expand to in the negative direction.
     private float minAbsoluteRiftWidth = 0.15f; // This is to prevent physics bugs if nullspace scales too close to 0 without being 0.
-    [HideInInspector] public float currentRiftPercent; //current percent scaling of the rift
-    private float currentRiftWidth; //current width after applying percent scale
-    private float riftStartingWidth; //width of the rift when it was first placed
-    [SerializeField] private bool collapseHeld = false;
-    [SerializeField] private bool expandHeld = false;
+    private static float currentRiftPercent; //current percent scaling of the rift (the local scale)
+    private static float currentRiftWidth; //current width after applying percent scale
+    private static float riftStartingWidth; //width of the rift when it was first placed
+    private bool collapseHeld = false;
+    private bool expandHeld = false;
     private bool waitForCollapseReleased = false; //Waits for you to release collapse so that the player has to press it again to collapse rift.
     private Vector3 riftNullSpacePosition; //The starting position of the null space container.
 
@@ -56,12 +70,13 @@ public class GI_RiftManager : MonoBehaviour
     private Item_Utility_Geogun linkedGeogun;
     [SerializeField] private GameObject cutPlanePrefab, spaceContainerA, spaceContainerB, spaceContainerNull;
     [HideInInspector] public GameObject cutPlaneA, cutPlaneB;
-    [HideInInspector] public Plane planeA, planeB;
+    [HideInInspector] public static Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
     [HideInInspector] public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes;
     public Graphics_RiftPreviewEffects riftPreviewEffects;
     public Material nullSpaceMaterial;
-    
+
+    public static List<CorGeo_Actor> CorGeo_Actors = new List<CorGeo_Actor> { };
 
     #endregion
 
@@ -73,8 +88,9 @@ public class GI_RiftManager : MonoBehaviour
         // Link the manager to a geogun if it's not yet
         if (!linkedGeogun)
         {
-            LinkToGeogun();
+            LinkToGeogun(); //todo: move this out of update somehow
         }
+
         
         // Initialize rift objects if they are missing
         if (IsRiftInitialized() is false) InitializeRiftObjects();
@@ -85,12 +101,14 @@ public class GI_RiftManager : MonoBehaviour
             SetRiftHidden(false);
             StartCoroutine(riftPreviewEffects.OnRiftCreated(this));
             PositionCutPlanes();
+            UpdateState (RiftState.Preview);
         }
         // Markers lost, disable rift
         else if (GetPinnedMarkers() is false && riftActive)
         {
             SetRiftHidden(true);
             RestoreRift();
+            UpdateState (RiftState.None);
         }
 
         if (waitForCollapseReleased && collapseHeld == false)
@@ -105,16 +123,22 @@ public class GI_RiftManager : MonoBehaviour
             {
                 MoveRiftByDistance (-currentRiftMoveSpeed * Time.deltaTime);
                 AccelerateRift ();
+                UpdateState (RiftState.Collapsing);
             }
             else if (expandHeld)
             {
                 MoveRiftByDistance (currentRiftMoveSpeed * Time.deltaTime);
                 AccelerateRift ();
+                UpdateState (RiftState.Expanding);
             }
             else
             {
                 currentRiftMoveSpeed = 0;
                 riftIsMoving = false;
+                if (currentState != RiftState.Preview)
+                {
+                    UpdateState (RiftState.Idle);
+                }
             }
         }
     }
@@ -254,9 +278,13 @@ public class GI_RiftManager : MonoBehaviour
         currentRiftWidth = riftStartingWidth;
 
         riftNullSpacePosition = spaceContainerNull.transform.position; //I'm preserving this position because negative scaling moves the object.
-        
+
+        //Saves the direction the rift is facing so we can easily reference it.
+        riftNormal = spaceContainerNull.transform.forward;
+
         // Slice the cut planes (This is for debugging right now)
-        SliceCutPlanes();
+        SliceCutPlanes ();
+        AssignSpaceForActors ();
     }
 
     /// <summary>
@@ -264,8 +292,7 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void SliceCutPlanes()
     {
-        Benchmark.StartTiming();
-        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh> ();
+        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable> ();
         foreach (var sliceableMesh in sliceableMeshes)
         {
             sliceableMesh.ApplyCuts();
@@ -277,11 +304,11 @@ public class GI_RiftManager : MonoBehaviour
         StartCoroutine(AssignSpaceContainerForMeshes());
 
         waitForCollapseReleased = true;
-        Benchmark.StopTiming("SliceCutPlanes");
     }
     
     /// <summary>
     /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixes those
+    /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixeus those
     /// </summary>
     private IEnumerator CleanupExtraMeshColliders()
     {
@@ -329,13 +356,28 @@ public class GI_RiftManager : MonoBehaviour
             mesh.transform.parent = spaceContainerNull.transform;
         }
     }
-
     /// <summary>
     /// Sorts all dynamic (moving/movable) actors into 'A', 'B', and 'Null' spaces
     /// </summary>
-    private void UpdateActorSpaces()
+    private void AssignSpaceForActors()
     {
-        
+        foreach (CorGeo_Actor actor in CorGeo_Actors)
+        {
+            actor.DetermineRiftSpace();
+            if (actor.dynamic)
+            {
+                continue; //don't parent dynamic actors to the space-containers
+            }
+            if (actor.space == CorGeo_Actor.Space.B)
+            {
+                actor.transform.SetParent(spaceContainerB.transform);
+                continue;
+            }
+            if (actor.space == CorGeo_Actor.Space.Null)
+            {
+                actor.transform.SetParent (spaceContainerNull.transform);
+            }
+        }
     }
 
     /// <summary>
@@ -373,7 +415,7 @@ public class GI_RiftManager : MonoBehaviour
     private void RestoreCutGeometry()
     {
         // Destroy cloned cut geometry
-        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>();
+        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable>();
         foreach (var sliceableMesh in sliceableMeshes)
         {
             if (sliceableMesh.isSlicedByPlane && !hiddenOriginalMeshes.Contains(sliceableMesh.gameObject))
@@ -400,6 +442,16 @@ public class GI_RiftManager : MonoBehaviour
         RestoreCutGeometry();
         EmptyMatterInSpaceContainers();
         currentRiftMoveSpeed = 0;
+        UpdateState (RiftState.None);
+        RestoreActors ();
+    }
+
+    private void RestoreActors ()
+    {
+        foreach (CorGeo_Actor actor in CorGeo_Actors)
+        {
+            actor.GoHome ();
+        }
     }
     
 
@@ -411,8 +463,11 @@ public class GI_RiftManager : MonoBehaviour
     /// <param name="_percent">The size of the rift relative to it's starting size.</param>
     public void SetRiftPosition(float _percent)
     {
+        planeB = new Plane (cutPlaneB.transform.forward, cutPlaneB.transform.position);
+        MoveActorsWithRift (_percent);
         currentRiftPercent = _percent;
         currentRiftWidth = riftStartingWidth * currentRiftPercent;
+        Debug.Log (currentRiftWidth);
         MoveGeometryWithRift ();
     }
 
@@ -431,6 +486,8 @@ public class GI_RiftManager : MonoBehaviour
             currentRiftWidth = minRiftWidth;
         }
         float percentChange = 1 / riftStartingWidth * distance;
+
+        currentRiftOffset = (currentRiftWidth - riftStartingWidth) * riftNormal;
 
         SetRiftPosition (currentRiftPercent + percentChange);
         riftIsMoving = true;
@@ -472,6 +529,74 @@ public class GI_RiftManager : MonoBehaviour
         cutPlaneB.transform.position = spaceContainerB.transform.position;
     }
 
+    private void MoveActorsWithRift (float _newPercent)
+    {
+        foreach (CorGeo_Actor actor in CorGeo_Actors)
+        {
+            if (actor.dynamic && actor.isHeld == false)
+            {
+                actor.DetermineRiftSpace ();
+                if (actor.space == CorGeo_Actor.Space.Null)
+                {
+                    actor.transform.position = MovePositionWithNullSpace (actor.transform.position, _newPercent);
+                }
+                if (actor.space == CorGeo_Actor.Space.B)
+                {
+                    actor.transform.position = MovePositionWithBSpace (actor.transform.position, _newPercent);
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Update the state of the Rift and, if the new state is different, trigger OnStateChanged so things can respond to what he Rift is doing.
+    /// </summary>
+    /// <param name="_newState"></param>
+    private void UpdateState (RiftState _newState)
+    {
+        if (currentState == _newState)
+        {
+            return;
+        }
+        previousState = currentState;
+
+        currentState = _newState;
+
+        OnStateChanged?.Invoke ();
+        Debug.Log("RiftState: " + currentState);
+    }
+
+    //todo: rework these a bit to use the rift size WITH the minimum size applied. Actors currently still move when the rift is in that weird min-size state.
+
+    /// <summary>
+    /// Calculate where an object in Null-Space should move to if the rift scales to the given percent.
+    /// </summary>
+    /// <param name="_position"></param>
+    /// <param name="_newPercent"></param>
+    /// <returns></returns>
+    public static Vector3 MovePositionWithNullSpace (Vector3 _position, float _newPercent)
+    {
+        //Calculate how far across null-space the transform is.
+        float riftDistance = planeA.GetDistanceToPoint (_position);
+        float riftPercent = riftDistance / currentRiftWidth;
+        //Calculate where the transform would be if null-space were not scaled.
+        float newDistance = Mathf.Abs( riftPercent * (riftStartingWidth * _newPercent) );
+        Vector3 answer = _position + ( riftNormal * (newDistance - riftDistance) );
+        return answer;
+    }
+
+    /// <summary>
+    /// Calculate where an object in B-Space should move to if the rift scales to the given percent.
+    /// </summary>
+    /// <param name="_position"></param>
+    /// <param name="_newPercent"></param>
+    /// <returns></returns>
+    public static Vector3 MovePositionWithBSpace (Vector3 _position, float _newPercent)
+    {
+        float offset = Mathf.Abs(riftStartingWidth*currentRiftPercent)-Mathf.Abs(riftStartingWidth * _newPercent);
+
+        return _position - (riftNormal * offset);
+    }
 
     #endregion
 }
