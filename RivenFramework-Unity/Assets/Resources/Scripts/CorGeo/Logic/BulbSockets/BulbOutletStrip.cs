@@ -11,7 +11,6 @@ using UnityEngine.ProBuilder;
 using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
-[Todo("Erryneeiiiiiii, the undos for the handles don't workkkkkkkk! ~Liz")]
 public class BulbOutletStrip : MonoBehaviour, BulbCollisionBehaviour
 {
     public Transform startPoint;
@@ -166,6 +165,8 @@ public class BulbOutletStripEditor : Editor
         Vector3 oldEndPos = outletStrip.endPoint.position;
 
         bool changeOccurred = false;
+        bool changeWasStartHandle = false; // Was working on this
+        bool holdingControl = Event.current.control;
 
         // Start Handle
         EditorGUI.BeginChangeCheck();
@@ -217,22 +218,12 @@ public class BulbOutletStripEditor : Editor
             holdingHandle = true;
             if (!registeredUndo)
             {
-                //undoGroup = Undo.GetCurrentGroup();
-                //Object[] objectsToRecord = { 
-                //    outletStrip.meshToModify, outletStrip.meshToModify.gameObject,
-                //    outletStrip.startPoint.transform, outletStrip.startPoint.gameObject,
-                //    outletStrip.endPoint.transform, outletStrip.endPoint.gameObject 
-                //};
-                //Undo.RecordObjects(objectsToRecord, "Modified BulbOutletStrip Mesh");
-                //Undo.RecordObject(outletStrip.meshToModify, "BulbOutlet probuilder mesh");
-                //Undo.RecordObject(outletStrip.meshToModify.gameObject, "BulbOutlet probuilder mesh gameobject");
-                //Undo.RecordObject(outletStrip.startPoint.transform, "BulbOutlet start Handle Transform");
-                //Undo.RecordObject(outletStrip.startPoint.gameObject, "BulbOutlet start Handle");
-                //Undo.RecordObject(outletStrip.endPoint.transform, "BulbOutlet end Handle Transform");
-                //Undo.RecordObject(outletStrip.endPoint.gameObject, "BulbOutlet end Handle");
                 Undo.RegisterCompleteObjectUndo(outletStrip.gameObject, "OutletStrip");
                 registeredUndo = true;
             }
+
+
+
 
             outletStrip.EDITOR_StretchProbuilderMesh(outletStrip.startPoint.position, outletStrip.endPoint.position);
         }
