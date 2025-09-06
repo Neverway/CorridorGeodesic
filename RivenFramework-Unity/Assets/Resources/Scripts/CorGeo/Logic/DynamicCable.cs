@@ -41,7 +41,7 @@ namespace Neverway.Framework.LogicSystem
         private float lastCableDistance;
         private float onRiftClosedTimer;
 
-        private float ActualLerpAmount => (riftManager.riftActive ? riftManager.currentRiftPercent : 0f);
+        //private float ActualLerpAmount => (riftManager.riftActive ? riftManager.currentRiftPercent : 0f);
 
         //=-----------------=
         // Reference Variables
@@ -92,8 +92,8 @@ namespace Neverway.Framework.LogicSystem
             }
 
             bool changeMeshCollider = onRiftClosedTimer > 0f;
-            if (ActualLerpAmount != 0f) onRiftClosedTimer = 0.1f;
-            else onRiftClosedTimer -= Time.deltaTime;
+            //if (ActualLerpAmount != 0f) onRiftClosedTimer = 0.1f;
+            //else onRiftClosedTimer -= Time.deltaTime;
 
 
             for (int i = 0; i < waypoints.Count; i++)

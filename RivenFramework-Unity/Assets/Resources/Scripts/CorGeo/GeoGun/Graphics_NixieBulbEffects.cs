@@ -101,13 +101,13 @@ public class Graphics_NixieBulbEffects : MonoBehaviour
             targetFactor = 0f;
             glowFactor = 0f;
         }
-        else if (riftManager.riftActive is false)
+        else if (GI_RiftManager.riftActive is false)
         {
             hasDonePreviewBurst = false;
             previewBurstTimer = startPreviewTime;
             targetFactor = noRiftFactor;
         }
-        else if (!hasDonePreviewBurst && riftManager.riftActive)
+        else if (!hasDonePreviewBurst &&  GI_RiftManager.riftActive)
         {
             hasDonePreviewBurst = true;
             glowFactor = startPreviewFactor;
