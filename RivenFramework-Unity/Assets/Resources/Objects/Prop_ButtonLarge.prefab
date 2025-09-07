@@ -219,6 +219,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2147754228552126005, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      propertyPath: isParentedIgnoreOffsets
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_Name

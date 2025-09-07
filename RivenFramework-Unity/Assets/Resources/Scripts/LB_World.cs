@@ -8,6 +8,8 @@
 //====================================================================================================================//
 
 using System;
+using System.Collections;
+using RivenFramework;
 using UnityEngine;
 
 /// <summary>
@@ -19,6 +21,19 @@ public class LB_World : MonoBehaviour
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+    [Header("GeoGun Map Overrides")]
+    [Tooltip("If enabled, the player will have the geogun when entering this level")]
+    public bool shouldHaveGeogun;
+    [Tooltip("Allows rifts to be placed on walls")]
+    public bool allowNonLinearSlicing = true;
+    [Tooltip("Allows rifts to expand past the start position")]
+    public bool allowExpandingRift;
+    [Tooltip("Allows rifts collapsing into the negatives, mirroring null space")]
+    public bool allowInvertingRift;
+    [Tooltip("Allows the player to slam rifts closed, creating a vacuum that flings things out of rifts")]
+    public bool allowSlammingRift;
+    [Tooltip("Debug parameter to... well, you get it (Allows markers to be placed on any material)")]
+    public bool allowMarkerPlacementAnywhere;
     
     
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
@@ -32,6 +47,8 @@ public class LB_World : MonoBehaviour
     // TODO: This may be better changed from GameObject to reference a parent WB_HUD class
     [Tooltip("A reference to the HUD widget prefab to draw to the UI")]
     [SerializeField] private GameObject HUDWidgetPrefab;
+
+    [SerializeField] private GameObject geogunPrefab;
     
     #endregion
     
@@ -43,10 +60,34 @@ public class LB_World : MonoBehaviour
     {
         widgetManager = FindObjectOfType<GI_WidgetManager>();
         widgetManager.AddWidget(HUDWidgetPrefab);
+
+        StartCoroutine(InitializeGeogunOverrides());
     }
     
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
-    
+    private IEnumerator InitializeGeogunOverrides()
+    {
+        yield return new WaitForEndOfFrame();
+        // Give the player the geogun if they don't already have it
+        if (shouldHaveGeogun)
+        {
+            var pawnManager = FindObjectOfType<GI_PawnManager>();
+            var playerInventory = pawnManager.localPlayerCharacter.GetComponentInChildren<Pawn_Inventory>();
+            if (!playerInventory.items.Contains(geogunPrefab)) playerInventory.AddItem(geogunPrefab);
+        }
+        
+        var geogun = FindObjectOfType<Item_Utility_Geogun>();
+
+        // Override geogun upgrades
+        if (geogun)
+        {
+            geogun.allowNonLinearSlicing = allowNonLinearSlicing;
+            geogun.allowExpandingRift = allowExpandingRift;
+            geogun.allowInvertingRift = allowInvertingRift;
+            geogun.allowSlammingRift = allowSlammingRift;
+            geogun.allowMarkerPlacementAnywhere = allowMarkerPlacementAnywhere;
+        }
+    }
     
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
     

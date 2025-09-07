@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7539247580775710268}
   - component: {fileID: 7882748266748739057}
   - component: {fileID: 3431064161207583572}
+  - component: {fileID: 3956498540192049275}
   m_Layer: 0
   m_Name: WorldSettings
   m_TagString: Untagged
@@ -126,3 +127,25 @@ MonoBehaviour:
   disableWorldKillHeight: 0
   worldKillVolumeDistance: 32767
   worldKillHeightDistance: -100
+--- !u!114 &3956498540192049275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237528726991617624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d400a19ab2190fe92e4e1757b7fd55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldHaveGeogun: 1
+  allowNonLinearSlicing: 1
+  allowExpandingRift: 0
+  allowInvertingRift: 0
+  allowSlammingRift: 0
+  allowMarkerPlacementAnywhere: 0
+  HUDWidgetPrefab: {fileID: 5675289539813747590, guid: fe684846353bbd2c78d7fd52def9c340,
+    type: 3}
+  geogunPrefab: {fileID: 7684045960469129590, guid: 3f3be9109a4320f3bb0493185ff6c194,
+    type: 3}
