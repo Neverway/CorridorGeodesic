@@ -71,14 +71,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5803325861696136745}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 023e6bbb84fa9c5d0927fce0f28a72ad,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7206622469319243218}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 023e6bbb84fa9c5d0927fce0f28a72ad,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1014223621673607161}
   m_SourcePrefab: {fileID: 100100000, guid: 023e6bbb84fa9c5d0927fce0f28a72ad, type: 3}
 --- !u!4 &121165797749005043 stripped
 Transform:
@@ -114,36 +106,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7774872043845922752, guid: 023e6bbb84fa9c5d0927fce0f28a72ad, type: 3}
---- !u!114 &7206622469319243218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785217372367732809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSliceMaterial: {fileID: 0}
-  asynchronously: 0
-  waitIfBusy: 0
-  objectGrouping: 0
---- !u!114 &1014223621673607161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785217372367732809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSlicedByPlane: 0
-  isReflective: 0
 --- !u!1001 &2613225920185843427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -715,15 +677,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4957853899631979595, guid: dd0be8fd7371ffb40b398dec3580b40f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 120579441259995788}
-    - targetCorrespondingSourceObject: {fileID: 4957853899631979595, guid: dd0be8fd7371ffb40b398dec3580b40f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5437706398568690656}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd0be8fd7371ffb40b398dec3580b40f, type: 3}
 --- !u!4 &1186636571616704802 stripped
 Transform:
@@ -731,42 +685,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2613225920185843427}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6956336271574454952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4957853899631979595, guid: dd0be8fd7371ffb40b398dec3580b40f,
-    type: 3}
-  m_PrefabInstance: {fileID: 2613225920185843427}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &120579441259995788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6956336271574454952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSliceMaterial: {fileID: 0}
-  asynchronously: 0
-  waitIfBusy: 0
-  objectGrouping: 0
---- !u!114 &5437706398568690656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6956336271574454952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSlicedByPlane: 0
-  isReflective: 0
 --- !u!1001 &7989866189478253290
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -100,6 +100,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4524392266858380924}
+    - targetCorrespondingSourceObject: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9144359831165007799}
   m_SourcePrefab: {fileID: 100100000, guid: 9ed3a4da35b3ca57e9b7424f51915e87, type: 3}
 --- !u!1 &7275086507616164517 stripped
 GameObject:
@@ -152,9 +156,9 @@ MonoBehaviour:
     groundAccelerationRate: 0.1
     airAccelerationRate: 0.2
     slopeAccelerationRate: 0.25
-    groundDrag: 8
+    groundDrag: 9
     airDrag: 0.25
-    slopeDrag: 8
+    slopeDrag: 9
     slopeCheckDistance: 0.3
     groundMask:
       serializedVersion: 2
@@ -217,6 +221,24 @@ MonoBehaviour:
   space: 0
   wasActive: 0
   debugLogData: 0
+--- !u!114 &9144359831165007799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275086507616164517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe251027271837b4fbdeb8e12fb0cf98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayDistance: {x: 0.192, y: 1, z: 0.192}
+  downDistanceCurrent: -0.75
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 129
+  crushDamageAmount: 20
 --- !u!114 &7815155221520509747 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3001261832045667083, guid: 9ed3a4da35b3ca57e9b7424f51915e87,

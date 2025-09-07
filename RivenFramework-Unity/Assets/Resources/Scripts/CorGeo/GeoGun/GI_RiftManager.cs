@@ -1,9 +1,9 @@
 //==========================================( Neverway 2025 )=========================================================//
 // Author
-//  Liz M.
+//  Liz M., Connorses
 //
 // Contributors
-//  Connorses, Errynei, Soulex
+//  Errynei, Soulex
 //
 //====================================================================================================================//
 
@@ -26,7 +26,7 @@ public class GI_RiftManager : MonoBehaviour
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
     public static bool riftActive;
-    //Amount the B-Space is currently offset from it's starting position.
+    //Amount the B-Space is currently offset from its starting position.
     public static Vector3 currentRiftOffset;
     //Direction the rift space is facing (this is the line the rift moves along when expanding and contracting).
     public static Vector3 riftNormal;
@@ -38,7 +38,7 @@ public class GI_RiftManager : MonoBehaviour
     //The current rift state  :O
     public static RiftState currentState = RiftState.None;
 
-    // This event allows things to respond to any changes in the the RiftState, such as the animated plane visuals or the rift audio effects.
+    // This event allows things to respond to any changes in the RiftState, such as the animated plane visuals or the rift audio effects.
     public delegate void StateChanged ();
     public static event StateChanged OnStateChanged;
 
@@ -57,9 +57,9 @@ public class GI_RiftManager : MonoBehaviour
 
 
     //  rift movement speed stuff:  //
-    private float minRiftSpeed = 0.5f;
-    private float maxRiftSpeed = 6f;
-    private float riftAcceleration = 2f;
+    [SerializeField] private float minRiftSpeed = 0.5f;
+    [SerializeField] private float maxRiftSpeed = 6f;
+    [SerializeField] private float riftAcceleration = 2f;
     private float currentRiftMoveSpeed;
 
     // state stuff //
@@ -463,6 +463,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <param name="_percent">The size of the rift relative to it's starting size.</param>
     public void SetRiftPosition(float _percent)
     {
+        if (!cutPlaneB) return;
         planeB = new Plane (cutPlaneB.transform.forward, cutPlaneB.transform.position);
         MoveActorsWithRift (_percent);
         currentRiftPercent = _percent;
