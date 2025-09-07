@@ -10,6 +10,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 
 /// <summary>
 /// Used to convert CSG level meshes into one object, so it's compatible with CorGeo's mesh slicing
@@ -226,5 +227,7 @@ public static class CSGMeshCombinerTool
         
         // 5. Disable all the old level mesh data
         HideCSGLevelMeshes();
+        
+        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
     }
 }
