@@ -155,10 +155,10 @@ MonoBehaviour:
     crouchMovementMultiplier: 0.25
     groundAccelerationRate: 0.1
     airAccelerationRate: 0.2
-    slopeAccelerationRate: 0.25
+    slopeAccelerationRate: 0.1
     groundDrag: 9
     airDrag: 0.25
-    slopeDrag: 9
+    slopeDrag: 10
     slopeCheckDistance: 0.3
     groundMask:
       serializedVersion: 2

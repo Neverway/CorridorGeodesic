@@ -436,7 +436,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <summary>
     /// Sets the rift back to it's zero point and restores cut geometry
     /// </summary>
-    private void RestoreRift()
+    public void RestoreRift()
     {
         SetRiftPosition(1);
         RestoreCutGeometry();

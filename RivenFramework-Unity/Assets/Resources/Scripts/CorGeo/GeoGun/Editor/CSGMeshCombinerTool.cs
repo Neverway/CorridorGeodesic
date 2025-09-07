@@ -199,7 +199,6 @@ public static class CSGMeshCombinerTool
     #endregion
     
     [MenuItem("Neverway/CorGeo/Combine and bake level mesh")]
-    [RuntimeInitializeOnLoadMethod]
     public static void CombineLevelMeshes()
     {
         // Find the CSG MeshGroup
