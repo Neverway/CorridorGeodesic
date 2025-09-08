@@ -9,6 +9,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -18,11 +19,16 @@ public class Prop_Respawner : MonoBehaviour
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+    [Header("Parameters")]
+    [Tooltip("How long to wait before spawning the prop when activated")]
     [SerializeField] protected float spawnDelay;
-    [Tooltip("Wait for a DestroySpawnedObject call before spawning the first object.")]
+    [Tooltip("Wait for a DestroySpawnedObject call before spawning the first object")]
     [SerializeField] protected bool waitForRespawn = false;
-    [Tooltip("If false, the spawner will always set waitForRespawn when the spawned object is destroyed.")]
+    [Tooltip("If false, the spawner will always set waitForRespawn when the spawned object is destroyed")]
     [SerializeField] protected bool autoRespawn = true;
+    [Tooltip("If false, the spawner will not spawn the prop if one with the same unique ID already exists")]
+    [SerializeField] protected bool allowDuplicates;
+    [Tooltip("When powered, the spawned prop will be destroyed and a new one will be created")]
     public LogicInput<bool> respawnProp = new(false);
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
@@ -33,7 +39,11 @@ public class Prop_Respawner : MonoBehaviour
     protected GameObject spawnedObject { get; set; }
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+    [Header("References")]
+    [Tooltip("This is the actor that will be created by the spawner")]
     [SerializeField] public GameObject propPrefab;
+    [Tooltip("This is the unique identifier that will be assigned to the actor when spawned")]
+    [SerializeField] public string propUniqueID;
     
     #endregion
 
@@ -48,13 +58,13 @@ public class Prop_Respawner : MonoBehaviour
         respawnProp.CallOnSourceChanged(RespawnProp);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (waitForRespawn) return;
         
-        if (spawnedObject == null && spawnWorker == null)
+        if (spawnedObject == null)
         {
-            spawnWorker = StartCoroutine(SpawnWorker());
+            RespawnProp();
         }
     }
 
@@ -72,6 +82,8 @@ public class Prop_Respawner : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnDelay);
         spawnedObject = Instantiate(propPrefab, transform.position, transform.rotation);
+        var actor = spawnedObject.GetComponent<Actor>();
+        if (actor) actor.uniqueId = propUniqueID;
         spawnWorker = null;
         if (autoRespawn == false)
         {
@@ -110,10 +122,39 @@ public class Prop_Respawner : MonoBehaviour
     
     private void RespawnProp()
     {
-        if (!respawnProp.Get()) return;
+        if (!allowDuplicates)
+        {
+            if (DoesActorExist(propUniqueID))
+            {
+                return ;
+            }
+        }
+
+        /*if (!respawnProp.Get())
+        {
+            return;
+        }*/
         
         DestroySpawnedObject();
         if (spawnWorker is null) spawnWorker = StartCoroutine(SpawnWorker());
+    }
+    
+    
+
+    // Used to see if we have any duplicate actors
+    private bool DoesActorExist(string _uuid)
+    {
+        var allActors = FindObjectsOfType<Actor>();
+        
+        foreach (Actor actor in allActors)
+        {
+            if (actor.uniqueId == "") continue;
+            
+            print($"Found matching object {actor.name} with {actor.uniqueId} to {_uuid}");
+            if (actor.uniqueId == _uuid) return true;
+        }
+
+        return false;
     }
 
     #endregion

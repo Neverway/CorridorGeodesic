@@ -16,6 +16,10 @@ public class Logic_DeploymentVent : Prop_Respawner
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+    [Header("Vent Parameters")]
+    [SerializeField] private float animDuration;
+    [SerializeField] private Ease animEaseCurve = Ease.InQuad;
+    [SerializeField] private float spawnVelocity;
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
@@ -25,16 +29,12 @@ public class Logic_DeploymentVent : Prop_Respawner
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+    [Header("Vent References")]
+    [SerializeField] private Animator anim;
     [SerializeField] private Transform animStartPos;
     [SerializeField] private Transform animEndPos;
-    [SerializeField] private float animDuration;
-    [SerializeField] private Ease animEaseCurve = Ease.InQuad;
-    [SerializeField] private float spawnVelocity;
-
     [Tooltip("This is the object that will be used for the tween animation, before the real object is spawned in.")]
     [SerializeField] private GameObject animatedObject;
-
-    [SerializeField] Animator anim;
 
 
     #endregion
@@ -56,6 +56,8 @@ public class Logic_DeploymentVent : Prop_Respawner
             .OnComplete (() => {
                 Destroy (animObject);
                 spawnedObject = Instantiate (propPrefab, animEndPos.position, animEndPos.rotation);
+                var actor = spawnedObject.GetComponent<Actor>();
+                if (actor) actor.uniqueId = propUniqueID;
                 if (spawnedObject.TryGetComponent<Rigidbody> (out var rigidbody))
                 {
                     rigidbody.velocity = animEndPos.forward * spawnVelocity;
