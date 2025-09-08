@@ -15,7 +15,7 @@ public class Logic_Door : MonoBehaviour
     //=-----------------=
     // Public Variables
     //=-----------------=
-    public LogicInput<bool> input = new(false);
+    public LogicInput<bool> powerDoor = new(false);
     public UnityEvent onPowered;
     public UnityEvent onUnpowered;
 
@@ -38,8 +38,8 @@ public class Logic_Door : MonoBehaviour
     {
         // TODO: CallOnSourceChange needs HasLogicOutputSource to fix possible null refs for unlinked logic I/Os
         // Using this 'if' statement as a quick fix for now ~Liz
-        if (input.HasLogicOutputSource is false) return;
-        input.CallOnSourceChanged(Toggle);
+        if (powerDoor.HasLogicOutputSource is false) return;
+        powerDoor.CallOnSourceChanged(Toggle);
     }
 
     //=-----------------=
@@ -47,7 +47,7 @@ public class Logic_Door : MonoBehaviour
     //=-----------------=
     private void Toggle()
     {
-        if (input.Get()) onPowered.Invoke();
+        if (powerDoor.Get()) onPowered.Invoke();
         else onUnpowered.Invoke();
     }
 

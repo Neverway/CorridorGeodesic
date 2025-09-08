@@ -161,13 +161,13 @@ public class Item_Utility_Geogun : Item
                 FireMarker();
                 if (spawnedProjectiles.Count >= maxProjectiles)
                 {
-                    OnCollapseHeld?.Invoke();
+                    OnExpandHeld?.Invoke();
                 }
                 break;
             case "release":
                 if (spawnedProjectiles.Count >= maxProjectiles)
                 {
-                    OnCollapseReleased?.Invoke();
+                    OnExpandReleased?.Invoke();
                 }
                 break;
         }
@@ -180,13 +180,13 @@ public class Item_Utility_Geogun : Item
             case "press":
                 if (spawnedProjectiles.Count >= maxProjectiles)
                 {
-                    OnExpandHeld?.Invoke();
+                    OnCollapseHeld?.Invoke();
                 }
                 break;
             case "release":
                 if (spawnedProjectiles.Count >= maxProjectiles)
                 {
-                    OnExpandReleased?.Invoke();
+                    OnCollapseReleased?.Invoke();
                 }
                 break;
         }

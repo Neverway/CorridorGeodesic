@@ -121,6 +121,11 @@ PrefabInstance:
       propertyPath: actorForceIntensity
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 6855705969444924336, guid: 11c300d1e356964dbb7fe0ab14bee5df,
+        type: 3}
+      propertyPath: isParentedIgnoreOffsets
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

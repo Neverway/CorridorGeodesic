@@ -228,6 +228,16 @@ PrefabInstance:
       propertyPath: onTriggered.OnOutputChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7182997076929438704, guid: 39ec366ae89954235a6797e938cc7463,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182997076929438704, guid: 39ec366ae89954235a6797e938cc7463,
+        type: 3}
+      propertyPath: isParentedIgnoreOffsets
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8624061467694190082, guid: 39ec366ae89954235a6797e938cc7463,
         type: 3}
       propertyPath: m_LocalPosition.y

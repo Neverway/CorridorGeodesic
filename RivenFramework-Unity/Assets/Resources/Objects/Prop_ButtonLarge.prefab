@@ -219,6 +219,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2147754228552126005, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      propertyPath: isParentedIgnoreOffsets
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_Name
@@ -505,6 +510,11 @@ PrefabInstance:
     - target: {fileID: 3904586432997251805, guid: 2d6907669d0b79a0eaf01ee19e420d54,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4794381455922978986, guid: 2d6907669d0b79a0eaf01ee19e420d54,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5784322812030093192, guid: 2d6907669d0b79a0eaf01ee19e420d54,

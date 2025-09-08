@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8250020033609799064}
-  - component: {fileID: -6711313317282578331}
   - component: {fileID: 1828522638123269138}
   - component: {fileID: 2186262665364879735}
   - component: {fileID: 1509201448382192203}
@@ -48,38 +47,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6711313317282578331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4298151654670827244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387309e836e9cd94085c6924bfd13338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fc:
-    categories:
-    - categoryName: Music
-      fields:
-      - targetGameObject: {fileID: 4298151654670827244}
-        targetComponent: {fileID: 7341293665338298491}
-        fieldName: currentTrack
-    - categoryName: Application Settings
-      fields:
-      - targetGameObject: {fileID: 4298151654670827244}
-        targetComponent: {fileID: 3560332898772487648}
-        fieldName: dynamicallyFilteredTexturePaths
-      - targetGameObject: {fileID: 4298151654670827244}
-        targetComponent: {fileID: 3560332898772487648}
-        fieldName: currentSettingsData
-    - categoryName: Font
-      fields:
-      - targetGameObject: {fileID: 4298151654670827244}
-        targetComponent: {fileID: 6747932280233385115}
-        fieldName: defaultFont
 --- !u!114 &1828522638123269138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,10 +817,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facf400e3d7f1f80e8e82c0c38257613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  riftActive: 0
-  currentRiftPercent: 0
-  collapseHeld: 0
-  expandHeld: 0
+  minRiftSpeed: 8
+  maxRiftSpeed: 8
+  riftAcceleration: 8
   cutPlanePrefab: {fileID: 3569801623043244855, guid: 83ab4b7787c4221b2b87b065899cbea3,
     type: 3}
   spaceContainerA: {fileID: 0}
