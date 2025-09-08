@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1732258174659962418}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.037, z: 0.623}
+  m_LocalPosition: {x: 0, y: 0, z: 0.623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -265,15 +265,21 @@ MonoBehaviour:
   uniqueId: 
   allowNonLinearSlicing: 1
   allowExpandingRift: 0
+  allowInvertingRift: 0
   allowSlammingRift: 0
   allowMarkerPlacementAnywhere: 0
+  validPlacementMaterials:
+  - {fileID: 2100000, guid: 11a948daddd4e2f48aa2c67a57b71772, type: 2}
+  - {fileID: 2100000, guid: 98548d90f81df01dbae4c203ffb8f8a1, type: 2}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 129
+  projectileMarkerSpeed: 50
   isLinkedToManager: 0
+  spawnedProjectiles: []
   projectilePrefab: {fileID: 3665781277444283579, guid: e7bea5ed6ed8a80d29df50dbb1fbefc3,
     type: 3}
   gunBarrel: {fileID: 8912260600610800372}
-  projectileLayerMask:
-    serializedVersion: 2
-    m_Bits: 10113
   animator1: {fileID: 5197929100667846040}
   animator2: {fileID: 8646921104399528452}
 --- !u!1001 &7884057557956848956

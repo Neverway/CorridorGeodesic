@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Neverway
-  productName: RVFR
+  productName: Corridor Geodesic
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
@@ -138,7 +138,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: Pre-Alpha [0.0.0] (FruitAnimal)
+  bundleVersion: RAD [1.0.0]
   preloadedAssets:
   - {fileID: 11400000, guid: bdd4e0c3d32828ab28fa2ce99b4b640b, type: 2}
   - {fileID: 474817797591549523, guid: 0c148dc4a1fcb635589ac60991ae1079, type: 2}
@@ -163,7 +163,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.Neverway.RVFR
+    Standalone: com.Neverway.Corridor-Geodesic
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -288,7 +288,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 758bb2fccbfadb7afb81faadaf76b99e, type: 3}
+      m_Icon: {fileID: 2800000, guid: d0584a0ca403e79d896e4e19109ba3fa, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

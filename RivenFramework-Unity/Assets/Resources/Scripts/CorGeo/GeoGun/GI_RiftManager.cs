@@ -1,9 +1,9 @@
 //==========================================( Neverway 2025 )=========================================================//
 // Author
-//  Liz M.
+//  Liz M., Connorses
 //
 // Contributors
-//  Connorses, Errynei, Soulex
+//  Errynei, Soulex
 //
 //====================================================================================================================//
 
@@ -26,7 +26,7 @@ public class GI_RiftManager : MonoBehaviour
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
     public static bool riftActive;
-    //Amount the B-Space is currently offset from it's starting position.
+    //Amount the B-Space is currently offset from its starting position.
     public static Vector3 currentRiftOffset;
     //Direction the rift space is facing (this is the line the rift moves along when expanding and contracting).
     public static Vector3 riftNormal;
@@ -38,7 +38,7 @@ public class GI_RiftManager : MonoBehaviour
     //The current rift state  :O
     public static RiftState currentState = RiftState.None;
 
-    // This event allows things to respond to any changes in the the RiftState, such as the animated plane visuals or the rift audio effects.
+    // This event allows things to respond to any changes in the RiftState, such as the animated plane visuals or the rift audio effects.
     public delegate void StateChanged ();
     public static event StateChanged OnStateChanged;
 
@@ -47,9 +47,9 @@ public class GI_RiftManager : MonoBehaviour
     private float maxRiftWidth = 30;  // Max size a rift can *expand* to in worldspace units.
     private float minRiftWidth = -30; // Max size an *inverted* rift can expand to in the negative direction.
     private float minAbsoluteRiftWidth = 0.15f; // This is to prevent physics bugs if nullspace scales too close to 0 without being 0.
-    private static float currentRiftPercent; //current percent scaling of the rift (the local scale)
-    private static float currentRiftWidth; //current width after applying percent scale
-    private static float riftStartingWidth; //width of the rift when it was first placed
+    [HideInInspector] public static float currentRiftPercent; //current percent scaling of the rift (the local scale)
+    [HideInInspector] public static float currentRiftWidth; //current width after applying percent scale
+    [HideInInspector] public static float riftStartingWidth; //width of the rift when it was first placed
     private bool collapseHeld = false;
     private bool expandHeld = false;
     private bool waitForCollapseReleased = false; //Waits for you to release collapse so that the player has to press it again to collapse rift.
@@ -57,9 +57,9 @@ public class GI_RiftManager : MonoBehaviour
 
 
     //  rift movement speed stuff:  //
-    private float minRiftSpeed = 0.5f;
-    private float maxRiftSpeed = 6f;
-    private float riftAcceleration = 2f;
+    [SerializeField] private float minRiftSpeed = 0.5f;
+    [SerializeField] private float maxRiftSpeed = 6f;
+    [SerializeField] private float riftAcceleration = 2f;
     private float currentRiftMoveSpeed;
 
     // state stuff //
@@ -292,7 +292,7 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void SliceCutPlanes()
     {
-        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable> ();
+        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh> ();
         foreach (var sliceableMesh in sliceableMeshes)
         {
             sliceableMesh.ApplyCuts();
@@ -415,7 +415,7 @@ public class GI_RiftManager : MonoBehaviour
     private void RestoreCutGeometry()
     {
         // Destroy cloned cut geometry
-        var sliceableMeshes = FindObjectsOfType<Mesh_Sliceable>();
+        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>();
         foreach (var sliceableMesh in sliceableMeshes)
         {
             if (sliceableMesh.isSlicedByPlane && !hiddenOriginalMeshes.Contains(sliceableMesh.gameObject))
@@ -436,7 +436,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <summary>
     /// Sets the rift back to it's zero point and restores cut geometry
     /// </summary>
-    private void RestoreRift()
+    public void RestoreRift()
     {
         SetRiftPosition(1);
         RestoreCutGeometry();
@@ -463,6 +463,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <param name="_percent">The size of the rift relative to it's starting size.</param>
     public void SetRiftPosition(float _percent)
     {
+        if (!cutPlaneB) return;
         planeB = new Plane (cutPlaneB.transform.forward, cutPlaneB.transform.position);
         MoveActorsWithRift (_percent);
         currentRiftPercent = _percent;

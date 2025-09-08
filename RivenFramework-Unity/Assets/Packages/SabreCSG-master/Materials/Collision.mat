@@ -25,10 +25,10 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _FaceToggle: 0
+    - _FaceToggle: 1
     - _GridAlpha: 0.3
-    - _GridSize: 1
-    - _GridToggle: 1
+    - _GridSize: 2
+    - _GridToggle: 0
     m_Colors:
     - _Color: {r: 0.39215687, g: 1, b: 0.39215687, a: 0.50980395}
   m_BuildTextureStacks: []

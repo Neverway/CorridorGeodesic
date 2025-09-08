@@ -509,6 +509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5784322812030093192, guid: 2d6907669d0b79a0eaf01ee19e420d54,
         type: 3}
+      propertyPath: ignoreHeldObjects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5784322812030093192, guid: 2d6907669d0b79a0eaf01ee19e420d54,
+        type: 3}
       propertyPath: onFirstOccupied.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}

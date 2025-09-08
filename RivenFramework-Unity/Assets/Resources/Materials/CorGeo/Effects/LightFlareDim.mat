@@ -39,14 +39,14 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Alpha: 13.45
+    - _Alpha: 50
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 5
-    - _FresnelPower: 0.0008
+    - _FresnelPower: 0.0001
     - _MultBackground: 0
     - _Strength: 0.36
     m_Colors:
-    - _Color: {r: 8.4536495, g: 3.264981, b: 0.43863282, a: 1}
+    - _Color: {r: 23.968628, g: 9.196304, b: 1.2549015, a: 1}
     - _DeepColor: {r: 0.8773585, g: 0.72377914, b: 0, a: 1}
     - _ShallowColor: {r: 1, g: 0.8313726, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSlicedByPlane: 0
-  meshColliders: []
+  isReflective: 0
 --- !u!4 &832566292983253819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 312310edb6fa07a07aeb86228601eccf,
@@ -209,6 +209,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916811779814400609, guid: f154503080a4bf8029dfa4b329d5e045,
+        type: 3}
+      propertyPath: id
+      value: FXLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916811779814400609, guid: f154503080a4bf8029dfa4b329d5e045,
+        type: 3}
+      propertyPath: displayName
+      value: FX Light
       objectReference: {fileID: 0}
     - target: {fileID: 4729760362686423890, guid: f154503080a4bf8029dfa4b329d5e045,
         type: 3}
@@ -304,8 +314,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -2147754228552126005, guid: 0691e5206c095094690805245502b274, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5666194294599035471, guid: 0691e5206c095094690805245502b274, type: 3}
     m_AddedGameObjects:
@@ -388,6 +397,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916811779814400609, guid: f154503080a4bf8029dfa4b329d5e045,
+        type: 3}
+      propertyPath: id
+      value: FXLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3916811779814400609, guid: f154503080a4bf8029dfa4b329d5e045,
+        type: 3}
+      propertyPath: displayName
+      value: FX Light
       objectReference: {fileID: 0}
     - target: {fileID: 4729760362686423890, guid: f154503080a4bf8029dfa4b329d5e045,
         type: 3}

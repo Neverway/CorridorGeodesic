@@ -42,7 +42,7 @@ namespace Neverway.Framework
             if (!overrideInitialScale) initialScale = transform.localScale;
         }
 
-        void LateUpdate()
+        void FixedUpdate()
         {
             if (transform.localScale != lastScale)
             {

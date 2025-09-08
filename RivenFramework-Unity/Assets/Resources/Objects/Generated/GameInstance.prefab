@@ -23,6 +23,9 @@ GameObject:
   - component: {fileID: 4662360372656819566}
   - component: {fileID: 1104750855840021355}
   - component: {fileID: 4942970576282025009}
+  - component: {fileID: 6546828152794290419}
+  - component: {fileID: 257830348467857689}
+  - component: {fileID: 5002095358254411103}
   m_Layer: 0
   m_Name: GameInstance
   m_TagString: Untagged
@@ -848,6 +851,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   riftActive: 0
+  currentRiftPercent: 0
+  collapseHeld: 0
+  expandHeld: 0
   cutPlanePrefab: {fileID: 3569801623043244855, guid: 83ab4b7787c4221b2b87b065899cbea3,
     type: 3}
   spaceContainerA: {fileID: 0}
@@ -878,3 +884,46 @@ MonoBehaviour:
   riftMaterial: {fileID: 2100000, guid: d6a1b3cc8fbc4575c828efcce3416ebb, type: 2}
   defaultEmissionStrength: 6
   collapseExpandEmissionStrength: 9
+--- !u!114 &6546828152794290419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d164e0f658b5ae74da2a5b13fe8ad0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearStatsOnAwakeInstead: 0
+  buddies: 0
+  jumps: 0
+  bulbs: 0
+  doTracking: 1
+--- !u!114 &257830348467857689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59720b0a8a920c44abe693082d0f65c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lightningLinePrefab: {fileID: 5917406844916810592, guid: a788d6afe90e88642bab71cba86638ad,
+    type: 3}
+--- !u!114 &5002095358254411103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ec269d0ad479b9fad4f91afd3aae32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

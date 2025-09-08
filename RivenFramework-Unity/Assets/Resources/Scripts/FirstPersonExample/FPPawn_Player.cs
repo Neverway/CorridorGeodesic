@@ -32,6 +32,8 @@ public class FPPawn_Player : FPPawn
     private new FPPawnActions action = new FPPawnActions();
     private InputActions.FirstPersonActions inputActions;
     [SerializeField] private GameObject DeathScreenWidget;
+    private ApplicationSettings applicationSettings;
+    private GI_RiftManager riftManager;
     
     #endregion
 
@@ -83,9 +85,6 @@ public class FPPawn_Player : FPPawn
         
         // Enable the view camera
         action.EnableViewCamera(this, true);
-        
-        // Disable the mouse cursor
-        
     }
 
     public void Update()
@@ -117,19 +116,24 @@ public class FPPawn_Player : FPPawn
         // Interact 
         if (inputActions.Interact.WasPressedThisFrame()) action.Interact(this, interactionPrefab, viewPoint.transform);
         
-        // Throw held object
-        if (inputActions.ItemAction1.WasPressedThisFrame() && physObjectAttachmentPoint.attachedObject)
-        {
-            action.ThrowPhysProp(this);
-        }
-        
         // Switch item
         if (inputActions.ItemSwapNext.WasPressedThisFrame()) action.ItemSwapNext(this);
         if (inputActions.ItemSwapPrevious.WasPressedThisFrame()) action.ItemSwapPrevious(this);
         
         // Use Item
         var inventory = GetComponentInChildren<Pawn_Inventory>();
-        if (inputActions.ItemAction1.WasPressedThisFrame()) action.ItemUseAction(inventory, 0);
+        if (inputActions.ItemAction1.WasPressedThisFrame())
+        {
+            // Throw held object, or Item Use Action 0
+            if (physObjectAttachmentPoint.attachedObject)
+            {
+                action.ThrowPhysProp(this);
+            }
+            else
+            {
+                action.ItemUseAction(inventory, 0);
+            }
+        }
         if (inputActions.ItemAction2.WasPressedThisFrame()) action.ItemUseAction(inventory, 1);
         if (inputActions.ItemAction3.WasPressedThisFrame()) action.ItemUseAction(inventory, 2);
         if (inputActions.ItemAction1.WasReleasedThisFrame()) action.ItemUseAction(inventory, 0, "release");
@@ -159,13 +163,15 @@ public class FPPawn_Player : FPPawn
 
     private void UpdateRotation()
     {
+        if (!applicationSettings) applicationSettings = FindObjectOfType<ApplicationSettings>();
+        
         // Get the look speed
-        float horizontalLookSpeed = 3; // = applicationSettings.currentSettingsData.horizontalLookSpeed
-        float verticalLookSpeed = 2; // = applicationSettings.currentSettingsData.verticalLookSpeed
+        float horizontalLookSpeed = applicationSettings.currentSettingsData.horizontalLookSpeed;
+        float verticalLookSpeed = applicationSettings.currentSettingsData.verticalLookSpeed;
         
         // Separate multipliers for mouse and joystick
-        float mouseMultiplier = 0.01f;
-        float joystickMultiplier = 0.2f;
+        float mouseMultiplier = applicationSettings.currentSettingsData.mouseLookSensitivity;
+        float joystickMultiplier = applicationSettings.currentSettingsData.joystickLookSensitivity;
 
         // Determine the input method (mouse or joystick)
         bool isUsingMouse = false;
@@ -181,8 +187,8 @@ public class FPPawn_Player : FPPawn
         var multiplier = isUsingMouse ? mouseMultiplier : joystickMultiplier;
         
         // Store the rotation values
-        lookRotation.x -= inputActions.LookAxis.ReadValue<Vector2>().y * (20 * verticalLookSpeed) * multiplier;
-        lookRotation.y += inputActions.LookAxis.ReadValue<Vector2>().x * (20 * horizontalLookSpeed) * multiplier;
+        lookRotation.x -= inputActions.LookAxis.ReadValue<Vector2>().y * (10 * verticalLookSpeed) * (multiplier/10);
+        lookRotation.y += inputActions.LookAxis.ReadValue<Vector2>().x * (10 * horizontalLookSpeed) * (multiplier/10);
         lookRotation.x = Mathf.Clamp(lookRotation.x, -90f, 90f);
     }
     private void ApplyRotation()
@@ -193,6 +199,10 @@ public class FPPawn_Player : FPPawn
 
     private void OnDeath()
     {
+        // Remove any rifts
+        riftManager = FindObjectOfType<GI_RiftManager>();
+        riftManager.RestoreRift();
+        
         // Drop held props
         if (physObjectAttachmentPoint)
         {
