@@ -11,6 +11,7 @@ using UnityEngine.ProBuilder;
 using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
+[Todo("FIx your shit")]
 public class BulbOutletStrip : MonoBehaviour, BulbCollisionBehaviour
 {
     public Transform startPoint;
