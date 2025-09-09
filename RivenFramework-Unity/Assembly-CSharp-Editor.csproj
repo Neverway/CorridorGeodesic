@@ -1070,6 +1070,10 @@
       <Project>{8c9feb55-197c-c0d9-f4c0-534f1bc09483}</Project>
       <Name>RivenFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="RivenFramework.TempResources.csproj">
+      <Project>{17b1526d-ad34-e881-c815-5f17dc5e2d92}</Project>
+      <Name>RivenFramework.TempResources</Name>
+    </ProjectReference>
     <ProjectReference Include="SimpleFields.csproj">
       <Project>{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}</Project>
       <Name>SimpleFields</Name>

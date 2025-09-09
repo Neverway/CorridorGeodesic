@@ -57,7 +57,6 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/GI_RiftManager.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneCollider.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/DynamicCable.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/UIText_Speedometer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Brush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSG_HotFix_Settings.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
@@ -136,7 +135,6 @@
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKTargetMatcher.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSGBuildSettings.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreMouse.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/Tile_Paralax.cs" />
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSGBuildContext.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CanvasForceGetActiveCamera.cs" />
@@ -148,7 +146,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/GridManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_Fizzler.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Unknown/LevelStreamer.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/Image_EntityPain.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Or.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGUIHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Edge.cs" />
@@ -176,7 +173,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/WorldTransformData.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaReceiver.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/Light_DistanceCulling.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BrushBase.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TestProj.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ComicFilter.cs" />
@@ -388,6 +384,7 @@
      <Folder Include="Assets/Resources/Widgets" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Liz" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers" />
+     <None Include="Assets/AddressableAssetsData/link.xml" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/DitheringFilter.shader" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/LineDashedAlpha.shader" />
@@ -629,7 +626,6 @@
      <Folder Include="Assets/Resources/Objects/NotProperActors" />
      <Folder Include="Assets/Resources/Sprites/Effects" />
      <Folder Include="Assets/Packages/SabreCSG-master" />
-     <Folder Include="Assets/RivenFramework-Revamp/Resources/Scripts" />
      <Folder Include="Assets/Packages/SabreCSG-master/Resources" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Dark" />
@@ -1595,6 +1591,10 @@
     <ProjectReference Include="RivenFramework.csproj">
       <Project>{8c9feb55-197c-c0d9-f4c0-534f1bc09483}</Project>
       <Name>RivenFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFramework.TempResources.csproj">
+      <Project>{17b1526d-ad34-e881-c815-5f17dc5e2d92}</Project>
+      <Name>RivenFramework.TempResources</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleFields.csproj">
       <Project>{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}</Project>
