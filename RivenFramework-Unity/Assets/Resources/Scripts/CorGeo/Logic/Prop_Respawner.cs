@@ -64,7 +64,7 @@ public class Prop_Respawner : MonoBehaviour
         
         if (spawnedObject == null)
         {
-            RespawnProp();
+            UpdateRespawn();
         }
     }
 
@@ -118,22 +118,29 @@ public class Prop_Respawner : MonoBehaviour
         yield return null;
         Destroy(spawnedObject);
     }
-    
-    
-    private void RespawnProp()
+
+    private void UpdateRespawn()
     {
         if (!allowDuplicates)
         {
             if (DoesActorExist(propUniqueID))
             {
+                spawnedObject = DoesActorExist(propUniqueID).gameObject;
                 return ;
             }
         }
-
-        /*if (!respawnProp.Get())
+        
+        DestroySpawnedObject();
+        if (spawnWorker is null) spawnWorker = StartCoroutine(SpawnWorker());
+    }
+    
+    
+    private void RespawnProp()
+    {
+        if (!respawnProp.Get())
         {
             return;
-        }*/
+        }
         
         DestroySpawnedObject();
         if (spawnWorker is null) spawnWorker = StartCoroutine(SpawnWorker());
@@ -142,7 +149,7 @@ public class Prop_Respawner : MonoBehaviour
     
 
     // Used to see if we have any duplicate actors
-    private bool DoesActorExist(string _uuid)
+    private Actor DoesActorExist(string _uuid)
     {
         var allActors = FindObjectsOfType<Actor>();
         
@@ -151,10 +158,10 @@ public class Prop_Respawner : MonoBehaviour
             if (actor.uniqueId == "") continue;
             
             print($"Found matching object {actor.name} with {actor.uniqueId} to {_uuid}");
-            if (actor.uniqueId == _uuid) return true;
+            if (actor.uniqueId == _uuid) return actor;
         }
 
-        return false;
+        return null;
     }
 
     #endregion
