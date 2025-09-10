@@ -34,7 +34,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 2800000, guid: adbeab5ab690f6a4587a278e9dea5fb8, type: 3}
-        m_Scale: {x: 0.0125, y: 0.0125}
+        m_Scale: {x: 0.02, y: 0.02}
         m_Offset: {x: 0.25, y: 0.25}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -129,7 +129,7 @@ Material:
     - _SliceCenterTwo: {r: 0, g: 0, b: 0, a: 0}
     - _SliceNormalOne: {r: 0, g: 0, b: 0, a: 0}
     - _SliceNormalTwo: {r: 0, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 2, g: 2, b: 0, a: 0}
+    - _Tiling: {r: 8, g: 8, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4762860752329641730
 MonoBehaviour:
