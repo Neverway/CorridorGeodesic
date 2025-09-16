@@ -73,7 +73,7 @@ public class LB_World : MonoBehaviour
         {
             var pawnManager = FindObjectOfType<GI_PawnManager>();
             var playerInventory = pawnManager.localPlayerCharacter.GetComponentInChildren<Pawn_Inventory>();
-            if (!playerInventory.items.Contains(geogunPrefab)) playerInventory.AddItem(geogunPrefab);
+            if (playerInventory) if (!playerInventory.items.Contains(geogunPrefab)) playerInventory.AddItem(geogunPrefab);
         }
         
         var geogun = FindObjectOfType<Item_Utility_Geogun>();

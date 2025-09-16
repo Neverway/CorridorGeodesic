@@ -56,10 +56,10 @@ Material:
     - _EmissionStrength: 6
     - _OverlayScale: 1
     - _ScalingSize: 10
-    - _SphereSize: 16.220467
+    - _SphereSize: 25.313963
     - _TriplanarSharpness: 64
     m_Colors:
-    - _BulbsCenter: {r: 47.306602, g: 0.5127492, b: 63.12812, a: 0}
+    - _BulbsCenter: {r: 54.08982, g: -2.7838998, b: 75.796524, a: 0}
     - _DeepColor: {r: 1, g: 0.8980392, b: 0, a: 0.003921569}
     - _ScrollDirection: {r: 1, g: 1, b: 0, a: 0}
     - _ShallowColor: {r: 1, g: 0.36078432, b: 0, a: 0.5019608}

@@ -248,7 +248,6 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void SetRiftHidden(bool _hidden)
     {
-        DevConsole.Log($"rift hidden set to {_hidden}", "SetRifHid");
         //riftActive = !_hidden;
         cutPlaneA.SetActive(!_hidden);
         cutPlaneB.SetActive(!_hidden);
