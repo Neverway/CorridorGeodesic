@@ -60,6 +60,8 @@ public class Item_Utility_Geogun : Item
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     private int maxProjectiles = 2;
+    private bool wantsToExpand;
+    private bool wantsToCollapse;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -92,6 +94,28 @@ public class Item_Utility_Geogun : Item
         
         
         AimBarrelTowardsCenterOfView();
+
+        // Process the wants to BLANK requests from item actions
+        // (I'm doing it this way for now since we want to be able to hold collapse or expand before a rift might be active)
+        if (spawnedProjectiles.Count >= maxProjectiles)
+        {
+            if (wantsToExpand)
+            {
+                OnExpandHeld?.Invoke();
+            }
+            else if (!wantsToExpand)
+            {
+                OnExpandReleased?.Invoke();
+            }
+            if (wantsToCollapse)
+            {
+                OnCollapseHeld?.Invoke();
+            }
+            else if (!wantsToCollapse)
+            {
+                OnCollapseReleased?.Invoke();
+            }
+        }
         
         // Auto-removes null projectiles from the spawnedProjectiles list
         spawnedProjectiles = spawnedProjectiles.Where(projectile => !projectile.IsUnityNull()).ToList();
@@ -159,16 +183,10 @@ public class Item_Utility_Geogun : Item
         {
             case "press":
                 FireMarker();
-                if (spawnedProjectiles.Count >= maxProjectiles)
-                {
-                    OnExpandHeld?.Invoke();
-                }
+                wantsToExpand = true;
                 break;
             case "release":
-                if (spawnedProjectiles.Count >= maxProjectiles)
-                {
-                    OnExpandReleased?.Invoke();
-                }
+                wantsToExpand = false;
                 break;
         }
     }
@@ -178,16 +196,10 @@ public class Item_Utility_Geogun : Item
         switch (_mode)
         {
             case "press":
-                if (spawnedProjectiles.Count >= maxProjectiles)
-                {
-                    OnCollapseHeld?.Invoke();
-                }
+                wantsToCollapse = true;
                 break;
             case "release":
-                if (spawnedProjectiles.Count >= maxProjectiles)
-                {
-                    OnCollapseReleased?.Invoke();
-                }
+                wantsToCollapse = false;
                 break;
         }
     }
@@ -198,7 +210,6 @@ public class Item_Utility_Geogun : Item
         {
             case "press":
                 DestroyMarkers();
-                print("UseTertiary");
                 break;
             case "release":
                 break;
