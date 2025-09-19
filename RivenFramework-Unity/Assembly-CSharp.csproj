@@ -82,6 +82,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfSolidSide.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/VertexEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapEntity.cs" />
+     <Compile Include="Assets/Resources/Widgets/DevMenu/WB_DevMenu.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGUILayout.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapWorldConverter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/CurvedStairBrush.cs" />
@@ -159,6 +160,7 @@
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawn_NPCWolf.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/MaterialPaletteWindow.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dMap.cs" />
+     <Compile Include="Assets/Resources/Scripts/GI_DevMenu.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/HollowBoxBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/TransformHelper.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_Pause.cs" />
@@ -268,6 +270,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreInput.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/RadialMenu.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_SimpleLine.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Projectile.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/VertexColorWindow.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
@@ -561,6 +564,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Core/Dictionaries" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Quicktex" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Light" />
+     <Folder Include="Assets/Resources/Widgets/DevMenu" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Shaders" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Glass" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/VertexTinted.shader" />

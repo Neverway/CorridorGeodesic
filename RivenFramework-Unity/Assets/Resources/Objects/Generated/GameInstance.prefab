@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 6546828152794290419}
   - component: {fileID: 257830348467857689}
   - component: {fileID: 5002095358254411103}
+  - component: {fileID: 1467010668408762878}
   m_Layer: 0
   m_Name: GameInstance
   m_TagString: Untagged
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   widgets:
   - {fileID: 1507811972370413053, guid: 8c9da1ff2c0e3f8819b3be7b04866c01, type: 3}
+  - {fileID: 5675289539813747590, guid: b463dd0fbb47ddea48e274f58e92b316, type: 3}
 --- !u!114 &7341293665338298491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,9 +819,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: facf400e3d7f1f80e8e82c0c38257613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentRiftPercent: 0
+  currentRiftWidth: 0
+  riftStartingWidth: 0
+  collapseHeld: 0
+  expandHeld: 0
   minRiftSpeed: 8
   maxRiftSpeed: 8
   riftAcceleration: 8
+  currentRiftMoveSpeed: 0
   cutPlanePrefab: {fileID: 3569801623043244855, guid: 83ab4b7787c4221b2b87b065899cbea3,
     type: 3}
   spaceContainerA: {fileID: 0}
@@ -891,5 +899,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19ec269d0ad479b9fad4f91afd3aae32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1467010668408762878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38957714d16ecd5e09c1c3aed34cb0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
