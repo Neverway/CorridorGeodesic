@@ -79,7 +79,7 @@ public class GI_RiftManager : MonoBehaviour
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-    private Item_Utility_Geogun linkedGeogun;
+    [SerializeField] private Item_Utility_Geogun linkedGeogun;
     [SerializeField] private GameObject cutPlanePrefab, spaceContainerA, spaceContainerB, spaceContainerNull;
     [HideInInspector] public GameObject cutPlaneA, cutPlaneB;
     [HideInInspector] public static Plane planeA, planeB;

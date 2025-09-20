@@ -269,8 +269,8 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/Checkpoint.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreInput.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/RadialMenu.cs" />
-     <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_SimpleLine.cs" />
+     <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Projectile.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/VertexColorWindow.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
