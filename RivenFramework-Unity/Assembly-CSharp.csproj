@@ -86,11 +86,11 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Segment.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\CSGModelBase.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\Actor_StepUp.cs" />
+    <Compile Include="Assets\Resources\Scripts\GI_DevToolsLoader.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Extensions\Matrices\Matrix3x2.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Stats&amp;Achievments\EndOfDemoStatsDisplay.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\_Depreciated\UI_Image_EntityPortrait.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UpdateUtility.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\DebugConsole\DebugConsole.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\GameObject_ProceduralSway.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\Volumes\Volume.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\Quake1\MapPlane.cs" />
@@ -103,6 +103,7 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\Quake1\MapVector2.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\Projectile_Marker.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\IDeepCopyable.cs" />
+    <Compile Include="Assets\Resources\Scripts\RuntimeDevTools\DevConsoleAttributes.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfPlane.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\_Depreciated\Particle_DataExposer.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Bezier.cs" />
@@ -117,7 +118,6 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\UnrealGold\T3dPolygonFlags.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\_Depreciated\CorGeo_AntiProjectile.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\ResizeEditor.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\DebugConsole\DevTools.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\SurfaceEditor.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\TransformModelEditor.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Extensions\MathHelper.cs" />
@@ -260,6 +260,7 @@
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\SignalEventPlayer.cs" />
     <Compile Include="Assets\Resources\Models\Experimental\FenRigPart.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\_Depreciated\UI_Image_EntityEquippedItems.cs" />
+    <Compile Include="Assets\Resources\Scripts\RuntimeDevTools\DevMenuAttributes.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\BuildEngine\MeshGroupManager.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\Utilities\Vertex Weld Ops\VertexWeldCentroidOperation.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\EditorTools\Dev_FizzlerAutoResizer.cs" />
