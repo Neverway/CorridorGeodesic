@@ -39,7 +39,7 @@ public class GI_RiftManager : MonoBehaviour
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
     public static bool riftActive; // This is set to true when all of the rift initialization is complete and false when a rift is cleared
     //Amount the B-Space is currently offset from its starting position.
-    public static Vector3 currentRiftOffset;
+    //public static Vector3 currentRiftOffset;
     //Direction the rift space is facing (this is the line the rift moves along when expanding and contracting).
     public static Vector3 riftNormal;
 
@@ -482,6 +482,7 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     public void RestoreRift()
     {
+        SetNullSpaceHidden(false);
         SetRiftPosition(1);
         RestoreCutGeometry();
         EmptyMatterInSpaceContainers();
@@ -509,7 +510,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <param name="_percent">The size of the rift relative to it's starting size.</param>
     public void SetRiftPosition(float _percent)
     {
-        if (!cutPlaneB) return;
+        if (!cutPlaneB || !spaceContainerNull.activeInHierarchy) return;
         planeB = new Plane (cutPlaneB.transform.forward, cutPlaneB.transform.position);
         MoveActorsWithRift (_percent);
         currentRiftPercent = _percent;
@@ -524,21 +525,47 @@ public class GI_RiftManager : MonoBehaviour
     [Todo("Max width section causes bug when rift is created with a big distance.", "Connorses")]
     public void MoveRiftByDistance(float distance)
     {
-        if (currentRiftWidth + distance > maxRiftWidth)
+        // Keep from expanding if allowExpandingRift is false
+        if (!linkedGeogun.allowExpandingRift && currentRiftWidth + distance > riftStartingWidth)
+        {
+            distance = 0;
+        }
+        // Keep from inverting if allowInvertingRiftIsFalse
+        if (!linkedGeogun.allowInvertingRift && currentRiftWidth + distance < 0)
+        {
+            distance = 0;
+            currentRiftWidth = 0;
+            SetNullSpaceHidden(true);
+        }
+        // Unhide null space when not at 0
+        if (currentRiftWidth + distance > 0){ SetNullSpaceHidden(false); }
+        
+        
+        // Clamp the rift from going past its max width
+        if (linkedGeogun.allowExpandingRift && currentRiftWidth + distance > maxRiftWidth)
         {
             // I commented out this line to get rid of the bug for now, but this is a just a temporary fix ~Liz
             //distance = maxRiftWidth - currentRiftWidth;
         }
-        if (currentRiftWidth + distance < minRiftWidth)
+        // Clamp the rift from going past its min width
+        if (linkedGeogun.allowInvertingRift && currentRiftWidth + distance < minRiftWidth)
         {
             currentRiftWidth = minRiftWidth;
         }
+        
+        
         float percentChange = 1 / riftStartingWidth * distance;
 
-        currentRiftOffset = (currentRiftWidth - riftStartingWidth) * riftNormal;
+        // Does anything use this value? ~Liz
+        //currentRiftOffset = (currentRiftWidth - riftStartingWidth) * riftNormal;
 
         SetRiftPosition (currentRiftPercent + percentChange);
         riftIsMoving = true;
+    }
+
+    private void SetNullSpaceHidden(bool _isHidden)
+    {
+        spaceContainerNull.SetActive(!_isHidden);
     }
 
     private void MoveGeometryWithRift ()
