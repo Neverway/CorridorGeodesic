@@ -22,6 +22,8 @@ public class CorGeo_Actor : MonoBehaviour
     [SerializeField] public bool activeInNullSpace = false;
     [Tooltip("Uncheck this if the object has a special death animation")]
     [SerializeField] public bool destroyedInKillTrigger = true;
+
+    public bool logHome;
     
     //todo: Either reimplement crushInNullSpace, or get rid of it. I'm considering replacing it with something like "dynamicCrushable" since it only applies to dynamic actors anyway.
     //[Tooltip("If true, this actor gets distorted when inside nullspace, for example a cube that's not held by player")]
@@ -59,6 +61,7 @@ public class CorGeo_Actor : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start ()
     {
+        if (logHome) print($"setting parent to {homeParent}");
         // Find references
         rigidbody = GetComponent<Rigidbody>();
         // Store initial transform data about this object, so it can be restored later when rifts are reset
@@ -113,6 +116,7 @@ public class CorGeo_Actor : MonoBehaviour
     /// </summary>
     public void GoHome ()
     {
+        if (logHome) print($"setting parent to {homeParent} from home func");
         OnRiftRestore?.Invoke();
         if (isParentedIgnoreOffsets) return;
         transform.SetParent (homeParent);
