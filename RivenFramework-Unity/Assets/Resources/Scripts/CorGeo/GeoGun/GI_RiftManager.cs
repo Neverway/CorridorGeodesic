@@ -166,7 +166,8 @@ public class GI_RiftManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        RestoreRift();
+        //print($"{gameObject.name} THIS INSTANCE OF RIFT MANAGER WAS DESTROYED!");
+        //RestoreRift();
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/

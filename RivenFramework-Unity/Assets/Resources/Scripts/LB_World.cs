@@ -68,6 +68,8 @@ public class LB_World : MonoBehaviour
     private IEnumerator InitializeGeogunOverrides()
     {
         yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
         // Give the player the geogun if they don't already have it
         if (shouldHaveGeogun)
         {
