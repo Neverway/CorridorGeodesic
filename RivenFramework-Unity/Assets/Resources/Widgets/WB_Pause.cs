@@ -11,12 +11,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using RivenFramework;
 
-public class WB_Pause : MonoBehaviour
+public class WB_Pause : WidgetBlueprint
 {
     //=-----------------=
     // Public Variables
     //=-----------------=
-
 
     //=-----------------=
     // Private Variables

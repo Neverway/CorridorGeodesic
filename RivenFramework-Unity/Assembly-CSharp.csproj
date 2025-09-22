@@ -97,6 +97,7 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfSolidSide.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\VertexEditor.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\Quake1\MapEntity.cs" />
+    <Compile Include="Assets\Resources\Widgets\DevMenu\WB_DevMenu.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreGUILayout.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\Quake1\MapWorldConverter.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\CurvedStairBrush.cs" />
@@ -174,6 +175,7 @@
     <Compile Include="Assets\Resources\Scripts\FirstPersonExample\FPPawn_NPCWolf.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\MaterialPaletteWindow.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\UnrealGold\T3dMap.cs" />
+    <Compile Include="Assets\Resources\Scripts\GI_DevMenu.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\HollowBoxBrush.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Extensions\TransformHelper.cs" />
     <Compile Include="Assets\Resources\Widgets\WB_Pause.cs" />
@@ -284,6 +286,7 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreInput.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\RadialMenu.cs" />
     <Compile Include="Assets\Resources\Widgets\WB_DeathScreen.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Graphics_SimpleLine.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\Projectile.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\VertexColorWindow.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\_Depreciated\Logic_Processor.cs" />
@@ -316,6 +319,7 @@
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\Pawn_CrushDetection.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\IK\IKFootSolver.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\EventSignal_Interactcs.cs" />
+    <Compile Include="Assets\Resources\Scripts\RuntimeDevTools\DevMenuItem_Button.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\ClipEditor.cs" />
     <Compile Include="Assets\RivenFramework\Scripts\_Depreciated\NEW_LogicProcessor.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\Actor_SFX_Impact.cs" />

@@ -7,26 +7,25 @@
 //
 //====================================================================================================================//
 
+using RivenFramework;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GI_DevMenu : MonoBehaviour
+public class GI_DevMenu : GameInstanceModule
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
-
+    public DevMenuLayoutSettings layoutSettings;
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+    private InputActions.UIActions inputActions;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-    private new FPPawnActions action = new FPPawnActions();
-    private InputActions.UIActions inputActions;
+    private FPPawnActions action = new FPPawnActions();
     private GI_WidgetManager widgetManager;
 
 
@@ -35,20 +34,21 @@ public class GI_DevMenu : MonoBehaviour
 
     #region=======================================( Functions )=======================================================//
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-    private void Start()
+    public void Start()
     {
         // Setup inputs
         inputActions = new InputActions().UI;
         inputActions.Enable();
+
+        // Get Widget Manager
+        widgetManager = GetComponent<GI_WidgetManager>();
     }
 
     private void Update()
     {
-        if (!widgetManager) widgetManager = GetComponent<GI_WidgetManager>();
-        
         if (inputActions.DevMenu.WasPressedThisFrame())
         {
-            widgetManager.ToggleWidget("WB_DevMenu");
+            widgetManager.ToggleWidget<WB_DevMenu>();
         }
     }
 
@@ -60,4 +60,30 @@ public class GI_DevMenu : MonoBehaviour
 
 
     #endregion
+}
+
+[Serializable]
+public class DevMenuLayoutSettings
+{
+    public DevMenuTabLayout[] tabs;
+}
+[Serializable]
+public class DevMenuTabLayout
+{
+    public string tabName;
+    [Polymorphic, SerializeReference] public DevMenuLayoutGroup[] layoutGroups;
+}
+[Serializable]
+public abstract class DevMenuLayoutGroup
+{
+    [Serializable]
+    public struct Reference
+    {
+        [Polymorphic, SerializeReference] public DevMenuLayoutGroup group;
+    }
+}
+[Serializable]
+public class DevMenuLayoutGroupButtonGrid : DevMenuLayoutGroup
+{
+    public int columns;
 }
