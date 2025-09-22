@@ -333,6 +333,7 @@
      <Folder Include="Assets/Packages/Samples/Folder Icons" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Materials" />
+     <None Include="Assets/AddressableAssetsData/link.xml" />
      <Folder Include="Assets/Packages/DOTween/Modules" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments" />
      <Folder Include="Assets/Packages/QuickOutline/Resources" />

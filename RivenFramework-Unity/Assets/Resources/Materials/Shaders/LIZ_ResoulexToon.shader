@@ -48,6 +48,9 @@ Shader "Neverway/Resoulex Toon"
         #pragma surface surf Ramp fullforwardshadows addshadow
         #pragma multi_compile _SPECULARMODE_TRUEPBR _SPECULARMODE_STYLIZEDPBR
         #pragma target 3.0
+        #pragma multi_compile_instancing
+        #pragma instancing_options assumeuniformscaling
+
 
         #include "UnityCG.cginc"
         #include "Lighting.cginc"
@@ -64,6 +67,8 @@ Shader "Neverway/Resoulex Toon"
             float3 viewDir;
             float3 worldPos;
             float4 screenPos;
+            
+            UNITY_VERTEX_INPUT_INSTANCE_ID  
         };
 
         // Surface Output (Material properties)
@@ -218,6 +223,7 @@ Shader "Neverway/Resoulex Toon"
         // Surface Function (Where sampling and properties come together and output)
         void surf (Input IN, inout SurfaceOutputToon output)
         {
+            UNITY_SETUP_INSTANCE_ID(IN);
             float2 uv = IN.uv_MainTex * _Tiling + _Offset;
             float2 parallaxOffset = ParallaxOffset (tex2D(_ParallaxMap, uv).r, _Parallax, IN.viewDir);
 
