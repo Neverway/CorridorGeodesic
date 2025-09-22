@@ -242,6 +242,11 @@ public class Item_Utility_Geogun : Item
     /// <returns>Returns true if the gun is pointed at a target it's allowed to shoot</returns>
     public bool GetIsValidTarget(RaycastHit _hit)
     {
+        if (!_hit.collider)
+        {
+            Debug.LogWarning("Somehow raycast hit an invalid object");
+            return false;
+        }
         // Gun is pointed at a bulb snapping point (That is valid!)
         // TODO - BulbCollisionBehaviour has not been ported!
         if (_hit.collider.gameObject.GetComponent<BulbCollisionBehaviour>() != null) return true;

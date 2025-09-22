@@ -66,6 +66,7 @@ public class GI_RiftManager : MonoBehaviour
     [SerializeField] private bool expandHeld = false;
     private bool waitForCollapseReleased = false; //Waits for you to release collapse so that the player has to press it again to collapse rift. <=(Why tho? ~Liz)
     private Vector3 riftNullSpacePosition; //The starting position of the null space container.
+    private bool expandingRiftDueToCrush; // Overrides rift inputs to auto expand when the player is crushed
 
 
     //  rift movement speed stuff:  //
@@ -87,6 +88,7 @@ public class GI_RiftManager : MonoBehaviour
     public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes;
     public Graphics_RiftPreviewEffects riftPreviewEffects;
     public Material nullSpaceMaterial;
+    private CrushDetector linkedCrushDetector;
 
     public static List<CorGeo_Actor> CorGeo_Actors = new List<CorGeo_Actor> { };
 
@@ -95,6 +97,34 @@ public class GI_RiftManager : MonoBehaviour
 
     #region=======================================( Functions )=======================================================//
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+    private IEnumerator Start()
+    {
+        while (!linkedCrushDetector)
+        {
+            var player = GameInstance.Get<GI_PawnManager>().localPlayerCharacter;
+            if (player) linkedCrushDetector = player.GetComponent<CrushDetector>();
+            yield return new WaitForEndOfFrame();
+        }
+        
+        // Assign the listener so if the player gets crushed the rift will backoff slightly
+        linkedCrushDetector.onCrushed.AddListener (() => StartCoroutine (InterruptRiftCollapse (0.15f)));
+    }
+
+    // Used for stopping rift collapse when getting crushed
+    private IEnumerator InterruptRiftCollapse (float delay)
+    {
+        if (!collapseHeld) yield break;
+
+        //collapseHeld = false; // release close rift input
+        //ignoreRiftInputAfterCrush = true;
+
+        expandingRiftDueToCrush = true;
+        yield return new WaitForSeconds (delay);
+        expandingRiftDueToCrush = false;
+    }
+
+
+
     private void Update()
     {
         // Link the manager to a geogun if it's not yet
@@ -131,7 +161,12 @@ public class GI_RiftManager : MonoBehaviour
         riftIsMoving = false;
         if (riftActive)
         {
-            if (collapseHeld && waitForCollapseReleased == false)
+            if (expandingRiftDueToCrush)
+            {
+                MoveRiftByDistance (maxRiftSpeed * Time.deltaTime);
+                UpdateState (RiftState.Expanding);
+            }
+            else if (collapseHeld && waitForCollapseReleased == false)
             {
                 MoveRiftByDistance (-currentRiftMoveSpeed * Time.deltaTime);
                 AccelerateRift ();
@@ -613,6 +648,7 @@ public class GI_RiftManager : MonoBehaviour
                 actor.DetermineRiftSpace ();
                 if (actor.space == CorGeo_Actor.Space.Null)
                 {
+                    print(actor.transform.position);
                     actor.transform.position = MovePositionWithNullSpace (actor.transform.position, _newPercent);
                 }
                 if (actor.space == CorGeo_Actor.Space.B)

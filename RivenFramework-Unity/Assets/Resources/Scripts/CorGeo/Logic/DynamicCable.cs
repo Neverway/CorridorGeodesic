@@ -73,7 +73,7 @@ namespace Neverway.Framework.LogicSystem
 
             anchorPointARigidBody = anchorPointA.GetComponent<Rigidbody>();
             anchorPointBRigidBody = anchorPointB.GetComponent<Rigidbody>();
-            input.CallOnSourceChanged(SetCablePowered);
+            if (input) input.CallOnSourceChanged(SetCablePowered);
         }
 
         private void Update()
