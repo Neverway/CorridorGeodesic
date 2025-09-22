@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7461320844467541161}
   - component: {fileID: 4826605240797289350}
+  - component: {fileID: 2791906170356998535}
   - component: {fileID: 3194595401732368016}
   - component: {fileID: 8339027018554393094}
   - component: {fileID: 6371034488508747115}
   - component: {fileID: 5226716088612378867}
   - component: {fileID: 8324512450289552697}
   m_Layer: 0
-  m_Name: CommandButton
+  m_Name: DevMenuItem_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +51,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4934111684149751080}
   m_CullTransparentMesh: 1
+--- !u!114 &2791906170356998535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934111684149751080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e6d8aab92fed2b408c021aed5c4b806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonText: {fileID: 533226398446378302}
 --- !u!114 &3194595401732368016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +137,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 533226398446378302}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2791906170356998535}
+        m_TargetAssemblyTypeName: DevMenuItem_Button, Assembly-CSharp
+        m_MethodName: OnButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &6371034488508747115
 AudioSource:
   m_ObjectHideFlags: 0

@@ -41,7 +41,7 @@ public class FenRigPart : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
-        pawnManager = FindObjectOfType<GI_PawnManager>();
+        pawnManager = GameInstance.Get<GI_PawnManager>();
         InvokeRepeating(nameof(UpdateBillboard), 0, updateRate);
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -53,7 +53,7 @@ public class FenRigPart : MonoBehaviour
         if (!active) return;
         if (!pawnManager)
         {
-            pawnManager = FindObjectOfType<GI_PawnManager>();
+            pawnManager = GameInstance.Get<GI_PawnManager>();
             return;
         }
 

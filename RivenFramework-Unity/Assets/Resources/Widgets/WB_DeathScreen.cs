@@ -11,7 +11,7 @@ using RivenFramework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WB_DeathScreen : MonoBehaviour
+public class WB_DeathScreen : WidgetBlueprint
 {
     //=-----------------=
     // Public Variables

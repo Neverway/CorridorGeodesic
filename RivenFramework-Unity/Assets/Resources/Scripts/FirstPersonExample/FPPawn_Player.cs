@@ -71,7 +71,7 @@ public class FPPawn_Player : FPPawn
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
+
     public new void Awake()
     {
         base.Awake();
