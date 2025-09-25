@@ -911,7 +911,8 @@ AudioSource:
   m_GameObject: {fileID: 7172433862200847758}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3179239472891027427, guid: 549b84953554a157688e4ed0cb77d9a7,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: b40a2487e489381c092f4393b2f0b6f6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1465,16 +1466,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d14ddd4bf9867c384b2221906cdf4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input:
+  powerDoor:
     editorHandles_showHandle: 1
     editorHandles_handleTarget: {fileID: 0}
-    editorHandles_customName: Door Input
+    editorHandles_customName: 
     value: 0
     sourceField:
       EDITOR_targetGameObject: {fileID: 0}
       EDITOR_hideTypeFilterText: 0
       targetComponent: {fileID: 0}
-      fieldName: output
+      fieldName: 
   onPowered:
     m_PersistentCalls:
       m_Calls:
