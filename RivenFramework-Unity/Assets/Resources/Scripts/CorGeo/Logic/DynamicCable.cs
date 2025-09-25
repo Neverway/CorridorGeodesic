@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using RivenFramework;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -76,6 +77,7 @@ namespace Neverway.Framework.LogicSystem
             if (input) input.CallOnSourceChanged(SetCablePowered);
         }
 
+        [Todo_Optimize("GenerateWaypoints and getComponent are stupid expensive here!")]
         private void Update()
         {
             /*if (inputSignal)

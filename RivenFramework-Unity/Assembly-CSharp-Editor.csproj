@@ -1014,10 +1014,6 @@
       <Project>{cb3494af-bfac-d36d-033e-6dda0fc7bd5b}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="CoreAttributes.csproj">
-      <Project>{6b3c1272-532d-2e12-fdb1-80cccb741992}</Project>
-      <Name>CoreAttributes</Name>
-    </ProjectReference>
     <ProjectReference Include="RivenFramework.Utils.Reflection.csproj">
       <Project>{0ed36f6c-a345-9b8e-2d92-e48d1c7ab0fc}</Project>
       <Name>RivenFramework.Utils.Reflection</Name>
@@ -1042,13 +1038,25 @@
       <Project>{3b7df345-bd9a-eee0-b323-cd18f735389d}</Project>
       <Name>Neverway.Framework.AudioManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="RivenFramework.Utils.Reflection.editor.csproj">
+      <Project>{3e06ec83-ba64-6044-4ec7-535012e89bbc}</Project>
+      <Name>RivenFramework.Utils.Reflection.editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.PawnManagement.csproj">
       <Project>{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}</Project>
       <Name>Neverway.Framework.PawnManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="DevTools.csproj">
+      <Project>{e84a44d7-e123-927e-054d-25763d8cd9cd}</Project>
+      <Name>DevTools</Name>
+    </ProjectReference>
     <ProjectReference Include="RivenFramework.PawnMangement.csproj">
       <Project>{bdf120d6-5854-7f7d-4f1a-9673abd83232}</Project>
       <Name>RivenFramework.PawnMangement</Name>
+    </ProjectReference>
+    <ProjectReference Include="CoreAttributes.csproj">
+      <Project>{6b3c1272-532d-2e12-fdb1-80cccb741992}</Project>
+      <Name>CoreAttributes</Name>
     </ProjectReference>
     <ProjectReference Include="BzKovSoft.ObjectSlicer.Samples.csproj">
       <Project>{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}</Project>

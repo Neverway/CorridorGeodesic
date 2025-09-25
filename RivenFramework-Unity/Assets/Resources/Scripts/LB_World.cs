@@ -40,6 +40,7 @@ public class LB_World : MonoBehaviour
 
     
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+    private bool createdHUD;
 
     
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -58,10 +59,17 @@ public class LB_World : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
-        widgetManager = FindObjectOfType<GI_WidgetManager>();
-        widgetManager.AddWidget(HUDWidgetPrefab);
-
         StartCoroutine(InitializeGeogunOverrides());
+    }
+
+    private void FixedUpdate()
+    {
+        if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
+        else if (!createdHUD)
+        {
+            widgetManager.AddWidget(HUDWidgetPrefab);
+            createdHUD = true;
+        }
     }
     
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/

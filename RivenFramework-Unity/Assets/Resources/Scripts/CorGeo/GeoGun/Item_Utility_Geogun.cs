@@ -84,16 +84,7 @@ public class Item_Utility_Geogun : Item
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Update()
     {
-        // Get a reference to the player view point
-        if (!playerViewPoint)
-        {
-            var targetPawn = GetComponentInParent<Pawn>();
-            if (targetPawn) playerViewPoint = targetPawn.viewPoint;
-            return;
-        }
         
-        
-        AimBarrelTowardsCenterOfView();
 
         // Process the wants to BLANK requests from item actions
         // (I'm doing it this way for now since we want to be able to hold collapse or expand before a rift might be active)
@@ -119,6 +110,20 @@ public class Item_Utility_Geogun : Item
         
         // Auto-removes null projectiles from the spawnedProjectiles list
         spawnedProjectiles = spawnedProjectiles.Where(projectile => !projectile.IsUnityNull()).ToList();
+    }
+
+    private void FixedUpdate()
+    {
+        // Moving this here to hopefully reduce its performance impact
+        // Get a reference to the player view point
+        if (!playerViewPoint)
+        {
+            var targetPawn = GetComponentInParent<Pawn>();
+            if (targetPawn) playerViewPoint = targetPawn.viewPoint;
+            return;
+        }
+        
+        AimBarrelTowardsCenterOfView();
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
