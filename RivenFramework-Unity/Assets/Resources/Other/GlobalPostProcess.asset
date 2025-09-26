@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.5
+    value: 0.5
   threshold:
     overrideState: 1
     value: 0.8
@@ -1746,7 +1746,7 @@ MonoBehaviour:
     value: 0
   keyValue:
     overrideState: 1
-    value: 1.25
+    value: 1
   eyeAdaptation:
     overrideState: 0
     value: 0

@@ -82,6 +82,15 @@ public class Item_Utility_Geogun : Item
 
     #region=======================================( Functions )======================================================= //
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+    private void OnEnable()
+    {
+        var riftManager = GameInstance.Get<GI_RiftManager>();
+        if (riftManager)
+        {
+            riftManager.RegisterGeogun(this);
+        }
+    }
+
     private void Update()
     {
         

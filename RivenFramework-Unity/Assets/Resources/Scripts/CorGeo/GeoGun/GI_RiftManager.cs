@@ -80,7 +80,7 @@ public class GI_RiftManager : MonoBehaviour
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-    [SerializeField] private Item_Utility_Geogun linkedGeogun;
+    [SerializeField] public Item_Utility_Geogun linkedGeogun;
     [SerializeField] private GameObject cutPlanePrefab, spaceContainerA, spaceContainerB, spaceContainerNull;
     [HideInInspector] public GameObject cutPlaneA, cutPlaneB;
     [HideInInspector] public static Plane planeA, planeB;
@@ -127,13 +127,6 @@ public class GI_RiftManager : MonoBehaviour
 
     private void Update()
     {
-        // Link the manager to a geogun if it's not yet
-        if (!linkedGeogun)
-        {
-            LinkToGeogun(); //todo: move this out of update somehow
-        }
-
-        
         // Initialize rift objects if they are missing
         if (IsRiftInitialized() is false) InitializeRiftObjects();
         
@@ -206,28 +199,6 @@ public class GI_RiftManager : MonoBehaviour
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
-    /// <summary>
-    /// Gets a reference to an unlinked Geogun in the scene so the rift manager can subscribe to the guns action events
-    /// (Like clearing, collapsing, or expanding the rift)
-    /// </summary>
-    private void LinkToGeogun()
-    {
-        if (linkedGeogun) return; // Sanity check to avoid multiple function calls
-        foreach (var geogun in FindObjectsOfType<Item_Utility_Geogun>())
-        {
-            if (geogun.isLinkedToManager is false)
-            {
-                linkedGeogun = geogun;
-                linkedGeogun.isLinkedToManager = true;
-                //linkedGeogun.OnGunDestroyMarkers += () => RestoreRift();
-                linkedGeogun.OnCollapseHeld += () => collapseHeld = true;
-                linkedGeogun.OnCollapseReleased += () => collapseHeld = false;
-                linkedGeogun.OnExpandHeld += () => expandHeld = true;
-                linkedGeogun.OnExpandReleased += () => expandHeld = false;
-                return;
-            }
-        }
-    }
     
     /// <summary>
     /// Detects if any of the rift objects are missing
@@ -706,6 +677,25 @@ public class GI_RiftManager : MonoBehaviour
         float offset = Mathf.Abs(riftStartingWidth*currentRiftPercent)-Mathf.Abs(riftStartingWidth * _newPercent);
 
         return _position - (riftNormal * offset);
+    }
+    
+    /// <summary>
+    /// Gets a reference to an unlinked Geogun in the scene so the rift manager can subscribe to the guns action events
+    /// (Like clearing, collapsing, or expanding the rift)
+    /// </summary>
+    public void RegisterGeogun(Item_Utility_Geogun _linkedGeogun)
+    {
+        //if (linkedGeogun) return; // Sanity check to avoid multiple function calls // Sanity is overrated ~Present Liz
+        if (_linkedGeogun.isLinkedToManager is false)
+        {
+            linkedGeogun = _linkedGeogun;
+            linkedGeogun.isLinkedToManager = true;
+            //linkedGeogun.OnGunDestroyMarkers += () => RestoreRift();
+            linkedGeogun.OnCollapseHeld += () => collapseHeld = true;
+            linkedGeogun.OnCollapseReleased += () => collapseHeld = false;
+            linkedGeogun.OnExpandHeld += () => expandHeld = true;
+            linkedGeogun.OnExpandReleased += () => expandHeld = false;
+        }
     }
 
     #endregion

@@ -481,25 +481,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldSettings
       objectReference: {fileID: 0}
-    - target: {fileID: 7882748266748739057, guid: e8e305fa18d0012b09c7e57181dba41a,
-        type: 3}
-      propertyPath: isGlobal
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7882748266748739057, guid: e8e305fa18d0012b09c7e57181dba41a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3956498540192049275, guid: e8e305fa18d0012b09c7e57181dba41a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3237528726991617624, guid: e8e305fa18d0012b09c7e57181dba41a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2144585999}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8e305fa18d0012b09c7e57181dba41a, type: 3}
 --- !u!4 &660662667 stripped
 Transform:
@@ -673,6 +659,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1104750855840021355, guid: 49441bef8d2256233a0f4f3fed7dfb2f,
+        type: 3}
+      propertyPath: riftPreviewEffects
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4298151654670827244, guid: 49441bef8d2256233a0f4f3fed7dfb2f,
         type: 3}
       propertyPath: m_Name
@@ -834,26 +825,6 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
---- !u!1 &2144585994 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3237528726991617624, guid: e8e305fa18d0012b09c7e57181dba41a,
-    type: 3}
-  m_PrefabInstance: {fileID: 660662666}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2144585999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144585994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90aa1c6f5540f9512988455030f59c4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  titleWidget: {fileID: 1507811972370413053, guid: 02917cc8338914fddbf29dd8046ca0f0,
-    type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
