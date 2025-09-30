@@ -22,16 +22,16 @@ public class Item_Utility_Geogun : Item
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
     [Header("GeoGun Upgrades")]
-    [Todo("Need to add nonlinear slicing check to rift manager", "Liz")]
+    [Todo("Need to add nonlinear slicing check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts to be placed on walls")]
     public bool allowNonLinearSlicing = true;
-    [Todo("Need to add expanding rift check to rift manager", "Liz")]
+    [Todo("Need to add expanding rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts to expand past the start position")]
     public bool allowExpandingRift;
-    [Todo("Need to add inverting rift check to rift manager", "Liz")]
+    [Todo("Need to add inverting rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts collapsing into the negatives, mirroring null space")]
     public bool allowInvertingRift;
-    [Todo("Need to add slamming rift check to rift manager", "Liz")]
+    [Todo("Need to add slamming rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows the player to slam rifts closed, creating a vacuum that flings things out of rifts")]
     public bool allowSlammingRift;
     [Tooltip("Debug parameter to... well, you get it (Allows markers to be placed on any material)")]
