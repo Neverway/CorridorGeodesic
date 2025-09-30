@@ -15,17 +15,24 @@
 //                  Assign space container for meshes
 //              Assign space for actors
 //          Update rift state
+//
+// For anyone who has to fix or change something in this script, feel free to add a tick mark and move a chess piece
+// Programmers Suffered: |
+// ♜♝♞♛♚♞♝♜
+// ♟♟♟♟■♟♟♟
+// □■□■♟■□■
+// ■□■□■□■□
+// □■□■□■□■
+// ■□■□■□■□
+// ♙♙♙♙♙♙♙♙
+// ♖♗♘♕♔♘♗♖
+
 //====================================================================================================================//
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Neverway.Framework;
 using RivenFramework;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 /// <summary>
 /// Finds pinned markers, does rift stuff, referenced by gun script to control rift movements
@@ -332,7 +339,6 @@ public class GI_RiftManager : MonoBehaviour
     
     /// <summary>
     /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixes those
-    /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixeus those
     /// </summary>
     private IEnumerator CleanupExtraMeshColliders()
     {
@@ -528,7 +534,7 @@ public class GI_RiftManager : MonoBehaviour
     /// Changes the size of the rift by the specified number of units.
     /// </summary>
     /// <param name="distance"></param>
-    [Todo("Max width section causes bug when rift is created with a big distance.", Owner = "Connorses")]
+    [Todo("Max width section causes bug when rift is created with a big distance.", Owner = "connorses")]
     public void MoveRiftByDistance(float distance)
     {
         // Keep from expanding if allowExpandingRift is false
