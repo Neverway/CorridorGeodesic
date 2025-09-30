@@ -625,7 +625,7 @@ public class GI_RiftManager : MonoBehaviour
                 actor.DetermineRiftSpace ();
                 if (actor.space == CorGeo_Actor.Space.Null)
                 {
-                    print(actor.transform.position);
+                    //print(actor.transform.position);
                     actor.transform.position = MovePositionWithNullSpace (actor.transform.position, _newPercent);
                 }
                 if (actor.space == CorGeo_Actor.Space.B)
