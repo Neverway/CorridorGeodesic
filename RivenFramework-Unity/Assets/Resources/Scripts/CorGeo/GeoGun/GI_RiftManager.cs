@@ -528,7 +528,7 @@ public class GI_RiftManager : MonoBehaviour
     /// Changes the size of the rift by the specified number of units.
     /// </summary>
     /// <param name="distance"></param>
-    [Todo("Max width section causes bug when rift is created with a big distance.", "Connorses")]
+    [Todo("Max width section causes bug when rift is created with a big distance.", Owner = "Connorses")]
     public void MoveRiftByDistance(float distance)
     {
         // Keep from expanding if allowExpandingRift is false
