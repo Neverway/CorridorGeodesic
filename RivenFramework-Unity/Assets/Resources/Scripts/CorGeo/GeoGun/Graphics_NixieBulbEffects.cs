@@ -1,9 +1,7 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using RivenFramework;
 using UnityEngine;
 
+[Todo("This is broken because of comments due to changes in rift manager. Need to remove or reuse this")]
 public class Graphics_NixieBulbEffects : MonoBehaviour
 {
     public static Graphics_NixieBulbEffects firstBulb;
@@ -40,7 +38,7 @@ public class Graphics_NixieBulbEffects : MonoBehaviour
     public void Start()
     {
         
-        riftManager = FindObjectOfType<GI_RiftManager>();
+        riftManager = GameInstance.Get<GI_RiftManager>();
         
         startLightIntensity = bulbGlowLight.intensity;
         glowFactor = 0f;

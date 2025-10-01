@@ -52,13 +52,13 @@ public class HUD_GeogunCrosshair : MonoBehaviour
     private void FindReferences()
     {
         // Get the pawn manager
-        if (!pawnManager)
+        if (pawnManager == null)
         {
-            pawnManager = FindObjectOfType<GI_PawnManager>();
+            pawnManager = GameInstance.Get<GI_PawnManager>();
             return;
         }
         // Get the geogun
-        if (!geogun)
+        if (geogun == null)
         {
             geogun = pawnManager.localPlayerCharacter.GetComponentInChildren<Item_Utility_Geogun>();
             transform.GetChild(0).gameObject.SetActive(false); // Disable the crosshair since the gun wasn't found

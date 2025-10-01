@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using RivenFramework;
 using UnityEngine;
 using UnityEngine.Timeline;
 
@@ -51,7 +52,7 @@ public class Projectile_Marker : UProjectile
     public new void Start()
     {
         base.Start();
-        riftManager = FindObjectOfType<GI_RiftManager>();
+        riftManager = GameInstance.Get<GI_RiftManager>();
     }
 
     private void OnDestroy()

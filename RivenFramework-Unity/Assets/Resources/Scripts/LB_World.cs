@@ -58,7 +58,7 @@ public class LB_World : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
-        widgetManager = FindObjectOfType<GI_WidgetManager>();
+        widgetManager = GameInstance.Get<GI_WidgetManager>();
         widgetManager.AddWidget(HUDWidgetPrefab);
 
         StartCoroutine(InitializeGeogunOverrides());
@@ -71,7 +71,7 @@ public class LB_World : MonoBehaviour
         // Give the player the geogun if they don't already have it
         if (shouldHaveGeogun)
         {
-            var pawnManager = FindObjectOfType<GI_PawnManager>();
+            var pawnManager = GameInstance.Get<GI_PawnManager>();
             var playerInventory = pawnManager.localPlayerCharacter.GetComponentInChildren<Pawn_Inventory>();
             if (playerInventory) if (!playerInventory.items.Contains(geogunPrefab)) playerInventory.AddItem(geogunPrefab);
         }
