@@ -166,7 +166,7 @@ public class BulbOutletStripEditor : Editor
         Vector3 oldEndPos = outletStrip.endPoint.position;
 
         bool changeOccurred = false;
-        bool changeWasStartHandle = false; // Was working on this
+        //bool changeWasStartHandle = false; // Was working on this
         bool holdingControl = Event.current.control;
 
         // Start Handle

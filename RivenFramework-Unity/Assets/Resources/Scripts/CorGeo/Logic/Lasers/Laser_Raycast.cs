@@ -52,7 +52,7 @@ public class Laser_Raycast : MonoBehaviour
 
 #if UNITY_EDITOR
     
-    protected new void OnDrawGizmos()
+    protected void OnDrawGizmos()
     {
         //base.OnDrawGizmos ();
         //if (inputSignal) Debug.DrawLine(gameObject.transform.position, inputSignal.transform.position, Color.blue);
