@@ -5,7 +5,6 @@
 //
 //=============================================================================
 
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,7 +24,6 @@ public class WB_Pause : WidgetBlueprint
     //=-----------------=
     // Reference Variables
     //=-----------------=
-    private GameInstance gameInstance;
     private GI_WidgetManager widgetManager;
     private GI_WorldLoader worldLoader;
     [SerializeField] private Button buttonResume, buttonSettings, buttonTitle, buttonQuit, buttonRestart;
@@ -37,9 +35,8 @@ public class WB_Pause : WidgetBlueprint
     //=-----------------=
     private void Start()
     {
-        widgetManager = FindObjectOfType<GI_WidgetManager>();
-        gameInstance = FindObjectOfType<GameInstance>();
-        worldLoader = FindObjectOfType<GI_WorldLoader>();
+        widgetManager = GameInstance.Get<GI_WidgetManager>();
+        worldLoader = GameInstance.Get<GI_WorldLoader>();
         buttonResume.onClick.AddListener(delegate { OnClick("buttonResume"); });
         buttonSettings.onClick.AddListener(delegate { OnClick("buttonSettings"); });
         buttonTitle.onClick.AddListener(delegate { OnClick("buttonTitle"); });
@@ -61,11 +58,11 @@ public class WB_Pause : WidgetBlueprint
         switch (_button)
         {
             case "buttonResume":
-                if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
+                if (widgetManager == null) widgetManager = GameInstance.Get<GI_WidgetManager>();
                 widgetManager.ToggleWidget("WB_Pause");
                 break;
             case "buttonSettings":
-                if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
+                if (widgetManager == null) widgetManager = GameInstance.Get<GI_WidgetManager>();
                 widgetManager.AddWidget(settingsWidget);
                 //GameInstance.GetWidget("WB_Settings").GetComponent<WB_Settings>().Init();
                 break;

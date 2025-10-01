@@ -43,7 +43,7 @@ public class WB_DeathScreen : WidgetBlueprint
         if (!acceptingInputs) return;
         if (Input.anyKeyDown)
         {
-            worldLoader = FindObjectOfType<GI_WorldLoader>();
+            worldLoader = GameInstance.Get<GI_WorldLoader>();
             worldLoader.ForceLoadWorld(SceneManager.GetActiveScene().name);
         }
     }
