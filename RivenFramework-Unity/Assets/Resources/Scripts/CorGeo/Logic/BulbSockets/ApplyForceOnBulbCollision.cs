@@ -15,12 +15,9 @@ public class ApplyForceOnBulbCollision : MonoBehaviour, BulbCollisionBehaviour
             Destroy(this);
     }
     
-    [Todo("Needs updated Projectile_Marker to make this functional")]
     public bool OnBulbCollision(Projectile_Marker bulb, RaycastHit hit)
     {
-        // TODO Projectile_Marker replaced Projectile_Vacumm and causes these lines to break! ~Liz
         rigidbody.AddForceAtPosition(bulb.moveVector * force, hit.point, ForceMode.Impulse);
-        //bulb.MarkerBreak();
         return false;
     }
 }

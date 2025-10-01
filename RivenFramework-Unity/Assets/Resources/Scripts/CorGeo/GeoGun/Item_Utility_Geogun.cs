@@ -82,6 +82,15 @@ public class Item_Utility_Geogun : Item
 
     #region=======================================( Functions )======================================================= //
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+    private void OnEnable()
+    {
+        var riftManager = GameInstance.Get<GI_RiftManager>();
+        if (riftManager)
+        {
+            riftManager.RegisterGeogun(this);
+        }
+    }
+
     private void Update()
     {
         
@@ -277,7 +286,7 @@ public class Item_Utility_Geogun : Item
     /// Used by GetIsValidTarget to get the index of the tri that was hit on a mesh
     /// (So GetIsValidTarget can check for valid placement materials)
     /// </summary>
-    [Todo("Can someone fact check me on this function's summary? ~Liz")]
+    [Todo("Can someone fact check me on this function's summary? ~Liz", TodoSeverity.Minor)]
     private int GetSubMeshIndex(Mesh mesh, int triIndex)
     {
         int triangleCounter = 0;

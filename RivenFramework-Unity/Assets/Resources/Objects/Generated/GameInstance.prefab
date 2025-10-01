@@ -140,7 +140,7 @@ MonoBehaviour:
     targetResolution: 0
     windowMode: 0
     enableVysnc: 0
-    fpsLimit: 60
+    fpsLimit: 100
     showFramecounter: 0
     qualityPreset: 3
     quality:
@@ -172,8 +172,8 @@ MonoBehaviour:
     invertVerticalView: 0
     horizontalLookSpeed: 1
     verticalLookSpeed: 0.75
-    joystickLookSensitivity: 0.7
-    mouseLookSensitivity: 0.7
+    joystickLookSensitivity: 0.9
+    mouseLookSensitivity: 0.5
     cameraFov: 90
     hideTextChat: 0
     enablePushToTalk: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
     postprocessingQuality: 1
   mediumQuality:
     resolutionScale: 2
-    shadowQuality: 2
+    shadowQuality: 1
     effectsQuality: 2
     textureQuality: 3
     postprocessingQuality: 2
@@ -220,7 +220,7 @@ MonoBehaviour:
     targetResolution: 0
     windowMode: 0
     enableVysnc: 0
-    fpsLimit: 60
+    fpsLimit: 100
     showFramecounter: 0
     qualityPreset: 3
     quality:
@@ -252,8 +252,8 @@ MonoBehaviour:
     invertVerticalView: 0
     horizontalLookSpeed: 1
     verticalLookSpeed: 0.75
-    joystickLookSensitivity: 0.7
-    mouseLookSensitivity: 0.7
+    joystickLookSensitivity: 0.9
+    mouseLookSensitivity: 0.5
     cameraFov: 90
     hideTextChat: 0
     enablePushToTalk: 0
@@ -270,7 +270,7 @@ MonoBehaviour:
     targetResolution: 0
     windowMode: 0
     enableVysnc: 0
-    fpsLimit: 60
+    fpsLimit: 100
     showFramecounter: 0
     qualityPreset: 3
     quality:
@@ -302,8 +302,8 @@ MonoBehaviour:
     invertVerticalView: 0
     horizontalLookSpeed: 1
     verticalLookSpeed: 0.75
-    joystickLookSensitivity: 0.7
-    mouseLookSensitivity: 0.7
+    joystickLookSensitivity: 0.9
+    mouseLookSensitivity: 0.5
     cameraFov: 90
     hideTextChat: 0
     enablePushToTalk: 0
@@ -815,6 +815,7 @@ MonoBehaviour:
   maxRiftSpeed: 8
   riftAcceleration: 8
   currentRiftMoveSpeed: 0
+  linkedGeogun: {fileID: 0}
   cutPlanePrefab: {fileID: 3569801623043244855, guid: 83ab4b7787c4221b2b87b065899cbea3,
     type: 3}
   spaceContainerA: {fileID: 0}
@@ -900,4 +901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38957714d16ecd5e09c1c3aed34cb0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devMenuButtonPrefab: {fileID: 0}
+  layoutSettings:
+    tabs: []
+  references:
+    version: 2
+    RefIds: []

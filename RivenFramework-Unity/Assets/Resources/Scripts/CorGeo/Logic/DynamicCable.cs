@@ -74,7 +74,10 @@ namespace Neverway.Framework.LogicSystem
 
             anchorPointARigidBody = anchorPointA.GetComponent<Rigidbody>();
             anchorPointBRigidBody = anchorPointB.GetComponent<Rigidbody>();
-            if (input) input.CallOnSourceChanged(SetCablePowered);
+            if (input.HasLogicOutputSource)
+            {
+                input.CallOnSourceChanged(SetCablePowered);
+            }
         }
 
         [Todo_Optimize("GenerateWaypoints and getComponent are stupid expensive here!")]

@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Neverway
-  productName: Corridor Geodesic
+  productName: CorridorGeodesic
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
@@ -138,11 +138,9 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
-  bundleVersion: RAD [1.0.0]
+  bundleVersion: PRE-RAD [0.0.0]
   preloadedAssets:
   - {fileID: 11400000, guid: bdd4e0c3d32828ab28fa2ce99b4b640b, type: 2}
-  - {fileID: 474817797591549523, guid: 0c148dc4a1fcb635589ac60991ae1079, type: 2}
-  - {fileID: -6945090212438223603, guid: 3d6cadb24bafb927084b01f10613d086, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

@@ -39,7 +39,7 @@ public class CorGeo_Actor : MonoBehaviour
     [Tooltip("Used to restore static actors back to their initial scale when uncollapsing rifts")]
     [SerializeField] private Vector3 homeScale;
     [Tooltip("Used to restore static actors back to their initial parent object when uncollapsing rifts")]
-    [SerializeField] private Transform homeParent;
+    [SerializeField] public Transform homeParent;
     [Tooltip("Enabled when an object is picked up by a pawn, this prevents the object from being moved during rift movements, otherwise the object would be pulled out of their hands")]
     [SerializeField] public bool isHeld = false;
     [Tooltip("Used to keep track of if this game object should be re-enabled in the hierarchy when resetting rifts")]
