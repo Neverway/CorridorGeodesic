@@ -499,31 +499,14 @@ namespace RivenFramework
 
             /// <summary>Returns <see cref="DrawerObject"/> for button that opens your IDE to provided 
             /// <see cref="TodoAttribute"/></summary>
-            public static EZ.DrawerObject GetOpenCodeButton(TodoAttribute toJumpTo)
+            public static EZ.DrawerObject GetButton_JumpToCode(TodoAttribute toJumpTo)
             {
                 if (toJumpTo == null)
                     return new EZ.EmptySpace();
-
-                /* Me just messing around with icons:
-                    ♜♝♞♛♚♞♝♜
-                    ♟♟♟♟♟♟♟♟
-
-
-
-
-                    ♙♙♙♙♙♙♙♙
-                    ♖♗♘♕♔♘♗♖
-
-                    🕷⏻⚐⚑⌬ */
-
-                bool useJokeIcon = false; //UnityEngine.Random.value < 0.01f;
-
                 GUIStyle buttonStyle = EditorStyles.iconButton;
-                buttonStyle.fontSize = useJokeIcon ? 18 : 13; //↩⟵✏
+                buttonStyle.fontSize = 13; //↩⟵✏
 
-                return new EZ.Button(useJokeIcon ? "☭" : "↩",
-                                () => { toJumpTo.EDITOR_OpenFileAtAttributeLocation(); })
-                                .SetStyle(buttonStyle);
+                return new EZ.Button("↩", () => { toJumpTo.EDITOR_OpenFileAtAttributeLocation(); }).SetStyle(buttonStyle);
             }
 
 
@@ -610,7 +593,7 @@ namespace RivenFramework
                     }
 
                     //Add button to jump to the attribute (will be an empty space if attribute is null)
-                    EZ.DrawerObject jumpToCodeButton = GetOpenCodeButton(classTypeGroup?.firstFoundTodoAttribute);
+                    EZ.DrawerObject jumpToCodeButton = GetButton_JumpToCode(classTypeGroup?.firstFoundTodoAttribute);
                     title = new EZ.SizedHorizontalGroup(title).AddOnLeft(jumpToCodeButton, 16);
 
                     //Group all MemberGroups associated with this Type
@@ -653,7 +636,7 @@ namespace RivenFramework
                 {
                     string todoText = GetFullTodo();
                     EZ.VerticalGroup contents = new EZ.VerticalGroup();
-                    EZ.DrawerObject jumpToCodeButton = GetOpenCodeButton(firstFoundTodoAttribute);
+                    EZ.DrawerObject jumpToCodeButton = GetButton_JumpToCode(firstFoundTodoAttribute);
 
                     if (identifier is not TypeInfo)
                     {

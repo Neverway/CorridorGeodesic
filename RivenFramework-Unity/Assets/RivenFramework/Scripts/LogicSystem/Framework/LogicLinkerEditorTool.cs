@@ -25,7 +25,6 @@ namespace Neverway.Framework.LogicSystem
         private LogicComponent firstLogicComponent = null; // Track the first object (where dragging starts)
         private Vector3 startHandlePosition;
         private bool isDragging = false;
-        private int previousSceneObjectsCount = -1;
         private LogicComponent[] logicComponents;
 
         private LinkerToolPopupWindow activeWindow;
@@ -35,7 +34,6 @@ namespace Neverway.Framework.LogicSystem
         private void OnEnable()
         {
             _iconContent = new GUIContent(EditorGUIUtility.IconContent("AvatarInspector/DotSelection").image, "Link Tool");
-            previousSceneObjectsCount = -1;
             logicComponents = null;
         }
 

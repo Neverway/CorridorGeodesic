@@ -46,7 +46,11 @@ public abstract class EasyPropertyDrawer : PropertyDrawer
     {
         if (property == null || property.SerializedObject == null || property.SerializedObject.targetObject == null)
         {
-            return "---";
+            return "--- something is null, cannot give full error context ---";
+        }
+        if (property.SerializedObject.isEditingMultipleObjects)
+        {
+            return "--- editing multiple objects, cannot give full error context ---";
         }
         UnityEngine.Object unityObject = property.SerializedObject.targetObject;
         string errorMessage =
