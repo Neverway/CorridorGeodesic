@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60091060c18ffe64eba4851b2bb3316f, type: 3}
+  m_Name: Gary
+  m_EditorClassIdentifier: 
+  cardName: Gary
+  cardCost: 12
+  typeTags:
+  - monster
+  effects:
+  - rid: 1234355863874437120
+  cardEffectDescription: Deals 5 damage to 2 target monster or 5-cost and artifact
+    cards
+  references:
+    version: 2
+    RefIds:
+    - rid: 1234355863874437120
+      type: {class: DealDamage, ns: , asm: Assembly-CSharp}
+      data:
+        damage: 5
+        targetCards:
+          targetType: 2
+          targetAmount: 2
+          targetFilter:
+            rid: 1234355863874437122
+    - rid: 1234355863874437122
+      type: {class: MultiFilter, ns: , asm: Assembly-CSharp}
+      data:
+        filterType: 1
+        filters:
+        - rid: 1234355863874437123
+        - rid: 1234355863874437125
+    - rid: 1234355863874437123
+      type: {class: MatchesTag, ns: , asm: Assembly-CSharp}
+      data:
+        tagToMatch: monster
+    - rid: 1234355863874437125
+      type: {class: MultiFilter, ns: , asm: Assembly-CSharp}
+      data:
+        filterType: 0
+        filters:
+        - rid: 1234355863874437126
+        - rid: 1234355863874437127
+    - rid: 1234355863874437126
+      type: {class: CostsExactly, ns: , asm: Assembly-CSharp}
+      data:
+        costToMatch: 5
+    - rid: 1234355863874437127
+      type: {class: MatchesTag, ns: , asm: Assembly-CSharp}
+      data:
+        tagToMatch: artifact

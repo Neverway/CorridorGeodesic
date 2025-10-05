@@ -137,6 +137,7 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\CSGGrid.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\Utilities\ClipUtility.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\BuildEngine\CSGFactory.cs" />
+    <Compile Include="Assets\ToRemove\JSA_Card.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSG\Polygon.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\SplashScreenPlayer.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\IPostBuildListener.cs" />
