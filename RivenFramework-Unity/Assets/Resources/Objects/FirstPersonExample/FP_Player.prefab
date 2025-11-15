@@ -13,6 +13,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FP_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3001261832045667083, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: connectionJoint
+      value: 
+      objectReference: {fileID: 3518166144463916604}
     - target: {fileID: 3171295537266024931, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: targetPawn
@@ -73,6 +78,33 @@ PrefabInstance:
       propertyPath: targetPawn
       value: 
       objectReference: {fileID: 7360750914834237688}
+    - target: {fileID: 7605716022011797126, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669690106380009036, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669690106380009036, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[0].assemblyQualifiedName
+      value: ComicFilter, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669690106380009036, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[1].assemblyQualifiedName
+      value: DitheringFilter, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 7669690106380009036, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      propertyPath: m_AfterStackBundles.Array.data[2].assemblyQualifiedName
+      value: ColorQuantizationFilter, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      objectReference: {fileID: 0}
     - target: {fileID: 8225315359643588643, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: targetPawn
@@ -104,7 +136,178 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9144359831165007799}
+    - targetCorrespondingSourceObject: {fileID: 7605716022011797126, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3379816324747993718}
+    - targetCorrespondingSourceObject: {fileID: 366098670773715949, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5455684000006326353}
+    - targetCorrespondingSourceObject: {fileID: 366098670773715949, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3518166144463916604}
   m_SourcePrefab: {fileID: 100100000, guid: 9ed3a4da35b3ca57e9b7424f51915e87, type: 3}
+--- !u!1 &3197401342108980926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7605716022011797126, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+    type: 3}
+  m_PrefabInstance: {fileID: 5031538898694686776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3379816324747993718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3197401342108980926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ea1713f817798728ec224ee3db887f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectMaterial: {fileID: 2100000, guid: 3d8e81ec32f642ff08ca6f15311c5d09, type: 2}
+  edgeStrength: 1.04
+  posterizeLevels: 32
+  hatchTexture: {fileID: 2800000, guid: 4add193c3e4df40fbab145e813f9b621, type: 3}
+  hatchStrength: 0
+  hatchScale: 4
+--- !u!1 &4667762440509066197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 366098670773715949, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+    type: 3}
+  m_PrefabInstance: {fileID: 5031538898694686776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &5455684000006326353
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4667762440509066197}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!153 &3518166144463916604
+ConfigurableJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4667762440509066197}
+  m_ConnectedBody: {fileID: 0}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_Anchor: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_SecondaryAxis: {x: 0, y: 1, z: 0}
+  m_XMotion: 1
+  m_YMotion: 1
+  m_ZMotion: 1
+  m_AngularXMotion: 1
+  m_AngularYMotion: 1
+  m_AngularZMotion: 1
+  m_LinearLimitSpring:
+    spring: 0
+    damper: 0
+  m_LinearLimit:
+    limit: 2
+    bounciness: 1
+    contactDistance: 0
+  m_AngularXLimitSpring:
+    spring: 0
+    damper: 0
+  m_LowAngularXLimit:
+    limit: 1
+    bounciness: 1
+    contactDistance: 0
+  m_HighAngularXLimit:
+    limit: 1
+    bounciness: 1
+    contactDistance: 0
+  m_AngularYZLimitSpring:
+    spring: 555
+    damper: 0
+  m_AngularYLimit:
+    limit: 3
+    bounciness: 1
+    contactDistance: 0
+  m_AngularZLimit:
+    limit: 3
+    bounciness: 1
+    contactDistance: 0
+  m_TargetPosition: {x: 0, y: 0, z: 0}
+  m_TargetVelocity: {x: 0, y: 0, z: 0}
+  m_XDrive:
+    serializedVersion: 4
+    positionSpring: 75
+    positionDamper: 9
+    maximumForce: 3.4028233e+38
+    useAcceleration: 1
+  m_YDrive:
+    serializedVersion: 4
+    positionSpring: 125
+    positionDamper: 9
+    maximumForce: 3.4028233e+38
+    useAcceleration: 1
+  m_ZDrive:
+    serializedVersion: 4
+    positionSpring: 999
+    positionDamper: 25
+    maximumForce: 3.4028233e+38
+    useAcceleration: 1
+  m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
+  m_RotationDriveMode: 0
+  m_AngularXDrive:
+    serializedVersion: 4
+    positionSpring: 52
+    positionDamper: 1
+    maximumForce: 3.4028233e+38
+    useAcceleration: 1
+  m_AngularYZDrive:
+    serializedVersion: 4
+    positionSpring: 155
+    positionDamper: 1
+    maximumForce: 3.4028233e+38
+    useAcceleration: 1
+  m_SlerpDrive:
+    serializedVersion: 4
+    positionSpring: 55
+    positionDamper: 0
+    maximumForce: 3.4028233e+38
+    useAcceleration: 1
+  m_ProjectionMode: 1
+  m_ProjectionDistance: 0.1
+  m_ProjectionAngle: 180
+  m_ConfiguredInWorldSpace: 0
+  m_SwapBodies: 0
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &7275086507616164517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
@@ -209,18 +412,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca3b513376942e2884b9afb4babceef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dynamic: 1
+  isParentedIgnoreOffsets: 0
   activeInNullSpace: 0
   destroyedInKillTrigger: 1
+  debugLogSpaceData: 0
   homePosition: {x: 0, y: 0, z: 0}
   homeScale: {x: 0, y: 0, z: 0}
   homeParent: {fileID: 0}
-  dynamic: 1
-  crushInNullSpace: 1
-  isParentedIgnoreOffsets: 0
   isHeld: 0
-  space: 0
   wasActive: 0
-  debugLogData: 0
+  space: 0
 --- !u!114 &9144359831165007799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +447,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5031538898694686776}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4667762440509066197}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91bb67116f18d64a4823df6d4137ac1a, type: 3}
