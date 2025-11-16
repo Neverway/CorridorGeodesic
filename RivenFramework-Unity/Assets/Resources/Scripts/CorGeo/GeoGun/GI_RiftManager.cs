@@ -25,6 +25,19 @@ public class GI_RiftManager : MonoBehaviour
     
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+
+    /// <summary>
+    /// Decides the behavior when the rift is collapsed, allowing for alternate modes of the geogun.
+    /// </summary>
+    public enum CollapseBehavior
+    {
+        Default,                //Standard behavior, collapsing rift removes geometry.
+        MirrorWhenCollapsed     //Collapsing rift can go past 0 into negative numbers, where it becomes mirrored.
+    }
+    //todo: determine where this gets set from, since it's part of game state
+    
+    public CollapseBehavior currentCollapseBehavior = CollapseBehavior.Default;
+
     public static bool riftActive;
     //Amount the B-Space is currently offset from its starting position.
     public static Vector3 currentRiftOffset;
@@ -38,7 +51,7 @@ public class GI_RiftManager : MonoBehaviour
     //The current rift state  :O
     public static RiftState currentState = RiftState.None;
 
-    // This event allows things to respond to any changes in the RiftState, such as the animated plane visuals or the rift audio effects.
+    // This event allows scripts to respond to any changes in the RiftState, such as the animated plane visuals or the rift audio effects.
     public delegate void StateChanged ();
     public static event StateChanged OnStateChanged;
 
@@ -52,7 +65,12 @@ public class GI_RiftManager : MonoBehaviour
     [HideInInspector] public static float riftStartingWidth; //width of the rift when it was first placed
     private bool collapseHeld = false;
     private bool expandHeld = false;
-    private bool waitForCollapseReleased = false; //Waits for you to release collapse so that the player has to press it again to collapse rift.
+
+    //Waits for you to release collapse so that the player has to press it again to collapse rift.
+    //Prevents player from clicking to place the rift and holding the mouse causing it to collapse right away.
+    private bool waitForCollapseReleased = false;
+    
+    
     private Vector3 riftNullSpacePosition; //The starting position of the null space container.
 
 
@@ -75,7 +93,9 @@ public class GI_RiftManager : MonoBehaviour
     [HideInInspector] public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes;
     public Graphics_RiftPreviewEffects riftPreviewEffects;
     public Material nullSpaceMaterial;
-
+    /// <summary>
+    /// All actors currently in the scene
+    /// </summary>
     public static List<CorGeo_Actor> CorGeo_Actors = new List<CorGeo_Actor> { };
 
     #endregion
@@ -464,12 +484,40 @@ public class GI_RiftManager : MonoBehaviour
     public void SetRiftPosition(float _percent)
     {
         if (!cutPlaneB) return;
+
+        if (currentCollapseBehavior == default)
+        {
+            if (_percent <= 0)
+            {
+                CollapseRift ();
+            }
+            if (currentRiftPercent == 0 && _percent > 0){
+                UnCollapseRift ();
+            }
+        }
+
         planeB = new Plane (cutPlaneB.transform.forward, cutPlaneB.transform.position);
         MoveActorsWithRift (_percent);
         currentRiftPercent = _percent;
         currentRiftWidth = riftStartingWidth * currentRiftPercent;
         Debug.Log (currentRiftWidth);
         MoveGeometryWithRift ();
+    }
+
+    //What happens when the rift is set to zero size
+    private void CollapseRift ()
+    {
+        UpdateState (RiftState.Closed);
+        DisableCollapsedObjects ();
+        riftIsMoving = false;
+    }
+
+    //What happens when the rift was at zero size and was opened.
+    private void UnCollapseRift ()
+    {
+        UpdateState (RiftState.Expanding);
+        EnableCollapsedObjects ();
+        riftIsMoving = true;
     }
 
     /// <summary>
@@ -481,6 +529,18 @@ public class GI_RiftManager : MonoBehaviour
         if (currentRiftWidth + distance > maxRiftWidth)
         {
             distance = maxRiftWidth - currentRiftWidth;
+        }
+        if (currentCollapseBehavior == CollapseBehavior.Default)
+        {
+            if (distance < 0 && currentRiftWidth + distance < minAbsoluteRiftWidth)
+            {
+                SetRiftPosition (0);
+                return;
+            }
+            if (distance > 0 && currentRiftWidth == 0)
+            {
+                SetRiftPosition(1/riftStartingWidth * minAbsoluteRiftWidth);
+            }
         }
         if (currentRiftWidth + distance < minRiftWidth)
         {
@@ -497,6 +557,15 @@ public class GI_RiftManager : MonoBehaviour
     private void MoveGeometryWithRift ()
     {
         if (!spaceContainerNull) return;
+
+        // If the rift collapsed, ignore minimum size rule so that we don't have a gap.
+        if (currentCollapseBehavior == CollapseBehavior.Default && currentRiftPercent == 0)
+        {
+            spaceContainerB.transform.position = riftNullSpacePosition;
+            cutPlaneB.transform.position = spaceContainerB.transform.position;
+            return;
+        }
+
         //  We use minAbsoluteRiftWidth to prevent the rift scale from getting too close to zero
         //  because collision mesh generation will bug out if the mesh is too skinny.
 
@@ -504,8 +573,7 @@ public class GI_RiftManager : MonoBehaviour
 
         if (currentRiftPercent < 0)
         {
-            //Special case for negative rift scaling.
-            //Don't know if we will use this mechanic or not, but you can flip the rift space by collapsing past zero percent.
+            //Special case for negative rift scaling, where the rift can be mirrored.
 
             if (currentRiftWidth > -minAbsoluteRiftWidth)
             {
@@ -579,6 +647,12 @@ public class GI_RiftManager : MonoBehaviour
     {
         //Calculate how far across null-space the transform is.
         float riftDistance = planeA.GetDistanceToPoint (_position);
+
+        if (riftDistance == 0)
+        {
+            return _position;
+        }
+
         float riftPercent = riftDistance / currentRiftWidth;
         //Calculate where the transform would be if null-space were not scaled.
         float newDistance = Mathf.Abs( riftPercent * (riftStartingWidth * _newPercent) );
@@ -597,6 +671,36 @@ public class GI_RiftManager : MonoBehaviour
         float offset = Mathf.Abs(riftStartingWidth*currentRiftPercent)-Mathf.Abs(riftStartingWidth * _newPercent);
 
         return _position - (riftNormal * offset);
+    }
+
+    private void DisableCollapsedObjects ()
+    {
+        foreach (GameObject g in spaceNullMeshes)
+        {
+            g.SetActive (false);
+        }
+        foreach (var actor in CorGeo_Actors)
+        {
+            if (actor.space == CorGeo_Actor.Space.Null)
+            {
+                actor.CollapseActor ();
+            }
+        }
+    }
+
+    private void EnableCollapsedObjects ()
+    {
+        foreach (GameObject g in spaceNullMeshes)
+        {
+            g.SetActive (true);
+        }
+        foreach (var actor in CorGeo_Actors)
+        {
+            if (actor.space == CorGeo_Actor.Space.Null)
+            {
+                actor.UnCollapseActor ();
+            }
+        }
     }
 
     #endregion

@@ -157,6 +157,27 @@ public class CorGeo_Actor : MonoBehaviour
         space = Space.Null;
     }
 
+    /// <summary>
+    /// What happens when this actor is trapped in a rift.
+    /// </summary>
+    public virtual void CollapseActor ()
+    {
+        if (activeInNullSpace == false)
+        {
+            gameObject.SetActive (false);
+        }
+    }
+
+    /// <summary>
+    /// What happens when this actor was trapped in a rift, and the rift is opened.
+    /// </summary>
+    public virtual void UnCollapseActor ()
+    {
+        if (activeInNullSpace == false)
+        {
+            gameObject.SetActive (true);
+        }
+    }
     
     #endregion
 }
