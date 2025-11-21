@@ -263,6 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkedPuncher: {fileID: 0}
   bubbleVolume: {fileID: 4966432401339966258}
+  animator: {fileID: 2827568642798745564}
 --- !u!1 &9038714163543620515
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +795,7 @@ PrefabInstance:
     - target: {fileID: 5307174321388946378, guid: d245a8f0340a9a4da9090fedd9c7666e,
         type: 3}
       propertyPath: output.OnOutputChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5307174321388946378, guid: d245a8f0340a9a4da9090fedd9c7666e,
         type: 3}

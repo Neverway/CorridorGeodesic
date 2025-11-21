@@ -307,6 +307,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Tool.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/ColorHex.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_AnimatorSetBool.cs" />
+     <Compile Include="Assets/Resources/Objects/NotProperActors/IntroSequence/OpeningSequence.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/_REMOVE_/Integratables/CorGeo" />
      <Folder Include="Assets/Resources/Maps" />
@@ -354,6 +355,7 @@
      <Folder Include="Assets/RivenFramework/Other" />
      <Folder Include="Assets/Resources/Maps/CorGeo/ErryTestMaps" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures" />
+     <Folder Include="Assets/Resources/Objects/NotProperActors/IntroSequence" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Concrete" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox 360" />
@@ -564,6 +566,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities" />
      <Folder Include="Assets/Resources/Materials/Shaders" />
      <Folder Include="Assets/Resources/Materials/Skyboxes" />
+     <Folder Include="Assets/Resources/Sound/Music/REFERENCE_DO_NOT_SHIP" />
      <Folder Include="Assets/Resources/Sprites" />
      <Folder Include="Assets/Resources/Sprites/Tilesets" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/WiiU" />
