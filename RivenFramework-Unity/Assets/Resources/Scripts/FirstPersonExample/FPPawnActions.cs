@@ -382,7 +382,14 @@ public class FPPawnActions : PawnActions
         var physPickup = attachedObject.GetComponent<Object_PhysPickup>();
         if (physPickup) physPickup.Drop();
         else attachedObject.GetComponent<Object_PhysPickupAdvanced>().Drop();
-        
+    }
+
+    public void DropPhysProp(FPPawn _pawn)
+    {
+        var attachedObject = _pawn.physObjectAttachmentPoint.attachedObject;
+        var physPickup = attachedObject.GetComponent<Object_PhysPickup>();
+        if (physPickup) physPickup.Drop();
+        else attachedObject.GetComponent<Object_PhysPickupAdvanced>().Drop();
     }
 
     public FPPawn GetClosest(FPPawn _pawn, List<Pawn> _pawns)

@@ -258,7 +258,7 @@ public class Item_Utility_Geogun : Item
     {
         if (!_hit.collider)
         {
-            Debug.LogWarning("Somehow raycast hit an invalid object");
+            //Debug.LogWarning("Somehow raycast hit an invalid object");
             return false;
         }
         // Gun is pointed at a bulb snapping point (That is valid!)

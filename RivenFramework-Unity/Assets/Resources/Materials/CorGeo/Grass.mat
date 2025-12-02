@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grass_Dense_Tint_01_Base_A
+  m_Name: Grass
   m_Shader: {fileID: 4800000, guid: d44cd7bbb42b445a39e14e6b76a11e50, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

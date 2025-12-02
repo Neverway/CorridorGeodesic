@@ -114,7 +114,17 @@ public class FPPawn_Player : FPPawn
         }
         
         // Interact 
-        if (inputActions.Interact.WasPressedThisFrame()) action.Interact(this, interactionPrefab, viewPoint.transform);
+        if (inputActions.Interact.WasPressedThisFrame())
+        {
+            if (physObjectAttachmentPoint.attachedObject)
+            {
+                action.DropPhysProp(this);
+            }
+            else
+            {
+                action.Interact(this, interactionPrefab, viewPoint.transform);
+            }
+        }
         
         // Switch item
         if (inputActions.ItemSwapNext.WasPressedThisFrame()) action.ItemSwapNext(this);

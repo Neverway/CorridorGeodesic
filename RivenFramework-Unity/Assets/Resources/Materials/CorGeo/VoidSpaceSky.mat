@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NullSpace 1
+  m_Name: VoidSpaceSky
   m_Shader: {fileID: 4800000, guid: b579607515f42ce4987382bf9711115e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
