@@ -1038,10 +1038,6 @@
       <Project>{3b7df345-bd9a-eee0-b323-cd18f735389d}</Project>
       <Name>Neverway.Framework.AudioManagement</Name>
     </ProjectReference>
-    <ProjectReference Include="RivenFramework.Utils.Reflection.editor.csproj">
-      <Project>{3e06ec83-ba64-6044-4ec7-535012e89bbc}</Project>
-      <Name>RivenFramework.Utils.Reflection.editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.PawnManagement.csproj">
       <Project>{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}</Project>
       <Name>Neverway.Framework.PawnManagement</Name>

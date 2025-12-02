@@ -69,6 +69,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/OBJVertexList.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Segment.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CSGModelBase.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/CorGeo_RealityPuncher.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_StepUp.cs" />
      <Compile Include="Assets/Resources/Scripts/GI_DevToolsLoader.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices/Matrix3x2.cs" />
@@ -102,6 +103,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dPolygonFlags.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ResizeEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/SurfaceEditor.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/SketchPostProcess.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/TransformModelEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/MathHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/MarkerCollisionBehaviour.cs" />
@@ -305,6 +307,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Tool.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/ColorHex.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_AnimatorSetBool.cs" />
+     <Compile Include="Assets/Resources/Objects/NotProperActors/IntroSequence/OpeningSequence.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/_REMOVE_/Integratables/CorGeo" />
      <Folder Include="Assets/Resources/Maps" />
@@ -352,6 +355,7 @@
      <Folder Include="Assets/RivenFramework/Other" />
      <Folder Include="Assets/Resources/Maps/CorGeo/ErryTestMaps" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures" />
+     <Folder Include="Assets/Resources/Objects/NotProperActors/IntroSequence" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Concrete" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox 360" />
@@ -500,6 +504,7 @@
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/System/NeverwayLogo/Materials" />
+     <None Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/SketchPostProcess.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS4" />
      <Folder Include="Assets/RivenFramework/Scripts/_Unknown" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/RockOne" />
@@ -561,6 +566,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities" />
      <Folder Include="Assets/Resources/Materials/Shaders" />
      <Folder Include="Assets/Resources/Materials/Skyboxes" />
+     <Folder Include="Assets/Resources/Sound/Music/REFERENCE_DO_NOT_SHIP" />
      <Folder Include="Assets/Resources/Sprites" />
      <Folder Include="Assets/Resources/Sprites/Tilesets" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/WiiU" />
@@ -1556,10 +1562,6 @@
     <ProjectReference Include="Neverway.Framework.AudioManagement.csproj">
       <Project>{3b7df345-bd9a-eee0-b323-cd18f735389d}</Project>
       <Name>Neverway.Framework.AudioManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="RivenFramework.Utils.Reflection.editor.csproj">
-      <Project>{3e06ec83-ba64-6044-4ec7-535012e89bbc}</Project>
-      <Name>RivenFramework.Utils.Reflection.editor</Name>
     </ProjectReference>
     <ProjectReference Include="Neverway.Framework.PawnManagement.csproj">
       <Project>{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}</Project>
