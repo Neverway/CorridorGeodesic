@@ -783,6 +783,9 @@
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
      </Reference>
+     <Reference Include="com.unity.cinemachine.editor">
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Postprocessing.Runtime">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
      </Reference>
@@ -989,6 +992,9 @@
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     </Reference>
+     <Reference Include="Cinemachine">
+     <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
      </Reference>
      <Reference Include="FolderIconsEditor">
      <HintPath>/home/lizband/KBMServer/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/FolderIconsEditor.dll</HintPath>
