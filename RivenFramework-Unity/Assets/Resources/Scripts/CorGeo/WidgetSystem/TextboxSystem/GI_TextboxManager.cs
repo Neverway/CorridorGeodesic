@@ -454,6 +454,7 @@ public class TextEvent
 public enum TextboxDisplayMode
 {
     monologue,
+    dialogueNoPortrait,
     dialogue,
     shopMono,
     shopDia,

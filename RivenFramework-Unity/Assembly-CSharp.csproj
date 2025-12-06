@@ -442,6 +442,7 @@
      <Folder Include="Assets/Resources/Sprites/Level" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/SeeExcluded.shader" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Utility" />
+     <Folder Include="Assets/Resources/Objects/NotProperActors/CaveEnv" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Particles" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Fizzler.shader" />

@@ -49,6 +49,12 @@ public class WB_Textbox : MonoBehaviour
                 chat.rectTransform.offsetMin = new Vector2(15, 15);
                 chat.rectTransform.offsetMax = new Vector2(-15, -15);
                 break;
+            case TextboxDisplayMode.dialogueNoPortrait:
+                portrait.enabled = false;
+                name.enabled = true;
+                chat.rectTransform.offsetMin = new Vector2(15, 15);
+                chat.rectTransform.offsetMax = new Vector2(-15, -15);
+                break;
             case TextboxDisplayMode.dialogue:
                 portrait.enabled = true;
                 name.enabled = true;
