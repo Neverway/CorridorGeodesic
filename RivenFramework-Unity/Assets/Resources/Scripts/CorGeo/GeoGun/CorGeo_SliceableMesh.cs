@@ -23,6 +23,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BzKovSoft.ObjectSlicer;
+using System;
 
 /// <summary>
 /// Added to meshes to allow them to be sliced by the geogun
@@ -68,7 +69,6 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         EnsureNonConvexWhenCloned();
     }
 
-
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
     /// Slices the mesh if it intersects with either of the rift planes, then sorts the pieces into the correct space
@@ -100,6 +100,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour
                 // Make sure the part knows that it's a cut mesh
                 CorGeo_SliceableMesh newACutCorGeoSliceableMesh = newACutMesh.gameObject.GetComponent<CorGeo_SliceableMesh>();
                 newACutCorGeoSliceableMesh.isSlicedByPlane = true;
+                newACutCorGeoSliceableMesh.gameObject.SetActive (false);
+                riftManager.meshesToActivate.Add (newACutCorGeoSliceableMesh.gameObject);
                 
                 // Only cut the new meshes on the positive side (the side that faces towards where the B plane should be)
                 if (newACutMesh.side)
@@ -114,6 +116,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour
                             // Make sure the part knows that it's a cut mesh
                             CorGeo_SliceableMesh newBCutCorGeoSliceableMesh = newBCutMesh.gameObject.GetComponent<CorGeo_SliceableMesh>();
                             newBCutCorGeoSliceableMesh.isSlicedByPlane = true;
+                            newBCutCorGeoSliceableMesh.gameObject.SetActive (false);
+                            riftManager.meshesToActivate.Add (newBCutCorGeoSliceableMesh.gameObject);
 
                             /* OLD CODE FOR 'PartsReference' STUFF (Which is used for allowing sliceable logic volumes)
                             // I have not fully re-created this in the new system yet as I don't fully understand it ~Liz
@@ -170,8 +174,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour
             var resultOfPlaneBSlice = await slicer.SliceAsync(GI_RiftManager.planeB, sliceData);
             if (resultOfPlaneBSlice.sliced)
             {
-                // Hide the original and set the isSlicedByPlane to true, so we can skip Part Three
-                _originalMesh.SetActive(false);
+                // Add the original and set the isSlicedByPlane to true, so we can skip Part Three
+                //_originalMesh.SetActive(false);
                 riftManager.hiddenOriginalMeshes.Add(_originalMesh);
                 isSlicedByPlane = true;
 
@@ -180,6 +184,11 @@ public class CorGeo_SliceableMesh : MonoBehaviour
                     // Make sure the part knows that it's a cut mesh
                     CorGeo_SliceableMesh newBCutCorGeoSliceableMesh = newBCutMesh.gameObject.GetComponent<CorGeo_SliceableMesh>();
                     newBCutCorGeoSliceableMesh.isSlicedByPlane = true;
+                    newBCutCorGeoSliceableMesh.gameObject.SetActive (false);
+                    riftManager.meshesToActivate.Add (newBCutCorGeoSliceableMesh.gameObject);
+
+
+
 
                     /* OLD CODE FOR 'PartsReference' STUFF (Which is used for allowing sliceable logic volumes)
                     // I have not fully re-created this in the new system yet as I don't fully understand it ~Liz

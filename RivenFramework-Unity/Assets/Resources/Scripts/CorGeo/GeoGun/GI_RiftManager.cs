@@ -90,7 +90,7 @@ public class GI_RiftManager : MonoBehaviour
     [HideInInspector] public GameObject cutPlaneA, cutPlaneB;
     [HideInInspector] public static Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
-    [HideInInspector] public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes;
+    [HideInInspector] public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes, meshesToActivate;
     public Graphics_RiftPreviewEffects riftPreviewEffects;
     public Material nullSpaceMaterial;
     /// <summary>
@@ -312,6 +312,8 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void SliceCutPlanes()
     {
+        meshesToActivate = new List<GameObject> ();
+
         var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh> ();
         foreach (var sliceableMesh in sliceableMeshes)
         {
@@ -324,8 +326,27 @@ public class GI_RiftManager : MonoBehaviour
         StartCoroutine(AssignSpaceContainerForMeshes());
 
         waitForCollapseReleased = true;
+
+        StartCoroutine (SwitchToSlicedObjectsOnDelay ());
     }
-    
+
+    private IEnumerator SwitchToSlicedObjectsOnDelay ()
+    {
+        yield return new WaitForEndOfFrame ();
+        foreach (var g in hiddenOriginalMeshes)
+        {
+            g.SetActive (false);
+        }
+        foreach (var mesh in meshesToActivate) {
+            if (mesh == null)
+            {
+                Debug.LogError ("null mesh was left in the list??");
+                continue;
+            }
+            mesh.SetActive (true);
+        }
+    }
+
     /// <summary>
     /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixes those
     /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixeus those
