@@ -328,6 +328,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ClipEditor.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_SFX_Impact.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/SerializablePlane.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/DTSpline_CopyCinemachinePath.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume/PhysicsVolumeGravityMode.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/EdgeUtility.cs" />
