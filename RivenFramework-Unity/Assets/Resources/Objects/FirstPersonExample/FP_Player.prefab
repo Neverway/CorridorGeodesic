@@ -681,7 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dynamic: 1
   isParentedIgnoreOffsets: 0
-  activeInNullSpace: 0
+  activeInNullSpace: 1
   destroyedInKillTrigger: 1
   debugLogSpaceData: 0
   homePosition: {x: 0, y: 0, z: 0}

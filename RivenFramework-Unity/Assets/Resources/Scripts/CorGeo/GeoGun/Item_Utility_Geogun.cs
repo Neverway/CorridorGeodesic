@@ -28,9 +28,15 @@ public class Item_Utility_Geogun : Item
     [Todo("Need to add expanding rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts to expand past the start position")]
     public bool allowExpandingRift;
-    [Todo("Need to add inverting rift check to rift manager", Owner = "Liz")]
-    [Tooltip("Allows rifts collapsing into the negatives, mirroring null space")]
-    public bool allowInvertingRift;
+
+    public enum CollapseBehavior
+    {
+        Default,                //Standard behavior, collapsing rift removes geometry.
+        MirrorWhenCollapsed     //Collapsing rift can go past 0 into negative numbers, where it becomes mirrored.
+    }
+    [Tooltip("Decides the behavior when the rift is collapsed, allowing for alternate modes of the geogun.")]
+    public CollapseBehavior collapseBehavior = CollapseBehavior.Default;
+
     [Todo("Need to add slamming rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows the player to slam rifts closed, creating a vacuum that flings things out of rifts")]
     public bool allowSlammingRift;

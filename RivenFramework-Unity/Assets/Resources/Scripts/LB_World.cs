@@ -29,7 +29,7 @@ public class LB_World : MonoBehaviour
     [Tooltip("Allows rifts to expand past the start position")]
     public bool allowExpandingRift;
     [Tooltip("Allows rifts collapsing into the negatives, mirroring null space")]
-    public bool allowInvertingRift;
+    public Item_Utility_Geogun.CollapseBehavior collapseBehavior;
     [Tooltip("Allows the player to slam rifts closed, creating a vacuum that flings things out of rifts")]
     public bool allowSlammingRift;
     [Tooltip("Debug parameter to... well, you get it (Allows markers to be placed on any material)")]
@@ -93,7 +93,7 @@ public class LB_World : MonoBehaviour
         {
             geogun.allowNonLinearSlicing = allowNonLinearSlicing;
             geogun.allowExpandingRift = allowExpandingRift;
-            geogun.allowInvertingRift = allowInvertingRift;
+            geogun.collapseBehavior = collapseBehavior;
             geogun.allowSlammingRift = allowSlammingRift;
             geogun.allowMarkerPlacementAnywhere = allowMarkerPlacementAnywhere;
         }

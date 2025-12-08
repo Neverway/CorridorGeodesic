@@ -45,17 +45,6 @@ public class GI_RiftManager : MonoBehaviour
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
 
-    /// <summary>
-    /// Decides the behavior when the rift is collapsed, allowing for alternate modes of the geogun.
-    /// </summary>
-    public enum CollapseBehavior
-    {
-        Default,                //Standard behavior, collapsing rift removes geometry.
-        MirrorWhenCollapsed     //Collapsing rift can go past 0 into negative numbers, where it becomes mirrored.
-    }
-    //todo: determine where this gets set from, since it's part of game state
-    
-    public CollapseBehavior currentCollapseBehavior = CollapseBehavior.Default;
 
     public static bool riftActive; // This is set to true when all of the rift initialization is complete and false when a rift is cleared
 
@@ -569,7 +558,7 @@ public class GI_RiftManager : MonoBehaviour
     {
         if (!cutPlaneB) return;
 
-        if (currentCollapseBehavior == default)
+        if (linkedGeogun.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default)
         {
             if (_percent <= 0)
             {
@@ -618,7 +607,7 @@ public class GI_RiftManager : MonoBehaviour
             distance = 0;
         }
 
-        if (currentCollapseBehavior == CollapseBehavior.Default)
+        if (linkedGeogun.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default)
         {
             if (distance < 0 && currentRiftWidth + distance < minAbsoluteRiftWidth)
             {
@@ -656,7 +645,7 @@ public class GI_RiftManager : MonoBehaviour
         if (!spaceContainerNull) return;
 
         // If the rift collapsed, ignore minimum size rule so that we don't have a gap.
-        if (currentCollapseBehavior == CollapseBehavior.Default && currentRiftPercent == 0)
+        if (linkedGeogun.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default && currentRiftPercent == 0)
         {
             spaceContainerB.transform.position = riftNullSpacePosition;
             cutPlaneB.transform.position = spaceContainerB.transform.position;
