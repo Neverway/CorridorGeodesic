@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{cb3494af-bfac-d36d-033e-6dda0fc7bd5b}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dreamteck.Splines.Editor", "Dreamteck.Splines.Editor.csproj", "{0b0131b6-8db3-1a13-d9c1-b33e99185fd9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework.LogicSystem", "Neverway.Framework.LogicSystem.csproj", "{ec2bcf95-64bf-125f-d106-ec12a8016db9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework.Cartographer", "Neverway.Framework.Cartographer.csproj", "{e39674fd-0230-c101-9fec-c610ab55f0a5}"
@@ -23,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.TempResource
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.PawnMangement", "RivenFramework.PawnMangement.csproj", "{bdf120d6-5854-7f7d-4f1a-9673abd83232}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dreamteck.Splines", "Dreamteck.Splines.csproj", "{34096e6e-7f5f-4e98-1cbf-b0734b295548}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BzKovSoft.ObjectSlicer", "BzKovSoft.ObjectSlicer.csproj", "{9245b8b1-c66b-a156-2c87-adc9c5dee130}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework", "Neverway.Framework.csproj", "{86afc6e2-dcf4-bae0-5d9b-904144009090}"
@@ -30,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.WidgetSystem", "RivenFramework.WidgetSystem.csproj", "{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicValues", "LogicValues.csproj", "{154b41dc-3a63-edcd-edca-8ed9acc89065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dreamteck.Utilities.Editor", "Dreamteck.Utilities.Editor.csproj", "{ec852276-3d53-f747-e36f-c458a8895ac1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTools", "DevTools.csproj", "{e84a44d7-e123-927e-054d-25763d8cd9cd}"
 EndProject
@@ -40,6 +46,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.ItemSystem", "RivenFramework.ItemSystem.csproj", "{7fdcced8-84e3-3bd8-fceb-7f97a0535f44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework.PawnManagement", "Neverway.Framework.PawnManagement.csproj", "{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dreamteck.Utilities", "Dreamteck.Utilities.csproj", "{9992a5f3-180b-e2c6-1d4d-8496ec18a5be}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BzKovSoft.ObjectSlicer.Samples", "BzKovSoft.ObjectSlicer.Samples.csproj", "{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}"
 EndProject
@@ -64,6 +72,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{cb3494af-bfac-d36d-033e-6dda0fc7bd5b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{cb3494af-bfac-d36d-033e-6dda0fc7bd5b}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0b0131b6-8db3-1a13-d9c1-b33e99185fd9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0b0131b6-8db3-1a13-d9c1-b33e99185fd9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ec2bcf95-64bf-125f-d106-ec12a8016db9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ec2bcf95-64bf-125f-d106-ec12a8016db9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e39674fd-0230-c101-9fec-c610ab55f0a5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -84,6 +94,8 @@ Global
 		{17b1526d-ad34-e881-c815-5f17dc5e2d92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bdf120d6-5854-7f7d-4f1a-9673abd83232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{bdf120d6-5854-7f7d-4f1a-9673abd83232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34096e6e-7f5f-4e98-1cbf-b0734b295548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34096e6e-7f5f-4e98-1cbf-b0734b295548}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9245b8b1-c66b-a156-2c87-adc9c5dee130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9245b8b1-c66b-a156-2c87-adc9c5dee130}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86afc6e2-dcf4-bae0-5d9b-904144009090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -92,6 +104,8 @@ Global
 		{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{154b41dc-3a63-edcd-edca-8ed9acc89065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{154b41dc-3a63-edcd-edca-8ed9acc89065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ec852276-3d53-f747-e36f-c458a8895ac1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ec852276-3d53-f747-e36f-c458a8895ac1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e84a44d7-e123-927e-054d-25763d8cd9cd}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{e84a44d7-e123-927e-054d-25763d8cd9cd}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{151a37ac-f391-173b-590e-1da35887fec1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -102,6 +116,8 @@ Global
 		{7fdcced8-84e3-3bd8-fceb-7f97a0535f44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9992a5f3-180b-e2c6-1d4d-8496ec18a5be}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9992a5f3-180b-e2c6-1d4d-8496ec18a5be}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7026925d-41e0-9706-9100-14e4184b9564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

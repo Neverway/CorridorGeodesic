@@ -44,7 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bb67116f18d64a4823df6d4137ac1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupMassLimit: 20
+  heldObjectLooselyPinned: 0
   attachedObject: {fileID: 0}
+  attachedRigidbody: {fileID: 0}
+  pickupJoint: {fileID: 0}
+  dragJoint: {fileID: 0}
+  dragLineRenderer: {fileID: 0}
 --- !u!1 &1640347545061574247
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +250,7 @@ GameObject:
   - component: {fileID: 465781218653721637}
   - component: {fileID: 6790299077824223532}
   - component: {fileID: 6118868544368584257}
+  - component: {fileID: 7969618115462721891}
   m_Layer: 11
   m_Name: FP_DefaultPawn
   m_TagString: Pawn
@@ -380,6 +387,20 @@ MonoBehaviour:
   physicsbody: {fileID: 0}
   interactionPrefab: {fileID: 2444235702127718979, guid: 725c5b70fb134786d8042beab3ac77f3,
     type: 3}
+--- !u!114 &7969618115462721891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2388545363728601757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7567bbb1af3481841aa9697b998ed31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideInitialScale: 0
+  initialScale: {x: 0, y: 0, z: 0}
 --- !u!1 &2429653748589542475
 GameObject:
   m_ObjectHideFlags: 0
