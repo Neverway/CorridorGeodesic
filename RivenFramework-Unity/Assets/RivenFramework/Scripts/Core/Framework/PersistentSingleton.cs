@@ -6,6 +6,7 @@
 //
 //=============================================================================
 
+using System;
 using UnityEngine;
 
 namespace Neverway.Framework
@@ -50,6 +51,11 @@ namespace Neverway.Framework
         //=-----------------=
         // External Functions
         //=-----------------=
+
+
+
+
+
         // Reload Static Fields
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void InitializeStaticFields()

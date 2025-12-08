@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 using Array = System.Array;
 
@@ -2814,6 +2815,8 @@ namespace Sabresaurus.SabreCSG
 
         private void ChangePolygonMaterial(Polygon polygon, Material destinationMaterial)
         {
+
+
             Material defaultMaterial = CSGModel.GetDefaultMaterial();
 
             // Only attempt to transfer the polygon if it's to a different material!
@@ -2824,6 +2827,7 @@ namespace Sabresaurus.SabreCSG
                 return;
             }
             PolygonEntry entry = csgModel.GetVisualPolygonEntry(polygon.UniqueIndex);
+            Undo.RecordObject(csgModel, "Change Material");
 
             // Repoint the polygon's material, so it will change with rebuilds
             polygon.Material = destinationMaterial;

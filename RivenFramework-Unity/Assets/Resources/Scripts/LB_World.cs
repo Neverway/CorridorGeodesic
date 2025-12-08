@@ -40,6 +40,7 @@ public class LB_World : MonoBehaviour
 
     
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+    private bool createdHUD;
 
     
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -58,22 +59,31 @@ public class LB_World : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
-        widgetManager = FindObjectOfType<GI_WidgetManager>();
-        widgetManager.AddWidget(HUDWidgetPrefab);
-
         StartCoroutine(InitializeGeogunOverrides());
+    }
+
+    private void FixedUpdate()
+    {
+        if (!widgetManager) widgetManager = FindObjectOfType<GI_WidgetManager>();
+        else if (!createdHUD)
+        {
+            widgetManager.AddWidget(HUDWidgetPrefab);
+            createdHUD = true;
+        }
     }
     
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     private IEnumerator InitializeGeogunOverrides()
     {
         yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
         // Give the player the geogun if they don't already have it
         if (shouldHaveGeogun)
         {
             var pawnManager = FindObjectOfType<GI_PawnManager>();
             var playerInventory = pawnManager.localPlayerCharacter.GetComponentInChildren<Pawn_Inventory>();
-            if (!playerInventory.items.Contains(geogunPrefab)) playerInventory.AddItem(geogunPrefab);
+            if (playerInventory) if (!playerInventory.items.Contains(geogunPrefab)) playerInventory.AddItem(geogunPrefab);
         }
         
         var geogun = FindObjectOfType<Item_Utility_Geogun>();

@@ -108,7 +108,7 @@ public static class CSGMeshCombinerTool
         {
             var groupedMesh = new Mesh
             {
-                indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
+                //indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
             };
             groupedMesh.CombineMeshes(materialEntry.Value.ToArray(), true, true);
             materialGroupedMeshes.Add(groupedMesh);
@@ -120,11 +120,12 @@ public static class CSGMeshCombinerTool
         combinedMesh = new Mesh
         {
             name = "CombinedLevelMesh",
-            indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
+            //indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
         };
 
         var combinedVertices = new List<Vector3>();
         var combinedUVs = new List<Vector2>();
+        var combinedTangents = new List<Vector4>();
         var combinedSubmeshTriangles = new List<int[]>();
         int vertexOffset = 0;
 
@@ -132,6 +133,7 @@ public static class CSGMeshCombinerTool
         {
             Vector3[] vertices = groupedMesh.vertices;
             Vector2[] uvs = groupedMesh.uv;
+            Vector4[] tangents = groupedMesh.tangents;
             int[] triangles = groupedMesh.GetTriangles(0);
 
             for (int i = 0; i < triangles.Length; i++)
@@ -139,6 +141,7 @@ public static class CSGMeshCombinerTool
 
             combinedVertices.AddRange(vertices);
             combinedUVs.AddRange(uvs);
+            combinedTangents.AddRange(tangents);
             combinedSubmeshTriangles.Add(triangles);
             vertexOffset += vertices.Length;
         }
@@ -149,6 +152,7 @@ public static class CSGMeshCombinerTool
         for (int i = 0; i < combinedSubmeshTriangles.Count; i++)
             combinedMesh.SetTriangles(combinedSubmeshTriangles[i], i);
         combinedMesh.RecalculateNormals();
+        combinedMesh.SetTangents(combinedTangents);
         combinedMesh.RecalculateBounds();
 
     }  

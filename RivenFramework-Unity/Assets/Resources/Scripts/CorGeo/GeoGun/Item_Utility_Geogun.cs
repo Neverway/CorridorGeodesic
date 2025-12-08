@@ -22,16 +22,16 @@ public class Item_Utility_Geogun : Item
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
     [Header("GeoGun Upgrades")]
-    [Todo("Need to add nonlinear slicing check to rift manager", "Liz")]
+    [Todo("Need to add nonlinear slicing check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts to be placed on walls")]
     public bool allowNonLinearSlicing = true;
-    [Todo("Need to add expanding rift check to rift manager", "Liz")]
+    [Todo("Need to add expanding rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts to expand past the start position")]
     public bool allowExpandingRift;
-    [Todo("Need to add inverting rift check to rift manager", "Liz")]
+    [Todo("Need to add inverting rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts collapsing into the negatives, mirroring null space")]
     public bool allowInvertingRift;
-    [Todo("Need to add slamming rift check to rift manager", "Liz")]
+    [Todo("Need to add slamming rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows the player to slam rifts closed, creating a vacuum that flings things out of rifts")]
     public bool allowSlammingRift;
     [Tooltip("Debug parameter to... well, you get it (Allows markers to be placed on any material)")]
@@ -60,6 +60,8 @@ public class Item_Utility_Geogun : Item
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     private int maxProjectiles = 2;
+    private bool wantsToExpand;
+    private bool wantsToCollapse;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -80,8 +82,48 @@ public class Item_Utility_Geogun : Item
 
     #region=======================================( Functions )======================================================= //
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+    private void OnEnable()
+    {
+        var riftManager = GameInstance.Get<GI_RiftManager>();
+        if (riftManager)
+        {
+            riftManager.RegisterGeogun(this);
+        }
+    }
+
     private void Update()
     {
+        
+
+        // Process the wants to BLANK requests from item actions
+        // (I'm doing it this way for now since we want to be able to hold collapse or expand before a rift might be active)
+        if (spawnedProjectiles.Count >= maxProjectiles)
+        {
+            if (wantsToExpand)
+            {
+                OnExpandHeld?.Invoke();
+            }
+            else if (!wantsToExpand)
+            {
+                OnExpandReleased?.Invoke();
+            }
+            if (wantsToCollapse)
+            {
+                OnCollapseHeld?.Invoke();
+            }
+            else if (!wantsToCollapse)
+            {
+                OnCollapseReleased?.Invoke();
+            }
+        }
+        
+        // Auto-removes null projectiles from the spawnedProjectiles list
+        spawnedProjectiles = spawnedProjectiles.Where(projectile => !projectile.IsUnityNull()).ToList();
+    }
+
+    private void FixedUpdate()
+    {
+        // Moving this here to hopefully reduce its performance impact
         // Get a reference to the player view point
         if (!playerViewPoint)
         {
@@ -90,11 +132,7 @@ public class Item_Utility_Geogun : Item
             return;
         }
         
-        
         AimBarrelTowardsCenterOfView();
-        
-        // Auto-removes null projectiles from the spawnedProjectiles list
-        spawnedProjectiles = spawnedProjectiles.Where(projectile => !projectile.IsUnityNull()).ToList();
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
@@ -159,16 +197,10 @@ public class Item_Utility_Geogun : Item
         {
             case "press":
                 FireMarker();
-                if (spawnedProjectiles.Count >= maxProjectiles)
-                {
-                    OnExpandHeld?.Invoke();
-                }
+                wantsToExpand = true;
                 break;
             case "release":
-                if (spawnedProjectiles.Count >= maxProjectiles)
-                {
-                    OnExpandReleased?.Invoke();
-                }
+                wantsToExpand = false;
                 break;
         }
     }
@@ -178,16 +210,10 @@ public class Item_Utility_Geogun : Item
         switch (_mode)
         {
             case "press":
-                if (spawnedProjectiles.Count >= maxProjectiles)
-                {
-                    OnCollapseHeld?.Invoke();
-                }
+                wantsToCollapse = true;
                 break;
             case "release":
-                if (spawnedProjectiles.Count >= maxProjectiles)
-                {
-                    OnCollapseReleased?.Invoke();
-                }
+                wantsToCollapse = false;
                 break;
         }
     }
@@ -198,7 +224,6 @@ public class Item_Utility_Geogun : Item
         {
             case "press":
                 DestroyMarkers();
-                print("UseTertiary");
                 break;
             case "release":
                 break;
@@ -231,6 +256,11 @@ public class Item_Utility_Geogun : Item
     /// <returns>Returns true if the gun is pointed at a target it's allowed to shoot</returns>
     public bool GetIsValidTarget(RaycastHit _hit)
     {
+        if (!_hit.collider)
+        {
+            //Debug.LogWarning("Somehow raycast hit an invalid object");
+            return false;
+        }
         // Gun is pointed at a bulb snapping point (That is valid!)
         // TODO - BulbCollisionBehaviour has not been ported!
         if (_hit.collider.gameObject.GetComponent<BulbCollisionBehaviour>() != null) return true;
@@ -256,7 +286,7 @@ public class Item_Utility_Geogun : Item
     /// Used by GetIsValidTarget to get the index of the tri that was hit on a mesh
     /// (So GetIsValidTarget can check for valid placement materials)
     /// </summary>
-    [Todo("Can someone fact check me on this function's summary? ~Liz")]
+    [Todo("Can someone fact check me on this function's summary? ~Liz", TodoSeverity.Minor)]
     private int GetSubMeshIndex(Mesh mesh, int triIndex)
     {
         int triangleCounter = 0;

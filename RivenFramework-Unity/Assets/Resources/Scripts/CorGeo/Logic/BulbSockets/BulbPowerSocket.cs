@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Neverway.Framework.LogicSystem;
-using RivenFramework;
 
 public class BulbPowerSocket : MonoBehaviour, BulbCollisionBehaviour
 {
@@ -25,15 +22,15 @@ public class BulbPowerSocket : MonoBehaviour, BulbCollisionBehaviour
     // Mono Functions
     //=-----------------=
 
-    [Todo("The new actor class does not have a variable called HomeParent yet ~Liz")]
     private IEnumerator Start()
     {
         yield return null;
+        
+        // Unparents the attachment point and makes sure that the corgeo actor homeparent is also unparented
         attachPoint.SetParent(null);
         if (attachPoint.TryGetComponent<CorGeo_Actor> (out var actor))
         {
-            // TODO the new actor class does not have a variable called HomeParent yet ~Liz
-            //actor.homeParent = null;
+            actor.homeParent = null;
         }
     }
     private void Update()

@@ -5,11 +5,8 @@
 //
 //=============================================================================
 
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using RivenFramework;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,13 +45,14 @@ public class Image_EntityPain : MonoBehaviour
 
     private void Update()
     {
-        if (findPossessedPawn)
+        if (findPossessedPawn && !targetPawn)
         {
             targetPawn = FindPossessedPawn();
         }
         if (targetPawn && !initialized)
         {
             initialized = true;
+            targetPawn.OnPawnHurt -= OnHurt;
             targetPawn.OnPawnHurt += OnHurt;
         }
         else if (!targetPawn)
@@ -75,8 +73,7 @@ public class Image_EntityPain : MonoBehaviour
     //=-----------------=
     private Pawn FindPossessedPawn()
     {
-        if (FindObjectOfType<GI_PawnManager>().localPlayerCharacter)
-            return FindObjectOfType<GI_PawnManager>().localPlayerCharacter.GetComponent<Pawn>();
+        if (FindObjectOfType<GI_PawnManager>().localPlayerCharacter) return FindObjectOfType<GI_PawnManager>().localPlayerCharacter.GetComponent<Pawn>();
         return null;
     }
 

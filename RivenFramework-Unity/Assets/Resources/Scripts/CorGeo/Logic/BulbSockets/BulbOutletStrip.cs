@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.ProBuilder;
-using UnityEditor.SceneManagement;
 #endif
 
-using RivenFramework;
 using UnityEngine;
 using UnityEngine.ProBuilder;
-using UnityEngine.SceneManagement;
 
 [DisallowMultipleComponent]
-[Todo("FIx your shit")]
 public class BulbOutletStrip : MonoBehaviour, BulbCollisionBehaviour
 {
     public Transform startPoint;
@@ -166,7 +162,7 @@ public class BulbOutletStripEditor : Editor
         Vector3 oldEndPos = outletStrip.endPoint.position;
 
         bool changeOccurred = false;
-        bool changeWasStartHandle = false; // Was working on this
+        //bool changeWasStartHandle = false; // Was working on this
         bool holdingControl = Event.current.control;
 
         // Start Handle

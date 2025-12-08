@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using RivenFramework;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -73,9 +74,13 @@ namespace Neverway.Framework.LogicSystem
 
             anchorPointARigidBody = anchorPointA.GetComponent<Rigidbody>();
             anchorPointBRigidBody = anchorPointB.GetComponent<Rigidbody>();
-            input.CallOnSourceChanged(SetCablePowered);
+            if (input.HasLogicOutputSource)
+            {
+                input.CallOnSourceChanged(SetCablePowered);
+            }
         }
 
+        [Todo_Optimize("GenerateWaypoints and getComponent are stupid expensive here!")]
         private void Update()
         {
             /*if (inputSignal)

@@ -24,6 +24,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using BzKovSoft.ObjectSlicer;
 using System;
+using RivenFramework;
 
 /// <summary>
 /// Added to meshes to allow them to be sliced by the geogun
@@ -61,7 +62,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     private void Start()
     {
         slicer = GetComponent<BzSliceableObject>();
-        riftManager = FindObjectOfType<GI_RiftManager>();
+        riftManager = GameInstance.Get<GI_RiftManager>();
         if (!slicer.defaultSliceMaterial)
         {
             slicer.defaultSliceMaterial = riftManager.nullSpaceMaterial;
@@ -82,7 +83,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         isSlicedByPlane = false;
         slicer = GetComponent<BzSliceableObject>();
         sliceData = GetComponent<IBzMeshSlicer>();
-        riftManager = FindObjectOfType<GI_RiftManager>();
+        riftManager = GameInstance.Get<GI_RiftManager>();
 
         // --- PART ONE ---
         // Attempt to slice across the rift's 'A Plane'

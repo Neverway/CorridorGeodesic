@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2022_3_15;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_LINUX;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;PROBUILDER_EXPERIMENTAL_FEATURES;TERRAINPACKAGE_EXIST;CROSS_PLATFORM_INPUT;EDGEGAP_PLUGIN_SERVERS;FISHNET;FISHNET_V4;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2022_3_15;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;PROBUILDER_EXPERIMENTAL_FEATURES;TERRAINPACKAGE_EXIST;CROSS_PLATFORM_INPUT;EDGEGAP_PLUGIN_SERVERS;FISHNET;FISHNET_V4;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -46,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/DrawUtility.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Not.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Input/KeyMappings.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume/PhysicsVolume.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/TransformData.cs" />
@@ -57,32 +56,33 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/GI_RiftManager.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneCollider.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/DynamicCable.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/UIText_Speedometer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Brush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSG_HotFix_Settings.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/Graphics_MotionSmear.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreToolsOverlay.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices/Matrix2x2.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/DrawEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CallbackEvents.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_DialogueEvent.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/EndOfDemoStatsTracker.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dRotator.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/OBJVertexList.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Segment.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CSGModelBase.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/CorGeo_RealityPuncher.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_StepUp.cs" />
+     <Compile Include="Assets/Resources/Scripts/GI_DevToolsLoader.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices/Matrix3x2.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/EndOfDemoStatsDisplay.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityPortrait.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UpdateUtility.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole/DebugConsole.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/GameObject_ProceduralSway.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/Volume.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapPlane.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfSolidSide.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/VertexEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapEntity.cs" />
+     <Compile Include="Assets/Resources/Widgets/DevMenu/WB_DevMenu.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGUILayout.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapWorldConverter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/CurvedStairBrush.cs" />
@@ -101,10 +101,9 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/SurfaceUtility.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolumeComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dPolygonFlags.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CorGeo_AntiProjectile.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ResizeEditor.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole/DevTools.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/SurfaceEditor.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/SketchPostProcess.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/TransformModelEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/MathHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/MarkerCollisionBehaviour.cs" />
@@ -136,10 +135,8 @@
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKTargetMatcher.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSGBuildSettings.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreMouse.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/Tile_Paralax.cs" />
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSGBuildContext.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/CanvasForceGetActiveCamera.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dImporter.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_DeploymentVent.cs" />
@@ -147,9 +144,6 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbOutletStrip.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/GridManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_Fizzler.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Unknown/LevelStreamer.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/Image_EntityPain.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Or.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGUIHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Edge.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Item_Utility_Geogun.cs" />
@@ -162,21 +156,20 @@
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawn_NPCWolf.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/MaterialPaletteWindow.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dMap.cs" />
+     <Compile Include="Assets/Resources/Scripts/GI_DevMenu.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/HollowBoxBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/TransformHelper.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_Pause.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dMapConverter.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Object_DepthAssigner.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Vertex.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Vector2Int.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/ShapeEditorBrush.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/Graphics_StretchSmear.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CSGModelRuntime.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawnStats.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/WorldTransformData.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaReceiver.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Interactable.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/Resources/Scripts/Light_DistanceCulling.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BrushBase.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TestProj.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ComicFilter.cs" />
@@ -187,7 +180,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/GeometryHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/KeepAsUnselectable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Prop_Respawner.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Comparator.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/AdjacencyFilters.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/EditorHelper.cs" />
@@ -212,6 +204,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Volume2D_Force.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ColorQuantizationFilter.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/VisualFramerateLimiter.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_Actor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Graphics_NixieBulbEffects.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/Item_Utility_DevGun.cs" />
@@ -219,7 +212,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dPolygon.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/BrushFactory.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildMetrics.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_And.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/AdjacencyHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/ISelectable.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreEditorGUI.cs" />
@@ -238,9 +230,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/TrimBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/OBJFactory.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Timer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ToolSettingsPopup.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Counter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/PolygonEntry.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/StringHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawn_Player.cs" />
@@ -271,10 +261,10 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/Checkpoint.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreInput.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/RadialMenu.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_SimpleLine.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Projectile.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/VertexColorWindow.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/Logic_Processor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbPowerSocket.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Shape.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfEntity.cs" />
@@ -305,13 +295,11 @@
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKFootSolver.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/EventSignal_Interactcs.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ClipEditor.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/NEW_LogicProcessor.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_SFX_Impact.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/SerializablePlane.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume/PhysicsVolumeGravityMode.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/EdgeUtility.cs" />
-     <Compile Include="Assets/RivenFramework/Scripts/_Depreciated/LogicGate_Toggle.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/BrushCache.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers/Laser_Raycast.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/MeshHelper.cs" />
@@ -319,6 +307,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Tool.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/ColorHex.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_AnimatorSetBool.cs" />
+     <Compile Include="Assets/Resources/Objects/NotProperActors/IntroSequence/OpeningSequence.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/_REMOVE_/Integratables/CorGeo" />
      <Folder Include="Assets/Resources/Maps" />
@@ -358,6 +347,7 @@
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR" />
      <Folder Include="Assets/Resources/Maps/CorGeo/MainLevels" />
+     <Folder Include="Assets/AddressableAssetsData/Windows" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Shaders" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sound/Music" />
@@ -365,6 +355,7 @@
      <Folder Include="Assets/RivenFramework/Other" />
      <Folder Include="Assets/Resources/Maps/CorGeo/ErryTestMaps" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures" />
+     <Folder Include="Assets/Resources/Objects/NotProperActors/IntroSequence" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Concrete" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox 360" />
@@ -433,6 +424,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Core/Debugging" />
      <Folder Include="Assets/Resources/Materials/Textures/DynamicallyFiltered" />
+     <None Include="Assets/Resources/Materials/Shaders/LIZ_ResoulexToon.shader" />
      <None Include="Assets/Packages/SabreCSG-master/Internal/Shaders/Grayscale-GUITexture.shader" />
      <Folder Include="Assets/Resources/Objects" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Soulex" />
@@ -512,6 +504,7 @@
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/System/NeverwayLogo/Materials" />
+     <None Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/SketchPostProcess.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS4" />
      <Folder Include="Assets/RivenFramework/Scripts/_Unknown" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/RockOne" />
@@ -529,6 +522,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Materials/Developer/DevMats" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets/Resources/Materials/PhysicsMaterials" />
@@ -551,6 +545,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
      <Folder Include="Assets/Packages/Samples/Folder Icons/0.1.3" />
      <Folder Include="Assets/Resources/Scripts" />
+     <None Include="Assets/Resources/Materials/Shaders/LIZ_BeginnerShader.shader" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/Preview.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Ouya" />
      <Folder Include="Assets/AddressableAssetsData/DataBuilders" />
@@ -562,6 +557,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Core/Dictionaries" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Quicktex" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Light" />
+     <Folder Include="Assets/Resources/Widgets/DevMenu" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Shaders" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Glass" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/VertexTinted.shader" />
@@ -570,6 +566,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities" />
      <Folder Include="Assets/Resources/Materials/Shaders" />
      <Folder Include="Assets/Resources/Materials/Skyboxes" />
+     <Folder Include="Assets/Resources/Sound/Music/REFERENCE_DO_NOT_SHIP" />
      <Folder Include="Assets/Resources/Sprites" />
      <Folder Include="Assets/Resources/Sprites/Tilesets" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/WiiU" />
@@ -583,6 +580,7 @@
      <Folder Include="Assets/RivenFramework/Objects" />
      <Folder Include="Assets/AddressableAssetsData" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Noise" />
+     <Folder Include="Assets/Resources/Models/Materials/DynamiclyFiltered/Liz" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/IndustrialMetalPlate2" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Bricks" />
@@ -608,7 +606,6 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Audio" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Input" />
      <Folder Include="Assets/RivenFramework-Revamp" />
-     <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI/DebugConsole" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Vive" />
      <None Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/GunFuncBreakdown.txt" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Gradients" />
@@ -629,7 +626,6 @@
      <Folder Include="Assets/Resources/Objects/NotProperActors" />
      <Folder Include="Assets/Resources/Sprites/Effects" />
      <Folder Include="Assets/Packages/SabreCSG-master" />
-     <Folder Include="Assets/RivenFramework-Revamp/Resources/Scripts" />
      <Folder Include="Assets/Packages/SabreCSG-master/Resources" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Dark" />
@@ -682,6 +678,9 @@
      </Reference>
      <Reference Include="UnityEngine.AIModule">
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+     </Reference>
+     <Reference Include="UnityEngine.ARModule">
+     <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.AccessibilityModule">
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
@@ -1540,10 +1539,6 @@
      </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="CoreAttributes.csproj">
-      <Project>{6b3c1272-532d-2e12-fdb1-80cccb741992}</Project>
-      <Name>CoreAttributes</Name>
-    </ProjectReference>
     <ProjectReference Include="RivenFramework.Utils.Reflection.csproj">
       <Project>{0ed36f6c-a345-9b8e-2d92-e48d1c7ab0fc}</Project>
       <Name>RivenFramework.Utils.Reflection</Name>
@@ -1572,9 +1567,17 @@
       <Project>{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}</Project>
       <Name>Neverway.Framework.PawnManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="DevTools.csproj">
+      <Project>{e84a44d7-e123-927e-054d-25763d8cd9cd}</Project>
+      <Name>DevTools</Name>
+    </ProjectReference>
     <ProjectReference Include="RivenFramework.PawnMangement.csproj">
       <Project>{bdf120d6-5854-7f7d-4f1a-9673abd83232}</Project>
       <Name>RivenFramework.PawnMangement</Name>
+    </ProjectReference>
+    <ProjectReference Include="CoreAttributes.csproj">
+      <Project>{6b3c1272-532d-2e12-fdb1-80cccb741992}</Project>
+      <Name>CoreAttributes</Name>
     </ProjectReference>
     <ProjectReference Include="BzKovSoft.ObjectSlicer.Samples.csproj">
       <Project>{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}</Project>
@@ -1595,6 +1598,10 @@
     <ProjectReference Include="RivenFramework.csproj">
       <Project>{8c9feb55-197c-c0d9-f4c0-534f1bc09483}</Project>
       <Name>RivenFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFramework.TempResources.csproj">
+      <Project>{17b1526d-ad34-e881-c815-5f17dc5e2d92}</Project>
+      <Name>RivenFramework.TempResources</Name>
     </ProjectReference>
     <ProjectReference Include="SimpleFields.csproj">
       <Project>{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}</Project>

@@ -45,7 +45,7 @@ public class FPPawn_Player : FPPawn
     {
         if (!widgetManager)
         {
-            widgetManager = FindObjectOfType<GI_WidgetManager>();
+            widgetManager = GameInstance.Get<GI_WidgetManager>();
             if (!widgetManager) return;
         }
         isPaused = widgetManager.GetExistingWidget("WB_Pause");
@@ -71,7 +71,7 @@ public class FPPawn_Player : FPPawn
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
+
     public new void Awake()
     {
         base.Awake();
@@ -87,6 +87,7 @@ public class FPPawn_Player : FPPawn
         action.EnableViewCamera(this, true);
     }
 
+    [Todo("Are you able to remove GetComponentInChildren call on Update? ~erry", Owner = "liz")]
     public void Update()
     {
         // Pausing
@@ -114,7 +115,17 @@ public class FPPawn_Player : FPPawn
         }
         
         // Interact 
-        if (inputActions.Interact.WasPressedThisFrame()) action.Interact(this, interactionPrefab, viewPoint.transform);
+        if (inputActions.Interact.WasPressedThisFrame())
+        {
+            if (physObjectAttachmentPoint.attachedObject)
+            {
+                action.DropPhysProp(this);
+            }
+            else
+            {
+                action.Interact(this, interactionPrefab, viewPoint.transform);
+            }
+        }
         
         // Switch item
         if (inputActions.ItemSwapNext.WasPressedThisFrame()) action.ItemSwapNext(this);
@@ -163,7 +174,7 @@ public class FPPawn_Player : FPPawn
 
     private void UpdateRotation()
     {
-        if (!applicationSettings) applicationSettings = FindObjectOfType<ApplicationSettings>();
+        if (applicationSettings == null) applicationSettings = GameInstance.Get<ApplicationSettings>();
         
         // Get the look speed
         float horizontalLookSpeed = applicationSettings.currentSettingsData.horizontalLookSpeed;
@@ -200,7 +211,7 @@ public class FPPawn_Player : FPPawn
     private void OnDeath()
     {
         // Remove any rifts
-        riftManager = FindObjectOfType<GI_RiftManager>();
+        riftManager = GameInstance.Get<GI_RiftManager>();
         riftManager.RestoreRift();
         
         // Drop held props
@@ -208,9 +219,9 @@ public class FPPawn_Player : FPPawn
         {
             if (physObjectAttachmentPoint.attachedObject)
             {
-                if (physObjectAttachmentPoint.attachedObject.GetComponent<Object_PhysPickup>())
+                if (physObjectAttachmentPoint.attachedObject.TryGetComponent(out Object_PhysPickup physPickup))
                 {
-                    physObjectAttachmentPoint.attachedObject.GetComponent<Object_PhysPickup>().ToggleHeld();
+                    physPickup.ToggleHeld();
                 }
             }
         }
@@ -221,7 +232,7 @@ public class FPPawn_Player : FPPawn
         widgetManager.AddWidget(DeathScreenWidget);
 
         // Play the death animation
-        if (GetComponent<Animator>()) GetComponent<Animator>().Play("Death");
+        if (TryGetComponent(out Animator animator)) animator.Play("Death");
     }
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
