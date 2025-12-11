@@ -265,6 +265,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfVector3.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SignalEventPlayer.cs" />
      <Compile Include="Assets/Resources/Models/Experimental/FenRigPart.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Pawn_RegenHealth.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ModifierSystem/ModifierSystem/GameEventSystem.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityEquippedItems.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/MeshGroupManager.cs" />
@@ -279,6 +280,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/Toolbar.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/MaterialSearcher.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaConductor.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_PhysSocket.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/PrimitiveBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/OldMeshSliceable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSGForceRebuildOnUndo.cs" />
