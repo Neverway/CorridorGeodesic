@@ -41,6 +41,20 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     public bool isSlicedByPlane;
     [Tooltip("If enabled, lasers are reflected off this mesh")]
     public bool isReflective;
+
+    public bool isClone;
+    public bool isSliceInProgress;
+    public int assignedCount;
+    public Space space;
+    public enum Space
+    {
+        none,
+        A,
+        B,
+        NULL
+    }
+
+    public int timesSliced;
     
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
@@ -77,48 +91,66 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     /// </summary>
     private async void AttemptSlice(GameObject _originalMesh)
     {
-        List<GameObject> objs = new List<GameObject>();
+        // PERFORMED ON CLONES
+        if (!isClone)
+        {
+            print("Attempted to slice an original mesh, this is strange....");
+            return;
+        }
+        
+        
         // This will stay false if the attempt to slice fails
         // (aka the objects is not intersecting with a rift cut plane)
         isSlicedByPlane = false;
+        
+        // Clones get AttemptSlice called before start or awake, so we have to force get components here
         slicer = GetComponent<BzSliceableObject>();
         sliceData = GetComponent<IBzMeshSlicer>();
         riftManager = GameInstance.Get<GI_RiftManager>();
+        
+        // Mark the start of a slice operation (this will get set false when we are done (unless there is a critical failure (which happens a lot (sry)))) ~Liz
+        isSliceInProgress = true;
 
         // --- PART ONE ---
         // Attempt to slice across the rift's 'A Plane'
-        var resultOfPlaneASlice = await slicer.SliceAsync(GI_RiftManager.planeA, sliceData);
-        if (resultOfPlaneASlice.sliced)
+        var planeASliceResult = await slicer.SliceAsync(GI_RiftManager.planeA, sliceData);
+        if (planeASliceResult.sliced)
         {
-            // Hide the original and set the isSlicedByPlane to true, so we can skip Part Three
-            _originalMesh.SetActive(false);
+            // Hide the original and set the isSlicedByPlane to true
             riftManager.hiddenOriginalMeshes.Add(_originalMesh);
             isSlicedByPlane = true;
             
             // Since the slice across the 'A Plane' was successful, attempt to slice the new meshes across the rift's 'B Plane'
-            foreach (var newACutMesh in resultOfPlaneASlice.resultObjects)
+            foreach (var newACutMesh in planeASliceResult.resultObjects)
             {
+                var newACutMeshObject = newACutMesh.gameObject;
+                var newACutMeshSliceable = newACutMeshObject.GetComponent<CorGeo_SliceableMesh>();
+                
                 // Make sure the part knows that it's a cut mesh
-                CorGeo_SliceableMesh newACutCorGeoSliceableMesh = newACutMesh.gameObject.GetComponent<CorGeo_SliceableMesh>();
-                newACutCorGeoSliceableMesh.isSlicedByPlane = true;
-                newACutCorGeoSliceableMesh.gameObject.SetActive (false);
-                riftManager.meshesToActivate.Add (newACutCorGeoSliceableMesh.gameObject);
+                newACutMeshObject.gameObject.SetActive (false);
+                riftManager.meshesToActivate.Add (newACutMeshObject);
+                newACutMeshSliceable.isSlicedByPlane = true;
+                newACutMeshSliceable.isSliceInProgress = true;
                 
                 // Only cut the new meshes on the positive side (the side that faces towards where the B plane should be)
                 if (newACutMesh.side)
                 {
                     // Slice the new objects on the positive side of the cut, this time with the B plane
-                    IBzMeshSlicer subSliceData = newACutMesh.gameObject.GetComponent<IBzMeshSlicer>();
-                    var resultOfSecondPlaneSlice = await subSliceData.SliceAsync(GI_RiftManager.planeB);
-                    if (resultOfSecondPlaneSlice.sliced)
+                    var newACutMeshSlicer = newACutMeshObject.GetComponent<IBzMeshSlicer>();
+                    var planeABSliceResult = await newACutMeshSlicer.SliceAsync(GI_RiftManager.planeB);
+                    if (planeABSliceResult.sliced)
                     {
-                        foreach (var newBCutMesh in resultOfSecondPlaneSlice.resultObjects)
+                        foreach (var newBCutMesh in planeABSliceResult.resultObjects)
                         {
+                            var newBCutMeshObject = newBCutMesh.gameObject;
+                            var newBCutMeshSliceable = newBCutMeshObject.GetComponent<CorGeo_SliceableMesh>();
+                            var newBCutMeshSlicer = newBCutMeshObject.GetComponent<IBzMeshSlicer>();
+                            
                             // Make sure the part knows that it's a cut mesh
-                            CorGeo_SliceableMesh newBCutCorGeoSliceableMesh = newBCutMesh.gameObject.GetComponent<CorGeo_SliceableMesh>();
-                            newBCutCorGeoSliceableMesh.isSlicedByPlane = true;
-                            newBCutCorGeoSliceableMesh.gameObject.SetActive (false);
-                            riftManager.meshesToActivate.Add (newBCutCorGeoSliceableMesh.gameObject);
+                            newBCutMeshObject.SetActive(false);
+                            riftManager.meshesToActivate.Add (newBCutMeshObject);
+                            newBCutMeshSliceable.isSlicedByPlane = true;
+                            newBCutMeshSliceable.isSliceInProgress = true;
 
                             /* OLD CODE FOR 'PartsReference' STUFF (Which is used for allowing sliceable logic volumes)
                             // I have not fully re-created this in the new system yet as I don't fully understand it ~Liz
@@ -139,15 +171,17 @@ public class CorGeo_SliceableMesh : MonoBehaviour
                             // Sort NULL meshes into rift manager list
                             if (newBCutMesh.side)
                             {
-                                riftManager.spaceNullMeshes.Add(newBCutMesh.gameObject);
-                                newBCutMesh.gameObject.name = $"{name} [NULL]";
+                                //riftManager.spaceNullMeshes.Add(newBCutMesh.gameObject);
+                                newBCutMeshObject.name = $"{name} [AB-NULL]";
+                                newBCutMeshSliceable.isSliceInProgress = false;
                             }
 
                             // Finally sort B meshes into rift manager list
                             else
                             {
-                                riftManager.spaceBMeshes.Add(newBCutMesh.gameObject);
-                                newBCutMesh.gameObject.name = $"{name} [B]";
+                                //riftManager.spaceBMeshes.Add(newBCutMesh.gameObject);
+                                newBCutMeshObject.name = $"{name} [AB]";
+                                newBCutMeshSliceable.isSliceInProgress = false;
                             }
                         }
                     }
@@ -155,15 +189,16 @@ public class CorGeo_SliceableMesh : MonoBehaviour
                     else
                     {
                         //obj2.gameObject.transform.SetParent(Alt_Item_Geodesic_Utility_GeoGun.planeBMeshes.transform);
-                        riftManager.spaceNullMeshes.Add(newACutMesh.gameObject);
-                        newACutMesh.gameObject.name = $"{name} [NULL2]";
+                        //riftManager.spaceNullMeshes.Add(newACutMesh.gameObject);
+                        newACutMeshObject.name = $"{name} [A-NULL]";
+                        newACutMeshSliceable.isSliceInProgress = false;
                     }
                 }
                 // Sort A meshes into rift manager list
                 else
                 {
-                    riftManager.spaceAMeshes.Add(newACutMesh.gameObject);
-                    newACutMesh.gameObject.name = $"{name} [A]";
+                    //riftManager.spaceAMeshes.Add(newACutMesh.gameObject);
+                    newACutMeshObject.name = $"{name} [A]";
                 }
             }
         }
@@ -172,21 +207,23 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         // Even if A plane fails, still attempt to slice across the rift's 'B Plane'
         else
         {
-            var resultOfPlaneBSlice = await slicer.SliceAsync(GI_RiftManager.planeB, sliceData);
-            if (resultOfPlaneBSlice.sliced)
+            var planeBSliceResult = await slicer.SliceAsync(GI_RiftManager.planeB, sliceData);
+            if (planeBSliceResult.sliced)
             {
-                // Add the original and set the isSlicedByPlane to true, so we can skip Part Three
-                //_originalMesh.SetActive(false);
+                // Add the original and set the isSlicedByPlane to true
                 riftManager.hiddenOriginalMeshes.Add(_originalMesh);
                 isSlicedByPlane = true;
 
-                foreach (var newBCutMesh in resultOfPlaneBSlice.resultObjects)
+                foreach (var newBCutMesh in planeBSliceResult.resultObjects)
                 {
+                    var newBCutMeshObject = newBCutMesh.gameObject;
+                    var newBCutMeshSliceable = newBCutMeshObject.GetComponent<CorGeo_SliceableMesh>();
+                    
                     // Make sure the part knows that it's a cut mesh
-                    CorGeo_SliceableMesh newBCutCorGeoSliceableMesh = newBCutMesh.gameObject.GetComponent<CorGeo_SliceableMesh>();
-                    newBCutCorGeoSliceableMesh.isSlicedByPlane = true;
-                    newBCutCorGeoSliceableMesh.gameObject.SetActive (false);
-                    riftManager.meshesToActivate.Add (newBCutCorGeoSliceableMesh.gameObject);
+                    newBCutMeshObject.SetActive(false);
+                    riftManager.meshesToActivate.Add (newBCutMeshObject);
+                    newBCutMeshSliceable.isSlicedByPlane = true;
+                    newBCutMeshSliceable.isSliceInProgress = true;
 
 
 
@@ -210,224 +247,31 @@ public class CorGeo_SliceableMesh : MonoBehaviour
                     // Sort NULL meshes into rift manager list
                     if (newBCutMesh.side)
                     {
-                        riftManager.spaceNullMeshes.Add(newBCutMesh.gameObject);
-                        newBCutMesh.gameObject.name = $"{name} [NULL]";
+                        //riftManager.spaceNullMeshes.Add(newBCutMesh.gameObject);
+                        newBCutMeshObject.name = $"{name} [B-NULL]";
+                        newBCutMeshSliceable.isSliceInProgress = false;
                     }
 
                     // Finally sort B meshes into rift manager list
                     else
                     {
-                        riftManager.spaceBMeshes.Add(newBCutMesh.gameObject);
-                        newBCutMesh.gameObject.name = $"{name} [B]";
+                        //riftManager.spaceBMeshes.Add(newBCutMesh.gameObject);
+                        newBCutMeshObject.name = $"{name} [B]";
+                        newBCutMeshSliceable.isSliceInProgress = false;
                     }
                 }
             }
         }
         
-        // --- PART THREE ---
-        // If both slices fail, the clone should be destroyed, and the original needs to be set to the correct space container
-        if (isSlicedByPlane is false)
+        // Clean up any random non-cut meshes
+        if (!isSlicedByPlane)
         {
-            // If all the slices miss, we have to figure out where this mesh is.
-
-            MeshFilter meshFilter = GetComponent<MeshFilter> ();
-            if (meshFilter && meshFilter.mesh.vertices.Length > 0)
-            {
-                var vert = meshFilter.mesh.vertices[0];
-                Vector3 testPoint = new Vector3 (vert.x, vert.y, vert.z);
-                Vector3 worldPoint = transform.TransformPoint (testPoint);
-                // Object is in A Space
-                if (GI_RiftManager.planeA.GetDistanceToPoint (worldPoint) < 0)
-                {
-                    // Set the original to correct space
-                    riftManager.spaceAMeshes.Add(_originalMesh);
-                    // Destroy ourselves (The clone)
-                    Destroy (gameObject);
-                }
-                // Object is in B Space
-                else if (GI_RiftManager.planeB.GetDistanceToPoint (worldPoint) < 0)
-                {
-                    // Set the original to correct space
-                    riftManager.spaceBMeshes.Add(_originalMesh);
-                    // Destroy ourselves (The clone)
-                    Destroy (gameObject);
-                }
-                // Object is in NULL Space
-                else
-                {
-                    // Set the original to correct space
-                    riftManager.spaceNullMeshes.Add(_originalMesh);
-                    // Destroy ourselves (The clone)
-                    Destroy (gameObject);
-                }
-            }
-        }
-            
-            
-        /*
-        bool sliced = false;
-        Collider coll = GetComponent<Collider> ();
-        if (!coll) return;
-        bool isTrigger = coll.isTrigger;
-        sliceableObject= GetComponent<BzSliceableObject> ();
-        //Slice the object
-        var result = await sliceableObject.SliceAsync (Alt_Item_Geodesic_Utility_GeoGun.planeA, meshSlicer);
-        if (result.sliced)
-        {
-
-            _original.SetActive (false);
-            sliced = true;
-            foreach (var obj in result.resultObjects)
-            {
-                Mesh_Slicable objMesh1 = GetComponent<Mesh_Slicable> ();
-                objMesh1.isCut = true;
-                foreach (Collider collider in obj.gameObject.GetComponents<Collider> ())
-                {
-                    collider.isTrigger = isTrigger;
-                    MeshCollider meshColl = collider as MeshCollider;
-                    if (meshColl != null) //todo is this a bug? i think i meant to only do this if the mesh was a trigger
-                    {
-                        meshColl.convex = true;
-                    }
-                }
-
-                Alt_Item_Geodesic_Utility_GeoGun.slicedMeshes.Add (obj.gameObject);
-                if (obj.side)
-                {
-                    //Slice the new object on the positive side of the cut, this time with the other plane
-                    IBzMeshSlicer objSlicer = obj.gameObject.GetComponent<IBzMeshSlicer> ();
-                    var result2 = await objSlicer.SliceAsync (Alt_Item_Geodesic_Utility_GeoGun.planeB);
-                    if (result2.sliced)
-                    {
-                        sliced = true;
-                        _original.SetActive (false);
-                        //add the positive sides to the null list
-                        foreach (var obj2 in result2.resultObjects)
-                        {
-                            foreach (Collider collider in obj2.gameObject.GetComponents<Collider> ())
-                            {
-                                collider.isTrigger = isTrigger;
-                                MeshCollider meshColl = coll as MeshCollider;
-                                if (meshColl != null)
-                                {
-                                    meshColl.convex = true;
-                                }
-                            }
-                            Mesh_Slicable objMesh2 = obj2.gameObject.GetComponent<Mesh_Slicable> ();
-                            objMesh2.isCut = true;
-                            Alt_Item_Geodesic_Utility_GeoGun.slicedMeshes.Add (obj.gameObject);
-
-                            if (partsReference)
-                            {
-                                partsReference.AddSlice (objMesh2);
-                            }
-
-                            if (obj2.side)
-                            {
-                                Alt_Item_Geodesic_Utility_GeoGun.nullSlices.Add (obj2.gameObject);
-                            }
-                            else
-                            {
-                                obj2.gameObject.transform.SetParent (Alt_Item_Geodesic_Utility_GeoGun.planeBMeshes.transform);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        //if slice 2 failed, we still add this object
-                        Alt_Item_Geodesic_Utility_GeoGun.nullSlices.Add (obj.gameObject);
-                        if (partsReference)
-                        {
-                            partsReference.AddSlice (obj.gameObject.GetComponent<Mesh_Slicable> ());
-                        }
-                    }
-                }
-                else //if !obj.side
-                {
-                    if (partsReference)
-                    {
-                        partsReference.AddSlice (obj.gameObject.GetComponent<Mesh_Slicable> ());
-                    }
-                }
-            }
+            Destroy(gameObject);
         }
 
-        else //if we didn't slice, we still try slicing with plane2
-        {
-            var result2 = await sliceableObject.SliceAsync (Alt_Item_Geodesic_Utility_GeoGun.planeB, meshSlicer);
-            if (result2.sliced)
-            {
-                _original.SetActive (false);
-                sliced = true;
-                foreach (var obj3 in result2.resultObjects)
-                {
-                    foreach (Collider collider in obj3.gameObject.GetComponents<Collider> ())
-                    {
-                        collider.isTrigger = isTrigger;
-                        MeshCollider meshColl = coll as MeshCollider;
-                        if (meshColl != null)
-                        {
-                            meshColl.convex = true;
-                        }
-                    }
-                    Mesh_Slicable objMesh3 = obj3.gameObject.GetComponent<Mesh_Slicable> ();
-                    objMesh3.isCut = true;
-                    Alt_Item_Geodesic_Utility_GeoGun.slicedMeshes.Add (obj3.gameObject);
-                    if (partsReference)
-                    {
-                        partsReference.AddSlice (objMesh3);
-                    }
+        isSliceInProgress = false;
+        _originalMesh.GetComponent<CorGeo_SliceableMesh>().isSliceInProgress = false;
 
-                    if (obj3.side)
-                    {
-                        Alt_Item_Geodesic_Utility_GeoGun.nullSlices.Add (obj3.gameObject);
-                    }
-                    else
-                    {
-                        obj3.gameObject.transform.SetParent (Alt_Item_Geodesic_Utility_GeoGun.planeBMeshes.transform);
-                    }
-                }
-            }
-        }
-
-
-        if (!sliced)
-        {
-            //If all the slices miss, we have to figure out where this mesh is.
-
-            MeshFilter meshFilter = GetComponent<MeshFilter> ();
-            if (meshFilter != null && meshFilter.mesh.vertices.Length > 0)
-            {
-                var vert = meshFilter.mesh.vertices[0];
-                Vector3 testPoint = new Vector3 (vert.x, vert.y, vert.z);
-                Vector3 worldPoint = transform.TransformPoint (testPoint);
-                if (Alt_Item_Geodesic_Utility_GeoGun.planeA.GetDistanceToPoint (worldPoint) < 0)
-                {
-                    //Entire object was outside nullspace plane1
-                    _original.gameObject.SetActive (true);
-                    Destroy (gameObject);
-                    return;
-                }
-                else
-                {
-                    if (Alt_Item_Geodesic_Utility_GeoGun.planeB.GetDistanceToPoint (worldPoint) < 0)
-                    {
-                        //entire object was outside nullspace plane2
-                        _original.SetActive (true);
-                        _original.transform.SetParent (Alt_Item_Geodesic_Utility_GeoGun.planeBMeshes.transform);
-                        Destroy (gameObject);
-                        return;
-                    }
-                    else
-                    {
-                        //Entire object was in the nullspace
-                        Alt_Item_Geodesic_Utility_GeoGun.nullSlices.Add (_original);
-                        Destroy (gameObject);
-                        return;
-                    }
-                }
-            }
-        }*/
     }
     
     /// <summary>
@@ -451,20 +295,12 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     /// </summary>
     public void ApplyCuts()
     {
-        // If this is a clone, exit
-        // If we are intersecting a cut plane
-            // create a clone
-            // slice the clone
-        // Else
-            // Store our 'home' transform
-            // Attach ourselves to the appropriate space
-        
         // Exit if this is a clone
-        if (gameObject.name.StartsWith("[CUT]")) return;
+        if (isClone) return;
         
         // Make a clone of this mesh to be cut
         CorGeo_SliceableMesh corGeoSliceableMeshClone = Instantiate(this, transform.position, transform.rotation);
-
+        corGeoSliceableMeshClone.isClone = true;
         corGeoSliceableMeshClone.name = $"[CUT] {name}";
 
         // Slice the clone ONLY!!! Never slice the original objects!!
@@ -491,6 +327,48 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         homeParent = transform.parent;
         homeRotation = transform.rotation;
         sliceThis.SliceClone (gameObject);*/
+    }
+
+    public void AssignMeshToSpaceLists()
+    {
+        if (!riftManager) riftManager = GameInstance.Get<GI_RiftManager>();
+        
+        MeshFilter meshFilter = GetComponent<MeshFilter> ();
+        
+        if (meshFilter && meshFilter.mesh.vertices.Length > 0)
+        {
+            var vert = meshFilter.mesh.vertices[0];
+            Vector3 testPoint = new Vector3 (vert.x, vert.y, vert.z);
+            Vector3 worldPoint = transform.TransformPoint (testPoint);
+            // Object is in A Space
+            if (GI_RiftManager.planeA.GetDistanceToPoint (worldPoint) < 0)
+            {
+                // Set the original to correct space
+                riftManager.spaceAMeshes.Add(gameObject);
+                space = Space.A;
+                assignedCount++;
+            }
+            // Object is in B Space
+            else if (GI_RiftManager.planeB.GetDistanceToPoint (worldPoint) < 0)
+            {
+                // Set the original to correct space
+                riftManager.spaceBMeshes.Add(gameObject);
+                space = Space.B;
+                assignedCount++;
+            }
+            // Object is in NULL Space
+            else
+            {
+                // Set the original to correct space
+                riftManager.spaceNullMeshes.Add(gameObject);
+                space = Space.NULL;
+                assignedCount++;
+            }
+        }
+        else
+        {
+            print($"Wtf? {gameObject.name} didn't have mesh filter");
+        }
     }
 
     #endregion

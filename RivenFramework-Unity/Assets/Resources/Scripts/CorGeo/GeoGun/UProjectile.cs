@@ -41,6 +41,7 @@ public class UProjectile : MonoBehaviour
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     protected Coroutine lifetimeCoroutine;
+    private Vector3 moveDirection;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -62,20 +63,21 @@ public class UProjectile : MonoBehaviour
     {
         if (disableMovement) return;
 
-        moveVector = transform.forward * (moveSpeed * Time.deltaTime);
         if (HasCollided() is false) UpdateMovement();
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     protected virtual void UpdateMovement ()
     {
+        moveVector = moveDirection * (moveSpeed * Time.deltaTime);
         transform.position += moveVector;
     }
     
     protected virtual bool HasCollided()
     {
-        Debug.DrawRay(transform.position, transform.forward, Color.green, 1);
-        if (Physics.Raycast (transform.position, transform.forward, out RaycastHit hit, moveVector.magnitude + radius, layerMask))
+        float rayDistance = moveSpeed * Time.deltaTime + radius;
+        
+        if (Physics.Raycast (transform.position, transform.forward, out RaycastHit hit, rayDistance, layerMask))
         {
             OnProjectileCollision(hit);
             return true;
@@ -102,11 +104,13 @@ public class UProjectile : MonoBehaviour
         this.moveSpeed = moveSpeed;
         transform.position = position;
         transform.forward = forward;
+        moveDirection = forward.normalized;
     }
     
     public void InitializeProjectile (float moveSpeed)
     {
         this.moveSpeed = moveSpeed;
+        moveDirection = transform.forward.normalized;
     }
 
     /// <summary>
@@ -118,12 +122,12 @@ public class UProjectile : MonoBehaviour
     public void InitializeProjectile (float _moveSpeed, Vector3 _graphicsPosition, float _distance = 0)
     {
         this.moveSpeed = _moveSpeed;
-        if (projectileGraphics == null)
-        {
-            return;
-        }
+        moveDirection = transform.forward.normalized;
+        if (projectileGraphics is null) { return; }
+        
         float time = (_distance * _moveSpeed) - 0.1f;
         if (time < 0) time = 0;
+        
         projectileGraphics.transform.position = _graphicsPosition;
         projectileGraphics.transform.DOLocalMove (Vector3.zero, time);
     }
@@ -131,7 +135,7 @@ public class UProjectile : MonoBehaviour
     protected void StopProjectile()
     {
         disableMovement = true;
-        if (projectileGraphics != null)
+        if (projectileGraphics is not null)
         {
             projectileGraphics.transform.DOKill();
             projectileGraphics.transform.localPosition = Vector3.zero;

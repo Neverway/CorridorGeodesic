@@ -143,6 +143,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers/GameObject_Flicker.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/TestComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/GroupBrush.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/PlaneIntersectionUtil.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKTargetMatcher.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSGBuildSettings.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreMouse.cs" />
@@ -191,6 +192,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaReceiver.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BrushBase.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TestProj.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/JointExtensions.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ComicFilter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/ExpandPropertiesAttribute.cs.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/ReloadAttribute.cs" />

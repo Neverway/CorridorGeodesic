@@ -7,13 +7,13 @@
 //
 //====================================================================================================================//
 
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using Dreamteck.Splines;
 using UnityEditor;
 using UnityEngine;
-
 public class DTSpline_CopyCinemachinePath : MonoBehaviour
 {
     [MenuItem("GameObject/Spline/Copy Cinemachine Path To DT Spline", false, 0)]
@@ -51,3 +51,4 @@ public class DTSpline_CopyCinemachinePath : MonoBehaviour
 
     }
 }
+#endif
