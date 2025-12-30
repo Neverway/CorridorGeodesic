@@ -116,6 +116,11 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.5781976
       objectReference: {fileID: 0}
+    - target: {fileID: 1934578342547201172, guid: 9a4aef5a1bebd876db8d1e5811db7076,
+        type: 3}
+      propertyPath: propRigidbody.value
+      value: 
+      objectReference: {fileID: 7062285413854222742}
     - target: {fileID: 2276721478425129573, guid: 9a4aef5a1bebd876db8d1e5811db7076,
         type: 3}
       propertyPath: m_Name
@@ -194,6 +199,12 @@ PrefabInstance:
 --- !u!4 &6479683067326245369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6860228584438697348, guid: 9a4aef5a1bebd876db8d1e5811db7076,
+    type: 3}
+  m_PrefabInstance: {fileID: 493171543110263933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7062285413854222742 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7267226283918966251, guid: 9a4aef5a1bebd876db8d1e5811db7076,
     type: 3}
   m_PrefabInstance: {fileID: 493171543110263933}
   m_PrefabAsset: {fileID: 0}
