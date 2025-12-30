@@ -12348,6 +12348,59 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &386269645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4298151654670827244, guid: 49441bef8d2256233a0f4f3fed7dfb2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1899628987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &386269652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4942970576282025009, guid: 49441bef8d2256233a0f4f3fed7dfb2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1899628987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386269645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db0e900330dcb04cad200a7f0547c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &386269665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386269645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55ed6570ef81fe83b76de51f04442f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createRiftOnMarkersPinned: 1
+  maxRiftWidth: 30
+  minRiftWidth: -30
+  minAbsoluteRiftWidth: 0.15
+  minRiftSpeed: 8
+  maxRiftSpeed: 8
+  riftAcceleration: 8
+  visualPlanePrefab: {fileID: 3569801623043244855, guid: 83ab4b7787c4221b2b87b065899cbea3,
+    type: 3}
+  nullSpaceMaterial: {fileID: 2100000, guid: eb2aa8e528376ea4bad7b7dd63732b8f, type: 2}
+  riftPreviewEffects: {fileID: 386269652}
+  spaceController:
+    spaceContainerA: {fileID: 0}
+    spaceContainerB: {fileID: 0}
+    spaceContainerNull: {fileID: 0}
+    spaceMeshesA: []
+    spaceMeshesB: []
+    spaceMeshesNull: []
+  geometryHandler:
+    visualPlaneA: {fileID: 0}
+    visualPlaneB: {fileID: 0}
+    cutMeshesToActivate: []
+    originalMeshesToHide: []
 --- !u!43 &399011986
 Mesh:
   m_ObjectHideFlags: 0
@@ -16931,7 +16984,7 @@ PrefabInstance:
     - target: {fileID: 3956498540192049275, guid: e8e305fa18d0012b09c7e57181dba41a,
         type: 3}
       propertyPath: collapseBehavior
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3956498540192049275, guid: e8e305fa18d0012b09c7e57181dba41a,
         type: 3}
@@ -16941,7 +16994,7 @@ PrefabInstance:
     - target: {fileID: 3956498540192049275, guid: e8e305fa18d0012b09c7e57181dba41a,
         type: 3}
       propertyPath: allowExpandingRift
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3956498540192049275, guid: e8e305fa18d0012b09c7e57181dba41a,
         type: 3}
@@ -68679,7 +68732,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4298151654670827244, guid: 49441bef8d2256233a0f4f3fed7dfb2f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 386269665}
   m_SourcePrefab: {fileID: 100100000, guid: 49441bef8d2256233a0f4f3fed7dfb2f, type: 3}
 --- !u!1001 &1900954717
 PrefabInstance:
