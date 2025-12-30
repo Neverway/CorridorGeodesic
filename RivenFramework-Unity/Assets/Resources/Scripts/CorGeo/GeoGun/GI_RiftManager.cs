@@ -17,11 +17,11 @@
 //          Update rift state
 //
 // For anyone who has to fix or change something in this script, feel free to add a tick mark and move a chess piece
-// Programmers Suffered: |||
-// ♜♝♞♛♚♞♝♜
+// Programmers Suffered: ||||
+// ♜♝♞■♚♞♝♜
 // ♟♟♟♟■♟♟♟
 // □■□■♟■□■
-// ■□■□■□■□
+// ■□■□■□♛□
 // □■□■♙■□■
 // ■□■□■□■□
 // ♙♙♙♙□♙♙♙
@@ -102,7 +102,8 @@ public class GI_RiftManager : MonoBehaviour
     [HideInInspector] public static Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
 
-    public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes, meshesToActivate;
+    public List<GameObject> spaceAMeshes; 
+    public List<GameObject> spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes, meshesToActivate;
     public Graphics_RiftPreviewEffects riftPreviewEffects;
     public Material nullSpaceMaterial;
     /// <summary>
@@ -347,7 +348,7 @@ public class GI_RiftManager : MonoBehaviour
         }
 
         // Clean up glitched duplicate mesh colliders that sometimes appear on sub-cuts
-        StartCoroutine(CleanupExtraMeshColliders());
+        StartCoroutine(CleanupExtraMeshCollidersCleanupExtraMeshColliders());
 
         StartCoroutine(AssignSpaceContainerForMeshes());
 
@@ -390,9 +391,10 @@ public class GI_RiftManager : MonoBehaviour
         currentRiftPercent = 1;
         currentRiftWidth = riftStartingWidth;
 
-        riftNullSpacePosition = spaceContainerNull.transform.position; //I'm preserving this position because negative scaling moves the object.
+        // I'm preserving this position because negative scaling moves the object. ~Connorses
+        riftNullSpacePosition = spaceContainerNull.transform.position;
 
-        //Saves the direction the rift is facing so we can easily reference it.
+        // Saves the direction the rift is facing so we can easily reference it.
         riftNormal = spaceContainerNull.transform.forward;
     }
 
@@ -562,6 +564,17 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void RestoreCutGeometry()
     {
+        print("restoring cut geometry");
+        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>();
+        foreach (var sliceableMesh in sliceableMeshes)
+        {
+            if (sliceableMesh.isSlicedByPlane && !hiddenOriginalMeshes.Contains(sliceableMesh.gameObject))
+            {
+                sliceableMesh.UndoCuts();
+            }
+        }
+        
+        /*
         // Destroy cloned cut geometry
         var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>();
         foreach (var sliceableMesh in sliceableMeshes)
@@ -578,7 +591,7 @@ public class GI_RiftManager : MonoBehaviour
             hiddenOriginalMeshes[i].SetActive(true);
         }
         
-        hiddenOriginalMeshes.Clear();
+        hiddenOriginalMeshes.Clear();*/
     }
 
     /// <summary>
@@ -588,12 +601,10 @@ public class GI_RiftManager : MonoBehaviour
     {
         SetRiftPlanesHidden(true);
         UpdateState (RiftState.None);
-        SetNullSpaceHidden(false);
         SetRiftPosition(1);
         RestoreCutGeometry();
         EmptyMatterInSpaceContainers();
         currentRiftMoveSpeed = 0;
-        UpdateState (RiftState.None);
         RestoreActors ();
     }
 
@@ -695,11 +706,6 @@ public class GI_RiftManager : MonoBehaviour
         riftIsMoving = true;
     }
 
-    private void SetNullSpaceHidden(bool _isHidden)
-    {
-        spaceContainerNull.SetActive(!_isHidden);
-    }
-
     private void MoveGeometryWithRift ()
     {
         if (!spaceContainerNull) return;
@@ -788,7 +794,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <param name="_position"></param>
     /// <param name="_newPercent"></param>
     /// <returns></returns>
-    public Vector3 MovePositionWithNullSpace (Vector3 _position, float _newPercent)
+    private Vector3 MovePositionWithNullSpace (Vector3 _position, float _newPercent)
     {
         //Calculate how far across null-space the transform is.
         float riftDistance = planeA.GetDistanceToPoint (_position);
@@ -811,7 +817,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <param name="_position"></param>
     /// <param name="_newPercent"></param>
     /// <returns></returns>
-    public Vector3 MovePositionWithBSpace (Vector3 _position, float _newPercent)
+    private Vector3 MovePositionWithBSpace (Vector3 _position, float _newPercent)
     {
         float offset = Mathf.Abs(riftStartingWidth*currentRiftPercent)-Mathf.Abs(riftStartingWidth * _newPercent);
 
