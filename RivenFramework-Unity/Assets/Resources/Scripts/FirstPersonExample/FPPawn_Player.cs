@@ -33,7 +33,7 @@ public class FPPawn_Player : FPPawn
     private InputActions.FirstPersonActions inputActions;
     [SerializeField] private GameObject DeathScreenWidget;
     private ApplicationSettings applicationSettings;
-    private GI_RiftManager riftManager;
+    private RiftManager riftManager;
     
     #endregion
 
@@ -211,8 +211,8 @@ public class FPPawn_Player : FPPawn
     private void OnDeath()
     {
         // Remove any rifts
-        riftManager = GameInstance.Get<GI_RiftManager>();
-        riftManager.RestoreRift();
+        riftManager = GameInstance.Get<RiftManager>();
+        riftManager.DestroyRift();
         
         // Drop held props
         if (physObjectAttachmentPoint)

@@ -13,10 +13,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class RiftManager_StateHandler
+public class RiftManager_StateHandler : ILoggable
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+    public bool EnableRuntimeLogging { get; set; }
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
@@ -30,6 +31,9 @@ public class RiftManager_StateHandler
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+    [Tooltip("Link to parent class for logging")]
+    private RiftManager riftManager;
+    
     [Tooltip("This event allows scripts to respond to any changes in the RiftState, such as the animated plane visuals or the rift audio effects")]
     public delegate void StateChanged ();
     public static event StateChanged OnStateChanged;
@@ -37,6 +41,12 @@ public class RiftManager_StateHandler
 
     #endregion
 
+    // Class constructor
+    public RiftManager_StateHandler(RiftManager riftManager)
+    {
+        this.riftManager = riftManager;
+        EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
+    }
 
     #region=======================================( Functions )=======================================================//
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/

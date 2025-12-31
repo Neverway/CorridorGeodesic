@@ -15,10 +15,11 @@ using RivenFramework;
 using UnityEngine;
 
 [Serializable]
-public class RiftManager_GeometryHandler
+public class RiftManager_GeometryHandler : ILoggable
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+    public bool EnableRuntimeLogging { get; set; }
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
@@ -30,24 +31,27 @@ public class RiftManager_GeometryHandler
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Tooltip("Link to the space controller so this class has access to space containers")]
     private RiftManager_SpaceController spaceController;
+    private RiftManager riftManager;
+    
     [Tooltip("Coroutine used to keep multiple cut operations from being called at the same time")]
     private Coroutine cutRoutine;
-    
+
     [Tooltip("The visuals that represent the rift cut planes")]
     [HideInInspector] public GameObject visualPlaneA, visualPlaneB;
-    [Tooltip("The mathematical plane where the rift is cut")]
-    [HideInInspector] public Plane cutPlaneA, cutPlaneB;
 
     [Tooltip("The geometry that has been cut, but is stored inactive until all cuts are done")]
-    public List<GameObject> cutMeshesToActivate;
+    public List<GameObject> cutMeshesToActivate = new List<GameObject>();
     [Tooltip("The original uncut level geometry that has been set inactive while the rift is active")]
-    public List<GameObject> originalMeshesToHide;
+    public List<GameObject> originalMeshesToHide = new List<GameObject>();
 
 
     #endregion
 
-    public RiftManager_GeometryHandler(RiftManager_SpaceController spaceController)
+    // Class constructor
+    public RiftManager_GeometryHandler(RiftManager riftManager, RiftManager_SpaceController spaceController)
     {
+        this.riftManager = riftManager;
+        EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
         this.spaceController = spaceController;
     }
 
@@ -56,14 +60,24 @@ public class RiftManager_GeometryHandler
 
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    private void CreateVisualPlanes()
+    {
+        this.Log("CreateVisualPlanes called");
+        visualPlaneA = MonoBehaviour.Instantiate(riftManager.visualPlanePrefab, null);
+        visualPlaneB = MonoBehaviour.Instantiate(riftManager.visualPlanePrefab, null);
+        visualPlaneA.name = "VisPlaneA";
+        visualPlaneB.name = "VisPlaneB";
+    }
+    
     private IEnumerator SliceCutPlanes()
     {
+        this.Log("sliceCutPlanes started");
         cutMeshesToActivate = new List<GameObject>();
         
         // Separate and slice intersected meshes
         var intersectedMeshes = new HashSet<CorGeo_SliceableMesh>(); // This array is a HashSet to avoid collecting duplicates
-        intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(cutPlaneA));
-        intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(cutPlaneB));
+        intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(RiftManager.cutPlaneA));
+        intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(RiftManager.cutPlaneB));
         foreach (var intersectedMesh in intersectedMeshes)
         {
             intersectedMesh.ApplyCuts();
@@ -74,10 +88,12 @@ public class RiftManager_GeometryHandler
         {
             yield return null;
         }
+        this.Log("sliceCutPlanes finished");
     }
 
     private IEnumerator SwitchToCutGeometry()
     {
+        this.Log("switchToCutGeometry started");
         yield return new WaitForEndOfFrame();
         foreach (var hiddenOriginalMesh in originalMeshesToHide)
         {
@@ -92,10 +108,12 @@ public class RiftManager_GeometryHandler
             }
             mesh.SetActive (true);
         }
+        this.Log("switchToCutGeometry finished");
     }
 
     private void CleanupExtraMeshColliders()
     {
+        this.Log("CleanupExtraMeshColliders called");
         foreach (var newMesh in spaceController.spaceMeshesB)
         {
             var meshColliders = newMesh.GetComponents<MeshCollider>();
@@ -117,10 +135,17 @@ public class RiftManager_GeometryHandler
 
     private void CleanupCollisionConvexStates()
     {
+        this.Log("CleanupCollisionConvexStates called");
+        foreach (var mesh in GameObject.FindObjectsOfType<CorGeo_SliceableMesh>())
+        {
+            var meshCollider =  mesh.GetComponent<MeshCollider>();
+            if (meshCollider) meshCollider.convex = false;
+        }
     }
     
     private IEnumerator CutProcedure()
     {
+        this.Log("CutProcedure called");
         yield return SliceCutPlanes();
         yield return SwitchToCutGeometry();
         CleanupExtraMeshColliders();
@@ -135,6 +160,10 @@ public class RiftManager_GeometryHandler
     /// </summary>
     public void SetRiftPlanesVisible(bool _isVisible)
     {
+        this.Log("SetRiftPlanesVisible called");
+        // Do an initial check
+        if (!visualPlaneA && !visualPlaneB) CreateVisualPlanes();
+
         visualPlaneA.SetActive(_isVisible);
         visualPlaneB.SetActive(_isVisible);
     }
@@ -144,6 +173,7 @@ public class RiftManager_GeometryHandler
     /// </summary>
     public void PositionCutPlanes(Transform _markerA, Transform _markerB)
     {
+        this.Log("PositionCutPlanes called");
         // Set the positions and rotations of the cut plane objects
         visualPlaneA.transform.position = _markerA.transform.position;
         visualPlaneB.transform.position = _markerB.transform.position;
@@ -152,15 +182,14 @@ public class RiftManager_GeometryHandler
         visualPlaneB.transform.LookAt(_markerA.transform);
         
         // Assign the mathematical plane values
-        cutPlaneA = new Plane(visualPlaneA.transform.forward, visualPlaneA.transform.position);
-        cutPlaneA = new Plane(visualPlaneB.transform.forward, visualPlaneB.transform.position);
+        RiftManager.cutPlaneA = new Plane(visualPlaneA.transform.forward, visualPlaneA.transform.position);
+        RiftManager.cutPlaneB = new Plane(visualPlaneB.transform.forward, visualPlaneB.transform.position);
 
-        //Place the Space Containers at the edges of the rift.
-        spaceController.spaceContainerNull.transform.position = visualPlaneA.transform.position;
-        spaceController.spaceContainerB.transform.position = visualPlaneB.transform.position;
-        //Aim spaceContainerNull so that when we scale it, it will squish parallel to the rift planes.
-        spaceController.spaceContainerNull.transform.LookAt (visualPlaneB.transform.position);
-        //Initialize the rift measurements
+        // Initialize/Position the space containers
+        // (Hmm I dunno if I should be putting this here... ~Liz)
+        spaceController.PositionSpaceContainers(visualPlaneA, visualPlaneB);
+        
+        // Initialize the rift measurements
         RiftManager.riftStartingWidth = Vector3.Distance(visualPlaneA.transform.position, visualPlaneB.transform.position);
         RiftManager.currentRiftPercent = 1;
         RiftManager.currentRiftWidth =  RiftManager.riftStartingWidth;
@@ -174,6 +203,7 @@ public class RiftManager_GeometryHandler
 
     public void PerformCutProcedure()
     {
+        this.Log("PerformCutProcedure called");
         if (cutRoutine != null)
         {
             Debug.LogError("Attempted to perform cut while one is already running! This is bad!?");
@@ -185,6 +215,7 @@ public class RiftManager_GeometryHandler
 
     public void RestoreCutGeometry()
     {
+        this.Log("RestoreCutGeometry called");
         throw new NotImplementedException();
     }
 

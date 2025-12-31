@@ -12,10 +12,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RiftManager : MonoBehaviour
+public class RiftManager : MonoBehaviour, ILoggable
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+    [field: SerializeField] public bool EnableRuntimeLogging { get; set; }
+    
     [Header("RIFT SETTINGS")] 
     [Tooltip("Creates a rift when the two marker transform variables are set")]
     [SerializeField] private bool createRiftOnMarkersPinned;
@@ -76,9 +78,16 @@ public class RiftManager : MonoBehaviour
     
     [Header("REFERENCES")]
     [Tooltip("The positions where the rift planes will be created")]
-    private Transform markerA, markerB;
+    [HideInInspector] public Transform markerA, markerB;
+    [Tooltip("The mathematical plane where the rift is cut")]
+    [HideInInspector] public static Plane cutPlaneA, cutPlaneB;
 
-
+    [Header("REFERENCES")] 
+    [Tooltip("The script that is currently controlling this rift manager")]
+    private RiftController linkedRiftController;
+    [Tooltip("If either collapse or expand is enabled, the rift will attempt to move")]
+    private bool collapseHeld, expandHeld;
+    
     #endregion
 
 
@@ -86,10 +95,10 @@ public class RiftManager : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
-        stateHandler = new RiftManager_StateHandler();
-        spaceController = new RiftManager_SpaceController();
-        geometryHandler = new RiftManager_GeometryHandler(spaceController);
-        actorHandler = new RiftManager_ActorHandler();
+        stateHandler = new RiftManager_StateHandler(this);
+        spaceController = new RiftManager_SpaceController(this);
+        geometryHandler = new RiftManager_GeometryHandler(this, spaceController);
+        actorHandler = new RiftManager_ActorHandler(this);
     }
 
     private void Update()
@@ -109,11 +118,12 @@ public class RiftManager : MonoBehaviour
 
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    
     private bool IsMarkersPinned()
     {
         return (markerA != null && markerB != null);
     }
-
+    
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
@@ -121,6 +131,7 @@ public class RiftManager : MonoBehaviour
     /// </summary>
     public void CreateRift(Transform _markerA, Transform _markerB)
     {
+        this.Log($"CreateRift called (_markerA: '{_markerA}', _markerB: '{_markerB}')");
         stateHandler.SetState(RiftState.Preview);
         geometryHandler.SetRiftPlanesVisible(true);
         geometryHandler.PositionCutPlanes(_markerA, _markerB);
@@ -134,6 +145,7 @@ public class RiftManager : MonoBehaviour
     /// </summary>
     public void DestroyRift()
     {
+        this.Log("DestroyRift called");
         stateHandler.SetState(RiftState.None);
         geometryHandler.SetRiftPlanesVisible(false);
         SetRiftPercentage(1);
@@ -147,7 +159,7 @@ public class RiftManager : MonoBehaviour
     /// </summary>
     public void MoveRiftByDistance(float _distance)
     {
-        
+        this.Log($"MoveRiftByDistance called (_distance: '{_distance}')");
     }
 
     /// <summary>
@@ -155,16 +167,24 @@ public class RiftManager : MonoBehaviour
     /// </summary>
     public void SetRiftPercentage(float _distance)
     {
-        
+        this.Log($"SetRiftPercentage called (_distance: '{_distance}')");
     }
 
     /// <summary>
     /// Assign a controller, like the Geogun, to control the rift manager
     /// </summary>
-    public void RegisterRiftController(GameObject _linkedRiftController)
+    public void RegisterRiftController(RiftController _linkedRiftController)
     {
-        
+        this.Log($"RegisterRiftController called (_linkedRiftController: '{_linkedRiftController}')");
+        linkedRiftController = _linkedRiftController;
+        //linkedRiftController.isLinkedToManager = true; 
+        //linkedRiftController.OnGunDestroyMarkers += () => RestoreRift();
+        linkedRiftController.OnCollapseHeld += () => collapseHeld = true;
+        linkedRiftController.OnCollapseReleased += () => collapseHeld = false;
+        linkedRiftController.OnExpandHeld += () => expandHeld = true;
+        linkedRiftController.OnExpandReleased += () => expandHeld = false;
     }
 
     #endregion
+
 }

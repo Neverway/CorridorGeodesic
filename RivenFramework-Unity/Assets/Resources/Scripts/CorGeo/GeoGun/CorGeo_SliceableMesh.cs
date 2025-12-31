@@ -67,7 +67,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     [Tooltip("The data that the BZSlicer returns when cutting the mesh")]
     private IBzMeshSlicer sliceData;
     [Tooltip("Reference to the riftManager so the cut meshes can sort themselves into the manager's correct space lists")]
-    private GI_RiftManager riftManager;
+    private RiftManager riftManager;
     
     private Stack<UndoSliceState> sliceHistory = new();
 
@@ -80,7 +80,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     private void Start()
     {
         slicer = GetComponent<BzSliceableObject>();
-        riftManager = GameInstance.Get<GI_RiftManager>();
+        riftManager = GameInstance.Get<RiftManager>();
         if (!slicer.defaultSliceMaterial)
         {
             slicer.defaultSliceMaterial = riftManager.nullSpaceMaterial;
@@ -134,10 +134,10 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         // Clones get AttemptSlice called before start or awake, so we have to force get components here
         slicer = GetComponent<BzSliceableObject>();
         sliceData = GetComponent<IBzMeshSlicer>();
-        riftManager = GameInstance.Get<GI_RiftManager>();
+        riftManager = GameInstance.Get<RiftManager>();
         
         // --- PART ONE: SLICE PLANE A ---
-        var sliceA = await slicer.SliceAsync(GI_RiftManager.planeA, sliceData);
+        var sliceA = await slicer.SliceAsync(RiftManager.cutPlaneA, sliceData);
         if (sliceA.sliced)
         {
             HandleOriginal(_originalMesh);
@@ -354,7 +354,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     // [--- Attempt Slice Helper Functions ---]
     private void HandleOriginal(GameObject _originalMesh)
     {
-        if (!riftManager.hiddenOriginalMeshes.Contains(_originalMesh)) riftManager.hiddenOriginalMeshes.Add(_originalMesh);
+        if (!riftManager.geometryHandler.originalMeshesToHide.Contains(_originalMesh)) riftManager.geometryHandler.originalMeshesToHide.Add(_originalMesh);
         isSlicedByPlane = true;
     }
     
@@ -366,7 +366,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         var s = obj.GetComponent<CorGeo_SliceableMesh>();
 
         obj.SetActive(false);
-        riftManager.meshesToActivate.Add(obj);
+        riftManager.geometryHandler.cutMeshesToActivate.Add(obj);
 
         s.isClone = true;
         s.isSlicedByPlane = true;
@@ -402,7 +402,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         var s = obj.GetComponent<CorGeo_SliceableMesh>();
 
         obj.SetActive(false);
-        riftManager.meshesToActivate.Add(obj);
+        riftManager.geometryHandler.cutMeshesToActivate.Add(obj);
 
         s.isClone = true;
         s.isSlicedByPlane = true;
@@ -467,23 +467,23 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         transform.rotation = state.transformData.rotation;
         transform.localScale = state.transformData.scale;
 
-        foreach (var clone in riftManager.meshesToActivate)
+        foreach (var clone in riftManager.geometryHandler.cutMeshesToActivate)
         {
             Destroy(clone);
         }
-        riftManager.meshesToActivate.Clear();
+        riftManager.geometryHandler.cutMeshesToActivate.Clear();
         
         gameObject.SetActive(true);
     }
 
     public void AssignMeshToSpaceLists()
     {
-        if (!riftManager) riftManager = GameInstance.Get<GI_RiftManager>();
+        if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
         
         // Clear itself from old lists
-        riftManager.spaceAMeshes.Remove(gameObject);
-        riftManager.spaceBMeshes.Remove(gameObject);
-        riftManager.spaceNullMeshes.Remove(gameObject);
+        riftManager.spaceController.spaceMeshesA.Remove(gameObject);
+        riftManager.spaceController.spaceMeshesB.Remove(gameObject);
+        riftManager.spaceController.spaceMeshesNull.Remove(gameObject);
         
         MeshFilter meshFilter = GetComponent<MeshFilter> ();
         
@@ -499,21 +499,21 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         if (GI_RiftManager.planeA.GetDistanceToPoint(worldPoint) < 0)
         {
             // Set the original to correct space
-            riftManager.spaceAMeshes.Add(gameObject);
+            riftManager.spaceController.spaceMeshesA.Add(gameObject);
             space = Space.A;
         }
         // Object is in B Space
         else if (GI_RiftManager.planeB.GetDistanceToPoint(worldPoint) < 0)
         {
             // Set the original to correct space
-            riftManager.spaceBMeshes.Add(gameObject);
+            riftManager.spaceController.spaceMeshesB.Add(gameObject);
             space = Space.B;
         }
         // Object is in NULL Space
         else
         {
             // Set the original to correct space
-            riftManager.spaceNullMeshes.Add(gameObject);
+            riftManager.spaceController.spaceMeshesNull.Add(gameObject);
             space = Space.NULL;
         }
         assignedCount++;

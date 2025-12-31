@@ -91,7 +91,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapWorldConverter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/CurvedStairBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapVector2.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Projectile_Marker.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/IDeepCopyable.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfPlane.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Particle_DataExposer.cs" />
@@ -152,6 +151,7 @@
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSGBuildContext.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dImporter.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/RiftController.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_DeploymentVent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ResizeHandlePair.cs" />
@@ -162,7 +162,6 @@
      <Compile Include="Assets/Resources/Scripts/ErryLib/ExtensionMethods/EnumerableExtensions.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGUIHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Edge.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Item_Utility_Geogun.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUtils.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/PaletteWindow.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Text_EntityName.cs" />
@@ -184,6 +183,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Vector2Int.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/ShapeEditorBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/Graphics_StretchSmear.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/DebugConsole.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/WidgetSelectable.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ErryRoutine/TESTROUTINE.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CSGModelRuntime.cs" />
@@ -264,6 +264,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/WidgetSelectable_Animator.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ToolSettingsPopup.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/PolygonEntry.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/Migrating/Projectile_Marker.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/StringHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawn_Player.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfAxis.cs" />
@@ -315,11 +316,13 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/BrushChunk.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Text_EntityHealth.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/SOEventSystem/SOEvent.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/ILoggable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/LemonBuddyTracker.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Text_EntityItems.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/LinearFPSCam.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/UProjectile.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapBrushSide.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/Migrating/Item_Utility_Geogun.cs" />
      <Compile Include="Assets/Resources/Scripts/InputActions.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/GameObject_Billboard.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/Optimizer.cs" />
@@ -643,6 +646,7 @@
      <Folder Include="Assets/_REMOVE_/_Characters" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG" />
      <Folder Include="Assets/Resources/Sprites/Characters" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/Migrating" />
      <Folder Include="Assets/TextMesh Pro/Sprites" />
      <Folder Include="Assets/RivenFramework-Revamp/_WidgetComponents" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/ErryRoutine" />
