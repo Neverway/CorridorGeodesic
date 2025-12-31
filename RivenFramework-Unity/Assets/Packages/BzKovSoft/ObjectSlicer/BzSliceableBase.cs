@@ -231,6 +231,8 @@ namespace BzKovSoft.ObjectSlicer
 			Profiler.EndSample();
 
 			Profiler.EndSample();
+			
+			Debug.Log($"WORK FINISHED");
 		}
 
 		private static OneObjectItem[] FixObjectGroups(OneObjectItem[] result)

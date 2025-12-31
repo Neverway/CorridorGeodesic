@@ -7,6 +7,7 @@
 //
 //====================================================================================================================//
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -96,27 +97,27 @@ public class CorGeo_PlaneIntersectionUtil : MonoBehaviour
         return 2;
     }
     
-    public static List<CorGeo_SliceableMesh> GetIntersectingMeshes(Plane plane)
+    public static List<CorGeo_SliceableMesh> GetIntersectingMeshes(Plane plane, List<CorGeo_SliceableMesh> sliceableMeshes)
     {
         List<CorGeo_SliceableMesh> intersectedSliceableMeshes = new List<CorGeo_SliceableMesh>();
 
-        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>();
 
         foreach (var sliceableMesh in sliceableMeshes)
         {
-            var renderer = sliceableMesh.GetComponent<Renderer>();
-            if (renderer == null)
-            {
-                Debug.LogWarning($"sliceableMesh '{sliceableMesh}' doesn't have renderer, this is... strange");
-                continue;
-            }
-            
-            var bounds =  renderer.bounds;
-
-            if (BoundingBoxIntersectsPlane(bounds, plane)) intersectedSliceableMeshes.Add(sliceableMesh);
+            if (IsMeshIntersectingPlane(plane, sliceableMesh)) intersectedSliceableMeshes.Add(sliceableMesh);
         }
         
         return intersectedSliceableMeshes;
+    }
+    
+    public static bool IsMeshIntersectingPlane(Plane plane, CorGeo_SliceableMesh sliceableMesh)
+    {
+        var renderer = sliceableMesh.meshRenderer;
+        if (renderer == null) throw new Exception($"sliceableMesh '{sliceableMesh}' doesn't have renderer, this is... strange");
+            
+        var bounds =  renderer.bounds;
+
+        return BoundingBoxIntersectsPlane(bounds, plane);
     }
 
 

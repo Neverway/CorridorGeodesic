@@ -408,8 +408,8 @@ public class GI_RiftManager : MonoBehaviour
         var intersectedMeshes = new HashSet<CorGeo_SliceableMesh>();
         
         // Separate and slice intersected meshes
-        intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(planeA));
-        intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(planeB));
+        //intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(planeA));
+        //intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(planeB));
         
         foreach (var intersectedMesh in intersectedMeshes)
         {
@@ -706,7 +706,7 @@ public class GI_RiftManager : MonoBehaviour
         riftIsMoving = true;
     }
 
-    private void MoveGeometryWithRift ()
+    private void MoveGeometryWithRift()
     {
         if (!spaceContainerNull) return;
 
@@ -853,7 +853,7 @@ public class GI_RiftManager : MonoBehaviour
         {
             if (actor.space == CorGeo_Actor.Space.Null)
             {
-                actor.CollapseActor ();
+                actor.CollapseActor();
             }
         }
     }

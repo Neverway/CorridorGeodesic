@@ -112,7 +112,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/TransformModelEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/MathHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/MarkerCollisionBehaviour.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_SliceableMesh.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/StairBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/AttributeInfo.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ModifierSystem/ModifierSystem/ApplyModifiersOnEnable.cs" />
@@ -214,6 +213,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/CorGeo_VolumeFizzler.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dActor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/RiftManager.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_SliceableMesh_old.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaSender.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/ApplyForceOnBulbCollision.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBonePlaneCollider.cs" />
@@ -340,6 +340,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_SFX_Impact.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/SerializablePlane.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/DTSpline_CopyCinemachinePath.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/Migrating/CorGeo_SliceableMesh.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume/PhysicsVolumeGravityMode.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Image_EntityHealth.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/EdgeUtility.cs" />

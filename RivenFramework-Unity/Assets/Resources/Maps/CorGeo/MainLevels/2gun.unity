@@ -1704,7 +1704,7 @@ PrefabInstance:
     - target: {fileID: 5465543397240556261, guid: 89b090c7d00235ef1b2b68cb4ec48d98,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5271
+      value: 5277
       objectReference: {fileID: 0}
     - target: {fileID: 6638147699899142091, guid: 89b090c7d00235ef1b2b68cb4ec48d98,
         type: 3}
@@ -12650,7 +12650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55ed6570ef81fe83b76de51f04442f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EnableRuntimeLogging>k__BackingField: 1
+  <EnableRuntimeLogging>k__BackingField: 0
   createRiftOnMarkersPinned: 1
   maxRiftWidth: 30
   minRiftWidth: -30
@@ -12666,11 +12666,7 @@ MonoBehaviour:
     spaceContainerA: {fileID: 0}
     spaceContainerB: {fileID: 0}
     spaceContainerNull: {fileID: 0}
-    spaceMeshesA: []
-    spaceMeshesB: []
-    spaceMeshesNull: []
   geometryHandler:
-    visualPlanePrefab: {fileID: 0}
     visualPlaneA: {fileID: 0}
     visualPlaneB: {fileID: 0}
     cutMeshesToActivate: []
@@ -16449,7 +16445,7 @@ PrefabInstance:
     - target: {fileID: 5529068463716140507, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5388
+      value: 5394
       objectReference: {fileID: 0}
     - target: {fileID: 6592637169491001589, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
@@ -19654,13 +19650,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSlicedByPlane: 0
   isReflective: 0
-  isClone: 0
   isSliceInProgress: 0
-  assignedCount: 0
-  space: 0
-  timesSliced: 0
+  isSlicedByPlane: 0
+  isClone: 0
+  riftSpace: 0
+  meshRenderer: {fileID: 0}
 --- !u!114 &776991614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52468,7 +52463,7 @@ PrefabInstance:
     - target: {fileID: 5529068463716140507, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5388
+      value: 5394
       objectReference: {fileID: 0}
     - target: {fileID: 6592637169491001589, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
@@ -53134,7 +53129,7 @@ PrefabInstance:
     - target: {fileID: 5465543397240556261, guid: 89b090c7d00235ef1b2b68cb4ec48d98,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5271
+      value: 5277
       objectReference: {fileID: 0}
     - target: {fileID: 6638147699899142091, guid: 89b090c7d00235ef1b2b68cb4ec48d98,
         type: 3}
@@ -61140,7 +61135,7 @@ PrefabInstance:
     - target: {fileID: 5529068463716140507, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5388
+      value: 5394
       objectReference: {fileID: 0}
     - target: {fileID: 6592637169491001589, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
@@ -62510,7 +62505,7 @@ PrefabInstance:
     - target: {fileID: 5529068463716140507, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5388
+      value: 5394
       objectReference: {fileID: 0}
     - target: {fileID: 5529068463716140507, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
@@ -64547,7 +64542,7 @@ PrefabInstance:
     - target: {fileID: 5529068463716140507, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5388
+      value: 5394
       objectReference: {fileID: 0}
     - target: {fileID: 6592637169491001589, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
@@ -68032,7 +68027,7 @@ PrefabInstance:
     - target: {fileID: 5529068463716140507, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5388
+      value: 5394
       objectReference: {fileID: 0}
     - target: {fileID: 6592637169491001589, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
@@ -72301,7 +72296,7 @@ PrefabInstance:
     - target: {fileID: 5529068463716140507, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5388
+      value: 5394
       objectReference: {fileID: 0}
     - target: {fileID: 6592637169491001589, guid: 9afb0a5675cb090d3b3659d06b63ce6b,
         type: 3}

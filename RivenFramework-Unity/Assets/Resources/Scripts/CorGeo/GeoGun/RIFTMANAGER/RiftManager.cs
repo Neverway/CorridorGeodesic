@@ -32,7 +32,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     [Tooltip("The speed of the rift when it starts moving")]
     [SerializeField] private float minRiftSpeed = 0.5f;
     [Tooltip("The maximum speed of the rift when it moves")]
-    [SerializeField] private float maxRiftSpeed = 6f;
+    [SerializeField] public float maxRiftSpeed = 6f;
     [Tooltip("How quickly the rift picks up in speed while moving")]
     [SerializeField] private float riftAcceleration = 2f;
     
@@ -85,8 +85,8 @@ public class RiftManager : MonoBehaviour, ILoggable
     [Header("REFERENCES")] 
     [Tooltip("The script that is currently controlling this rift manager")]
     private RiftController linkedRiftController;
-    [Tooltip("If either collapse or expand is enabled, the rift will attempt to move")]
-    private bool collapseHeld, expandHeld;
+    [Tooltip("If either collapseHeld or expandHeld is enabled, the rift will attempt to move")]
+    private bool collapseHeld, expandHeld, expandDueToCrush;
     
     #endregion
 
@@ -104,16 +104,20 @@ public class RiftManager : MonoBehaviour, ILoggable
     private void Update()
     {
         // Create rift when markers pinned
-        if (createRiftOnMarkersPinned && IsMarkersPinned() && RiftManager_StateHandler.currentState == RiftState.None)
+        if (createRiftOnMarkersPinned && IsMarkersPinned() && RiftManager_StateHandler.IsState<RiftState_None>())
         {
             CreateRift(markerA, markerB);
         }
         
         // Erase rift when marker transforms are destroyed
-        else if (createRiftOnMarkersPinned && !IsMarkersPinned() && RiftManager_StateHandler.currentState != RiftState.None)
+        else if (createRiftOnMarkersPinned && !IsMarkersPinned() && !RiftManager_StateHandler.IsState<RiftState_None>())
         {
             DestroyRift();
         }
+
+        // Handle rift inputs
+        UpdateState();
+        stateHandler.Update();
     }
 
 
@@ -123,21 +127,39 @@ public class RiftManager : MonoBehaviour, ILoggable
     {
         return (markerA != null && markerB != null);
     }
+
+    /// <summary>
+    /// Sets the state machine state based on the rift controller inputs
+    /// </summary>
+    private void UpdateState()
+    {
+        if (!riftActive) return;
+
+        // Expand due to crush
+        if (expandDueToCrush) { stateHandler.SetState<RiftState_ExpandingFromCrush>(); } 
+        // Collapsing
+        else if (collapseHeld) { stateHandler.SetState<RiftState_Collapsing>(); }
+        // Expanding
+        else if (expandHeld) { stateHandler.SetState<RiftState_Expanding>(); }
+        // Idling
+        else { stateHandler.SetState<RiftState_Idle>(); }
+    }
     
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
     /// Slice the world and assign all objects to space containers
     /// </summary>
-    public void CreateRift(Transform _markerA, Transform _markerB)
+    public async void CreateRift(Transform _markerA, Transform _markerB)
     {
         this.Log($"CreateRift called (_markerA: '{_markerA}', _markerB: '{_markerB}')");
-        stateHandler.SetState(RiftState.Preview);
+        stateHandler.SetState<RiftState_Preview>();
         geometryHandler.SetRiftPlanesVisible(true);
         geometryHandler.PositionCutPlanes(_markerA, _markerB);
-        geometryHandler.PerformCutProcedure();
+        await geometryHandler.PerformCutProcedure();
         spaceController.ReparentGeometryToSpaceContainers();
         spaceController.ReparentActorsToSpaceContainers();
+        riftActive = true;
     }
 
     /// <summary>
@@ -146,12 +168,13 @@ public class RiftManager : MonoBehaviour, ILoggable
     public void DestroyRift()
     {
         this.Log("DestroyRift called");
-        stateHandler.SetState(RiftState.None);
+        stateHandler.SetState<RiftState_None>();
         geometryHandler.SetRiftPlanesVisible(false);
         SetRiftPercentage(1);
         geometryHandler.RestoreCutGeometry();
         spaceController.RemoveObjectsFromSpaceContainers();
         actorHandler.RestoreActors();
+        riftActive = false;
     }
 
     /// <summary>
@@ -160,6 +183,39 @@ public class RiftManager : MonoBehaviour, ILoggable
     public void MoveRiftByDistance(float _distance)
     {
         this.Log($"MoveRiftByDistance called (_distance: '{_distance}')");
+        
+        // Keep from expanding if allowExpandingRift is false
+        if (!linkedRiftController.allowExpandingRift && currentRiftWidth + _distance > riftStartingWidth)
+        {
+            _distance = 0;
+        }
+
+        if (linkedRiftController.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default)
+        {
+            if (_distance < 0 && currentRiftWidth + _distance < minAbsoluteRiftWidth)
+            {
+                SetRiftPercentage(0);
+                return;
+            }
+            if (_distance > 0 && currentRiftWidth == 0)
+            {
+                SetRiftPercentage(1/riftStartingWidth * minAbsoluteRiftWidth);
+            }
+        }
+
+        if (currentRiftWidth + _distance < minRiftWidth)
+        {
+            currentRiftWidth = minRiftWidth;
+        }
+        
+        
+        float percentChange = 1 / riftStartingWidth * _distance;
+
+        // Does anything use this value? ~Liz
+        //currentRiftOffset = (currentRiftWidth - riftStartingWidth) * riftNormal;
+
+        SetRiftPercentage (currentRiftPercent + percentChange);
+        //riftIsMoving = true;
     }
 
     /// <summary>
@@ -168,6 +224,27 @@ public class RiftManager : MonoBehaviour, ILoggable
     public void SetRiftPercentage(float _distance)
     {
         this.Log($"SetRiftPercentage called (_distance: '{_distance}')");
+        if (linkedRiftController.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default)
+        {
+            if (_distance <= 0)
+            {
+                stateHandler.SetState<RiftState_Closed>();
+                // Disable null-space objects
+            }
+            if (currentRiftPercent == 0 && _distance > 0)
+            {
+                stateHandler.SetState<RiftState_Expanding>();
+                // Enable null-space objects
+            }
+        }
+
+        if (!geometryHandler.visualPlaneB || !spaceController.spaceContainerNull.activeInHierarchy) return;
+
+        // TODO Create function parallels for commented sections
+        currentRiftPercent = _distance;
+        currentRiftWidth = riftStartingWidth * currentRiftPercent;
+        //MoveActorsWithRift (_distance);
+        //MoveGeometryWithRift ();
     }
 
     /// <summary>
@@ -178,7 +255,6 @@ public class RiftManager : MonoBehaviour, ILoggable
         this.Log($"RegisterRiftController called (_linkedRiftController: '{_linkedRiftController}')");
         linkedRiftController = _linkedRiftController;
         //linkedRiftController.isLinkedToManager = true; 
-        //linkedRiftController.OnGunDestroyMarkers += () => RestoreRift();
         linkedRiftController.OnCollapseHeld += () => collapseHeld = true;
         linkedRiftController.OnCollapseReleased += () => collapseHeld = false;
         linkedRiftController.OnExpandHeld += () => expandHeld = true;

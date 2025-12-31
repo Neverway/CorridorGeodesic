@@ -10,6 +10,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RivenFramework;
 using UnityEngine;
 
 [Serializable]
@@ -50,6 +51,7 @@ public class RiftManager_ActorHandler : ILoggable
 
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
+    [Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
     public void RestoreActors()
     {
         throw new NotImplementedException();

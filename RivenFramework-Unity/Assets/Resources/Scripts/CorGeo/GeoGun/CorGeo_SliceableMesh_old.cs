@@ -32,7 +32,7 @@ using Sabresaurus.SabreCSG;
 /// Added to meshes to allow them to be sliced by the geogun
 /// </summary>
 [RequireComponent (typeof (BzSliceableObject))]
-public class CorGeo_SliceableMesh : MonoBehaviour
+public class CorGeo_SliceableMesh_old : MonoBehaviour
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
@@ -47,8 +47,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     public bool isClone;
     public bool isSliceInProgress;
     public int assignedCount;
-    public Space space;
-    public enum Space
+    public SpaceOld space;
+    public enum SpaceOld
     {
         none,
         A,
@@ -118,13 +118,6 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     /// </summary>
     private async void AttemptSlice(GameObject _originalMesh)
     {
-        // PERFORMED ON CLONES
-        if (!isClone)
-        {
-            //print("Attempted to slice an original mesh, this is strange....");
-            //return;
-        }
-        
         // This will stay false if the attempt to slice fails
         // (aka the objects is not intersecting with a rift cut plane)
         isSlicedByPlane = false;
@@ -138,38 +131,42 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         
         // --- PART ONE: SLICE PLANE A ---
         var sliceA = await slicer.SliceAsync(RiftManager.cutPlaneA, sliceData);
-        if (sliceA.sliced)
+        
+        // A fail
+        if (!sliceA.sliced)
         {
-            HandleOriginal(_originalMesh);
-
+            // --- PART TWO: SLICE PLANE B IF A FAILED ---
+            var sliceB = await slicer.SliceAsync(GI_RiftManager.planeB, sliceData);
+            
+            // B success
+            if (sliceB.sliced)
+            {
+                foreach (var sliceBResultObject in sliceB.resultObjects)
+                {
+                    await ProcessSliceResult(sliceBResultObject, planeA: false);
+                }
+                FinishSlice(_originalMesh);
+                return;
+            }
+            else
+            {
+                // --- PART THREE: DOUBLE SLICE FAILURE, CLEANUP ---
+                Destroy(gameObject);
+                isSliceInProgress = false;
+                _originalMesh.GetComponent<CorGeo_SliceableMesh>().isSliceInProgress = false;
+                return;
+            }
+        }
+        // A success
+        else
+        { 
             foreach (var sliceAResultObject in sliceA.resultObjects)
             {
                 await ProcessSliceResult(sliceAResultObject, planeA: true);
-            }
-
+            }       
             FinishSlice(_originalMesh);
             return;
         }
-        
-        // --- PART TWO: SLICE PLANE B IF A FAILED ---
-        var sliceB = await slicer.SliceAsync(GI_RiftManager.planeB, sliceData);
-        if (sliceB.sliced)
-        {
-            HandleOriginal(_originalMesh);
-
-            foreach (var sliceBResultObject in sliceB.resultObjects)
-            {
-                await ProcessSliceResult(sliceBResultObject, planeA: false);
-            }
-
-            FinishSlice(_originalMesh);
-            return;
-        }
-        
-        // --- PART THREE: DOUBLE SLICE FAILURE, CLEANUP ---
-        Destroy(gameObject);
-        isSliceInProgress = false;
-        _originalMesh.GetComponent<CorGeo_SliceableMesh>().isSliceInProgress = false;
 
 
         /*
@@ -369,7 +366,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         riftManager.geometryHandler.cutMeshesToActivate.Add(obj);
 
         s.isClone = true;
-        s.isSlicedByPlane = true;
+        //s.isSlicedByPlane = true;
         s.isSliceInProgress = true;
 
         // If this slice should continue to B-plane
@@ -405,7 +402,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         riftManager.geometryHandler.cutMeshesToActivate.Add(obj);
 
         s.isClone = true;
-        s.isSlicedByPlane = true;
+        //s.isSlicedByPlane = true;
         s.isSliceInProgress = true;
 
         if (resultObj.side)
@@ -481,9 +478,9 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
         
         // Clear itself from old lists
-        riftManager.spaceController.spaceMeshesA.Remove(gameObject);
-        riftManager.spaceController.spaceMeshesB.Remove(gameObject);
-        riftManager.spaceController.spaceMeshesNull.Remove(gameObject);
+        //riftManager.spaceController.spaceMeshesA.Remove(gameObject);
+        //riftManager.spaceController.spaceMeshesB.Remove(gameObject);
+        //riftManager.spaceController.spaceMeshesNull.Remove(gameObject);
         
         MeshFilter meshFilter = GetComponent<MeshFilter> ();
         
@@ -496,25 +493,25 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         Vector3 testPoint = new Vector3(vert.x, vert.y, vert.z);
         Vector3 worldPoint = transform.TransformPoint(testPoint);
         // Object is in A Space
-        if (GI_RiftManager.planeA.GetDistanceToPoint(worldPoint) < 0)
+        if (RiftManager.cutPlaneA.GetDistanceToPoint(worldPoint) < 0)
         {
             // Set the original to correct space
-            riftManager.spaceController.spaceMeshesA.Add(gameObject);
-            space = Space.A;
+            //riftManager.spaceController.spaceMeshesA.Add(gameObject);
+            space = SpaceOld.A;
         }
         // Object is in B Space
-        else if (GI_RiftManager.planeB.GetDistanceToPoint(worldPoint) < 0)
+        else if (RiftManager.cutPlaneB.GetDistanceToPoint(worldPoint) < 0)
         {
             // Set the original to correct space
-            riftManager.spaceController.spaceMeshesB.Add(gameObject);
-            space = Space.B;
+            //riftManager.spaceController.spaceMeshesB.Add(gameObject);
+            space = SpaceOld.B;
         }
         // Object is in NULL Space
         else
         {
             // Set the original to correct space
-            riftManager.spaceController.spaceMeshesNull.Add(gameObject);
-            space = Space.NULL;
+            //riftManager.spaceController.spaceMeshesNull.Add(gameObject);
+            space = SpaceOld.NULL;
         }
         assignedCount++;
     }
@@ -522,7 +519,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     #endregion
 }
 
-struct UndoSliceState
+struct UndoSliceStateOld
 {
     public Mesh originalMesh;
     public Material[] materials;

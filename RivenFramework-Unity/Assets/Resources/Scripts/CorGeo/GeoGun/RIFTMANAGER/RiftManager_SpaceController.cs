@@ -10,11 +10,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RivenFramework;
 using UnityEngine;
 
 [Serializable]
 public class RiftManager_SpaceController : ILoggable
 {
+    /// <summary>
+    /// Class constructor
+    /// </summary>
+    /// <param name="riftManager"></param>
+    public RiftManager_SpaceController(RiftManager riftManager)
+    {
+        this.riftManager = riftManager;
+        EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
+    }
+
+    
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
     public bool EnableRuntimeLogging { get; set; }
@@ -29,18 +41,12 @@ public class RiftManager_SpaceController : ILoggable
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Tooltip("Link to parent class for logging")]
     private RiftManager riftManager;
+    public Dictionary<GameObject, RiftSpace> spaceMeshes =  new ();
+    public Dictionary<GameObject, RiftSpace> spaceActors =  new ();
     public GameObject spaceContainerA, spaceContainerB, spaceContainerNull;
-    public HashSet<GameObject> spaceMeshesA, spaceMeshesB, spaceMeshesNull;
 
 
     #endregion
-
-    // Class constructor
-    public RiftManager_SpaceController(RiftManager riftManager)
-    {
-        this.riftManager = riftManager;
-        EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
-    }
 
 
     #region=======================================( Functions )=======================================================//
@@ -48,6 +54,9 @@ public class RiftManager_SpaceController : ILoggable
 
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// Create the empty game objects that will be used to sort and reposition objects in different rift-spaces (Referred to as space containers)
+    /// </summary>
     private void CreateSpaceContainers()
     {
         this.Log("CreateSpaceContainers called");
@@ -64,6 +73,9 @@ public class RiftManager_SpaceController : ILoggable
 
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// Set the position and rotation of the space containers so they'll be ready to be scaled 
+    /// </summary>
     public void PositionSpaceContainers(GameObject visualPlaneA, GameObject visualPlaneB)
     {
         this.Log($"PositionSpaceContainers called (visualPlaneA: '{visualPlaneA}', visualPlaneB:  '{visualPlaneB}')");
@@ -81,6 +93,27 @@ public class RiftManager_SpaceController : ILoggable
     public void ReparentGeometryToSpaceContainers()
     {
         this.Log("ReparentGeometryToSpaceContainers called");
+
+        foreach (var mesh in spaceMeshes)
+        {
+            switch (mesh.Value)
+            {
+                case RiftSpace.A:
+                    mesh.Key.transform.parent = spaceContainerA.transform;
+                    break;
+                case RiftSpace.NULLSpace:
+                    mesh.Key.transform.parent = spaceContainerNull.transform;
+                    break;
+                case RiftSpace.B:
+                    mesh.Key.transform.parent = spaceContainerB.transform;
+                    break;
+                case RiftSpace.none:
+                    Debug.LogError($"The mesh '{mesh.Key.name}' was not assigned to any space, this is a critical issue!");
+                    break;
+            }
+        }
+        
+        /*
         // Create teh lists if they don't exist yet
         spaceMeshesA ??= new HashSet<GameObject>();
         spaceMeshesB ??= new HashSet<GameObject>();
@@ -98,10 +131,13 @@ public class RiftManager_SpaceController : ILoggable
         foreach (var mesh in spaceMeshesNull)
         {
             mesh.transform.parent = spaceContainerNull.transform;
-        }
+        }*/
     }
 
-    public void ReparentActorsToSpaceContainers()
+        /// <summary>
+        /// Take the actors in the CorGeo_actors list and reparent them to their corresponding space containers
+        /// </summary>
+    public void ReparentActorsToSpaceContainers() 
     {
         this.Log("ReparentActorsToSpaceContainers called");
         foreach (CorGeo_Actor actor in RiftManager_ActorHandler.CorGeo_Actors)
@@ -122,7 +158,11 @@ public class RiftManager_SpaceController : ILoggable
             }
         }
     }
-
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    [Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
     public void RemoveObjectsFromSpaceContainers()
     {
         this.Log("RemoveObjectsFromSpaceContainers called");
@@ -131,4 +171,12 @@ public class RiftManager_SpaceController : ILoggable
 
 
     #endregion
+}
+
+public enum RiftSpace
+{
+    none,
+    A,
+    B,
+    NULLSpace
 }

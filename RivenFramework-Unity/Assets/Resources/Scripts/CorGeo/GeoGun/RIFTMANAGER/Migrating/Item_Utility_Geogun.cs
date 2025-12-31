@@ -25,17 +25,6 @@ public class Item_Utility_Geogun : RiftController
     [Todo("Need to add nonlinear slicing check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts to be placed on walls")]
     public bool allowNonLinearSlicing = true;
-    [Todo("Need to add expanding rift check to rift manager", Owner = "Liz")]
-    [Tooltip("Allows rifts to expand past the start position")]
-    public bool allowExpandingRift;
-
-    public enum CollapseBehavior
-    {
-        Default,                //Standard behavior, collapsing rift removes geometry.
-        MirrorWhenCollapsed     //Collapsing rift can go past 0 into negative numbers, where it becomes mirrored.
-    }
-    [Tooltip("Decides the behavior when the rift is collapsed, allowing for alternate modes of the geogun.")]
-    public CollapseBehavior collapseBehavior = CollapseBehavior.Default;
 
     [Todo("Need to add slamming rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows the player to slam rifts closed, creating a vacuum that flings things out of rifts")]
