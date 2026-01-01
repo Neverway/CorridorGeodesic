@@ -166,7 +166,7 @@ public class RiftManager_SpaceController : ILoggable
     public void RemoveObjectsFromSpaceContainers()
     {
         this.Log("RemoveObjectsFromSpaceContainers called");
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
 

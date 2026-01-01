@@ -24,9 +24,9 @@ public class RiftManager_StateHandler : ILoggable
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
     [Tooltip("Tells things what state the rift is changing from")]
-    public static N_RiftState previousState = new RiftState_None();
+    [SerializeReference, Polymorphic] public N_RiftState previousState = new RiftState_None();
     [Tooltip("The current rift state  :O")]
-    public static N_RiftState currentState = new RiftState_None();
+    [SerializeReference, Polymorphic] public N_RiftState currentState = new RiftState_None();
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
@@ -34,7 +34,7 @@ public class RiftManager_StateHandler : ILoggable
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Tooltip("Link to parent class for logging")]
-    private RiftManager riftManager;
+    public RiftManager riftManager;
     
     [Tooltip("This event allows scripts to respond to any changes in the RiftState, such as the animated plane visuals or the rift audio effects")]
     public delegate void StateChanged ();
@@ -80,11 +80,10 @@ public class RiftManager_StateHandler : ILoggable
         currentState.OnStateEnter();
 
         OnStateChanged?.Invoke ();
-        
         return _riftState;
     }
     
-    public static bool IsState<T>() where T: N_RiftState => currentState is T;
+    public bool IsState<T>() where T: N_RiftState => currentState is T;
 
 
     #endregion
@@ -92,8 +91,8 @@ public class RiftManager_StateHandler : ILoggable
 
 public abstract class N_RiftState
 {
-    public RiftManager_StateHandler handler;
-    public RiftManager riftManager;
+    [NonSerialized] public RiftManager_StateHandler handler;
+    public RiftManager RiftManager => handler?.riftManager;
     
     public virtual void OnStateEnter()
     {
@@ -246,6 +245,6 @@ public class RiftState_ExpandingFromCrush : N_RiftState
     public override void OnUpdate()
     {
         // Expand the rift
-        riftManager.MoveRiftByDistance (riftManager.maxRiftSpeed * Time.deltaTime);
+        RiftManager.MoveRiftByDistance (RiftManager.maxRiftSpeed * Time.deltaTime);
     }
 }

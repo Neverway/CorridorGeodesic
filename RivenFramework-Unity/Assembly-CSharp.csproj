@@ -213,7 +213,6 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/CorGeo_VolumeFizzler.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dActor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/RiftManager.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_SliceableMesh_old.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaSender.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/ApplyForceOnBulbCollision.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBonePlaneCollider.cs" />

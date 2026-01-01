@@ -117,13 +117,17 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         
         var meshRenderer = GetComponent<MeshRenderer>();
         state.materials = meshRenderer.materials;
-        
-        var colliders = GetComponents<MeshCollider>();
+
+        var meshCollider = GetComponent<MeshCollider>();
+        state.meshCollider = meshCollider;
+        var boxCollider = GetComponent<BoxCollider>();
+        state.boxCollider = boxCollider;
+        /*var colliders = GetComponents<MeshCollider>();
         state.colliders = new MeshCollider[colliders.Length];
         for (int i = 0; i < colliders.Length; i++)
         {
             state.colliders[i] = colliders[i];
-        }
+        }*/
         
         state.transformData.position = transform.position;
         state.transformData.rotation = transform.rotation;
@@ -151,12 +155,12 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         if (sliceResultOfAPlane.isSliced)
         {
             sliceResultOfAPlane.positiveChunk.isClone = false;
-            riftManager.geometryHandler.cutMeshesToActivate.Remove(sliceResultOfAPlane.positiveChunk.gameObject);
+            riftManager.geometryHandler.cutMeshes.Remove(sliceResultOfAPlane.positiveChunk.gameObject);
         }
         else if (!sliceResultOfAPlane.isSliced && sliceResultOfBPlane.isSliced)
         {
             sliceResultOfBPlane.negativeChunk.isClone = false;
-            riftManager.geometryHandler.cutMeshesToActivate.Remove(sliceResultOfBPlane.negativeChunk.gameObject);
+            riftManager.geometryHandler.cutMeshes.Remove(sliceResultOfBPlane.negativeChunk.gameObject);
         }
         
         // Ensure convex and mark the slice operation as completed for all chunks
@@ -200,8 +204,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         // Find the chunk that hasn't been cut yet
         foreach (var cutChunk in sliceResult.resultObjects)
         {
-            print(riftManager.geometryHandler.cutMeshesToActivate);
-            riftManager.geometryHandler.cutMeshesToActivate.Add(cutChunk.gameObject);
+            print(riftManager.geometryHandler.cutMeshes);
+            riftManager.geometryHandler.cutMeshes.Add(cutChunk.gameObject);
             
             var chunkSliceable = cutChunk.gameObject.GetComponent<CorGeo_SliceableMesh>();
             
@@ -238,6 +242,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     public void ApplyCuts()
     {
         if (isSliceInProgress) return;
+        isSlicedByPlane = true;
         SaveUndoSnapshot();
         AttemptSliceRiftPlanes();
     }
@@ -248,6 +253,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     public void UndoCuts()
     {
         if (sliceHistory.Count == 0) return;
+        isSlicedByPlane = false;
 
         UndoSliceState state = sliceHistory.Pop();
         
@@ -255,28 +261,54 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         
         GetComponent<MeshRenderer>().sharedMaterials = state.materials;
 
-        var colliders = GetComponents<MeshCollider>();
-        for (int i = 0; i < colliders.Length; i++)
+        var meshCollider = GetComponent<MeshCollider>();
+        print($"Accessing mesh collider on object {gameObject.name}");
+        print($"{state.meshCollider.sharedMesh}");
+        if (meshCollider)
         {
+            meshCollider.sharedMesh = state.meshCollider.sharedMesh;
+            meshCollider.convex = state.meshCollider.convex;
+            meshCollider.isTrigger = state.meshCollider.isTrigger;
+        }
+        
+        var boxCollider = GetComponent<BoxCollider>();
+        if (boxCollider)
+        {
+            boxCollider.center = state.boxCollider.center;
+            boxCollider.size = state.boxCollider.size;
+            boxCollider.isTrigger = state.boxCollider.isTrigger;
+        }
+        
+        
+        var colliders = GetComponents<MeshCollider>();
+        /*for (int i = 0; i < colliders.Length; i++)
+        {
+            print(colliders[i]);
+            print(colliders[i].sharedMesh);
+            print(state);
+            print(state.colliders[i]);
+            print(state.colliders[i].sharedMesh);
             colliders[i].sharedMesh = state.colliders[i].sharedMesh;
             colliders[i].convex = false;
             colliders[i].isTrigger = state.colliders[i].isTrigger;
-        }
+        }*/
         
         transform.position = state.transformData.position;
         transform.rotation = state.transformData.rotation;
         transform.localScale = state.transformData.scale;
 
-        foreach (var clone in riftManager.geometryHandler.cutMeshesToActivate)
+        foreach (var clone in riftManager.geometryHandler.cutMeshes)
         {
             Destroy(clone);
         }
-        riftManager.geometryHandler.cutMeshesToActivate.Clear();
+        riftManager.geometryHandler.cutMeshes.Clear();
         
         gameObject.SetActive(true);
     }
 
-    
+    /// <summary>
+    /// Test the zeroth vertex of the mesh to determine which side of the rift planes it falls in, then sort it into the correct space
+    /// </summary>
     public void AssignMeshToSpaceLists()
     {
         if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
@@ -314,6 +346,11 @@ struct UndoSliceState
     public Mesh originalMesh;
     public Material[] materials;
     public MeshCollider[] colliders;
+    
+    // Crappy temp implementation
+    public MeshCollider meshCollider;
+    public BoxCollider boxCollider;
+    
     public MeshTransformData transformData;
 
     public struct MeshTransformData

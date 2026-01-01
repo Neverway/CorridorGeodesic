@@ -104,13 +104,13 @@ public class RiftManager : MonoBehaviour, ILoggable
     private void Update()
     {
         // Create rift when markers pinned
-        if (createRiftOnMarkersPinned && IsMarkersPinned() && RiftManager_StateHandler.IsState<RiftState_None>())
+        if (createRiftOnMarkersPinned && IsMarkersPinned() && stateHandler.IsState<RiftState_None>())
         {
             CreateRift(markerA, markerB);
         }
         
         // Erase rift when marker transforms are destroyed
-        else if (createRiftOnMarkersPinned && !IsMarkersPinned() && !RiftManager_StateHandler.IsState<RiftState_None>())
+        else if (createRiftOnMarkersPinned && !IsMarkersPinned() && !stateHandler.IsState<RiftState_None>())
         {
             DestroyRift();
         }

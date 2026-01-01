@@ -282,6 +282,7 @@ public class Item_Utility_Geogun : RiftController
         int triIndex = _hit.triangleIndex;
         int subMeshIndex = GetSubMeshIndex(colMesh, triIndex);
 
+        if (rend.sharedMaterials.Length <= subMeshIndex) return false;
         return subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
     }
     

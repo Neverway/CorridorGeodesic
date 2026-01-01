@@ -54,7 +54,7 @@ public class RiftManager_ActorHandler : ILoggable
     [Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
     public void RestoreActors()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     #endregion
