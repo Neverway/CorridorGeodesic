@@ -118,16 +118,19 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         var meshRenderer = GetComponent<MeshRenderer>();
         state.materials = meshRenderer.materials;
 
-        var meshCollider = GetComponent<MeshCollider>();
-        state.meshCollider = meshCollider;
-        var boxCollider = GetComponent<BoxCollider>();
-        state.boxCollider = boxCollider;
-        /*var colliders = GetComponents<MeshCollider>();
-        state.colliders = new MeshCollider[colliders.Length];
+        var colliders = GetComponents<MeshCollider>();
+        print($"Found {colliders.Length} MeshColliders");
+        state.colliders = new UndoSliceState.ColliderData[colliders.Length];
         for (int i = 0; i < colliders.Length; i++)
         {
-            state.colliders[i] = colliders[i];
-        }*/
+            print($"Registered collider {colliders[i]}");
+            state.colliders[i] = new UndoSliceState.ColliderData
+            {
+                mesh = colliders[i].sharedMesh != null ? Instantiate(colliders[i].sharedMesh) : null,
+                convex = colliders[i].convex,
+                isTrigger = colliders[i].isTrigger,
+            };
+        }
         
         state.transformData.position = transform.position;
         state.transformData.rotation = transform.rotation;
@@ -144,23 +147,76 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         // Mark the start of a slice operation (this will get set false when we are done (unless there is a critical failure (which happens a lot (sry)))) ~Liz
         isSliceInProgress = true;
         // Mark everything as a clone (this will be set to false for the original that we keep later)
-        isClone = true;
+        //isClone = true;
+        // Store a reference to the original object that holds the slice history
+        var originalObject = this;
         
         // DO THE SLICEY THING!!!
         var sliceResultOfAPlane = await AttemptSlice(RiftManager.cutPlaneA);
         await For.NextFrame; // THIS IS VERY IMPORTANT TO AVOID ASYNC SLICE COLLISIONS (THANK YOU ERRYNEIIIIIII)
         var sliceResultOfBPlane = await sliceResultOfAPlane.negativeChunk.AttemptSlice(RiftManager.cutPlaneB);
 
-        // Mark the original as being not a clone
+        // Find the actual original object
+        CorGeo_SliceableMesh nonClone = null;
+        
+        
+        // Check A slice results
         if (sliceResultOfAPlane.isSliced)
         {
-            sliceResultOfAPlane.positiveChunk.isClone = false;
-            riftManager.geometryHandler.cutMeshes.Remove(sliceResultOfAPlane.positiveChunk.gameObject);
+            // Check if the positive chunk is the original
+            if (sliceResultOfAPlane.positiveChunk == originalObject)
+            {
+                nonClone = sliceResultOfAPlane.positiveChunk;
+            }
+            // Otherwise check the negative side results
+            else if (sliceResultOfBPlane.isSliced)
+            {
+                // One of these must be the original
+                if (sliceResultOfBPlane.positiveChunk == originalObject)
+                    nonClone = sliceResultOfBPlane.positiveChunk;
+                else if (sliceResultOfBPlane.negativeChunk == originalObject)
+                    nonClone = sliceResultOfBPlane.negativeChunk;
+            }
+            else
+            {
+                // B plane didn't slice, so negative chunk from A is the original
+                if (sliceResultOfAPlane.negativeChunk == originalObject)
+                    nonClone = sliceResultOfAPlane.negativeChunk;
+            }
         }
-        else if (!sliceResultOfAPlane.isSliced && sliceResultOfBPlane.isSliced)
+        // A plane missed, Check B slice results
+        else if (sliceResultOfBPlane.isSliced)
         {
-            sliceResultOfBPlane.negativeChunk.isClone = false;
-            riftManager.geometryHandler.cutMeshes.Remove(sliceResultOfBPlane.negativeChunk.gameObject);
+            if (sliceResultOfBPlane.positiveChunk == originalObject)
+                nonClone = sliceResultOfBPlane.positiveChunk;
+            else if (sliceResultOfBPlane.negativeChunk == originalObject)
+                nonClone = sliceResultOfBPlane.negativeChunk;
+        }
+        // Nothing was sliced, so the original was not changed
+        else
+        {
+            nonClone = originalObject;
+        }
+        
+        
+        
+        
+        // Mark everything else as clones
+        if (sliceResultOfAPlane.isSliced)
+        {
+            sliceResultOfAPlane.positiveChunk.isClone = (sliceResultOfAPlane.positiveChunk != nonClone);
+            sliceResultOfAPlane.negativeChunk.isClone = (sliceResultOfAPlane.negativeChunk != nonClone);
+        }
+        if (sliceResultOfBPlane.isSliced)
+        {
+            sliceResultOfBPlane.positiveChunk.isClone = (sliceResultOfBPlane.positiveChunk != nonClone);
+            sliceResultOfBPlane.negativeChunk.isClone = (sliceResultOfBPlane.negativeChunk != nonClone);
+        }
+        
+        // Remove the non-clone from cut meshes list
+        if (nonClone != null && riftManager.geometryHandler.cutMeshes.Contains(nonClone.gameObject))
+        {
+            riftManager.geometryHandler.cutMeshes.Remove(nonClone.gameObject);
         }
         
         // Ensure convex and mark the slice operation as completed for all chunks
@@ -204,7 +260,6 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         // Find the chunk that hasn't been cut yet
         foreach (var cutChunk in sliceResult.resultObjects)
         {
-            print(riftManager.geometryHandler.cutMeshes);
             riftManager.geometryHandler.cutMeshes.Add(cutChunk.gameObject);
             
             var chunkSliceable = cutChunk.gameObject.GetComponent<CorGeo_SliceableMesh>();
@@ -252,7 +307,12 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     /// </summary>
     public void UndoCuts()
     {
-        if (sliceHistory.Count == 0) return;
+        print($"Called undo on object {gameObject.name}");
+        if (sliceHistory.Count == 0)
+        {
+            print($"Slice history is empty on object {gameObject.name}");
+            return;
+        }
         isSlicedByPlane = false;
 
         UndoSliceState state = sliceHistory.Pop();
@@ -260,38 +320,25 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         GetComponent<MeshFilter>().sharedMesh = state.originalMesh;
         
         GetComponent<MeshRenderer>().sharedMaterials = state.materials;
-
-        var meshCollider = GetComponent<MeshCollider>();
-        print($"Accessing mesh collider on object {gameObject.name}");
-        print($"{state.meshCollider.sharedMesh}");
-        if (meshCollider)
+      
+        // Restore collider data (Curse you mesh-collider the platypus!)
+        // Start with destroying all existing colliders (I can't trust them! >:{ )
+        var existingColliders = GetComponents<MeshCollider>();
+        foreach (var existingCollider in existingColliders)
         {
-            meshCollider.sharedMesh = state.meshCollider.sharedMesh;
-            meshCollider.convex = state.meshCollider.convex;
-            meshCollider.isTrigger = state.meshCollider.isTrigger;
+            Destroy(existingCollider);
+        }
+        // Now actually reconstruct the original collider from the save data
+        for (int i = 0; i < state.colliders.Length; i++)
+        {
+            var colliderData = state.colliders[i];
+            var newCollider = gameObject.AddComponent<MeshCollider>();
+            newCollider.sharedMesh = colliderData.mesh;
+            newCollider.convex = colliderData.convex;
+            newCollider.isTrigger = colliderData.isTrigger;
         }
         
-        var boxCollider = GetComponent<BoxCollider>();
-        if (boxCollider)
-        {
-            boxCollider.center = state.boxCollider.center;
-            boxCollider.size = state.boxCollider.size;
-            boxCollider.isTrigger = state.boxCollider.isTrigger;
-        }
         
-        
-        var colliders = GetComponents<MeshCollider>();
-        /*for (int i = 0; i < colliders.Length; i++)
-        {
-            print(colliders[i]);
-            print(colliders[i].sharedMesh);
-            print(state);
-            print(state.colliders[i]);
-            print(state.colliders[i].sharedMesh);
-            colliders[i].sharedMesh = state.colliders[i].sharedMesh;
-            colliders[i].convex = false;
-            colliders[i].isTrigger = state.colliders[i].isTrigger;
-        }*/
         
         transform.position = state.transformData.position;
         transform.rotation = state.transformData.rotation;
@@ -299,6 +346,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
 
         foreach (var clone in riftManager.geometryHandler.cutMeshes)
         {
+            print($"Destroying clone '{clone.gameObject.name}'");
             Destroy(clone);
         }
         riftManager.geometryHandler.cutMeshes.Clear();
@@ -341,16 +389,12 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     #endregion
 }
 
+[Todo("Need to add support for other collider types, currently only works with mesh colliders", TodoSeverity.Major, Owner = "liz")]
 struct UndoSliceState
 {
     public Mesh originalMesh;
     public Material[] materials;
-    public MeshCollider[] colliders;
-    
-    // Crappy temp implementation
-    public MeshCollider meshCollider;
-    public BoxCollider boxCollider;
-    
+    public ColliderData[] colliders;
     public MeshTransformData transformData;
 
     public struct MeshTransformData
@@ -358,5 +402,12 @@ struct UndoSliceState
         public Vector3 position;
         public Quaternion rotation;
         public Vector3 scale;
+    }
+
+    public struct ColliderData
+    {
+        public Mesh mesh;
+        public bool convex;
+        public bool isTrigger;
     }
 }

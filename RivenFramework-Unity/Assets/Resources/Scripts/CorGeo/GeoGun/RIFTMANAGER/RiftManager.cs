@@ -215,6 +215,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         //currentRiftOffset = (currentRiftWidth - riftStartingWidth) * riftNormal;
 
         SetRiftPercentage (currentRiftPercent + percentChange);
+        // This value is probably not needed anymore for the new system
         //riftIsMoving = true;
     }
 
@@ -244,7 +245,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         currentRiftPercent = _distance;
         currentRiftWidth = riftStartingWidth * currentRiftPercent;
         //MoveActorsWithRift (_distance);
-        //MoveGeometryWithRift ();
+        //MoveGeometryWithRift();
     }
 
     /// <summary>
@@ -261,6 +262,61 @@ public class RiftManager : MonoBehaviour, ILoggable
         linkedRiftController.OnExpandReleased += () => expandHeld = false;
     }
 
+    
+    
+    
+    
+    
+    // TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
+    
+    private void MoveGeometryWithRift()
+    {
+        if (!spaceContainerNull) return;
+
+        // If the rift collapsed, ignore minimum size rule so that we don't have a gap.
+        if (linkedGeogun.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default && currentRiftPercent == 0)
+        {
+            spaceContainerB.transform.position = riftNullSpacePosition;
+            cutPlaneB.transform.position = spaceContainerB.transform.position;
+            return;
+        }
+
+        //  We use minAbsoluteRiftWidth to prevent the rift scale from getting too close to zero
+        //  because collision mesh generation will bug out if the mesh is too skinny.
+
+        float moddedRiftPercent = currentRiftPercent;
+
+        if (currentRiftPercent < 0)
+        {
+            //Special case for negative rift scaling, where the rift can be mirrored.
+
+            if (currentRiftWidth > -minAbsoluteRiftWidth)
+            {
+                moddedRiftPercent = 1 / riftStartingWidth * -minAbsoluteRiftWidth;
+                currentRiftWidth = -minAbsoluteRiftWidth;
+            }
+            spaceContainerNull.transform.localScale = new Vector3 (1, 1, moddedRiftPercent);
+            spaceContainerNull.transform.position = riftNullSpacePosition + spaceContainerNull.transform.forward * -currentRiftWidth;
+            spaceContainerB.transform.position = spaceContainerNull.transform.position;
+        }
+        if (currentRiftPercent >= 0)
+        {
+            if (currentRiftWidth < minAbsoluteRiftWidth)
+            {
+                moddedRiftPercent = 1 / riftStartingWidth * minAbsoluteRiftWidth;
+                currentRiftWidth = minAbsoluteRiftWidth;
+            }
+            spaceContainerNull.transform.localScale = new Vector3 (1, 1, moddedRiftPercent);
+            spaceContainerB.transform.position = spaceContainerNull.transform.position + spaceContainerNull.transform.forward * currentRiftWidth;
+            spaceContainerNull.transform.position = riftNullSpacePosition;
+        }
+        cutPlaneB.transform.position = spaceContainerB.transform.position;
+    }
+    
+    
+    
+    
+    
     #endregion
 
 }
