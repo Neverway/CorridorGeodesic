@@ -116,14 +116,16 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         state.originalMesh = Instantiate(meshFilter.sharedMesh);
         
         var meshRenderer = GetComponent<MeshRenderer>();
-        state.materials = meshRenderer.materials;
+        var originalMaterials = meshRenderer.sharedMaterials;
+        state.materials = new Material[originalMaterials.Length];
+        Array.Copy(originalMaterials, state.materials, originalMaterials.Length);
 
-        var colliders = GetComponents<MeshCollider>();
-        print($"Found {colliders.Length} MeshColliders");
+        var colliders = GetComponents<MeshCollider>(); 
+        //print($"Found {colliders.Length} MeshColliders");
         state.colliders = new UndoSliceState.ColliderData[colliders.Length];
         for (int i = 0; i < colliders.Length; i++)
         {
-            print($"Registered collider {colliders[i]}");
+            //print($"Registered collider {colliders[i]}");
             state.colliders[i] = new UndoSliceState.ColliderData
             {
                 mesh = colliders[i].sharedMesh != null ? Instantiate(colliders[i].sharedMesh) : null,
@@ -219,9 +221,55 @@ public class CorGeo_SliceableMesh : MonoBehaviour
             riftManager.geometryHandler.cutMeshes.Remove(nonClone.gameObject);
         }
         
+        
+        // Mark slicing as complete FIRST
+        if (sliceResultOfAPlane.isSliced)
+        {
+            sliceResultOfAPlane.positiveChunk.isSliceInProgress = false;
+            sliceResultOfAPlane.negativeChunk.isSliceInProgress = false;
+        }
+        else
+        {
+            sliceResultOfAPlane.negativeChunk.isSliceInProgress = false;
+        }
+    
+        if (sliceResultOfBPlane.isSliced)
+        {
+            sliceResultOfBPlane.positiveChunk.isSliceInProgress = false;
+            sliceResultOfBPlane.negativeChunk.isSliceInProgress = false;
+        }
+        else
+        {
+            sliceResultOfBPlane.negativeChunk.isSliceInProgress = false;
+        }
+    
+        // THEN assign spaces (after ALL slicing is done)
+        if (sliceResultOfAPlane.isSliced)
+        {
+            sliceResultOfAPlane.positiveChunk.AssignMeshToSpaceLists();
+            sliceResultOfAPlane.negativeChunk.AssignMeshToSpaceLists();
+        }
+        else
+        {
+            sliceResultOfAPlane.negativeChunk.AssignMeshToSpaceLists();
+        }
+    
+        if (sliceResultOfBPlane.isSliced)
+        {
+            sliceResultOfBPlane.positiveChunk.AssignMeshToSpaceLists();
+            sliceResultOfBPlane.negativeChunk.AssignMeshToSpaceLists();
+        }
+        else
+        {
+            sliceResultOfBPlane.negativeChunk.AssignMeshToSpaceLists();
+        }
+        
+        
+        
+        
         // Ensure convex and mark the slice operation as completed for all chunks
-        sliceResultOfAPlane.FinalizeResult();
-        sliceResultOfBPlane.FinalizeResult();
+        //sliceResultOfAPlane.FinalizeResult();
+        //sliceResultOfBPlane.FinalizeResult();
     }
      
     /// <summary>
@@ -287,7 +335,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         if (!isSliceInProgress) return;
         
         isSliceInProgress = false;
-        AssignMeshToSpaceLists();
+        //AssignMeshToSpaceLists();
     }
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
@@ -296,7 +344,10 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     /// </summary>
     public void ApplyCuts()
     {
-        if (isSliceInProgress) return;
+        if (isSliceInProgress)
+        {
+            throw new Exception("ApplyCuts was called while a slice operation was still in progress!");
+        }
         isSlicedByPlane = true;
         SaveUndoSnapshot();
         AttemptSliceRiftPlanes();
@@ -307,7 +358,10 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     /// </summary>
     public void UndoCuts()
     {
-        print($"Called undo on object {gameObject.name}");
+        if (isSliceInProgress)
+        {
+            throw new Exception("UndoCuts was called before the slice operation finished!");
+        }
         if (sliceHistory.Count == 0)
         {
             print($"Slice history is empty on object {gameObject.name}");
@@ -317,7 +371,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour
 
         UndoSliceState state = sliceHistory.Pop();
         
-        GetComponent<MeshFilter>().sharedMesh = state.originalMesh;
+        var meshFilter = GetComponent<MeshFilter>();
+        meshFilter.sharedMesh = state.originalMesh;
         
         GetComponent<MeshRenderer>().sharedMaterials = state.materials;
       
@@ -326,19 +381,17 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         var existingColliders = GetComponents<MeshCollider>();
         foreach (var existingCollider in existingColliders)
         {
-            Destroy(existingCollider);
+            DestroyImmediate(existingCollider);
         }
         // Now actually reconstruct the original collider from the save data
         for (int i = 0; i < state.colliders.Length; i++)
         {
             var colliderData = state.colliders[i];
             var newCollider = gameObject.AddComponent<MeshCollider>();
-            newCollider.sharedMesh = colliderData.mesh;
+            newCollider.sharedMesh = state.originalMesh;
             newCollider.convex = colliderData.convex;
             newCollider.isTrigger = colliderData.isTrigger;
         }
-        
-        
         
         transform.position = state.transformData.position;
         transform.rotation = state.transformData.rotation;
@@ -346,7 +399,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
 
         foreach (var clone in riftManager.geometryHandler.cutMeshes)
         {
-            print($"Destroying clone '{clone.gameObject.name}'");
+            //print($"Destroying clone '{clone.gameObject.name}'");
             Destroy(clone);
         }
         riftManager.geometryHandler.cutMeshes.Clear();
@@ -364,16 +417,16 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         // Clear itself from old lists
         riftManager.spaceController.spaceMeshes.Remove(gameObject);
         
+        
         // Single vertex check
         MeshFilter meshFilter = GetComponent<MeshFilter> ();
-        if (!meshFilter || meshFilter.sharedMesh == null || meshFilter.mesh.vertices.Length <= 0)
+        if (!meshFilter || meshFilter.sharedMesh == null)
         {
             Debug.LogWarning($"{name} has no mesh filter or is an empty mesh");
             return;
         }
-        var vert = meshFilter.mesh.vertices[0];
-        Vector3 testPoint = new Vector3(vert.x, vert.y, vert.z);
-        Vector3 worldPoint = transform.TransformPoint(testPoint);
+        
+        Vector3 worldPoint = transform.TransformPoint(meshFilter.mesh.bounds.center);
         
         // Object is in A Space
         if (RiftManager.cutPlaneA.GetDistanceToPoint(worldPoint) > 0) { riftSpace = RiftSpace.A; }
@@ -381,6 +434,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         else if (RiftManager.cutPlaneB.GetDistanceToPoint(worldPoint) > 0) { riftSpace = RiftSpace.B; }
         // Object is in NULL Space
         else { riftSpace = RiftSpace.NULLSpace; }
+        print($"Tested point {meshFilter.mesh.bounds.center} for {gameObject.name}, got {riftSpace}");
         
         // Store in space meshes list
         riftManager.spaceController.spaceMeshes.Add(gameObject, riftSpace);

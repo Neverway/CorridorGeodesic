@@ -1,17 +1,17 @@
 //==========================================( Neverway 2025 )=========================================================//
 // Author
-//  Liz M.
+//  Liz M., Connorses, Errynei, Soulex
 //
 // Contributors
 //
 //
 //====================================================================================================================//
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles everything with creating, moving, and destroying a rift
+/// </summary>
 public class RiftManager : MonoBehaviour, ILoggable
 {
     #region========================================( Variables )======================================================//
@@ -27,7 +27,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     [Tooltip("Max size an *inverted* rift can expand to in the negative direction")]
     [SerializeField] private float minRiftWidth = -30;
     [Tooltip("This is to prevent physics bugs if nullspace scales too close to 0 without being 0")]
-    [SerializeField] private float minAbsoluteRiftWidth = 0.15f;
+    [SerializeField] public static float minAbsoluteRiftWidth = 0.15f;
     [Header("Speed")]
     [Tooltip("The speed of the rift when it starts moving")]
     [SerializeField] private float minRiftSpeed = 0.5f;
@@ -58,7 +58,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     [Tooltip("Current width after applying percent scale")]
     public static float currentRiftWidth;
     [Tooltip("How fast the rift planes are currently moving")]
-    private static float currentRiftMoveSpeed;
+    public float currentRiftMoveSpeed;
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
@@ -84,7 +84,7 @@ public class RiftManager : MonoBehaviour, ILoggable
 
     [Header("REFERENCES")] 
     [Tooltip("The script that is currently controlling this rift manager")]
-    private RiftController linkedRiftController;
+    public RiftController linkedRiftController;
     [Tooltip("If either collapseHeld or expandHeld is enabled, the rift will attempt to move")]
     private bool collapseHeld, expandHeld, expandDueToCrush;
     
@@ -95,9 +95,12 @@ public class RiftManager : MonoBehaviour, ILoggable
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
+        // Due to a circular dependency between geometryHandler and spaceController I have to wait to pass the reference here.
+        // This is terrible and I hate it, but I suck at coding, so for now I guess it can stay ~Liz
         stateHandler = new RiftManager_StateHandler(this);
-        spaceController = new RiftManager_SpaceController(this);
+        spaceController = new RiftManager_SpaceController(this, null);
         geometryHandler = new RiftManager_GeometryHandler(this, spaceController);
+        spaceController.geometryHandler = geometryHandler;
         actorHandler = new RiftManager_ActorHandler(this);
     }
 
@@ -122,7 +125,10 @@ public class RiftManager : MonoBehaviour, ILoggable
 
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
-    
+    /// <summary>
+    /// Checks to see if two valid anchor points are present for the rift to generate
+    /// </summary>
+    /// <returns></returns>
     private bool IsMarkersPinned()
     {
         return (markerA != null && markerB != null);
@@ -167,6 +173,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// </summary>
     public void DestroyRift()
     {
+        riftActive = false;
         this.Log("DestroyRift called");
         stateHandler.SetState<RiftState_None>();
         geometryHandler.SetRiftPlanesVisible(false);
@@ -174,7 +181,6 @@ public class RiftManager : MonoBehaviour, ILoggable
         geometryHandler.RestoreCutGeometry();
         spaceController.RemoveObjectsFromSpaceContainers();
         actorHandler.RestoreActors();
-        riftActive = false;
     }
 
     /// <summary>
@@ -238,14 +244,14 @@ public class RiftManager : MonoBehaviour, ILoggable
                 // Enable null-space objects
             }
         }
-
         if (!geometryHandler.visualPlaneB || !spaceController.spaceContainerNull.activeInHierarchy) return;
+
 
         // TODO Create function parallels for commented sections
         currentRiftPercent = _distance;
         currentRiftWidth = riftStartingWidth * currentRiftPercent;
         //MoveActorsWithRift (_distance);
-        //MoveGeometryWithRift();
+        spaceController.MoveGeometryWithRift();
     }
 
     /// <summary>
@@ -268,50 +274,6 @@ public class RiftManager : MonoBehaviour, ILoggable
     
     
     // TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMP
-    
-    private void MoveGeometryWithRift()
-    {
-        if (!spaceContainerNull) return;
-
-        // If the rift collapsed, ignore minimum size rule so that we don't have a gap.
-        if (linkedGeogun.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default && currentRiftPercent == 0)
-        {
-            spaceContainerB.transform.position = riftNullSpacePosition;
-            cutPlaneB.transform.position = spaceContainerB.transform.position;
-            return;
-        }
-
-        //  We use minAbsoluteRiftWidth to prevent the rift scale from getting too close to zero
-        //  because collision mesh generation will bug out if the mesh is too skinny.
-
-        float moddedRiftPercent = currentRiftPercent;
-
-        if (currentRiftPercent < 0)
-        {
-            //Special case for negative rift scaling, where the rift can be mirrored.
-
-            if (currentRiftWidth > -minAbsoluteRiftWidth)
-            {
-                moddedRiftPercent = 1 / riftStartingWidth * -minAbsoluteRiftWidth;
-                currentRiftWidth = -minAbsoluteRiftWidth;
-            }
-            spaceContainerNull.transform.localScale = new Vector3 (1, 1, moddedRiftPercent);
-            spaceContainerNull.transform.position = riftNullSpacePosition + spaceContainerNull.transform.forward * -currentRiftWidth;
-            spaceContainerB.transform.position = spaceContainerNull.transform.position;
-        }
-        if (currentRiftPercent >= 0)
-        {
-            if (currentRiftWidth < minAbsoluteRiftWidth)
-            {
-                moddedRiftPercent = 1 / riftStartingWidth * minAbsoluteRiftWidth;
-                currentRiftWidth = minAbsoluteRiftWidth;
-            }
-            spaceContainerNull.transform.localScale = new Vector3 (1, 1, moddedRiftPercent);
-            spaceContainerB.transform.position = spaceContainerNull.transform.position + spaceContainerNull.transform.forward * currentRiftWidth;
-            spaceContainerNull.transform.position = riftNullSpacePosition;
-        }
-        cutPlaneB.transform.position = spaceContainerB.transform.position;
-    }
     
     
     

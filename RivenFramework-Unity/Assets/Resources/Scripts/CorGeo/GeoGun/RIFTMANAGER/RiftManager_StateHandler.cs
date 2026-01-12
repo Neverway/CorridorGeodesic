@@ -1,6 +1,6 @@
 //==========================================( Neverway 2025 )=========================================================//
 // Author
-//  Liz M.
+//  Liz M., Connorses, Errynei, Soulex
 //
 // Contributors
 //
@@ -8,15 +8,26 @@
 //====================================================================================================================//
 
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using ErryLib.MonoTasks;
 using RivenFramework;
 using UnityEngine;
 
+/// <summary>
+/// Handles what functions are actually called when a rift is in each state
+/// </summary>
 [Serializable]
 public class RiftManager_StateHandler : ILoggable
 {
+    /// <summary>
+    /// Class constructor
+    /// </summary>
+    public RiftManager_StateHandler(RiftManager riftManager)
+    {
+        this.riftManager = riftManager;
+        EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
+    }
+    
+    
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
     public bool EnableRuntimeLogging { get; set; }
@@ -43,12 +54,6 @@ public class RiftManager_StateHandler : ILoggable
 
     #endregion
 
-    // Class constructor
-    public RiftManager_StateHandler(RiftManager riftManager)
-    {
-        this.riftManager = riftManager;
-        EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
-    }
 
     #region=======================================( Functions )=======================================================//
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
@@ -92,7 +97,7 @@ public class RiftManager_StateHandler : ILoggable
 public abstract class N_RiftState
 {
     [NonSerialized] public RiftManager_StateHandler handler;
-    public RiftManager RiftManager => handler?.riftManager;
+    public RiftManager _RiftManager => handler?.riftManager;
     
     public virtual void OnStateEnter()
     {
@@ -178,6 +183,8 @@ public class RiftState_Collapsing : N_RiftState
 
     public override void OnUpdate()
     {
+        _RiftManager.MoveRiftByDistance (-_RiftManager.currentRiftMoveSpeed * Time.deltaTime);
+        //_RiftManager.AccelerateRift ();
     }
 
     public override void OnStateExit()
@@ -197,6 +204,7 @@ public class RiftState_Expanding : N_RiftState
 
     public override void OnUpdate()
     {
+        _RiftManager.MoveRiftByDistance (_RiftManager.currentRiftMoveSpeed * Time.deltaTime);
     }
 
     public override void OnStateExit()
@@ -245,6 +253,6 @@ public class RiftState_ExpandingFromCrush : N_RiftState
     public override void OnUpdate()
     {
         // Expand the rift
-        RiftManager.MoveRiftByDistance (RiftManager.maxRiftSpeed * Time.deltaTime);
+        _RiftManager.MoveRiftByDistance (_RiftManager.maxRiftSpeed * Time.deltaTime);
     }
 }

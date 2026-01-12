@@ -1,6 +1,6 @@
 //==========================================( Neverway 2025 )=========================================================//
 // Author
-//  Liz M.
+//  Liz M., Connorses, Errynei, Soulex
 //
 // Contributors
 //
@@ -8,14 +8,26 @@
 //====================================================================================================================//
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using RivenFramework;
 using UnityEngine;
 
+/// <summary>
+/// ?????
+/// </summary>
 [Serializable]
 public class RiftManager_ActorHandler : ILoggable
 {
+    /// <summary>
+    /// Class constructor
+    /// </summary>
+    public RiftManager_ActorHandler(RiftManager riftManager)
+    {
+        this.riftManager = riftManager;
+        EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
+    }
+    
+    
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
     public bool EnableRuntimeLogging { get; set; }
@@ -34,13 +46,6 @@ public class RiftManager_ActorHandler : ILoggable
 
 
     #endregion
-
-    // Class constructor
-    public RiftManager_ActorHandler(RiftManager riftManager)
-    {
-        this.riftManager = riftManager;
-        EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
-    }
 
 
     #region=======================================( Functions )=======================================================//

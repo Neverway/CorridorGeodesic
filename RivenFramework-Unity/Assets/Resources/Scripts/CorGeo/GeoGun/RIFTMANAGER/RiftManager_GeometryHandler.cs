@@ -1,6 +1,6 @@
 //==========================================( Neverway 2025 )=========================================================//
 // Author
-//  Liz M.
+//  Liz M., Connorses, Errynei, Soulex
 //
 // Contributors
 //
@@ -16,14 +16,16 @@ using ErryLib.MonoTasks;
 using RivenFramework;
 using UnityEngine;
 
+/// <summary>
+/// Handles the cutting and un-cutting of geometry
+/// (This includes positioning the cut and visual planes)
+/// </summary>
 [Serializable]
 public class RiftManager_GeometryHandler : ILoggable
 {
     /// <summary>
     /// Class constructor
     /// </summary>
-    /// <param name="riftManager"></param>
-    /// <param name="spaceController"></param>
     public RiftManager_GeometryHandler(RiftManager riftManager, RiftManager_SpaceController spaceController)
     {
         this.riftManager = riftManager;
@@ -52,7 +54,7 @@ public class RiftManager_GeometryHandler : ILoggable
     private Coroutine cutRoutine;
 
     [Tooltip("The visuals that represent the rift cut planes")]
-    [HideInInspector] public GameObject visualPlaneA, visualPlaneB;
+    public GameObject visualPlaneA, visualPlaneB;
 
     [Tooltip("")]
     public HashSet<GameObject> cutMeshes = new HashSet<GameObject>();
@@ -99,6 +101,7 @@ public class RiftManager_GeometryHandler : ILoggable
             }
             else
             {
+                Debug.Log("Object wasn't intersecting");
                 mesh.AssignMeshToSpaceLists();
             }
         }

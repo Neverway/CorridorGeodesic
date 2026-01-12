@@ -17,10 +17,11 @@ using UnityEngine;
 /// <summary>
 /// Spawns & clears the marker projectiles, and sends signals to the rift manager to expand or compress
 /// </summary>
-public class Item_Utility_Geogun : RiftController
+public class Item_Utility_Geogun : RiftController, ILoggable
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+    [field: SerializeField] public bool EnableRuntimeLogging { get; set; }
     [Header("GeoGun Upgrades")]
     [Todo("Need to add nonlinear slicing check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts to be placed on walls")]
@@ -261,29 +262,67 @@ public class Item_Utility_Geogun : RiftController
     {
         if (!_hit.collider)
         {
+            DebugConsole.Log(this, "fail 0");
             //Debug.LogWarning("Somehow raycast hit an invalid object");
             return false;
         }
         // Gun is pointed at a bulb snapping point (That is valid!)
         // TODO - BulbCollisionBehaviour has not been ported!
-        if (_hit.collider.gameObject.GetComponent<BulbCollisionBehaviour>() != null) return true;
+        if (_hit.collider.gameObject.GetComponent<BulbCollisionBehaviour>() != null)
+        {
+            DebugConsole.Log(this, "check 1");
+            return true;
+        }
 
         // Gun is pointed at a sliceable object
-        if (_hit.collider.gameObject.TryGetComponent<CorGeo_SliceableMesh>(out _) is false) return false;
+        if (_hit.collider.gameObject.TryGetComponent<CorGeo_SliceableMesh>(out _) is false)
+        {
+            DebugConsole.Log(this, "fail 1");
+            return false;
+        }
         // Non-mesh colliders don't support getting the polygon information, so we exit if it's not a mesh collider
-        if (_hit.collider is not MeshCollider mCollider) return false;
+        if (_hit.collider is not MeshCollider mCollider)
+        {
+            DebugConsole.Log(this, "fail 2");
+            return false;
+        }
         // Get if the raycast hit a polygon with a valid material to place markers on
-        if (_hit.collider.gameObject.TryGetComponent(out Renderer rend) is false) return false;
+        if (_hit.collider.gameObject.TryGetComponent(out Renderer rend) is false)
+        {
+            DebugConsole.Log(this, "fail 3");
+            return false;
+        }
         // Return true if allowMarkerPlacementAnywhere
         if (allowMarkerPlacementAnywhere) return true;
         
         // Gather information about the mesh
         Mesh colMesh = mCollider.sharedMesh;
+        DebugConsole.Log(this, $"Collider mesh: {colMesh?.name}, SubMeshCount: {colMesh?.subMeshCount}");
         int triIndex = _hit.triangleIndex;
+        DebugConsole.Log(this, $"Triangle index: {triIndex}");
         int subMeshIndex = GetSubMeshIndex(colMesh, triIndex);
+        DebugConsole.Log(this, $"SubMesh index: {subMeshIndex}");
+        DebugConsole.Log(this, $"Renderer materials count: {rend.sharedMaterials.Length}");
 
-        if (rend.sharedMaterials.Length <= subMeshIndex) return false;
-        return subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
+        if (subMeshIndex >= 0 && subMeshIndex < rend.sharedMaterials.Length)
+        {
+            var hitMaterial = rend.sharedMaterials[subMeshIndex];
+            DebugConsole.Log(this, $"Hit material: {hitMaterial?.name}");
+            DebugConsole.Log(this, $"Valid materials: {string.Join(", ", validPlacementMaterials.Select(m => m?.name))}");
+        
+            bool contains = validPlacementMaterials.Contains(hitMaterial);
+            DebugConsole.Log(this, $"Material is valid: {contains}");
+        }
+
+        if (rend.sharedMaterials.Length <= subMeshIndex)
+        {
+            DebugConsole.Log(this, "fail 4");
+            return false;
+        }
+    
+        var finalResult = subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
+        DebugConsole.Log(this, $"Final result: {finalResult}");
+        return finalResult;
     }
     
     /// <summary>

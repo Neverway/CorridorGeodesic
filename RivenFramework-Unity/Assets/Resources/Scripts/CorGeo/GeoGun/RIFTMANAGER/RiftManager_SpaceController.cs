@@ -1,6 +1,6 @@
 //==========================================( Neverway 2025 )=========================================================//
 // Author
-//  Liz M.
+//  Liz M., Connorses, Errynei, Soulex
 //
 // Contributors
 //
@@ -13,17 +13,20 @@ using System.Collections.Generic;
 using RivenFramework;
 using UnityEngine;
 
+/// <summary>
+/// Handles the parenting, unparenting, positioning, and scaling of space containers
+/// </summary>
 [Serializable]
 public class RiftManager_SpaceController : ILoggable
 {
     /// <summary>
     /// Class constructor
     /// </summary>
-    /// <param name="riftManager"></param>
-    public RiftManager_SpaceController(RiftManager riftManager)
+    public RiftManager_SpaceController(RiftManager riftManager, RiftManager_GeometryHandler geometryHandler)
     {
         this.riftManager = riftManager;
         EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
+        this.geometryHandler = geometryHandler;
     }
 
     
@@ -41,6 +44,7 @@ public class RiftManager_SpaceController : ILoggable
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Tooltip("Link to parent class for logging")]
     private RiftManager riftManager;
+    public RiftManager_GeometryHandler geometryHandler;
     public Dictionary<GameObject, RiftSpace> spaceMeshes =  new ();
     public Dictionary<GameObject, RiftSpace> spaceActors =  new ();
     public GameObject spaceContainerA, spaceContainerB, spaceContainerNull;
@@ -134,7 +138,7 @@ public class RiftManager_SpaceController : ILoggable
         }*/
     }
 
-        /// <summary>
+    /// <summary>
         /// Take the actors in the CorGeo_actors list and reparent them to their corresponding space containers
         /// </summary>
     public void ReparentActorsToSpaceContainers() 
@@ -160,13 +164,68 @@ public class RiftManager_SpaceController : ILoggable
     }
     
     /// <summary>
-    /// 
+    /// Unparents all meshes and actors from the space containers, then clears the space lists
     /// </summary>
-    [Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
     public void RemoveObjectsFromSpaceContainers()
     {
         this.Log("RemoveObjectsFromSpaceContainers called");
-        //throw new NotImplementedException();
+        foreach (var mesh in spaceMeshes)
+        {
+            mesh.Key.transform.parent = null;
+        }
+        foreach (var actor in spaceActors)
+        {
+            actor.Key.transform.parent = null;
+        }
+        spaceMeshes.Clear();
+        spaceActors.Clear();
+    }
+    
+    /// <summary>
+    /// Scales and moves the visual planes and space containers
+    /// </summary>
+    public void MoveGeometryWithRift()
+    {
+        if (!spaceContainerNull) return;
+
+        // If the rift collapsed, ignore minimum size rule so that we don't have a gap.
+        if (riftManager.linkedRiftController.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default && RiftManager.currentRiftPercent == 0)
+        {
+            spaceContainerB.transform.position = RiftManager.riftNullSpaceStartingPosition;
+            geometryHandler.visualPlaneB.transform.position = spaceContainerB.transform.position;
+            return;
+        }
+
+        //  We use minAbsoluteRiftWidth to prevent the rift scale from getting too close to zero
+        //  because collision mesh generation will bug out if the mesh is too skinny.
+
+        float moddedRiftPercent = RiftManager.currentRiftPercent;
+
+        if (RiftManager.currentRiftPercent < 0)
+        {
+            //Special case for negative rift scaling, where the rift can be mirrored.
+
+            if (RiftManager.currentRiftWidth > -RiftManager.minAbsoluteRiftWidth)
+            {
+                moddedRiftPercent = 1 / RiftManager.riftStartingWidth * -RiftManager.minAbsoluteRiftWidth;
+                RiftManager.currentRiftWidth = -RiftManager.minAbsoluteRiftWidth;
+            }
+            spaceContainerNull.transform.localScale = new Vector3 (1, 1, moddedRiftPercent);
+            spaceContainerNull.transform.position = RiftManager.riftNullSpaceStartingPosition + spaceContainerNull.transform.forward * -RiftManager.currentRiftWidth;
+            spaceContainerB.transform.position = spaceContainerNull.transform.position;
+        }
+        if (RiftManager.currentRiftPercent >= 0)
+        {
+            if (RiftManager.currentRiftWidth < RiftManager.minAbsoluteRiftWidth)
+            {
+                moddedRiftPercent = 1 / RiftManager.riftStartingWidth * RiftManager.minAbsoluteRiftWidth;
+                RiftManager.currentRiftWidth = RiftManager.minAbsoluteRiftWidth;
+            }
+            spaceContainerNull.transform.localScale = new Vector3 (1, 1, moddedRiftPercent);
+            spaceContainerB.transform.position = spaceContainerNull.transform.position + spaceContainerNull.transform.forward * RiftManager.currentRiftWidth;
+            spaceContainerNull.transform.position = RiftManager.riftNullSpaceStartingPosition;
+        }
+        geometryHandler.visualPlaneB.gameObject.transform.position = spaceContainerB.transform.position;
     }
 
 
