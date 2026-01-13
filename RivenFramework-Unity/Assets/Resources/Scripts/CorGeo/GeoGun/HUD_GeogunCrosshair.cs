@@ -41,9 +41,12 @@ public class HUD_GeogunCrosshair : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void LateUpdate()
     {
-        FindReferences();
-
-        if (!geogun) return;
+        if (geogun == null)
+        {
+            FindReferences();
+            return;
+        }
+        
         SetMarkerIndicators();
         SetPlacementIndicator();
     }
@@ -51,17 +54,26 @@ public class HUD_GeogunCrosshair : MonoBehaviour
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     private void FindReferences()
     {
+        // Exit if we have all reference
+        if (pawnManager != null && geogun != null) return;
+        
         // Get the pawn manager
         if (pawnManager == null)
         {
             pawnManager = GameInstance.Get<GI_PawnManager>();
             return;
         }
+        
         // Get the geogun
         if (geogun == null)
         {
-            geogun = pawnManager.localPlayerCharacter.GetComponentInChildren<Item_Utility_Geogun>();
-            transform.GetChild(0).gameObject.SetActive(false); // Disable the crosshair since the gun wasn't found
+            var player = pawnManager.localPlayerCharacter;
+            if (player != null)
+            {
+                geogun = player.GetComponentInChildren<Item_Utility_Geogun>();
+                var crosshairObject = transform.GetChild(0).gameObject;
+                crosshairObject.SetActive(geogun != null); // Disable the crosshair if the gun wasn't found
+            }
             return;
         }
         transform.GetChild(0).gameObject.SetActive(true); // Enable the crosshair
