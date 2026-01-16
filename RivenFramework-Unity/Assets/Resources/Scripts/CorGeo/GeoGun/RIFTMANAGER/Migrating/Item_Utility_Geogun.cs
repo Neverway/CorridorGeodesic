@@ -58,6 +58,10 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     private int maxProjectiles = 2;
     private bool wantsToExpand;
     private bool wantsToCollapse;
+    private Transform cachedPawnViewPoint;
+    private RaycastHit lastValidationHit;
+    private bool lastValidationResult;
+    private int lastValidationFrame = -1;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -250,8 +254,27 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     /// <returns>Returns true if the player is looking at a target they are allowed to shoot</returns>
     public bool GetIsValidTargetFromView()
     {
-        Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out RaycastHit _hit, 255, layerMask);
-        return GetIsValidTarget(_hit);
+        //Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out RaycastHit _hit, 255, layerMask);
+        //return GetIsValidTarget(_hit);
+
+        if (lastValidationFrame == Time.frameCount)
+        {
+            return lastValidationResult;
+        }
+
+        if (!cachedPawnViewPoint)
+        {
+            var pawn = GetComponentInParent<Pawn>();
+            if (pawn) cachedPawnViewPoint = pawn.viewPoint;
+            else return false;
+        }
+        
+        Physics.Raycast(cachedPawnViewPoint.position, cachedPawnViewPoint.forward, out lastValidationHit, 255, layerMask);
+
+        lastValidationResult = GetIsValidTarget(lastValidationHit);
+        lastValidationFrame = Time.frameCount;
+
+        return lastValidationResult;
     }
     
     /// <summary>
