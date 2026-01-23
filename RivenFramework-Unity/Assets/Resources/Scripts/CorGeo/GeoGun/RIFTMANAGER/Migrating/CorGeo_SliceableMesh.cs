@@ -353,6 +353,11 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         if (!isSliceInProgress) return;
         
         isSliceInProgress = false;
+
+        if (!riftManager)
+        {
+            riftManager = GameInstance.Get<RiftManager>();
+        }
         
         // Store in space meshes list
         print($"[Test] (riftManager): {riftManager}");
