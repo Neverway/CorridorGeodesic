@@ -215,11 +215,33 @@ public class RiftState_Expanding : N_RiftState
 /// <summary>
 /// The rift is fully compressed and nullspace is hidden
 /// </summary>
-[Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
 public class RiftState_Closed : N_RiftState
 {
     public override void OnStateEnter()
     {
+        // Disable null-space objects
+        handler.riftManager.spaceController.DisableCollapsedObject();
+    }
+
+    public override void OnUpdate()
+    {
+    }
+
+    public override void OnStateExit()
+    {
+    }
+}
+
+/// <summary>
+/// The rift just left a fully compressed state and nullspace is unhidden
+/// </summary>
+public class RiftState_Opened : N_RiftState
+{
+    public override void OnStateEnter()
+    {
+        // Enable null-space objects
+        handler.riftManager.spaceController.EnableCollapsedObject();
+        handler.SetState<RiftState_Expanding>();
     }
 
     public override void OnUpdate()

@@ -237,14 +237,10 @@ public class RiftManager : MonoBehaviour, ILoggable
             if (_distance <= 0)
             {
                 stateHandler.SetState<RiftState_Closed>();
-                // Disable null-space objects
-                spaceController.DisableCollapsedObject();
             }
             if (currentRiftPercent == 0 && _distance > 0)
             {
-                stateHandler.SetState<RiftState_Expanding>();
-                // Enable null-space objects
-                spaceController.EnableCollapsedObject();
+                stateHandler.SetState<RiftState_Opened>();
             }
         }
         if (!geometryHandler.visualPlaneB || !spaceController.spaceContainerNull.activeInHierarchy) return;
