@@ -198,7 +198,6 @@ public class CorGeo_Actor : MonoBehaviour
     {
         if (activeInNullSpace == false)
         {
-            print(gameObject.name);
             gameObject.SetActive(false);
         }
     }

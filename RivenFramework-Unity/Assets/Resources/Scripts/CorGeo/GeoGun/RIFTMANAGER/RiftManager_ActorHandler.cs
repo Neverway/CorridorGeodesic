@@ -57,15 +57,52 @@ public class RiftManager_ActorHandler : ILoggable
 
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
-    [Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
     public void RestoreActors()
     {
-        //throw new NotImplementedException();
-        
         foreach (CorGeo_Actor actor in CorGeo_Actors)
         {
             actor.GoHome();
         }
+    }
+    
+    /// <summary>
+    /// Calculate where an object in Null-Space should move to if the rift scales to the given percent.
+    /// </summary>
+    /// <param name="_position"></param>
+    /// <param name="_newPercent"></param>
+    /// <returns></returns>
+    public Vector3 MovePositionWithNullSpace (Vector3 _position, float _newPercent)
+    {
+        
+        //Calculate how far across null-space the transform is.
+        float riftDistance = RiftManager.cutPlaneA.GetDistanceToPoint (_position);
+
+        if (riftDistance == 0)
+        {
+            Debug.Log("EARLY EXIT");
+            return _position;
+        }
+
+        float riftPercent = riftDistance / RiftManager.currentRiftWidth;
+        //Calculate where the transform would be if null-space were not scaled.
+        float newDistance = Mathf.Abs( riftPercent * (RiftManager.riftStartingWidth * _newPercent) );
+        Vector3 answer = _position + ( RiftManager.riftNormal * (newDistance - riftDistance) );
+        
+        Debug.Log($"Pos {_position}, NPer {_newPercent}, Dis {riftDistance}, CPer {riftPercent}, CRW {RiftManager.currentRiftWidth}");
+        return answer;
+    }
+
+    /// <summary>
+    /// Calculate where an object in B-Space should move to if the rift scales to the given percent.
+    /// </summary>
+    /// <param name="_position"></param>
+    /// <param name="_newPercent"></param>
+    /// <returns></returns>
+    public Vector3 MovePositionWithBSpace (Vector3 _position, float _newPercent)
+    {
+        float offset = Mathf.Abs(RiftManager.riftStartingWidth*RiftManager.currentRiftPercent)-Mathf.Abs(RiftManager.riftStartingWidth * _newPercent);
+
+        return _position - (RiftManager.riftNormal * offset);
     }
 
     #endregion

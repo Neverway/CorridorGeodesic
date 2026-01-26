@@ -29,16 +29,18 @@ using System.Threading.Tasks;
 using RivenFramework;
 using Sabresaurus.SabreCSG;
 using ErryLib.MonoTasks;
+using Neverway.Framework;
 
 /// <summary>
 /// Added to meshes to allow them to be sliced by the geogun
 /// </summary>
 [RequireComponent (typeof (BzSliceableObject))]
-public class CorGeo_SliceableMesh : MonoBehaviour
+public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
-
+    [field: SerializeField] public bool EnableRuntimeLogging { get; set; }
+    
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
     [Tooltip("If enabled, lasers are reflected off this mesh")]
@@ -166,21 +168,21 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         var originalObject = this;
         
         // DO THE SLICEY THING!!!
-        Debug.Log($"[START] Slicing {gameObject.name}");
+        DebugConsole.Log(this, $"[START] Slicing {gameObject.name}");
         var sliceResultOfAPlane = await AttemptSlice(RiftManager.cutPlaneA);
-        Debug.Log($"[PLANE A] isSliced: {sliceResultOfAPlane.isSliced}");
+        DebugConsole.Log(this, $"[PLANE A] isSliced: {sliceResultOfAPlane.isSliced}");
         if (sliceResultOfAPlane.isSliced)
         {
-            Debug.Log($"  Positive: {sliceResultOfAPlane.positiveChunk?.gameObject.name}");
-            Debug.Log($"  Negative: {sliceResultOfAPlane.negativeChunk?.gameObject.name}");
+            DebugConsole.Log(this, $"  Positive: {sliceResultOfAPlane.positiveChunk?.gameObject.name}");
+            DebugConsole.Log(this, $"  Negative: {sliceResultOfAPlane.negativeChunk?.gameObject.name}");
         }
         await For.NextFrame; // THIS IS VERY IMPORTANT TO AVOID ASYNC SLICE COLLISIONS (THANK YOU ERRYNEIIIIIII)
         var sliceResultOfBPlane = await sliceResultOfAPlane.negativeChunk.AttemptSlice(RiftManager.cutPlaneB);
-        Debug.Log($"[PLANE B] isSliced: {sliceResultOfBPlane.isSliced}");
+        DebugConsole.Log(this, $"[PLANE B] isSliced: {sliceResultOfBPlane.isSliced}");
         if (sliceResultOfBPlane.isSliced)
         {
-            Debug.Log($"  Positive: {sliceResultOfBPlane.positiveChunk?.gameObject.name}");
-            Debug.Log($"  Negative: {sliceResultOfBPlane.negativeChunk?.gameObject.name}");
+            DebugConsole.Log(this, $"  Positive: {sliceResultOfBPlane.positiveChunk?.gameObject.name}");
+            DebugConsole.Log(this, $"  Negative: {sliceResultOfBPlane.negativeChunk?.gameObject.name}");
         }
 
         
@@ -281,9 +283,9 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         }
         
         // Ensure convex and mark the slice operation as completed for all chunks
-        Debug.Log($"[FINALIZE] Calling FinalizeResult on plane A");
+        DebugConsole.Log(this, $"[FINALIZE] Calling FinalizeResult on plane A");
         sliceResultOfAPlane.FinalizeResult();
-        Debug.Log($"[FINALIZE] Calling FinalizeResult on plane B");
+        DebugConsole.Log(this, $"[FINALIZE] Calling FinalizeResult on plane B");
         sliceResultOfBPlane.FinalizeResult();
     }
      
@@ -477,6 +479,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     }
 
     #endregion
+
 }
 
 [Todo("Need to add support for other collider types, currently only works with mesh colliders", TodoSeverity.Major, Owner = "liz")]

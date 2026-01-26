@@ -233,9 +233,29 @@ public class RiftManager_SpaceController : ILoggable
         geometryHandler.visualPlaneB.gameObject.transform.position = spaceContainerB.transform.position;
     }
 
+    public void MoveActorsWithRift(float _newPercent)
+    {
+        foreach (CorGeo_Actor actor in RiftManager_ActorHandler.CorGeo_Actors)
+        {
+            if (actor.dynamic && actor.isHeld == false)
+            {
+                actor.DetermineRiftSpace ();
+                if (actor.riftSpace == RiftSpace.NULLSpace)
+                {
+                    Debug.Log($"{actor.gameObject.name} is nullspace");
+                    actor.transform.position = riftManager.actorHandler.MovePositionWithNullSpace (actor.transform.position, _newPercent);
+                }
+                if (actor.riftSpace == RiftSpace.B)
+                {
+                    Debug.Log($"{actor.gameObject.name} is bspace");
+                    actor.transform.position = riftManager.actorHandler.MovePositionWithBSpace (actor.transform.position, _newPercent);
+                }
+            }
+        }
+    }
+
     public void DisableCollapsedObject()
     {
-        Debug.Log("CLOSED OBJECTS");
         foreach (var mesh in spaceMeshes)
         {
             if (mesh.Value == RiftSpace.NULLSpace)

@@ -249,8 +249,8 @@ public class RiftManager : MonoBehaviour, ILoggable
         // TODO Create function parallels for commented sections
         currentRiftPercent = _distance;
         currentRiftWidth = riftStartingWidth * currentRiftPercent;
-        //MoveActorsWithRift (_distance);
         spaceController.MoveGeometryWithRift();
+        spaceController.MoveActorsWithRift(_distance);
     }
 
     /// <summary>
