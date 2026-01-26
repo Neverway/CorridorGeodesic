@@ -496,12 +496,12 @@ public class GI_RiftManager : MonoBehaviour
             {
                 continue; //don't parent dynamic actors to the space-containers
             }
-            if (actor.space == CorGeo_Actor.Space.B)
+            if (actor.riftSpace == RiftSpace.B)
             {
                 actor.transform.SetParent(spaceContainerB.transform);
                 continue;
             }
-            if (actor.space == CorGeo_Actor.Space.Null)
+            if (actor.riftSpace == RiftSpace.NULLSpace)
             {
                 actor.transform.SetParent (spaceContainerNull.transform);
             }
@@ -757,12 +757,12 @@ public class GI_RiftManager : MonoBehaviour
             if (actor.dynamic && actor.isHeld == false)
             {
                 actor.DetermineRiftSpace ();
-                if (actor.space == CorGeo_Actor.Space.Null)
+                if (actor.riftSpace == RiftSpace.NULLSpace)
                 {
                     //print(actor.transform.position);
                     actor.transform.position = MovePositionWithNullSpace (actor.transform.position, _newPercent);
                 }
-                if (actor.space == CorGeo_Actor.Space.B)
+                if (actor.riftSpace == RiftSpace.B)
                 {
                     actor.transform.position = MovePositionWithBSpace (actor.transform.position, _newPercent);
                 }
@@ -851,7 +851,7 @@ public class GI_RiftManager : MonoBehaviour
         }
         foreach (var actor in CorGeo_Actors)
         {
-            if (actor.space == CorGeo_Actor.Space.Null)
+            if (actor.riftSpace == RiftSpace.NULLSpace)
             {
                 actor.CollapseActor();
             }
@@ -866,7 +866,7 @@ public class GI_RiftManager : MonoBehaviour
         }
         foreach (var actor in CorGeo_Actors)
         {
-            if (actor.space == CorGeo_Actor.Space.Null)
+            if (actor.riftSpace == RiftSpace.NULLSpace)
             {
                 actor.UnCollapseActor ();
             }

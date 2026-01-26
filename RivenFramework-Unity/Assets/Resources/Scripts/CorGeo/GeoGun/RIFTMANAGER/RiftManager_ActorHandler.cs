@@ -42,6 +42,7 @@ public class RiftManager_ActorHandler : ILoggable
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Tooltip("Link to parent class for logging")]
     private RiftManager riftManager;
+    [Tooltip("A list of all CorGeo actors in the current level, every object with CorGeo_Actor adds itself here in their start method")]
     public static List<CorGeo_Actor> CorGeo_Actors = new List<CorGeo_Actor> { };
 
 
@@ -60,6 +61,11 @@ public class RiftManager_ActorHandler : ILoggable
     public void RestoreActors()
     {
         //throw new NotImplementedException();
+        
+        foreach (CorGeo_Actor actor in CorGeo_Actors)
+        {
+            actor.GoHome();
+        }
     }
 
     #endregion

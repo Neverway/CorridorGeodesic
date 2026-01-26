@@ -45,8 +45,8 @@ public class RiftManager_SpaceController : ILoggable
     [Tooltip("Link to parent class for logging")]
     private RiftManager riftManager;
     public RiftManager_GeometryHandler geometryHandler;
-    public Dictionary<GameObject, RiftSpace> spaceMeshes =  new ();
-    public Dictionary<GameObject, RiftSpace> spaceActors =  new ();
+    public Dictionary<CorGeo_SliceableMesh, RiftSpace> spaceMeshes =  new ();
+    public Dictionary<CorGeo_Actor, RiftSpace> spaceActors =  new ();
     public GameObject spaceContainerA, spaceContainerB, spaceContainerNull;
 
 
@@ -145,20 +145,25 @@ public class RiftManager_SpaceController : ILoggable
     {
         this.Log("ReparentActorsToSpaceContainers called");
         foreach (CorGeo_Actor actor in RiftManager_ActorHandler.CorGeo_Actors)
-        {
+        { 
             actor.DetermineRiftSpace();
-            if (actor.dynamic)
+            
+            // Don't parent dynamic actors to the space-containers
+            if (actor.dynamic) { continue; }
+            
+            switch (actor.riftSpace)
             {
-                continue; //don't parent dynamic actors to the space-containers
-            }
-            if (actor.space == CorGeo_Actor.Space.B)
-            {
-                actor.transform.SetParent(spaceContainerB.transform);
-                continue;
-            }
-            if (actor.space == CorGeo_Actor.Space.Null)
-            {
-                actor.transform.SetParent (spaceContainerNull.transform);
+                case RiftSpace.A:
+                    actor.transform.SetParent(spaceContainerA.transform);
+                    break;
+                case RiftSpace.B:
+                    actor.transform.SetParent(spaceContainerB.transform);
+                    break;
+                case RiftSpace.NULLSpace:
+                    actor.transform.SetParent (spaceContainerNull.transform);
+                    break;
+                default:
+                    throw new Exception($"Actor {actor.name} could not been assigned to a space, this is abnormal!");
             }
         }
     }
@@ -173,10 +178,10 @@ public class RiftManager_SpaceController : ILoggable
         {
             mesh.Key.transform.parent = null;
         }
-        foreach (var actor in spaceActors)
+        /*foreach (var actor in spaceActors)
         {
             actor.Key.transform.parent = null;
-        }
+        }*/
         spaceMeshes.Clear();
         spaceActors.Clear();
     }
@@ -226,6 +231,55 @@ public class RiftManager_SpaceController : ILoggable
             spaceContainerNull.transform.position = RiftManager.riftNullSpaceStartingPosition;
         }
         geometryHandler.visualPlaneB.gameObject.transform.position = spaceContainerB.transform.position;
+    }
+
+    public void DisableCollapsedObject()
+    {
+        Debug.Log("CLOSED OBJECTS");
+        foreach (var mesh in spaceMeshes)
+        {
+            if (mesh.Value == RiftSpace.NULLSpace)
+            {
+                mesh.Key.gameObject.SetActive(false);
+            }
+        }
+        foreach (var actor in spaceActors)
+        {
+            if (actor.Value == RiftSpace.NULLSpace)
+            {
+                // Do a null check, so if the object was destroyed while the rift was still open, it doesn't hit a null ref exception
+                if (actor.Key == null)
+                {
+                    Debug.LogWarning("Attempted to set the collapse state of a null object! Skipping...");
+                    continue;
+                }
+                actor.Key.CollapseActor();
+            }
+        }
+    }
+
+    public void EnableCollapsedObject()
+    {
+        foreach (var mesh in spaceMeshes)
+        {
+            if (mesh.Value == RiftSpace.NULLSpace)
+            {
+                mesh.Key.gameObject.SetActive(true);
+            }
+        }
+        foreach (var actor in spaceActors)
+        {
+            if (actor.Value == RiftSpace.NULLSpace)
+            {
+                // Do a null check, so if the object was destroyed while the rift was still open, it doesn't hit a null ref exception
+                if (actor.Key == null)
+                {
+                    Debug.LogWarning("Attempted to set the collapse state of a null object! Skipping...");
+                    continue;
+                }
+                actor.Key.UnCollapseActor();
+            }
+        }
     }
 
 

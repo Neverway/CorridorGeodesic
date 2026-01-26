@@ -360,11 +360,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         }
         
         // Store in space meshes list
-        print($"[Test] (riftManager): {riftManager}");
-        print($"[Test] (riftManager.spaceController): {riftManager.spaceController}");
-        print($"[Test] (gameObject.name): {gameObject.name}");
-        print($"[Test] (assigning to rift space): {riftSpace}");
-        riftManager.spaceController.spaceMeshes.Add(gameObject, riftSpace);
+        riftManager.spaceController.spaceMeshes.Add(this, riftSpace);
         //AssignMeshToSpaceLists();
     }
 
@@ -458,7 +454,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour
     {
         // Sanity checks
         if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
-        riftManager.spaceController.spaceMeshes.Remove(gameObject);
+        riftManager.spaceController.spaceMeshes.Remove(this);
         
         // Check the mesh bounds center to see which side of the rift planes it falls on
         MeshFilter meshFilter = GetComponent<MeshFilter> ();
@@ -475,10 +471,9 @@ public class CorGeo_SliceableMesh : MonoBehaviour
         else if (RiftManager.cutPlaneB.GetDistanceToPoint(worldPoint) > 0) { riftSpace = RiftSpace.B; }
         // Object is in NULL Space
         else { riftSpace = RiftSpace.NULLSpace; }
-        print($"Tested point {meshFilter.mesh.bounds.center} for {gameObject.name}, got {riftSpace}");
         
         // Store in space meshes list
-        riftManager.spaceController.spaceMeshes.Add(gameObject, riftSpace);
+        riftManager.spaceController.spaceMeshes.Add(this, riftSpace);
     }
 
     #endregion
