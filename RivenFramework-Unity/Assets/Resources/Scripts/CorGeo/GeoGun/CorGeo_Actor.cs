@@ -64,6 +64,7 @@ public class CorGeo_Actor : MonoBehaviour
     {
         // Find references
         rigidbody = GetComponent<Rigidbody>();
+        riftManager = FindObjectOfType<RiftManager>();
         // Store initial transform data about this object, so it can be restored later when rifts are reset
         wasActive = gameObject.activeInHierarchy;
         homePosition = transform.position;
@@ -163,11 +164,17 @@ public class CorGeo_Actor : MonoBehaviour
         */
         
         // Sanity checks
-        if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
-        riftManager.spaceController.spaceActors.Remove(this);
+        //if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
+        //riftManager.spaceController.spaceActors.Remove(this);
 
-        var distanceToPlaneA = RiftManager.cutPlaneA.GetDistanceToPoint(transform.position);
-        var distanceToPlaneB = RiftManager.cutPlaneB.GetDistanceToPoint(transform.position);
+        // We ABSOLUTELY NEED to reference the distance using the VISUAL planes since the CUT planes never move, and this function is called while the rift is in motion
+        // This doesn't need to be done with the meshes since that calculation is only performed when the rift is created
+        // I am embarrassed to admit how long it took me to find this oversight ~Liz
+        // ( PS Don't ask me to explain this "toOther" stuff, it was just in the Unity docs and the dot function doesn't work correctly without it)
+        Vector3 toOther = Vector3.Normalize(transform.position - riftManager.geometryHandler.visualPlaneA.transform.position); 
+        var distanceToPlaneA = Vector3.Dot(-riftManager.geometryHandler.visualPlaneA.transform.forward, toOther);
+        toOther = Vector3.Normalize(transform.position - riftManager.geometryHandler.visualPlaneB.transform.position);
+        var distanceToPlaneB = Vector3.Dot(-riftManager.geometryHandler.visualPlaneB.transform.forward, toOther);
         
         if (distanceToPlaneA > 0)
         {
@@ -188,7 +195,7 @@ public class CorGeo_Actor : MonoBehaviour
         
         
         // Store in space actors list
-        riftManager.spaceController.spaceActors.Add(this, riftSpace);
+        //riftManager.spaceController.spaceActors.Add(this, riftSpace);
     }
 
     /// <summary>

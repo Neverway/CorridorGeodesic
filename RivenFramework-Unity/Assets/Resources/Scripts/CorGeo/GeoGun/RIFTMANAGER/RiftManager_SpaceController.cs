@@ -46,6 +46,7 @@ public class RiftManager_SpaceController : ILoggable
     private RiftManager riftManager;
     public RiftManager_GeometryHandler geometryHandler;
     public Dictionary<CorGeo_SliceableMesh, RiftSpace> spaceMeshes =  new ();
+    [Todo("This variable is very inconsistently used. It's supposed to be populated by CorGeoActor, but that function was hijacked for the dynamic actor space assignment")]
     public Dictionary<CorGeo_Actor, RiftSpace> spaceActors =  new ();
     public GameObject spaceContainerA, spaceContainerB, spaceContainerNull;
 
@@ -242,13 +243,12 @@ public class RiftManager_SpaceController : ILoggable
                 actor.DetermineRiftSpace ();
                 if (actor.riftSpace == RiftSpace.NULLSpace)
                 {
-                    Debug.Log($"{actor.gameObject.name} is nullspace");
-                    actor.transform.position = riftManager.actorHandler.MovePositionWithNullSpace (actor.transform.position, _newPercent);
+                    Debug.Log($"Moving actor {actor.gameObject.name}");
+                    //actor.transform.position = riftManager.actorHandler.MovePositionWithNullSpace (actor.transform.position, _newPercent);
                 }
                 if (actor.riftSpace == RiftSpace.B)
                 {
-                    Debug.Log($"{actor.gameObject.name} is bspace");
-                    actor.transform.position = riftManager.actorHandler.MovePositionWithBSpace (actor.transform.position, _newPercent);
+                    //actor.transform.position = riftManager.actorHandler.MovePositionWithBSpace (actor.transform.position, _newPercent);
                 }
             }
         }

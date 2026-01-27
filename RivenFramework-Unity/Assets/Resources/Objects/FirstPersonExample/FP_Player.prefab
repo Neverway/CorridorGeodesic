@@ -705,13 +705,13 @@ MonoBehaviour:
   isParentedIgnoreOffsets: 0
   activeInNullSpace: 1
   destroyedInKillTrigger: 1
-  debugLogSpaceData: 0
+  debugLogSpaceData: 1
   homePosition: {x: 0, y: 0, z: 0}
   homeScale: {x: 0, y: 0, z: 0}
   homeParent: {fileID: 0}
   isHeld: 0
   wasActive: 0
-  space: 0
+  riftSpace: 0
 --- !u!114 &9144359831165007799
 MonoBehaviour:
   m_ObjectHideFlags: 0
