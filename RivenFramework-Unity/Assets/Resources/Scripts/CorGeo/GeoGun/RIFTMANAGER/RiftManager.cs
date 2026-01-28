@@ -232,6 +232,8 @@ public class RiftManager : MonoBehaviour, ILoggable
     public void SetRiftPercentage(float _distance)
     {
         this.Log($"SetRiftPercentage called (_distance: '{_distance}')");
+        
+        // If the collapse behaviour of the rift controller is set to default, handle full-collapsing and uncollapsing of null-space
         if (linkedRiftController.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default)
         {
             if (_distance <= 0)
@@ -243,14 +245,22 @@ public class RiftManager : MonoBehaviour, ILoggable
                 stateHandler.SetState<RiftState_Opened>();
             }
         }
+        
+        // Some sort of fallback to avoid a bug... I know I added this here for some important reason, I'm sure ~Liz
         if (!geometryHandler.visualPlaneB || !spaceController.spaceContainerNull.activeInHierarchy) return;
-
-
-        // TODO Create function parallels for commented sections
+        
+        // Apply movement offsets to actors and geometry
+        // The order of operations here is very important!
         currentRiftPercent = _distance;
-        currentRiftWidth = riftStartingWidth * currentRiftPercent;
-        spaceController.MoveGeometryWithRift();
         spaceController.MoveActorsWithRift(_distance);
+        
+        // For the love of dog, please leave this line as the last thing this function does
+        // Otherwise the spaceController doesn't know the distance change to move the actors ~Liz
+        currentRiftWidth = riftStartingWidth * currentRiftPercent;
+        
+        // Actually, this line needs to be last to avoid the geometry being one step behind the actual rift percentage
+        // That one-step delay is fine for the actors though, since it's nearly unnoticeable ~Liz
+        spaceController.MoveGeometryWithRift();
     }
 
     /// <summary>
@@ -272,13 +282,29 @@ public class RiftManager : MonoBehaviour, ILoggable
     
     
     
+    
+    
+    
+    
+    
+    
+    
     // TEMP TEMP TEMP TEMP TEMP TEMP TEMP TEMPE?
     // Labirhin reference?
-    
-    
-    
-    
-    
+    /*
+                             / |  | \        
+                            /  |  |  \       
+    _______________________/   |__|   \______
+    |        _____     ___     _____         |
+    |     .__\   /__   \ /   __\   /__.      |
+    |   ...\/.\ /.\/...   ...\/.\ /.\/...    |
+    |  ...................................   |
+    |  ...................................   |
+    |   .../\./ \./\...   .../\./ \./\...    |
+    |     .--/   \--         --/   \--.      |
+    |        -----             -----         |
+    ------------------------------------------
+    */
     #endregion
 
 }

@@ -68,42 +68,71 @@ public class RiftManager_ActorHandler : ILoggable
     /// <summary>
     /// Calculate where an object in Null-Space should move to if the rift scales to the given percent.
     /// </summary>
-    /// <param name="_position"></param>
-    /// <param name="_newPercent"></param>
-    /// <returns></returns>
-    public Vector3 MovePositionWithNullSpace (Vector3 _position, float _newPercent)
+    /// <param name="_actorPosition">The current position of the actor we are moving</param>
+    /// <param name="_newRiftPercent">The current percentage of how distorted the rift is</param>
+    /// <returns>Returns the new position the actor should be at to avoid rift offsets</returns>
+    public Vector3 MoveActorPositionWithNullSpace (Vector3 _actorPosition, float _newRiftPercent)
     {
-        
-        //Calculate how far across null-space the transform is.
-        float riftDistance = RiftManager.cutPlaneA.GetDistanceToPoint (_position);
+        // Calculate how far across null-space the transform is.
+        float distanceFromPlaneA = RiftManager.cutPlaneA.GetDistanceToPoint(_actorPosition);
 
-        if (riftDistance == 0)
+        // Exit if the rift is near collapse
+        if (distanceFromPlaneA == 0)
         {
-            Debug.Log("EARLY EXIT");
-            return _position;
+            DebugConsole.Log(this, "EARLY EXIT - Null-space is near collapse");    
+            return _actorPosition;
         }
-
-        float riftPercent = riftDistance / RiftManager.currentRiftWidth;
-        //Calculate where the transform would be if null-space were not scaled.
-        float newDistance = Mathf.Abs( riftPercent * (RiftManager.riftStartingWidth * _newPercent) );
-        Vector3 answer = _position + ( RiftManager.riftNormal * (newDistance - riftDistance) );
         
-        Debug.Log($"Pos {_position}, NPer {_newPercent}, Dis {riftDistance}, CPer {riftPercent}, CRW {RiftManager.currentRiftWidth}");
-        return answer;
+        // Calculate the actor position percentage across null-space (0 = actor on A-Plane, 1 = actor on B-Plane)
+        float actorDistancePercentAcrossNullSpace = distanceFromPlaneA / RiftManager.currentRiftWidth;
+        
+        // Calculate the new distance from A-Plane based on current rift scale
+        float newRiftWidth = RiftManager.riftStartingWidth * _newRiftPercent;
+        float newActorDistancePercentFromPlaneA = actorDistancePercentAcrossNullSpace * newRiftWidth;
+        
+        // Calculate the change in distance of the actor
+        // (this kinda change is usually referred to as delta apparently)
+        // (Think like deltaTime, it's the change of time between frames) ~Liz
+        float deltaActorDistance = newActorDistancePercentFromPlaneA - distanceFromPlaneA;
+        
+        // Calculate the new actor position relative to the rift's normal direction (Don't forget to flip the rift normal!)
+        Vector3 newActorPosition = _actorPosition + (-RiftManager.riftNormal * deltaActorDistance);
+        
+        DebugConsole.Log(this, $"Object: {_actorPosition} | PercentAcross: {actorDistancePercentAcrossNullSpace:F3} | " +
+                               $"OldDist: {distanceFromPlaneA:F3} | NewDist: {newActorDistancePercentFromPlaneA:F3} | " +
+                               $"Delta: {deltaActorDistance:F3} | NewPos: {newActorPosition}");
+        
+        return newActorPosition;
     }
 
     /// <summary>
     /// Calculate where an object in B-Space should move to if the rift scales to the given percent.
     /// </summary>
-    /// <param name="_position"></param>
-    /// <param name="_newPercent"></param>
-    /// <returns></returns>
-    public Vector3 MovePositionWithBSpace (Vector3 _position, float _newPercent)
+    /// <param name="_actorPosition">The current position of the actor we are moving</param>
+    /// <param name="_newRiftPercent">The current percentage of how distorted the rift is</param>
+    /// <returns>Returns the new position the actor should be at to avoid rift offsets</returns>
+    public Vector3 MoveActorPositionWithBSpace (Vector3 _actorPosition, float _newRiftPercent)
     {
-        float offset = Mathf.Abs(RiftManager.riftStartingWidth*RiftManager.currentRiftPercent)-Mathf.Abs(RiftManager.riftStartingWidth * _newPercent);
+        // Calculate the new distance of the rift
+        float newRiftWidth = RiftManager.riftStartingWidth * _newRiftPercent;
 
-        Debug.Log($"Pos {_position}, NPer {_newPercent}, CRW {RiftManager.currentRiftWidth}");
-        return _position - (RiftManager.riftNormal * offset);
+        // Calculate the change in distance of the actor
+        // (If you are confused on what delta means here, read the similar comment in MoveActorPositionWithNullSpace)
+        float deltaWidth = newRiftWidth - RiftManager.currentRiftWidth;
+        
+        // Calculate the new actor position relative to the rift's normal direction (Don't forget to NOT flip the rift normal!)
+        Vector3 newActorPosition = _actorPosition + (RiftManager.riftNormal * deltaWidth);
+        
+        DebugConsole.Log(this, $"Object: {_actorPosition} | " +
+                               $"CurrentWidth: {RiftManager.currentRiftWidth:F3} | NewWidth: {newRiftWidth:F3} | " +
+                               $"Delta: {deltaWidth:F3} | NewPos: {newActorPosition}");
+
+        return newActorPosition;
+        
+        float offset = Mathf.Abs(RiftManager.riftStartingWidth*RiftManager.currentRiftPercent)-Mathf.Abs(RiftManager.riftStartingWidth * _newRiftPercent);
+
+        Debug.Log($"Pos {_actorPosition}, NPer {_newRiftPercent}, CRW {RiftManager.currentRiftWidth}");
+        return _actorPosition - (RiftManager.riftNormal * offset);
     }
 
     #endregion
