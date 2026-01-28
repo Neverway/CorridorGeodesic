@@ -37,7 +37,7 @@ public class Projectile_Marker : UProjectile
 
     
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-    private GI_RiftManager riftManager;
+    private RiftManager riftManager;
     private RaycastHit hit2;
     [Tooltip("This is the mesh on the object that is shown through walls, the reference is needed so we can hide the highlight if the projectile is not pinned")]
     [SerializeField] private GameObject outlineFX;
@@ -52,7 +52,7 @@ public class Projectile_Marker : UProjectile
     public new void Start()
     {
         base.Start();
-        riftManager = GameInstance.Get<GI_RiftManager>();
+        riftManager = GameInstance.Get<RiftManager>();
     }
 
     private void OnDestroy()
@@ -174,8 +174,8 @@ public class Projectile_Marker : UProjectile
         outlineFX.SetActive(true);
         
         // Add itself to the rift manager if possible
-        if (riftManager.markerA == null) riftManager.markerA = this;
-        else if (riftManager.markerB == null) riftManager.markerB = this;
+        if (riftManager.markerA == null) riftManager.markerA = this.transform;
+        else if (riftManager.markerB == null) riftManager.markerB = this.transform;
     }
     
     /// <summary>
@@ -186,8 +186,8 @@ public class Projectile_Marker : UProjectile
         // Remove itself from the rift manager if present
         if (pinned)
         {
-            if (riftManager.markerA == this) riftManager.markerA = null;
-            else if (riftManager.markerB == this) riftManager.markerB = null;
+            if (riftManager.markerA == this.transform) riftManager.markerA = null;
+            else if (riftManager.markerB == this.transform) riftManager.markerB = null;
         }
         Destroy(gameObject, 0.01f);
     }

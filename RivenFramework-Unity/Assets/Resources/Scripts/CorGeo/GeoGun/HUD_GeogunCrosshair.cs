@@ -7,6 +7,7 @@
 //
 //====================================================================================================================//
 
+using System;
 using System.Collections;
 using RivenFramework;
 using UnityEngine;
@@ -19,17 +20,22 @@ public class HUD_GeogunCrosshair : MonoBehaviour
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
-
+    [Tooltip("How many frames to wait between validation checks")]
+    [SerializeField] private int validationCheckInterval = 20;
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     public bool hasInitializedCrosshairSine;
+    private bool lastIsValidState;
+    private int lastMarkerCount = -1;
+    private int frameCounter;
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     private GI_PawnManager pawnManager;
     private Item_Utility_Geogun geogun;
+    private GameObject crosshairObject;
     [SerializeField] private Image AMarkerIndicator, BMarkerIndicator, PlacementIndicator, ASine, BSine;
     [SerializeField] private Color activeIndicator, inactiveIndicator;
 
@@ -39,37 +45,64 @@ public class HUD_GeogunCrosshair : MonoBehaviour
     #region=======================================( Functions )======================================================= //
 
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+    private void Start()
+    {
+        crosshairObject = transform.GetChild(0).gameObject;
+        crosshairObject.SetActive(false);
+    }
+
     private void LateUpdate()
     {
-        FindReferences();
-
-        if (!geogun) return;
+        if (geogun == null)
+        {
+            FindReferences();
+            return;
+        }
+        
         SetMarkerIndicators();
-        SetPlacementIndicator();
+        
+        // Only check placement every few frames
+        frameCounter++;
+        if (frameCounter >= validationCheckInterval)
+        {
+            frameCounter = 0;
+            SetPlacementIndicator();
+        }
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     private void FindReferences()
     {
+        // Exit if we have all reference
+        if (pawnManager != null && geogun != null) return;
+        
         // Get the pawn manager
         if (pawnManager == null)
         {
             pawnManager = GameInstance.Get<GI_PawnManager>();
             return;
         }
+        
         // Get the geogun
         if (geogun == null)
         {
-            geogun = pawnManager.localPlayerCharacter.GetComponentInChildren<Item_Utility_Geogun>();
-            transform.GetChild(0).gameObject.SetActive(false); // Disable the crosshair since the gun wasn't found
-            return;
+            var player = pawnManager.localPlayerCharacter;
+            if (player != null)
+            {
+                geogun = player.GetComponentInChildren<Item_Utility_Geogun>();
+                crosshairObject.SetActive(geogun != null); // Enable/Disable the crosshair if the gun was/wasn't found
+            }
         }
-        transform.GetChild(0).gameObject.SetActive(true); // Enable the crosshair
     }
 
     private void SetMarkerIndicators()
     {
-        switch (geogun.spawnedProjectiles.Count)
+        int currentCount = geogun.spawnedProjectiles.Count;
+
+        if (currentCount == lastMarkerCount) return;
+        lastMarkerCount = currentCount;
+        
+        switch (currentCount)
         {
             // Both Markers (Or too many markers (Which should never happen... riiiight?))
             case >= 2:
@@ -98,15 +131,12 @@ public class HUD_GeogunCrosshair : MonoBehaviour
 
     private void SetPlacementIndicator()
     {
-        var isValidTarget = geogun.GetIsValidTargetFromView();
-        if (isValidTarget)
-        {
-            PlacementIndicator.color = activeIndicator;
-        }
-        else
-        {
-            PlacementIndicator.color = inactiveIndicator;
-        }
+        bool isValidTarget = geogun.GetIsValidTargetFromView();
+        
+        if (isValidTarget == lastIsValidState) return;
+        lastIsValidState = isValidTarget;
+        
+        PlacementIndicator.color = isValidTarget ? activeIndicator : inactiveIndicator;
     }
     
     private void InitializeCrosshairSine()
@@ -129,6 +159,9 @@ public class HUD_GeogunCrosshair : MonoBehaviour
             hasInitializedCrosshairSine = true;
             yield return null;
         }
+
+        ASine.fillAmount = 1f;
+        BSine.fillAmount = 1f;
     }
     
 

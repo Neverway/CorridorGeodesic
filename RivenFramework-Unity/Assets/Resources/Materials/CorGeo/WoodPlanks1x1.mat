@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WoodPlanks
+  m_Name: WoodPlanks1x1
   m_Shader: {fileID: 4800000, guid: d44cd7bbb42b445a39e14e6b76a11e50, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -130,7 +130,7 @@ Material:
     - _SliceCenterTwo: {r: 0, g: 0, b: 0, a: 0}
     - _SliceNormalOne: {r: 0, g: 0, b: 0, a: 0}
     - _SliceNormalTwo: {r: 0, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 0.25, g: 0.25, b: 0, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4762860752329641730
 MonoBehaviour:

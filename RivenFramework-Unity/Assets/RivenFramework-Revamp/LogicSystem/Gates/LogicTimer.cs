@@ -28,6 +28,7 @@ public class LogicTimer : Logic
     //=-----------------=
     // Reference Variables
     //=-----------------=
+    private Coroutine timerRoutine;
 
 
     //=-----------------=
@@ -36,7 +37,6 @@ public class LogicTimer : Logic
     private void Start()
     {
         startTimer.CallOnSourceChanged(BeginCountdown);
-        if (timerDuration.HasLogicOutputSource) timerDuration.CallOnSourceChanged(StopAllCoroutines);
     }
     
 
@@ -45,23 +45,25 @@ public class LogicTimer : Logic
     //=-----------------=
     private void BeginCountdown()
     {
-        print("Started countdown timer");
-        StopAllCoroutines();
-        StartCoroutine(nameof(Countdown));
+        if (timerRoutine != null) return;
+        timerRoutine = StartCoroutine(Countdown());
     }
 
     private IEnumerator Countdown()
     {
-        //if (startTimer == false) yield break;
+        timerCompleted.Set(false);
+        
         currentTime.Set(timerDuration);
         
         while (currentTime > 0)
         {
             yield return new WaitForSeconds(1);
-            print(currentTime);
             currentTime.Set(currentTime - 1);
-            timerCompleted.Set(currentTime <= 0);
         }
+        
+        timerCompleted.Set(true);
+        
+        timerRoutine = null;
     }
 
 

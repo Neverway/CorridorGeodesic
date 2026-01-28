@@ -296,6 +296,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 9144359831165007799}
+    - targetCorrespondingSourceObject: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3301829909880019359}
     - targetCorrespondingSourceObject: {fileID: 7605716022011797126, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       insertIndex: -1
@@ -337,6 +341,18 @@ MonoBehaviour:
   hatchTexture: {fileID: 2800000, guid: 4add193c3e4df40fbab145e813f9b621, type: 3}
   hatchStrength: 0
   hatchScale: 4
+--- !u!114 &4378302336182463314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8723832290463638378, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+    type: 3}
+  m_PrefabInstance: {fileID: 5031538898694686776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce41d9ae971577b1b7381fbc3cca07c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4667762440509066197 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 366098670773715949, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
@@ -388,9 +404,9 @@ ConfigurableJoint:
   m_XMotion: 1
   m_YMotion: 1
   m_ZMotion: 1
-  m_AngularXMotion: 1
-  m_AngularYMotion: 1
-  m_AngularZMotion: 1
+  m_AngularXMotion: 0
+  m_AngularYMotion: 0
+  m_AngularZMotion: 0
   m_LinearLimitSpring:
     spring: 0
     damper: 0
@@ -651,6 +667,7 @@ MonoBehaviour:
     type: 3}
   DeathScreenWidget: {fileID: 5675289539813747590, guid: f951f1626e8a081628c8e41d018c0094,
     type: 3}
+  playerInventory: {fileID: 4378302336182463314}
 --- !u!95 &5585686792063707016
 Animator:
   serializedVersion: 5
@@ -694,7 +711,7 @@ MonoBehaviour:
   homeParent: {fileID: 0}
   isHeld: 0
   wasActive: 0
-  space: 0
+  riftSpace: 0
 --- !u!114 &9144359831165007799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,12 +724,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe251027271837b4fbdeb8e12fb0cf98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: {x: 0.192, y: 1, z: 0.192}
-  downDistanceCurrent: -0.75
+  overlapPointTop: 1.56
+  overlapPointBottom: -0.5
+  bottomCrouchOffset: 0.45
+  overlapRadius: 0.4
   layerMask:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 8321
   crushDamageAmount: 20
+--- !u!114 &3301829909880019359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275086507616164517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1a87509a8015ba29265b4671cadc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regenDelay: 2
 --- !u!114 &7815155221520509747 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3001261832045667083, guid: 9ed3a4da35b3ca57e9b7424f51915e87,

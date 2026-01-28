@@ -17,25 +17,15 @@ using UnityEngine;
 /// <summary>
 /// Spawns & clears the marker projectiles, and sends signals to the rift manager to expand or compress
 /// </summary>
-public class Item_Utility_Geogun : Item
+public class Item_Utility_Geogun : RiftController, ILoggable
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+    [field: SerializeField] public bool EnableRuntimeLogging { get; set; }
     [Header("GeoGun Upgrades")]
     [Todo("Need to add nonlinear slicing check to rift manager", Owner = "Liz")]
     [Tooltip("Allows rifts to be placed on walls")]
     public bool allowNonLinearSlicing = true;
-    [Todo("Need to add expanding rift check to rift manager", Owner = "Liz")]
-    [Tooltip("Allows rifts to expand past the start position")]
-    public bool allowExpandingRift;
-
-    public enum CollapseBehavior
-    {
-        Default,                //Standard behavior, collapsing rift removes geometry.
-        MirrorWhenCollapsed     //Collapsing rift can go past 0 into negative numbers, where it becomes mirrored.
-    }
-    [Tooltip("Decides the behavior when the rift is collapsed, allowing for alternate modes of the geogun.")]
-    public CollapseBehavior collapseBehavior = CollapseBehavior.Default;
 
     [Todo("Need to add slamming rift check to rift manager", Owner = "Liz")]
     [Tooltip("Allows the player to slam rifts closed, creating a vacuum that flings things out of rifts")]
@@ -55,19 +45,23 @@ public class Item_Utility_Geogun : Item
              "it's used to avoid multiple rift managers all trying to fight over the same gun link")]
     [HideInInspector] public bool isLinkedToManager;
     [Tooltip("Subscribed to by rift manager to tell when gun wants to collapse")]
-    public event Action OnCollapseHeld;
+    public override event Action OnCollapseHeld;
     [Tooltip("Subscribed to by rift manager to tell when gun wants to stop collapsing")]
-    public event Action OnCollapseReleased;
+    public override event Action OnCollapseReleased;
     [Tooltip("Subscribed to by rift manager to tell when gun wants to expand")]
-    public event Action OnExpandHeld;
+    public override event Action OnExpandHeld;
     [Tooltip("Subscribed to by rift manager to tell when gun wants to stop expanding")]
-    public event Action OnExpandReleased;
+    public override event Action OnExpandReleased;
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     private int maxProjectiles = 2;
     private bool wantsToExpand;
     private bool wantsToCollapse;
+    private Transform cachedPawnViewPoint;
+    private RaycastHit lastValidationHit;
+    private bool lastValidationResult;
+    private int lastValidationFrame = -1;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -90,10 +84,18 @@ public class Item_Utility_Geogun : Item
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void OnEnable()
     {
+        /*
         var riftManager = GameInstance.Get<GI_RiftManager>();
         if (riftManager)
         {
             riftManager.RegisterGeogun(this);
+        }*/
+        
+        
+        var riftManager = GameInstance.Get<RiftManager>();
+        if (riftManager)
+        {
+            riftManager.RegisterRiftController(this);
         }
     }
 
@@ -252,8 +254,27 @@ public class Item_Utility_Geogun : Item
     /// <returns>Returns true if the player is looking at a target they are allowed to shoot</returns>
     public bool GetIsValidTargetFromView()
     {
-        Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out RaycastHit _hit, 255, layerMask);
-        return GetIsValidTarget(_hit);
+        //Physics.Raycast(GetComponentInParent<Pawn>().viewPoint.position, GetComponentInParent<Pawn>().viewPoint.forward, out RaycastHit _hit, 255, layerMask);
+        //return GetIsValidTarget(_hit);
+
+        if (lastValidationFrame == Time.frameCount)
+        {
+            return lastValidationResult;
+        }
+
+        if (!cachedPawnViewPoint)
+        {
+            var pawn = GetComponentInParent<Pawn>();
+            if (pawn) cachedPawnViewPoint = pawn.viewPoint;
+            else return false;
+        }
+        
+        Physics.Raycast(cachedPawnViewPoint.position, cachedPawnViewPoint.forward, out lastValidationHit, 255, layerMask);
+
+        lastValidationResult = GetIsValidTarget(lastValidationHit);
+        lastValidationFrame = Time.frameCount;
+
+        return lastValidationResult;
     }
     
     /// <summary>
@@ -264,28 +285,67 @@ public class Item_Utility_Geogun : Item
     {
         if (!_hit.collider)
         {
+            DebugConsole.Log(this, "fail 0");
             //Debug.LogWarning("Somehow raycast hit an invalid object");
             return false;
         }
         // Gun is pointed at a bulb snapping point (That is valid!)
         // TODO - BulbCollisionBehaviour has not been ported!
-        if (_hit.collider.gameObject.GetComponent<BulbCollisionBehaviour>() != null) return true;
+        if (_hit.collider.gameObject.GetComponent<BulbCollisionBehaviour>() != null)
+        {
+            DebugConsole.Log(this, "check 1");
+            return true;
+        }
 
         // Gun is pointed at a sliceable object
-        if (_hit.collider.gameObject.TryGetComponent<CorGeo_SliceableMesh>(out _) is false) return false;
+        if (_hit.collider.gameObject.TryGetComponent<CorGeo_SliceableMesh>(out _) is false)
+        {
+            DebugConsole.Log(this, "fail 1");
+            return false;
+        }
         // Non-mesh colliders don't support getting the polygon information, so we exit if it's not a mesh collider
-        if (_hit.collider is not MeshCollider mCollider) return false;
+        if (_hit.collider is not MeshCollider mCollider)
+        {
+            DebugConsole.Log(this, "fail 2");
+            return false;
+        }
         // Get if the raycast hit a polygon with a valid material to place markers on
-        if (_hit.collider.gameObject.TryGetComponent(out Renderer rend) is false) return false;
+        if (_hit.collider.gameObject.TryGetComponent(out Renderer rend) is false)
+        {
+            DebugConsole.Log(this, "fail 3");
+            return false;
+        }
         // Return true if allowMarkerPlacementAnywhere
         if (allowMarkerPlacementAnywhere) return true;
         
         // Gather information about the mesh
         Mesh colMesh = mCollider.sharedMesh;
+        DebugConsole.Log(this, $"Collider mesh: {colMesh?.name}, SubMeshCount: {colMesh?.subMeshCount}");
         int triIndex = _hit.triangleIndex;
+        DebugConsole.Log(this, $"Triangle index: {triIndex}");
         int subMeshIndex = GetSubMeshIndex(colMesh, triIndex);
+        DebugConsole.Log(this, $"SubMesh index: {subMeshIndex}");
+        DebugConsole.Log(this, $"Renderer materials count: {rend.sharedMaterials.Length}");
 
-        return subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
+        if (subMeshIndex >= 0 && subMeshIndex < rend.sharedMaterials.Length)
+        {
+            var hitMaterial = rend.sharedMaterials[subMeshIndex];
+            DebugConsole.Log(this, $"Hit material: {hitMaterial?.name}");
+            DebugConsole.Log(this, $"Valid materials: {string.Join(", ", validPlacementMaterials.Select(m => m?.name))}");
+        
+            bool contains = validPlacementMaterials.Contains(hitMaterial);
+            DebugConsole.Log(this, $"Material is valid: {contains}");
+        }
+
+        if (rend.sharedMaterials.Length <= subMeshIndex)
+        {
+            DebugConsole.Log(this, "fail 4");
+            return false;
+        }
+    
+        var finalResult = subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
+        DebugConsole.Log(this, $"Final result: {finalResult}");
+        return finalResult;
     }
     
     /// <summary>

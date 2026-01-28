@@ -95,7 +95,7 @@ Material:
     - _BUILTIN_ZWrite: 1
     - _BUILTIN_ZWriteControl: 0
     - _Blend: 1
-    - _BumpScale: 1
+    - _BumpScale: 0.823
     - _ColorOnly: 0
     - _CullMode: 2
     - _Cutoff: 0.5
@@ -109,7 +109,7 @@ Material:
     - _Metallic: 1
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.08
+    - _Parallax: 0.059
     - _RampSmoothness: 0.1
     - _RoughnessPower: 1
     - _SmoothnessTextureChannel: 0
@@ -129,7 +129,7 @@ Material:
     - _SliceCenterTwo: {r: 0, g: 0, b: 0, a: 0}
     - _SliceNormalOne: {r: 0, g: 0, b: 0, a: 0}
     - _SliceNormalTwo: {r: 0, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 0.25, g: 0.25, b: 0, a: 0}
+    - _Tiling: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4762860752329641730
 MonoBehaviour:

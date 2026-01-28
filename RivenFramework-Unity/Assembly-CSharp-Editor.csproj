@@ -83,6 +83,7 @@
      <Folder Include="Assets/Resources/Scripts/CorGeo/GeoGun/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors" />
      <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI/Editor" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/EditorTools/Editor" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor" />
      <Folder Include="Assets/RivenFramework-Revamp/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor" />

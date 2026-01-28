@@ -7,6 +7,7 @@
 //
 //====================================================================================================================//
 
+using System;
 using RivenFramework;
 using UnityEngine;
 
@@ -32,8 +33,9 @@ public class FPPawn_Player : FPPawn
     private new FPPawnActions action = new FPPawnActions();
     private InputActions.FirstPersonActions inputActions;
     [SerializeField] private GameObject DeathScreenWidget;
+    [SerializeField] private Pawn_Inventory playerInventory;
     private ApplicationSettings applicationSettings;
-    private GI_RiftManager riftManager;
+    private RiftManager riftManager;
     
     #endregion
 
@@ -132,7 +134,10 @@ public class FPPawn_Player : FPPawn
         if (inputActions.ItemSwapPrevious.WasPressedThisFrame()) action.ItemSwapPrevious(this);
         
         // Use Item
-        var inventory = GetComponentInChildren<Pawn_Inventory>();
+        if (!playerInventory)
+        {
+            throw new Exception("playerInventory reference has not been set in the inspector! The inventory should be on one of the child objects under the player prefab, please manually assign it!");
+        }
         if (inputActions.ItemAction1.WasPressedThisFrame())
         {
             // Throw held object, or Item Use Action 0
@@ -142,14 +147,14 @@ public class FPPawn_Player : FPPawn
             }
             else
             {
-                action.ItemUseAction(inventory, 0);
+                action.ItemUseAction(playerInventory, 0);
             }
         }
-        if (inputActions.ItemAction2.WasPressedThisFrame()) action.ItemUseAction(inventory, 1);
-        if (inputActions.ItemAction3.WasPressedThisFrame()) action.ItemUseAction(inventory, 2);
-        if (inputActions.ItemAction1.WasReleasedThisFrame()) action.ItemUseAction(inventory, 0, "release");
-        if (inputActions.ItemAction2.WasReleasedThisFrame()) action.ItemUseAction(inventory, 1, "release");
-        if (inputActions.ItemAction3.WasReleasedThisFrame()) action.ItemUseAction(inventory, 2, "release");
+        if (inputActions.ItemAction2.WasPressedThisFrame()) action.ItemUseAction(playerInventory, 1);
+        if (inputActions.ItemAction3.WasPressedThisFrame()) action.ItemUseAction(playerInventory, 2);
+        if (inputActions.ItemAction1.WasReleasedThisFrame()) action.ItemUseAction(playerInventory, 0, "release");
+        if (inputActions.ItemAction2.WasReleasedThisFrame()) action.ItemUseAction(playerInventory, 1, "release");
+        if (inputActions.ItemAction3.WasReleasedThisFrame()) action.ItemUseAction(playerInventory, 2, "release");
     }
 
     public void FixedUpdate()
@@ -211,8 +216,8 @@ public class FPPawn_Player : FPPawn
     private void OnDeath()
     {
         // Remove any rifts
-        riftManager = GameInstance.Get<GI_RiftManager>();
-        riftManager.RestoreRift();
+        riftManager = GameInstance.Get<RiftManager>();
+        riftManager.DestroyRift();
         
         // Drop held props
         if (physObjectAttachmentPoint)
@@ -237,6 +242,10 @@ public class FPPawn_Player : FPPawn
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
     /*----------------------------------------------------------------------------------------------------------------*/
+    public bool IsCrouched()
+    {
+        return action.isCrouching;
+    }
 
 
     #endregion

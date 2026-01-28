@@ -135,8 +135,11 @@ namespace BzKovSoft.ObjectSlicer
 					BzGeneratedMesh resultMeshNeg = colliderResult.meshDissector.MeshData.GenerateMeshes(colliderMeshNeg);
 					BzGeneratedMesh resultMeshPos = colliderResult.meshDissector.MeshData.GenerateMeshes(colliderMeshPos);
 
-					var slicedColliderNeg = new MeshColliderConf(resultMeshNeg.mesh, colliderResult.OriginalCollider.material);
-					var slicedColliderPos = new MeshColliderConf(resultMeshPos.mesh, colliderResult.OriginalCollider.material);
+					bool isConvex = true;
+					if (colliderResult.OriginalCollider is MeshCollider meshCollider) isConvex = meshCollider.convex;
+					
+					var slicedColliderNeg = new MeshColliderConf(resultMeshNeg.mesh, colliderResult.OriginalCollider.material, isConvex);
+					var slicedColliderPos = new MeshColliderConf(resultMeshPos.mesh, colliderResult.OriginalCollider.material, isConvex);
 
 					for (int j = 0; j < resultObjects.Length; j++)
 					{
@@ -225,7 +228,7 @@ namespace BzKovSoft.ObjectSlicer
 			var collider = go.AddComponent<MeshCollider>();
 			collider.sharedMesh = colliderConf.Mesh;
 			collider.sharedMaterial = colliderConf.Material;
-			collider.convex = true;
+			collider.convex = collider.convex;
 
 			Profiler.EndSample();
 		}
@@ -299,13 +302,15 @@ namespace BzKovSoft.ObjectSlicer
 
 		public class MeshColliderConf
 		{
-			public MeshColliderConf(Mesh mesh, PhysicMaterial material)
+			public MeshColliderConf(Mesh mesh, PhysicMaterial material, bool convex)
 			{
 				Mesh = mesh;
 				Material = material;
+				Convex = convex;
 			}
 			public readonly Mesh Mesh;
 			public readonly PhysicMaterial Material;
+			public readonly bool Convex;
 		}
 	}
 }
