@@ -28,6 +28,7 @@ Shader "Neverway/Resoulex Toon"
         _Offset ("Offset", Vector) = (0, 0, 0, 0)
 
         [Header(Emission Properties)][Space]
+        _EmissionDivision ("Emission Division", Range(1, 10)) = 1
         _EmissionColor ("Emission Color", Color) = (0, 0, 0, 0)
         [NoScaleOffset] _EmissionMap ("Emission", 2D) = "white" {}
 
@@ -92,6 +93,7 @@ Shader "Neverway/Resoulex Toon"
 
         sampler2D _OcclusionMap;
 
+        half _EmissionDivision;
         half4 _EmissionColor;
         sampler2D _EmissionMap;
         
@@ -249,7 +251,7 @@ Shader "Neverway/Resoulex Toon"
 
                 output.Occlusion = tex2D(_OcclusionMap, uv).r;
 
-                output.Emission = tex2D(_EmissionMap, uv) * _EmissionColor;
+                output.Emission = tex2D(_EmissionMap, uv) * _EmissionColor/_EmissionDivision;
 
                 output.Alpha = col.a;
             }

@@ -148,7 +148,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         // Save the transform
         state.transformData.position = transform.position;
         state.transformData.rotation = transform.rotation;
-        state.transformData.scale = transform.localScale;
+        state.transformData.scale = transform.lossyScale;
         
         // Okay, all done, actually add this data onto the stack now
         sliceHistory.Push(state);

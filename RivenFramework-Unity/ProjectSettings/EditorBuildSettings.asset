@@ -24,22 +24,22 @@ EditorBuildSettings:
     path: Assets/RivenFramework-Revamp/Resources/Levels/_Error.unity
     guid: 1711274c2723a1632a3217b3d3d86e07
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/MainLevels/1cube.unity
+    path: Assets/Resources/Maps/CorGeo/_MainLevels/1cube.unity
     guid: cd660b9af5e7dadb48ff15c7a0be7b3d
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/MainLevels/2gun.unity
+    path: Assets/Resources/Maps/CorGeo/_MainLevels/2gun.unity
     guid: f0feeef2d909356eab11b59d5861322e
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/MainLevels/3horizontal.unity
+    path: Assets/Resources/Maps/CorGeo/_MainLevels/3horizontal.unity
     guid: 94ff3347ba67e532ab1fc63893cba422
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/MainLevels/4vertical.unity
+    path: Assets/Resources/Maps/CorGeo/_MainLevels/4vertical.unity
     guid: 596204db1645b23aab9b67e1f4fd3003
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/MainLevels/5backtrack.unity
+    path: Assets/Resources/Maps/CorGeo/_MainLevels/5backtrack.unity
     guid: 5ae213b2fb91640d1b0300bee2aaa792
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_Test_AssetMusuem.unity
+    path: Assets/Resources/Maps/CorGeo/Minimals/Test_AssetMusuem.unity
     guid: 7cebf22c388d68509b5c87df3b1af8f4
   - enabled: 1
     path: Assets/Resources/Maps/CorGeo/_Test_AssetMusuem 1.unity
