@@ -30,9 +30,17 @@ public class Logic_PhysSocket : MonoBehaviour
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     public GameObject spawnOnSocketBroken;
     public float destroyBrokenFXAfter=1;
+    public JointType referenceJointType;
     public ConfigurableJoint referenceJoint;
+    public Joint referenceJoint2;
     private ConfigurableJoint socketJoint;
 
+    [Serializable]
+    public enum JointType
+    {
+        ConfigurableJoint,
+        HingeJoint
+    }
 
     #endregion
 
@@ -70,8 +78,17 @@ public class Logic_PhysSocket : MonoBehaviour
     {
         if (socketJoint == null)
         {
-            socketJoint = gameObject.AddComponent<ConfigurableJoint>();
-            socketJoint.CloneFrom(referenceJoint);
+            switch (referenceJointType)
+            {
+                case JointType.ConfigurableJoint:
+                    socketJoint = gameObject.AddComponent<ConfigurableJoint>();
+                    socketJoint.CloneFrom(referenceJoint);
+                    break;
+                case JointType.HingeJoint:
+                    socketJoint = gameObject.AddComponent<HingeJoint>();
+                    socketJoint.CloneFrom(referenceJoint);
+                    break;
+            }
         }
     }
     

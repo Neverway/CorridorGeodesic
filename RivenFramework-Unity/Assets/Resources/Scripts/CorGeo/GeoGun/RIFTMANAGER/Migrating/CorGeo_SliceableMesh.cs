@@ -201,8 +201,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
             }
             else
             {
-                // Didn't slice on B, entire negative chunk of A is in B space
-                sliceResultOfAPlane.negativeChunk.riftSpace = RiftSpace.B;
+                // Didn't slice on B, entire negative chunk of A is in NULL space
+                sliceResultOfAPlane.negativeChunk.riftSpace = RiftSpace.NULLSpace;
             }
         }
         else if (sliceResultOfBPlane.isSliced)
@@ -213,8 +213,9 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         }
         else
         {
+            throw new Exception($"[CRIT] {gameObject.name} was determined to be intersecting with a rift plane, but all slices failed so rift space could not be determined!!!! <=(Oh crap that's bad!)");
             // Neither plane sliced - determine space for the unsliced mesh
-            originalObject.AssignMeshToSpaceLists();
+            //originalObject.AssignMeshToSpaceLists();
         }
         
         

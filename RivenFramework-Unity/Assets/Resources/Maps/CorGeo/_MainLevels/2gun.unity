@@ -22519,6 +22519,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1246929882}
     m_Modifications:
+    - target: {fileID: 2574225467984808991, guid: 074739842fcc89ff18fd8a6852fd8bbb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574225467984808991, guid: 074739842fcc89ff18fd8a6852fd8bbb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574225467984808991, guid: 074739842fcc89ff18fd8a6852fd8bbb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00000008940697
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574225467984808991, guid: 074739842fcc89ff18fd8a6852fd8bbb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2898807604364311105, guid: 074739842fcc89ff18fd8a6852fd8bbb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22573,6 +22593,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Prop_DoorStandard Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8688220409415523026, guid: 074739842fcc89ff18fd8a6852fd8bbb,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -6.0000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8688220409415523026, guid: 074739842fcc89ff18fd8a6852fd8bbb,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 7.0241733
+      objectReference: {fileID: 0}
+    - target: {fileID: 8688220409415523026, guid: 074739842fcc89ff18fd8a6852fd8bbb,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
