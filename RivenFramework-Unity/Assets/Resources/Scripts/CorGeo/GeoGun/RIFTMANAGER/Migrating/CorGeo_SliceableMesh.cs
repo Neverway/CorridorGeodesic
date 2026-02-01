@@ -213,7 +213,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         }
         else
         {
-            throw new Exception($"[CRIT] {gameObject.name} was determined to be intersecting with a rift plane, but all slices failed so rift space could not be determined!!!! <=(Oh crap that's bad!)");
+            Debug.LogWarning($"[CRIT] {gameObject.name} was determined to be intersecting with a rift plane, but all slices failed so rift space could not be determined!!!! <=(Oh crap that's bad!)");
             // Neither plane sliced - determine space for the unsliced mesh
             //originalObject.AssignMeshToSpaceLists();
         }
