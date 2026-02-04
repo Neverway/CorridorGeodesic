@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4242
+  m_VersionIndex: 4245
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2114,8 +2114,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSlicedByPlane: 0
+  <EnableRuntimeLogging>k__BackingField: 0
   isReflective: 0
+  isSliceInProgress: 0
+  isSlicedByPlane: 0
+  isClone: 0
+  riftSpace: 0
+  meshRenderer: {fileID: 0}
 --- !u!1 &6393156507388990385
 GameObject:
   m_ObjectHideFlags: 0

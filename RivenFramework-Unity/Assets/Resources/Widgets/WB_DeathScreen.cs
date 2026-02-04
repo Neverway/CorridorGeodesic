@@ -7,15 +7,19 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using RivenFramework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WB_DeathScreen : WidgetBlueprint
 {
     //=-----------------=
     // Public Variables
     //=-----------------=
+    public float endAlpha=0.45f;
+    public float fadeSpeed=1;
 
 
     //=-----------------=
@@ -28,6 +32,7 @@ public class WB_DeathScreen : WidgetBlueprint
     // Reference Variables
     //=-----------------=
     private GI_WorldLoader worldLoader;
+    [SerializeField] private Image image;
 
 
     //=-----------------=
@@ -36,6 +41,15 @@ public class WB_DeathScreen : WidgetBlueprint
     private void Start()
     {
         StartCoroutine(InputDelay());
+            DOVirtual.Color(
+                new Color(image.color.r, image.color.g, image.color.b, 0), 
+                new Color(image.color.r, image.color.g, image.color.b, endAlpha),
+                fadeSpeed,
+                (value) =>
+                {
+                    
+                   image.color = value;
+                });
     }
 
     private void Update()

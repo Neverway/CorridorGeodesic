@@ -17,20 +17,21 @@
 //          Update rift state
 //
 // For anyone who has to fix or change something in this script, feel free to add a tick mark and move a chess piece
-// Programmers Suffered: |
-// ♜♝♞♛♚♞♝♜
+// Programmers Suffered: ||||
+// ♜♝♞■♚♞♝♜
 // ♟♟♟♟■♟♟♟
 // □■□■♟■□■
+// ■□■□■□♛□
+// □■□■♙■□■
 // ■□■□■□■□
-// □■□■□■□■
-// ■□■□■□■□
-// ♙♙♙♙♙♙♙♙
+// ♙♙♙♙□♙♙♙
 // ♖♗♘♕♔♘♗♖
 
 //====================================================================================================================//
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using RivenFramework;
 using UnityEngine;
 
@@ -101,7 +102,8 @@ public class GI_RiftManager : MonoBehaviour
     [HideInInspector] public static Plane planeA, planeB;
     [HideInInspector] public Projectile_Marker markerA, markerB;
 
-    [HideInInspector] public List<GameObject> spaceAMeshes, spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes, meshesToActivate;
+    public List<GameObject> spaceAMeshes; 
+    public List<GameObject> spaceBMeshes, spaceNullMeshes, hiddenOriginalMeshes, meshesToActivate;
     public Graphics_RiftPreviewEffects riftPreviewEffects;
     public Material nullSpaceMaterial;
     /// <summary>
@@ -111,65 +113,44 @@ public class GI_RiftManager : MonoBehaviour
 
     public static List<CorGeo_Actor> CorGeo_Actors = new List<CorGeo_Actor> { };
 
+    public List<CorGeo_SliceableMesh> nonintersectedMeshes;
+
     #endregion
 
 
     #region=======================================( Functions )=======================================================//
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-    private IEnumerator Start()
+    private void Start()
     {
-        while (!linkedCrushDetector)
-        {
-            var player = GameInstance.Get<GI_PawnManager>().localPlayerCharacter;
-            if (player) linkedCrushDetector = player.GetComponent<CrushDetector>();
-            yield return new WaitForEndOfFrame();
-        }
-        
-        // Assign the listener so if the player gets crushed the rift will backoff slightly
-        linkedCrushDetector.onCrushed.AddListener (() => StartCoroutine (InterruptRiftCollapse (0.15f)));
+        StartCoroutine(LinkCrushDetector());
     }
-
-    // Used for stopping rift collapse when getting crushed
-    private IEnumerator InterruptRiftCollapse (float delay)
-    {
-        if (!collapseHeld) yield break;
-
-        //collapseHeld = false; // release close rift input
-        //ignoreRiftInputAfterCrush = true;
-
-        expandingRiftDueToCrush = true;
-        yield return new WaitForSeconds (delay);
-        expandingRiftDueToCrush = false;
-    }
-
-
-
+    
     private void Update()
     {
         // Initialize rift objects if they are missing
-        if (IsRiftInitialized() is false) InitializeRiftObjects();
+        if (!IsRiftObjectsInitialized())
+        {
+            InitializeRiftObjects();
+        }
         
-        // Markers found, enable rift
-        if (GetPinnedMarkers() && riftActive is false)
+        // Create or Remove rift when the markers are found or lost
+        if (IsMarkersPinned() && !riftActive)
         {
-            SetRiftHidden(false);
-            StartCoroutine(riftPreviewEffects.OnRiftCreated(this));
-            PositionCutPlanes();
-            UpdateState (RiftState.Preview);
+            CreateRift();
         }
-        // Markers lost, disable rift
-        else if (GetPinnedMarkers() is false && riftActive)
+        else if (!IsMarkersPinned() && riftActive)
         {
-            SetRiftHidden(true);
             RestoreRift();
-            UpdateState (RiftState.None);
         }
-
-        if (waitForCollapseReleased && collapseHeld == false)
+        
+        
+        // Input stuff?
+        if (waitForCollapseReleased && !collapseHeld)
         {
             waitForCollapseReleased = false;
         }
 
+        // Activated rift moving stuff
         riftIsMoving = false;
         if (riftActive)
         {
@@ -218,12 +199,45 @@ public class GI_RiftManager : MonoBehaviour
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    // --== CALLED FROM START ==-- //
+    /// <summary>
+    /// Set up the player's crush detector so it can expand the rift when crushed
+    /// </summary>
+    private IEnumerator LinkCrushDetector()
+    {
+        while (!linkedCrushDetector)
+        {
+            var player = GameInstance.Get<GI_PawnManager>().localPlayerCharacter;
+            if (player) linkedCrushDetector = player.GetComponent<CrushDetector>();
+            yield return new WaitForEndOfFrame();
+        }
+        
+        // Assign the listener so if the player gets crushed the rift will backoff slightly
+        linkedCrushDetector.onCrushed.AddListener (() => StartCoroutine(InterruptRiftCollapse (0.15f)));
+    }
+    /// <summary>
+    /// Used for stopping rift collapse when getting crushed
+    /// </summary>
+    private IEnumerator InterruptRiftCollapse (float delay)
+    {
+        if (!collapseHeld) yield break;
+
+        //collapseHeld = false; // release close rift input
+        //ignoreRiftInputAfterCrush = true;
+
+        expandingRiftDueToCrush = true;
+        yield return new WaitForSeconds (delay);
+        expandingRiftDueToCrush = false;
+    }
     
+    
+    // --== CALLED FROM UPDATE ==-- //
+    // Rift Initialization
     /// <summary>
     /// Detects if any of the rift objects are missing
     /// </summary>
     /// <returns>Returns false if any of the rift object references are null</returns>
-    private bool IsRiftInitialized()
+    private bool IsRiftObjectsInitialized()
     {
         return cutPlaneA && cutPlaneB && spaceContainerA && spaceContainerB && spaceContainerNull;
     }
@@ -238,11 +252,11 @@ public class GI_RiftManager : MonoBehaviour
         // This is done this way to avoid lag spikes caused by having to constantly spawn and despawn the rift objects
         CreateCutPlanes();
         CreateSpaceContainers();
-        SetRiftHidden(true);
+        SetRiftPlanesHidden(true);
     }
     
     /// <summary>
-    /// Called in Start, Spawn the planes used for the cutting of the world as well as the visuals for previewing the cut
+    /// Spawn the planes used for the cutting of the world as well as the visuals for previewing the cut
     /// </summary>
     private void CreateCutPlanes()
     {
@@ -253,7 +267,7 @@ public class GI_RiftManager : MonoBehaviour
     }    
     
     /// <summary>
-    /// Called in Start, Spawn the empty game objects that represent the space that matter exists in while a rift is active
+    /// Spawn the empty game objects that represent the space that matter exists in while a rift is active
     /// These objects are used to scale and reposition all objects at once, according to the space they occupy
     /// </summary>
     private void CreateSpaceContainers()
@@ -272,21 +286,82 @@ public class GI_RiftManager : MonoBehaviour
     /// <summary>
     /// Toggles the visibility of the cut planes, used for hiding/showing the rift objects when the rift is deactivated/activated
     /// </summary>
-    private void SetRiftHidden(bool _hidden)
+    private void SetRiftPlanesHidden(bool _hidden)
     {
         //riftActive = !_hidden;
         cutPlaneA.SetActive(!_hidden);
         cutPlaneB.SetActive(!_hidden);
     }
     
+    // Rift Creation & Removal
     /// <summary>
     /// Assigns the 'markerA/B' references to the first pinned marks found
     /// </summary>
     /// <returns>Returns true if two pinned markers are found and assigned</returns>
-    private bool GetPinnedMarkers()
+    private bool IsMarkersPinned()
     {
-        if (markerA && markerB) return true;
-        return false;
+        return (markerA != null && markerB != null);
+    }
+
+    /// <summary>
+    /// Helper function to avoid possible flag issues caused by coroutine delegations
+    /// (It basically just sets the riftActive flag (that stops the CreateRift func from multi-fire))
+    /// </summary>
+    private void CreateRift()
+    {
+        riftActive = true;
+        StartCoroutine(CoCreateRift());
+    }
+
+    /// <summary>
+    /// Call the functions needed to create the rift
+    /// </summary>
+    private IEnumerator CoCreateRift()
+    {
+        SetRiftPlanesHidden(false);
+        StartCoroutine(riftPreviewEffects.OnRiftCreated(this));
+        UpdateState (RiftState.Preview);
+        
+        // Operations for rift creation
+        PositionCutPlanes();
+        yield return SliceCutPlanes();
+        
+        // TODO Replace the find objects every time with a single list that contains ALL sliceables, and any new sliceable should add itself to that list, any destroyed should remove themselves
+        var allSliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>(true).ToList();
+        foreach (var sliceableMesh in allSliceableMeshes)
+        {
+            sliceableMesh.AssignMeshToSpaceLists();
+        }
+        
+        CleanupExtraMeshColliders();
+        ReparentMeshesToSpaceContainer();
+        yield return SwitchToSlicedMeshesOnDelay();
+        ReparentActorsToSpaceContainer();
+        
+
+        /*
+        // Sort the remaining, unsliced meshes into the correct space containers
+        nonintersectedMeshes = FindObjectsOfType<CorGeo_SliceableMesh>().ToList();
+        foreach (var sliceableMesh in nonintersectedMeshes)
+        {
+            sliceableMesh.AssignMeshToSpaceContainer();
+        }
+
+        // Clean up glitched duplicate mesh colliders that sometimes appear on sub-cuts
+        StartCoroutine(CleanupExtraMeshCollidersCleanupExtraMeshColliders());
+
+        StartCoroutine(AssignSpaceContainerForMeshes());
+
+        waitForCollapseReleased = true;
+
+        StartCoroutine (SwitchToSlicedObjectsOnDelay ());
+
+        // DO NOT set the rift to being active until we are sure that all of the other rift init stuff is done
+        // This is one of the last functions that's called in that chain, so hopefully just waiting until the
+        // end of the frame should give it time to complete. ~Liz
+        yield return new WaitForEndOfFrame();
+        StartCoroutine(AssignSpaceForActors());
+        */
     }
 
     /// <summary>
@@ -316,13 +391,11 @@ public class GI_RiftManager : MonoBehaviour
         currentRiftPercent = 1;
         currentRiftWidth = riftStartingWidth;
 
-        riftNullSpacePosition = spaceContainerNull.transform.position; //I'm preserving this position because negative scaling moves the object.
+        // I'm preserving this position because negative scaling moves the object. ~Connorses
+        riftNullSpacePosition = spaceContainerNull.transform.position;
 
-        //Saves the direction the rift is facing so we can easily reference it.
+        // Saves the direction the rift is facing so we can easily reference it.
         riftNormal = spaceContainerNull.transform.forward;
-
-        // Slice the cut planes (This is for debugging right now)
-        StartCoroutine(SliceCutPlanes());
     }
 
     /// <summary>
@@ -332,36 +405,33 @@ public class GI_RiftManager : MonoBehaviour
     {
         meshesToActivate = new List<GameObject> ();
 
-        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh> ();
-        foreach (var sliceableMesh in sliceableMeshes)
+        var intersectedMeshes = new HashSet<CorGeo_SliceableMesh>();
+        
+        // Separate and slice intersected meshes
+        //intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(planeA));
+        //intersectedMeshes.UnionWith(CorGeo_PlaneIntersectionUtil.GetIntersectingMeshes(planeB));
+        
+        foreach (var intersectedMesh in intersectedMeshes)
         {
-            sliceableMesh.ApplyCuts();
+            intersectedMesh.ApplyCuts();
         }
+        
 
-        // Clean up glitched duplicate mesh colliders that sometimes appear on sub-cuts
-        StartCoroutine(CleanupExtraMeshColliders());
-
-        StartCoroutine(AssignSpaceContainerForMeshes());
-
-        waitForCollapseReleased = true;
-
-        StartCoroutine (SwitchToSlicedObjectsOnDelay ());
-
-        // DO NOT set the rift to being active until we are sure that all of the other rift init stuff is done
-        // This is one of the last functions that's called in that chain, so hopefully just waiting until the
-        // end of the frame should give it time to complete. ~Liz
-        yield return new WaitForEndOfFrame();
-        StartCoroutine(AssignSpaceForActors());
+        while (intersectedMeshes.Any((intersectedMesh) => intersectedMesh.isSliceInProgress))
+        {
+            yield return null;
+        }
     }
 
-    private IEnumerator SwitchToSlicedObjectsOnDelay ()
+    private IEnumerator SwitchToSlicedMeshesOnDelay()
     {
-        yield return new WaitForEndOfFrame ();
-        foreach (var g in hiddenOriginalMeshes)
+        yield return new WaitForEndOfFrame();
+        foreach (var hiddenOriginalMesh in hiddenOriginalMeshes)
         {
-            g.SetActive (false);
+            hiddenOriginalMesh.SetActive (false);
         }
-        foreach (var mesh in meshesToActivate) {
+        foreach (var mesh in meshesToActivate) 
+        {
             if (mesh == null)
             {
                 Debug.LogError ("null mesh was left in the list??");
@@ -374,12 +444,8 @@ public class GI_RiftManager : MonoBehaviour
     /// <summary>
     /// Sometimes multi-cut meshes have an extra, broken, mesh collider as the first one in the index, this fixes those
     /// </summary>
-    private IEnumerator CleanupExtraMeshColliders()
+    private void CleanupExtraMeshColliders()
     {
-        // Wait for a bit so the async await operations have time to finish creating their new meshes
-        // is 0.25 seconds enough? ~Liz
-        // It was not, I have changed it to wait for the end of the frame and that seems to have done the trick! ~Liz
-        yield return new WaitForEndOfFrame();
         foreach (var newMesh in spaceBMeshes)
         {
             var meshColliders = newMesh.GetComponents<MeshCollider>();
@@ -402,11 +468,8 @@ public class GI_RiftManager : MonoBehaviour
     /// <summary>
     /// Sets the parent for all the meshes in the lists to the correct space container
     /// </summary>
-    private IEnumerator AssignSpaceContainerForMeshes()
+    private void ReparentMeshesToSpaceContainer()
     {
-        // Wait for a bit so the async await operations have time to finish creating their new meshes
-        yield return new WaitForEndOfFrame();
-        
         foreach (var mesh in spaceAMeshes)
         {
             mesh.transform.parent = spaceContainerA.transform;
@@ -424,7 +487,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <summary>
     /// Sorts all dynamic (moving/movable) actors into 'A', 'B', and 'Null' spaces
     /// </summary>
-    private IEnumerator AssignSpaceForActors()
+    private void ReparentActorsToSpaceContainer()
     {
         foreach (CorGeo_Actor actor in CorGeo_Actors)
         {
@@ -433,19 +496,16 @@ public class GI_RiftManager : MonoBehaviour
             {
                 continue; //don't parent dynamic actors to the space-containers
             }
-            if (actor.space == CorGeo_Actor.Space.B)
+            if (actor.riftSpace == RiftSpace.B)
             {
                 actor.transform.SetParent(spaceContainerB.transform);
                 continue;
             }
-            if (actor.space == CorGeo_Actor.Space.Null)
+            if (actor.riftSpace == RiftSpace.NULLSpace)
             {
                 actor.transform.SetParent (spaceContainerNull.transform);
             }
         }
-
-        yield return new WaitForEndOfFrame();
-        riftActive = true;
     }
 
     /// <summary>
@@ -504,6 +564,17 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     private void RestoreCutGeometry()
     {
+        print("restoring cut geometry");
+        var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>();
+        foreach (var sliceableMesh in sliceableMeshes)
+        {
+            if (sliceableMesh.isSlicedByPlane && !hiddenOriginalMeshes.Contains(sliceableMesh.gameObject))
+            {
+                sliceableMesh.UndoCuts();
+            }
+        }
+        
+        /*
         // Destroy cloned cut geometry
         var sliceableMeshes = FindObjectsOfType<CorGeo_SliceableMesh>();
         foreach (var sliceableMesh in sliceableMeshes)
@@ -520,7 +591,7 @@ public class GI_RiftManager : MonoBehaviour
             hiddenOriginalMeshes[i].SetActive(true);
         }
         
-        hiddenOriginalMeshes.Clear();
+        hiddenOriginalMeshes.Clear();*/
     }
 
     /// <summary>
@@ -528,12 +599,12 @@ public class GI_RiftManager : MonoBehaviour
     /// </summary>
     public void RestoreRift()
     {
-        SetNullSpaceHidden(false);
+        SetRiftPlanesHidden(true);
+        UpdateState (RiftState.None);
         SetRiftPosition(1);
         RestoreCutGeometry();
         EmptyMatterInSpaceContainers();
         currentRiftMoveSpeed = 0;
-        UpdateState (RiftState.None);
         RestoreActors ();
     }
 
@@ -635,12 +706,7 @@ public class GI_RiftManager : MonoBehaviour
         riftIsMoving = true;
     }
 
-    private void SetNullSpaceHidden(bool _isHidden)
-    {
-        spaceContainerNull.SetActive(!_isHidden);
-    }
-
-    private void MoveGeometryWithRift ()
+    private void MoveGeometryWithRift()
     {
         if (!spaceContainerNull) return;
 
@@ -691,12 +757,12 @@ public class GI_RiftManager : MonoBehaviour
             if (actor.dynamic && actor.isHeld == false)
             {
                 actor.DetermineRiftSpace ();
-                if (actor.space == CorGeo_Actor.Space.Null)
+                if (actor.riftSpace == RiftSpace.NULLSpace)
                 {
                     //print(actor.transform.position);
                     actor.transform.position = MovePositionWithNullSpace (actor.transform.position, _newPercent);
                 }
-                if (actor.space == CorGeo_Actor.Space.B)
+                if (actor.riftSpace == RiftSpace.B)
                 {
                     actor.transform.position = MovePositionWithBSpace (actor.transform.position, _newPercent);
                 }
@@ -707,7 +773,6 @@ public class GI_RiftManager : MonoBehaviour
     /// <summary>
     /// Update the state of the Rift and, if the new state is different, trigger OnStateChanged so things can respond to what he Rift is doing.
     /// </summary>
-    /// <param name="_newState"></param>
     private void UpdateState (RiftState _newState)
     {
         if (currentState == _newState)
@@ -729,7 +794,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <param name="_position"></param>
     /// <param name="_newPercent"></param>
     /// <returns></returns>
-    public Vector3 MovePositionWithNullSpace (Vector3 _position, float _newPercent)
+    private Vector3 MovePositionWithNullSpace (Vector3 _position, float _newPercent)
     {
         //Calculate how far across null-space the transform is.
         float riftDistance = planeA.GetDistanceToPoint (_position);
@@ -752,7 +817,7 @@ public class GI_RiftManager : MonoBehaviour
     /// <param name="_position"></param>
     /// <param name="_newPercent"></param>
     /// <returns></returns>
-    public Vector3 MovePositionWithBSpace (Vector3 _position, float _newPercent)
+    private Vector3 MovePositionWithBSpace (Vector3 _position, float _newPercent)
     {
         float offset = Mathf.Abs(riftStartingWidth*currentRiftPercent)-Mathf.Abs(riftStartingWidth * _newPercent);
 
@@ -786,9 +851,9 @@ public class GI_RiftManager : MonoBehaviour
         }
         foreach (var actor in CorGeo_Actors)
         {
-            if (actor.space == CorGeo_Actor.Space.Null)
+            if (actor.riftSpace == RiftSpace.NULLSpace)
             {
-                actor.CollapseActor ();
+                actor.CollapseActor();
             }
         }
     }
@@ -801,7 +866,7 @@ public class GI_RiftManager : MonoBehaviour
         }
         foreach (var actor in CorGeo_Actors)
         {
-            if (actor.space == CorGeo_Actor.Space.Null)
+            if (actor.riftSpace == RiftSpace.NULLSpace)
             {
                 actor.UnCollapseActor ();
             }

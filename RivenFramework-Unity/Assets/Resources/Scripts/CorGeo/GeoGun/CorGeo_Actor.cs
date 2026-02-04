@@ -8,6 +8,7 @@
 //====================================================================================================================//
 
 using System;
+using RivenFramework;
 using UnityEngine;
 
 public class CorGeo_Actor : MonoBehaviour
@@ -44,13 +45,15 @@ public class CorGeo_Actor : MonoBehaviour
     [SerializeField] public bool isHeld = false;
     [Tooltip("Used to keep track of if this game object should be re-enabled in the hierarchy when resetting rifts")]
     public bool wasActive;
-    public enum Space { None, A, B, Null }
-    public Space space = Space.None;
+    [Tooltip("Used during space assignment for the space controller dictionary")]
+    public RiftSpace riftSpace;
     [Tooltip("The velocity of the object before it was frozen by a rift movement")]
     private Vector3 previousVelocity;
     
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     new private Rigidbody rigidbody;
+    [Tooltip("Reference to the riftManager so the actor can sort themselves into the manager's correct space lists")]
+    private RiftManager riftManager;
 
     #endregion
 
@@ -61,12 +64,13 @@ public class CorGeo_Actor : MonoBehaviour
     {
         // Find references
         rigidbody = GetComponent<Rigidbody>();
+        riftManager = FindObjectOfType<RiftManager>();
         // Store initial transform data about this object, so it can be restored later when rifts are reset
         wasActive = gameObject.activeInHierarchy;
         homePosition = transform.position;
         homeScale = transform.localScale;
         homeParent = transform.parent;
-        GI_RiftManager.CorGeo_Actors.Add(this);
+        RiftManager_ActorHandler.CorGeo_Actors.Add(this);
         // Automatically avoid hiding lights when a rift is collapsed
         if (TryGetComponent<Light> (out Light light))
         {
@@ -77,7 +81,7 @@ public class CorGeo_Actor : MonoBehaviour
     private void OnDestroy ()
     {
         // Cleanly remove this from the list of tracked actors on the GeoGun when destoryed
-        GI_RiftManager.CorGeo_Actors.Remove(this);
+        RiftManager_ActorHandler.CorGeo_Actors.Remove(this);
     }
 
     
@@ -109,7 +113,7 @@ public class CorGeo_Actor : MonoBehaviour
     /// <summary>
     /// Called by the GeoGun when a rift is reset
     /// This resets the actors back to the transform state they were in prior to being affected by a rift.
-    /// It also moved dynamic actors relative to rift-space.
+    /// It also moves dynamic actors relative to rift-space
     /// </summary>
     public void GoHome ()
     {
@@ -119,12 +123,12 @@ public class CorGeo_Actor : MonoBehaviour
         transform.localScale = homeScale;
         if (dynamic)
         {
-            space = Space.None;
+            riftSpace = RiftSpace.none;
             return;
         }
         gameObject.SetActive(true); //todo: make the special cases where this SetActive doesn't apply
         transform.position = homePosition;
-        space = Space.None;
+        riftSpace = RiftSpace.none;
     }
     
     /// <summary>
@@ -132,29 +136,67 @@ public class CorGeo_Actor : MonoBehaviour
     /// </summary>
     public void DetermineRiftSpace ()
     {
-        if (GI_RiftManager.planeB.GetDistanceToPoint (transform.position) < 0)
+        if (!riftManager) riftManager = FindObjectOfType<RiftManager>();
+        // I am very bad at math, pls don't delete my helper example ~Liz
+        /*
+        // The plane
+        Vector3 planePosition = new Vector3(0,0,0); // Where the plane is at in the world
+        Vector3 planeNormal = new Vector3(0,0,1); // The direction perpendicular to the plane
+
+        // Test point
+        Vector3 testPosition = new Vector3(0,0,5); // The position of the object we want to test
+
+        // Calculations
+        var dotProductOfNormalToPoint = Vector3.Dot(planeNormal, testPosition);
+        var distanceToPoint = dotProductOfNormalToPoint + planePosition.magnitude;
+
+        if (distanceToPoint < 0)
         {
-            space = Space.B;
-            if (debugLogSpaceData)
-            {
-                Debug.Log ("B Space");
-            }
-            return;
+            print("Negative");
         }
-        if (GI_RiftManager.planeA.GetDistanceToPoint (transform.position) < 0)
+        if (distanceToPoint > 0)
         {
-            space = Space.A;
-            if (debugLogSpaceData)
-            {
-                Debug.Log ("A Space");
-            }
-            return;
+            print("Positive");
         }
-        if (debugLogSpaceData)
+        else
         {
-            Debug.Log ("Null Space");
+            print("Equal");
         }
-        space = Space.Null;
+        */
+        
+        // Sanity checks
+        //if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
+        //riftManager.spaceController.spaceActors.Remove(this);
+
+        // We ABSOLUTELY NEED to reference the distance using the VISUAL planes since the CUT planes never move, and this function is called while the rift is in motion
+        // This doesn't need to be done with the meshes since that calculation is only performed when the rift is created
+        // I am embarrassed to admit how long it took me to find this oversight ~Liz
+        // ( PS Don't ask me to explain this "toOther" stuff, it was just in the Unity docs and the function doesn't work correctly without it)
+        Vector3 toOther = Vector3.Normalize(transform.position - riftManager.geometryHandler.visualPlaneA.transform.position); 
+        var distanceToPlaneA = Vector3.Dot(-riftManager.geometryHandler.visualPlaneA.transform.forward, toOther);
+        toOther = Vector3.Normalize(transform.position - riftManager.geometryHandler.visualPlaneB.transform.position);
+        var distanceToPlaneB = Vector3.Dot(-riftManager.geometryHandler.visualPlaneB.transform.forward, toOther);
+        
+        if (distanceToPlaneA > 0)
+        {
+            riftSpace = RiftSpace.A;
+            
+            if (debugLogSpaceData) { Debug.Log ("A Space"); }
+        }
+        else if (distanceToPlaneB > 0)
+        {
+            riftSpace = RiftSpace.B;
+            if (debugLogSpaceData) { Debug.Log ("B Space"); }
+        }
+        else
+        {
+            riftSpace = RiftSpace.NULLSpace;
+            if (debugLogSpaceData) { Debug.Log ("Null Space"); }
+        }
+        
+        
+        // Store in space actors list
+        //riftManager.spaceController.spaceActors.Add(this, riftSpace);
     }
 
     /// <summary>
@@ -164,7 +206,7 @@ public class CorGeo_Actor : MonoBehaviour
     {
         if (activeInNullSpace == false)
         {
-            gameObject.SetActive (false);
+            gameObject.SetActive(false);
         }
     }
 

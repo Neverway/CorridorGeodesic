@@ -5,6 +5,7 @@
 //
 //=============================================================================
 
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using Neverway.Framework.PawnManagement;
@@ -15,22 +16,21 @@ public class CrushDetector : MonoBehaviour
     //=-----------------=
     // Public Variables
     //=-----------------=
+    public float overlapPointTop, overlapPointBottom, bottomCrouchOffset, overlapRadius;
+    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private float crushDamageAmount = 40f;
 
 
     //=-----------------=
     // Private Variables
     //=-----------------=
-    [SerializeField] private Vector3 rayDistance;
-    [SerializeField] public float downDistanceCurrent;
-    [SerializeField] private LayerMask layerMask;
-    [SerializeField] private float crushDamageAmount = 40f;
-    private Pawn pawn;
-
-    public UnityEvent onCrushed {  get; private set; } = new UnityEvent();
+    private float currentCrouchOffset;
 
     //=-----------------=
     // Reference Variables
     //=-----------------=
+    public UnityEvent onCrushed {  get; private set; } = new UnityEvent();
+    private Pawn pawn;
 
 
     //=-----------------=
@@ -50,6 +50,23 @@ public class CrushDetector : MonoBehaviour
         //{
         //    return;
         //}
+
+        if (pawn)
+        {
+            var playerPawn = pawn as FPPawn_Player;
+            if (playerPawn)
+            {
+                if (playerPawn.IsCrouched())
+                {
+                    currentCrouchOffset = bottomCrouchOffset;
+                }
+                else
+                {
+                    currentCrouchOffset = 0;
+                }
+            }
+        }
+
         if (CheckForOverlaps ())
         {
             if (pawn)
@@ -60,26 +77,30 @@ public class CrushDetector : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {   
+        Gizmos.color = new Color(0.5f, 0.5f, 1f, 0.5f);
+        Gizmos.DrawWireSphere(transform.position + transform.up * overlapPointTop, overlapRadius);
+        Gizmos.DrawWireSphere(transform.position - transform.up * overlapPointBottom, overlapRadius);
+        Gizmos.color = new Color(1, 0.5f, 0.2f, 0.5f);
+        Gizmos.DrawWireSphere(transform.position - transform.up * (overlapPointBottom - bottomCrouchOffset), overlapRadius);
+    }
+
     //=-----------------=
     // Internal Functions
     //=-----------------=
 
     private bool CheckForOverlaps ()
     {
-        Collider[] colliders = Physics.OverlapCapsule (transform.position + transform.up * rayDistance.y, transform.position - transform.up * downDistanceCurrent, rayDistance.x, layerMask);
+        Collider[] colliders = Physics.OverlapCapsule (transform.position + transform.up * overlapPointTop, transform.position - transform.up * (overlapPointBottom - currentCrouchOffset), overlapRadius, layerMask);
         foreach (Collider collider in colliders)
         {
-            if (collider.gameObject == gameObject)
-            {
-                continue;
-            }
-            if (collider.isTrigger)
-            {
-                continue;
-            }
-            if (collider.attachedRigidbody != null && !collider.attachedRigidbody.isKinematic) {
-                continue;
-            }
+            // Ignore self
+            if (collider.gameObject == gameObject) { continue; }
+            // Ignore triggers
+            if (collider.isTrigger) { continue; }
+            // Ignore rigidbody that is not kinematic
+            //if (collider.attachedRigidbody != null && !collider.attachedRigidbody.isKinematic) { continue; }
             return true;
         }
         return false;
