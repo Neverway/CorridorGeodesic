@@ -1,43 +1,62 @@
-// Written by Liz M.
+//==========================================( Neverway 2025 )=========================================================//
+// Author
+//  Liz M.
+//
+// Contributors
+//
 // Created following this guide: https://youtu.be/EubjobNVJdM
+//====================================================================================================================//
 
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
+/// <summary>
+/// Used on 'chunks' to build the 3D grid of voxels
+/// </summary>
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(MeshCollider))]
 public class VoxContainer : MonoBehaviour
 {
-    public Vector3 containerPosition;
-    public Dictionary<Vector3, Voxel> containerData;
+    #region========================================( Variables )======================================================//
+    /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+
     
-    [Header("Debugging")]
+    /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+    [Tooltip("How big in world units each voxel is (default is 1 (1 meter))")]
+    public float voxelScale = 1.0f;
     [Tooltip("In a standard voxel system there is no need to generate a voxel for air, enable this if you want to generate air blocks")]
     public bool doNotSkipGeneratingAirBlocks = false;
     [Tooltip("In a standard voxel system you don't usually want to draw faces that can't be seen or are covering each other, enable this if you want to generate touching faces")]
     public bool doNotSkipGeneratingBackfaces = false;
+    [Tooltip("...")]
+    public Dictionary<Vector3, Voxel> containerData;
+
+
+    /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+    // Serializable storage for voxel data (Unity can't serialize Dictionary)
+    [SerializeField, HideInInspector]
+    private List<Vector3> serializedVoxelPositions = new List<Vector3>();
+    [SerializeField, HideInInspector]
+    private List<byte> serializedVoxelIDs = new List<byte>();
     
     private VoxMeshData voxMeshData;
     private MeshRenderer meshRenderer;
     private MeshFilter meshFilter;
     private MeshCollider meshCollider;
 
-    public void Initialize(Material material, Vector3 position)
-    {
-        ConfigureComponents();
-        containerData = new Dictionary<Vector3, Voxel>();
-        meshRenderer.sharedMaterial = material;
-        containerPosition = position;
-    }
 
-    public void ClearData()
-    {
-        containerData.Clear();
-    }
+    /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
 
+
+    #endregion
+    
+    
+    #region=======================================( Functions )=======================================================//
+    /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+
+    
+    /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
     /// Get the mesh components required for rendering the voxels
     /// </summary>
@@ -47,10 +66,47 @@ public class VoxContainer : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         meshCollider = GetComponent<MeshCollider>();
     }
+    
 
+    /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
+    /// <summary>
+    /// Create a container object to store the voxel chunks
+    /// </summary>
+    /// <param name="material">The material to assign to the voxels by default</param>
+    /// <param name="scale">The scale of the voxels in the 3D grid</param>
+    public void Initialize(Material material, float scale = 1.0f)
+    {
+        ConfigureComponents();
+        
+        // Assign the voxel grid to the voxel layer so it doesn't get in the way of players, phys props, etc.
+        int voxelLayer = LayerMask.NameToLayer("VoxelGrid");
+        gameObject.layer = voxelLayer;
+        
+        containerData = new Dictionary<Vector3, Voxel>();
+        meshRenderer.sharedMaterial = material;
+        voxelScale = scale;
+    }
+    
+    /// <summary>
+    /// Clear the voxel container data
+    /// </summary>
+    public void ClearData()
+    {
+        containerData.Clear();
+    }
+    
+    /// <summary>
+    /// Create the actual data for combined mesh that represents the voxels
+    /// </summary>
     public void GenerateMesh()
     {
         voxMeshData.ClearData();
+
+        if (containerData.Count == 0)
+        {
+            Debug.Log("No voxel data to generate mesh from since the container data was empty");
+            return;
+        }
 
         Vector3 blockPos;
         Voxel block;
@@ -59,9 +115,11 @@ public class VoxContainer : MonoBehaviour
         Vector3[] faceVertices = new Vector3[4];
         Vector2[] faceUVs = new Vector2[4];
         
-        VoxelColor voxelColor;
-        Color voxelColorAlpha;
-        Vector2 voxelSmoothness;
+        int estimatedFaces = containerData.Count * 3;
+        int estimatedVertices = estimatedFaces * 6;
+        voxMeshData.vertices.Capacity = estimatedVertices;
+        voxMeshData.triangles.Capacity = estimatedVertices;
+        voxMeshData.UVs.Capacity = estimatedVertices;
         
         // Iterate over each face direction
         foreach (KeyValuePair<Vector3, Voxel> kvp in containerData)
@@ -71,11 +129,6 @@ public class VoxContainer : MonoBehaviour
             
             blockPos = kvp.Key;
             block = kvp.Value;
-            
-            voxelColor = VoxWorldManager.Instance.worldColors[block.ID - 1];
-            voxelColorAlpha = voxelColor.color;
-            voxelColorAlpha.a = 1;
-            voxelSmoothness = new Vector2(voxelColor.metallic, voxelColor.smoothness);
             
             int voxelFacesCount = 6;
             for (int i = 0; i < voxelFacesCount; i++)
@@ -88,7 +141,7 @@ public class VoxContainer : MonoBehaviour
                 int faceVerticesCount = 4;
                 for (int j = 0; j < faceVerticesCount; j++)
                 {
-                    faceVertices[j] = voxelVertices[voxelVertexIndex[i, j]] + blockPos;
+                    faceVertices[j] = (voxelVertices[voxelVertexIndex[i, j]] * voxelScale) + (blockPos * voxelScale);
                     faceUVs[j] = voxelUVs[j];
                 }
 
@@ -96,35 +149,35 @@ public class VoxContainer : MonoBehaviour
                 {
                     voxMeshData.vertices.Add(faceVertices[voxelTris[i,j]]);
                     voxMeshData.UVs.Add(faceUVs[voxelTris[i,j]]);
-                    voxMeshData.colors.Add(voxelColorAlpha);
-                    voxMeshData.UVs2.Add(voxelSmoothness);
+                    //voxMeshData.colors.Add(voxelColorAlpha);
+                    //voxMeshData.UVs2.Add(voxelSmoothness);
                     voxMeshData.triangles.Add(counter++);
                 }
             }
         }
     }
-
+    
+    /// <summary>
+    /// Render out the voxels in this chunk
+    /// </summary>
     public void UploadMesh()
     {
         voxMeshData.UploadMesh();
 
-        if (meshRenderer == null)
-        {
-            ConfigureComponents();
-        }
+        if (meshRenderer == null) ConfigureComponents();
 
         meshFilter.mesh = voxMeshData.mesh;
-        if (voxMeshData.vertices.Count > 3)
-        {
-            meshCollider.sharedMesh = voxMeshData.mesh;
-        }
+        if (voxMeshData.vertices.Count > 3) meshCollider.sharedMesh = voxMeshData.mesh;
     }
 
+    #endregion
+    
+    
     public Voxel this[Vector3 index]
     {
         get
         {
-            if (containerData.ContainsKey(index))
+            if (containerData != null && containerData.ContainsKey(index))
             {
                 return containerData[index];
             }
@@ -136,6 +189,11 @@ public class VoxContainer : MonoBehaviour
 
         set
         {
+            if (containerData == null)
+            {
+                containerData = new Dictionary<Vector3, Voxel>();
+            }
+            
             if (containerData.ContainsKey(index))
             {
                 containerData[index] = value;
@@ -147,8 +205,6 @@ public class VoxContainer : MonoBehaviour
         }
     }
     
-    public static Voxel emptyVoxel = new Voxel() { ID = 0 };
-    
     #region  Voxel Mesh Data
     public struct VoxMeshData
     {
@@ -156,8 +212,8 @@ public class VoxContainer : MonoBehaviour
         public List<Vector3> vertices;
         public List<int> triangles;
         public List<Vector2> UVs;
-        public List<Vector2> UVs2;
-        public List<Color> colors;
+        //public List<Vector2> UVs2;
+        //public List<Color> colors;
 
         public bool initialized;
 
@@ -168,19 +224,20 @@ public class VoxContainer : MonoBehaviour
                 vertices = new List<Vector3>();
                 triangles = new List<int>();
                 UVs = new List<Vector2>();
-                UVs2 = new List<Vector2>();
-                colors = new List<Color>();
+                //UVs2 = new List<Vector2>();
+                //colors = new List<Color>();
                 
                 initialized = true;
                 mesh = new Mesh();
+                mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
             }
             else
             {
                 vertices.Clear();
                 triangles.Clear();
                 UVs.Clear();
-                UVs2.Clear();
-                colors.Clear();
+                //UVs2.Clear();
+                //colors.Clear();
                 mesh.Clear();
             }
         }
@@ -192,15 +249,14 @@ public class VoxContainer : MonoBehaviour
         {
             mesh.SetVertices(vertices);
             mesh.SetTriangles(triangles, 0, false);
-            mesh.SetColors(colors);
+            //mesh.SetColors(colors);
             mesh.SetUVs(0, UVs);
-            mesh.SetUVs(2, UVs2);
-            
-            mesh.Optimize();
+            //mesh.SetUVs(2, UVs2);
             
             mesh.RecalculateNormals();
-            
             mesh.RecalculateBounds();
+            
+            mesh.Optimize();
             
             mesh.UploadMeshData(false);
         }
@@ -265,6 +321,51 @@ public class VoxContainer : MonoBehaviour
         { 0, 1, 2, 1, 3, 2 },
         { 0, 2, 3, 0, 3, 1 }
     };
+    
+    public static Voxel emptyVoxel = new Voxel() { ID = 0 };
 
+    #endregion
+    
+    #region Serialization
+    
+    /// <summary>
+    /// Manually serialize voxel data to lists (called by editor before saving)
+    /// </summary>
+    public void SerializeVoxelData()
+    {
+        if (containerData == null || containerData.Count == 0)
+            return;
+        
+        serializedVoxelPositions.Clear();
+        serializedVoxelIDs.Clear();
+        
+        foreach (var kvp in containerData)
+        {
+            serializedVoxelPositions.Add(kvp.Key);
+            serializedVoxelIDs.Add(kvp.Value.ID);
+        }
+    }
+    
+    /// <summary>
+    /// Deserialize voxel data from lists (called when loading pre-baked chunks)
+    /// </summary>
+    public void DeserializeVoxelData()
+    {
+        if (serializedVoxelPositions == null || serializedVoxelPositions.Count == 0)
+            return;
+        
+        if (containerData == null)
+            containerData = new Dictionary<Vector3, Voxel>();
+        
+        containerData.Clear();
+        
+        for (int i = 0; i < serializedVoxelPositions.Count && i < serializedVoxelIDs.Count; i++)
+        {
+            containerData[serializedVoxelPositions[i]] = new Voxel { ID = serializedVoxelIDs[i] };
+        }
+        
+        //Debug.Log($"Deserialized {containerData.Count} voxels from saved data");
+    }
+    
     #endregion
 }

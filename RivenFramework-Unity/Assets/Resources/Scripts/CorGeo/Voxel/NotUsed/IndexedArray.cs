@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 [System.Serializable]
 public class IndexedArray<T> where T : struct
 {
@@ -85,3 +85,4 @@ public class IndexedArray<T> where T : struct
         }
     }
 }
+*/

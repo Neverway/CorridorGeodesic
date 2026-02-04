@@ -886,9 +886,10 @@ MonoBehaviour:
   id: Item_Utility_Geogun
   displayName: Rift Gun
   uniqueId: 
+  allowExpandingRift: 1
+  collapseBehavior: 1
+  <EnableRuntimeLogging>k__BackingField: 0
   allowNonLinearSlicing: 1
-  allowExpandingRift: 0
-  allowInvertingRift: 0
   allowSlammingRift: 0
   allowMarkerPlacementAnywhere: 0
   validPlacementMaterials:

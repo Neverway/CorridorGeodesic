@@ -1,14 +1,21 @@
-// Written by Liz M.
+//==========================================( Neverway 2025 )=========================================================//
+// Author
+//  Liz M.
+//
+// Contributors
+//
 // Created following this guide: https://youtu.be/EubjobNVJdM
+//====================================================================================================================//
 
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A volumetric pixel used to represent something like air, water, etc.
+/// </summary>
 public struct Voxel
 {
-    public int ID; // What is this voxel, the id corresponds to the voxel type
+    [Tooltip("Identifies what this voxel type is, like 0=air, 1=solid, 2=water, etc.")]
+    public byte ID;
 
     [Tooltip("A solid block next to another will avoid drawing the overlapping faces by default, " +
              "this specifies what block id's are 'solid' and have backface culling, " +

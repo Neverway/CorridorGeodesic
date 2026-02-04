@@ -30,8 +30,8 @@ TagManager:
   - Pawn
   - NoPawnCollision
   - PhysProps
-  - 
-  - 
+  - VoxelOccluder
+  - VoxelGrid
   - 
   - 
   - 
