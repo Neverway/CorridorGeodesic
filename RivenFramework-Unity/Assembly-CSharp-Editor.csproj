@@ -68,6 +68,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/BrushGroupInspector.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/AssetBrowserContextMenu.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/BoxDrawer.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/Editor/VoxWorldManager_Editor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/HollowBoxBrushInspector.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorWindow.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/TrimBrushInspector.cs" />
@@ -95,6 +96,7 @@
      <Folder Include="Assets/Packages/DOTween/Editor/Imgs" />
      <Folder Include="Assets/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Utilities" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Voxel/Editor" />
      <Reference Include="UnityEngine">
      <HintPath>/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>

@@ -468,6 +468,21 @@ PrefabInstance:
       propertyPath: displayName
       value: Cable
       objectReference: {fileID: 0}
+    - target: {fileID: 6246104873057965331, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      propertyPath: cullableRenderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246104873057965331, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      propertyPath: cullableRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 5570548673376181221}
+    - target: {fileID: 6246104873057965331, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      propertyPath: manuallyAssignCullableRenderers
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -75,6 +75,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_StepUp.cs" />
      <Compile Include="Assets/Resources/Scripts/GI_DevToolsLoader.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices/Matrix3x2.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/VoxWorldManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/EndOfDemoStatsDisplay.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityPortrait.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UpdateUtility.cs" />
@@ -95,6 +96,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfPlane.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Particle_DataExposer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Bezier.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/NotUsed/IndexedArray.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Decomposition/SeidelDecomposer.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Object_LiveThrowable.cs" />
      <Compile Include="Assets/Resources/Scripts/LB_World.cs" />
@@ -105,6 +107,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/SurfaceUtility.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolumeComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dPolygonFlags.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/VoxOcclusionCuller.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/WidgetNavigator.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ResizeEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/SurfaceEditor.cs" />
@@ -130,6 +133,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/CSGGrid.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/ClipUtility.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/CSGFactory.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/Voxel.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Polygon.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SplashScreenPlayer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/IPostBuildListener.cs" />
@@ -207,6 +211,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/EditorHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Input/EditorKeyMappings.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/NotUsed/VoxComputeManager.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreCSGResources.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/WB_Textbox.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfImporter.cs" />
@@ -214,6 +219,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dActor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/RiftManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaSender.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/NotUsed/VoxelColor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/ApplyForceOnBulbCollision.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBonePlaneCollider.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolumeEvent.cs" />
@@ -282,6 +288,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CSGModel.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/BrushBuilder.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_DitheringFilter.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/VoxContainer.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleAudio.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/Toolbar.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/MaterialSearcher.cs" />
@@ -311,6 +318,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/Vertex Weld Ops/VertexWeldToleranceOperation.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Decomposition/BayazitDecomposer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/EnumHelper.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/Vox_CullableActor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolume.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/BrushChunk.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Text_EntityHealth.cs" />
@@ -376,6 +384,7 @@
      <Folder Include="Assets/Packages/QuickOutline/Resources" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/System/Animations" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Voxel" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Gestures" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Materials" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Steam Deck" />
@@ -573,6 +582,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor" />
      <Folder Include="Assets/Resources/Models/Materials/DynamiclyFiltered" />
      <Folder Include="Assets/_REMOVE_/Integratables" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Voxel/NotUsed" />
      <Folder Include="Assets/TextMesh Pro/Resources" />
      <None Include="Assets/Resources/Materials/Shaders/ScreenCutoutShader.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/RenderTextures" />

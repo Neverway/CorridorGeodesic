@@ -526,8 +526,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSlicedByPlane: 0
+  <EnableRuntimeLogging>k__BackingField: 0
   isReflective: 0
+  isSliceInProgress: 0
+  isSlicedByPlane: 0
+  isClone: 0
+  riftSpace: 0
+  meshRenderer: {fileID: 0}
 --- !u!1001 &3709319751128075405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -603,6 +608,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5242550279173556770}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d889f8540d2c86c4ead1ff8400fb3925,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6702913061946922363}
   m_SourcePrefab: {fileID: 100100000, guid: d889f8540d2c86c4ead1ff8400fb3925, type: 3}
 --- !u!4 &3814724618655705958 stripped
 Transform:
@@ -644,8 +653,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSlicedByPlane: 0
+  <EnableRuntimeLogging>k__BackingField: 0
   isReflective: 0
+  isSliceInProgress: 0
+  isSlicedByPlane: 0
+  isClone: 0
+  riftSpace: 0
+  meshRenderer: {fileID: 0}
+--- !u!114 &6702913061946922363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592351625210327516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48aa475351df3deaa739e9411eb4283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6697855486564730040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -726,6 +752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -2147754228552126005, guid: 0691e5206c095094690805245502b274, type: 3}
+    - {fileID: 6246104873057965331, guid: 0691e5206c095094690805245502b274, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5666194294599035471, guid: 0691e5206c095094690805245502b274, type: 3}
     m_AddedGameObjects:

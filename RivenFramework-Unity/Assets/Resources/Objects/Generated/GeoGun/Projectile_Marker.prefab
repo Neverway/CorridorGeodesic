@@ -576,7 +576,7 @@ MonoBehaviour:
   projectileGraphics: {fileID: 1729955585215993469}
   layerMask:
     serializedVersion: 2
-    m_Bits: 8321
+    m_Bits: 24705
   disableMovement: 0
   pinOffset: 0
   gridSize: 1

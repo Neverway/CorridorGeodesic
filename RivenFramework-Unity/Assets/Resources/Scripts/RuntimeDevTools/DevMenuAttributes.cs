@@ -17,25 +17,35 @@ public static class DevMenuAttributes
     private static DevMenuItemInfo AttributeUsageToItemInfo(AttributeUsage attributeUsage)
         => new DevMenuItemInfo(attributeUsage);
 
-    [DevMenuButton("FOV = 200")]
-    public static void FOV200()
-    {
-        GameObject player = GameInstance.Get<GI_PawnManager>().localPlayerCharacter;
-        player.GetComponentInChildren<Camera>().fieldOfView = 200;
-    }
-
-    [DevMenuButton("Show/Hide Logic")]
+    [DevMenuButton("Toggle Show Logic")]
     public static void ToggleLogicView()
     {
         GameObject player = GameInstance.Get<GI_PawnManager>().localPlayerCharacter;
         player.GetComponentInChildren<Camera>().cullingMask ^= (1 << LayerMask.NameToLayer("<( x )> Hidden Logic"));
     }
 
-    [DevMenuButton("Show/Hide Barriers")]
+    [DevMenuButton("Toggle Show Barriers")]
     public static void ToggleBarriersView()
     {
         GameObject player = GameInstance.Get<GI_PawnManager>().localPlayerCharacter;
         player.GetComponentInChildren<Camera>().cullingMask ^= (1 << LayerMask.NameToLayer("<( x )> Hidden Barriers"));
+    }
+
+    [DevMenuButton("Toggle Show Voxel Grid")]
+    public static void ToggleVoxelsView()
+    {
+        GameObject player = GameInstance.Get<GI_PawnManager>().localPlayerCharacter;
+        player.GetComponentInChildren<Camera>().cullingMask ^= (1 << LayerMask.NameToLayer("VoxelGrid"));
+    }
+
+    [DevMenuButton("Give Debug Items")]
+    public static void GiveDebugItems()
+    {
+        GameObject player = GameInstance.Get<GI_PawnManager>().localPlayerCharacter;
+        foreach (var debugItem in GameInstance.Get<GI_DebugItemGiver>().debugItems)
+        {
+            player.GetComponentInChildren<Pawn_Inventory>().AddItem(debugItem);
+        }
     }
 }
 

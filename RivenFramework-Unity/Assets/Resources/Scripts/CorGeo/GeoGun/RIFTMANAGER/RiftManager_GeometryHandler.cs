@@ -101,7 +101,7 @@ public class RiftManager_GeometryHandler : ILoggable
             }
             else
             {
-                Debug.Log($"{mesh.name} Object wasn't intersecting");
+                //Debug.Log($"{mesh.name} Object wasn't intersecting");
                 mesh.AssignMeshToSpaceLists();
             }
         }

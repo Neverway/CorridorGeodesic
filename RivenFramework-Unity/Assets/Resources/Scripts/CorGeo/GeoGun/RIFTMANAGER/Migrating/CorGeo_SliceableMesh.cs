@@ -132,17 +132,39 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         Array.Copy(originalMaterials, state.materials, originalMaterials.Length);
 
         // Save the colliders
-        var colliders = GetComponents<MeshCollider>(); 
+        var colliders = GetComponents<Collider>(); 
         state.colliders = new UndoSliceState.ColliderData[colliders.Length];
         for (int i = 0; i < colliders.Length; i++)
         {
-            //print($"Registered collider {colliders[i]}");
-            state.colliders[i] = new UndoSliceState.ColliderData
+            // TRY SAVING AS MESH COLLIDER
+            if (colliders[i].GetType() == typeof(MeshCollider))
             {
-                mesh = colliders[i].sharedMesh != null ? Instantiate(colliders[i].sharedMesh) : null,
-                convex = colliders[i].convex,
-                isTrigger = colliders[i].isTrigger,
-            };
+                var meshCollider = (MeshCollider)colliders[i];
+                state.colliders[i] = new UndoSliceState.ColliderData
+                {
+                    colliderType = ColliderCollisionType.mesh,
+                    mesh = meshCollider.sharedMesh is not null ? Instantiate(meshCollider.sharedMesh) : null,
+                    convex = meshCollider.convex,
+                    isTrigger = meshCollider.isTrigger,
+                };
+            }
+            // TRY SAVING AS BOX COLLIDER
+            else if (colliders[i].GetType() == typeof(BoxCollider))
+            {
+                var boxCollider = (BoxCollider)colliders[i];
+                state.colliders[i] = new UndoSliceState.ColliderData
+                {
+                    colliderType = ColliderCollisionType.box,
+                    center = boxCollider.center,
+                    size = boxCollider.size,
+                    convex = true,
+                    isTrigger = boxCollider.isTrigger,
+                };
+            }
+            else
+            {
+                Debug.LogError("Unknown or unsupported collider type on object: " + colliders[i].name + "! This is Future Liz's fault! Go tell them to fix the stupid rift collider implementations already! ~Past Liz");
+            }
         }
         
         // Save the transform
@@ -213,7 +235,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         }
         else
         {
-            throw new Exception($"[CRIT] {gameObject.name} was determined to be intersecting with a rift plane, but all slices failed so rift space could not be determined!!!! <=(Oh crap that's bad!)");
+            Debug.LogWarning($"[CRIT] {gameObject.name} was determined to be intersecting with a rift plane, but all slices failed so rift space could not be determined!!!! <=(Oh crap that's bad!)");
             // Neither plane sliced - determine space for the unsliced mesh
             //originalObject.AssignMeshToSpaceLists();
         }
@@ -416,7 +438,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
       
         // Restore collider data (Curse you mesh-collider the platypus!)
         // Start with destroying all existing colliders (I can't trust them! >:{ )
-        var existingColliders = GetComponents<MeshCollider>();
+        var existingColliders = GetComponents<Collider>();
         foreach (var existingCollider in existingColliders)
         {
             DestroyImmediate(existingCollider); // This needs to be immediate to avoid a race condition
@@ -425,10 +447,20 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         for (int i = 0; i < state.colliders.Length; i++)
         {
             var colliderData = state.colliders[i];
-            var newCollider = gameObject.AddComponent<MeshCollider>();
-            newCollider.sharedMesh = state.originalMesh;
-            newCollider.convex = colliderData.convex;
-            newCollider.isTrigger = colliderData.isTrigger;
+            if (colliderData.colliderType == ColliderCollisionType.mesh)
+            {
+                var newCollider = gameObject.AddComponent<MeshCollider>();
+                newCollider.sharedMesh = state.originalMesh;
+                newCollider.convex = colliderData.convex;
+                newCollider.isTrigger = colliderData.isTrigger;
+            }
+            else if (colliderData.colliderType == ColliderCollisionType.box)
+            {
+                var newCollider = gameObject.AddComponent<BoxCollider>();
+                newCollider.center = colliderData.center;
+                newCollider.size = colliderData.size;
+                newCollider.isTrigger = colliderData.isTrigger;
+            }
         }
 
         // Clean up the cloned cut chunks for this mesh
@@ -501,8 +533,24 @@ struct UndoSliceState
 
     public struct ColliderData
     {
+        public ColliderCollisionType colliderType;
+        
+        // Mesh collider data
         public Mesh mesh;
         public bool convex;
+        
+        // Box collider data
+        public Vector3 center;
+        public Vector3 size;
+        
+        // Generic collider data
         public bool isTrigger;
     }
+}
+
+public enum ColliderCollisionType
+{
+    mesh,
+    box,
+    unknown
 }

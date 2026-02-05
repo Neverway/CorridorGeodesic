@@ -242,7 +242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2574225467984808991
 Transform:
   m_ObjectHideFlags: 0
@@ -459,17 +459,17 @@ PrefabInstance:
     - target: {fileID: 2861040356043839519, guid: 0b34460caee763278b0cdd84b2300d07,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 27.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2861040356043839519, guid: 0b34460caee763278b0cdd84b2300d07,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 3.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2861040356043839519, guid: 0b34460caee763278b0cdd84b2300d07,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7537235439714401158, guid: 0b34460caee763278b0cdd84b2300d07,
         type: 3}
@@ -489,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 8291952855912699197, guid: 0b34460caee763278b0cdd84b2300d07,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -534,7 +534,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 3.0241733, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 2.2681298, y: 0.00000023841858, z: 0.00000013519107}
   serializedVersion: 2
   m_UseSpring: 1
   m_Spring:
