@@ -62,6 +62,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     private RaycastHit lastValidationHit;
     private bool lastValidationResult;
     private int lastValidationFrame = -1;
+    private RiftManager riftManager;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -76,6 +77,9 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     [SerializeField] private Animator animator1, animator2;
     //[Tooltip("This is what collision layers the raycast will collide with")] 
     //[SerializeField] private LayerMask projectileLayerMask;
+    [SerializeField] private GameObject previewPlanePrefab;
+    private GameObject[] previewPlanes;
+
 
     #endregion
 
@@ -92,10 +96,21 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         }*/
         
         
-        var riftManager = GameInstance.Get<RiftManager>();
+        riftManager = GameInstance.Get<RiftManager>();
         if (riftManager)
         {
             riftManager.RegisterRiftController(this);
+        }
+        if (previewPlanes == null)
+        {
+            //Create preview plane objects
+            previewPlanes = new GameObject[2];
+            previewPlanes[0] = Instantiate(previewPlanePrefab);
+            previewPlanes[1] = Instantiate(previewPlanePrefab);
+            foreach (GameObject g in previewPlanes)
+            {
+                g.SetActive(false);
+            }
         }
     }
 
@@ -127,6 +142,49 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         
         // Auto-removes null projectiles from the spawnedProjectiles list
         spawnedProjectiles = spawnedProjectiles.Where(projectile => !projectile.IsUnityNull()).ToList();
+
+        PlacePreviewPlanes ();
+    }
+
+    private void PlacePreviewPlanes ()
+    {
+        if (riftManager.markerA != null && riftManager.markerB == null)
+        {
+            Physics.Raycast (playerViewPoint.position, playerViewPoint.forward, out RaycastHit rayHit, 255, layerMask);
+
+            if (rayHit.collider == null)
+            {
+                SetPreviewPlanesEnabled (false);
+                return;
+            }
+
+            if (GetIsValidTarget (rayHit) == false)
+            {
+                SetPreviewPlanesEnabled (false);
+                return;
+            }
+
+            SetPreviewPlanesEnabled(true);
+
+            previewPlanes[0].transform.position = riftManager.markerA.transform.position;
+            previewPlanes[1].transform.position = rayHit.point;
+
+            previewPlanes[0].transform.LookAt (previewPlanes[1].transform.position);
+            previewPlanes[1].transform.LookAt (previewPlanes[0].transform.position);
+
+        }
+        else
+        {
+            SetPreviewPlanesEnabled (false);
+        }
+    }
+
+    private void SetPreviewPlanesEnabled(bool _enabled)
+    {
+        foreach (GameObject g in previewPlanes)
+        {
+            g.SetActive (_enabled);
+        }
     }
 
     private void FixedUpdate()

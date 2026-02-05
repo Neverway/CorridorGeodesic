@@ -897,7 +897,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 98548d90f81df01dbae4c203ffb8f8a1, type: 2}
   layerMask:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 16513
   projectileMarkerSpeed: 50
   isLinkedToManager: 0
   spawnedProjectiles: []
@@ -906,6 +906,8 @@ MonoBehaviour:
   gunBarrel: {fileID: 8912260600610800372}
   animator1: {fileID: 5197929100667846040}
   animator2: {fileID: 8646921104399528452}
+  previewPlanePrefab: {fileID: 3569801623043244855, guid: 83ab4b7787c4221b2b87b065899cbea3,
+    type: 3}
 --- !u!1001 &7884057557956848956
 PrefabInstance:
   m_ObjectHideFlags: 0
