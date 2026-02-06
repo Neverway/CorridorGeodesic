@@ -906,7 +906,7 @@ MonoBehaviour:
   gunBarrel: {fileID: 8912260600610800372}
   animator1: {fileID: 5197929100667846040}
   animator2: {fileID: 8646921104399528452}
-  previewPlanePrefab: {fileID: 3569801623043244855, guid: 83ab4b7787c4221b2b87b065899cbea3,
+  previewPlanePrefab: {fileID: 3569801623043244855, guid: 61a9fdcdc9cce68f5a08bb261ec665d5,
     type: 3}
 --- !u!1001 &7884057557956848956
 PrefabInstance:

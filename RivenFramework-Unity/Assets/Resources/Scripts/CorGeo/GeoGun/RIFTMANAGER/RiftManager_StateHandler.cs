@@ -160,6 +160,7 @@ public class RiftState_Idle : N_RiftState
 {
     public override void OnStateEnter()
     {
+        _RiftManager.currentRiftMoveSpeed = _RiftManager.minRiftSpeed;
     }
 
     public override void OnUpdate()
@@ -183,6 +184,7 @@ public class RiftState_Collapsing : N_RiftState
 
     public override void OnUpdate()
     {
+        Debug.Log(_RiftManager.currentRiftMoveSpeed);
         _RiftManager.MoveRiftByDistance (-_RiftManager.currentRiftMoveSpeed * Time.deltaTime);
         //_RiftManager.AccelerateRift ();
     }
@@ -204,6 +206,7 @@ public class RiftState_Expanding : N_RiftState
 
     public override void OnUpdate()
     {
+        Debug.Log(_RiftManager.currentRiftMoveSpeed);
         _RiftManager.MoveRiftByDistance (_RiftManager.currentRiftMoveSpeed * Time.deltaTime);
     }
 
