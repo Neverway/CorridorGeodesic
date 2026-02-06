@@ -69,6 +69,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
     [HideInInspector] public MeshRenderer meshRenderer;
     [Tooltip("The history of how this object has been cut, used for undoing cuts when a rift is destroyed")]
     private Stack<UndoSliceState> sliceHistory = new();
+    [Tooltip("Reference to the original object that contains the slice history")]
+    private CorGeo_SliceableMesh originalSliceableObject;
     
     public struct SliceResultChunks
     {
@@ -355,6 +357,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
             
             var chunkSliceable = cutChunk.gameObject.GetComponent<CorGeo_SliceableMesh>();
             
+            chunkSliceable.originalSliceableObject = this.originalSliceableObject ?? this;
+            
             // .side returns true if the chunk is on the positive side of the plane (which in this case means that we haven't cut it yet)
             if (cutChunk.side)
             {
@@ -384,9 +388,47 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
             riftManager = GameInstance.Get<RiftManager>();
         }
         
+        // !Temporary! Mesh collider state fix
+        var meshColliders = GetComponents<MeshCollider>();
+        if (meshColliders.Length > 0)
+        {
+            // Find the original object's collider settings
+            var originalScript = originalSliceableObject ?? this;
+            if (originalScript.sliceHistory.Count > 0)
+            {
+                var lastState = originalScript.sliceHistory.Peek();
+                foreach (var savedCollider in lastState.colliders)
+                {
+                    // If original had a trigger collider, make new mesh colliders triggers too
+                    if (savedCollider.isTrigger)
+                    {
+                        foreach (var meshCollider in meshColliders)
+                        {
+                            meshCollider.convex = true;
+                            meshCollider.isTrigger = true;
+                        }
+                    }
+                }
+            }
+        }
+        
         // Store in space meshes list
         riftManager.spaceController.spaceMeshes.Add(this, riftSpace);
         //AssignMeshToSpaceLists();
+    }
+    
+    private CorGeo_SliceableMesh FindOriginalObject()
+    {
+        // Look through parent/siblings to find the non-clone
+        var allSliceables = FindObjectsOfType<CorGeo_SliceableMesh>();
+        foreach (var sliceable in allSliceables)
+        {
+            if (!sliceable.isClone && sliceable.sliceHistory.Count > 0)
+            {
+                return sliceable;
+            }
+        }
+        return null;
     }
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
@@ -450,7 +492,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
             if (colliderData.colliderType == ColliderCollisionType.mesh)
             {
                 var newCollider = gameObject.AddComponent<MeshCollider>();
-                newCollider.sharedMesh = state.originalMesh;
+                newCollider.sharedMesh = colliderData.mesh;
                 newCollider.convex = colliderData.convex;
                 newCollider.isTrigger = colliderData.isTrigger;
             }

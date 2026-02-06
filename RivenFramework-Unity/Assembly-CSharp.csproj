@@ -633,6 +633,7 @@
      <None Include="Assets/Resources/Materials/Shaders/SX_SGHelpers.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities" />
      <Folder Include="Assets/Resources/Materials/Shaders" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Connor" />
      <Folder Include="Assets/Resources/Materials/Skyboxes" />
      <Folder Include="Assets/Resources/Sound/Music/REFERENCE_DO_NOT_SHIP" />
      <Folder Include="Assets/Resources/Sprites" />

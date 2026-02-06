@@ -897,7 +897,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 98548d90f81df01dbae4c203ffb8f8a1, type: 2}
   layerMask:
     serializedVersion: 2
-    m_Bits: 129
+    m_Bits: 16513
   projectileMarkerSpeed: 50
   isLinkedToManager: 0
   spawnedProjectiles: []

@@ -109,6 +109,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         // Create rift when markers pinned
         if (createRiftOnMarkersPinned && IsMarkersPinned() && stateHandler.IsState<RiftState_None>())
         {
+            print("RIFT RIFT RIFT - Create");
             CreateRift(markerA, markerB);
         }
         
@@ -171,7 +172,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// <summary>
     /// Unslice the world and remove objects from space containers
     /// </summary>
-    public void DestroyRift()
+    private void DestroyRift()
     {
         riftActive = false;
         this.Log("DestroyRift called");
@@ -181,6 +182,20 @@ public class RiftManager : MonoBehaviour, ILoggable
         geometryHandler.RestoreCutGeometry();
         spaceController.RemoveObjectsFromSpaceContainers();
         actorHandler.RestoreActors();
+    }
+
+    public void DestroyRiftExternal()
+    {
+        if (markerA)
+        {
+            print("ERASING MARKER A");
+            Destroy(markerA.gameObject);
+        }
+        if (markerB)
+        {
+            print("ERASING MARKER B");
+            Destroy(markerB.gameObject);
+        }
     }
 
     /// <summary>
@@ -247,7 +262,11 @@ public class RiftManager : MonoBehaviour, ILoggable
         }
         
         // Some sort of fallback to avoid a bug... I know I added this here for some important reason, I'm sure ~Liz
-        if (!geometryHandler.visualPlaneB || !spaceController.spaceContainerNull.activeInHierarchy) return;
+        if (!geometryHandler.visualPlaneB || !spaceController.spaceContainerNull)
+        {
+            Debug.LogWarning($"Attempted to set rift percentage, but the space containers were missing! spn = {spaceController.spaceContainerNull}");
+            return;
+        }
         
         // Apply movement offsets to actors and geometry
         // The order of operations here is very important!
