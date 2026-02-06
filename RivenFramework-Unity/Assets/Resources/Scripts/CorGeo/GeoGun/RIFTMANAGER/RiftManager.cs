@@ -30,7 +30,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     [SerializeField] public static float minAbsoluteRiftWidth = 0.15f;
     [Header("Speed")]
     [Tooltip("The speed of the rift when it starts moving")]
-    [SerializeField] private float minRiftSpeed = 0.5f;
+    [SerializeField] public float minRiftSpeed = 0.5f;
     [Tooltip("The maximum speed of the rift when it moves")]
     [SerializeField] public float maxRiftSpeed = 6f;
     [Tooltip("How quickly the rift picks up in speed while moving")]
@@ -152,6 +152,15 @@ public class RiftManager : MonoBehaviour, ILoggable
         else { stateHandler.SetState<RiftState_Idle>(); }
     }
     
+    private void AccelerateRift ()
+    {
+        currentRiftMoveSpeed += riftAcceleration * Time.deltaTime;
+        if (currentRiftMoveSpeed > maxRiftSpeed)
+        {
+            currentRiftMoveSpeed = maxRiftSpeed;
+        }
+    }
+    
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
@@ -182,6 +191,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         geometryHandler.RestoreCutGeometry();
         spaceController.RemoveObjectsFromSpaceContainers();
         actorHandler.RestoreActors();
+        currentRiftMoveSpeed = minRiftSpeed;
     }
 
     public void DestroyRiftExternal()
@@ -204,6 +214,8 @@ public class RiftManager : MonoBehaviour, ILoggable
     public void MoveRiftByDistance(float _distance)
     {
         this.Log($"MoveRiftByDistance called (_distance: '{_distance}')");
+        
+        AccelerateRift();
         
         // Keep from expanding if allowExpandingRift is false
         if (!linkedRiftController.allowExpandingRift && currentRiftWidth + _distance > riftStartingWidth)
