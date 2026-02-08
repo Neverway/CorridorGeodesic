@@ -78,7 +78,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     //[Tooltip("This is what collision layers the raycast will collide with")] 
     //[SerializeField] private LayerMask projectileLayerMask;
     [SerializeField] private GameObject previewPlanePrefab;
-    private GameObject[] previewPlanes;
+    [SerializeField] private List<GameObject> previewPlanes = new List<GameObject>();
 
 
     #endregion
@@ -101,23 +101,10 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         {
             riftManager.RegisterRiftController(this);
         }
-        if (previewPlanes == null)
-        {
-            //Create preview plane objects
-            previewPlanes = new GameObject[2];
-            previewPlanes[0] = Instantiate(previewPlanePrefab);
-            previewPlanes[1] = Instantiate(previewPlanePrefab);
-            foreach (GameObject g in previewPlanes)
-            {
-                g.SetActive(false);
-            }
-        }
     }
 
     private void Update()
     {
-        
-
         // Process the wants to BLANK requests from item actions
         // (I'm doing it this way for now since we want to be able to hold collapse or expand before a rift might be active)
         if (spawnedProjectiles.Count >= maxProjectiles)
@@ -142,10 +129,27 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         
         // Auto-removes null projectiles from the spawnedProjectiles list
         spawnedProjectiles = spawnedProjectiles.Where(projectile => !projectile.IsUnityNull()).ToList();
-
+        
+        CheckForPreviewPlanes();
         PlacePreviewPlanes ();
     }
 
+    private void CheckForPreviewPlanes()
+    {
+        // If the planes list is empty or contains invalid data, recreate the list of elements
+        if (previewPlanes is null || previewPlanes.Count <= 0 || previewPlanes[0] == null || previewPlanes[1] == null)
+        {
+            // Create preview plane objects
+            previewPlanes = new List<GameObject>(2);
+            previewPlanes.Add(Instantiate(previewPlanePrefab));
+            previewPlanes.Add(Instantiate(previewPlanePrefab));
+            foreach (GameObject previewPlane in previewPlanes)
+            {
+                previewPlane.SetActive(false);
+            }
+        }
+    }
+    
     private void PlacePreviewPlanes ()
     {
         if (riftManager.markerA != null && riftManager.markerB == null)
@@ -181,9 +185,9 @@ public class Item_Utility_Geogun : RiftController, ILoggable
 
     private void SetPreviewPlanesEnabled(bool _enabled)
     {
-        foreach (GameObject g in previewPlanes)
+        foreach (GameObject previewPlane in previewPlanes)
         {
-            g.SetActive (_enabled);
+            if (previewPlane) previewPlane.SetActive (_enabled);
         }
     }
 
