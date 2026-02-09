@@ -85,8 +85,11 @@ public class RiftManager : MonoBehaviour, ILoggable
     [Header("REFERENCES")] 
     [Tooltip("The script that is currently controlling this rift manager")]
     public RiftController linkedRiftController;
+
     [Tooltip("If either collapseHeld or expandHeld is enabled, the rift will attempt to move")]
-    private bool collapseHeld, expandHeld, expandDueToCrush;
+    private bool collapseHeld, expandHeld;
+    [Tooltip("When the crush detector is triggered, it sets this to true to expand the rift slightly (This is janky I know >:P ~Liz)")]
+    public static bool expandDueToCrush = false;
     
     #endregion
 

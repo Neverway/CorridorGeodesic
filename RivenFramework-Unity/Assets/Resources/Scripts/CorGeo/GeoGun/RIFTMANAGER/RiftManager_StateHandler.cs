@@ -271,6 +271,7 @@ public class RiftState_ExpandingFromCrush : N_RiftState
     {
         // Expand for 0.15 seconds
         await For.Seconds(0.15f);
+        RiftManager.expandDueToCrush = false;
         // Switch to idle state
         handler.SetState<RiftState_Idle>();
     }
