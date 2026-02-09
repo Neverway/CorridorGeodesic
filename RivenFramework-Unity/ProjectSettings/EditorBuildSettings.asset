@@ -54,19 +54,19 @@ EditorBuildSettings:
     path: Assets/Resources/Maps/CorGeo/_DemoLinear/02-UGap.unity
     guid: 1874370b1d47058c8a0acb78d555199b
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/05-HideGeometry.unity
+    path: Assets/Resources/Maps/CorGeo/_DemoLinear/03-HideGeometry.unity
     guid: eb523b61fdc1c3e4cb8e853816aa30da
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/06-Backtrack.unity
+    path: Assets/Resources/Maps/CorGeo/_DemoLinear/04-Backtrack.unity
     guid: 9f995d0b9e37967d29855644a6929496
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/07-Tesla.unity
+    path: Assets/Resources/Maps/CorGeo/_DemoLinear/05-Tesla.unity
     guid: 5e3a73061439b54248a7b30eaf9514f7
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/08-Lasers.unity
+    path: Assets/Resources/Maps/CorGeo/_DemoLinear/06-Lasers.unity
     guid: 20b97a4127ef7a95ab26817a8de38a6b
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/09-Turrets.unity
+    path: Assets/Resources/Maps/CorGeo/_DemoLinear/07-Turrets.unity
     guid: 4d0273e7fd56818628bd9c54c9bb9bd4
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f15e32241878d7bdda685b0a87c02c59,
