@@ -274,6 +274,7 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\BuildEngine\BrushBuilder.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Graphics_DitheringFilter.cs" />
     <Compile Include="Assets\Packages\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\ClipboardPrinter.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\Toolbar.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\MaterialSearcher.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\TeslaCoils\TeslaConductor.cs" />
