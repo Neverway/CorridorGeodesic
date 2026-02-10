@@ -72,6 +72,7 @@ public class CrushDetector : MonoBehaviour
             if (pawn)
             {
                 onCrushed?.Invoke ();
+                RiftManager.expandDueToCrush = true;
                 pawn.ModifyHealth (-crushDamageAmount);
             }
         }

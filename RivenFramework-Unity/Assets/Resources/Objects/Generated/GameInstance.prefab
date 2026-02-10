@@ -1022,9 +1022,9 @@ MonoBehaviour:
   createRiftOnMarkersPinned: 1
   maxRiftWidth: 30
   minRiftWidth: -30
-  minRiftSpeed: 8
-  maxRiftSpeed: 8
-  riftAcceleration: 8
+  minRiftSpeed: 2
+  maxRiftSpeed: 12
+  riftAcceleration: 5
   visualPlanePrefab: {fileID: 3569801623043244855, guid: 83ab4b7787c4221b2b87b065899cbea3,
     type: 3}
   nullSpaceMaterial: {fileID: 2100000, guid: eb2aa8e528376ea4bad7b7dd63732b8f, type: 2}

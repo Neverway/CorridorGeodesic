@@ -222,7 +222,7 @@ public class GI_RiftManager : MonoBehaviour
     {
         if (!collapseHeld) yield break;
 
-        //collapseHeld = false; // release close rift input
+        collapseHeld = false; // release close rift input
         //ignoreRiftInputAfterCrush = true;
 
         expandingRiftDueToCrush = true;

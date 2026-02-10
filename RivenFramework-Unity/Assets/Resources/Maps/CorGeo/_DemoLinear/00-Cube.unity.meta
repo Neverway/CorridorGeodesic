@@ -1,9 +1,6 @@
 fileFormatVersion: 2
-guid: 3a10c70185f14689d962105a99c2d5e7
-labels:
-- Actor3D
-- Prop
-PrefabImporter:
+guid: b00720af71de27c1292de0b7252ef2a5
+DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 

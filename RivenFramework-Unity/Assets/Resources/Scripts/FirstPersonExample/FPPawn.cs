@@ -59,4 +59,8 @@ public class FPPawn : Pawn
     //=-----------------=
     // External Functions
     //=-----------------=
+    public bool IsGrounded()
+    {
+        return FPaction.IsOnGround(this);
+    }
 }

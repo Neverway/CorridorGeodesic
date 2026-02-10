@@ -305,6 +305,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3301829909880019359}
+    - targetCorrespondingSourceObject: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8520652943849165454}
     - targetCorrespondingSourceObject: {fileID: 7605716022011797126, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       insertIndex: -1
@@ -730,9 +734,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlapPointTop: 1.56
-  overlapPointBottom: -0.5
+  overlapPointBottom: -0.55
   bottomCrouchOffset: 0.45
-  overlapRadius: 0.4
+  overlapRadius: 0.38
   layerMask:
     serializedVersion: 2
     m_Bits: 24705
@@ -750,6 +754,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regenDelay: 2
+--- !u!114 &-8520652943849165454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275086507616164517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaa68c1443a148e6784a928093aba35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityThreshold: 10
+  fallDistanceThreshold: 12
+  damageAmount: 50
+  damageDistanceMultiplier: 1.5
+  startingGroundHeight: 0
+  endingGroundHeight: 0
 --- !u!114 &7815155221520509747 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3001261832045667083, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
