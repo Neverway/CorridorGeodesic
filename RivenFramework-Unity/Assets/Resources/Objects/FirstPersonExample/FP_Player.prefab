@@ -734,9 +734,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlapPointTop: 1.56
-  overlapPointBottom: -0.5
+  overlapPointBottom: -0.55
   bottomCrouchOffset: 0.45
-  overlapRadius: 0.4
+  overlapRadius: 0.38
   layerMask:
     serializedVersion: 2
     m_Bits: 24705
@@ -768,8 +768,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocityThreshold: 10
   fallDistanceThreshold: 12
-  damageAmount: 25
-  damageDistanceMultiplier: 4
+  damageAmount: 50
+  damageDistanceMultiplier: 1.5
   startingGroundHeight: 0
   endingGroundHeight: 0
 --- !u!114 &7815155221520509747 stripped

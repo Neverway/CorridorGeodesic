@@ -86,7 +86,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
 
     #region=======================================( Functions )======================================================= //
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-    private void OnEnable()
+    private void Start()
     {
         /*
         var riftManager = GameInstance.Get<GI_RiftManager>();

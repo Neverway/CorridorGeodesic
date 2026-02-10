@@ -62,24 +62,20 @@ public class Pawn_FallDamage : MonoBehaviour
     {
         pawnIsFalling = false;
         endingGroundHeight = linkedPawn.transform.position.y;
-        print("Stop fall");
 
         // Pawn wasn't moving fast enough for fall damage
         if (linkedPawn.physicsbody.velocity.y > velocityThreshold)
         {
-            print($"{linkedPawn.physicsbody.velocity.y} vel exit");
             return;
         }
         
         // Pawn didn't fall far enough for fall damage
         if (Mathf.Abs(startingGroundHeight - endingGroundHeight) < fallDistanceThreshold)
         {
-            print("dis exit");
             return;
         }
 
         var totalFallDistanceMultiplier = Mathf.Abs(startingGroundHeight - endingGroundHeight) / fallDistanceThreshold;
-        print($"FALL SYCCC {damageAmount*(totalFallDistanceMultiplier*damageDistanceMultiplier)}");
         
         linkedPawn.ModifyHealth(-damageAmount*(totalFallDistanceMultiplier*damageDistanceMultiplier));
     }

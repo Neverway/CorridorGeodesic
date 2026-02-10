@@ -8,6 +8,7 @@
 //====================================================================================================================//
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Handles everything with creating, moving, and destroying a rift
@@ -105,6 +106,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         geometryHandler = new RiftManager_GeometryHandler(this, spaceController);
         spaceController.geometryHandler = geometryHandler;
         actorHandler = new RiftManager_ActorHandler(this);
+        SceneManager.activeSceneChanged += OnSceneChanged;
     }
 
     private void Update()
@@ -112,7 +114,6 @@ public class RiftManager : MonoBehaviour, ILoggable
         // Create rift when markers pinned
         if (createRiftOnMarkersPinned && IsMarkersPinned() && stateHandler.IsState<RiftState_None>())
         {
-            print("RIFT RIFT RIFT - Create");
             CreateRift(markerA, markerB);
         }
         
@@ -155,6 +156,9 @@ public class RiftManager : MonoBehaviour, ILoggable
         else { stateHandler.SetState<RiftState_Idle>(); }
     }
     
+    /// <summary>
+    /// Increase the rift's movement speed while it's being moved
+    /// </summary>
     private void AccelerateRift ()
     {
         currentRiftMoveSpeed += riftAcceleration * Time.deltaTime;
@@ -162,6 +166,31 @@ public class RiftManager : MonoBehaviour, ILoggable
         {
             currentRiftMoveSpeed = maxRiftSpeed;
         }
+    }
+
+    /// <summary>
+    /// Unslice the world and remove objects from space containers
+    /// </summary>
+    private void DestroyRift()
+    {
+        riftActive = false;
+        this.Log("DestroyRift called");
+        stateHandler.SetState<RiftState_None>();
+        geometryHandler.SetRiftPlanesVisible(false);
+        SetRiftPercentage(1);
+        geometryHandler.RestoreCutGeometry();
+        spaceController.RemoveObjectsFromSpaceContainers();
+        actorHandler.RestoreActors();
+        currentRiftMoveSpeed = minRiftSpeed;
+    }
+
+    /// <summary>
+    /// This ensures a rift does not persist across scene changes, since currently the space containers and other
+    /// references are not persistent and get destroyed when changing levels
+    /// </summary>
+    private void OnSceneChanged(Scene current, Scene next)
+    {
+        DestroyRift();
     }
     
 
@@ -183,30 +212,16 @@ public class RiftManager : MonoBehaviour, ILoggable
 
     /// <summary>
     /// Unslice the world and remove objects from space containers
+    /// This version is used by the rift gun controller so that it properly cleans up its markers
     /// </summary>
-    private void DestroyRift()
-    {
-        riftActive = false;
-        this.Log("DestroyRift called");
-        stateHandler.SetState<RiftState_None>();
-        geometryHandler.SetRiftPlanesVisible(false);
-        SetRiftPercentage(1);
-        geometryHandler.RestoreCutGeometry();
-        spaceController.RemoveObjectsFromSpaceContainers();
-        actorHandler.RestoreActors();
-        currentRiftMoveSpeed = minRiftSpeed;
-    }
-
     public void DestroyRiftExternal()
     {
         if (markerA)
         {
-            print("ERASING MARKER A");
             Destroy(markerA.gameObject);
         }
         if (markerB)
         {
-            print("ERASING MARKER B");
             Destroy(markerB.gameObject);
         }
     }
