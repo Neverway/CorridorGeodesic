@@ -42,7 +42,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     public GameObject visualPlanePrefab;
     [Tooltip("The material used to represent geometry exposed by a total null collapse")]
     public Material nullSpaceMaterial;
-    [Tooltip("")]
+    [Tooltip("The script that controls the rift preview effects")]
     public Graphics_RiftPreviewEffects riftPreviewEffects;
 
 

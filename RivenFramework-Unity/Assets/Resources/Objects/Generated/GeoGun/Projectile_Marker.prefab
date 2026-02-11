@@ -447,7 +447,7 @@ MonoBehaviour:
   lerpSpeed: 10
   bulbGlowEffect: {fileID: 6120259092252550730}
   bulbGlowLight: {fileID: 7692086335543988743}
-  destroyBulbEffect: {fileID: 5484958501503599513, guid: b1d9afcfb23c02348a1c1a5fc2aa7a2e,
+  destroyBulbEffect: {fileID: 3451210861811089958, guid: a2a9bf9fecae3966ab30be288e90ade1,
     type: 3}
   connectingLineEffect: {fileID: 3838561264208788133, guid: 4c6087601d33f244c914bfe69813dad5,
     type: 3}

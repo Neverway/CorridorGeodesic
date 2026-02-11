@@ -15,21 +15,22 @@ public class Graphics_RiftPreviewEffects : MonoBehaviour
     //public float edgeStrengthFactorPower = 1f;
     //public float opacityFactorPower = 2f;
     //public float burstFactorPower = 0.7f;
+    private RiftManager riftManager;
 
     private void OnEnable()
     {
-        //riftManager.OnStateChanged += OnStateChanged;
+        RiftManager_StateHandler.OnStateChanged += OnStateChanged;
     }
     private void OnDisable()
     {
-        //riftManager.OnStateChanged -= OnStateChanged;
-    }/*
+        RiftManager_StateHandler.OnStateChanged -= OnStateChanged;
+    }
     private void OnDestroy()
     {
-        riftPreview.SetFloat("_EffectTime", 0);
-        riftPreview.SetFloat("_SphereSize", 0);
-        riftPreview.SetFloat("_EmissionStrength", defaultEmisStrength);
-    }*/
+        riftMaterial.SetFloat("_EffectTime", 0);
+        riftMaterial.SetFloat("_SphereSize", 0);
+        riftMaterial.SetFloat("_EmissionStrength", collapseExpandEmissionStrength);
+    }
     public void Update()
     {
         //Graphics_NixieBulbEffects bulb = Graphics_NixieBulbEffects.firstBulb;
@@ -58,43 +59,50 @@ public class Graphics_RiftPreviewEffects : MonoBehaviour
 
         //geoGun.cutPreviews[0].SetActive(Alt_Item_Geodesic_Utility_GeoGun.currentState != RiftState.Closed);
     }
-/*
+
     void OnStateChanged()
     {
-        if (riftManager.currentState != RiftState.None && riftManager.previousState == RiftState.None)
+        // Whoops, we need this reference, but it's not here!
+        if (riftManager is null) riftManager = FindObjectOfType<RiftManager>();
+        // Still didn't find it? Okay, stop everything else
+        if (riftManager is null) return;
+        
+        // YIPEE! Do the rift dance!
+        if (riftManager.stateHandler.currentState is not RiftState_None && riftManager.stateHandler.previousState is RiftState_None)
         {
-            StopAllCoroutines();
-            StartCoroutine(OnRiftCreated());
+            // Moved the code from here to preview
         }
 
-        switch (riftManager.currentState)
+        switch (riftManager.stateHandler.currentState)
         {
-            case RiftState.None:
+            case RiftState_None:
                 StopAllCoroutines();
-                riftPreview.SetFloat("_EffectTime", 0);
-                riftPreview.SetFloat("_SphereSize", 0);
-                riftPreview.SetFloat("_EmissionStrength", defaultEmisStrength);
+                riftMaterial.SetFloat("_EffectTime", 0);
+                riftMaterial.SetFloat("_SphereSize", 0);
+                riftMaterial.SetFloat("_EmissionStrength", defaultEmissionStrength);
                 break;
-            case RiftState.Preview:
+            case RiftState_Preview:
+                StopAllCoroutines();
+                StartCoroutine(OnRiftCreated(riftManager));
                 break;
-            case RiftState.Collapsing:
-                riftPreview.SetFloat("_EmissionStrength", collapseExpandEmisStrength);
+            case RiftState_Collapsing:
+                riftMaterial.SetFloat("_EmissionStrength", collapseExpandEmissionStrength);
                 break;
-            case RiftState.Closed:
-                riftPreview.SetFloat("_EmissionStrength", defaultEmisStrength);
+            case RiftState_Closed:
+                riftMaterial.SetFloat("_EmissionStrength", defaultEmissionStrength);
                 break;
-            case RiftState.Expanding:
-                riftPreview.SetFloat("_EmissionStrength", collapseExpandEmisStrength);
+            case RiftState_Expanding:
+                riftMaterial.SetFloat("_EmissionStrength", collapseExpandEmissionStrength);
                 break;
-            case RiftState.Idle:
-                riftPreview.SetFloat("_EmissionStrength", defaultEmisStrength);
+            case RiftState_Idle:
+                riftMaterial.SetFloat("_EmissionStrength", defaultEmissionStrength);
                 break;
             default:
                 break;
         }
-    }*/
+    }
 
-    public IEnumerator OnRiftCreated(GI_RiftManager _riftManager)
+    public IEnumerator OnRiftCreated(RiftManager _riftManager)
     {
         riftMaterial.SetFloat("_EffectTime", 0);
         riftMaterial.SetFloat("_SphereSize", 0);
@@ -119,11 +127,11 @@ public class Graphics_RiftPreviewEffects : MonoBehaviour
 
         riftMaterial.SetFloat("_EffectTime", 1);
     }
-    /*public void SetPreview(GameObject preview, float edgeStrength, float opacity)
+    public void SetPreview(GameObject preview, float edgeStrength, float opacity)
     {
         Material mat = preview.GetComponentInChildren<Renderer>().sharedMaterial;
 
         mat.SetFloat("_edgeStrength", edgeStrength);
         mat.SetFloat("_opacity", opacity);
-    }*/
+    }
 }

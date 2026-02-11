@@ -8,10 +8,12 @@ using UnityEngine;
 /// When they are grounded again, if their velocity was over the threshold, and the y distance is lower than the threshold
 /// Deal damage based on the multiplication of height
 /// </summary>
-public class Pawn_FallDamage : MonoBehaviour
+public class Pawn_FallDamage : MonoBehaviour, ILoggable
 {
+    [field: SerializeField] public bool EnableRuntimeLogging { get; set; }
+    
     [Tooltip("The pawn must be moving downwards faster than this for the damage to count")]
-    [SerializeField] private float velocityThreshold = 5;
+    [SerializeField] private float velocityThreshold = 7;
     [Tooltip("The minimum height the pawn must fall before receiving damage")]
     [SerializeField] private float fallDistanceThreshold = 16;
     [Tooltip("How much damage to apply")]
@@ -27,6 +29,10 @@ public class Pawn_FallDamage : MonoBehaviour
     [SerializeField] private float startingGroundHeight;
     [Tooltip("The Y position the pawn is at now that they've touch ground again")]
     [SerializeField] private float endingGroundHeight;
+    [Tooltip("This is the highest the player was during the fall and is the value we compare against to get fall distance")]
+    [SerializeField] private float peakFallingHeight;
+    
+    private float PlayerFallingHeight => linkedPawn.transform.position.y;
 
     private FPPawn linkedPawn;
 
@@ -36,7 +42,7 @@ public class Pawn_FallDamage : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         isPawnGrounded = IsOnGround(linkedPawn);
 
@@ -44,6 +50,16 @@ public class Pawn_FallDamage : MonoBehaviour
         if (!isPawnGrounded && !pawnIsFalling)
         {
             StartFallingEvent();
+        }
+        // While pawn is falling
+        else if (!isPawnGrounded && pawnIsFalling)
+        {
+            
+            // Get our current falling peak
+            if (peakFallingHeight < PlayerFallingHeight) peakFallingHeight = PlayerFallingHeight;
+            
+            // If our y velocity changes to positive, implying we started moving upwards, reset our falling peak
+            if (linkedPawn.physicsbody.velocity.y > 0) peakFallingHeight = PlayerFallingHeight;
         }
         // Pawn has hit the ground, calculate fall damage!
         else if (isPawnGrounded && pawnIsFalling)
@@ -62,20 +78,23 @@ public class Pawn_FallDamage : MonoBehaviour
     {
         pawnIsFalling = false;
         endingGroundHeight = linkedPawn.transform.position.y;
+        DebugConsole.Log(this, $"Fall velocity: {linkedPawn.physicsbody.velocity.y} | Threshold: {-velocityThreshold}");
+        DebugConsole.Log(this, $"Fall distance: {peakFallingHeight - endingGroundHeight} | Threshold: {fallDistanceThreshold}");
 
         // Pawn wasn't moving fast enough for fall damage
-        if (linkedPawn.physicsbody.velocity.y > velocityThreshold)
+        if (linkedPawn.physicsbody.velocity.y > -velocityThreshold)
         {
             return;
         }
         
         // Pawn didn't fall far enough for fall damage
-        if (Mathf.Abs(startingGroundHeight - endingGroundHeight) < fallDistanceThreshold)
+        if (peakFallingHeight - endingGroundHeight < fallDistanceThreshold)
         {
             return;
         }
 
         var totalFallDistanceMultiplier = Mathf.Abs(startingGroundHeight - endingGroundHeight) / fallDistanceThreshold;
+        DebugConsole.Log(this, $"Damage Calculated: {-damageAmount*(totalFallDistanceMultiplier*damageDistanceMultiplier)}");
         
         linkedPawn.ModifyHealth(-damageAmount*(totalFallDistanceMultiplier*damageDistanceMultiplier));
     }
@@ -87,4 +106,5 @@ public class Pawn_FallDamage : MonoBehaviour
         
         return Physics.CheckSphere(_pawn.transform.position - ((FPPawnStats)_pawn.currentStats).groundCheckOffset + crouchingOffset, ((FPPawnStats)_pawn.currentStats).groundCheckRadius, ((FPPawnStats)_pawn.currentStats).groundMask, QueryTriggerInteraction.Ignore);
     }
+
 }
