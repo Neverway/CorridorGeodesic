@@ -207,6 +207,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/GeometryHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/KeepAsUnselectable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Prop_Respawner.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics_DecayingParticles.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ModifierSystem/BasicModifiers.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/AdjacencyFilters.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapBrush.cs" />
@@ -318,6 +319,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolumeTriggerType.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/Vertex Weld Ops/VertexWeldToleranceOperation.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Decomposition/BayazitDecomposer.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Opt_Lifetime.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/EnumHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/Vox_CullableActor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolume.cs" />

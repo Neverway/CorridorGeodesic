@@ -319,7 +319,7 @@ public class GI_RiftManager : MonoBehaviour
     private IEnumerator CoCreateRift()
     {
         SetRiftPlanesHidden(false);
-        StartCoroutine(riftPreviewEffects.OnRiftCreated(this));
+        //StartCoroutine(riftPreviewEffects.OnRiftCreated(this));
         UpdateState (RiftState.Preview);
         
         // Operations for rift creation

@@ -184,7 +184,6 @@ public class RiftState_Collapsing : N_RiftState
 
     public override void OnUpdate()
     {
-        Debug.Log(_RiftManager.currentRiftMoveSpeed);
         _RiftManager.MoveRiftByDistance (-_RiftManager.currentRiftMoveSpeed * Time.deltaTime);
         //_RiftManager.AccelerateRift ();
     }
