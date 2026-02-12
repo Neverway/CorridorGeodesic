@@ -8,6 +8,7 @@
 //====================================================================================================================//
 
 using System;
+using System.Collections;
 using ErryLib.MonoTasks;
 using RivenFramework;
 using UnityEngine;
@@ -279,5 +280,55 @@ public class RiftState_ExpandingFromCrush : N_RiftState
     {
         // Expand the rift
         _RiftManager.MoveRiftByDistance (_RiftManager.maxRiftSpeed * Time.deltaTime);
+    }
+}
+
+/// <summary>
+/// The rift is being destroyed and will smoothly return back to no distortion
+/// </summary>
+public class RiftState_DestroyRestoring : N_RiftState
+{
+    public override void OnStateEnter()
+    {
+    }
+
+    public override void OnUpdate()
+    {
+        if (RiftManager.currentRiftPercent < 1) handler.riftManager.MoveRiftByDistance(((handler.riftManager.maxRiftSpeed*2) * Time.deltaTime));
+        else if (RiftManager.currentRiftPercent > 1) handler.riftManager.MoveRiftByDistance((-(handler.riftManager.maxRiftSpeed*2) * Time.deltaTime));
+
+        if (RiftManager.currentRiftPercent < 1.2 && RiftManager.currentRiftPercent > 0.8f)
+        {
+            handler.riftManager.stateHandler.SetState<RiftState_Destroy>();
+        }
+    }
+
+    public override void OnStateExit()
+    {
+    }
+}
+
+/// <summary>
+/// The rift has finished returning to it's 1 point and will now self destruct
+/// </summary>
+public class RiftState_Destroy : N_RiftState
+{
+    public override void OnStateEnter()
+    {
+        handler.riftManager.SetRiftPercentage(1);
+        handler.riftManager.geometryHandler.SetRiftPlanesVisible(false);
+        handler.riftManager.geometryHandler.RestoreCutGeometry();
+        handler.riftManager.spaceController.RemoveObjectsFromSpaceContainers();
+        handler.riftManager.actorHandler.RestoreActors();
+        handler.riftManager.currentRiftMoveSpeed = handler.riftManager.minRiftSpeed;
+        handler.riftManager.stateHandler.SetState<RiftState_None>();
+    }
+
+    public override void OnUpdate()
+    {
+    }
+
+    public override void OnStateExit()
+    {
     }
 }

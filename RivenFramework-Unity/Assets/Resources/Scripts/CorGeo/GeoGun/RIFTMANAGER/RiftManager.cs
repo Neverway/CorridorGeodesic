@@ -7,6 +7,9 @@
 //
 //====================================================================================================================//
 
+using System.Collections;
+using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -124,8 +127,15 @@ public class RiftManager : MonoBehaviour, ILoggable
         }
 
         // Handle rift inputs
-        UpdateState();
+        // Don't try to switch states if the rift is being destroyed
+        // This is very likely gonna cause a code fire, but that's a problem for future me >:P ~Liz 
         stateHandler.Update();
+        if (stateHandler.currentState.GetType() == typeof(RiftState_DestroyRestoring) ||
+            stateHandler.currentState.GetType() == typeof(RiftState_Destroy))
+        {
+            return;
+        }
+        UpdateState();
     }
 
 
@@ -175,22 +185,20 @@ public class RiftManager : MonoBehaviour, ILoggable
     {
         riftActive = false;
         this.Log("DestroyRift called");
-        stateHandler.SetState<RiftState_None>();
-        geometryHandler.SetRiftPlanesVisible(false);
-        SetRiftPercentage(1);
-        geometryHandler.RestoreCutGeometry();
-        spaceController.RemoveObjectsFromSpaceContainers();
-        actorHandler.RestoreActors();
-        currentRiftMoveSpeed = minRiftSpeed;
+        if (stateHandler.currentState.GetType() != typeof(RiftState_DestroyRestoring) && stateHandler.currentState.GetType() != typeof(RiftState_Destroy))
+        {
+            stateHandler.SetState<RiftState_DestroyRestoring>();
+        }
     }
 
     /// <summary>
     /// This ensures a rift does not persist across scene changes, since currently the space containers and other
     /// references are not persistent and get destroyed when changing levels
+    /// Liz: This doesn't need to handle destroying markers since the geogun will get recreated on level restart
     /// </summary>
     private void OnSceneChanged(Scene current, Scene next)
     {
-        DestroyRift();
+        stateHandler.SetState<RiftState_Destroy>();
     }
     
 
@@ -224,6 +232,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         {
             Destroy(markerB.gameObject);
         }
+        stateHandler.SetState<RiftState_Destroy>();
     }
 
     /// <summary>
@@ -274,20 +283,24 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// <summary>
     /// Force set the exact percentage of rift collapse
     /// </summary>
+    /// <param name="_distance">0 = closed rift, 1 = starting percentage, 2 = double expansion, -1 = mirrored rift</param>
     public void SetRiftPercentage(float _distance)
     {
         this.Log($"SetRiftPercentage called (_distance: '{_distance}')");
         
         // If the collapse behaviour of the rift controller is set to default, handle full-collapsing and uncollapsing of null-space
-        if (linkedRiftController.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default)
+        if (linkedRiftController)
         {
-            if (_distance <= 0)
+            if (linkedRiftController.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default)
             {
-                stateHandler.SetState<RiftState_Closed>();
-            }
-            if (currentRiftPercent == 0 && _distance > 0)
-            {
-                stateHandler.SetState<RiftState_Opened>();
+                if (_distance <= 0)
+                {
+                    stateHandler.SetState<RiftState_Closed>();
+                }
+                if (currentRiftPercent == 0 && _distance > 0)
+                {
+                    stateHandler.SetState<RiftState_Opened>();
+                }
             }
         }
         
