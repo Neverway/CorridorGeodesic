@@ -9,6 +9,7 @@
 
 using System.Collections;
 using DG.Tweening;
+using RivenFramework;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -112,7 +113,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         SceneManager.activeSceneChanged += OnSceneChanged;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Create rift when markers pinned
         if (createRiftOnMarkersPinned && IsMarkersPinned() && stateHandler.IsState<RiftState_None>())
@@ -183,6 +184,8 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// </summary>
     private void DestroyRift()
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this);
+        
         riftActive = false;
         this.Log("DestroyRift called");
         if (stateHandler.currentState.GetType() != typeof(RiftState_DestroyRestoring) && stateHandler.currentState.GetType() != typeof(RiftState_Destroy))
@@ -208,6 +211,8 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// </summary>
     public async void CreateRift(Transform _markerA, Transform _markerB)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _markerA, _markerB });
+        
         this.Log($"CreateRift called (_markerA: '{_markerA}', _markerB: '{_markerB}')");
         stateHandler.SetState<RiftState_Preview>();
         geometryHandler.SetRiftPlanesVisible(true);
@@ -240,6 +245,8 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// </summary>
     public void MoveRiftByDistance(float _distance)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _distance });
+        
         this.Log($"MoveRiftByDistance called (_distance: '{_distance}')");
         
         AccelerateRift();

@@ -91,6 +91,7 @@
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/OnGameStartAttribute.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapWorldConverter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/CurvedStairBrush.cs" />
+     <Compile Include="Assets/Resources/Scripts/ReplayEventSystem/GI_ReplayEventTimeline.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapVector2.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/IDeepCopyable.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfPlane.cs" />
@@ -680,6 +681,7 @@
      <Folder Include="Assets/AddressableAssetsData/AssetGroups" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Geometry" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Audio" />
+     <Folder Include="Assets/Resources/Scripts/ReplayEventSystem" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Input" />
      <Folder Include="Assets/RivenFramework-Revamp" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Vive" />
