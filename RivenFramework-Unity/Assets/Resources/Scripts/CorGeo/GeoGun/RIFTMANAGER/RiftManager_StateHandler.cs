@@ -137,7 +137,6 @@ public class RiftState_None : N_RiftState
 /// <summary>
 /// The rift is being created
 /// </summary>
-[Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
 public class RiftState_Preview : N_RiftState
 {
     public override void OnStateEnter()
@@ -156,7 +155,6 @@ public class RiftState_Preview : N_RiftState
 /// <summary>
 /// The rift is not moving
 /// </summary>
-[Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
 public class RiftState_Idle : N_RiftState
 {
     public override void OnStateEnter()
@@ -176,7 +174,6 @@ public class RiftState_Idle : N_RiftState
 /// <summary>
 /// The rift is collapsing inwards
 /// </summary>
-[Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
 public class RiftState_Collapsing : N_RiftState
 {
     public override void OnStateEnter()
@@ -197,7 +194,6 @@ public class RiftState_Collapsing : N_RiftState
 /// <summary>
 /// The rift is expanding outwards
 /// </summary>
-[Todo("Not implemented", severity:TodoSeverity.Critical, Owner = "Liz-RiftManagerRevamp")]
 public class RiftState_Expanding : N_RiftState
 {
     public override void OnStateEnter()
@@ -206,7 +202,6 @@ public class RiftState_Expanding : N_RiftState
 
     public override void OnUpdate()
     {
-        Debug.Log(_RiftManager.currentRiftMoveSpeed);
         _RiftManager.MoveRiftByDistance (_RiftManager.currentRiftMoveSpeed * Time.deltaTime);
     }
 

@@ -144,11 +144,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 32800741723492415, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 29327163
-      objectReference: {fileID: 0}
     - target: {fileID: 2388545363728601757, guid: 9ed3a4da35b3ca57e9b7424f51915e87,
         type: 3}
       propertyPath: m_Name
@@ -766,12 +761,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa68c1443a148e6784a928093aba35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <EnableRuntimeLogging>k__BackingField: 0
   velocityThreshold: 10
   fallDistanceThreshold: 12
   damageAmount: 50
   damageDistanceMultiplier: 1.5
   startingGroundHeight: 0
   endingGroundHeight: 0
+  peakFallingHeight: 0
 --- !u!114 &7815155221520509747 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3001261832045667083, guid: 9ed3a4da35b3ca57e9b7424f51915e87,

@@ -243,11 +243,15 @@ public class RiftManager_SpaceController : ILoggable
                 actor.DetermineRiftSpace ();
                 if (actor.riftSpace == RiftSpace.NULLSpace)
                 {
-                    actor.transform.position = riftManager.actorHandler.MoveActorPositionWithNullSpace (actor.transform.position, _newPercent);
+                    var newPosition = riftManager.actorHandler.MoveActorPositionWithNullSpace (actor.transform.position, _newPercent);
+                    Debug.Log($"Attempting to move actor {actor.name} in NULLSpace from {actor.transform.position} to {newPosition} via a delta of {_newPercent}");
+                    actor.transform.position = newPosition;
                 }
-                if (actor.riftSpace == RiftSpace.B)
+                else if (actor.riftSpace == RiftSpace.B)
                 {
-                    actor.transform.position = riftManager.actorHandler.MoveActorPositionWithBSpace (actor.transform.position, _newPercent);
+                    var newPosition = riftManager.actorHandler.MoveActorPositionWithBSpace (actor.transform.position, _newPercent);
+                    Debug.Log($"Attempting to move actor {actor.name} in BSpace from {actor.transform.position} to {newPosition} via a delta of {_newPercent}");
+                    actor.transform.position = newPosition;
                 }
             }
         }
