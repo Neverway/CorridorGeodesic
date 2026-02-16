@@ -238,7 +238,11 @@ public class RiftManager : MonoBehaviour, ILoggable
         // Keep from expanding if allowExpandingRift is false
         if (!linkedRiftController.allowExpandingRift && currentRiftWidth + _distance > riftStartingWidth)
         {
-            _distance = 0;
+            _distance = riftStartingWidth - currentRiftWidth;
+            if (_distance == 0)
+            {
+                return;
+            }
         }
 
         if (linkedRiftController.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default)
