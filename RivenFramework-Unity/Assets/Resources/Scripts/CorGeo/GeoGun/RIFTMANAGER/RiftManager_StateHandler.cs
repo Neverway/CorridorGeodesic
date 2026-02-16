@@ -205,7 +205,6 @@ public class RiftState_Expanding : N_RiftState
 
     public override void OnUpdate()
     {
-        Debug.Log(_RiftManager.currentRiftMoveSpeed);
         _RiftManager.MoveRiftByDistance (_RiftManager.currentRiftMoveSpeed * Time.deltaTime);
     }
 
