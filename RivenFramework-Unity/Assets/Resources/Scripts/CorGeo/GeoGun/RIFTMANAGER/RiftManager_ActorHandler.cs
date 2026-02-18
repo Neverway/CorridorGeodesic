@@ -82,9 +82,15 @@ public class RiftManager_ActorHandler : ILoggable
             DebugConsole.Log(this, "EARLY EXIT - Null-space is near collapse");    
             return _actorPosition;
         }
-        
+
         // Calculate the actor position percentage across null-space (0 = actor on A-Plane, 1 = actor on B-Plane)
-        float actorDistancePercentAcrossNullSpace = distanceFromPlaneA / RiftManager.currentRiftWidth;
+        float actorDistancePercentAcrossNullSpace = 0;
+        if (RiftManager.currentRiftWidth != 0)
+        {
+            //I'm avoiding doing this calculation if currentRiftWidth = 0.
+            //This avoids errors where the value was Infinity or something.
+            actorDistancePercentAcrossNullSpace = distanceFromPlaneA / RiftManager.currentRiftWidth;
+        }
         
 
         if (_newRiftPercent == 0)
