@@ -729,9 +729,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlapPointTop: 1.56
-  overlapPointBottom: -0.55
+  overlapPointBottom: -0.65
   bottomCrouchOffset: 0.45
-  overlapRadius: 0.38
+  overlapRadius: 0.34
   layerMask:
     serializedVersion: 2
     m_Bits: 155777
