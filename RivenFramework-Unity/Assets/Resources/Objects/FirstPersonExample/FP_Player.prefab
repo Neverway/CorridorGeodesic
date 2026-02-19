@@ -657,7 +657,7 @@ MonoBehaviour:
     slopeCheckDistance: 0.3
     groundMask:
       serializedVersion: 2
-      m_Bits: 26497
+      m_Bits: 157569
     groundCheckRadius: 0.25
     groundCheckOffset: {x: 0, y: 0, z: 0}
     jumpForce: 2600
@@ -734,7 +734,7 @@ MonoBehaviour:
   overlapRadius: 0.38
   layerMask:
     serializedVersion: 2
-    m_Bits: 24705
+    m_Bits: 155777
   crushDamageAmount: 20
 --- !u!114 &3301829909880019359
 MonoBehaviour:
