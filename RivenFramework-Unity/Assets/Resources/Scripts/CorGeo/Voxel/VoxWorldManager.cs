@@ -108,7 +108,7 @@ public class VoxWorldManager : MonoBehaviour
         if (chunksParent == null)
         {
             chunksParent = new GameObject("VoxelChunks");
-            chunksParent.transform.SetParent(transform);
+            chunksParent.transform.SetParent(null);
         }
 
         if (useProgressiveChunkGeneration)
