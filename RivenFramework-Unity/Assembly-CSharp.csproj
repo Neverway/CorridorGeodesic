@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/DrawUtility.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Input/KeyMappings.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_Elevator.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume/PhysicsVolume.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/TransformData.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreToolbarOverlay.cs" />
