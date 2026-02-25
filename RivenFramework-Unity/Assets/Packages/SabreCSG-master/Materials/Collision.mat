@@ -27,7 +27,11 @@ Material:
     m_Floats:
     - _FaceToggle: 1
     - _GridAlpha: 0.3
+<<<<<<< HEAD
     - _GridSize: 2
+=======
+    - _GridSize: 1
+>>>>>>> ErryDev_MakinLevels2
     - _GridToggle: 1
     m_Colors:
     - _Color: {r: 0.39215687, g: 1, b: 0.39215687, a: 0.50980395}

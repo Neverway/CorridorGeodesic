@@ -27,7 +27,11 @@ Material:
     m_Floats:
     - _FaceToggle: 1
     - _GridAlpha: 0.1
+<<<<<<< HEAD
     - _GridSize: 2
+=======
+    - _GridSize: 1
+>>>>>>> ErryDev_MakinLevels2
     - _GridStrength: 0.3
     - _GridThickness: 0.03
     - _GridToggle: 1
