@@ -75,9 +75,9 @@ public class RiftManager_ActorHandler : ILoggable
     {
         // Calculate how far across null-space the transform is.
         float distanceFromPlaneA = RiftManager.cutPlaneA.GetDistanceToPoint(_actorPosition);
-
+        
         // Exit if the rift is near collapse
-        if (distanceFromPlaneA == 0)
+        if (distanceFromPlaneA == 0 || RiftManager.currentRiftWidth == 0)
         {
             DebugConsole.Log(this, "EARLY EXIT - Null-space is near collapse");    
             return _actorPosition;
@@ -90,6 +90,14 @@ public class RiftManager_ActorHandler : ILoggable
             //I'm avoiding doing this calculation if currentRiftWidth = 0.
             //This avoids errors where the value was Infinity or something.
             actorDistancePercentAcrossNullSpace = distanceFromPlaneA / RiftManager.currentRiftWidth;
+        }
+        
+
+        if (_newRiftPercent == 0)
+        {
+            Debug.LogError("HEYA WE ARE DIVIDING BY ZERO!! Expect player vaporization!!");
+            Debug.LogError($"ADPANS {distanceFromPlaneA} / {RiftManager.currentRiftWidth} = ??");
+            Debug.LogError($"NRW {RiftManager.riftStartingWidth} * {_newRiftPercent} = ??");
         }
         
         // Calculate the new distance from A-Plane based on current rift scale

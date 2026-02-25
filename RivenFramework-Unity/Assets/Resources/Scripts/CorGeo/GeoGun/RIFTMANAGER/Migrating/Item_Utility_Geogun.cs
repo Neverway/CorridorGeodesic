@@ -35,6 +35,8 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     [Header("Projectile Checks")]
     [Tooltip("The materials that markers can be placed on")]
     public List<Material> validPlacementMaterials;
+    [Tooltip("The materials that markers can bounce off of")]
+    public List<Material> validReboundMaterials;
     [Tooltip("The layermask for firing projectiles")]
     public LayerMask layerMask;
     [Tooltip("How fast marker projectiles travel when fired")]
@@ -343,7 +345,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     /// Used by the projectile markers to see if they are pointed at an object they can pin to
     /// </summary>
     /// <returns>Returns true if the gun is pointed at a target it's allowed to shoot</returns>
-    public bool GetIsValidTarget(RaycastHit _hit)
+    public bool GetIsValidTarget(RaycastHit _hit, bool checkIsReboundMaterial = false)
     {
         if (!_hit.collider)
         {
@@ -394,8 +396,10 @@ public class Item_Utility_Geogun : RiftController, ILoggable
             var hitMaterial = rend.sharedMaterials[subMeshIndex];
             DebugConsole.Log(this, $"Hit material: {hitMaterial?.name}");
             DebugConsole.Log(this, $"Valid materials: {string.Join(", ", validPlacementMaterials.Select(m => m?.name))}");
-        
-            bool contains = validPlacementMaterials.Contains(hitMaterial);
+
+            bool contains = false;
+            if (!checkIsReboundMaterial) contains = validPlacementMaterials.Contains(hitMaterial);
+            else contains = validReboundMaterials.Contains(hitMaterial);
             DebugConsole.Log(this, $"Material is valid: {contains}");
         }
 
@@ -404,8 +408,10 @@ public class Item_Utility_Geogun : RiftController, ILoggable
             DebugConsole.Log(this, "fail 4");
             return false;
         }
-    
-        var finalResult = subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
+
+        var finalResult = false;
+        if (!checkIsReboundMaterial) finalResult = subMeshIndex == -1 || validPlacementMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
+        else  finalResult = subMeshIndex == -1 || validReboundMaterials.Contains(rend.sharedMaterials[subMeshIndex]);
         DebugConsole.Log(this, $"Final result: {finalResult}");
         return finalResult;
     }

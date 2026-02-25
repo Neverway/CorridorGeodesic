@@ -79,7 +79,7 @@ public class VoxContainer : MonoBehaviour
         ConfigureComponents();
         
         // Assign the voxel grid to the voxel layer so it doesn't get in the way of players, phys props, etc.
-        int voxelLayer = LayerMask.NameToLayer("VoxelGrid");
+        int voxelLayer = LayerMask.NameToLayer("Voxel Grid");
         gameObject.layer = voxelLayer;
         
         containerData = new Dictionary<Vector3, Voxel>();

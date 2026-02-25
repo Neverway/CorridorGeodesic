@@ -28,6 +28,8 @@ GameObject:
   - component: {fileID: 5663611723246624689}
   - component: {fileID: 6889150239010922709}
   - component: {fileID: 801976210690049862}
+  - component: {fileID: 7362436762694209870}
+  - component: {fileID: 6086604189803334263}
   m_Layer: 0
   m_Name: GameInstance
   m_TagString: Untagged
@@ -1022,9 +1024,9 @@ MonoBehaviour:
   createRiftOnMarkersPinned: 1
   maxRiftWidth: 30
   minRiftWidth: -30
-  minRiftSpeed: 2
+  minRiftSpeed: 3
   maxRiftSpeed: 12
-  riftAcceleration: 5
+  riftAcceleration: 7
   visualPlanePrefab: {fileID: 3569801623043244855, guid: 83ab4b7787c4221b2b87b065899cbea3,
     type: 3}
   nullSpaceMaterial: {fileID: 2100000, guid: eb2aa8e528376ea4bad7b7dd63732b8f, type: 2}
@@ -1069,3 +1071,31 @@ MonoBehaviour:
   debugItems:
   - {fileID: 4920999846726539026, guid: 49c8ce2a1b2740a428c35ff3aeb35d25, type: 3}
   - {fileID: 4920999846726539026, guid: 57da26f1dca1fe798bc706d37a374288, type: 3}
+--- !u!114 &7362436762694209870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186cd465ba0860cc59e75af80f3c9488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRecording: 0
+  isPlaying: 0
+  recordStartTime: 0
+  replayEvents: []
+--- !u!114 &6086604189803334263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a2706ad00936cd4b9ba52804fc8038a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

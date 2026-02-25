@@ -52,6 +52,8 @@ public class FPPawnActions : PawnActions
     /// <param name="_speed">The speed to move the pawn at (set this to 0 to just use the stats movement speed)</param>
     public void Move(FPPawn _pawn, Vector3 _direction, float _speed=0)
     {
+        //if (GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn, _direction, _speed })) return;
+        
         if (_speed == 0)
         {
             _speed = ((FPPawnStats)_pawn.currentStats).movementSpeed;
@@ -180,6 +182,8 @@ public class FPPawnActions : PawnActions
     /// <param name="_direction">The direction to rotate in (x-axis is left/right, y-axis is up/down)</param>
     public void FaceTowardsDirection(FPPawn _pawn, Transform _viewPoint, Vector2 _direction)
     {
+        //if(GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn,  _viewPoint, _direction })) return;
+        
         _viewPoint.localRotation = Quaternion.Euler(_direction.x, 0, 0); // Rotate the head for up/down
         _pawn.transform.rotation = Quaternion.Euler(0, _direction.y, 0); // Rotate the body for left/right
     }
@@ -193,6 +197,8 @@ public class FPPawnActions : PawnActions
     /// <param name="_speed"></param>
     public void FaceTowardsPosition(FPPawn _pawn, Transform _viewPoint, Vector3 _position, float _speed)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn, _viewPoint, _position, _speed });
+        
         var vectorToTarget = _pawn.transform.position - _position;
 
         // Rotate the body for left/right
@@ -212,6 +218,8 @@ public class FPPawnActions : PawnActions
     /// <param name="_rigidbody"></param>
     public void Jump(FPPawn _pawn)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn });
+        
         if (IsOnGround(_pawn) is false) return;
         var rigidbody = _pawn.GetComponent<Rigidbody>();
         rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
@@ -225,6 +233,8 @@ public class FPPawnActions : PawnActions
     /// <param name="_enable"></param>
     public void Crouch(FPPawn _pawn, bool _enable)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn, _enable });
+        
         if (_enable && isCrouching is false)
         {
             var collider = _pawn.GetComponent<CapsuleCollider>();
@@ -247,6 +257,8 @@ public class FPPawnActions : PawnActions
     /// </summary>
     public void Interact(FPPawn _pawn, GameObject _interactionTrigger, Transform _viewPoint)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn,  _interactionTrigger, _viewPoint });
+        
         var interaction = Object.Instantiate(_interactionTrigger, _viewPoint);
         interaction.transform.GetChild(0).GetComponent<VolumeTriggerInteraction>().owningPawn = _pawn;
         Object.Destroy(interaction,  0.2f);
@@ -258,6 +270,8 @@ public class FPPawnActions : PawnActions
     /// <param name="_action"></param>
     public void ItemUseAction(Pawn_Inventory _inventory, int _action = 0, string _mode = "press")
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _inventory, _action, _mode });
+        
         var item = _inventory.GetComponentInChildren<Item>(false);
         if (item is null) return;
 
@@ -375,6 +389,8 @@ public class FPPawnActions : PawnActions
     
     public void ThrowPhysProp(FPPawn _pawn)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn });
+        
         var attachedObject = _pawn.physObjectAttachmentPoint.attachedObject;
         
         attachedObject.GetComponent<Rigidbody>().AddForce((viewCamera.transform.forward * ((FPPawnStats)_pawn.currentStats).throwForce));
@@ -386,6 +402,8 @@ public class FPPawnActions : PawnActions
 
     public void DropPhysProp(FPPawn _pawn)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn });
+        
         var attachedObject = _pawn.physObjectAttachmentPoint.attachedObject;
         var physPickup = attachedObject.GetComponent<Object_PhysPickup>();
         if (physPickup) physPickup.Drop();
@@ -429,6 +447,8 @@ public class FPPawnActions : PawnActions
     
     public void ItemSwapNext(FPPawn _pawn)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn });
+        
         var inventory = _pawn.GetComponentInChildren<Pawn_Inventory>();
         if (inventory is null) return;
         inventory.SwitchNext();
@@ -436,6 +456,8 @@ public class FPPawnActions : PawnActions
 
     public void ItemSwapPrevious(FPPawn _pawn)
     {
+        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn });
+        
         var inventory = _pawn.GetComponentInChildren<Pawn_Inventory>();
         if (inventory is null) return;
         inventory.SwitchPreviouse();

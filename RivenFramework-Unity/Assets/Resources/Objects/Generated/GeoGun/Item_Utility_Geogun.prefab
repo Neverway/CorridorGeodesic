@@ -895,9 +895,11 @@ MonoBehaviour:
   validPlacementMaterials:
   - {fileID: 2100000, guid: 11a948daddd4e2f48aa2c67a57b71772, type: 2}
   - {fileID: 2100000, guid: 98548d90f81df01dbae4c203ffb8f8a1, type: 2}
+  validReboundMaterials:
+  - {fileID: 2100000, guid: f71faa4ee960f57bcbd30db7513e0de0, type: 2}
   layerMask:
     serializedVersion: 2
-    m_Bits: 16513
+    m_Bits: 90241
   projectileMarkerSpeed: 50
   isLinkedToManager: 0
   spawnedProjectiles: []
@@ -908,6 +910,7 @@ MonoBehaviour:
   animator2: {fileID: 8646921104399528452}
   previewPlanePrefab: {fileID: 3569801623043244855, guid: 61a9fdcdc9cce68f5a08bb261ec665d5,
     type: 3}
+  previewPlanes: []
 --- !u!1001 &7884057557956848956
 PrefabInstance:
   m_ObjectHideFlags: 0
