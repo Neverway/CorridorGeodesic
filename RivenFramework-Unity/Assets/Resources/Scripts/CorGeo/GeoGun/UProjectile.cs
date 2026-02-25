@@ -121,6 +121,7 @@ public class UProjectile : MonoBehaviour
     /// <param name="_distance"></param>
     public void InitializeProjectile (float _moveSpeed, Vector3 _graphicsPosition, float _distance = 0)
     {
+        disableMovement = false;
         this.moveSpeed = _moveSpeed;
         moveDirection = transform.forward.normalized;
         if (projectileGraphics is null) { return; }

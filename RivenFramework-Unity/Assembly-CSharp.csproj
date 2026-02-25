@@ -138,6 +138,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/CSGFactory.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/Voxel.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Polygon.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Pawn_LookAt.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SplashScreenPlayer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/IPostBuildListener.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
@@ -147,6 +148,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_TrackCartSpeed.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Extensions.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers/GameObject_Flicker.cs" />
+     <Compile Include="Assets/SimpleLightProbePlacer/Scripts/LightProbeGroupControl.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/TestComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/GroupBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/PlaneIntersectionUtil.cs" />
@@ -204,6 +206,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ComicFilter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/ExpandPropertiesAttribute.cs.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/ReloadAttribute.cs" />
+     <Compile Include="Assets/SimpleLightProbePlacer/Scripts/LightProbeVolume.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/AudioVolume/VolumetricAudioVolumeComponent.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreCSGPreferences.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/OldRiftGun.cs" />
@@ -216,6 +219,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/EditorHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Input/EditorKeyMappings.cs" />
+     <Compile Include="Assets/SimpleLightProbePlacer/Scripts/Volume.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/NotUsed/VoxComputeManager.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreCSGResources.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/WB_Textbox.cs" />
@@ -238,6 +242,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSGTool_MaterialPaint.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/GI_TextboxManager.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/FetchComponentAttribute.cs" />
+     <Compile Include="Assets/SimpleLightProbePlacer/Scripts/TransformVolume.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Volume2D_Force.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ColorQuantizationFilter.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleEPOOutline.cs" />
@@ -431,6 +436,7 @@
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/Widgets/Materials" />
      <None Include="Assets/Resources/Materials/Shaders/SX_SlicePreview.shader" />
+     <None Include="Assets/SimpleLightProbePlacer/README.txt" />
      <None Include="Assets/Resources/Materials/Shaders/PostProcessing/ComicFilter.shader" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Fur" />
      <Folder Include="Assets/Packages/Xelu_Prompts" />
@@ -444,6 +450,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Fur/Poiyomi Toon.shader" />
      <Folder Include="Assets/Resources/Widgets" />
+     <Folder Include="Assets/SimpleLightProbePlacer/Scenes" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Liz" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures" />
@@ -483,7 +490,6 @@
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Core" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Effects" />
-     <None Include="Assets/AddressableAssetsData/link.xml" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/LineDashed.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/System/Materials" />
@@ -591,6 +597,7 @@
      <Folder Include="Assets/Resources/Models/Materials/DynamiclyFiltered" />
      <Folder Include="Assets/_REMOVE_/Integratables" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Voxel/NotUsed" />
+     <Folder Include="Assets/SimpleLightProbePlacer/Scenes/Demo" />
      <Folder Include="Assets/TextMesh Pro/Resources" />
      <None Include="Assets/Resources/Materials/Shaders/ScreenCutoutShader.shader" />
      <Folder Include="Assets/Resources/Materials/Textures/RenderTextures" />
@@ -673,6 +680,7 @@
      <None Include="Assets/Resources/Materials/Shaders/SX_Triplanar.shader" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/Dirt" />
      <Folder Include="Assets/_REMOVE_" />
+     <Folder Include="Assets/SimpleLightProbePlacer/Scripts" />
      <None Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/update.txt" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface.shader" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Graphics" />
@@ -746,6 +754,7 @@
      <Folder Include="Assets/Resources/Sprites/Characters/Portraits" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Decomposition" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets" />
+     <Folder Include="Assets/SimpleLightProbePlacer" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Splatters" />
      <Folder Include="Assets/Packages/Xelu_Prompts/PS5" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/LocalizationFiles/Framework_Menus" />
