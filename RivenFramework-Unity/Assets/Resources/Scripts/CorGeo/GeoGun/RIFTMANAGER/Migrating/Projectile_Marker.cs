@@ -34,6 +34,7 @@ public class Projectile_Marker : UProjectile
     public bool allowMarkerPlacementAnywhere;
     
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+    private float storedSpeed;
 
     
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -63,13 +64,16 @@ public class Projectile_Marker : UProjectile
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     protected override void OnProjectileCollision(RaycastHit _hit)
     {
+        storedSpeed = moveSpeed;
         base.OnProjectileCollision(_hit);
-
+        
         // Check if the projectile hit a BulbCollisionBehaviour (like a socket)
         if (GetHitBulbCollisionBehaviour(_hit)) return;
 
         // Test for pinning to mesh colliders via their material
         if (GetHitConductiveMaterial(_hit)) return;
+        
+        if (GetHitReboundMaterial(_hit)) return;
         
         // We hit something, but it wasn't pinnable, so let's just break
         MarkerBreak();
@@ -150,6 +154,37 @@ public class Projectile_Marker : UProjectile
                 return true;
             }
         //}
+        return false;
+    }
+
+    private bool GetHitReboundMaterial(RaycastHit _hit)
+    {
+        // If the collider isn't a mesh, we can't get material data from it, so we assume the bulb cannot attach
+        if (_hit.collider is not MeshCollider)
+        {
+            return false;
+        }
+
+        if (geogun.GetIsValidTarget(_hit, true))
+        {
+            StopProjectile();
+            var v = transform.forward.normalized;
+            var n = -_hit.normal;
+            Debug.DrawRay(transform.position, v, Color.red, 25);
+            Debug.DrawRay(_hit.point, n, Color.blue, 25);
+            var bounceTrajectory = Vector3.Reflect(v, n);
+            Debug.DrawRay(_hit.point, bounceTrajectory, Color.magenta, 25);
+            
+            print($"Bouncy bounce! {storedSpeed}");
+            transform.rotation = Quaternion.LookRotation(bounceTrajectory);
+            
+            
+            Physics.Raycast(_hit.point, bounceTrajectory, out RaycastHit hitNew, 255, layerMask);
+            InitializeProjectile(storedSpeed, _hit.point, Vector3.Distance(_hit.point, hitNew.point));
+            return true;
+        }
+
+        
         return false;
     }
     
