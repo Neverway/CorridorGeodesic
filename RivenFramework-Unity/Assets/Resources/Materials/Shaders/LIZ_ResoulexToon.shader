@@ -3,6 +3,10 @@ Shader "Neverway/Resoulex Toon"
     // Properties Block (For defining variables)
     Properties
     {
+        [Header(Stencil Settings)][Space]
+        [Enum(UnityEngine.Rendering.CompareFunction)] _ZTest ("ZTest", Float) = 4
+        [Enum(UnityEngine.Rendering.StencilOp)] _ZWrite ("ZWrite", Float) = 1
+        
         [Header(Material Settings)][Space]
         [Enum(UnityEngine.Rendering.CullMode)] _CullMode ("Cull Mode", Float) = 2
         [KeywordEnum(TruePBR, StylizedPBR)] _SpecularMode ("Specular Mode", Float) = 0
@@ -40,9 +44,12 @@ Shader "Neverway/Resoulex Toon"
     
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Opaque"}
         LOD 200
         Cull [_CullMode]
+        ZTest [_ZTest]
+        ZWrite [_ZWrite]
+        
         CGPROGRAM
 
         // Includes (Imported libraries & Shader type settings)
