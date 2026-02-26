@@ -689,6 +689,7 @@
      <Folder Include="Assets/Resources/Sound" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Models/Materials/DevCharacter" />
      <Folder Include="Assets/Packages/Samples" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/ConnorsesWoodPost" />
      <None Include="Assets/RivenFramework-Revamp/Resources/LocalizationFiles/OLD/CorGeo_Menu_EN.json" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Metal" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroups" />
