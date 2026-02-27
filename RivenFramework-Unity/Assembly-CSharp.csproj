@@ -269,6 +269,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Pawn_Inventory.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ChangeMaterialProperty.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/PaintEditor.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_SocketOutlet.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/UVUtility.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Graphics_RiftPreviewEffects.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/IAttributeLoader.cs" />
@@ -319,6 +320,7 @@
      <Compile Include="Assets/Resources/Widgets/WB_DeathScreen.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Projectile.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/VertexColorWindow.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Object_PhysPlug.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbPowerSocket.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Shape.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfEntity.cs" />
