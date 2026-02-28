@@ -39,6 +39,9 @@ public class Dev_FizzlerAutoResizer : MonoBehaviour
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Update()
     {
+        //This is just so this object can be used as a handle position for the logic system
+        transform.position = fizzler.position;
+
         if (Application.isPlaying)
             return;
 

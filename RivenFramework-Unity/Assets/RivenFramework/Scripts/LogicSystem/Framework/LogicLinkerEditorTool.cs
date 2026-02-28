@@ -208,7 +208,7 @@ namespace Neverway.Framework.LogicSystem
             if (recursionInfiniteLoopProtection++ > 5000)
             {
                 Debug.LogError("You either got 5000 LogicComponents linked together and I stopped whatever madness you were trying to do, " +
-                    "or you have an infinite loop somewhere in your LogicComponents. (Or I possibly programmed this wrong)");
+                    "or you have an infinite loop somewhere in your LogicComponents.");
                 return true;
             }    
 

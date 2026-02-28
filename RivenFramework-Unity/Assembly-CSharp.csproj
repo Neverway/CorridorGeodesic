@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\Utilities\DrawUtility.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Input\KeyMappings.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\CorGeo_SliceableTriggerController.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\Volumes\PhysicsVolume\PhysicsVolume.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Extensions\TransformData.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreToolbarOverlay.cs" />
@@ -176,7 +177,6 @@
     <Compile Include="Assets\Resources\Scripts\ErryLib\ExtensionMethods\ExtentionMethods_VisualElement.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\BulbSockets\BulbOutletStrip.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\GridManager.cs" />
-    <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\Logic_Fizzler.cs" />
     <Compile Include="Assets\Resources\Scripts\ErryLib\ExtensionMethods\EnumerableExtensions.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreGUIHelper.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSG\Edge.cs" />
@@ -252,6 +252,7 @@
     <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\FetchComponentAttribute.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\_Depreciated\Volume2D_Force.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Graphics_ColorQuantizationFilter.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\CorGeo_SlicedTriggerPart.cs" />
     <Compile Include="Assets\Packages\DOTween\Modules\DOTweenModuleEPOOutline.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Experimental\VisualFramerateLimiter.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\CorGeo_Actor.cs" />
@@ -373,6 +374,7 @@
     <Compile Include="Assets\Resources\Scripts\CorGeo\WidgetSystem\WidgetSelectable_TMPText.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\Lasers\Laser_Raycast.cs" />
     <Compile Include="Assets\Resources\Scripts\ErryLib\ReflectionUtils\InvokeOnReflectionCacheLoadAttribute.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\CorGeo_Fizzler.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\RIFTMANAGER\RiftManager_StateHandler.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Geometry\MeshHelper.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSG\VertexList.cs" />

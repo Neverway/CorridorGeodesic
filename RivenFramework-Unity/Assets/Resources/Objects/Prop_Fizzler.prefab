@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3629795816109616287}
   - component: {fileID: 2539790919891336897}
   m_Layer: 0
-  m_Name: Auto Resizer
+  m_Name: Fizzler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941731479171206000}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5865729270631506834}
+  m_Father: {fileID: 2854656233200308977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2539790919891336897
 MonoBehaviour:
@@ -49,6 +49,38 @@ MonoBehaviour:
   fizzler: {fileID: 3023658838380390896}
   offsetMultiplier: {x: 0, y: 4, z: 0}
   thickness: 0.025
+--- !u!1 &5229478399522018977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2854656233200308977}
+  m_Layer: 0
+  m_Name: FizzlerResizer_and_LogicHandle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2854656233200308977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5229478399522018977}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3629795816109616287}
+  m_Father: {fileID: 5865729270631506834}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6255710823389514319
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,8 +93,9 @@ GameObject:
   - component: {fileID: 6079684306436634844}
   - component: {fileID: 6867974181539327377}
   - component: {fileID: 7404425958273147121}
-  - component: {fileID: 175477761558178403}
-  - component: {fileID: 1675350223753946240}
+  - component: {fileID: 1937474066478765600}
+  - component: {fileID: 8600342190378671993}
+  - component: {fileID: 8104617536743526316}
   m_Layer: 0
   m_Name: FizzlerField
   m_TagString: Untagged
@@ -78,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6255710823389514319}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 2, z: 0}
   m_LocalScale: {x: 4, y: 3.9, z: 0.025}
   m_ConstrainProportionsScale: 0
@@ -154,9 +187,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.026, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &175477761558178403
+--- !u!114 &1937474066478765600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,15 +198,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6255710823389514319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55b9aaf05ea232b2eaed79f7ade9f923, type: 3}
+  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buddyID: 
-  fizzleDust: {fileID: 7338686446746172535, guid: f4485c653c9d855d3a4cabe2c2b54395,
-    type: 3}
-  fizzleParty: {fileID: 6271697737164727327, guid: 25f39eade9d42c71488e518259f612d7,
-    type: 3}
---- !u!114 &1675350223753946240
+  defaultSliceMaterial: {fileID: 0}
+  asynchronously: 0
+  waitIfBusy: 0
+  objectGrouping: 0
+--- !u!114 &8600342190378671993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,42 +214,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 6255710823389514319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 573ce29f1529cd8fc9da0e48f4249471, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unaffectedTeams: []
-  ignoreUnaffectedTeamsFilter: 0
-  ignoreHeldObjects: 1
-  disabledObjectsExitVolume: 1
-  pawnsInTrigger: []
-  propsInTrigger: []
-  resetsAutomatically: 1
-  reset:
-    editorHandles_showHandle: 0
-    editorHandles_handleTarget: {fileID: 0}
-    editorHandles_customName: 
-    value: 0
-    sourceField:
-      EDITOR_targetGameObject: {fileID: 0}
-      EDITOR_hideTypeFilterText: 0
-      targetComponent: {fileID: 0}
-      fieldName: 
-  triggerFilter: 3
-  onOccupied:
-    editorHandles_showHandle: 0
-    editorHandles_handleTarget: {fileID: 0}
-    editorHandles_customName: 
-    value: 0
-    OnOutputChanged:
-      m_PersistentCalls:
-        m_Calls: []
-  onFirstOccupied:
-    m_PersistentCalls:
-      m_Calls: []
-  onFirstUnoccupied:
-    m_PersistentCalls:
-      m_Calls: []
-  hasBeenTriggered: 0
+  <EnableRuntimeLogging>k__BackingField: 0
+  isReflective: 0
+  isSliceInProgress: 0
+  isSlicedByPlane: 0
+  isClone: 0
+  riftSpace: 0
+  meshRenderer: {fileID: 0}
+--- !u!114 &8104617536743526316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6255710823389514319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae2bd02c4c12c14caa4104ef44402c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentTriggerController: {fileID: 8576328163688655974}
 --- !u!1001 &1032217382147927574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -296,14 +315,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2147754228552126005, guid: 0691e5206c095094690805245502b274, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5666194294599035471, guid: 0691e5206c095094690805245502b274, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3629795816109616287}
+      addedObject: {fileID: 2854656233200308977}
     - targetCorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}
       insertIndex: -1
@@ -320,7 +340,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2453111393515251842}
+      addedObject: {fileID: 8576328163688655974}
   m_SourcePrefab: {fileID: 100100000, guid: 0691e5206c095094690805245502b274, type: 3}
 --- !u!1 &1282301185082072179 stripped
 GameObject:
@@ -328,7 +348,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1032217382147927574}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2453111393515251842
+--- !u!114 &8576328163688655974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -342,25 +362,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputClearRift:
     editorHandles_showHandle: 1
-    editorHandles_handleTarget: {fileID: 0}
-    editorHandles_customName: 
-    value: 0
-    sourceField:
-      EDITOR_targetGameObject: {fileID: 6255710823389514319}
-      EDITOR_hideTypeFilterText: 0
-      targetComponent: {fileID: 1675350223753946240}
-      fieldName: onOccupied
-  inputDisableFizzler:
-    editorHandles_showHandle: 1
-    editorHandles_handleTarget: {fileID: 0}
+    editorHandles_handleTarget: {fileID: 3629795816109616287}
     editorHandles_customName: 
     value: 0
     sourceField:
       EDITOR_targetGameObject: {fileID: 0}
       EDITOR_hideTypeFilterText: 0
       targetComponent: {fileID: 0}
-      fieldName: onOccupied
-  fizzlerObjectToDisable: {fileID: 6255710823389514319}
+      fieldName: 
+  inputDisableFizzler:
+    editorHandles_showHandle: 1
+    editorHandles_handleTarget: {fileID: 3629795816109616287}
+    editorHandles_customName: 
+    value: 0
+    sourceField:
+      EDITOR_targetGameObject: {fileID: 0}
+      EDITOR_hideTypeFilterText: 0
+      targetComponent: {fileID: 0}
+      fieldName: 
+  buddyID: 
+  fizzleDust: {fileID: 7338686446746172535, guid: f4485c653c9d855d3a4cabe2c2b54395,
+    type: 3}
+  fizzleParty: {fileID: 6271697737164727327, guid: 25f39eade9d42c71488e518259f612d7,
+    type: 3}
+  fizzlerObjectToDisable: {fileID: 0}
 --- !u!4 &5865729270631506834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
@@ -438,6 +463,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 155551018546677965}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a11298cf659d244ae72e1b9b9c1873,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3701219484485154405}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a11298cf659d244ae72e1b9b9c1873,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2787741704544340669}
   m_SourcePrefab: {fileID: 100100000, guid: f0a11298cf659d244ae72e1b9b9c1873, type: 3}
 --- !u!1 &2826630734516089182 stripped
 GameObject:
@@ -466,6 +499,41 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.42972258, y: 4, z: 0.34652644}
   m_Center: {x: 0.21486129, y: 2, z: 0.00000029802322}
+--- !u!114 &3701219484485154405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826630734516089182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSliceMaterial: {fileID: 0}
+  asynchronously: 0
+  waitIfBusy: 0
+  objectGrouping: 0
+--- !u!114 &2787741704544340669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826630734516089182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnableRuntimeLogging>k__BackingField: 0
+  isReflective: 0
+  isSliceInProgress: 0
+  isSlicedByPlane: 0
+  isClone: 0
+  riftSpace: 0
+  meshRenderer: {fileID: 0}
 --- !u!4 &3202592605996592100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f0a11298cf659d244ae72e1b9b9c1873,
@@ -543,6 +611,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8217168027819301108}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a11298cf659d244ae72e1b9b9c1873,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2042923702069615824}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f0a11298cf659d244ae72e1b9b9c1873,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7738782612981142640}
   m_SourcePrefab: {fileID: 100100000, guid: f0a11298cf659d244ae72e1b9b9c1873, type: 3}
 --- !u!4 &4982979965777198511 stripped
 Transform:
@@ -577,3 +653,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.42972258, y: 4, z: 0.34652644}
   m_Center: {x: 0.21486129, y: 2, z: 0.00000029802322}
+--- !u!114 &2042923702069615824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651112961330767637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSliceMaterial: {fileID: 0}
+  asynchronously: 0
+  waitIfBusy: 0
+  objectGrouping: 0
+--- !u!114 &7738782612981142640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651112961330767637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnableRuntimeLogging>k__BackingField: 0
+  isReflective: 0
+  isSliceInProgress: 0
+  isSlicedByPlane: 0
+  isClone: 0
+  riftSpace: 0
+  meshRenderer: {fileID: 0}
