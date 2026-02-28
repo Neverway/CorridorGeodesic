@@ -60,12 +60,12 @@ Material:
     - _ColdColor: {r: 0.101960786, g: 0.14117648, b: 0.12096985, a: 1}
     - _Color: {r: 0.70073867, g: 0.8113721, b: 0.8207547, a: 1}
     - _CracksScale: {r: 0.1, g: 0.1, b: 0, a: 0}
-    - _DistScale: {r: 0.05, g: 0.05, b: 0, a: 0}
+    - _DistScale: {r: 0.05, g: 0.05, b: 0.05, a: 0}
     - _EdgeColor: {r: 0, g: 0.8542309, b: 1, a: 1}
     - _HotColor: {r: 0, g: 0.5366918, b: 0.59607846, a: 1}
     - _NoiseScale: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _Scale: {r: 0.25, g: 0.25, b: 0, a: 0}
-    - _ScrollSpeed: {r: 2.64, g: 0.03, b: 0, a: 0}
+    - _Scale: {r: 0.25, g: 0.25, b: 0.25, a: 0}
+    - _ScrollSpeed: {r: 2.64, g: 0.03, b: 0.03, a: 0}
     - _TopColor: {r: 0.14509803, g: 0.5903892, b: 1, a: 1}
     - _UVScale: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

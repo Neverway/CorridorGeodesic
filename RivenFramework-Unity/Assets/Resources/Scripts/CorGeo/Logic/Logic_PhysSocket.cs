@@ -18,6 +18,7 @@ public class Logic_PhysSocket : MonoBehaviour
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
     public LogicInput<Rigidbody> connectedBody;
+    public LogicOutput<bool> socketConnected = new(false);
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
@@ -55,11 +56,14 @@ public class Logic_PhysSocket : MonoBehaviour
 
     private void Update()
     {
+        socketConnected.Set(connectedBody == null);
+        
         if (socketJoint == null && socketJointWasConnected)
         {
             socketJointWasConnected = false;
             var brokenFX = Instantiate(spawnOnSocketBroken, position:transform.position, rotation:transform.rotation, parent:null);
             Destroy(brokenFX, destroyBrokenFXAfter);
+            connectedBody = null;
         }
     }
 
