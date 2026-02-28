@@ -19,6 +19,9 @@ public class Laser_Raycast : MonoBehaviour
     //=-----------------=
     //[SerializeField, LogicComponentHandle] private LogicComponent inputSignal;
     public LogicInput<bool> input = new(false);
+
+    [SerializeField] private LayerMask rayLayerMask;
+
     [SerializeField] private Transform halo;
     [SerializeField] private int maxReflectionCount = 5;
     [SerializeField] private float maxStepDistance = 200f;
@@ -116,7 +119,7 @@ public class Laser_Raycast : MonoBehaviour
 
         Ray ray = new Ray (position, direction);
         RaycastHit hit;
-        bool didHit = Physics.Raycast (ray, out hit, maxStepDistance);
+        bool didHit = Physics.Raycast (ray, out hit, maxStepDistance, rayLayerMask);
         if (didHit)
         {
             direction = Vector3.Reflect (direction, hit.normal);
