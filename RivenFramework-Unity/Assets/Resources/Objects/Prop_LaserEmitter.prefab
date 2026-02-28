@@ -630,6 +630,9 @@ MonoBehaviour:
       EDITOR_hideTypeFilterText: 0
       targetComponent: {fileID: 0}
       fieldName: isPowered
+  rayLayerMask:
+    serializedVersion: 2
+    m_Bits: 2049
   halo: {fileID: 6493641871185144990}
   maxReflectionCount: 5
   maxStepDistance: 200
