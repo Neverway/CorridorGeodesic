@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{cb3494af-bfac-d36d-033e-6dda0fc7bd5b}"
@@ -14,8 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework", "RivenFramework.csproj", "{8c9feb55-197c-c0d9-f4c0-534f1bc09483}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.Utils.Reflection", "RivenFramework.Utils.Reflection.csproj", "{0ed36f6c-a345-9b8e-2d92-e48d1c7ab0fc}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityEditor", "FMODUnityEditor.csproj", "{27c48e89-f0c8-12db-bf96-5bc78a1eeb40}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicValues.Editor", "LogicValues.Editor.csproj", "{d3445975-723f-08ca-5402-8b0b2470c36d}"
 EndProject
@@ -37,11 +35,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.WidgetSystem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicValues", "LogicValues.csproj", "{154b41dc-3a63-edcd-edca-8ed9acc89065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityResonanceEditor", "FMODUnityResonanceEditor.csproj", "{fbfde1a5-06a2-851a-21e6-20463497c6d9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dreamteck.Utilities.Editor", "Dreamteck.Utilities.Editor.csproj", "{ec852276-3d53-f747-e36f-c458a8895ac1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnity", "FMODUnity.csproj", "{d353448f-9f21-5029-d0f0-60dbf6a3d0c8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevTools", "DevTools.csproj", "{e84a44d7-e123-927e-054d-25763d8cd9cd}"
 EndProject
@@ -61,8 +55,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BzKovSoft.ObjectSlicer.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BzKovSoft.CharacterSlicer", "BzKovSoft.CharacterSlicer.csproj", "{37048d4b-ea61-7c10-8fea-607907a56d48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityResonance", "FMODUnityResonance.csproj", "{6d5c0796-0871-f260-6915-1ce36606d85b}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFields", "SimpleFields.csproj", "{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleFieldsEditor", "SimpleFieldsEditor.csproj", "{0f036705-ccf9-06a1-b516-b17dcd859022}"
@@ -70,8 +62,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAttributes", "CoreAttributes.csproj", "{6b3c1272-532d-2e12-fdb1-80cccb741992}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.SoundSystem", "RivenFramework.SoundSystem.csproj", "{8b850d7d-ff16-e78f-1ebe-a52b5e79da48}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{270b9d29-22cc-2f11-dbce-cafe75d71080}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.Utils.Reflection.editor", "RivenFramework.Utils.Reflection.editor.csproj", "{3e06ec83-ba64-6044-4ec7-535012e89bbc}"
 EndProject
@@ -94,8 +84,6 @@ Global
 		{8c9feb55-197c-c0d9-f4c0-534f1bc09483}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ed36f6c-a345-9b8e-2d92-e48d1c7ab0fc}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0ed36f6c-a345-9b8e-2d92-e48d1c7ab0fc}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27c48e89-f0c8-12db-bf96-5bc78a1eeb40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27c48e89-f0c8-12db-bf96-5bc78a1eeb40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d3445975-723f-08ca-5402-8b0b2470c36d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d3445975-723f-08ca-5402-8b0b2470c36d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3b7df345-bd9a-eee0-b323-cd18f735389d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -116,12 +104,8 @@ Global
 		{dfd8f255-e47d-8247-9c05-2b1823b6ccf0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{154b41dc-3a63-edcd-edca-8ed9acc89065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{154b41dc-3a63-edcd-edca-8ed9acc89065}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{fbfde1a5-06a2-851a-21e6-20463497c6d9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{fbfde1a5-06a2-851a-21e6-20463497c6d9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ec852276-3d53-f747-e36f-c458a8895ac1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ec852276-3d53-f747-e36f-c458a8895ac1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{d353448f-9f21-5029-d0f0-60dbf6a3d0c8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{d353448f-9f21-5029-d0f0-60dbf6a3d0c8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{e84a44d7-e123-927e-054d-25763d8cd9cd}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{e84a44d7-e123-927e-054d-25763d8cd9cd}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{151a37ac-f391-173b-590e-1da35887fec1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -140,8 +124,6 @@ Global
 		{7026925d-41e0-9706-9100-14e4184b9564}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37048d4b-ea61-7c10-8fea-607907a56d48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{37048d4b-ea61-7c10-8fea-607907a56d48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6d5c0796-0871-f260-6915-1ce36606d85b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6d5c0796-0871-f260-6915-1ce36606d85b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{a5fb2897-4aaf-1658-be7c-a9e257c41eeb}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0f036705-ccf9-06a1-b516-b17dcd859022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -150,8 +132,6 @@ Global
 		{6b3c1272-532d-2e12-fdb1-80cccb741992}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8b850d7d-ff16-e78f-1ebe-a52b5e79da48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8b850d7d-ff16-e78f-1ebe-a52b5e79da48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{270b9d29-22cc-2f11-dbce-cafe75d71080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{270b9d29-22cc-2f11-dbce-cafe75d71080}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3e06ec83-ba64-6044-4ec7-535012e89bbc}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3e06ec83-ba64-6044-4ec7-535012e89bbc}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection

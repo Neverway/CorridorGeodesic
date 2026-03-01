@@ -47,7 +47,6 @@ public class Object_PhysPlug : MonoBehaviour
     private void FixedUpdate()
     {
         var distance = Vector3.Distance(transform.position, distanceReferencePoint.position);
-        print(distance);
         if (distance >= maximumDistance)
         {
             if (physPickupAdvanced)
