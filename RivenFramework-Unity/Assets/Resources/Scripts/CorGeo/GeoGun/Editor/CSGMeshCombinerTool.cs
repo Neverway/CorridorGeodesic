@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
+using UnityEditor.ShortcutManagement;
 
 /// <summary>
 /// Used to convert CSG level meshes into one object, so it's compatible with CorGeo's mesh slicing
@@ -201,8 +202,13 @@ public static class CSGMeshCombinerTool
 
 
     #endregion
-    
-    [MenuItem("Neverway/CorGeo/Combine and bake level mesh")]
+
+    public const string COMBINE_MESH_SHORTCUT_DESCRIPTION = "[Shift + M]";
+    public const KeyCode COMBINE_MESH_SHORTCUT_KEY = KeyCode.M;
+    public const ShortcutModifiers COMBINE_MESH_SHORTCUT_MODIFIER = ShortcutModifiers.Shift;
+
+    [MenuItem("Neverway/CorGeo/Combine and bake level mesh " + COMBINE_MESH_SHORTCUT_DESCRIPTION)]
+    [Shortcut("Neverway/CorGeo/Combine and bake level mesh", COMBINE_MESH_SHORTCUT_KEY, COMBINE_MESH_SHORTCUT_MODIFIER)]
     public static void CombineLevelMeshes()
     {
         // Find the CSG MeshGroup
