@@ -1,4 +1,4 @@
-//===================== (Neverway 2024) Written by Connorses =====================
+//===================== (Neverway 2024) Written by Connorses, Soulex =====================
 //
 // Purpose: Positions an audio source so that sounds can emanate from the rift-planes.
 // Notes: Ported this from the old project, I'm commenting out the FMOD bits. For now.
