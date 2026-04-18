@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 91a9a046722057fb7b3ba3410724534f
+labels:
+- CorGeoFilteredTextures
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +71,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 128
     resizeAlgorithm: 1
     textureFormat: 4
     textureCompression: 1
