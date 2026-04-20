@@ -358,6 +358,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1224032970948781272}
+    - targetCorrespondingSourceObject: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 539828248805378734}
   m_SourcePrefab: {fileID: 100100000, guid: 0691e5206c095094690805245502b274, type: 3}
 --- !u!1 &3552035522061833173 stripped
 GameObject:
@@ -402,6 +406,40 @@ MonoBehaviour:
   animEndPos: {fileID: 6748307533709546601}
   animatedObject: {fileID: 3012442854487743444, guid: b2c461d426d438e869ebd1392f232e84,
     type: 3}
+  OnVentOpened:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 539828248805378734}
+        m_TargetAssemblyTypeName: Audio_AudioEventPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &539828248805378734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552035522061833173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventReference:
+    Guid:
+      Data1: 1847064061
+      Data2: 1143387195
+      Data3: 1583056303
+      Data4: 1153252115
+    Path: event:/SFX/Components/DeploymentVentOpen
 --- !u!4 &8207734382395108404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,

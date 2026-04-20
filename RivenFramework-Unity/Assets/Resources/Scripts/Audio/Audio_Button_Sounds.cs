@@ -1,17 +1,16 @@
 //===================== (Neverway 2024) Written by Liz M. =====================
 //
-// Purpose:
+// Purpose: Plays audio clips for button events like hovering or selecting
 // Notes:
 //
 //=============================================================================
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class SplashScreenPlayer : MonoBehaviour
+public class Audio_Button_Sounds : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 {
     //=-----------------=
     // Public Variables
@@ -26,9 +25,9 @@ public class SplashScreenPlayer : MonoBehaviour
     //=-----------------=
     // Reference Variables
     //=-----------------=
-    public Animator Animator;
-    public AudioSource AudioSource;
-    public UnityEvent OnPlayAudio;
+    private Button button;
+    [SerializeField] private UnityEvent hover;
+    [SerializeField] private UnityEvent select;
 
 
     //=-----------------=
@@ -36,23 +35,19 @@ public class SplashScreenPlayer : MonoBehaviour
     //=-----------------=
     private void Start()
     {
-        StartCoroutine(PlaySplash());
+        button = GetComponent<Button>();
     }
 
-    private IEnumerator PlaySplash()
+    public void OnPointerEnter(PointerEventData _pointerEventData)
     {
-        yield return new WaitForSeconds(0.25f);
-        Animator.Play("test");
-        if (AudioSource) AudioSource.Play();
-        OnPlayAudio.Invoke();
-        StartCoroutine(WaitForSplash());
+        Audio_FMODAudioManager.PlayOneShot(Audio_FMODEvents.Instance.hover);
     }
 
-    private IEnumerator WaitForSplash()
+    public void OnPointerDown(PointerEventData _pointerEventData)
     {
-        yield return new WaitForSeconds(9.5f);
-        SceneManager.LoadScene("_Title");
+        Audio_FMODAudioManager.PlayOneShot(Audio_FMODEvents.Instance.select);
     }
+
 
     //=-----------------=
     // Internal Functions

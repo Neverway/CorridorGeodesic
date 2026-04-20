@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Logic_Elevator : MonoBehaviour
 {
@@ -19,6 +22,8 @@ public class Logic_Elevator : MonoBehaviour
     [Tooltip("What 'Floor' the elevator is moving towards, (The floor is the index in floorTargets)")]
     public int targetFloor;
     public List<Transform> elevatorFloorTargets;
+    public UnityEvent OnDoorOpen, OnDoorClose;
+    private EventInstance elevatorMoveInstance;
     
     private bool elevatorIsMoving;
     [SerializeField] private Animator animator;
@@ -29,11 +34,26 @@ public class Logic_Elevator : MonoBehaviour
         if (StartMovement.HasLogicOutputSource) StartMovement.CallOnSourceChanged(FuncStartMovement);
         if (StopMovement.HasLogicOutputSource) StopMovement.CallOnSourceChanged(FuncStopMovement);
         if (OpenDoor.HasLogicOutputSource) OpenDoor.CallOnSourceChanged(FuncOpenDoor);
+        
+        elevatorMoveInstance = Audio_FMODAudioManager.CreateInstance(Audio_FMODEvents.Instance.elevatorMove);
     }
 
+    private void Update()
+    {
+        Update3DAttributes();
+    }
+
+    private void Update3DAttributes()
+    {
+        FMOD.ATTRIBUTES_3D attributes = FMODUnity.RuntimeUtils.To3DAttributes(transform.position);
+
+        elevatorMoveInstance.set3DAttributes(attributes);
+    }
+    
     private IEnumerator MoveElevator()
     {
         elevatorIsMoving = true;
+        elevatorMoveInstance.start();
         OnFloorReached.Set(false);
         Vector3 targetPos = elevatorFloorTargets[targetFloor].position;
 
@@ -44,6 +64,7 @@ public class Logic_Elevator : MonoBehaviour
         }
 
         elevatorIsMoving = false;
+        elevatorMoveInstance.stop(STOP_MODE.IMMEDIATE);
         OnFloorReached.Set(true);
         targetFloor++;
 
@@ -69,6 +90,18 @@ public class Logic_Elevator : MonoBehaviour
 
     private void FuncOpenDoor()
     {
+        if (OpenDoor.Get()) OnDoorOpen.Invoke();
+        else OnDoorClose.Invoke();
         animator.SetBool("Powered", OpenDoor.Get());
+    }
+    private void OnDestroy()
+    {
+        elevatorMoveInstance.stop(STOP_MODE.IMMEDIATE);
+        elevatorMoveInstance.release();
+    }
+    private void OnDisable()
+    {
+        elevatorMoveInstance.stop(STOP_MODE.IMMEDIATE);
+        elevatorMoveInstance.release();
     }
 }

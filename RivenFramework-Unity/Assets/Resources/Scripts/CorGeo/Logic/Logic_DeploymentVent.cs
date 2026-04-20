@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Logic_DeploymentVent : Prop_Respawner
 {
@@ -36,6 +37,8 @@ public class Logic_DeploymentVent : Prop_Respawner
     [Tooltip("This is the object that will be used for the tween animation, before the real object is spawned in.")]
     [SerializeField] private GameObject animatedObject;
 
+    public UnityEvent OnVentOpened;
+
 
     #endregion
 
@@ -49,6 +52,7 @@ public class Logic_DeploymentVent : Prop_Respawner
     {
         yield return new WaitForSeconds (spawnDelay);
         anim.SetBool ("Powered", true);
+        OnVentOpened.Invoke();  
         GameObject animObject = Instantiate(animatedObject, animEndPos);
         animObject.transform.position = animStartPos.position;
         animObject.transform.rotation = animEndPos.transform.rotation;

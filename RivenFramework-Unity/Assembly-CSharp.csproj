@@ -103,6 +103,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/NotUsed/IndexedArray.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Decomposition/SeidelDecomposer.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Object_LiveThrowable.cs" />
+     <Compile Include="Assets/Resources/Scripts/Audio/Audio_Button_Sounds.cs" />
      <Compile Include="Assets/Resources/Scripts/LB_World.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapWorld.cs" />
      <Compile Include="Assets/Resources/Scripts/GameEnums.cs" />
