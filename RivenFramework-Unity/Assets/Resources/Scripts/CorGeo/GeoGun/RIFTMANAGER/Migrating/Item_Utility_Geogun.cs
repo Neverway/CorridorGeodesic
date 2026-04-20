@@ -81,6 +81,8 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     //[SerializeField] private LayerMask projectileLayerMask;
     [SerializeField] private GameObject previewPlanePrefab;
     [SerializeField] private List<GameObject> previewPlanes = new List<GameObject>();
+    [SerializeField] private RiftAudioEmitter riftAudioEmitter;
+    private RiftAudioEmitter instanceOfRiftAudioEmitter;
 
 
     #endregion
@@ -103,6 +105,8 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         {
             riftManager.RegisterRiftController(this);
         }
+
+        instanceOfRiftAudioEmitter = Instantiate (riftAudioEmitter);
     }
 
     private void Update()
@@ -135,6 +139,13 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         CheckForPreviewPlanes();
         PlacePreviewPlanes ();
     }
+
+    private void OnDestroy ()
+    {
+        Destroy (instanceOfRiftAudioEmitter.gameObject);
+    }
+
+    /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
 
     private void CheckForPreviewPlanes()
     {
@@ -207,7 +218,6 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         AimBarrelTowardsCenterOfView();
     }
 
-    /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     private bool FireMarker()
     {
         // Exit if the gun has already shot both markers

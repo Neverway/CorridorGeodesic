@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 801976210690049862}
   - component: {fileID: 7362436762694209870}
   - component: {fileID: 6086604189803334263}
+  - component: {fileID: 6639100318467439914}
   m_Layer: 0
   m_Name: GameInstance
   m_TagString: Untagged
@@ -1096,3 +1097,155 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2706ad00936cd4b9ba52804fc8038a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6639100318467439914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a3d664a33897741ad0bad85452fb43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  metalImpact:
+    Guid:
+      Data1: 1784229098
+      Data2: 1236084974
+      Data3: 197885845
+      Data4: 1037337918
+    Path: event:/SFX/Physics/MetalImpact
+  footstepsConcrete:
+    Guid:
+      Data1: -1994162058
+      Data2: 1275970664
+      Data3: 160341127
+      Data4: 690403690
+    Path: event:/SFX/Player/Footsteps
+  footstepsMetal:
+    Guid:
+      Data1: -1994162058
+      Data2: 1275970664
+      Data3: 160341127
+      Data4: 690403690
+    Path: event:/SFX/Player/Footsteps
+  footstepsGlass:
+    Guid:
+      Data1: -1994162058
+      Data2: 1275970664
+      Data3: 160341127
+      Data4: 690403690
+    Path: event:/SFX/Player/Footsteps
+  footstepsPlastic:
+    Guid:
+      Data1: -1994162058
+      Data2: 1275970664
+      Data3: 160341127
+      Data4: 690403690
+    Path: event:/SFX/Player/Footsteps
+  liquidSplatter:
+    Guid:
+      Data1: -1994162058
+      Data2: 1275970664
+      Data3: 160341127
+      Data4: 690403690
+    Path: event:/SFX/Player/Footsteps
+  nixieCrossShoot:
+    Guid:
+      Data1: -447259784
+      Data2: 1258767808
+      Data3: -1068629888
+      Data4: -630590248
+    Path: event:/SFX/NixieCross/NixieCrossShoot
+  nixieTubeBreak:
+    Guid:
+      Data1: -608129823
+      Data2: 1129687097
+      Data3: -316266844
+      Data4: 1135776477
+    Path: event:/SFX/NixieCross/NixieTubeBreak
+  nixieTubePin:
+    Guid:
+      Data1: 1620569559
+      Data2: 1275996662
+      Data3: -741141120
+      Data4: 509640686
+    Path: event:/SFX/NixieCross/NixieTubePin
+  hover:
+    Guid:
+      Data1: 1451508483
+      Data2: 1223420156
+      Data3: -639139949
+      Data4: -1961944707
+    Path: event:/SFX/Framework/Hover
+  select:
+    Guid:
+      Data1: 2102582212
+      Data2: 1161757476
+      Data3: -1614500943
+      Data4: 2117759777
+    Path: event:/SFX/Framework/Select
+  riftSpawned:
+    Guid:
+      Data1: -415206669
+      Data2: 1337487677
+      Data3: 1588510637
+      Data4: -446962472
+    Path: event:/SFX/NixieCross/RiftPlace
+  riftKilled:
+    Guid:
+      Data1: 1465297501
+      Data2: 1151886159
+      Data3: 907062200
+      Data4: -662637179
+    Path: event:/SFX/NixieCross/RiftDie
+  riftCollapsing:
+    Guid:
+      Data1: 1276733339
+      Data2: 1175519162
+      Data3: -1557211476
+      Data4: -1187079753
+    Path: event:/SFX/NixieCross/RiftCollapse
+  riftExpanding:
+    Guid:
+      Data1: -878778758
+      Data2: 1184946005
+      Data3: 1576062619
+      Data4: 874429726
+    Path: event:/SFX/NixieCross/RiftExpand
+  riftIdle:
+    Guid:
+      Data1: 1622115209
+      Data2: 1090651569
+      Data3: 604741820
+      Data4: -233665141
+    Path: event:/SFX/NixieCross/RiftIdle
+  elevatorOpen:
+    Guid:
+      Data1: -870487340
+      Data2: 1255828052
+      Data3: 1562062241
+      Data4: 941632284
+    Path: event:/SFX/Components/ElevatorOpen
+  elevatorClose:
+    Guid:
+      Data1: -1739242868
+      Data2: 1286673304
+      Data3: 1904586926
+      Data4: 26895712
+    Path: event:/SFX/Components/ElevatorClose
+  elevatorReady:
+    Guid:
+      Data1: 550675275
+      Data2: 1161096347
+      Data3: -2037904706
+      Data4: 2066133922
+    Path: event:/SFX/Components/ElevatorReady
+  elevatorMove:
+    Guid:
+      Data1: -2088181998
+      Data2: 1206525639
+      Data3: 1488647587
+      Data4: 166444065
+    Path: event:/SFX/Components/ElevatorMove

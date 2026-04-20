@@ -244,13 +244,13 @@ public class RiftManager_SpaceController : ILoggable
                 if (actor.riftSpace == RiftSpace.NULLSpace)
                 {
                     var newPosition = riftManager.actorHandler.MoveActorPositionWithNullSpace (actor.transform.position, _newPercent);
-                    Debug.Log($"Attempting to move actor {actor.name} in NULLSpace from {actor.transform.position} to {newPosition} via a delta of {_newPercent}");
+                    //Debug.Log($"Attempting to move actor {actor.name} in NULLSpace from {actor.transform.position} to {newPosition} via a delta of {_newPercent}");
                     actor.transform.position = newPosition;
                 }
                 else if (actor.riftSpace == RiftSpace.B)
                 {
                     var newPosition = riftManager.actorHandler.MoveActorPositionWithBSpace (actor.transform.position, _newPercent);
-                    Debug.Log($"Attempting to move actor {actor.name} in BSpace from {actor.transform.position} to {newPosition} via a delta of {_newPercent}");
+                    //Debug.Log($"Attempting to move actor {actor.name} in BSpace from {actor.transform.position} to {newPosition} via a delta of {_newPercent}");
                     actor.transform.position = newPosition;
                 }
             }
