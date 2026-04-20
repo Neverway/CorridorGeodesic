@@ -53,7 +53,7 @@ Material:
     - _EdgeScale: 0.5
     - _EdgeStrength: 2
     - _EffectTime: 0
-    - _EmissionStrength: 9
+    - _EmissionStrength: 6
     - _OverlayScale: 1
     - _ScalingSize: 10
     - _SphereSize: 0

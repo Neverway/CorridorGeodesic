@@ -1,32 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8575282343084838346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/ElevatorOpen
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/ElevatorOpen
-  Guid:
-    Data1: -870487340
-    Data2: 1255828052
-    Data3: 1562062241
-    Data4: 941632284
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-8365824045608764663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,128 +20,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1778
   Exists: 1
---- !u!114 &-8268148289955325359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Framework/Hover
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Framework/Hover
-  Guid:
-    Data1: 1451508483
-    Data2: 1223420156
-    Data3: -639139949
-    Data4: -1961944707
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-7818408102909467500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/NixieCross/RiftDie
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/NixieCross/RiftDie
-  Guid:
-    Data1: 1465297501
-    Data2: 1151886159
-    Data3: 907062200
-    Data4: -662637179
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-7715650223633002834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/Vent
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/Vent
-  Guid:
-    Data1: 234119981
-    Data2: 1202831052
-    Data3: 1488448655
-    Data4: 123183532
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 8389
---- !u!114 &-7363499807936767759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Music.bank
-  m_EditorClassIdentifier: 
-  Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Music.bank
-  Name: Music
-  StudioPath: bank:/Music
-  lastModified: 639122486534387123
-  FileSizes:
-  - Name: Desktop
-    Value: 4490912
-  Exists: 1
---- !u!114 &-7203629976772989835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Ambience.bank
-  m_EditorClassIdentifier: 
-  Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Ambience.bank
-  Name: Ambience
-  StudioPath: bank:/Ambience
-  lastModified: 639122486533067096
-  FileSizes:
-  - Name: Desktop
-    Value: 1081472
-  Exists: 1
---- !u!114 &-7136055461314165988
+--- !u!114 &-8146112268583688495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,7 +47,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-6900005916704127528
+--- !u!114 &-7908813931374536361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,68 +57,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/DoorOpen
+  m_Name: event:/SFX/NixieCross/RiftExpand
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/DoorOpen
+  Path: event:/SFX/NixieCross/RiftExpand
   Guid:
-    Data1: -494617115
-    Data2: 1326019338
-    Data3: 1552551092
-    Data4: -1128738772
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-6675590182397877612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/ElevatorClose
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/ElevatorClose
-  Guid:
-    Data1: -1739242868
-    Data2: 1286673304
-    Data3: 1904586926
-    Data4: 26895712
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &-6606882360140821725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/NixieCross/RiftCollapse
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/NixieCross/RiftCollapse
-  Guid:
-    Data1: 1276733339
-    Data2: 1175519162
-    Data3: -1557211476
-    Data4: -1187079753
+    Data1: -878778758
+    Data2: 1184946005
+    Data3: 1576062619
+    Data4: 874429726
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
@@ -275,7 +73,128 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2500
+  Length: 1800
+--- !u!114 &-7610091246622492717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Framework/Slider
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Framework/Slider
+  Guid:
+    Data1: 1989118500
+    Data2: 1090157795
+    Data3: 218963848
+    Data4: -674038254
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7363499807936767759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Music.bank
+  Name: Music
+  StudioPath: bank:/Music
+  lastModified: 639122492300102775
+  FileSizes:
+  - Name: Desktop
+    Value: 4490912
+  Exists: 1
+--- !u!114 &-7326389465190571907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Framework/Hover
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Framework/Hover
+  Guid:
+    Data1: 1451508483
+    Data2: 1223420156
+    Data3: -639139949
+    Data4: -1961944707
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-7203629976772989835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Ambience.bank
+  Name: Ambience
+  StudioPath: bank:/Ambience
+  lastModified: 639122492299462763
+  FileSizes:
+  - Name: Desktop
+    Value: 1081472
+  Exists: 1
+--- !u!114 &-6441567300919281667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/NixieCross/NixieTubePin
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/NixieCross/NixieTubePin
+  Guid:
+    Data1: 1620569559
+    Data2: 1275996662
+    Data3: -741141120
+    Data4: 509640686
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6415854653554259250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +223,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 213333
+--- !u!114 &-6385105048293388011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/Vent
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/Vent
+  Guid:
+    Data1: 234119981
+    Data2: 1202831052
+    Data3: 1488448655
+    Data4: 123183532
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8389
 --- !u!114 &-6383026866073868930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +277,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 120000
---- !u!114 &-6377600959309535809
+--- !u!114 &-6358275466966364122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -341,14 +287,122 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/NixieCross/RiftPlace
+  m_Name: event:/SFX/NixieCross/RiftCollapse
   m_EditorClassIdentifier: 
-  Path: event:/SFX/NixieCross/RiftPlace
+  Path: event:/SFX/NixieCross/RiftCollapse
   Guid:
-    Data1: -415206669
-    Data2: 1337487677
-    Data3: 1588510637
-    Data4: -446962472
+    Data1: 1276733339
+    Data2: 1175519162
+    Data3: -1557211476
+    Data4: -1187079753
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2500
+--- !u!114 &-6352768726877474987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Physics/Explosion
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Physics/Explosion
+  Guid:
+    Data1: 1889354364
+    Data2: 1260971174
+    Data3: 1898720189
+    Data4: -2128169793
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3908673827317146803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/LemonBuddy
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/LemonBuddy
+  Guid:
+    Data1: 1237243664
+    Data2: 1239986861
+    Data3: -306230358
+    Data4: -1353176015
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 44690
+--- !u!114 &-3849241236422587938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/ElevatorReady
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/ElevatorReady
+  Guid:
+    Data1: 550675275
+    Data2: 1161096347
+    Data3: -2037904706
+    Data4: 2066133922
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-3706402047982911101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/NixieCross/RiftDie
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/NixieCross/RiftDie
+  Guid:
+    Data1: 1465297501
+    Data2: 1151886159
+    Data3: 907062200
+    Data4: -662637179
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
@@ -358,7 +412,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-6205931616824066793
+--- !u!114 &-3664281997618167838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,41 +422,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/FizzlerIdle
+  m_Name: event:/SFX/Components/FloorButtonOff
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/FizzlerIdle
+  Path: event:/SFX/Components/FloorButtonOff
   Guid:
-    Data1: -1258789880
-    Data2: 1131479550
-    Data3: 1707253164
-    Data4: -1070351066
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 6517
---- !u!114 &-5633528856090613338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/NixieCross/NixieTubeBreak
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/NixieCross/NixieTubeBreak
-  Guid:
-    Data1: -608129823
-    Data2: 1129687097
-    Data3: -316266844
-    Data4: 1135776477
+    Data1: 2103947958
+    Data2: 1233358717
+    Data3: -1315997555
+    Data4: 1272214290
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
@@ -412,7 +439,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-5123439976371182062
+--- !u!114 &-2765182992813827256
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,131 +449,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/Fizzler
+  m_Name: event:/SFX/Components/FloorButtonOn
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/Fizzler
+  Path: event:/SFX/Components/FloorButtonOn
   Guid:
-    Data1: 1027490716
-    Data2: 1144668284
-    Data3: -546886509
-    Data4: 532053479
+    Data1: 1369429199
+    Data2: 1266933166
+    Data3: 814966693
+    Data4: -2074894290
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 4200
---- !u!114 &-5085160032538079281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Player/Footsteps
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Player/Footsteps
-  Guid:
-    Data1: -1994162058
-    Data2: 1275970664
-    Data3: 160341127
-    Data4: 690403690
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 500
---- !u!114 &-4878239479974588407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/NixieCross/RiftIdle
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/NixieCross/RiftIdle
-  Guid:
-    Data1: 1622115209
-    Data2: 1090651569
-    Data3: 604741820
-    Data4: -233665141
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 8926
---- !u!114 &-4120980365290436777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Framework/Select
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Framework/Select
-  Guid:
-    Data1: 2102582212
-    Data2: 1161757476
-    Data3: -1614500943
-    Data4: 2117759777
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-3717607162593141445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/FizzlerParty
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/FizzlerParty
-  Guid:
-    Data1: -393136925
-    Data2: 1234263027
-    Data3: 1742356913
-    Data4: 812560721
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 1360
 --- !u!114 &-2706635657165408929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,7 +486,7 @@ MonoBehaviour:
   - Name: Desktop
     Value: 494
   Exists: 1
---- !u!114 &-2331038911904115290
+--- !u!114 &-2681385731327182590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -577,24 +496,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/NixieCross/RiftExpand
+  m_Name: event:/SFX/Physics/LiquidSplat
   m_EditorClassIdentifier: 
-  Path: event:/SFX/NixieCross/RiftExpand
+  Path: event:/SFX/Physics/LiquidSplat
   Guid:
-    Data1: -878778758
-    Data2: 1184946005
-    Data3: 1576062619
-    Data4: 874429726
+    Data1: 32003118
+    Data2: 1128033534
+    Data3: -1820878173
+    Data4: -1862444069
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 0
+  IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1800
---- !u!114 &-1405175368659425528
+  Length: 0
+--- !u!114 &-1077559806537691205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -604,14 +523,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/ElevatorReady
+  m_Name: event:/SFX/Components/DeploymentVentOpen
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/ElevatorReady
+  Path: event:/SFX/Components/DeploymentVentOpen
   Guid:
-    Data1: 550675275
-    Data2: 1161096347
-    Data3: -2037904706
-    Data4: 2066133922
+    Data1: 1847064061
+    Data2: 1143387195
+    Data3: 1583056303
+    Data4: 1153252115
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
@@ -648,60 +567,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 29088
---- !u!114 &-731423761785111172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/ElevatorMove
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/ElevatorMove
-  Guid:
-    Data1: -2088181998
-    Data2: 1206525639
-    Data3: 1488647587
-    Data4: 166444065
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 8378
---- !u!114 &-554304585225038374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Framework/Slider
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Framework/Slider
-  Guid:
-    Data1: 1989118500
-    Data2: 1090157795
-    Data3: 218963848
-    Data4: -674038254
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-436022051518465124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,7 +594,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 9000
---- !u!114 &-11596131370788797
+--- !u!114 &-344126413698928398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -739,18 +604,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/NixieCross/NixieTubePin
+  m_Name: event:/SFX/NixieCross/NixieCrossShoot
   m_EditorClassIdentifier: 
-  Path: event:/SFX/NixieCross/NixieTubePin
+  Path: event:/SFX/NixieCross/NixieCrossShoot
   Guid:
-    Data1: 1620569559
-    Data2: 1275996662
-    Data3: -741141120
-    Data4: 509640686
+    Data1: -447259784
+    Data2: 1258767808
+    Data3: -1068629888
+    Data4: -630590248
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -782,45 +647,180 @@ MonoBehaviour:
   - {fileID: 2147848401823007275}
   - {fileID: -436022051518465124}
   - {fileID: 6944931844035267725}
-  - {fileID: -8268148289955325359}
-  - {fileID: -6205931616824066793}
-  - {fileID: 6282420618922629879}
-  - {fileID: -731423761785111172}
-  - {fileID: -554304585225038374}
-  - {fileID: -7715650223633002834}
-  - {fileID: 2891839471423319497}
-  - {fileID: -1405175368659425528}
-  - {fileID: -7818408102909467500}
-  - {fileID: -5085160032538079281}
-  - {fileID: 8157008345892013103}
-  - {fileID: -2331038911904115290}
-  - {fileID: 7531462092745294705}
-  - {fileID: 8714667621061426808}
-  - {fileID: -4878239479974588407}
-  - {fileID: -7136055461314165988}
-  - {fileID: -6675590182397877612}
-  - {fileID: -6606882360140821725}
-  - {fileID: -5123439976371182062}
-  - {fileID: 4906508974634400724}
-  - {fileID: -4120980365290436777}
-  - {fileID: 7194379098852458107}
-  - {fileID: -8575282343084838346}
-  - {fileID: -11596131370788797}
-  - {fileID: 8710734838935780608}
-  - {fileID: -5633528856090613338}
-  - {fileID: -3717607162593141445}
-  - {fileID: -6900005916704127528}
-  - {fileID: 7427783202053696514}
-  - {fileID: -6377600959309535809}
-  - {fileID: 3523800052826761570}
-  - {fileID: 4632065285177714382}
+  - {fileID: -7326389465190571907}
+  - {fileID: 9179940745280179003}
+  - {fileID: -3908673827317146803}
+  - {fileID: 305519479580382764}
+  - {fileID: -7610091246622492717}
+  - {fileID: -6385105048293388011}
+  - {fileID: -2681385731327182590}
+  - {fileID: -3849241236422587938}
+  - {fileID: -3706402047982911101}
+  - {fileID: 1195476631487230218}
+  - {fileID: -344126413698928398}
+  - {fileID: -7908813931374536361}
+  - {fileID: -6352768726877474987}
+  - {fileID: 236768354901972948}
+  - {fileID: 3727269258015738405}
+  - {fileID: -8146112268583688495}
+  - {fileID: 1027626865564472709}
+  - {fileID: -6358275466966364122}
+  - {fileID: 227244039557351669}
+  - {fileID: -3664281997618167838}
+  - {fileID: 6273445190715539150}
+  - {fileID: -2765182992813827256}
+  - {fileID: 2227157489748287720}
+  - {fileID: -6441567300919281667}
+  - {fileID: 6843205816026262671}
+  - {fileID: 3151332112367824681}
+  - {fileID: 3093713118281824456}
+  - {fileID: 8911547296826673755}
+  - {fileID: 3593135207312052987}
+  - {fileID: 3053483965092124056}
+  - {fileID: -1077559806537691205}
+  - {fileID: 332758758205202512}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8365824045608764663}
   StringsBanks:
   - {fileID: 9139697872510692804}
-  cacheTime: 639122487444125501
+  cacheTime: 639122495326642997
   cacheVersion: 131593
+--- !u!114 &227244039557351669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/Fizzler
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/Fizzler
+  Guid:
+    Data1: 1027490716
+    Data2: 1144668284
+    Data3: -546886509
+    Data4: 532053479
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4200
+--- !u!114 &236768354901972948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Physics/ConnorsBuddyImpact
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Physics/ConnorsBuddyImpact
+  Guid:
+    Data1: 1599003012
+    Data2: 1166519101
+    Data3: -1835953744
+    Data4: -175440116
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &305519479580382764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/ElevatorMove
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/ElevatorMove
+  Guid:
+    Data1: -2088181998
+    Data2: 1206525639
+    Data3: 1488647587
+    Data4: 166444065
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8378
+--- !u!114 &332758758205202512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Physics/SoulexBuddyImpact
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Physics/SoulexBuddyImpact
+  Guid:
+    Data1: -454270210
+    Data2: 1127079735
+    Data3: 949616010
+    Data4: -85752111
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1027626865564472709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/ElevatorClose
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/ElevatorClose
+  Guid:
+    Data1: -1739242868
+    Data2: 1286673304
+    Data3: 1904586926
+    Data4: 26895712
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1077751589926075214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,11 +836,38 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639122487444125501
+  lastModified: 639122495326642997
   FileSizes:
   - Name: Desktop
-    Value: 1661472
+    Value: 1644032
   Exists: 1
+--- !u!114 &1195476631487230218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Player/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Player/Footsteps
+  Guid:
+    Data1: -1994162058
+    Data2: 1275970664
+    Data3: 160341127
+    Data4: 690403690
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &2147848401823007275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,7 +896,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 112000
---- !u!114 &2891839471423319497
+--- !u!114 &2227157489748287720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -879,14 +906,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Physics/LiquidSplat
+  m_Name: event:/SFX/Components/ElevatorOpen
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Physics/LiquidSplat
+  Path: event:/SFX/Components/ElevatorOpen
   Guid:
-    Data1: 32003118
-    Data2: 1128033534
-    Data3: -1820878173
-    Data4: -1862444069
+    Data1: -870487340
+    Data2: 1255828052
+    Data3: 1562062241
+    Data4: 941632284
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
@@ -896,7 +923,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &3523800052826761570
+--- !u!114 &3053483965092124056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -906,24 +933,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/DeploymentVentOpen
+  m_Name: event:/SFX/NixieCross/RiftPlace
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/DeploymentVentOpen
+  Path: event:/SFX/NixieCross/RiftPlace
   Guid:
-    Data1: 1847064061
-    Data2: 1143387195
-    Data3: 1583056303
-    Data4: 1153252115
+    Data1: -415206669
+    Data2: 1337487677
+    Data3: 1588510637
+    Data4: -446962472
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &4632065285177714382
+--- !u!114 &3093713118281824456
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -933,14 +960,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Physics/SoulexBuddyImpact
+  m_Name: event:/SFX/Components/FizzlerParty
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Physics/SoulexBuddyImpact
+  Path: event:/SFX/Components/FizzlerParty
   Guid:
-    Data1: -454270210
-    Data2: 1127079735
-    Data3: 949616010
-    Data4: -85752111
+    Data1: -393136925
+    Data2: 1234263027
+    Data3: 1742356913
+    Data4: 812560721
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1360
+--- !u!114 &3151332112367824681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/NixieCross/NixieTubeBreak
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/NixieCross/NixieTubeBreak
+  Guid:
+    Data1: -608129823
+    Data2: 1129687097
+    Data3: -316266844
+    Data4: 1135776477
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
@@ -950,6 +1004,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3593135207312052987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Physics/MetalImpact
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Physics/MetalImpact
+  Guid:
+    Data1: 1784229098
+    Data2: 1236084974
+    Data3: 197885845
+    Data4: 1037337918
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3727269258015738405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/NixieCross/RiftIdle
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/NixieCross/RiftIdle
+  Guid:
+    Data1: 1622115209
+    Data2: 1090651569
+    Data3: 604741820
+    Data4: -233665141
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8926
 --- !u!114 &4831300370007406976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,7 +1084,7 @@ MonoBehaviour:
   - False
   - True
   Exists: 1
---- !u!114 &4906508974634400724
+--- !u!114 &6273445190715539150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -986,14 +1094,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/FloorButtonOff
+  m_Name: event:/SFX/Framework/Select
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/FloorButtonOff
+  Path: event:/SFX/Framework/Select
   Guid:
-    Data1: 2103947958
-    Data2: 1233358717
-    Data3: -1315997555
-    Data4: 1272214290
+    Data1: 2102582212
+    Data2: 1161757476
+    Data3: -1614500943
+    Data4: 2117759777
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6843205816026262671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/DoorClose
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/DoorClose
+  Guid:
+    Data1: 1837733599
+    Data2: 1126626910
+    Data3: -1917897076
+    Data4: -111282720
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
@@ -1003,33 +1138,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &6282420618922629879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/LemonBuddy
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/LemonBuddy
-  Guid:
-    Data1: 1237243664
-    Data2: 1239986861
-    Data3: -306230358
-    Data4: -1353176015
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 44690
 --- !u!114 &6944931844035267725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,114 +1165,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 75833
---- !u!114 &7194379098852458107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/FloorButtonOn
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/FloorButtonOn
-  Guid:
-    Data1: 1369429199
-    Data2: 1266933166
-    Data3: 814966693
-    Data4: -2074894290
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &7427783202053696514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Physics/MetalImpact
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Physics/MetalImpact
-  Guid:
-    Data1: 1784229098
-    Data2: 1236084974
-    Data3: 197885845
-    Data4: 1037337918
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &7531462092745294705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Physics/Explosion
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Physics/Explosion
-  Guid:
-    Data1: 1889354364
-    Data2: 1260971174
-    Data3: 1898720189
-    Data4: -2128169793
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &8157008345892013103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/NixieCross/NixieCrossShoot
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/NixieCross/NixieCrossShoot
-  Guid:
-    Data1: -447259784
-    Data2: 1258767808
-    Data3: -1068629888
-    Data4: -630590248
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &8574625657698108790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   - False
   - True
   Exists: 1
---- !u!114 &8710734838935780608
+--- !u!114 &8911547296826673755
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1201,41 +1201,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Components/DoorClose
+  m_Name: event:/SFX/Components/DoorOpen
   m_EditorClassIdentifier: 
-  Path: event:/SFX/Components/DoorClose
+  Path: event:/SFX/Components/DoorOpen
   Guid:
-    Data1: 1837733599
-    Data2: 1126626910
-    Data3: -1917897076
-    Data4: -111282720
-  Banks:
-  - {fileID: 1077751589926075214}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
---- !u!114 &8714667621061426808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/Physics/ConnorsBuddyImpact
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/Physics/ConnorsBuddyImpact
-  Guid:
-    Data1: 1599003012
-    Data2: 1166519101
-    Data3: -1835953744
-    Data4: -175440116
+    Data1: -494617115
+    Data2: 1326019338
+    Data3: 1552551092
+    Data4: -1128738772
   Banks:
   - {fileID: 1077751589926075214}
   IsStream: 0
@@ -1265,3 +1238,30 @@ MonoBehaviour:
   - Name: Desktop
     Value: 2932
   Exists: 1
+--- !u!114 &9179940745280179003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/FizzlerIdle
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/FizzlerIdle
+  Guid:
+    Data1: -1258789880
+    Data2: 1131479550
+    Data3: 1707253164
+    Data4: -1070351066
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6517
