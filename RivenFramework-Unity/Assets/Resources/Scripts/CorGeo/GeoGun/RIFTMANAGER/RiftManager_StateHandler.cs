@@ -74,8 +74,9 @@ public class RiftManager_StateHandler : ILoggable
         {
             handler = this
         };
-
-        if (currentState == _riftState)
+        var a = currentState.GetType ();
+        var b = _riftState.GetType ();
+        if (a == b)
         {
             return _riftState;
         }
