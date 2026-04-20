@@ -88,9 +88,50 @@ public class RiftAudioEmitter : MonoBehaviour
         // Still didn't find it? Okay, stop everything else
         if (riftManager is null) return;
 
-        if (riftManager.stateHandler.currentState.GetType () != typeof (RiftState_None) && riftManager.stateHandler.previousState.GetType () == typeof (RiftState_None))
+        if (false)
         {
-            OnRiftCreated ();
+            //horrendous if statements for debugging the state machine:
+            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_None))
+            {
+                Debug.Log ("$$ RiftState_None");
+            }
+            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Collapsing))
+            {
+                Debug.Log ("$$ RiftState_Collapsing");
+            }
+            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Expanding))
+            {
+                Debug.Log ("$$ RiftState_Expanding");
+            }
+            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Destroy))
+            {
+                Debug.Log ("$$ RiftState_Destroy");
+            }
+            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Idle))
+            {
+                Debug.Log ("$$ RiftState_Idle");
+            }
+            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_None))
+            {
+                Debug.Log ("$$ RiftState_None");
+            }
+            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_DestroyRestoring))
+            {
+                Debug.Log ("$$ RiftState_DestroyRestoring");
+            }
+            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_ExpandingFromCrush))
+            {
+                Debug.Log ("$$ RiftState_ExpandingFromCrush");
+            }
+            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Closed))
+            {
+                Debug.Log ("$$ RiftState_Closed");
+            }
+
+            if (riftManager.stateHandler.currentState.GetType () != typeof (RiftState_None) && riftManager.stateHandler.previousState.GetType () == typeof (RiftState_None))
+            {
+                OnRiftCreated ();
+            }
         }
 
         bool collapseStart = false;
