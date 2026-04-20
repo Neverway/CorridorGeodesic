@@ -15,9 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework", "RivenFram
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RivenFramework.Utils.Reflection", "RivenFramework.Utils.Reflection.csproj", "{6C6FD30E-45A3-8E9B-2D92-E48D1C7AB0FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicValues.Editor", "LogicValues.Editor.csproj", "{755944D3-3F72-CA08-5402-8B0B2470C36D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityEditor", "FMODUnityEditor.csproj", "{898EC427-C8F0-DB12-BF96-5BC78A1EEB40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicValues.Editor", "LogicValues.Editor.csproj", "{755944D3-3F72-CA08-5402-8B0B2470C36D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neverway.Framework.AudioManagement", "Neverway.Framework.AudioManagement.csproj", "{45F37D3B-9ABD-E0EE-B323-CD18F735389D}"
 EndProject
@@ -105,14 +105,14 @@ Global
 		{6C6FD30E-45A3-8E9B-2D92-E48D1C7AB0FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C6FD30E-45A3-8E9B-2D92-E48D1C7AB0FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C6FD30E-45A3-8E9B-2D92-E48D1C7AB0FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{755944D3-3F72-CA08-5402-8B0B2470C36D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{755944D3-3F72-CA08-5402-8B0B2470C36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{755944D3-3F72-CA08-5402-8B0B2470C36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{755944D3-3F72-CA08-5402-8B0B2470C36D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{898EC427-C8F0-DB12-BF96-5BC78A1EEB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{898EC427-C8F0-DB12-BF96-5BC78A1EEB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{898EC427-C8F0-DB12-BF96-5BC78A1EEB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{898EC427-C8F0-DB12-BF96-5BC78A1EEB40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{755944D3-3F72-CA08-5402-8B0B2470C36D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{755944D3-3F72-CA08-5402-8B0B2470C36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{755944D3-3F72-CA08-5402-8B0B2470C36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{755944D3-3F72-CA08-5402-8B0B2470C36D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45F37D3B-9ABD-E0EE-B323-CD18F735389D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45F37D3B-9ABD-E0EE-B323-CD18F735389D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45F37D3B-9ABD-E0EE-B323-CD18F735389D}.Release|Any CPU.ActiveCfg = Release|Any CPU

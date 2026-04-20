@@ -1320,60 +1320,20 @@
       <HintPath>D:\Unity Editors\2022.3.15f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.IK.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.ResourceManager">
-      <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.2D.Common.Path.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Path.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Animation.Rigging.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Localization.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Localization.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.ScriptableBuildPipeline">
       <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Aseprite.Common">
@@ -1388,44 +1348,20 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Collections">
-      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+    <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    <Reference Include="Unity.Collections">
+      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
@@ -1448,6 +1384,134 @@
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.Toolchain.Linux-x86_64">
+      <HintPath>Library\ScriptAssemblies\Unity.Toolchain.Linux-x86_64.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.InputSystem.ForUI">
+      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Addressables.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Addressables">
+      <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.IK.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.IK.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Postprocessing.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ResourceManager">
+      <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Animation.Rigging.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Animation.Rigging.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Localization.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Localization.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Animation.Rigging">
       <HintPath>Library\ScriptAssemblies\Unity.Animation.Rigging.dll</HintPath>
       <Private>False</Private>
@@ -1468,20 +1532,8 @@
       <HintPath>Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Toolchain.Linux-x86_64">
-      <HintPath>Library\ScriptAssemblies\Unity.Toolchain.Linux-x86_64.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Burst">
-      <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.ProBuilder">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
@@ -1500,20 +1552,8 @@
       <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Extras">
@@ -1532,10 +1572,6 @@
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.005.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
       <Private>False</Private>
@@ -1548,24 +1584,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Addressables.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.SysrootPackage.Editor">
@@ -1584,10 +1608,6 @@
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1604,24 +1624,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Cinemachine">
       <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FolderIconsEditor">
       <HintPath>Library\ScriptAssemblies\FolderIconsEditor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
@@ -1632,27 +1640,15 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.2D.IK.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Addressables">
-      <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Dreamteck.Splines.Editor.csproj">
       <Project>{B631010B-B38D-131A-D9C1-B33E99185FD9}</Project>
       <Name>Dreamteck.Splines.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="RivenFramework.Utils.Reflection.csproj">
-      <Project>{6C6FD30E-45A3-8E9B-2D92-E48D1C7AB0FC}</Project>
-      <Name>RivenFramework.Utils.Reflection</Name>
-    </ProjectReference>
-    <ProjectReference Include="Neverway.Framework.LogicSystem.csproj">
-      <Project>{95CF2BEC-BF64-5F12-D106-EC12A8016DB9}</Project>
-      <Name>Neverway.Framework.LogicSystem</Name>
+    <ProjectReference Include="FMODUnityEditor.csproj">
+      <Project>{898EC427-C8F0-DB12-BF96-5BC78A1EEB40}</Project>
+      <Name>FMODUnityEditor</Name>
     </ProjectReference>
     <ProjectReference Include="Dreamteck.Splines.csproj">
       <Project>{6E6E0934-5F7F-984E-1CBF-B0734B295548}</Project>
@@ -1670,13 +1666,13 @@
       <Project>{B1B84592-6BC6-56A1-2C87-ADC9C5DEE130}</Project>
       <Name>BzKovSoft.ObjectSlicer</Name>
     </ProjectReference>
+    <ProjectReference Include="FMODUnityResonance.csproj">
+      <Project>{96075C6D-7108-60F2-6915-1CE36606D85B}</Project>
+      <Name>FMODUnityResonance</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.AudioManagement.csproj">
       <Project>{45F37D3B-9ABD-E0EE-B323-CD18F735389D}</Project>
       <Name>Neverway.Framework.AudioManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="Neverway.Framework.PawnManagement.csproj">
-      <Project>{FD490BC0-E584-B78B-74B4-255AFB71D1F6}</Project>
-      <Name>Neverway.Framework.PawnManagement</Name>
     </ProjectReference>
     <ProjectReference Include="DevTools.csproj">
       <Project>{D7444AE8-23E1-7E92-054D-25763D8CD9CD}</Project>
@@ -1686,41 +1682,21 @@
       <Project>{D620F1BD-5458-7D7F-4F1A-9673ABD83232}</Project>
       <Name>RivenFramework.PawnMangement</Name>
     </ProjectReference>
-    <ProjectReference Include="CoreAttributes.csproj">
-      <Project>{72123C6B-2D53-122E-FDB1-80CCCB741992}</Project>
-      <Name>CoreAttributes</Name>
+    <ProjectReference Include="FMODUnity.csproj">
+      <Project>{8F4453D3-219F-2950-D0F0-60DBF6A3D0C8}</Project>
+      <Name>FMODUnity</Name>
     </ProjectReference>
     <ProjectReference Include="BzKovSoft.ObjectSlicer.Samples.csproj">
       <Project>{43F56974-C5DE-1D1E-C8EC-C0C0C45E9334}</Project>
       <Name>BzKovSoft.ObjectSlicer.Samples</Name>
     </ProjectReference>
-    <ProjectReference Include="SimpleFieldsEditor.csproj">
-      <Project>{0567030F-F9CC-A106-B516-B17DCD859022}</Project>
-      <Name>SimpleFieldsEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="EasyEditorGUI.csproj">
-      <Project>{90FD0F7C-97FF-EE8D-F013-81D64E206F99}</Project>
-      <Name>EasyEditorGUI</Name>
-    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.csproj">
       <Project>{E2C6AF86-F4DC-E0BA-5D9B-904144009090}</Project>
       <Name>Neverway.Framework</Name>
     </ProjectReference>
-    <ProjectReference Include="RivenFramework.csproj">
-      <Project>{55EB9F8C-7C19-D9C0-F4C0-534F1BC09483}</Project>
-      <Name>RivenFramework</Name>
-    </ProjectReference>
-    <ProjectReference Include="RivenFramework.TempResources.csproj">
-      <Project>{6D52B117-34AD-81E8-C815-5F17DC5E2D92}</Project>
-      <Name>RivenFramework.TempResources</Name>
-    </ProjectReference>
     <ProjectReference Include="SimpleFields.csproj">
       <Project>{9728FBA5-AF4A-5816-BE7C-A9E257C41EEB}</Project>
       <Name>SimpleFields</Name>
-    </ProjectReference>
-    <ProjectReference Include="RivenFrameworkEditor.csproj">
-      <Project>{AC371A15-91F3-3B17-590E-1DA35887FEC1}</Project>
-      <Name>RivenFrameworkEditor</Name>
     </ProjectReference>
     <ProjectReference Include="RivenFramework.WidgetSystem.csproj">
       <Project>{55F2D8DF-7DE4-4782-9C05-2B1823B6CCF0}</Project>
@@ -1730,6 +1706,46 @@
       <Project>{FD7496E3-3002-01C1-9FEC-C610AB55F0A5}</Project>
       <Name>Neverway.Framework.Cartographer</Name>
     </ProjectReference>
+    <ProjectReference Include="Dreamteck.Utilities.Editor.csproj">
+      <Project>{762285EC-533D-47F7-E36F-C458A8895AC1}</Project>
+      <Name>Dreamteck.Utilities.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFramework.Utils.Reflection.csproj">
+      <Project>{6C6FD30E-45A3-8E9B-2D92-E48D1C7AB0FC}</Project>
+      <Name>RivenFramework.Utils.Reflection</Name>
+    </ProjectReference>
+    <ProjectReference Include="Neverway.Framework.LogicSystem.csproj">
+      <Project>{95CF2BEC-BF64-5F12-D106-EC12A8016DB9}</Project>
+      <Name>Neverway.Framework.LogicSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="Neverway.Framework.PawnManagement.csproj">
+      <Project>{FD490BC0-E584-B78B-74B4-255AFB71D1F6}</Project>
+      <Name>Neverway.Framework.PawnManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="CoreAttributes.csproj">
+      <Project>{72123C6B-2D53-122E-FDB1-80CCCB741992}</Project>
+      <Name>CoreAttributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="SimpleFieldsEditor.csproj">
+      <Project>{0567030F-F9CC-A106-B516-B17DCD859022}</Project>
+      <Name>SimpleFieldsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="EasyEditorGUI.csproj">
+      <Project>{90FD0F7C-97FF-EE8D-F013-81D64E206F99}</Project>
+      <Name>EasyEditorGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFramework.csproj">
+      <Project>{55EB9F8C-7C19-D9C0-F4C0-534F1BC09483}</Project>
+      <Name>RivenFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFramework.TempResources.csproj">
+      <Project>{6D52B117-34AD-81E8-C815-5F17DC5E2D92}</Project>
+      <Name>RivenFramework.TempResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="RivenFrameworkEditor.csproj">
+      <Project>{AC371A15-91F3-3B17-590E-1DA35887FEC1}</Project>
+      <Name>RivenFrameworkEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="RivenFramework.SoundSystem.csproj">
       <Project>{7D0D858B-16FF-8FE7-1EBE-A52B5E79DA48}</Project>
       <Name>RivenFramework.SoundSystem</Name>
@@ -1738,9 +1754,9 @@
       <Project>{4B8D0437-61EA-107C-8FEA-607907A56D48}</Project>
       <Name>BzKovSoft.CharacterSlicer</Name>
     </ProjectReference>
-    <ProjectReference Include="Dreamteck.Utilities.Editor.csproj">
-      <Project>{762285EC-533D-47F7-E36F-C458A8895AC1}</Project>
-      <Name>Dreamteck.Utilities.Editor</Name>
+    <ProjectReference Include="FMODUnityResonanceEditor.csproj">
+      <Project>{A5E1FDFB-A206-1A85-21E6-20463497C6D9}</Project>
+      <Name>FMODUnityResonanceEditor</Name>
     </ProjectReference>
     <ProjectReference Include="Dreamteck.Utilities.csproj">
       <Project>{F3A59299-0B18-C6E2-1D4D-8496EC18A5BE}</Project>
