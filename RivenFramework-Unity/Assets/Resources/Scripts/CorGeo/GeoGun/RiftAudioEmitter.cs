@@ -5,15 +5,16 @@
 //
 //=============================================================================
 
-//using FMOD.Studio;
-//using FMODUnity;
+using FMOD.Studio;
+using FMODUnity;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Neverway.Framework.PawnManagement;
 using Unity.VisualScripting;
 
-public class Rift_Audio : MonoBehaviour
+public class RiftAudioEmitter : MonoBehaviour
 {
     //=-----------------=
     // Public Variables
@@ -28,10 +29,10 @@ public class Rift_Audio : MonoBehaviour
 
     private RiftManager riftManager;
 
-    //   FMOD audio instances (unused)
-    //private EventInstance riftIdleInstance;
-    //private EventInstance riftCollapseInstance;
-    //private EventInstance riftExpandInstance;
+    //   FMOD audio instances
+    private EventInstance riftIdleInstance;
+    private EventInstance riftCollapseInstance;
+    private EventInstance riftExpandInstance;
 
     //=-----------------=
     // Reference Variables
@@ -46,9 +47,9 @@ public class Rift_Audio : MonoBehaviour
         // Whoops, we need this reference, but it's not here!
         if (riftManager is null) riftManager = FindObjectOfType<RiftManager> ();
 
-        //riftIdleInstance = Audio_FMODAudioManager.CreateInstance(Audio_FMODEvents.Instance.riftIdle);
-        //riftCollapseInstance = Audio_FMODAudioManager.CreateInstance(Audio_FMODEvents.Instance.riftCollapsing);
-        //riftExpandInstance = Audio_FMODAudioManager.CreateInstance(Audio_FMODEvents.Instance.riftExpanding);
+        riftIdleInstance = Audio_FMODAudioManager.CreateInstance(Audio_FMODEvents.Instance.riftIdle);
+        riftCollapseInstance = Audio_FMODAudioManager.CreateInstance(Audio_FMODEvents.Instance.riftCollapsing);
+        riftExpandInstance = Audio_FMODAudioManager.CreateInstance(Audio_FMODEvents.Instance.riftExpanding);
     }
     private void OnEnable()
     {
@@ -60,9 +61,9 @@ public class Rift_Audio : MonoBehaviour
     }
     private void OnDestroy()
     {
-        //riftIdleInstance.release();
-        //riftCollapseInstance.release();
-        //riftExpandInstance.release();
+        riftIdleInstance.release();
+        riftCollapseInstance.release();
+        riftExpandInstance.release();
     }
 
     private void Update()
@@ -122,24 +123,20 @@ public class Rift_Audio : MonoBehaviour
 
         if (collapseStart)
         {
-            //riftCollapseInstance.start();
-            //todo: play collapse loop
+            riftCollapseInstance.start();
         }
         else
         {
-            //riftCollapseInstance.stop (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            //todo: stop collapse loop
+            riftCollapseInstance.stop (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
         if (expandStart)
         {
-            //riftExpandInstance.start ();
-            //todo: play expand loop
+            riftExpandInstance.start ();
         }
         else
         {
-            //riftExpandInstance.stop (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            //todo: stop expand loop
+            riftExpandInstance.stop (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
     private Vector3 GetAudioClosestPosition()
@@ -182,31 +179,27 @@ public class Rift_Audio : MonoBehaviour
     }
     private void Update3DAttributes()
     {
-        //FMOD.ATTRIBUTES_3D attributes = FMODUnity.RuntimeUtils.To3DAttributes(transform.position);
+        FMOD.ATTRIBUTES_3D attributes = FMODUnity.RuntimeUtils.To3DAttributes(transform.position);
 
-        //riftIdleInstance.set3DAttributes(attributes);
-        //riftCollapseInstance.set3DAttributes(attributes);
-        //riftExpandInstance.set3DAttributes(attributes);
+        riftIdleInstance.set3DAttributes(attributes);
+        riftCollapseInstance.set3DAttributes(attributes);
+        riftExpandInstance.set3DAttributes(attributes);
     }
     private void OnRiftCreated()
     {
         Debug.Log ("Sound: rift created");
         //Put code here for when rift first starts moving
-        //Audio_FMODAudioManager.PlayOneShot(Audio_FMODEvents.Instance.riftSpawned);
+        Audio_FMODAudioManager.PlayOneShot(Audio_FMODEvents.Instance.riftSpawned);
 
-        //riftIdleInstance.start();
-        
-        //todo: play riftSpawned sound
+        riftIdleInstance.start();
     }
     private void OnRiftRemoved()
     {
         Debug.Log ("Sound: rift removed");
         //Put code here for when rift is cleared.
-        //Audio_FMODAudioManager.PlayOneShot(Audio_FMODEvents.Instance.riftKilled);
+        Audio_FMODAudioManager.PlayOneShot(Audio_FMODEvents.Instance.riftKilled);
 
-        //riftIdleInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
-        //todo: play riftKilled sound
+        riftIdleInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private Vector3 GetCameraPosition ()

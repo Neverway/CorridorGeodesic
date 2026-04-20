@@ -88,6 +88,7 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\Segment.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\CSGModelBase.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\CorGeo_RealityPuncher.cs" />
+    <Compile Include="Assets\Resources\Scripts\Audio\Audio_FMODEvents.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\Actor_StepUp.cs" />
     <Compile Include="Assets\Resources\Scripts\GI_DevToolsLoader.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Extensions\Matrices\Matrix3x2.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\RIFTMANAGER\RiftController.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\_Depreciated\UI_Image_EntityItems.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\Logic_DeploymentVent.cs" />
+    <Compile Include="Assets\Resources\Scripts\Audio\Audio_AudioEventPlayer.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\ResizeHandlePair.cs" />
     <Compile Include="Assets\Resources\Scripts\ErryLib\ExtensionMethods\ExtentionMethods_VisualElement.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\BulbSockets\BulbOutletStrip.cs" />
@@ -224,6 +226,7 @@
     <Compile Include="Assets\SimpleLightProbePlacer\Scripts\LightProbeVolume.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\Volumes\AudioVolume\VolumetricAudioVolumeComponent.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreCSGPreferences.cs" />
+    <Compile Include="Assets\Resources\Scripts\Audio\Audio_FMODAudioManager.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\Tempoorary\OldRiftGun.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Geometry\GeometryHelper.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\EditorTools\KeepAsUnselectable.cs" />
@@ -238,6 +241,7 @@
     <Compile Include="Assets\Resources\Scripts\CorGeo\Voxel\NotUsed\VoxComputeManager.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreCSGResources.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\WidgetSystem\TextboxSystem\WB_Textbox.cs" />
+    <Compile Include="Assets\Resources\Scripts\Audio\Audio_FMODMusicManager.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfImporter.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\CorGeo_VolumeFizzler.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\UnrealGold\T3dActor.cs" />
@@ -282,6 +286,7 @@
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\Lasers\Laser_Detector.cs" />
     <Compile Include="Assets\Resources\Scripts\ErryLib\ReflectionUtils\ReflectionCache.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\_Depreciated\Pawn_Inventory.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\RiftAudioEmitter.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Graphics_ChangeMaterialProperty.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\PaintEditor.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\Logic_SocketOutlet.cs" />
@@ -290,7 +295,6 @@
     <Compile Include="Assets\Resources\Scripts\ErryLib\ReflectionUtils\IAttributeLoader.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\ShapeEditor\SegmentType.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\TrimBrush.cs" />
-    <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\Rift_Audio.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Geometry\OBJFactory.cs" />
     <Compile Include="Assets\Packages\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\WidgetSystem\WidgetSelectable_Animator.cs" />

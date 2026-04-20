@@ -911,6 +911,8 @@ MonoBehaviour:
   previewPlanePrefab: {fileID: 3569801623043244855, guid: 61a9fdcdc9cce68f5a08bb261ec665d5,
     type: 3}
   previewPlanes: []
+  riftAudioEmitter: {fileID: 7881366376453657410, guid: 41cd8681fd2551c418c03ff96c1e6984,
+    type: 3}
 --- !u!1001 &7884057557956848956
 PrefabInstance:
   m_ObjectHideFlags: 0
