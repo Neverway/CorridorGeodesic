@@ -267,7 +267,16 @@ Shader "Neverway/Resoulex Toon"
                 output.Roughness = tex2D(_SpecGlossMap, uv).r * _Glossiness;
             }
 
+            float sliceA = dot(_SliceNormalOne, IN.worldPos - _SliceCenterOne);
+            float sliceB = dot(_SliceNormalTwo, IN.worldPos - _SliceCenterTwo);
+
             clip(col.a - _AlphaClip);
+
+            if(_UseSlice == 1)
+            {
+                clip(sliceA);
+                clip(sliceB);
+            }
         }
         ENDCG
     }
