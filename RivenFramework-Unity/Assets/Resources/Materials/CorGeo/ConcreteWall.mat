@@ -82,6 +82,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DetailProminence: 0.6
     - _DstBlend: 0
+    - _EmissionDivision: 1
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
@@ -97,6 +98,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _UseSlice: 0
+    - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.728302, g: 0.7033506, b: 0.6808943, a: 1}

@@ -142,8 +142,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSlicedByPlane: 0
+  <EnableRuntimeLogging>k__BackingField: 0
   isReflective: 0
+  isSliceInProgress: 0
+  isSlicedByPlane: 0
+  isClone: 0
+  riftSpace: 0
+  meshRenderer: {fileID: 0}
 --- !u!1001 &6956118632047380180
 PrefabInstance:
   m_ObjectHideFlags: 0

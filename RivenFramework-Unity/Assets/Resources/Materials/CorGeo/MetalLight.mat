@@ -76,6 +76,7 @@ Material:
     - _ColorOnly: 0
     - _CullMode: 2
     - _DetailProminence: 0.81
+    - _EmissionDivision: 1
     - _Glossiness: 1
     - _Metallic: 0.69
     - _Parallax: 0.025
@@ -83,6 +84,8 @@ Material:
     - _SpecularMode: 0
     - _SpecularStrength: 0.5
     - _UseSlice: 0
+    - _ZTest: 4
+    - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0, g: 0, b: 0, a: 0}

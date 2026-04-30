@@ -191,6 +191,7 @@ MonoBehaviour:
   disabledObjectsExitVolume: 1
   pawnsInTrigger: []
   propsInTrigger: []
+  pawnManager: {fileID: 0}
   resetsAutomatically: 1
   reset:
     editorHandles_showHandle: 0

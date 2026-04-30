@@ -10,8 +10,8 @@ using FMODUnity;
 
 using System.Collections;
 using System.Collections.Generic;
+using RivenFramework;
 using UnityEngine;
-using Neverway.Framework.PawnManagement;
 using Unity.VisualScripting;
 
 public class RiftAudioEmitter : MonoBehaviour
@@ -37,6 +37,7 @@ public class RiftAudioEmitter : MonoBehaviour
     //=-----------------=
     // Reference Variables
     //=-----------------=
+    private GameObject activeCamera;
 
 
     //=-----------------=
@@ -245,7 +246,17 @@ public class RiftAudioEmitter : MonoBehaviour
 
     private Vector3 GetCameraPosition ()
     {
-        return Camera.current.transform.position;
+        if (!activeCamera)
+        {
+            var localPlayer = GameInstance.Get<GI_PawnManager>().localPlayerCharacter;
+            if (localPlayer) activeCamera = localPlayer.GetComponentInChildren<Camera>().gameObject;
+            if (!activeCamera)
+            {
+                Debug.LogWarning("RiftAudioEmitter could not find camera (If this happens repeatedly, it's probably an issue)");
+                return Vector3.zero;
+            }
+        }
+        return activeCamera.transform.position;
     }
 
     //=-----------------=
