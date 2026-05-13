@@ -53,7 +53,7 @@ Shader "Neverway/Resoulex Toon"
         CGPROGRAM
 
         // Includes (Imported libraries & Shader type settings)
-        #pragma surface surf Ramp fullforwardshadows addshadow
+        #pragma surface surf Ramp addshadow
         #pragma multi_compile _SPECULARMODE_TRUEPBR _SPECULARMODE_STYLIZEDPBR
         #pragma target 3.0
         #pragma multi_compile_instancing
@@ -162,30 +162,16 @@ Shader "Neverway/Resoulex Toon"
             half steps;
 
             #ifdef _SPECULARMODE_TRUEPBR
-                // Changing this to linear scale ~Liz
-                //steps = _RampSmoothness * _RampSmoothness * 100 * 64;
                 steps = lerp(8, 128, _RampSmoothness);
-    
-                //steps = 64;
-                
-                //float rNdotL = round(NdotL * steps) / steps;
-                //float rNdotV = round(NdotV * steps) / steps;
-    
                 float rNdotH = round(NdotH * steps) / steps;
-                
                 float V = SmithJointGGXVisibilityTerm(NdotL, NdotV, roughness);
                 float D = GGXTerm(rNdotH, roughness);
                 specularTerm = V * D * UNITY_PI;
-                // This was already commented out //specularTerm = lerp(round(specularTerm * steps) / steps, specularTerm, 1 - smoothness);
             #elif _SPECULARMODE_STYLIZEDPBR
                 steps = _RampSmoothness * _RampSmoothness * 300;
                 specularTerm = round(pow(NdotH * NdotL, smoothness * 10) * steps) / steps;
-            
-                //float toonSpec = pow(NdotH, 32.0 * smoothness);
-                //specularTerm = smoothstep(0.5, 0.6, toonSpec);
             #endif
 
-            
             specularTerm *= _SpecularStrength;  
             specularTerm = max(0, specularTerm * NdotL);
 
@@ -201,18 +187,17 @@ Shader "Neverway/Resoulex Toon"
             return color;
         }
 
-        // Not sure what this is
         inline void LightingRamp_GI(SurfaceOutputToon s, UnityGIInput data, inout UnityGI gi)
         {
             #if defined(UNITY_PASS_DEFERRED) && UNITY_ENABLE_REFLECTION_BUFFERS
                 gi = UnityGlobalIllumination(data, s.Occlusion, s.Normal);
             #else
+                data.worldPos = s.worldPos;
                 Unity_GlossyEnvironmentData g = UnityGlossyEnvironmentSetup(1 - s.Roughness, data.worldViewDir, s.Normal, lerp(unity_ColorSpaceDielectricSpec.rgb, s.Albedo, s.Metallic));
                 gi = UnityGlobalIllumination(data, s.Occlusion, s.Normal, g);
             #endif
         }
         
-        // Custom lighting model (Above we defined lighting model as "Ramp" so unity expects a func called Lighting<ModelName>)
         half4 LightingRamp(SurfaceOutputToon surface, float3 viewDir, UnityGI gi)
         {
             float3 normal = normalize(surface.Normal);
@@ -227,6 +212,17 @@ Shader "Neverway/Resoulex Toon"
             half4 emission = half4(surface.Emission + c, surface.Alpha);
 
             return emission;
+        }
+
+        half4 LightingRamp_Vertex(SurfaceOutputToon surface, half3 lightDir, half3 lightColor)
+        {
+            float3 normal = normalize(surface.Normal);
+
+            half preNdotL = DotClamped(normal, normalize(lightDir));
+            half NdotL    = smoothstep(0, _RampSmoothness, preNdotL);
+
+            half3 color = surface.Albedo * lightColor * NdotL;
+            return half4(color, surface.Alpha);
         }
 
         // Surface Function (Where sampling and properties come together and output)
