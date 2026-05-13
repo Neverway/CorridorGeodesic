@@ -84,7 +84,7 @@ Material:
     - _EdgeStrength: 1
     - _EmissionDivision: 1
     - _GlossMapScale: 1
-    - _Glossiness: 1
+    - _Glossiness: 0.608
     - _GlossyReflections: 1
     - _HatchScale: 4
     - _HatchStrength: 0.5
@@ -93,13 +93,14 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0
     - _PosterizeLevels: 4
-    - _RampSmoothness: 0.39
+    - _RampSmoothness: 0.32
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpecularMode: 0
     - _SpecularStrength: 0.43
     - _SrcBlend: 1
     - _UVSec: 0
+    - _UseSlice: 0
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
@@ -107,5 +108,9 @@ Material:
     - _DetailColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _SliceCenterOne: {r: 1, g: 1, b: 1, a: 0}
+    - _SliceCenterTwo: {r: 1, g: 1, b: 1, a: 0}
+    - _SliceNormalOne: {r: 1, g: 1, b: 1, a: 0}
+    - _SliceNormalTwo: {r: 1, g: 1, b: 1, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
