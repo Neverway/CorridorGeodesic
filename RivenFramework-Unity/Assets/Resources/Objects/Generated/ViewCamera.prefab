@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1301064606120009362}
   - component: {fileID: 8649991843322933473}
   - component: {fileID: -6068212331709314102}
+  - component: {fileID: -5620225752646015883}
   m_Layer: 11
   m_Name: ViewCamera
   m_TagString: Untagged
@@ -80,7 +81,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -158,3 +159,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
+--- !u!114 &-5620225752646015883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8932372165829005355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2096429544d95fd899176a060624c5b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  scale: 0.5
+  filterMode: 0

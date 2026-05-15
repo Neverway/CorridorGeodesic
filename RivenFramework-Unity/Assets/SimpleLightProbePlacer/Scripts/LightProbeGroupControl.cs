@@ -11,11 +11,18 @@ namespace SimpleLightProbePlacer
         [SerializeField] private float m_mergeDistance = 0.5f;
         [SerializeField] private bool m_usePointLights = true;
         [SerializeField] private float m_pointLightRange = 1;
-        
+        [SerializeField] private bool m_removeInsideGeometry = true;
+        [SerializeField] private bool m_invertGeometryCheck = false;
+        [SerializeField] private LayerMask m_geometryLayers = ~0;
+
         public float MergeDistance { get { return m_mergeDistance; } set { m_mergeDistance = value; } }
         public int MergedProbes { get { return m_mergedProbes; } }
+        public int RemovedInsideGeometry { get { return m_removedInsideGeometry; } }
         public bool UsePointLights { get { return m_usePointLights; } set { m_usePointLights = value; } }
         public float PointLightRange { get { return m_pointLightRange; } set { m_pointLightRange = value; } }
+        public bool RemoveInsideGeometry { get { return m_removeInsideGeometry; } set { m_removeInsideGeometry = value; } }
+        public bool InvertGeometryCheck { get { return m_invertGeometryCheck; } set { m_invertGeometryCheck = value; } }
+        public LayerMask GeometryLayers { get { return m_geometryLayers; } set { m_geometryLayers = value; } }
 
         public LightProbeGroup LightProbeGroup
         {
@@ -27,12 +34,14 @@ namespace SimpleLightProbePlacer
         }
 
         private int m_mergedProbes;
+        private int m_removedInsideGeometry;
         private LightProbeGroup m_lightProbeGroup;
 
         public void DeleteAll()
         {
             LightProbeGroup.probePositions = null;
             m_mergedProbes = 0;
+            m_removedInsideGeometry = 0;
         }
 
         public void Create()
@@ -42,6 +51,9 @@ namespace SimpleLightProbePlacer
             List<Vector3> positions = CreatePositions();
             positions.AddRange(CreateAroundPointLights(m_pointLightRange));
             positions = MergeClosestPositions(positions, m_mergeDistance, out m_mergedProbes);
+
+            if (m_removeInsideGeometry)
+                positions = FilterProbesInsideGeometry(positions, m_geometryLayers, m_invertGeometryCheck, out m_removedInsideGeometry);
 
             ApplyPositions(positions);
         }
@@ -54,6 +66,54 @@ namespace SimpleLightProbePlacer
             positions = positions.Select(x => transform.TransformPoint(x)).ToList();
 
             ApplyPositions(positions);
+        }
+
+        public void RemoveProbesInsideGeometry()
+        {
+            if (LightProbeGroup.probePositions == null || LightProbeGroup.probePositions.Length == 0)
+                return;
+
+            List<Vector3> worldPositions = LightProbeGroup.probePositions
+                .Select(x => transform.TransformPoint(x))
+                .ToList();
+
+            worldPositions = FilterProbesInsideGeometry(worldPositions, m_geometryLayers, m_invertGeometryCheck, out m_removedInsideGeometry);
+
+            ApplyPositions(worldPositions);
+        }
+
+        private static List<Vector3> FilterProbesInsideGeometry(List<Vector3> positions, LayerMask layers, bool invert, out int removedCount)
+        {
+            List<Vector3> filtered = new List<Vector3>(positions.Count);
+
+            foreach (var pos in positions)
+            {
+                bool inside = IsInsideGeometry(pos, layers);
+                bool keep = invert ? inside : !inside;
+                if (keep)
+                    filtered.Add(pos);
+            }
+
+            removedCount = positions.Count - filtered.Count;
+            return filtered;
+        }
+        public static bool IsInsideGeometry(Vector3 worldPosition, LayerMask layers)
+        {
+            Vector3[] directions = { Vector3.right, Vector3.left, Vector3.up, Vector3.down, Vector3.forward, Vector3.back };
+
+            int insideCount = 0;
+
+            foreach (var dir in directions)
+            {
+                RaycastHit hit;
+                if (Physics.Raycast(worldPosition, dir, out hit, Mathf.Infinity, layers, QueryTriggerInteraction.Ignore))
+                {
+                    if (Vector3.Dot(dir, hit.normal) > 0f)
+                        insideCount++;
+                }
+            }
+
+            return insideCount > 3;
         }
 
         private void ApplyPositions(List<Vector3> positions)

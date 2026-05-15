@@ -95,9 +95,9 @@ public class RiftManager_ActorHandler : ILoggable
 
         if (_newRiftPercent == 0)
         {
-            Debug.LogError("HEYA WE ARE DIVIDING BY ZERO!! Expect player vaporization!!");
-            Debug.LogError($"ADPANS {distanceFromPlaneA} / {RiftManager.currentRiftWidth} = ??");
-            Debug.LogError($"NRW {RiftManager.riftStartingWidth} * {_newRiftPercent} = ??");
+            //Debug.LogError("HEYA WE ARE DIVIDING BY ZERO!! Expect player vaporization!!");
+            //Debug.LogError($"ADPANS {distanceFromPlaneA} / {RiftManager.currentRiftWidth} = ??");
+            //Debug.LogError($"NRW {RiftManager.riftStartingWidth} * {_newRiftPercent} = ??");
         }
         
         // Calculate the new distance from A-Plane based on current rift scale

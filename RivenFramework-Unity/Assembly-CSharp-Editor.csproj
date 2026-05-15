@@ -48,6 +48,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/BrushBaseInspector.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/StairBrushInspector.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolAssetManager.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Editor/Func_TextEventEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGModelInspector.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolStripVariant.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorBrushInspector.cs" />
@@ -57,6 +58,7 @@
      <Compile Include="Assets/RivenFramework/Scripts/Editor/PreviewIcons.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/PrimitiveBrushInspector.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolScatterPlacer.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Editor/TextEventEditorWindow.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/DebugDisplayListAsStringsAttributeDrawer.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/PolymorphicDrawer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerActorDatabase.cs" />
@@ -90,6 +92,7 @@
      <Folder Include="Assets/Resources/Scripts/CorGeo/EditorTools/Editor" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor" />
      <Folder Include="Assets/RivenFramework-Revamp/Editor" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/Editor" />
      <Folder Include="Assets/SimpleLightProbePlacer/Editor/Icons" />

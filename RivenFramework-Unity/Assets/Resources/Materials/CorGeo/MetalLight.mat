@@ -80,6 +80,8 @@ Material:
     - _Glossiness: 1
     - _Metallic: 0.69
     - _Parallax: 0.025
+    - _ProbeBias: 0.1
+    - _ProbeLightingOn: 0
     - _RampSmoothness: 0.1
     - _SpecularMode: 0
     - _SpecularStrength: 0.5

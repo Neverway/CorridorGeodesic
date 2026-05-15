@@ -10,6 +10,8 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using Neverway.Framework.LogicSystem;
+using UnityEditor.Animations;
+using UnityEngine.UI;
 
 namespace Neverway.Framework.LogicSystem
 {

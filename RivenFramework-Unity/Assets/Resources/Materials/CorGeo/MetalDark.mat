@@ -146,6 +146,8 @@ Material:
     - _NormalPower: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.025
+    - _ProbeBias: 0.1
+    - _ProbeLightingOn: 0
     - _RampSmoothness: 0.1
     - _Roughness: 1
     - _RoughnessPower: 1

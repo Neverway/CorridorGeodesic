@@ -345,6 +345,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/BrushChunk.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/UI_Text_EntityHealth.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/SOEventSystem/SOEvent.cs" />
+     <Compile Include="Assets/Resources/Scripts/RenderScale.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/ILoggable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/LemonBuddyTracker.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Text_EntityItems.cs" />

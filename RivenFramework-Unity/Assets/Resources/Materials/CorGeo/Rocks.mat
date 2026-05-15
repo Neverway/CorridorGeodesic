@@ -111,6 +111,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.08
+    - _ProbeBias: 0.1
+    - _ProbeLightingOn: 0
     - _RampSmoothness: 0.1
     - _RoughnessPower: 1
     - _SmoothnessTextureChannel: 0

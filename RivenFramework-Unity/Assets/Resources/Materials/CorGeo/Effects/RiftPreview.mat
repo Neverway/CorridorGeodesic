@@ -59,7 +59,7 @@ Material:
     - _SphereSize: 0
     - _TriplanarSharpness: 64
     m_Colors:
-    - _BulbsCenter: {r: 8.458956, g: 3.9589565, b: 32.80034, a: 0}
+    - _BulbsCenter: {r: 9.5, g: 4.000001, b: 31, a: 0}
     - _DeepColor: {r: 0.4716981, g: 0.4236034, b: 0, a: 0.003921569}
     - _ScrollDirection: {r: 1, g: 1, b: 0, a: 0}
     - _ShallowColor: {r: 1, g: 0.36078432, b: 0, a: 0.5019608}
