@@ -2708,7 +2708,7 @@ GameObject:
   - component: {fileID: 5235245190690946905}
   - component: {fileID: 2228893117677958554}
   m_Layer: 9
-  m_Name: KelloryBase
+  m_Name: KelloryBase2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5488,7 +5488,7 @@ MonoBehaviour:
   raycastDistance: 1.5
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 16513
   placementOffset: {x: 0, y: -0.125, z: 0}
   movementThreshold: 0
   stepDistance: 0.2
@@ -7441,7 +7441,7 @@ MonoBehaviour:
   raycastDistance: 1.5
   layerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 16513
   placementOffset: {x: 0, y: -0.125, z: 0}
   movementThreshold: 0
   stepDistance: 0.2

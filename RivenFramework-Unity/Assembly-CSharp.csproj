@@ -59,6 +59,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/DynamicCable.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ExtensionMethods/ExtensionMethods_Coroutines.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Brush.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Object_SpeedrunObjectToggle.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSG_HotFix_Settings.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/Graphics_MotionSmear.cs" />
@@ -69,6 +70,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CallbackEvents.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/EndOfDemoStatsTracker.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dRotator.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Func_DisplayKeyhint.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/OBJVertexList.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Segment.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CSGModelBase.cs" />
@@ -121,6 +123,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/TransformModelEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/MathHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/MarkerCollisionBehaviour.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/UnparentOnAwake.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/StairBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/AttributeInfo.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ModifierSystem/ModifierSystem/ApplyModifiersOnEnable.cs" />
@@ -184,6 +187,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/MaterialPaletteWindow.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dMap.cs" />
      <Compile Include="Assets/Resources/Scripts/GI_DevMenu.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Pawn_WallRun.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/HollowBoxBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/TransformHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Char_ChatterVoice.cs" />
@@ -216,6 +220,7 @@
      <Compile Include="Assets/Resources/Scripts/Audio/Audio_FMODAudioManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/OldRiftGun.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/GeometryHelper.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Actor_SFX_Impact.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/KeepAsUnselectable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Prop_Respawner.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics_DecayingParticles.cs" />
@@ -360,6 +365,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/MeshExtensions.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfSolid.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dVector3.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Audio_FootstepManager.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfWorld.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Pivot.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_CrushDetection.cs" />
@@ -452,6 +458,7 @@
      <Folder Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Blanks" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Objects" />
+     <Folder Include="Assets/Resources/Widgets/Notif" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/Widgets/Materials" />
      <None Include="Assets/Resources/Materials/Shaders/SX_SlicePreview.shader" />
