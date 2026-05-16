@@ -54,8 +54,8 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume/PhysicsVolumeForceMode.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_Door.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Pair.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/GI_RiftManager.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneCollider.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/GI_RiftManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/DynamicCable.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ExtensionMethods/ExtensionMethods_Coroutines.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Brush.cs" />
@@ -93,8 +93,8 @@
      <Compile Include="Assets/Resources/Widgets/DevMenu/WB_DevMenu.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGUILayout.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/OnGameStartAttribute.cs" />
-     <Compile Include="Assets/Resources/Scripts/TESTTEST.cs" />
      <Compile Include="Assets/Resources/MeshSubdivider.cs" />
+     <Compile Include="Assets/Resources/Scripts/TESTTEST.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapWorldConverter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/CurvedStairBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/ReplayEventSystem/GI_ReplayEventTimeline.cs" />
@@ -134,9 +134,9 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/AudioVolume/VolumetricAudioVolume.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/NamedVerticalScope.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbCollisionBehaviour.cs" />
-     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/Debugging/DebugTimer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Constants.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/ReflectionUtils.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/Debugging/DebugTimer.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/RiftManager_SpaceController.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaManager.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapVector3.cs" />
@@ -149,8 +149,8 @@
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SplashScreenPlayer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/IPostBuildListener.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbOutlet.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/CrushDetector.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbOutlet.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/EdgeEditor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_TrackCartSpeed.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Extensions.cs" />
@@ -199,8 +199,8 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Vertex.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Vector2Int.cs" />
-     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/ShapeEditorBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/Graphics_StretchSmear.cs" />
+     <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/ShapeEditorBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/DebugConsole.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/WidgetSelectable.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ErryRoutine/TESTROUTINE.cs" />
@@ -277,8 +277,8 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/HUD_GeogunCrosshair.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dBrushFlags.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGraphics.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers/Laser_Detector.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/ReflectionCache.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Lasers/Laser_Detector.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/Pawn_Inventory.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RiftAudioEmitter.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ChangeMaterialProperty.cs" />
@@ -647,6 +647,7 @@
      <Folder Include="Assets/SimpleLightProbePlacer/Scenes/Demo" />
      <Folder Include="Assets/TextMesh Pro/Resources" />
      <None Include="Assets/Resources/Materials/Shaders/ScreenCutoutShader.shader" />
+     <Folder Include="Assets/Meshes/Subdivided" />
      <Folder Include="Assets/Resources/Materials/Textures/RenderTextures" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume" />
@@ -711,6 +712,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Materials/Developer" />
      <None Include="Assets/Packages/Xelu_Prompts/Readme.txt" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/NormalMaps" />
+     <Folder Include="Assets/Meshes" />
      <None Include="Assets/Resources/Materials/Shaders/SX_FogSkybox.shader" />
      <Folder Include="Assets/Resources/Models/Experimental" />
      <Folder Include="Assets/RivenFramework/Objects" />
@@ -1472,6 +1474,9 @@
      <Reference Include="SimpleFileBrowser.Runtime">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/SimpleFileBrowser.Runtime.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
@@ -1490,6 +1495,9 @@
      <Reference Include="Unity.2D.PixelPerfect">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
      </Reference>
+     <Reference Include="PPv2URPConverters">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.TextMeshPro">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
@@ -1502,8 +1510,14 @@
      <Reference Include="Unity.VSCode.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Editor">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Toolchain.Linux-x86_64">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
@@ -1523,6 +1537,9 @@
      <Reference Include="Unity.VisualScripting.Flow.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.InputSystem.ForUI">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.InputSystem.ForUI.dll</HintPath>
      </Reference>
@@ -1534,6 +1551,9 @@
      </Reference>
      <Reference Include="Unity.Postprocessing.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
@@ -1555,6 +1575,9 @@
      </Reference>
      <Reference Include="Unity.2D.IK.Runtime">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualEffectGraph.Runtime">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
@@ -1582,6 +1605,9 @@
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualEffectGraph.Editor">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
@@ -1622,11 +1648,11 @@
      <Reference Include="Unity.VisualScripting.Shared.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.Localization">
-     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Localization.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Localization">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Localization.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
