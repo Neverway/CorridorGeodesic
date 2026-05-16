@@ -94,6 +94,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGUILayout.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/OnGameStartAttribute.cs" />
      <Compile Include="Assets/Resources/Scripts/TESTTEST.cs" />
+     <Compile Include="Assets/Resources/MeshSubdivider.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapWorldConverter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/CurvedStairBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/ReplayEventSystem/GI_ReplayEventTimeline.cs" />
@@ -184,6 +185,7 @@
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawnActions.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/EventSignal.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawn_NPCWolf.cs" />
+     <Compile Include="Assets/Resources/Maps/CorGeo/LightEx.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/MaterialPaletteWindow.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dMap.cs" />
      <Compile Include="Assets/Resources/Scripts/GI_DevMenu.cs" />
@@ -355,6 +357,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/LemonBuddyTracker.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Text_EntityItems.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/LinearFPSCam.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_ElevatorFloor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/UProjectile.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapBrushSide.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/Migrating/Item_Utility_Geogun.cs" />
@@ -417,6 +420,7 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Gestures" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Materials" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Levels" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_Template" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Steam Deck" />
      <None Include="Assets/RivenFramework-Revamp/Resources/LocalizationFiles/OLD/RVFR_Menu_ES.json" />

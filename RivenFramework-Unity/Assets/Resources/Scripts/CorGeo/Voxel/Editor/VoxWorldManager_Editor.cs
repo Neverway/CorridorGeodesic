@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.IMGUI.Controls;
 
 [CustomEditor(typeof(VoxWorldManager))]
 public class VoxWorldManagerEditor : Editor
@@ -15,20 +16,61 @@ public class VoxWorldManagerEditor : Editor
     private float bakingProgress = 0f;
     private string bakingStatus = "";
     
+    private BoxBoundsHandle _boundsHandle = new BoxBoundsHandle();
+    
     void OnEnable()
     {
         manager = (VoxWorldManager)target;
     }
     
+    private void OnSceneGUI()
+    {
+        using (new Handles.DrawingScope(new Color(0.3f, 0.8f, 1f, 0.9f), manager.transform.localToWorldMatrix))
+        {
+            _boundsHandle.SetColor(new Color(0.3f, 0.8f, 1f, 0.9f));
+ 
+            Vector3 min = (Vector3)manager.minPosition * manager.voxelScale;
+            Vector3 max = (Vector3)manager.maxPosition * manager.voxelScale;
+ 
+            _boundsHandle.center = (min + max) * 0.5f;
+            _boundsHandle.size   = max - min;
+ 
+            EditorGUI.BeginChangeCheck();
+            _boundsHandle.DrawHandle();
+ 
+            if (EditorGUI.EndChangeCheck())
+            {
+                Undo.RecordObject(manager, "Resize Vox Bounds");
+ 
+                Vector3 newMin = _boundsHandle.center - _boundsHandle.size * 0.5f;
+                Vector3 newMax = _boundsHandle.center + _boundsHandle.size * 0.5f;
+ 
+                manager.minPosition = new Vector3Int(
+                    Mathf.RoundToInt(newMin.x / manager.voxelScale),
+                    Mathf.RoundToInt(newMin.y / manager.voxelScale),
+                    Mathf.RoundToInt(newMin.z / manager.voxelScale));
+ 
+                manager.maxPosition = new Vector3Int(
+                    Mathf.RoundToInt(newMax.x / manager.voxelScale),
+                    Mathf.RoundToInt(newMax.y / manager.voxelScale),
+                    Mathf.RoundToInt(newMax.z / manager.voxelScale));
+ 
+                manager.minPosition = Vector3Int.Min(manager.minPosition, manager.maxPosition - Vector3Int.one);
+                manager.maxPosition = Vector3Int.Max(manager.maxPosition, manager.minPosition + Vector3Int.one);
+ 
+                EditorUtility.SetDirty(manager);
+            }
+        }
+    }
+
+    
     public override void OnInspectorGUI()
     {
-        // Draw default inspector
         DrawDefaultInspector();
         
         EditorGUILayout.Space(10);
         EditorGUILayout.LabelField("Voxel Baking", EditorStyles.boldLabel);
         
-        // Baking buttons
         using (new EditorGUI.DisabledScope(isBaking))
         {
             if (GUILayout.Button("Bake Voxels in Editor", GUILayout.Height(30)))
@@ -47,7 +89,6 @@ public class VoxWorldManagerEditor : Editor
             }
         }
         
-        // Show baking progress
         if (isBaking)
         {
             EditorGUILayout.Space(5);
@@ -56,7 +97,6 @@ public class VoxWorldManagerEditor : Editor
                 $"{Mathf.RoundToInt(bakingProgress * 100)}%");
         }
         
-        // Show chunk info
         EditorGUILayout.Space(10);
         ShowChunkInfo();
     }
@@ -65,7 +105,6 @@ public class VoxWorldManagerEditor : Editor
     {
         EditorGUILayout.LabelField("Current Voxel Info", EditorStyles.boldLabel);
         
-        // Count existing chunks
         Transform chunksParent = manager.transform.Find("VoxelChunks");
         int chunkCount = 0;
         int totalVoxels = 0;
@@ -117,10 +156,8 @@ public class VoxWorldManagerEditor : Editor
         
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
         
-        // Clear existing voxels first
         ClearVoxels();
         
-        // Create chunks parent if it doesn't exist
         Transform chunksParentTransform = manager.transform.Find("VoxelChunks");
         GameObject chunksParent;
         
@@ -138,7 +175,6 @@ public class VoxWorldManagerEditor : Editor
         bakingStatus = "Finding colliders...";
         yield return null;
         
-        // Find all colliders
         Collider[] allColliders = Object.FindObjectsOfType<Collider>();
         List<Collider> validColliders = new List<Collider>();
         
@@ -160,7 +196,6 @@ public class VoxWorldManagerEditor : Editor
             yield break;
         }
         
-        // Calculate chunk count
         Vector3Int numChunks = new Vector3Int(
             Mathf.CeilToInt((float)(manager.maxPosition.x - manager.minPosition.x) / manager.chunkSize.x),
             Mathf.CeilToInt((float)(manager.maxPosition.y - manager.minPosition.y) / manager.chunkSize.y),
@@ -175,8 +210,8 @@ public class VoxWorldManagerEditor : Editor
         
         Vector3 halfExtents = Vector3.one * manager.voxelScale * (manager.overlapCheckSize / 2f);
         Collider[] colliderBuffer = new Collider[10];
+        Vector3 origin = manager.transform.position;
         
-        // Generate each chunk
         for (int cx = 0; cx < numChunks.x; cx++)
         {
             for (int cy = 0; cy < numChunks.y; cy++)
@@ -198,7 +233,6 @@ public class VoxWorldManagerEditor : Editor
                         Mathf.Min(chunkMin.z + manager.chunkSize.z, manager.maxPosition.z)
                     );
                     
-                    // Create chunk container
                     GameObject chunkObject = new GameObject($"Chunk_{cx}_{cy}_{cz}");
                     chunkObject.transform.SetParent(chunksParent.transform);
                     chunkObject.transform.localPosition = Vector3.zero;
@@ -210,16 +244,15 @@ public class VoxWorldManagerEditor : Editor
                     
                     int chunkVoxelsDetected = 0;
                     
-                    // Voxelize this chunk
                     foreach (Collider col in validColliders)
                     {
                         if (col == null || col.GetComponent<VoxContainer>() != null) continue;
                         
                         Bounds chunkBounds = new Bounds(
                             new Vector3(
-                                (chunkMin.x + chunkMax.x) * 0.5f * manager.voxelScale,
-                                (chunkMin.y + chunkMax.y) * 0.5f * manager.voxelScale,
-                                (chunkMin.z + chunkMax.z) * 0.5f * manager.voxelScale
+                                (chunkMin.x + chunkMax.x) * 0.5f * manager.voxelScale + origin.x,
+                                (chunkMin.y + chunkMax.y) * 0.5f * manager.voxelScale + origin.y,
+                                (chunkMin.z + chunkMax.z) * 0.5f * manager.voxelScale + origin.z
                             ),
                             new Vector3(
                                 (chunkMax.x - chunkMin.x) * manager.voxelScale,
@@ -231,15 +264,15 @@ public class VoxWorldManagerEditor : Editor
                         if (!col.bounds.Intersects(chunkBounds)) continue;
                         
                         Vector3Int boundsMin = new Vector3Int(
-                            Mathf.Max(chunkMin.x, Mathf.FloorToInt(col.bounds.min.x / manager.voxelScale)),
-                            Mathf.Max(chunkMin.y, Mathf.FloorToInt(col.bounds.min.y / manager.voxelScale)),
-                            Mathf.Max(chunkMin.z, Mathf.FloorToInt(col.bounds.min.z / manager.voxelScale))
+                            Mathf.Max(chunkMin.x, Mathf.FloorToInt((col.bounds.min.x - origin.x) / manager.voxelScale)),
+                            Mathf.Max(chunkMin.y, Mathf.FloorToInt((col.bounds.min.y - origin.y) / manager.voxelScale)),
+                            Mathf.Max(chunkMin.z, Mathf.FloorToInt((col.bounds.min.z - origin.z) / manager.voxelScale))
                         );
                         
                         Vector3Int boundsMax = new Vector3Int(
-                            Mathf.Min(chunkMax.x, Mathf.CeilToInt(col.bounds.max.x / manager.voxelScale)),
-                            Mathf.Min(chunkMax.y, Mathf.CeilToInt(col.bounds.max.y / manager.voxelScale)),
-                            Mathf.Min(chunkMax.z, Mathf.CeilToInt(col.bounds.max.z / manager.voxelScale))
+                            Mathf.Min(chunkMax.x, Mathf.CeilToInt((col.bounds.max.x - origin.x) / manager.voxelScale)),
+                            Mathf.Min(chunkMax.y, Mathf.CeilToInt((col.bounds.max.y - origin.y) / manager.voxelScale)),
+                            Mathf.Min(chunkMax.z, Mathf.CeilToInt((col.bounds.max.z - origin.z) / manager.voxelScale))
                         );
                         
                         for (int x = boundsMin.x; x < boundsMax.x; x++)
@@ -251,8 +284,7 @@ public class VoxWorldManagerEditor : Editor
                                     Vector3 voxelPosition = new Vector3(x, y, z);
                                     if (chunk[voxelPosition].ID != 0) continue;
                                     
-                                    Vector3 checkPosition = (voxelPosition * manager.voxelScale) + 
-                                        Vector3.one * (manager.voxelScale * 0.5f);
+                                    Vector3 checkPosition = (voxelPosition * manager.voxelScale) + Vector3.one * (manager.voxelScale * 0.5f) + origin;
                                     
                                     int hitCount = Physics.OverlapBoxNonAlloc(
                                         checkPosition, halfExtents, colliderBuffer,
@@ -276,28 +308,23 @@ public class VoxWorldManagerEditor : Editor
                         }
                     }
                     
-                    // Generate and upload mesh
                     if (chunkVoxelsDetected > 0)
                     {
                         chunk.GenerateMesh();
                         chunk.UploadMesh();
                         totalVoxelsDetected += chunkVoxelsDetected;
                         
-                        // Serialize voxel data so it persists when saved
                         chunk.SerializeVoxelData();
                         
-                        // Mark as dirty for saving
                         EditorUtility.SetDirty(chunkObject);
                     }
                     else
                     {
-                        // Empty chunk - destroy it
                         Object.DestroyImmediate(chunkObject);
                     }
                     
                     chunksCompleted++;
                     
-                    // Yield periodically to keep editor responsive
                     if (chunksCompleted % 5 == 0)
                     {
                         yield return null;
@@ -311,7 +338,6 @@ public class VoxWorldManagerEditor : Editor
         bakingProgress = 1f;
         bakingStatus = "Complete!";
         
-        // Mark manager as dirty
         EditorUtility.SetDirty(manager);
         EditorUtility.SetDirty(chunksParent);
         
@@ -324,7 +350,6 @@ public class VoxWorldManagerEditor : Editor
         
         isBaking = false;
         
-        // Repaint to update inspector
         Repaint();
     }
     
@@ -333,7 +358,6 @@ public class VoxWorldManagerEditor : Editor
         Transform chunksParent = manager.transform.Find("VoxelChunks");
         if (chunksParent != null)
         {
-            // Destroy all chunk children
             for (int i = chunksParent.childCount - 1; i >= 0; i--)
             {
                 Object.DestroyImmediate(chunksParent.GetChild(i).gameObject);
@@ -347,9 +371,6 @@ public class VoxWorldManagerEditor : Editor
     }
 }
 
-/// <summary>
-/// Utility class to run coroutines in the editor
-/// </summary>
 public static class EditorCoroutineUtility
 {
     private class EditorCoroutine

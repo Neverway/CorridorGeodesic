@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84e919deb5513c798f4cb2ad111a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPawnOverride: {fileID: 0}
+  playerPawnOverride: {fileID: 267863780963645402, guid: 24beb1b0dc4f81dc6b19094f7322bfda,
+    type: 3}
   debugShowKillZones: 0
   disableWorldKillVolume: 0
   disableWorldKillHeight: 0
@@ -142,7 +143,7 @@ MonoBehaviour:
   shouldHaveGeogun: 1
   allowNonLinearSlicing: 1
   allowExpandingRift: 0
-  allowInvertingRift: 0
+  collapseBehavior: 0
   allowSlammingRift: 0
   allowMarkerPlacementAnywhere: 0
   HUDWidgetPrefab: {fileID: 5675289539813747590, guid: fe684846353bbd2c78d7fd52def9c340,

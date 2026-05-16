@@ -53,7 +53,7 @@ Shader "Neverway/Resoulex Toon"
         CGPROGRAM
 
         // Includes (Imported libraries & Shader type settings)
-        #pragma surface surf Ramp addshadow
+        #pragma surface surf Ramp addshadow vertex:vert
         #pragma multi_compile _SPECULARMODE_TRUEPBR _SPECULARMODE_STYLIZEDPBR
         #pragma target 3.0
         #pragma multi_compile_instancing
@@ -75,7 +75,7 @@ Shader "Neverway/Resoulex Toon"
             float3 viewDir;
             float3 worldPos;
             float4 screenPos;
-            
+            half3 vertLight;
             UNITY_VERTEX_INPUT_INSTANCE_ID  
         };
 
@@ -225,6 +225,17 @@ Shader "Neverway/Resoulex Toon"
             return half4(color, surface.Alpha);
         }
 
+        void vert(inout appdata_full v, out Input o)
+        {
+            UNITY_INITIALIZE_OUTPUT(Input, o);
+            o.vertLight = Shade4PointLights(
+                unity_4LightPosX0, unity_4LightPosY0, unity_4LightPosZ0,
+                unity_LightColor[0].rgb, unity_LightColor[1].rgb,
+                unity_LightColor[2].rgb, unity_LightColor[3].rgb,
+                unity_4LightAtten0, v.vertex, v.normal
+            );
+        }
+        
         // Surface Function (Where sampling and properties come together and output)
         void surf (Input IN, inout SurfaceOutputToon output)
         {
@@ -254,8 +265,8 @@ Shader "Neverway/Resoulex Toon"
 
                 output.Occlusion = tex2D(_OcclusionMap, uv).r;
 
-                output.Emission = tex2D(_EmissionMap, uv) * _EmissionColor/_EmissionDivision;
-
+                output.Emission = tex2D(_EmissionMap, uv) * _EmissionColor/_EmissionDivision + output.Albedo * IN.vertLight;
+                
                 output.Alpha = col.a;
             }
             else
