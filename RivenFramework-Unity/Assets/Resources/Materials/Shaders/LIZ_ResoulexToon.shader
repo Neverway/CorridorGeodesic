@@ -73,6 +73,7 @@ Shader "Neverway/Resoulex Toon"
 
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+        #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
 
         CBUFFER_START(UnityPerMaterial)
             float4  _MainTex_ST;
@@ -128,10 +129,13 @@ Shader "Neverway/Resoulex Toon"
             #pragma multi_compile _ _CLUSTER_LIGHT_LOOP
             #pragma multi_compile_fog
             #pragma multi_compile_instancing
+            #pragma multi_compile _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
+            #pragma multi_compile _ _DBUFFER
             #pragma target 3.0
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/BRDF.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/GlobalIllumination.hlsl"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
 
             struct Attributes
             {
@@ -259,6 +263,26 @@ Shader "Neverway/Resoulex Toon"
                     float3x3 TBN       = float3x3(IN.tangentWS.xyz, bitangentWS, IN.normalWS);
                     normalWS           = normalize(mul(normalTS, TBN));
                 }
+
+                #if defined(_DBUFFER_MRT1) || defined(_DBUFFER_MRT2) || defined(_DBUFFER_MRT3)
+                    SurfaceData decalSurface = (SurfaceData)0;
+                    decalSurface.albedo     = albedo;
+                    decalSurface.metallic   = metallic;
+                    decalSurface.smoothness = 1.0 - roughness;
+                    decalSurface.occlusion  = occlusion;
+                    decalSurface.normalTS   = half3(0, 0, 1);
+                    InputData decalInput = (InputData)0;
+                    decalInput.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(IN.positionCS);
+                    decalInput.tangentToWorld = half3x3(
+                        IN.tangentWS.xyz,
+                        cross(IN.normalWS, IN.tangentWS.xyz) * IN.tangentWS.w,
+                        IN.normalWS);
+                    ApplyDecalToSurfaceData(IN.positionCS, decalSurface, decalInput);
+                    albedo    = decalSurface.albedo;
+                    metallic  = decalSurface.metallic;
+                    roughness = 1.0 - decalSurface.smoothness;
+                    occlusion = decalSurface.occlusion;
+                #endif
 
                 // ── Derived surface values ────────────────────────────────
                 half  oneMinusReflectivity = 1.0 - lerp(0.04, 1.0, metallic);
@@ -520,6 +544,7 @@ Shader "Neverway/Resoulex Toon"
             }
             ENDHLSL
         }
+
     }
 
     FallBack "Universal Render Pipeline/Lit"

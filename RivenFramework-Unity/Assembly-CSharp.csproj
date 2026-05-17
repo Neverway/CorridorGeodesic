@@ -93,7 +93,6 @@
      <Compile Include="Assets/Resources/Widgets/DevMenu/WB_DevMenu.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGUILayout.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/OnGameStartAttribute.cs" />
-     <Compile Include="Assets/Resources/MeshSubdivider.cs" />
      <Compile Include="Assets/Resources/Scripts/TESTTEST.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapWorldConverter.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/CurvedStairBrush.cs" />

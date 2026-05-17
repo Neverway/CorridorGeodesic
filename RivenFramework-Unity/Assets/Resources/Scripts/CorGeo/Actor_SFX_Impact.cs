@@ -20,6 +20,7 @@ public class Actor_SFX_Impact : MonoBehaviour
     //=-----------------=
     public float impactThreshold;
     public float repeatDelay = 0.2f;
+    public GameObject impactEffect;
 
 
     //=-----------------=
@@ -56,8 +57,14 @@ public class Actor_SFX_Impact : MonoBehaviour
 
                 impactInstance.start();
                 RuntimeManager.AttachInstanceToGameObject(impactInstance, transform);
-
                 StartCoroutine(RemoveInstance(impactInstance));
+                
+                if (impactEffect != null)
+                {
+                    Vector3 contactPoint = other.GetContact(0).point;
+                    Vector3 contactNormal = other.GetContact(0).normal;
+                    Instantiate(impactEffect, contactPoint, Quaternion.LookRotation(contactNormal));
+                }
             }
         }
     }

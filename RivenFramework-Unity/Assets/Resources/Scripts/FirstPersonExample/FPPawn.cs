@@ -34,6 +34,7 @@ public class FPPawn : Pawn
     
     [HideInInspector] public Rigidbody physicsbody;
     [SerializeField] public GameObject interactionPrefab;
+    [SerializeField] public GameObject bodyCollider;
 
 
     //=-----------------=
