@@ -70,6 +70,10 @@ Material:
     - AOIntensity: 0
     - _AOIntensity: 1
     - _AlphaClip: 0.5
+    - _AttenuationPower: 0.75
+    - _AttenuationPowerf: 0.5
+    - _AttenuationPowerr: 0.5
+    - _AttenuationPowerrr: 0.34
     - _BumpScale: 1
     - _ColorOnly: 0
     - _CullMode: 2

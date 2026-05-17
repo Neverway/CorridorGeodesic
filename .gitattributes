@@ -12,3 +12,6 @@ RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_DemoLinear/01-HGap.unity filt
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_DemoLinear/03-HideGeometry.unity filter=lfs diff=lfs merge=lfs -text
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Minimals/Intro_TrainSequence.unity filter=lfs diff=lfs merge=lfs -text
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Minimals/Test_PerformancePressureCooker.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/2_gun.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/0_train.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/3_horizontal.unity filter=lfs diff=lfs merge=lfs -text

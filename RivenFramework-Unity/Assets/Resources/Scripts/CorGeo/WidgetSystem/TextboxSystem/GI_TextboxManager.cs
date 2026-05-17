@@ -197,8 +197,12 @@ public class GI_TextboxManager : MonoBehaviour
         currentlyPrinting = false;
 
         _onFrameCompleted.Invoke();
-        
-        if (currentTextEvent.frames[currentFrame].autoProgressOnComplete) PrintNextFrame();
+
+        if (currentTextEvent.frames[currentFrame].autoProgressOnComplete)
+        {
+            yield return new WaitForSeconds(currentTextEvent.frames[currentFrame].autoProgressDelay);
+            PrintNextFrame();
+        }
     }
 
     /// <returns>True if currently inside a special markup</returns>
@@ -437,6 +441,7 @@ public class TextFrames
     public bool preventTextSkipping;
     public bool preventTextContinuing;
     public bool autoProgressOnComplete;
+    public float autoProgressDelay = 2f;
     public Transform speechEmissionPoint;
 }
 

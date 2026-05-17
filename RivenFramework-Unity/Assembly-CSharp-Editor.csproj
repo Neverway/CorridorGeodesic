@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp-Editor\</OutputPath>
-    <DefineConstants>UNITY_2022_3_15;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_LINUX;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;PROBUILDER_EXPERIMENTAL_FEATURES;TERRAINPACKAGE_EXIST;CROSS_PLATFORM_INPUT;EDGEGAP_PLUGIN_SERVERS;FISHNET;FISHNET_V4;DREAMTECK_SPLINES;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION</DefineConstants>
+    <DefineConstants>UNITY_2022_3_15;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_LINUX;UNITY_STANDALONE_LINUX;UNITY_STANDALONE;UNITY_STANDALONE_LINUX_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;ENABLE_SPATIALTRACKING;ENABLE_MODULAR_UNITYENGINE_ASSEMBLIES;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_LINUX;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;PROBUILDER_EXPERIMENTAL_FEATURES;TERRAINPACKAGE_EXIST;CROSS_PLATFORM_INPUT;EDGEGAP_PLUGIN_SERVERS;FISHNET;FISHNET_V4;DREAMTECK_SPLINES;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER;UNITY_EDITOR_ONLY_COMPILATION;SYSTEM_DRAWING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/BrushBaseInspector.cs" />
+     <Compile Include="Assets/_PoiyomiShaders/Translators/Editor/LiltoonToPoiyomiToonTranslation.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/StairBrushInspector.cs" />
+     <Compile Include="Assets/_PoiyomiShaders/Translators/Editor/LiltoonToPoiyomiTranslation_Menus.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolAssetManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Editor/Func_TextEventEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGModelInspector.cs" />
@@ -57,13 +59,16 @@
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/PreviewIcons.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/PrimitiveBrushInspector.cs" />
+     <Compile Include="Assets/_PoiyomiShaders/Translators/Editor/LiltoonToPoiyomiFurTranslation.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolScatterPlacer.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Editor/TextEventEditorWindow.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/DebugDisplayListAsStringsAttributeDrawer.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/PolymorphicDrawer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerActorDatabase.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerCharacters.cs" />
+     <Compile Include="Assets/_PoiyomiShaders/Translators/Editor/LiltoonToPoiyomiProTranslation.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Editor/CSGMeshCombinerTool.cs" />
+     <Compile Include="Assets/_PoiyomiShaders/Scripts/Editor/ButtonVector.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/StringAsGUIDAttributePropertyDrawer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Editor/UnityEventDrawer.cs" />
      <Compile Include="Assets/SimpleLightProbePlacer/Editor/LightProbeVolumeEditor.cs" />
@@ -71,6 +76,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/BrushGroupInspector.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/AssetBrowserContextMenu.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/BoxDrawer.cs" />
+     <Compile Include="Assets/_PoiyomiShaders/Scripts/Editor/ThryMultiFloatButtonsDrawer.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/Editor/VoxWorldManager_Editor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/HollowBoxBrushInspector.cs" />
      <Compile Include="Assets/SimpleLightProbePlacer/Editor/LightProbeGroupControlEditor.cs" />
@@ -86,6 +92,7 @@
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerProps.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/CurvedStairBrushInspector.cs" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/GeoGun/Editor" />
+     <Folder Include="Assets/_PoiyomiShaders/Scripts/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors" />
      <Folder Include="Assets/SimpleLightProbePlacer/Editor" />
      <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI/Editor" />
@@ -95,6 +102,7 @@
      <Folder Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/Editor" />
+     <Folder Include="Assets/_PoiyomiShaders/Translators/Editor" />
      <Folder Include="Assets/SimpleLightProbePlacer/Editor/Icons" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Editor" />
@@ -806,9 +814,6 @@
      <Reference Include="SimpleFileBrowser.Runtime">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/SimpleFileBrowser.Runtime.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
-     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
@@ -1086,6 +1091,10 @@
       <Project>{6d5c0796-0871-f260-6915-1ce36606d85b}</Project>
       <Name>FMODUnityResonance</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Universal.Config.Runtime.csproj">
+      <Project>{c3dbad2c-1989-e598-fa78-1c3613f38a80}</Project>
+      <Name>Unity.RenderPipelines.Universal.Config.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="Neverway.Framework.AudioManagement.csproj">
       <Project>{3b7df345-bd9a-eee0-b323-cd18f735389d}</Project>
       <Name>Neverway.Framework.AudioManagement</Name>
@@ -1101,6 +1110,10 @@
     <ProjectReference Include="FMODUnity.csproj">
       <Project>{d353448f-9f21-5029-d0f0-60dbf6a3d0c8}</Project>
       <Name>FMODUnity</Name>
+    </ProjectReference>
+    <ProjectReference Include="Poi.Tools.csproj">
+      <Project>{5e5e35b4-3982-a7e5-dee0-53385c789c3f}</Project>
+      <Name>Poi.Tools</Name>
     </ProjectReference>
     <ProjectReference Include="BzKovSoft.ObjectSlicer.Samples.csproj">
       <Project>{7469f543-dec5-1e1d-c8ec-c0c0c45e9334}</Project>
@@ -1142,6 +1155,10 @@
       <Project>{6b3c1272-532d-2e12-fdb1-80cccb741992}</Project>
       <Name>CoreAttributes</Name>
     </ProjectReference>
+    <ProjectReference Include="ThryExternal.csproj">
+      <Project>{61607326-c513-f3b2-f29d-767985258735}</Project>
+      <Name>ThryExternal</Name>
+    </ProjectReference>
     <ProjectReference Include="SimpleFieldsEditor.csproj">
       <Project>{0f036705-ccf9-06a1-b516-b17dcd859022}</Project>
       <Name>SimpleFieldsEditor</Name>
@@ -1149,6 +1166,10 @@
     <ProjectReference Include="EasyEditorGUI.csproj">
       <Project>{7c0ffd90-ff97-8dee-f013-81d64e206f99}</Project>
       <Name>EasyEditorGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="ThryAssemblyDefinition.csproj">
+      <Project>{ef54275d-c019-c3ce-392a-2aa0e9d34ee8}</Project>
+      <Name>ThryAssemblyDefinition</Name>
     </ProjectReference>
     <ProjectReference Include="RivenFramework.csproj">
       <Project>{8c9feb55-197c-c0d9-f4c0-534f1bc09483}</Project>

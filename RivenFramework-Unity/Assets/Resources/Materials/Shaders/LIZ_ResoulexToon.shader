@@ -125,6 +125,7 @@ Shader "Neverway/Resoulex Toon"
             #pragma multi_compile _ _SHADOWS_SOFT
             #pragma multi_compile _ LIGHTMAP_ON
             #pragma multi_compile _ _FORWARD_PLUS
+            #pragma multi_compile _ _CLUSTER_LIGHT_LOOP
             #pragma multi_compile_fog
             #pragma multi_compile_instancing
             #pragma target 3.0
@@ -309,8 +310,8 @@ Shader "Neverway/Resoulex Toon"
                     float lambdaL = NdotV * sqrt((-NdotL * a2 + NdotL) * NdotL + a2);
                     specularTerm  = (0.5 / (lambdaV + lambdaL + 1e-5)) * D * PI;
                 #elif _SPECULARMODE_STYLIZEDPBR
-                    steps        = _RampSmoothness * _RampSmoothness * 300;
-                    specularTerm = round(pow(NdotH * NdotL, smoothness * 10) * steps) / steps;
+                    steps = max(1, _RampSmoothness * _RampSmoothness * 300);
+                    specularTerm = round(pow(NdotH * NdotL, max(1, smoothness * 128)) * steps) / steps;
                 #endif
 
                 specularTerm  = max(0, specularTerm * _SpecularStrength * NdotL);
@@ -326,12 +327,16 @@ Shader "Neverway/Resoulex Toon"
                             + surfaceReduction * giSpecular * fresnelLerp;
 
                 // ── Additional pixel lights ───────────────────────────────
+                // ── Additional pixel lights ───────────────────────────────
                 #ifdef _ADDITIONAL_LIGHTS
-                    uint addCount = GetAdditionalLightsCount();
-                    for (uint i = 0u; i < addCount; ++i)
-                    {
-                        Light  al  = GetAdditionalLight(i, IN.positionWS, half4(1,1,1,1));
-                        half3  aLC = al.color
+                    InputData inputData = (InputData)0;
+                    inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(IN.positionCS);
+                    inputData.positionWS = IN.positionWS;
+
+                    LIGHT_LOOP_BEGIN(GetAdditionalLightsCount())
+                        Light al = GetAdditionalLight(lightIndex, IN.positionWS, half4(1,1,1,1));
+
+                        half3 aLC = al.color
                                    * pow(al.distanceAttenuation, _AttenuationPowerrr)
                                    * al.shadowAttenuation;
 
@@ -356,7 +361,7 @@ Shader "Neverway/Resoulex Toon"
                             float alL = NdotV  * sqrt((-aNdotL * a2 + aNdotL) * aNdotL + a2);
                             aSpecular = (0.5 / (alV + alL + 1e-5)) * aD * PI;
                         #elif _SPECULARMODE_STYLIZEDPBR
-                            aSpecular = round(pow(aNdotH * aNdotL, smoothness * 10) * steps) / steps;
+                            aSpecular = round(pow(aNdotH * aNdotL, max(1, smoothness * 128)) * steps) / steps;
                         #endif
 
                         aSpecular = max(0, aSpecular * _SpecularStrength * aNdotL);
@@ -364,7 +369,7 @@ Shader "Neverway/Resoulex Toon"
                         half3 aFresnel = specColor + (1.0 - specColor) * pow(1.0 - aLdotH, 5.0);
 
                         color += diffColor * aLC * aDiffuse + aSpecular * aLC * aFresnel;
-                    }
+                    LIGHT_LOOP_END
                 #endif
 
                 color += emission;

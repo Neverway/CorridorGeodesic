@@ -79,12 +79,16 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0.5
+    - _AttenuationPower: 0.75
+    - _AttenuationPowerf: 0.5
+    - _AttenuationPowerr: 0.34
+    - _AttenuationPowerrr: 0.34
     - _BumpScale: 1
     - _ColorOnly: 0
     - _CullMode: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DetailProminence: 0.6
+    - _DetailProminence: 0.654
     - _DstBlend: 0
     - _EmissionDivision: 1
     - _GlossMapScale: 1
@@ -96,6 +100,7 @@ Material:
     - _Parallax: 0.01
     - _ProbeBias: 0.1
     - _ProbeLightingOn: 0
+    - _RampOffset: 0
     - _RampSmoothness: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
