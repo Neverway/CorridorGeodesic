@@ -78,8 +78,8 @@ Material:
     - _AttenuationPower: 0.75
     - _AttenuationPowerf: 0.5
     - _AttenuationPowerr: 0.5
-    - _AttenuationPowerrr: 0.34
-    - _BumpScale: 1
+    - _AttenuationPowerrr: 0.3
+    - _BumpScale: 0.778
     - _ColorOnly: 0
     - _CullMode: 2
     - _Cutoff: 0.5

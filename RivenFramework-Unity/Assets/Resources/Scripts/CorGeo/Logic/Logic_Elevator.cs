@@ -195,7 +195,6 @@ public class ElevatorHandle
     /// </summary>
     public void AddFloor(Logic_ElevatorFloor floor)
     {
-        Debug.Log("AddFloor");
         floors.Add(floor);
         SortFloors();
         if (elevatorReference.currentFloor == null)

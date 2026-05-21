@@ -431,7 +431,6 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Levels" />
      <Folder Include="Assets/_PoiyomiShaders/Translators" />
      <Folder Include="Packages/com.unity.render-pipelines.universal-config@14.0.9" />
-     <Folder Include="Assets/Resources/Maps/CorGeo/_Template" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Gifs" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Steam Deck" />
@@ -722,7 +721,6 @@
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardSurface_NoFog.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne.json" />
-     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/2gun" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/System/NeverwayLogo/Materials" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/Lighting" />
@@ -928,7 +926,6 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_" />
      <None Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/GunFuncBreakdown.txt" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Gradients" />
-     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/3horizontal" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS Vita" />
      <Folder Include="Assets/Resources/Sound/Music" />
      <Folder Include="Assets/Packages/QuickOutline/Scripts" />

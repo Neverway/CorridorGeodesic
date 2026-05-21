@@ -112,6 +112,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0.5
+    - _AttenuationPowerrr: 0.3
     - _BumpScale: 1
     - _ColorOnly: 0
     - _CullMode: 2
@@ -138,6 +139,13 @@ Material:
     - _SpecularMode: 0
     - _SpecularStrength: 0.5
     - _SrcBlend: 1
+    - _StencilComp: 8
+    - _StencilFail: 0
+    - _StencilPass: 0
+    - _StencilReadMask: 255
+    - _StencilRef: 0
+    - _StencilWriteMask: 255
+    - _StencilZFail: 0
     - _UVSec: 0
     - _UseSlice: 0
     - _ZTest: 4

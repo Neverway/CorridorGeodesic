@@ -104,6 +104,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
+    - _AttenuationPowerrr: 0.3
     - _BumpScale: 1
     - _CullMode: 2
     - _Cutoff: 0.5

@@ -1,6 +1,7 @@
 fileFormatVersion: 2
 guid: 08ea606a7c282094386144506cd44996
 labels:
+- Mat_RST
 - Material
 NativeFormatImporter:
   externalObjects: {}

@@ -86,7 +86,7 @@ Material:
     - _AttenuationPower: 0.75
     - _AttenuationPowerf: 0.5
     - _AttenuationPowerr: 0.5
-    - _AttenuationPowerrr: 0.34
+    - _AttenuationPowerrr: 0.3
     - _BUILTIN_AlphaClip: 0
     - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 2

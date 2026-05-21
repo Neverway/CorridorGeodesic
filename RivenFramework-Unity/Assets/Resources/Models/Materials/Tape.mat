@@ -85,6 +85,7 @@ Material:
     - AOIntensity: 0
     - _AOIntensity: 1
     - _AlphaClip: 0
+    - _AttenuationPowerrr: 0.3
     - _BUILTIN_AlphaClip: 0
     - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 2

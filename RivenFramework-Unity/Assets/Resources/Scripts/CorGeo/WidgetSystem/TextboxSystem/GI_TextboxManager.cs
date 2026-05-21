@@ -354,7 +354,7 @@ public class GI_TextboxManager : MonoBehaviour
                 chatterAudioSource.pitch = Random.Range(chatterPitchMin, chatterPitchMax);
             }
             // Play
-            chatterAudioSource.PlayOneShot(currentTextChatter);
+            if (currentTextChatter) chatterAudioSource.PlayOneShot(currentTextChatter);
         }
     }
     

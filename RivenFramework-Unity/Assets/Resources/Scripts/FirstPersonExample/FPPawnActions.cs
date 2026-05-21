@@ -180,12 +180,12 @@ public class FPPawnActions : PawnActions
     /// <param name="_pawn">A reference to the root of the pawn (this is needed to rotate the body to look left and right)</param>
     /// <param name="_viewPoint">A reference to the object that represents the head of the pawn (this is needed to rotate the head to look up and down)</param>
     /// <param name="_direction">The direction to rotate in (x-axis is left/right, y-axis is up/down)</param>
-    public void FaceTowardsDirection(FPPawn _pawn, Transform _viewPoint, Vector2 _direction)
+    public void FaceTowardsDirection(FPPawn _pawn, Transform _viewPoint, Vector2 _direction, float _platformYOffset = 0f)
     {
         //if(GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn,  _viewPoint, _direction })) return;
         
         _viewPoint.localRotation = Quaternion.Euler(_direction.x, 0, 0); // Rotate the head for up/down
-        _pawn.transform.rotation = Quaternion.Euler(0, _direction.y, 0); // Rotate the body for left/right
+        _pawn.transform.rotation = Quaternion.Euler(0, _direction.y + _platformYOffset, 0); // Rotate the body for left/right
     }
     
     /// <summary>

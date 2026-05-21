@@ -13,10 +13,8 @@ public class Logic_ElevatorFloor : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start");
         if (elevator.Get() != null)
         {
-            Debug.Log("elevator!!1");
             elevator.Get().AddFloor(this);
             GoToFloor.CallOnSourceChanged(BringElevatorToThisFloor);
         }
@@ -32,10 +30,8 @@ public class Logic_ElevatorFloor : MonoBehaviour
 
     private void BringElevatorToThisFloor()
     {
-        Debug.Log("BringElevatorToThisFloor");
         if (GoToFloor.Get())
         {
-            Debug.Log("FLOORR?");
             elevator.Get().elevatorReference.GoToFloor(this);
         }
     }
