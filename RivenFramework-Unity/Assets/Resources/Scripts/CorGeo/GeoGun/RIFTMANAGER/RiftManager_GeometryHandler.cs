@@ -140,6 +140,9 @@ public class RiftManager_GeometryHandler : ILoggable
         // Set the positions and rotations of the cut plane objects
         visualPlaneA.transform.position = _markerA.transform.position;
         visualPlaneB.transform.position = _markerB.transform.position;
+
+        RiftManager.planePosA = visualPlaneA.transform.position;
+        RiftManager.planePosB = visualPlaneB.transform.position;
         
         visualPlaneA.transform.LookAt(_markerB.transform);
         visualPlaneB.transform.LookAt(_markerA.transform);

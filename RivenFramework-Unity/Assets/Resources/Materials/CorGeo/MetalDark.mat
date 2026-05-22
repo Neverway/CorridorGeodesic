@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MetalDark
-  m_Shader: {fileID: 4800000, guid: d44cd7bbb42b445a39e14e6b76a11e50, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0c01bf2700c9e8f47ad68c9e228d2f99, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -135,6 +135,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DetailProminence: 0.81
     - _DstBlend: 0
+    - _EmissionDivision: 1
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
@@ -156,6 +157,7 @@ Material:
     - _Tiling: 1
     - _UVSec: 0
     - _UseSlice: 0
+    - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

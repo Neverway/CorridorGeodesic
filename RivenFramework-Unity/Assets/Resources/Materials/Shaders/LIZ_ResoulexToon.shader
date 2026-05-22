@@ -40,6 +40,13 @@ Shader "Neverway/Resoulex Toon"
         _DetailAlbedoMap ("Detail Texture", 2D) = "black" {}
         _DetailProminence ("Detail Prominence", Range(0, 1)) = 0.2
         _DetailColor ("Detail Color", Color) = (0, 0, 0, 0)
+
+        [Header(Slice Debugging)][Space]
+        _UseSlice ("Use Slice", Float) = 0
+        _SliceCenterOne ("Center One", Vector) = (1,1,1,0)
+        _SliceCenterTwo ("Center Two", Vector) = (1,1,1,0)
+        _SliceNormalOne ("Normal One", Vector) = (1,1,1,0)
+        _SliceNormalTwo ("Normal Two", Vector) = (1,1,1,0)
     }
     
     SubShader
