@@ -27,6 +27,7 @@ public class Graphics_SliceableSection : MonoBehaviour
     private List<Material> materials = new List<Material> ();
     private bool useSlice;
     private Transform originalParent;
+    private Vector3 originalPosition;
 
     //=-----------------=
     // Reference Variables
@@ -39,6 +40,7 @@ public class Graphics_SliceableSection : MonoBehaviour
     private void Start()
     {
         originalParent = transform.parent;
+        originalPosition = transform.localPosition;
 
         riftManager = FindAnyObjectByType<RiftManager>();
 
@@ -142,6 +144,8 @@ public class Graphics_SliceableSection : MonoBehaviour
         {
             mat.SetFloat ("_UseSlice", 0);
         }
+
+        ResetParent ();
     }
 
     public void SetBool (string _name, bool _isPowered)
@@ -151,6 +155,7 @@ public class Graphics_SliceableSection : MonoBehaviour
 
     public void ResetParent ()
     {
-        transform.SetParent (originalParent);
+        transform.SetParent (originalParent, true);
+        transform.localPosition = originalPosition;
     }
 }

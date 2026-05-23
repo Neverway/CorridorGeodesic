@@ -59,6 +59,10 @@ public class Graphics_ThreePartSliceableManager : MonoBehaviour
             //If the rift is real
             SliceObjects ();
         }
+        else
+        {
+            StopSlicing ();
+        }
     }
 
 
@@ -76,5 +80,10 @@ public class Graphics_ThreePartSliceableManager : MonoBehaviour
     public void SliceObjects()
     {
         threePartSliceableList.ForEach(s => s.StartSlicing());
+    }
+
+    public void StopSlicing ()
+    {
+        threePartSliceableList.ForEach(s=>s.StopSlicing());
     }
 }
