@@ -201,10 +201,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6679058243239204620}
-    - targetCorrespondingSourceObject: {fileID: 2276721478425129573, guid: 9a4aef5a1bebd876db8d1e5811db7076,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8710114513926417630}
   m_SourcePrefab: {fileID: 100100000, guid: 9a4aef5a1bebd876db8d1e5811db7076, type: 3}
 --- !u!1 &3012442854487743444 stripped
 GameObject:
@@ -226,29 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zapPosition: {fileID: 7593842216529617973}
   increaseRangeAwayFromPlayer: 0
---- !u!114 &8710114513926417630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3012442854487743444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f44c8fe24e20b6879cb09256dc6e86d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  impactThreshold: 5
-  repeatDelay: 0.2
-  impactEffect: {fileID: 4490617955887191091, guid: 7a1c613770873d548bd785d3c2c2a54d,
-    type: 3}
-  impactSound:
-    Guid:
-      Data1: 1784229098
-      Data2: 1236084974
-      Data3: 197885845
-      Data4: 1037337918
-    Path: event:/SFX/Physics/MetalImpact
 --- !u!54 &5948284250711184474 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7267226283918966251, guid: 9a4aef5a1bebd876db8d1e5811db7076,

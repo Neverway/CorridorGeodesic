@@ -424,6 +424,7 @@
      <Folder Include="Assets/Packages/QuickOutline/Resources" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/System/Animations" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/WarningTape" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Voxel" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Outlines/AudioLink" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Gestures" />

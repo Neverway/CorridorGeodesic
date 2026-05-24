@@ -134,7 +134,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
+    - _EmissionColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SliceCenterOne: {r: 0, g: 0, b: 0, a: 0}
     - _SliceCenterTwo: {r: 0, g: 0, b: 0, a: 0}

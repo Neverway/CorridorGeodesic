@@ -105,7 +105,7 @@ Material:
     - _AttenuationPower: 0.75
     - _AttenuationPowerf: 0.5
     - _AttenuationPowerr: 0.34
-    - _AttenuationPowerrr: 0.3
+    - _AttenuationPowerrr: 0.33
     - _BumpScale: 1
     - _ColorOnly: 0
     - _CullMode: 2
@@ -113,7 +113,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DetailProminence: 0.701
     - _DstBlend: 0
-    - _EmissionDivision: 7.07
+    - _EmissionDivision: 1
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
@@ -146,7 +146,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 0.5203068, b: 0, a: 1}
     - _DetailColor: {r: 0, g: 0.40392157, b: 0.35663083, a: 0}
-    - _EmissionColor: {r: 0.019607844, g: 0.0018209722, b: 0, a: 1}
+    - _EmissionColor: {r: 0.124188974, g: 0.020698164, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SliceCenterOne: {r: 0, g: 0, b: 0, a: 0}
     - _SliceCenterTwo: {r: 0, g: 0, b: 0, a: 0}
