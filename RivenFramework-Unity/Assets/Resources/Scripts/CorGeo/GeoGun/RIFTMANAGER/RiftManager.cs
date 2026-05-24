@@ -214,13 +214,13 @@ public class RiftManager : MonoBehaviour, ILoggable
         //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _markerA, _markerB });
         
         this.Log($"CreateRift called (_markerA: '{_markerA}', _markerB: '{_markerB}')");
-        stateHandler.SetState<RiftState_Preview>();
         geometryHandler.SetRiftPlanesVisible(true);
         geometryHandler.PositionCutPlanes(_markerA, _markerB);
         await geometryHandler.PerformCutProcedure();
         spaceController.ReparentGeometryToSpaceContainers();
         spaceController.ReparentActorsToSpaceContainers();
         riftActive = true;
+        stateHandler.SetState<RiftState_Preview> ();
     }
 
     /// <summary>

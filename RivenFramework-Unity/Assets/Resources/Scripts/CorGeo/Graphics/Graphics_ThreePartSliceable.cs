@@ -26,6 +26,8 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
 
     private RiftManager riftManager;
 
+    private bool sliceStarted = false;
+
     //=-----------------=
     // Reference Variables
     //=-----------------=
@@ -34,16 +36,38 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
     //=-----------------=
     // Mono Functions
     //=-----------------=
-    public IEnumerator Start()
+    private void Start()
     {
-        yield return new WaitUntil (() => Graphics_ThreePartSliceableManager.Instance != null);
-
-        Graphics_ThreePartSliceableManager.Instance.AddToList (this);
-
         riftManager = FindObjectOfType<RiftManager> ();
+        sectionA.space = SliceSpace.Plane1;
+        sectionB.space = SliceSpace.Plane2;
+        sectionNull.space = SliceSpace.Null;
     }
-    private void Update()
+    private void OnEnable ()
     {
+        RiftManager_StateHandler.OnStateChanged += OnStateChanged;
+    }
+    private void OnDisable ()
+    {
+        RiftManager_StateHandler.OnStateChanged -= OnStateChanged;
+    }
+    private void OnStateChanged ()
+    {
+        // Whoops, we need this reference, but it's not here!
+        if (riftManager is null) riftManager = FindObjectOfType<RiftManager> ();
+        // Still didn't find it? Okay, stop everything else
+        if (riftManager is null) return;
+        var state = riftManager.stateHandler.currentState.GetType ();
+
+        if (riftManager.stateHandler.IsState<RiftState_None> ())
+        {
+            StopSlicing ();
+        }
+        else
+        {
+            //If the rift is real
+            StartSlicing ();
+        }
     }
 
     //=-----------------=
@@ -56,6 +80,9 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
     //=-----------------=
     public void StartSlicing()
     {
+        if (sliceStarted) return;
+        sliceStarted = true;
+
         sectionA.StartSlicing ();
         sectionB.StartSlicing ();
         sectionNull.StartSlicing ();
@@ -66,10 +93,12 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
     }
     public void StopSlicing()
     {
+        if (sliceStarted == false) return;
+        sliceStarted = false;
+
         sectionA.StopSlicing ();
         sectionB.StopSlicing ();
         sectionNull.StopSlicing ();
-
     }
     public void SetBool (string _name, bool _isPowered)
     {
