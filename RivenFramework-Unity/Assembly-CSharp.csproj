@@ -230,6 +230,7 @@
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\TestProj.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\JointExtensions.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Graphics_ComicFilter.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\SlicedPartsReference.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\ExpandPropertiesAttribute.cs.cs" />
     <Compile Include="Assets\Resources\Scripts\ErryLib\CoreAttributes\ReloadAttribute.cs" />
     <Compile Include="Assets\SimpleLightProbePlacer\Scripts\LightProbeVolume.cs" />
