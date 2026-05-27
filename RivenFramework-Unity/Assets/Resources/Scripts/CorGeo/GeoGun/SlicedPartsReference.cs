@@ -1,7 +1,8 @@
-//===================== (Neverway 2024) Written by Liz M. =====================
+//===================== (Neverway 2024) Written Connorses =====================
 //
 // Purpose: Keeps references to slices of an object when the object is sliced.
-// Notes:
+//
+// Notes: I wound up not using this script in the revamp and I will likely be deleting it.
 //
 //=============================================================================
 
