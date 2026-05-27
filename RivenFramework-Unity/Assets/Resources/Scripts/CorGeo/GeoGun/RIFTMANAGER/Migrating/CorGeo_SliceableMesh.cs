@@ -71,6 +71,10 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
     private Stack<UndoSliceState> sliceHistory = new();
     [Tooltip("Reference to the original object that contains the slice history")]
     private CorGeo_SliceableMesh originalSliceableObject;
+
+    [Tooltip("Array containing the original sliceable, and any meshes generated when it was sliced.")]
+    public CorGeo_SliceableMesh[] sliceableMeshes = new CorGeo_SliceableMesh[3];
+    private int sliceableMeshCount = 1;
     
     public struct SliceResultChunks
     {
@@ -109,6 +113,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         {
             slicer.defaultSliceMaterial = riftManager.nullSpaceMaterial;
         }
+        //Store this as the first slice.
+        sliceableMeshes[0] = this;
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
@@ -388,12 +394,19 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
             riftManager = GameInstance.Get<RiftManager>();
         }
         
+        var originalScript = originalSliceableObject ?? this;
+
+        if (this != originalScript)
+        {
+            originalScript.AddSliceableMeshToList(this);
+        }
+        
         // !Temporary! Mesh collider state fix
         var meshColliders = GetComponents<MeshCollider>();
+
         if (meshColliders.Length > 0)
         {
-            // Find the original object's collider settings
-            var originalScript = originalSliceableObject ?? this;
+            // Find the original object's collider settings 
             if (originalScript.sliceHistory.Count > 0)
             {
                 var lastState = originalScript.sliceHistory.Peek();
@@ -551,6 +564,32 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         
         // Store in space meshes list
         riftManager.spaceController.spaceMeshes.Add(this, riftSpace);
+    }
+
+    private void AddSliceableMeshToList (CorGeo_SliceableMesh _mesh)
+    {
+        for (int i = 0; i < sliceableMeshes.Length; i++) {
+            if (sliceableMeshes[i] == null)
+            {
+                sliceableMeshes[i] = _mesh;
+                return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Returns all valid meshes in the sliceableMeshes array.
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerable<CorGeo_SliceableMesh> GetAllMeshes ()
+    {
+        foreach (CorGeo_SliceableMesh mesh in sliceableMeshes)
+        {
+            if (mesh != null)
+            {
+                yield return mesh;
+            }
+        }
     }
 
     #endregion
