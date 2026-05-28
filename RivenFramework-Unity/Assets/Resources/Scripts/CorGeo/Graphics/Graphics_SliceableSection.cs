@@ -37,7 +37,7 @@ public class Graphics_SliceableSection : MonoBehaviour
     //=-----------------=
     // Mono Functions
     //=-----------------=
-    private void Start()
+    private void Awake()
     {
         originalParent = transform.parent;
         originalPosition = transform.localPosition;
@@ -114,16 +114,6 @@ public class Graphics_SliceableSection : MonoBehaviour
     }
     public void StartSlicing ()
     {
-        /*Debug.Log ("StartSlicing()");
-        Plane[] planes = new Plane[2];
-        planes[0] = RiftManager.cutPlaneA;
-        planes[1] = RiftManager.cutPlaneB;
-        if (GeometryUtility.TestPlanesAABB (planes, rend.bounds))
-            Slice ();
-    }
-    private void Slice ()
-    {*/
-
         useSlice = true;
         if (rend.sharedMaterials.Length == 0)
             return;

@@ -42,6 +42,8 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
         sectionA.space = SliceSpace.Plane1;
         sectionB.space = SliceSpace.Plane2;
         sectionNull.space = SliceSpace.Null;
+        sectionB.gameObject.SetActive (false);
+        sectionNull.gameObject.SetActive (false);
     }
     private void OnEnable ()
     {
@@ -78,10 +80,17 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
     //=-----------------=
     // External Functions
     //=-----------------=
+
+    /// <summary>
+    /// Enable the Graphics_SliceableSection objects and assign them to separate spaces.
+    /// </summary>
     public void StartSlicing()
     {
         if (sliceStarted) return;
         sliceStarted = true;
+        //SectionA should always be enabled so it renders when there's no slice happening.
+        sectionB.gameObject.SetActive(true);
+        sectionNull.gameObject.SetActive(true);
 
         sectionA.StartSlicing ();
         sectionB.StartSlicing ();
@@ -91,8 +100,16 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
         sectionB.transform.SetParent (riftManager.spaceController.spaceContainerB.transform, true);
         sectionNull.transform.SetParent(riftManager.spaceController.spaceContainerNull.transform, true);
     }
+
+    /// <summary>
+    /// Disable all the Graphics_SliceableSection objects.
+    /// </summary>
     public void StopSlicing()
     {
+
+        sectionB.gameObject.SetActive (false);
+        sectionNull.gameObject.SetActive (false);
+
         if (sliceStarted == false) return;
         sliceStarted = false;
 
