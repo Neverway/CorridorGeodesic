@@ -15,6 +15,7 @@ Material:
   - _SPECULARMODE_TRUEPBR
   m_InvalidKeywords:
   - _EMISSION
+  - _USESLICE_ON
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -91,7 +92,7 @@ Material:
     - _SpecularMode: 0
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UseSlice: 0
+    - _UseSlice: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.5754717, g: 0.11672304, b: 0.11672304, a: 1}

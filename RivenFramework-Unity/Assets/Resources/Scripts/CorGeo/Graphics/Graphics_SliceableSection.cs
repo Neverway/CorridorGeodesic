@@ -49,7 +49,7 @@ public class Graphics_SliceableSection : MonoBehaviour
             materials.Add (new Material (rend.sharedMaterials[i]));
         }
 
-        rend.sharedMaterials = materials.ToArray ();
+        //rend.sharedMaterials = materials.ToArray ();
     }
 
     private void Update()

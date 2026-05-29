@@ -158,7 +158,7 @@ Material:
     - _SrcBlend: 1
     - _Tiling: 1
     - _UVSec: 0
-    - _UseSlice: 0
+    - _UseSlice: 1
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:
