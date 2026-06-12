@@ -57,6 +57,7 @@
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneCollider.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/GI_RiftManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/DynamicCable.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_DoorSwinging.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ExtensionMethods/ExtensionMethods_Coroutines.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Brush.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Object_SpeedrunObjectToggle.cs" />
@@ -213,6 +214,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TestProj.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/JointExtensions.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ComicFilter.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/VoxOcclusionCullerOLD.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/ExpandPropertiesAttribute.cs.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/ReloadAttribute.cs" />
      <Compile Include="Assets/SimpleLightProbePlacer/Scripts/LightProbeVolume.cs" />
@@ -328,6 +330,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/BrushUtility.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/Dev_LevelSelect.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/Checkpoint.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/RiftContext.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreInput.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/RadialMenu.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_SimpleLine.cs" />
@@ -340,6 +343,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfEntity.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_ObjectActiveToggle.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Func_TextChoice.cs" />
+     <Compile Include="Assets/Resources/Materials/Skyboxes/IMS/Scripts/Utils/AutoRotate.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolumeTriggerType.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/Vertex Weld Ops/VertexWeldToleranceOperation.cs" />
@@ -424,7 +428,7 @@
      <Folder Include="Assets/Packages/QuickOutline/Resources" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/System/Animations" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
-     <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/WarningTape" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/Decals" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Voxel" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Outlines/AudioLink" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Gestures" />
@@ -467,6 +471,7 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sound/Music" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/Plane.shader" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Textures" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Shaders/S_Poiyomi_Toon.shader" />
      <Folder Include="Assets/RivenFramework/Other" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiEnvironmentalRimLighting.cginc" />
@@ -474,12 +479,14 @@
      <Folder Include="Assets/Resources/Scripts/ErryLib/CoreAttributes" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures" />
      <Folder Include="Assets/Resources/Objects/NotProperActors/IntroSequence" />
+     <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayCommon.hlsl" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Emission" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sound/Music" />
      <None Include="Packages/com.unity.render-pipelines.universal-config@14.0.9/package.json" />
      <Folder Include="Packages/com.unity.render-pipelines.universal-config@14.0.9/Tests" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Concrete" />
      <None Include="Assets/_PoiyomiShaders/poiToonPresets.txt" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sound" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/ExtensionMethods" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.3/Toon/Poiyomi Toon Grab Pass.shader" />
@@ -500,6 +507,7 @@
      <None Include="Assets/Resources/Materials/Shaders/SX_SlicePreview.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/PBR/Gems" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/9.3" />
+     <None Include="Assets/Resources/Materials/Skyboxes/IMS/Scripts/InteriorMap_AnimTex.hlsl" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Debug" />
      <Folder Include="Assets/Resources/Maps/CorGeo/ErryDemoLevels" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiIridescence.cginc" />
@@ -544,6 +552,7 @@
      <Folder Include="Assets/RivenFramework/Objects/Level" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.2/Toon/Poiyomi Toon Two Pass.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiSpawnInVert.cginc" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Textures/NumberTextures" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface_Oil.shader" />
      <Folder Include="Assets/Packages/SabreCSG-master/Materials" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
@@ -576,6 +585,7 @@
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/VeryImportantDoNotDelete" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Core" />
+     <None Include="Assets/Resources/Materials/Skyboxes/IMS/Scripts/LCDOverlay.hlsl" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiMainTex.cginc" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Effects" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices" />
@@ -586,10 +596,12 @@
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Flipbook" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiPassShadow.cginc" />
      <Folder Include="Assets/TextMesh Pro/Shaders" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Sample Scenes" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Switch" />
      <None Include="Assets/_PoiyomiShaders/Shaders/Extras/InvisStencil.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Misc" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Objects" />
+     <Folder Include="Assets/Fantasy Skybox FREE/Cubemaps" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiAudioLink.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiBulge.cginc" />
@@ -615,12 +627,14 @@
      <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI" />
      <None Include="Assets/_PoiyomiShaders/Shaders/8.0/Poiyomi Early Outline.shader" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Amazon Luna" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Sample Scenes/HDRI" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack" />
      <Folder Include="Assets/Resources/Other" />
      <Folder Include="Assets/SimpleLightProbePlacer" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Planks" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Grass" />
+     <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayUnlitInput.hlsl" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Tools" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiWireframe.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes" />
@@ -630,6 +644,7 @@
      <Folder Include="Assets/Resources/Maps/CorGeo/Minimals" />
      <Folder Include="Assets/Resources/Objects/Generated" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiShadowVert.cginc" />
+     <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayLitInput.hlsl" />
      <Folder Include="Assets/Packages/SabreCSG-master/Resources/Materials" />
      <None Include="Assets/Packages/DOTween/readme.txt" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/BrickWall" />
@@ -637,6 +652,7 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiGlitter.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Wood" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/WidgetSystem" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Scripts" />
      <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI/SOEventSystem" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Distortion" />
      <None Include="Assets/Resources/Materials/Shaders/SX_NullSpace.shader" />
@@ -686,6 +702,7 @@
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiRandom.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Shaders" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Scripts/Utils" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiVert.cginc" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Colors&amp;Normals" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/WoodPlanks" />
@@ -756,6 +773,7 @@
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/RimLight/RimShade" />
      <Folder Include="Assets/Meshes/Subdivided" />
      <Folder Include="Assets/_PoiyomiShaders" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shader Graphs" />
      <Folder Include="Assets/Resources/Materials/Textures/RenderTextures" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiRimLighting.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
@@ -768,6 +786,7 @@
      <Folder Include="Assets/_PoiyomiShaders/Presets/Shading/Teeh&apos;s Quick Shading Models" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders" />
      <Folder Include="Assets/_PoiyomiShaders/Scripts/ThryEditor/Examples" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets/Resources/Materials/PhysicsMaterials" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/RimLight/Size" />
@@ -786,6 +805,7 @@
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/SpecialFX/DepthFX" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiBlackLight.cginc" />
      <Folder Include="Assets/TextMesh Pro/Documentation" />
+     <Folder Include="Assets/Fantasy Skybox FREE/Cubemaps/Classic" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiSpawnInFrag.cginc" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiAlphaToCoverage.cginc" />
@@ -810,6 +830,7 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/9.3/Toon/Poiyomi Toon Lil Fur.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Colors&amp;Normals/AlphaOptions" />
      <None Include="Assets/_PoiyomiShaders/Shaders/PoiLabels.txt" />
+     <Folder Include="Assets/Fantasy Skybox FREE" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/RocksCopperOre" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Objects/Animations" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sound/Effects" />
@@ -826,6 +847,7 @@
      <Folder Include="Assets/_PoiyomiShaders/Presets/Shading" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiRGBMask.cginc" />
      <Folder Include="Assets/Resources/Widgets/DevMenu" />
+     <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayLitForwardPass.hlsl" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiMirror.cginc" />
      <Folder Include="Assets/Packages/QuickOutline/Resources/Shaders" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Glass" />
@@ -835,6 +857,7 @@
      <None Include="Assets/Resources/Materials/Shaders/SX_SGHelpers.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities" />
      <Folder Include="Assets/Resources/Materials/Shaders" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Textures" />
      <Folder Include="Assets/Resources/Maps/CorGeo/Connor" />
      <Folder Include="Assets/Resources/Materials/Skyboxes" />
      <Folder Include="Assets/Resources/Sound/Music/REFERENCE_DO_NOT_SHIP" />
@@ -859,6 +882,7 @@
      <Folder Include="Assets/Resources/Models/Experimental" />
      <Folder Include="Assets/RivenFramework/Objects" />
      <None Include="Assets/_PoiyomiShaders/Scripts/ThryEditor/Examples/Example2.shader" />
+     <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayLit.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.2/Toon/Poiyomi Toon World.shader" />
      <None Include="Assets/_PoiyomiShaders/PoiKeywordTimestamp.json" />
      <Folder Include="Assets/AddressableAssetsData" />
@@ -886,6 +910,7 @@
      <Folder Include="Assets/Resources/Sprites/Characters" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/Migrating" />
      <Folder Include="Assets/TextMesh Pro/Sprites" />
+     <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayUnlit.shader" />
      <Folder Include="Assets/RivenFramework-Revamp/_WidgetComponents" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/Examples" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/ErryRoutine" />
@@ -944,6 +969,7 @@
      <None Include="Assets/Resources/Materials/Shaders/SX_LitVertex.shader" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR/Oculus" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Materials" />
      <None Include="Assets/_PoiyomiShaders/Shaders/Extras/MasterScanner.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/8.0" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat/Poiyomi Toon.shader" />
@@ -974,6 +1000,7 @@
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/9.1" />
      <None Include="Assets/RivenFramework-Revamp/Resources/LocalizationFiles/OLD/RVFR_Menu_EN.json" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiMacros.cginc" />
      <None Include="Assets/Resources/Materials/Shaders/Unsorted/ScreenCutoutShader.shader" />
      <Folder Include="Assets/Packages/DOTween/Resources" />
@@ -996,6 +1023,7 @@
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/SpecialFX/Flipbook" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/ConcreteWall" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiPassOutline.cginc" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Textures/BuildingTextures" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Ramps" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/VeryImportantDoNotDelete/Materials" />
      <Folder Include="Assets/RivenFramework-Revamp/EasyEditorGUI" />
@@ -1005,6 +1033,7 @@
      <Folder Include="Assets/Resources/Sound/Effects" />
      <Folder Include="Assets/_PoiyomiShaders/Prefabs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Shader" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/System/NeverwayLogo" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Textures" />
      <Folder Include="Assets/RivenFramework-Revamp/_Widgets" />
@@ -1012,6 +1041,7 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiShadowFrag.cginc" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/Examples/Video Screens" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System/Materials" />
+     <None Include="Assets/Resources/Materials/Skyboxes/IMS/Scripts/InteriorMap.hlsl" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/9.2/Toon" />
      <None Include="Assets/Resources/Materials/Shaders/UIImageBlur.shader" />
@@ -1024,6 +1054,7 @@
      <Folder Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Splatters" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/PBR/Inorganic" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Sample Scenes/Sample Scene" />
      <Folder Include="Assets/Packages/Xelu_Prompts/PS5" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/LocalizationFiles/Framework_Menus" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others" />
@@ -1032,6 +1063,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/AudioVolume" />
      <Folder Include="Assets/RivenFramework/Scripts" />
      <None Include="Assets/_PoiyomiShaders/Scripts/ThryEditor/Examples/ThryLabelExample.txt" />
+     <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Sample Scenes/Television" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/Cubemap" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Pixels" />

@@ -80,6 +80,12 @@ public class RiftManager : MonoBehaviour, ILoggable
     [Box] public RiftManager_GeometryHandler geometryHandler;
     [Tooltip("Handles actor restoring")]
     [Box] public RiftManager_ActorHandler actorHandler;
+
+    [Header("RIFT EXTERNAL CONTEXT MANAGER")]
+    [Tooltip(
+        "The RiftContext is a component that holds references to all of the important information about the current rift. " +
+        "I originally created it to make it easier for me to latch the voxel system on to the rift")]
+    public RiftContext riftContext;
     
     [Header("REFERENCES")]
     [Tooltip("The positions where the rift planes will be created")]
@@ -110,6 +116,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         geometryHandler = new RiftManager_GeometryHandler(this, spaceController);
         spaceController.geometryHandler = geometryHandler;
         actorHandler = new RiftManager_ActorHandler(this);
+        riftContext = GetComponent<RiftContext>();
         SceneManager.activeSceneChanged += OnSceneChanged;
     }
 
@@ -192,6 +199,12 @@ public class RiftManager : MonoBehaviour, ILoggable
         {
             stateHandler.SetState<RiftState_DestroyRestoring>();
         }
+        if (!riftContext)
+        {
+            this.Log("The rift context is missing from the rift manager! This will cause certain systems like the voxel system to fail!");
+            return;
+        }
+        riftContext.DeactivateRift();
     }
 
     /// <summary>
@@ -202,6 +215,26 @@ public class RiftManager : MonoBehaviour, ILoggable
     private void OnSceneChanged(Scene current, Scene next)
     {
         stateHandler.SetState<RiftState_Destroy>();
+    }
+
+    /// <summary>
+    /// Update the rift context to reflect the current rift state
+    /// </summary>
+    private void UpdateRiftContext()
+    {
+        if (!riftContext)
+        {
+            this.Log("The rift context is missing from the rift manager! This will cause certain systems like the voxel system to fail!");
+            return;
+        }
+        
+        Plane currentPlaneB = new Plane(cutPlaneB.normal, geometryHandler.visualPlaneB.transform.position);
+        
+        Vector3 originalPlaneBPoint = -cutPlaneB.normal * cutPlaneB.distance;
+        // How far B-Space has moved from its stable-space position
+        Vector3 bSpaceShift = spaceController.spaceContainerB.transform.position - originalPlaneBPoint;
+        
+        riftContext.UpdateRift(_active: riftActive, _planeA: cutPlaneA, _planeB: currentPlaneB, _NSpaceScale: currentRiftPercent, _NSpaceScalePivot: riftNullSpaceStartingPosition, _BSpaceShift: bSpaceShift);
     }
     
 
@@ -334,6 +367,8 @@ public class RiftManager : MonoBehaviour, ILoggable
         // Actually, this line needs to be last to avoid the geometry being one step behind the actual rift percentage
         // That one-step delay is fine for the actors though, since it's nearly unnoticeable ~Liz
         spaceController.MoveGeometryWithRift();
+        
+        UpdateRiftContext();
     }
 
     /// <summary>

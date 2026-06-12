@@ -15,3 +15,6 @@ RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Minimals/Test_PerformancePress
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/2_gun.unity filter=lfs diff=lfs merge=lfs -text
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/0_train.unity filter=lfs diff=lfs merge=lfs -text
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/3_horizontal.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/1_cube.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Minimals/ScreenRoom[[:space:]]1.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/0_intro.unity filter=lfs diff=lfs merge=lfs -text

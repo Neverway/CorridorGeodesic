@@ -24,8 +24,11 @@ EditorBuildSettings:
     path: Assets/RivenFramework-Revamp/Resources/Levels/_Error.unity
     guid: 1711274c2723a1632a3217b3d3d86e07
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_MainLevels/0_train.unity
+    path: Assets/Resources/Maps/CorGeo/_MainLevels/0_intro.unity
     guid: 5c1b4e4f99031ef65819a091903f23d6
+  - enabled: 1
+    path: Assets/Resources/Maps/CorGeo/_MainLevels/0_opening.unity
+    guid: c9f1b0b7a9b2386d7be650085a2fd61e
   - enabled: 1
     path: Assets/Resources/Maps/CorGeo/_MainLevels/1_cube.unity
     guid: cd660b9af5e7dadb48ff15c7a0be7b3d
