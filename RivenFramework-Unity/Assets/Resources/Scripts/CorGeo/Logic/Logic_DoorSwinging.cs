@@ -9,9 +9,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Logic_DoorSwinging : MonoBehaviour
 {

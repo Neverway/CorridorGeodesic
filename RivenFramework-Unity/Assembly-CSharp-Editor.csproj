@@ -59,6 +59,7 @@
      <Compile Include="Assets/RivenFramework-Revamp/Editor/SceneReferenceDrawer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/PreviewIcons.cs" />
+     <Compile Include="Assets/Editor/BuildShaderStripper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/PrimitiveBrushInspector.cs" />
      <Compile Include="Assets/_PoiyomiShaders/Translators/Editor/LiltoonToPoiyomiFurTranslation.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolScatterPlacer.cs" />
@@ -87,6 +88,7 @@
      <Compile Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Editor/ShaderGUI/Shaders/LCDDisplayUnlitShader.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/KeyMappingsInspector.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorWindowPopup.cs" />
+     <Compile Include="Assets/Editor/build.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Utilities/UtilityShortcuts.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CompoundBrushInspector.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/ExpandPropertiesDrawer.cs" />

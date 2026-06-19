@@ -49,6 +49,8 @@ public class CorGeo_Actor : MonoBehaviour
     public RiftSpace riftSpace;
     [Tooltip("The velocity of the object before it was frozen by a rift movement")]
     private Vector3 previousVelocity;
+    [Tooltip("If the actor is in a streaming volume DO NOT LET GoHome() modify the transform of this actor")]
+    private bool isInStreamingVolume = false;
     
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     new private Rigidbody rigidbody;
@@ -84,7 +86,19 @@ public class CorGeo_Actor : MonoBehaviour
         RiftManager_ActorHandler.CorGeo_Actors.Remove(this);
     }
 
-    
+    private void OnTransformParentChanged()
+    {
+        if (transform.GetComponentInParent<VolumeLevelStreamContainer>())
+        {
+            isInStreamingVolume = true;
+        }
+        else
+        {
+            isInStreamingVolume = false;
+        }
+    }
+
+
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
     /// 
@@ -119,6 +133,7 @@ public class CorGeo_Actor : MonoBehaviour
     {
         OnRiftRestore?.Invoke();
         if (isParentedIgnoreOffsets) return;
+        if (isInStreamingVolume) return;
         transform.SetParent (homeParent);
         transform.localScale = homeScale;
         if (dynamic)

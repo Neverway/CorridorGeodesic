@@ -70,8 +70,10 @@ public class RiftContext : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(NSpaceScalePivot, 0.15f);
+        #if UNITY_EDITOR
         UnityEditor.Handles.Label(NSpaceScalePivot + Vector3.up * 0.3f, $"NSpaceScalePivot {NSpaceScale:F2}");
-
+        #endif
+        
         Gizmos.color = new Color(1, 0.4f, 0.1f, 1f);
         Vector3 planeBPoint = -PlaneB.normal * PlaneB.distance;
         Gizmos.DrawLine(planeBPoint, planeBPoint+BSpaceShift);
@@ -105,7 +107,9 @@ public class RiftContext : MonoBehaviour
         Gizmos.DrawLine(center, center + _plane.normal * 1.5f);
         Gizmos.DrawSphere(center + _plane.normal * 1.5f, 0.08f);
 
+        #if UNITY_EDITOR
         UnityEditor.Handles.Label(center + Vector3.up * (size + 0.3f), _label);
+        #endif
     }
 
 
