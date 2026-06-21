@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using FMODUnity;
 using RivenFramework;
 using UnityEngine;
 using UnityEngine.Timeline;
@@ -44,6 +45,8 @@ public class Projectile_Marker : UProjectile
     [SerializeField] private GameObject outlineFX;
     [Tooltip("Reference to the gun so the projectile can check for valid placement (this is set by the gun when it spawns the projectile)")]
     [HideInInspector] public Item_Utility_Geogun geogun;
+
+    [SerializeField] private EventReference pinSound, breakSound;
 
     #endregion
 
@@ -201,6 +204,7 @@ public class Projectile_Marker : UProjectile
     /// <param name="_direction">The direction to point the marker</param>
     public void MarkerPinAt(Vector3 _position, Vector3 _direction)
     {
+        Audio_FMODAudioManager.PlayOneShot(pinSound, transform.position);
         StopProjectile();
         pinned = true;
         transform.position = _position;
@@ -218,6 +222,7 @@ public class Projectile_Marker : UProjectile
     /// </summary>
     public void MarkerBreak()
     {
+        Audio_FMODAudioManager.PlayOneShot(breakSound, transform.position);
         // Remove itself from the rift manager if present
         if (pinned)
         {

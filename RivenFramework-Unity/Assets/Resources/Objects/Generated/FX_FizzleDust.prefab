@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5680666306462764225}
   - component: {fileID: 1359359482879038159}
   - component: {fileID: 722010854433840854}
+  - component: {fileID: -1058093662211932558}
   m_Layer: 0
   m_Name: FX_FizzleDust
   m_TagString: Untagged
@@ -42,7 +43,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7338686446746172535}
   serializedVersion: 8
-  lengthInSec: 3
+  lengthInSec: 4
   simulationSpeed: 1
   stopAction: 2
   cullingMode: 0
@@ -117,7 +118,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4831,6 +4832,26 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-1058093662211932558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7338686446746172535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playOnEnabled: 1
+  eventReference:
+    Guid:
+      Data1: 1027490716
+      Data2: 1144668284
+      Data3: -546886509
+      Data4: 532053479
+    Path: event:/SFX/Components/Fizzler
 --- !u!1 &7744244655492952992
 GameObject:
   m_ObjectHideFlags: 0

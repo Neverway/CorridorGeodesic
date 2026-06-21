@@ -8,16 +8,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1058093662211932558, guid: f4485c653c9d855d3a4cabe2c2b54395,
+        type: 3}
+      propertyPath: eventReference.Path
+      value: event:/SFX/Components/FizzlerParty
+      objectReference: {fileID: 0}
+    - target: {fileID: -1058093662211932558, guid: f4485c653c9d855d3a4cabe2c2b54395,
+        type: 3}
+      propertyPath: eventReference.Guid.Data1
+      value: -393136925
+      objectReference: {fileID: 0}
+    - target: {fileID: -1058093662211932558, guid: f4485c653c9d855d3a4cabe2c2b54395,
+        type: 3}
+      propertyPath: eventReference.Guid.Data2
+      value: 1234263027
+      objectReference: {fileID: 0}
+    - target: {fileID: -1058093662211932558, guid: f4485c653c9d855d3a4cabe2c2b54395,
+        type: 3}
+      propertyPath: eventReference.Guid.Data3
+      value: 1742356913
+      objectReference: {fileID: 0}
+    - target: {fileID: -1058093662211932558, guid: f4485c653c9d855d3a4cabe2c2b54395,
+        type: 3}
+      propertyPath: eventReference.Guid.Data4
+      value: 812560721
+      objectReference: {fileID: 0}
     - target: {fileID: 722010854433840854, guid: f4485c653c9d855d3a4cabe2c2b54395,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 69a67f2ebe952e641a03c2c6dc630dc5, type: 2}
-    - target: {fileID: 1359359482879038159, guid: f4485c653c9d855d3a4cabe2c2b54395,
-        type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1359359482879038159, guid: f4485c653c9d855d3a4cabe2c2b54395,
         type: 3}
       propertyPath: stopAction

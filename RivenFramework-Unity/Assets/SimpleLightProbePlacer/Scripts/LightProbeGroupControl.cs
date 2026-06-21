@@ -39,7 +39,7 @@ namespace SimpleLightProbePlacer
 
         public void DeleteAll()
         {
-            LightProbeGroup.probePositions = null;
+            //LightProbeGroup.probePositions = null;
             m_mergedProbes = 0;
             m_removedInsideGeometry = 0;
         }
@@ -118,7 +118,7 @@ namespace SimpleLightProbePlacer
 
         private void ApplyPositions(List<Vector3> positions)
         {
-            LightProbeGroup.probePositions = positions.Select(x => transform.InverseTransformPoint(x)).ToArray();
+            //LightProbeGroup.probePositions = positions.Select(x => transform.InverseTransformPoint(x)).ToArray();
         }
 
         private static List<Vector3> CreatePositions()

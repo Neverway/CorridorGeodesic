@@ -133,13 +133,13 @@ public class VoxWorldManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Vector3 center = (minPosition.ConvertTo<Vector3>() + maxPosition.ConvertTo<Vector3>()) * (voxelScale / (int)2f);
+        /*Vector3 center = (minPosition.ConvertTo<Vector3>() + maxPosition.ConvertTo<Vector3>()) * (voxelScale / (int)2f);
         Vector3 size = (maxPosition.ConvertTo<Vector3>() - minPosition.ConvertTo<Vector3>())*voxelScale;
 
         Gizmos.color = new Color(1,  0, 0, 0.2f);
 
         Gizmos.DrawCube(center, size);
-        Gizmos.DrawWireCube(center, size);
+        Gizmos.DrawWireCube(center, size);*/
     }
 
     public VoxContainer GetChunk(Vector3Int chunkIndex)

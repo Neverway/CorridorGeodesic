@@ -12,16 +12,16 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _SPECULARMODE_STYLIZEDPBR
-  m_InvalidKeywords:
   - _DETAIL_MULX2
   - _NORMALMAP
   - _PARALLAXMAP
   - _SPECGLOSSMAP
+  - _SPECULARMODE_STYLIZEDPBR
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2001
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: _Mode
@@ -87,6 +87,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0.5
+    - _AttenuationPower: 0.75
+    - _AttenuationPowerf: 0.5
+    - _AttenuationPowerr: 0.34
+    - _AttenuationPowerrr: 0.3
     - _BumpScale: 1
     - _ColorOnly: 0
     - _CullMode: 2
@@ -96,7 +100,7 @@ Material:
     - _DstBlend: 0
     - _EmissionDivision: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.98
+    - _Glossiness: 1
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -105,12 +109,23 @@ Material:
     - _Parallax: 0.025
     - _ProbeBias: 0.1
     - _ProbeLightingOn: 0
+    - _RampOffset: 0
     - _RampSmoothness: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpecularMode: 1
-    - _SpecularStrength: 0.652
+    - _SpecularStrength: 1
     - _SrcBlend: 1
+    - _StencilComp: 8
+    - _StencilFail: 0
+    - _StencilPass: 0
+    - _StencilReadMask: 255
+    - _StencilRef: 0
+    - _StencilWriteMask: 255
+    - _StencilZFail: 0
+    - _ToonLight: 0
+    - _ToonLightSmoothness: 0
+    - _ToonLightThreshold: 0.0001
     - _UVSec: 0
     - _UseSlice: 0
     - _ZTest: 4

@@ -209,7 +209,7 @@ public class FPPawn_Player : FPPawn
     }
     private void ApplyRotation()
     {
-        action.FaceTowardsDirection(this, viewPoint, lookRotation);
+        action.FaceTowardsDirection(this, viewPoint, lookRotation, platformYOffset);
     }
 
 

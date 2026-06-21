@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7882748266748739057}
   - component: {fileID: 3431064161207583572}
   - component: {fileID: 3956498540192049275}
+  - component: {fileID: 7452374563773574131}
   m_Layer: 0
   m_Name: WorldSettings
   m_TagString: Untagged
@@ -121,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84e919deb5513c798f4cb2ad111a9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPawnOverride: {fileID: 0}
+  playerPawnOverride: {fileID: 267863780963645402, guid: 24beb1b0dc4f81dc6b19094f7322bfda,
+    type: 3}
   debugShowKillZones: 0
   disableWorldKillVolume: 0
   disableWorldKillHeight: 0
@@ -142,10 +144,27 @@ MonoBehaviour:
   shouldHaveGeogun: 1
   allowNonLinearSlicing: 1
   allowExpandingRift: 0
-  allowInvertingRift: 0
+  collapseBehavior: 0
   allowSlammingRift: 0
   allowMarkerPlacementAnywhere: 0
   HUDWidgetPrefab: {fileID: 5675289539813747590, guid: fe684846353bbd2c78d7fd52def9c340,
     type: 3}
   geogunPrefab: {fileID: 7684045960469129590, guid: 3f3be9109a4320f3bb0493185ff6c194,
     type: 3}
+--- !u!114 &7452374563773574131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3237528726991617624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 56a5d16cb09df18c89a83b44fb4da90d, type: 2}

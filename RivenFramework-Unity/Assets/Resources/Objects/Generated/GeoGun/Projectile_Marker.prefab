@@ -149,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4859154155566539800}
   - component: {fileID: 7692086335543988743}
+  - component: {fileID: 7814161526344868328}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -233,6 +234,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &7814161526344868328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5327913789376502398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &5668382994825124464
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +714,20 @@ MonoBehaviour:
   allowMarkerPlacementAnywhere: 0
   outlineFX: {fileID: 7724267459502678210}
   geogun: {fileID: 0}
+  pinSound:
+    Guid:
+      Data1: 1620569559
+      Data2: 1275996662
+      Data3: -741141120
+      Data4: 509640686
+    Path: event:/SFX/NixieCross/NixieTubePin
+  breakSound:
+    Guid:
+      Data1: -608129823
+      Data2: 1129687097
+      Data3: -316266844
+      Data4: 1135776477
+    Path: event:/SFX/NixieCross/NixieTubeBreak
 --- !u!4 &8247110394794156890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,

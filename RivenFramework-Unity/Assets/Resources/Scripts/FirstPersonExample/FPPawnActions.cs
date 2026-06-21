@@ -180,12 +180,12 @@ public class FPPawnActions : PawnActions
     /// <param name="_pawn">A reference to the root of the pawn (this is needed to rotate the body to look left and right)</param>
     /// <param name="_viewPoint">A reference to the object that represents the head of the pawn (this is needed to rotate the head to look up and down)</param>
     /// <param name="_direction">The direction to rotate in (x-axis is left/right, y-axis is up/down)</param>
-    public void FaceTowardsDirection(FPPawn _pawn, Transform _viewPoint, Vector2 _direction)
+    public void FaceTowardsDirection(FPPawn _pawn, Transform _viewPoint, Vector2 _direction, float _platformYOffset = 0f)
     {
         //if(GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn,  _viewPoint, _direction })) return;
         
         _viewPoint.localRotation = Quaternion.Euler(_direction.x, 0, 0); // Rotate the head for up/down
-        _pawn.transform.rotation = Quaternion.Euler(0, _direction.y, 0); // Rotate the body for left/right
+        _pawn.transform.rotation = Quaternion.Euler(0, _direction.y + _platformYOffset, 0); // Rotate the body for left/right
     }
     
     /// <summary>
@@ -219,11 +219,34 @@ public class FPPawnActions : PawnActions
     public void Jump(FPPawn _pawn)
     {
         //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn });
-        
-        if (IsOnGround(_pawn) is false) return;
+
+        if (IsOnGround(_pawn) is false)
+        {
+            GameInstance.SendCoroutine(BufferJump(_pawn));
+            return;
+        }
         var rigidbody = _pawn.GetComponent<Rigidbody>();
         rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
         rigidbody.AddForce(Vector3.up * ((FPPawnStats)_pawn.currentStats).jumpForce, ForceMode.Impulse);
+    }
+
+    private IEnumerator BufferJump(FPPawn _pawn)
+    {
+        float time = Time.unscaledTime;
+        float bufferDuration = 0.2f;
+        
+        while (bufferDuration+time > Time.unscaledTime)
+        {
+            if (IsOnGround(_pawn))
+            {
+                Jump(_pawn);
+                yield break;
+            }
+            else
+            {
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
     
     /// <summary>
@@ -234,20 +257,32 @@ public class FPPawnActions : PawnActions
     public void Crouch(FPPawn _pawn, bool _enable)
     {
         //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn, _enable });
+        var stats = (FPPawnStats)_pawn.currentStats;
+        var colliderTransform = _pawn.bodyCollider.transform;
         
         if (_enable && isCrouching is false)
         {
-            var collider = _pawn.GetComponent<CapsuleCollider>();
-            collider.height -= ((FPPawnStats)_pawn.currentStats).crouchDistance;
-            collider.center += ((FPPawnStats)_pawn.currentStats).crouchColliderOffset;
+            float standingHeight = 1;
+            float crouchedHeight = standingHeight - stats.crouchDistance;
+            float scaleY = crouchedHeight / standingHeight;
+
+            colliderTransform.localScale = new Vector3(colliderTransform.localScale.x, scaleY, colliderTransform.localScale.z);
+
+            float heightDelta = standingHeight - crouchedHeight;
+            colliderTransform.localPosition += new Vector3(0, heightDelta * 1f, 0);
             isCrouching = true;
         }
         if (_enable is false && isCrouching && IsHeadClear(_pawn))
         {
-            var collider = _pawn.GetComponent<CapsuleCollider>();
-            _pawn.transform.position += new Vector3(0, ((FPPawnStats)_pawn.currentStats).crouchDistance, 0);
-            collider.height += ((FPPawnStats)_pawn.currentStats).crouchDistance;
-            collider.center -= ((FPPawnStats)_pawn.currentStats).crouchColliderOffset;
+            float standingHeight = 1;
+            float crouchedHeight = standingHeight - stats.crouchDistance;
+            float heightDelta = standingHeight - crouchedHeight;
+
+            colliderTransform.localScale = new Vector3(colliderTransform.localScale.x, 1f, colliderTransform.localScale.z);
+
+            colliderTransform.localPosition -= new Vector3(0, heightDelta * 1f, 0);
+
+            _pawn.transform.position += new Vector3(0, stats.crouchDistance, 0);
             isCrouching = false;
         }
     }

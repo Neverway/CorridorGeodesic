@@ -34,7 +34,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 2800000, guid: adbeab5ab690f6a4587a278e9dea5fb8, type: 3}
-        m_Scale: {x: 0.00125, y: 0.00125}
+        m_Scale: {x: 0.0125, y: 0.0125}
         m_Offset: {x: 0.25, y: 0.25}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -54,7 +54,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 4afaccc16d27f5440b2331e27908e6f3, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.075, y: 0.075}
         m_Offset: {x: 0, y: 0}
     - _Metallic:
         m_Texture: {fileID: 0}
@@ -83,6 +83,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0.5
+    - _AttenuationPower: 0.75
+    - _AttenuationPowerf: 0.5
+    - _AttenuationPowerr: 0.5
+    - _AttenuationPowerrr: 0.3
     - _BUILTIN_AlphaClip: 0
     - _BUILTIN_Blend: 0
     - _BUILTIN_CullMode: 2
@@ -120,7 +124,17 @@ Material:
     - _SpecularMode: 1
     - _SpecularStrength: 0.5
     - _SrcBlend: 1
+    - _StencilComp: 8
+    - _StencilFail: 0
+    - _StencilPass: 0
+    - _StencilReadMask: 255
+    - _StencilRef: 0
+    - _StencilWriteMask: 255
+    - _StencilZFail: 0
     - _Tiling: 1
+    - _ToonLight: 0
+    - _ToonLightSmoothness: 0
+    - _ToonLightThreshold: 0.0001
     - _UVSec: 0
     - _UseSlice: 0
     - _ZTest: 4
