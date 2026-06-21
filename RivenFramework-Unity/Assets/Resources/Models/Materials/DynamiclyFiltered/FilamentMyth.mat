@@ -127,6 +127,9 @@ Material:
     - _StencilWriteMask: 255
     - _StencilZFail: 0
     - _Tiling: 1
+    - _ToonLight: 0
+    - _ToonLightSmoothness: 0.05
+    - _ToonLightThreshold: 0.01
     - _UVSec: 0
     - _UseSlice: 0
     - _ZTest: 4
@@ -134,7 +137,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.7264151, g: 0.37795874, b: 0, a: 1}
+    - _EmissionColor: {r: 28.581865, g: 7.388395, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _SliceCenterOne: {r: 0, g: 0, b: 0, a: 0}
     - _SliceCenterTwo: {r: 0, g: 0, b: 0, a: 0}

@@ -913,6 +913,13 @@ MonoBehaviour:
   previewPlanes: []
   riftAudioEmitter: {fileID: 7881366376453657410, guid: 41cd8681fd2551c418c03ff96c1e6984,
     type: 3}
+  fireSound:
+    Guid:
+      Data1: -447259784
+      Data2: 1258767808
+      Data3: -1068629888
+      Data4: -630590248
+    Path: event:/SFX/NixieCross/NixieCrossShoot
 --- !u!1001 &7884057557956848956
 PrefabInstance:
   m_ObjectHideFlags: 0

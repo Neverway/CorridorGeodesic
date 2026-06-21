@@ -79,7 +79,7 @@ Material:
     - _AttenuationPowerf: 0.5
     - _AttenuationPowerr: 0.5
     - _AttenuationPowerrr: 0.3
-    - _BumpScale: 0.778
+    - _BumpScale: 0.197
     - _ColorOnly: 0
     - _CullMode: 2
     - _Cutoff: 0.5
@@ -109,6 +109,9 @@ Material:
     - _StencilRef: 0
     - _StencilWriteMask: 255
     - _StencilZFail: 0
+    - _ToonLight: 0
+    - _ToonLightSmoothness: 0
+    - _ToonLightThreshold: 0.0001
     - _UVSec: 0
     - _UseSlice: 0
     - _ZTest: 4

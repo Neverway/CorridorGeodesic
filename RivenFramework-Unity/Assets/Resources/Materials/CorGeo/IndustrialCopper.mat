@@ -125,7 +125,7 @@ Material:
     - _Parallax: 0.025
     - _ProbeBias: 0.1
     - _ProbeLightingOn: 0
-    - _RampSmoothness: 0.477
+    - _RampSmoothness: 0.1
     - _Roughness: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -139,6 +139,9 @@ Material:
     - _StencilRef: 0
     - _StencilWriteMask: 255
     - _StencilZFail: 0
+    - _ToonLight: 0
+    - _ToonLightSmoothness: 0
+    - _ToonLightThreshold: 0.0001
     - _UVSec: 0
     - _UseSlice: 0
     - _ZTest: 4

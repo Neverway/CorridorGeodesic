@@ -165,6 +165,9 @@ Material:
     - _StencilWriteMask: 255
     - _StencilZFail: 0
     - _Tiling: 1
+    - _ToonLight: 0
+    - _ToonLightSmoothness: 0
+    - _ToonLightThreshold: 0.0001
     - _UVSec: 0
     - _UseSlice: 1
     - _ZTest: 4

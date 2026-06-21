@@ -5,6 +5,7 @@
 //
 //=============================================================================
 
+using System;
 using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ public class Audio_AudioEventPlayer: MonoBehaviour
     //=-----------------=
     // Public Variables
     //=-----------------=
+    [SerializeField] private bool playOnEnabled = false;
 
 
     //=-----------------=
@@ -25,11 +27,20 @@ public class Audio_AudioEventPlayer: MonoBehaviour
     //=-----------------=
     // Reference Variables
     //=-----------------=
+    [SerializeField] private GameObject attached;
 
 
     //=-----------------=
     // Mono Functions
     //=-----------------=
+    public void OnEnable()
+    {
+        if (playOnEnabled)
+        {
+            if (attached != null) RuntimeManager.PlayOneShotAttached(eventReference, attached);
+            else Audio_FMODAudioManager.PlayOneShot(eventReference, transform.position);
+        }
+    }
 
 
     //=-----------------=
@@ -42,6 +53,7 @@ public class Audio_AudioEventPlayer: MonoBehaviour
     //=-----------------=
     public void PlaySound()
     {
-        Audio_FMODAudioManager.PlayOneShot(eventReference, transform.position);
+        if (attached != null) RuntimeManager.PlayOneShotAttached(eventReference, attached);
+        else Audio_FMODAudioManager.PlayOneShot(eventReference, transform.position);
     }
 }

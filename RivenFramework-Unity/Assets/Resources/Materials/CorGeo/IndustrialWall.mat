@@ -16,12 +16,12 @@ Material:
   - _NORMALMAP
   - _PARALLAXMAP
   - _SPECGLOSSMAP
-  - _SPECULARMODE_TRUEPBR
+  - _SPECULARMODE_STYLIZEDPBR
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2001
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: _Mode
@@ -96,11 +96,11 @@ Material:
     - _CullMode: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DetailProminence: 0.493
+    - _DetailProminence: 0.6
     - _DstBlend: 0
     - _EmissionDivision: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.98
+    - _Glossiness: 1
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -113,8 +113,8 @@ Material:
     - _RampSmoothness: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularMode: 0
-    - _SpecularStrength: 0.652
+    - _SpecularMode: 1
+    - _SpecularStrength: 1
     - _SrcBlend: 1
     - _StencilComp: 8
     - _StencilFail: 0
@@ -123,6 +123,9 @@ Material:
     - _StencilRef: 0
     - _StencilWriteMask: 255
     - _StencilZFail: 0
+    - _ToonLight: 0
+    - _ToonLightSmoothness: 0
+    - _ToonLightThreshold: 0.0001
     - _UVSec: 0
     - _UseSlice: 0
     - _ZTest: 4

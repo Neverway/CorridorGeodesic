@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FMODUnity;
 using RivenFramework;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -83,6 +84,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     [SerializeField] private List<GameObject> previewPlanes = new List<GameObject>();
     [SerializeField] private RiftAudioEmitter riftAudioEmitter;
     private RiftAudioEmitter instanceOfRiftAudioEmitter;
+    [SerializeField] private EventReference fireSound;
 
 
     #endregion
@@ -226,6 +228,8 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         // Play the shoot anim for the gun and it's outline
         animator1.SetTrigger("Shoot");
         animator2.SetTrigger("Shoot");
+        
+        Audio_FMODAudioManager.PlayOneShot(fireSound, transform.position);
         
         // Spawn the projectile
         var projectile = Instantiate(projectilePrefab, playerViewPoint.position, playerViewPoint.rotation, null).GetComponent<Projectile_Marker>();
