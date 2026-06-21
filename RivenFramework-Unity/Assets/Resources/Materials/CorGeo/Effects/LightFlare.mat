@@ -64,10 +64,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 50
+    - _Alpha: 70
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 5
-    - _FresnelPower: 0.001
+    - _FresnelPower: 0.0012
     - _MultBackground: 0
     - _QueueControl: 1
     - _QueueOffset: 0

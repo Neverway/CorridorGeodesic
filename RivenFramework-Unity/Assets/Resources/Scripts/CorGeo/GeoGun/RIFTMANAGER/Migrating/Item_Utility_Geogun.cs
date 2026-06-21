@@ -144,7 +144,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
 
     private void OnDestroy ()
     {
-        Destroy (instanceOfRiftAudioEmitter.gameObject);
+        if (instanceOfRiftAudioEmitter) Destroy(instanceOfRiftAudioEmitter.gameObject);
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/

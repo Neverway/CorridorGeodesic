@@ -64,6 +64,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSG_HotFix_Settings.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/Graphics_MotionSmear.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_CallUnityEvent.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/MonoTask/EveryUpdate.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreToolsOverlay.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices/Matrix2x2.cs" />
@@ -956,6 +957,7 @@
      <None Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/GunFuncBreakdown.txt" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Gradients" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/PS Vita" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/2_gun" />
      <Folder Include="Assets/Resources/Sound/Music" />
      <Folder Include="Assets/Packages/QuickOutline/Scripts" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Skyboxes" />
@@ -1033,6 +1035,7 @@
      <Folder Include="Assets/_PoiyomiShaders/Textures/Defaults" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiOutlineVert.cginc" />
      <Folder Include="Assets/Resources/Sound/Effects" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/Info" />
      <Folder Include="Assets/_PoiyomiShaders/Prefabs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
      <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Shader" />
