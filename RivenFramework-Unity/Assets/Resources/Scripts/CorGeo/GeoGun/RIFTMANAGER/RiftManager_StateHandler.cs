@@ -142,6 +142,7 @@ public class RiftState_Preview : N_RiftState
 {
     public override void OnStateEnter()
     {
+        _RiftManager.riftActive = true;
     }
 
     public override void OnUpdate()

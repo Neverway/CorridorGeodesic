@@ -8,6 +8,7 @@
 //====================================================================================================================//
 
 using System;
+using RivenFramework;
 using UnityEngine;
 
 public class Logic_Fizzler : MonoBehaviour
@@ -25,7 +26,6 @@ public class Logic_Fizzler : MonoBehaviour
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     public GameObject fizzlerObjectToDisable;
-    private Item_Utility_Geogun geogun;
 
     #endregion
 
@@ -51,12 +51,14 @@ public class Logic_Fizzler : MonoBehaviour
     
     private void ClearGeogunRifts()
     {
-        if (geogun == null)
+        var geoguns = FindObjectsOfType<Item_Utility_Geogun>();
+        foreach (var geogun in geoguns)
         {
-            geogun = FindObjectOfType<Item_Utility_Geogun>();
-            if (geogun == null) return;
+            if (geogun.isLinkedToManager)
+            {
+                geogun.DestroyMarkers();
+            }
         }
-        geogun.DestroyMarkers();
     }
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/

@@ -69,7 +69,10 @@ public class RiftManager : MonoBehaviour, ILoggable
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-    private bool riftActive;
+    [Tooltip("This flag is used to prevent the rift controller from changing the rift state until after the rift has finished being created")]
+    public bool riftActive;
+    [Tooltip("This flag is used when the rift is being created to avoid re-firing the creation process")]
+    private bool isCreatingRift;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -125,7 +128,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     private void FixedUpdate()
     {
         // Create rift when markers pinned
-        if (createRiftOnMarkersPinned && IsMarkersPinned() && stateHandler.IsState<RiftState_None>())
+        if (createRiftOnMarkersPinned && IsMarkersPinned() && stateHandler.IsState<RiftState_None>() && !isCreatingRift)
         {
             CreateRift(markerA, markerB);
         }
@@ -216,7 +219,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// </summary>
     private void OnSceneChanged(Scene current, Scene next)
     {
-        stateHandler.SetState<RiftState_Destroy>();
+        DestroyRiftExternal();
     }
 
     /// <summary>
@@ -246,6 +249,8 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// </summary>
     public async void CreateRift(Transform _markerA, Transform _markerB)
     {
+        if (isCreatingRift) return;
+        isCreatingRift = true;
         //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _markerA, _markerB });
         
         this.Log($"CreateRift called (_markerA: '{_markerA}', _markerB: '{_markerB}')");
@@ -254,8 +259,9 @@ public class RiftManager : MonoBehaviour, ILoggable
         await geometryHandler.PerformCutProcedure();
         spaceController.ReparentGeometryToSpaceContainers();
         spaceController.ReparentActorsToSpaceContainers();
-        riftActive = true;
         stateHandler.SetState<RiftState_Preview> ();
+        
+        isCreatingRift = false;
     }
 
     /// <summary>
@@ -380,7 +386,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     {
         this.Log($"RegisterRiftController called (_linkedRiftController: '{_linkedRiftController}')");
         linkedRiftController = _linkedRiftController;
-        //linkedRiftController.isLinkedToManager = true; 
+        linkedRiftController.isLinkedToManager = true; 
         linkedRiftController.OnCollapseHeld += () => collapseHeld = true;
         linkedRiftController.OnCollapseReleased += () => collapseHeld = false;
         linkedRiftController.OnExpandHeld += () => expandHeld = true;

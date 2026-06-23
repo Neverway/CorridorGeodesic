@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using RivenFramework;
 using UnityEngine;
 
 public class Graphics_ThreePartSliceable : MonoBehaviour
@@ -56,12 +57,14 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
     private void OnStateChanged ()
     {
         // Whoops, we need this reference, but it's not here!
-        if (riftManager is null) riftManager = FindObjectOfType<RiftManager> ();
+        if (riftManager is null) riftManager = GameInstance.Get<RiftManager>();
         // Still didn't find it? Okay, stop everything else
         if (riftManager is null) return;
-        var state = riftManager.stateHandler.currentState.GetType ();
+        
+        // If the space containers don't exist don't bother trying to continue since the rift clearly isn't actually active        
+        if (!riftManager.spaceController.spaceContainerA) return;
 
-        if (riftManager.stateHandler.IsState<RiftState_None> ())
+        if (riftManager.stateHandler.IsState<RiftState_None>())
         {
             StopSlicing ();
         }

@@ -44,9 +44,6 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     public int projectileMarkerSpeed = 50;
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
-    [Tooltip("This is set by a rift manager when it has latched onto this gun, " +
-             "it's used to avoid multiple rift managers all trying to fight over the same gun link")]
-    [HideInInspector] public bool isLinkedToManager;
     [Tooltip("Subscribed to by rift manager to tell when gun wants to collapse")]
     public override event Action OnCollapseHeld;
     [Tooltip("Subscribed to by rift manager to tell when gun wants to stop collapsing")]
@@ -103,6 +100,15 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         
         
         riftManager = GameInstance.Get<RiftManager>();
+
+        // If the rift manager already has a geogun link and it's not this, self destruct to avoid possible issues
+        if (riftManager.linkedRiftController)
+        {
+            return;
+            Destroy(gameObject);
+        }
+        
+        
         if (riftManager)
         {
             riftManager.RegisterRiftController(this);
@@ -323,6 +329,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     public void BreakRiftManagerLink()
     {
         isLinkedToManager = false;
+        riftManager.linkedRiftController = null;
     }
 
     /// <summary>
