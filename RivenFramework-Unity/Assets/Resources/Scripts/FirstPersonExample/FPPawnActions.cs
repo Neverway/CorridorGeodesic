@@ -23,6 +23,10 @@ public class FPPawnActions : PawnActions
     private RaycastHit slopeHit;
     public bool isCrouching;
     private GameObject viewCamera;
+    private bool isBufferingJump;
+    private bool hasJumped;
+    private bool hasCoyoteGrace;
+    private bool wasOnGroundLastFrame;
 
 
     //=-----------------=
@@ -77,6 +81,19 @@ public class FPPawnActions : PawnActions
         var groundAccelerationRate = ((FPPawnStats)_pawn.currentStats).groundAccelerationRate;
         var slopeAccelerationRate = ((FPPawnStats)_pawn.currentStats).slopeAccelerationRate;
         var airAccelerationRate = ((FPPawnStats)_pawn.currentStats).airAccelerationRate;
+        
+        // Landing reset
+        if (IsOnGround(_pawn) && !wasOnGroundLastFrame)
+        {
+            hasJumped = false;
+        }
+        
+        // Update coyote time
+        if (!IsOnGround(_pawn) && wasOnGroundLastFrame && !hasCoyoteGrace)
+        {
+            GameInstance.SendCoroutine(CoyoteTime(_pawn));
+        }
+        wasOnGroundLastFrame = IsOnGround(_pawn);
         
         // Ground Movement
         if (IsOnGround(_pawn) && !IsOnSlope(_pawn) && !isCrouching)
@@ -140,7 +157,10 @@ public class FPPawnActions : PawnActions
         {
             rigidbody.useGravity = true;
             rigidbody.drag = ((FPPawnStats)_pawn.currentStats).airDrag;
+            
             // if current is less than target and target is positive, or current is greater than target and target is negative
+            // THIS IS THE OLD AIR MOVEMENT CODE THAT COULD FEEL GUMMY
+            /*
             if (currentVelocity.x < desiredAirVelocity.x && desiredAirVelocity.x > 0f || currentVelocity.x > desiredAirVelocity.x && desiredAirVelocity.x < 0f )
             {
                 rigidbody.velocity += new Vector3(desiredAirVelocity.x*airAccelerationRate, 0, 0);
@@ -152,6 +172,22 @@ public class FPPawnActions : PawnActions
             if (currentVelocity.z < desiredAirVelocity.z && desiredAirVelocity.z > 0f || currentVelocity.z > desiredAirVelocity.z && desiredAirVelocity.z < 0f )
             {
                 rigidbody.velocity += new Vector3(0, 0, desiredAirVelocity.z*airAccelerationRate);
+            }*/
+            
+            // Quake style wishing acceleration
+            if (localMoveDirection.sqrMagnitude > 0f)
+            {
+                var wishDir = new Vector3(localMoveDirection.x, 0, localMoveDirection.z).normalized;
+                float wishSpeed = _speed * ((FPPawnStats)_pawn.currentStats).airMovementMultiplier;
+                var horizontalVelocity = new Vector3(currentVelocity.x, 0, currentVelocity.z);
+    
+                float currentSpeedInWishDir = Vector3.Dot(horizontalVelocity, wishDir);
+                float addSpeed = wishSpeed - currentSpeedInWishDir;
+                if (addSpeed <= 0f) return;
+
+                float accelAmount = ((FPPawnStats)_pawn.currentStats).airAccelerationRate * wishSpeed * Time.fixedDeltaTime;
+                if (accelAmount > addSpeed) accelAmount = addSpeed;
+                rigidbody.velocity += new Vector3(wishDir.x * accelAmount, 0, wishDir.z * accelAmount);
             }
         }
     }
@@ -220,18 +256,26 @@ public class FPPawnActions : PawnActions
     {
         //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _pawn });
 
-        if (IsOnGround(_pawn) is false)
+        if (IsOnGround(_pawn) is false && hasCoyoteGrace is false)
         {
-            GameInstance.SendCoroutine(BufferJump(_pawn));
+            if (!isBufferingJump)
+                GameInstance.SendCoroutine(BufferJump(_pawn));
             return;
         }
+        if (hasJumped) return;
+        
+        hasJumped = true;
+        hasCoyoteGrace = false;
+        
         var rigidbody = _pawn.GetComponent<Rigidbody>();
+        if (IsOnGround(_pawn)) ApplyABH(_pawn, rigidbody);
         rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0, rigidbody.velocity.z);
         rigidbody.AddForce(Vector3.up * ((FPPawnStats)_pawn.currentStats).jumpForce, ForceMode.Impulse);
     }
 
     private IEnumerator BufferJump(FPPawn _pawn)
     {
+        isBufferingJump = true;
         float time = Time.unscaledTime;
         float bufferDuration = 0.2f;
         
@@ -240,6 +284,7 @@ public class FPPawnActions : PawnActions
             if (IsOnGround(_pawn))
             {
                 Jump(_pawn);
+                isBufferingJump = false;
                 yield break;
             }
             else
@@ -247,6 +292,35 @@ public class FPPawnActions : PawnActions
                 yield return new WaitForEndOfFrame();
             }
         }
+        isBufferingJump = false;
+    }
+    
+    private void ApplyABH(FPPawn _pawn, Rigidbody _rigidbody)
+    {
+        var stats = (FPPawnStats)_pawn.currentStats;
+    
+        var horizontalVelocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
+        float currentSpeed = horizontalVelocity.magnitude;
+    
+        float speedCap = isCrouching ? stats.abhCrouchSpeedCap : stats.abhSpeedCap;
+        if (currentSpeed <= speedCap) return;
+        
+        float excessSpeed = currentSpeed - speedCap;
+        
+        float dot = Vector3.Dot(horizontalVelocity.normalized, _pawn.transform.forward);
+
+        if (dot >= 0f) return;
+
+        float boostAmount = excessSpeed * stats.abhCorrectionStrength;
+
+        _rigidbody.velocity += horizontalVelocity.normalized * boostAmount;
+    }
+    
+    private IEnumerator CoyoteTime(FPPawn _pawn)
+    {
+        hasCoyoteGrace = true;
+        yield return new WaitForSeconds(_pawn.FPCurrentStats.coyoteTime);
+        hasCoyoteGrace = false;
     }
     
     /// <summary>

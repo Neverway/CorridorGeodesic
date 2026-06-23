@@ -137,9 +137,15 @@ public class RiftManager_GeometryHandler : ILoggable
     public void PositionCutPlanes(Transform _markerA, Transform _markerB)
     {
         this.Log("PositionCutPlanes called");
+        // Inset the target anchor positions to avoid z fighting
+        var directionToB = (_markerB.transform.position - _markerA.transform.position).normalized;
+        var anchorPointA = _markerA.transform.position + directionToB * RiftManager.riftPlaneMarkerCreationOffset;
+        var directionToA = (_markerA.transform.position - _markerB.transform.position).normalized;
+        var anchorPointB = _markerB.transform.position + directionToA * RiftManager.riftPlaneMarkerCreationOffset;
+        
         // Set the positions and rotations of the cut plane objects
-        visualPlaneA.transform.position = _markerA.transform.position;
-        visualPlaneB.transform.position = _markerB.transform.position;
+        visualPlaneA.transform.position = anchorPointA;
+        visualPlaneB.transform.position = anchorPointB;
         
         visualPlaneA.transform.LookAt(_markerB.transform);
         visualPlaneB.transform.LookAt(_markerA.transform);

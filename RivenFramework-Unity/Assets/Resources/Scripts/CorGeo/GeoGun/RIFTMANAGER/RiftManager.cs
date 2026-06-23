@@ -26,6 +26,8 @@ public class RiftManager : MonoBehaviour, ILoggable
     [Header("RIFT SETTINGS")] 
     [Tooltip("Creates a rift when the two marker transform variables are set")]
     [SerializeField] private bool createRiftOnMarkersPinned;
+    [Tooltip("When a rift is created, this is the amount to inset the rift planes to avoid z-fighting")]
+    public static float riftPlaneMarkerCreationOffset = 0.15f;
     [Header("Size")]
     [Tooltip("Max size a rift can *expand* to in worldspace units")]
     [SerializeField] private float maxRiftWidth = 30;

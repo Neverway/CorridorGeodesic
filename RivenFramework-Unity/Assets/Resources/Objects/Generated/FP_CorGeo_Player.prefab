@@ -3106,6 +3106,41 @@ PrefabInstance:
       propertyPath: bodyCollider
       value: 
       objectReference: {fileID: 1285240413501729958}
+    - target: {fileID: 7360750914834237688, guid: b4a8e17bc36b87116b4117e5d4609df1,
+        type: 3}
+      propertyPath: FPDefaultStats.abhSpeedCap
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360750914834237688, guid: b4a8e17bc36b87116b4117e5d4609df1,
+        type: 3}
+      propertyPath: FPDefaultStats.abhCrouchSpeedCap
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360750914834237688, guid: b4a8e17bc36b87116b4117e5d4609df1,
+        type: 3}
+      propertyPath: FPDefaultStats.airStrafeMaxSpeed
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360750914834237688, guid: b4a8e17bc36b87116b4117e5d4609df1,
+        type: 3}
+      propertyPath: FPDefaultStats.airAccelerationRate
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360750914834237688, guid: b4a8e17bc36b87116b4117e5d4609df1,
+        type: 3}
+      propertyPath: FPDefaultStats.abhCorrectionStrength
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360750914834237688, guid: b4a8e17bc36b87116b4117e5d4609df1,
+        type: 3}
+      propertyPath: FPDefaultStats.airMovementMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360750914834237688, guid: b4a8e17bc36b87116b4117e5d4609df1,
+        type: 3}
+      propertyPath: FPDefaultStats.airStrafeAcceleration
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 7551309888882217377, guid: b4a8e17bc36b87116b4117e5d4609df1,
         type: 3}
       propertyPath: m_IsActive

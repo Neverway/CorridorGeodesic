@@ -63,8 +63,8 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Object_SpeedrunObjectToggle.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSG_HotFix_Settings.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBoneColliderBase.cs" />
-     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/Graphics_MotionSmear.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_CallUnityEvent.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/Graphics_MotionSmear.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/MonoTask/EveryUpdate.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreToolsOverlay.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices/Matrix2x2.cs" />

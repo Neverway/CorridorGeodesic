@@ -48,6 +48,13 @@ public class FPPawnStats : PawnStats
     public float groundDrag = 8;
     public float airDrag = 0;
     public float slopeDrag = 8;
+    [Header("Movement ABH")]
+    public float abhSpeedCap = 20f;
+    public float abhCrouchSpeedCap = 12f;
+    public float abhCorrectionStrength = 0.1f;
+    [Header("Air Strafing")]
+    public float airStrafeAcceleration = 2.5f;
+    public float airStrafeMaxSpeed = 30f;  
 
     [Header("Ground Detection & Jumping")] 
     public float slopeCheckDistance = 0.3f;
@@ -55,6 +62,7 @@ public class FPPawnStats : PawnStats
     public float groundCheckRadius = 0.25f;
     public Vector3 groundCheckOffset = new Vector3();
     public float jumpForce = 2600;
+    public float coyoteTime = 0.15f;
 
     [Header("Head Detection & Crouching")]
     [Tooltip("The radius of the sphere-cast to check if the head is clear, (this value should be smaller than the radius of the body collider to avoid getting false-positives when a pawn is up against a wall)")]
