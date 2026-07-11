@@ -126,6 +126,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/TransformModelEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/MathHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/MarkerCollisionBehaviour.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/LevelSelect/LevelSelectBooth.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/UnparentOnAwake.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/StairBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/AttributeInfo.cs" />
@@ -271,8 +272,10 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/Item_Utility_DevGun.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/Dev_ActorCarousel.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dPolygon.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/LevelSelect/GI_LevelSelect.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/BrushFactory.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildMetrics.cs" />
+     <Compile Include="Assets/Resources/Widgets/WB_LevelSelect_Entry.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/AdjacencyHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/ISelectable.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreEditorGUI.cs" />
@@ -403,6 +406,7 @@
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/DebugDisplayListAsStringsAttribute.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Tool.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/ColorHex.cs" />
+     <Compile Include="Assets/Resources/Widgets/WB_LevelSelect.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_AnimatorSetBool.cs" />
      <Compile Include="Assets/Resources/Objects/NotProperActors/IntroSequence/OpeningSequence.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/WB_TextChoice.cs" />
@@ -778,6 +782,7 @@
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/RimLight/RimShade" />
      <Folder Include="Assets/Meshes/Subdivided" />
      <Folder Include="Assets/_PoiyomiShaders" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/LevelSelect" />
      <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shader Graphs" />
      <Folder Include="Assets/Resources/Materials/Textures/RenderTextures" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiRimLighting.cginc" />

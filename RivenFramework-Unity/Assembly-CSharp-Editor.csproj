@@ -78,6 +78,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/BrushGroupInspector.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/AssetBrowserContextMenu.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/BoxDrawer.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/LevelSelect/Editor/GI_LevelSelectEditor.cs" />
      <Compile Include="Assets/_PoiyomiShaders/Scripts/Editor/ThryMultiFloatButtonsDrawer.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/Editor/VoxWorldManager_Editor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/HollowBoxBrushInspector.cs" />
@@ -112,6 +113,7 @@
      <Folder Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/Editor" />
      <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Editor/ShaderGUI" />
      <Folder Include="Assets/_PoiyomiShaders/Translators/Editor" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/LevelSelect/Editor" />
      <Folder Include="Assets/SimpleLightProbePlacer/Editor/Icons" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Editor" />

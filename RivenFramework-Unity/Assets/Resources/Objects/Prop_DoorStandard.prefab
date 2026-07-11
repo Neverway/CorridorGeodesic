@@ -29,6 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8414418761630691700}
   - {fileID: 2574225467984808991}
   - {fileID: 1436921105300725265}
   - {fileID: 9088034686130987797}
@@ -36,6 +37,65 @@ Transform:
   - {fileID: 7989806084462804624}
   m_Father: {fileID: 2898807604364311105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3851324224584624214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8414418761630691700}
+  - component: {fileID: 7409843600853244612}
+  m_Layer: 21
+  m_Name: DoorHingeArticulator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8414418761630691700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3851324224584624214}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.9, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4180385116935486028}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &7409843600853244612
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3851324224584624214}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6285596312958549248
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,7 +107,7 @@ GameObject:
   - component: {fileID: 8269626238893246617}
   - component: {fileID: 5726516950177547075}
   - component: {fileID: 3921274084018309809}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Prop.Door.Handel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,8 +191,6 @@ GameObject:
   - component: {fileID: 3650143894208180743}
   - component: {fileID: 7318425337421357469}
   - component: {fileID: 933540122780528119}
-  - component: {fileID: 6230742895848033661}
-  - component: {fileID: 102047541375071573}
   m_Layer: 0
   m_Name: Prop.Door.Frame
   m_TagString: Untagged
@@ -222,46 +280,11 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4363961861419028407, guid: 564136b3197b5051db321c7854b38282, type: 3}
---- !u!114 &6230742895848033661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7545932073585357423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSliceMaterial: {fileID: 0}
-  asynchronously: 0
-  waitIfBusy: 0
-  objectGrouping: 0
---- !u!114 &102047541375071573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7545932073585357423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <EnableRuntimeLogging>k__BackingField: 0
-  isReflective: 0
-  isSliceInProgress: 0
-  isSlicedByPlane: 0
-  isClone: 0
-  riftSpace: 0
-  meshRenderer: {fileID: 0}
 --- !u!1 &8749433205053159382
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,9 +299,7 @@ GameObject:
   - component: {fileID: 4327252773759493757}
   - component: {fileID: 9111048696161231585}
   - component: {fileID: 8688220409415523026}
-  - component: {fileID: 26205754010488396}
-  - component: {fileID: 224126337723115149}
-  m_Layer: 20
+  m_Layer: 21
   m_Name: Prop.Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,7 +429,7 @@ HingeJoint:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8749433205053159382}
-  m_ConnectedBody: {fileID: 0}
+  m_ConnectedBody: {fileID: 7409843600853244612}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 3.0241733, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
@@ -440,41 +461,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 2
   m_ConnectedMassScale: 1
---- !u!114 &26205754010488396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8749433205053159382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18ef726ebacf474d95108bf4d4980b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSliceMaterial: {fileID: 0}
-  asynchronously: 0
-  waitIfBusy: 0
-  objectGrouping: 0
---- !u!114 &224126337723115149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8749433205053159382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1dfa5a705ca6764bc7ad62c81ea0f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <EnableRuntimeLogging>k__BackingField: 0
-  isReflective: 0
-  isSliceInProgress: 0
-  isSlicedByPlane: 0
-  isClone: 0
-  riftSpace: 0
-  meshRenderer: {fileID: 0}
 --- !u!1001 &1475563694213265914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3682,7 +3668,7 @@ PrefabInstance:
     - target: {fileID: -2147754228552126005, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2276721478425129573, guid: 0691e5206c095094690805245502b274,
         type: 3}

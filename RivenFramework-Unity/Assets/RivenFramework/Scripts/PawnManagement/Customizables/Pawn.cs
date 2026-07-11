@@ -79,7 +79,7 @@ namespace Neverway.Framework.PawnManagement
             }
 
             // Quick slapped together check to figure out if a pawn is a player (since volumes look for isPossesed to determin player)
-            //isPossessed = gameInstance.PlayerControllerClasses.Contains(currentController);
+            isPossessed = gameInstance.PlayerControllerClasses.Contains(currentController);
 
             CheckCameraState();
             if (isDead) return;

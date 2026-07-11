@@ -8,6 +8,7 @@
 //====================================================================================================================//
 
 using System;
+using DG.Tweening;
 using RivenFramework;
 using UnityEngine;
 
@@ -30,6 +31,7 @@ public class FPPawn_Player : FPPawn
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     /*----------------------------------------------------------------------------------------------------------------*/
     private GI_WidgetManager widgetManager;
+    private Camera viewCamera;
     private new FPPawnActions action = new FPPawnActions();
     private InputActions.FirstPersonActions inputActions;
     [SerializeField] private GameObject DeathScreenWidget;
@@ -50,12 +52,20 @@ public class FPPawn_Player : FPPawn
             widgetManager = GameInstance.Get<GI_WidgetManager>();
             if (!widgetManager) return;
         }
-        isPaused = widgetManager.GetExistingWidget("WB_Pause");
+        isPaused = widgetManager.GetExistingWidget("WB_Pause") || widgetManager.GetExistingWidget("WB_LevelSelect");
         
         // Pause Game
         if (inputActions.Pause.WasPressedThisFrame())
-        {
-            widgetManager.ToggleWidget("WB_Pause");
+        { 
+            var target = widgetManager.GetExistingWidget("WB_LevelSelect");
+            if (target)
+            {
+                Destroy(target); 
+            }
+            else
+            {
+                widgetManager.ToggleWidget("WB_Pause");
+            }
         }
         
         // Lock mouse when unpaused, unlock when paused
@@ -87,6 +97,7 @@ public class FPPawn_Player : FPPawn
         
         // Enable the view camera
         action.EnableViewCamera(this, true);
+        viewCamera = viewPoint.GetComponentInChildren<Camera>();
     }
 
     [Todo("Are you able to remove GetComponentInChildren call on Update? ~erry", Owner = "liz")]
@@ -155,6 +166,22 @@ public class FPPawn_Player : FPPawn
         if (inputActions.ItemAction1.WasReleasedThisFrame()) action.ItemUseAction(playerInventory, 0, "release");
         if (inputActions.ItemAction2.WasReleasedThisFrame()) action.ItemUseAction(playerInventory, 1, "release");
         if (inputActions.ItemAction3.WasReleasedThisFrame()) action.ItemUseAction(playerInventory, 2, "release");
+
+        var zoomAmount = 40;
+        var zoomDuration = 0.2f;
+        
+        // Zooming
+        if (inputActions.Zoom.WasPressedThisFrame())
+        {
+            viewCamera.DOKill();
+            viewCamera.DOFieldOfView(applicationSettings.currentSettingsData.cameraFov - zoomAmount, zoomDuration).SetEase(Ease.OutQuad);
+        }
+
+        if (inputActions.Zoom.WasReleasedThisFrame())
+        {
+            viewCamera.DOKill();
+            viewCamera.DOFieldOfView(applicationSettings.currentSettingsData.cameraFov, zoomDuration).SetEase(Ease.OutQuad);
+        }
     }
 
     public void FixedUpdate()

@@ -37,7 +37,7 @@ TagManager:
   - SpecialFX
   - Portrait
   - No Collision
-  - 
+  - No Occluder (Level) Collision
   - 
   - 
   - 
