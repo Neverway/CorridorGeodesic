@@ -170,7 +170,12 @@ PrefabInstance:
     - target: {fileID: 9125820400047664321, guid: 575ae9bc46c06c24e8b52dc2e240c23d,
         type: 3}
       propertyPath: m_text
-      value: TELEPHORT
+      value: dialaphone
+      objectReference: {fileID: 0}
+    - target: {fileID: 9125820400047664321, guid: 575ae9bc46c06c24e8b52dc2e240c23d,
+        type: 3}
+      propertyPath: m_fontStyle
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -688,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 281855664364225751, guid: 554ee28be8ca5c8ac9076c4f43e81363,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 554ee28be8ca5c8ac9076c4f43e81363,
         type: 3}

@@ -155,6 +155,7 @@ Shader "Neverway/Resoulex Toon"
                 float4 tangentOS : TANGENT;
                 float2 uv : TEXCOORD0;
                 float2 uvDetail : TEXCOORD1;
+                float4 color : COLOR; 
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
@@ -170,6 +171,7 @@ Shader "Neverway/Resoulex Toon"
                 float4 shadowCoord : TEXCOORD6;
                 half3 vertexLighting : TEXCOORD7;
                 float3 viewDirTS : TEXCOORD8;
+                float4 vertexColor : TEXCOORD9;
                 UNITY_VERTEX_INPUT_INSTANCE_ID
                 UNITY_VERTEX_OUTPUT_STEREO
             };
@@ -202,6 +204,7 @@ Shader "Neverway/Resoulex Toon"
                 OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
                 OUT.uvDetail = TRANSFORM_TEX(IN.uvDetail, _DetailAlbedoMap);
                 OUT.shadowCoord = GetShadowCoord(posInputs);
+                OUT.vertexColor = IN.color;
 
                 float3 bitangentWS = cross(nrmInputs.normalWS, nrmInputs.tangentWS)
                     * (IN.tangentOS.w * GetOddNegativeScale());
@@ -239,6 +242,7 @@ Shader "Neverway/Resoulex Toon"
                 half4 detailCol = SAMPLE_TEXTURE2D(_DetailAlbedoMap, sampler_DetailAlbedoMap, IN.uvDetail);
                 half detailMask = luminance(detailCol.rgb) * detailCol.a * _DetailProminence;
                 half3 albedo = lerp(col.rgb, detailCol.rgb * _DetailColor.rgb, detailMask);
+                albedo *= IN.vertexColor.rgb;
 
                 clip(col.a - _AlphaClip);
 
