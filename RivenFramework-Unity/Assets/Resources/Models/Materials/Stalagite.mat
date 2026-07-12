@@ -104,6 +104,7 @@ Material:
     - _DetailProminence: 0.491
     - _DstBlend: 0
     - _EmissionDivision: 1
+    - _GIIntensity: 0
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1

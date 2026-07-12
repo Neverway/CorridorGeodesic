@@ -78,6 +78,7 @@ Material:
     - _CullMode: 2
     - _DetailProminence: 0.81
     - _EmissionDivision: 1
+    - _GIIntensity: 0
     - _Glossiness: 1
     - _Metallic: 0.69
     - _Parallax: 0.025

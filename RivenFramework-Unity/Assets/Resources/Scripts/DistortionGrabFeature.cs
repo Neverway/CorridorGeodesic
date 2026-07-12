@@ -23,9 +23,13 @@ public class DistortionGrabFeature : ScriptableRendererFeature
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
+            var cameraColor = renderingData.cameraData.renderer.cameraColorTargetHandle;
+            
+            if (_grabHandle == null || _grabHandle.rt == null) return;
+            if (cameraColor == null || cameraColor.rt == null) return;
+            
             CommandBuffer cmd = CommandBufferPool.Get(_profilerTag);
 
-            var cameraColor = renderingData.cameraData.renderer.cameraColorTargetHandle;
             Blitter.BlitCameraTexture(cmd, cameraColor, _grabHandle);
             cmd.SetGlobalTexture(TexID, _grabHandle);
 
@@ -51,6 +55,7 @@ public class DistortionGrabFeature : ScriptableRendererFeature
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
+        if (renderingData.cameraData.cameraType != CameraType.Game) return;
         renderer.EnqueuePass(_pass);
     }
 
