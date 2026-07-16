@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: 9125820400047664321, guid: 575ae9bc46c06c24e8b52dc2e240c23d,
         type: 3}
       propertyPath: m_text
-      value: dialaphone
+      value: Tele-Phone
       objectReference: {fileID: 0}
     - target: {fileID: 9125820400047664321, guid: 575ae9bc46c06c24e8b52dc2e240c23d,
         type: 3}
@@ -459,12 +459,12 @@ PrefabInstance:
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: id
-      value: Prop3D Variant
+      value: Prop_Tele-porter
       objectReference: {fileID: 0}
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: displayName
-      value: Prop3D Variant
+      value: Tele-porter
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}

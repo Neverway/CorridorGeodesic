@@ -314,8 +314,8 @@ public class RiftState_Destroy : N_RiftState
     {
         handler.riftManager.SetRiftPercentage(1);
         handler.riftManager.geometryHandler.SetRiftPlanesVisible(false);
-        handler.riftManager.geometryHandler.RestoreCutGeometry();
         handler.riftManager.spaceController.RemoveObjectsFromSpaceContainers();
+        handler.riftManager.geometryHandler.RestoreCutGeometry();
         handler.riftManager.actorHandler.RestoreActors();
         handler.riftManager.currentRiftMoveSpeed = handler.riftManager.minRiftSpeed;
         handler.riftManager.stateHandler.SetState<RiftState_None>();
