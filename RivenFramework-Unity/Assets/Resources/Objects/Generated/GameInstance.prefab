@@ -33,6 +33,8 @@ GameObject:
   - component: {fileID: 6086604189803334263}
   - component: {fileID: 7362436762694209870}
   - component: {fileID: 3058450162802510616}
+  - component: {fileID: 8332599877842085584}
+  - component: {fileID: 7383025387538470032}
   m_Layer: 0
   m_Name: GameInstance
   m_TagString: Untagged
@@ -1144,6 +1146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EnableRuntimeLogging>k__BackingField: 0
+  riftTests: []
+  delay: 1
+  loopTest: 0
   createRiftOnMarkersPinned: 1
   maxRiftWidth: 30
   minRiftWidth: -30
@@ -1374,3 +1379,29 @@ MonoBehaviour:
     targetScene: {fileID: 0}
     hideFromSelection: 1
     locked: 0
+--- !u!114 &8332599877842085584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24d56ab7607180cbb7ff51ee3bd052e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationBoxWidget: {fileID: 8734877188125155707, guid: 0b1c9bd7257566a6abc19592203a7896,
+    type: 3}
+--- !u!114 &7383025387538470032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1331178d2f123109f1cad2bb58ae4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

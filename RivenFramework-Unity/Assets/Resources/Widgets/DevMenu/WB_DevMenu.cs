@@ -7,6 +7,7 @@
 //
 //====================================================================================================================//
 
+using System;
 using RivenFramework;
 using System.Collections;
 using System.Collections.Generic;
@@ -51,6 +52,22 @@ public class WB_DevMenu : WidgetBlueprint
     	Cursor.lockState = CursorLockMode.None;
     	Cursor.visible = true;
 	}
+
+    private void OnEnable()
+    {
+        foreach (var pawn in FindObjectsOfType<FPPawn>())
+        {
+            pawn.AddPauseLock(gameObject);
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (var pawn in FindObjectsOfType<FPPawn>())
+        {
+            pawn.RemovePauseLock(gameObject);
+        }
+    }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     private void CreateButton(DevMenuItemInfo menuItemInfo)

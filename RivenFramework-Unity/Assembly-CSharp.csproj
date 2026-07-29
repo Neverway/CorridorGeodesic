@@ -45,6 +45,7 @@
     <Analyzer Include="/home/lizband/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/FileSystemNode.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/DrawUtility.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Input/KeyMappings.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_Elevator.cs" />
@@ -69,9 +70,12 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreToolsOverlay.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/Matrices/Matrix2x2.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/DrawEditor.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalController.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/OpcodeTable.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/CallbackEvents.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/EndOfDemoStatsTracker.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dRotator.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalFileSystemDefinition.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Func_DisplayKeyhint.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/OBJVertexList.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Segment.cs" />
@@ -128,6 +132,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/MarkerCollisionBehaviour.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/LevelSelect/LevelSelectBooth.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/UnparentOnAwake.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/VirtualFileSystem.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/StairBrush.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/AttributeInfo.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ModifierSystem/ModifierSystem/ApplyModifiersOnEnable.cs" />
@@ -136,6 +141,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/Vertex Weld Ops/VertexWeldOperation.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_SliceableSection.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/AudioVolume/VolumetricAudioVolume.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalSession.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/NamedVerticalScope.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbCollisionBehaviour.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Constants.cs" />
@@ -150,6 +156,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/Voxel.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Polygon.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Pawn_LookAt.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/WB_HackCell.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/SplashScreenPlayer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/IPostBuildListener.cs" />
      <Compile Include="Assets/Packages/DynamicBone/Scripts/DynamicBone.cs" />
@@ -180,7 +187,9 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets/BulbOutletStrip.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/GridManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_Fizzler.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/TP_DirectoryBrowser.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ExtensionMethods/EnumerableExtensions.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/HackPuzzleDefinition.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreGUIHelper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG/Edge.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUtils.cs" />
@@ -217,6 +226,8 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaReceiver.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BrushBase.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/TestProj.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalProgramRegistry.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_CameraTarget.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/JointExtensions.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_ComicFilter.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/VoxOcclusionCullerOLD.cs" />
@@ -230,9 +241,11 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/GeometryHelper.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Actor_SFX_Impact.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/KeepAsUnselectable.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalBootLoader.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Prop_Respawner.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics_DecayingParticles.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ModifierSystem/BasicModifiers.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/GI_Terminal.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/AdjacencyFilters.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/EditorHelper.cs" />
@@ -295,11 +308,13 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_SocketOutlet.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/UVUtility.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Graphics_RiftPreviewEffects.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/WB_HackChip.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/IAttributeLoader.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/SegmentType.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/TrimBrush.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/OBJFactory.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModulePhysics.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/VFSF_Riftdeck.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/WidgetSelectable_Animator.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ToolSettingsPopup.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_BellTower.cs" />
@@ -331,15 +346,18 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaConductor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_PhysSocket.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/PrimitiveBrush.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/Func_TerminalInteraction.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/OldMeshSliceable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSGForceRebuildOnUndo.cs" />
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/TriangulationNode.cs" />
      <Compile Include="Assets/Resources/Scripts/FirstPersonExample/FPPawn.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/WB_Terminal.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/BrushUtility.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/Dev_LevelSelect.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Stats&amp;Achievments/Checkpoint.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/RiftContext.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/TP_HackTerminal.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreInput.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/RadialMenu.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_SimpleLine.cs" />
@@ -357,6 +375,7 @@
      <Compile Include="Assets/Packages/DOTween/Modules/DOTweenModuleUI.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolumeTriggerType.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/Vertex Weld Ops/VertexWeldToleranceOperation.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/WB_Terminal_Entry.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Decomposition/BayazitDecomposer.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Opt_Lifetime.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Extensions/EnumHelper.cs" />
@@ -385,11 +404,15 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Audio_FootstepManager.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/ValveMapFormat2006/VmfWorld.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Pivot.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/HackCell.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Pawn_CrushDetection.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ModifierSystem/ModifierSystem/ModifiableValue.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKFootSolver.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/EventSignal_Interactcs.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ClipEditor.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/WB_HackIntersection.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalProgramBase.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/CanvasAssignActiveCamera.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/Actor_SFX_Impact.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/SerializablePlane.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/DTSpline_CopyCinemachinePath.cs" />
@@ -426,6 +449,7 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Errynei" />
      <None Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/README.txt" />
      <None Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Decomposition/LICENSE.txt" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sound" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Wii" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Globals/UV Distortion" />
@@ -772,6 +796,7 @@
      <Folder Include="Assets/Resources/Materials/Effects" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor" />
      <Folder Include="Assets/Resources/Models/Materials/DynamiclyFiltered" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_LizDemo" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.1/Toon/Poiyomi Toon Two Pass.shader" />
      <Folder Include="Assets/_REMOVE_/Integratables" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/9.2" />
@@ -780,6 +805,7 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiShadowIncludes.cginc" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiMath.cginc" />
      <Folder Include="Assets/TextMesh Pro/Resources" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking" />
      <None Include="Assets/_PoiyomiShaders/ThirdPartyLicenses/LTCGI_LICENSE.txt" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/PHResources/marble_rock_03" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Spectrum/Vol Bands" />
@@ -907,6 +933,7 @@
      <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayLit.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.2/Toon/Poiyomi Toon World.shader" />
      <None Include="Assets/_PoiyomiShaders/PoiKeywordTimestamp.json" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Terminal" />
      <Folder Include="Assets/AddressableAssetsData" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Noise" />

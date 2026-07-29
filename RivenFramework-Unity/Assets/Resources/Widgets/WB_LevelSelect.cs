@@ -79,11 +79,24 @@ public class WB_LevelSelect : MonoBehaviour
         return finalDisplayName;
     }
 
+    private void OnEnable()
+    {
+        foreach (var pawn in FindObjectsOfType<FPPawn>())
+        {
+            pawn.AddPauseLock(gameObject);
+        }
+    }
+    
     public void OnDestroy()
     {
         foreach (var levelSelectBooth in FindObjectsOfType<LevelSelectBooth>())
         {
             levelSelectBooth.Reenable();
+        }
+        
+        foreach (var pawn in FindObjectsOfType<FPPawn>())
+        {
+            pawn.RemovePauseLock(gameObject);
         }
     }
 

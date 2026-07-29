@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4747696455824991198, guid: af4850428e261f2b08d1405efbc0e9bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c3658a099a0cb149baa3797170a54c9, type: 2}
     - target: {fileID: 6623930327146131120, guid: af4850428e261f2b08d1405efbc0e9bf,
         type: 3}
       propertyPath: m_Layer
@@ -175,6 +180,10 @@ MonoBehaviour:
   isClone: 0
   riftSpace: 0
   meshRenderer: {fileID: 0}
+  sliceableMeshes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7686675897072506657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2120571515170124160, guid: af4850428e261f2b08d1405efbc0e9bf,
@@ -238,6 +247,10 @@ MonoBehaviour:
   isClone: 0
   riftSpace: 0
   meshRenderer: {fileID: 0}
+  sliceableMeshes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &7455626533906888480
 PrefabInstance:
   m_ObjectHideFlags: 0

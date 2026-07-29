@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using RivenFramework;
 
@@ -27,11 +28,19 @@ public class FPPawnActions : PawnActions
     private bool hasJumped;
     private bool hasCoyoteGrace;
     private bool wasOnGroundLastFrame;
+    private bool wasPaused; // Used to track player pause state when starting camera sequences
+    private Vector3 lastViewCamPos; // Used to store view pos when starting camera sequences
+    private Vector3 lastViewCamRot; // Used to store view rot when starting camera sequences
+    private Transform cameraParent;
+    private bool cameraSequenceInProgress;
 
 
     //=-----------------=
     // Reference Variables
     //=-----------------=
+    [SerializeField] private float cameraTweenDuration = 1f;
+    [SerializeField] private Ease cameraTweenEase = Ease.InOutSine;
+    private Sequence cameraSequence;
 
 
     //=-----------------=
@@ -451,6 +460,51 @@ public class FPPawnActions : PawnActions
         }
         
         viewCamera.SetActive(_setActive);
+    }
+
+    /// <summary>
+    /// Disables pawn movement and lerps their view camera to a location
+    /// </summary>
+    public void StartCameraSequence(FPPawn _pawn, Transform _cameraTransformTarget)
+    {
+        if (cameraSequenceInProgress) return;
+        cameraSequenceInProgress = true;
+        viewCamera =_pawn.GetComponentInChildren<Camera>(true).gameObject;
+        
+        wasPaused = _pawn.isPaused;
+        _pawn.isPaused = true;
+        
+        cameraParent = viewCamera.transform.parent;
+        lastViewCamPos = viewCamera.gameObject.transform.position;
+        lastViewCamRot = viewCamera.gameObject.transform.rotation.eulerAngles;
+        viewCamera.transform.parent = null;
+        
+        // Tween camera to _cameraTransformTarget
+        cameraSequence?.Kill();
+        cameraSequence = DOTween.Sequence();
+        cameraSequence.Join(viewCamera.transform.DOMove(_cameraTransformTarget.position, cameraTweenDuration).SetEase(cameraTweenEase));
+        cameraSequence.Join(viewCamera.transform.DORotate(_cameraTransformTarget.eulerAngles, cameraTweenDuration).SetEase(cameraTweenEase));
+    }
+
+    /// <summary>
+    /// Disables pawn movement and lerps their view camera to a location
+    /// </summary>
+    public void EndCameraSequence(FPPawn _pawn)
+    {
+        if (!cameraSequenceInProgress) return;
+        
+        _pawn.isPaused = wasPaused;
+        
+        // Tween camera to stored
+        cameraSequence?.Kill();
+        cameraSequence = DOTween.Sequence();
+        cameraSequence.Join(viewCamera.transform.DOMove(lastViewCamPos, cameraTweenDuration).SetEase(cameraTweenEase));
+        cameraSequence.Join(viewCamera.transform.DORotate(lastViewCamRot, cameraTweenDuration).SetEase(cameraTweenEase));
+        cameraSequence.OnComplete(() =>
+        {
+            viewCamera.transform.parent = cameraParent;
+            cameraSequenceInProgress = false;
+        });
     }
 
     /// <summary>

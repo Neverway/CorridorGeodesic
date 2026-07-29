@@ -62,6 +62,7 @@
      <Compile Include="Assets/Editor/BuildShaderStripper.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/PrimitiveBrushInspector.cs" />
      <Compile Include="Assets/_PoiyomiShaders/Translators/Editor/LiltoonToPoiyomiFurTranslation.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/Editor/HackPuzzleDefinitionEditor.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolScatterPlacer.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Editor/TextEventEditorWindow.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/DebugDisplayListAsStringsAttributeDrawer.cs" />
@@ -114,6 +115,7 @@
      <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Editor/ShaderGUI" />
      <Folder Include="Assets/_PoiyomiShaders/Translators/Editor" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/LevelSelect/Editor" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/Editor" />
      <Folder Include="Assets/SimpleLightProbePlacer/Editor/Icons" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Editor" />

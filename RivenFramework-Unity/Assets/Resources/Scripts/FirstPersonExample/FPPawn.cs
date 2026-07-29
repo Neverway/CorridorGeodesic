@@ -35,6 +35,8 @@ public class FPPawn : Pawn
     [HideInInspector] public Rigidbody physicsbody;
     [SerializeField] public GameObject interactionPrefab;
     [SerializeField] public GameObject bodyCollider;
+    [Tooltip("Every object that currently wants this pawn to be paused. If this hashset is empty, the pawn is free to be unpaused.")]
+    public HashSet<GameObject> pauseLocks = new HashSet<GameObject>();
 
 
     //=-----------------=
@@ -48,7 +50,7 @@ public class FPPawn : Pawn
 
         defaultStats = FPDefaultStats;
         currentStats = (FPPawnStats)FPDefaultStats.Clone(); // Don't forget to clone so that you don't overwrite the pawns default values! ~Liz
-        action = FPaction;
+        action = new FPPawnActions();
     }
     
 
@@ -63,5 +65,17 @@ public class FPPawn : Pawn
     public bool IsGrounded()
     {
         return FPaction.IsOnGround(this);
+    }
+    
+    public void AddPauseLock(GameObject source)
+    {
+        pauseLocks.Add(source);
+        isPaused = pauseLocks.Count > 0;
+    }
+
+    public void RemovePauseLock(GameObject source)
+    {
+        pauseLocks.Remove(source);
+        isPaused = pauseLocks.Count > 0;
     }
 }

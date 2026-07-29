@@ -140148,8 +140148,8 @@ MonoBehaviour:
   chunkSize: {x: 32, y: 32, z: 32}
   useProgressiveChunkGeneration: 1
   generateAtRuntime: 0
-  minPosition: {x: -281, y: -70, z: -108}
-  maxPosition: {x: 88, y: 176, z: 359}
+  minPosition: {x: -100, y: -50, z: -100}
+  maxPosition: {x: 100, y: 50, z: 100}
   doNotSkipGeneratingAirBlocks: 0
   doNotSkipGeneratingBackfaces: 0
 --- !u!114 &333782023922437033
