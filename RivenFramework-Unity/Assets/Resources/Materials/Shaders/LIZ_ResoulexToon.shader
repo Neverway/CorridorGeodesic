@@ -22,6 +22,7 @@ Shader "Neverway/Resoulex Toon"
         _AlphaClip ("Alpha Clip", Range(0, 1)) = 0.5
         _Color ("Color", Color) = (1,1,1,1)
         _AttenuationPowerrr ("Light Falloff", Range(0.1, 1.0)) = 0.34
+        _GIIntensity ("GI Intensity", Range(0, 5)) = 1
         [Toggle] _ToonLight ("Toon Light", Float) = 0
         _ToonLightThreshold ("Toon Light Threshold", Range(0, 1)) = 0.01
         _ToonLightSmoothness ("Toon Light Smoothness", Range(0, 1)) = 0.05
@@ -97,6 +98,7 @@ Shader "Neverway/Resoulex Toon"
             half4 _DetailColor;
             float4 _Color;
             half _AttenuationPowerrr;
+            half _GIIntensity;
             float _ToonLight;
             half _ToonLightThreshold;
             half _ToonLightSmoothness;
@@ -144,8 +146,8 @@ Shader "Neverway/Resoulex Toon"
             #pragma multi_compile _ _DBUFFER
             #pragma target 3.0
 
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/BRDF.hlsl"
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/GlobalIllumination.hlsl"
+            //#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/BRDF.hlsl"
+            //#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/GlobalIllumination.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DBuffer.hlsl"
 
             struct Attributes
@@ -155,6 +157,7 @@ Shader "Neverway/Resoulex Toon"
                 float4 tangentOS : TANGENT;
                 float2 uv : TEXCOORD0;
                 float2 uvDetail : TEXCOORD1;
+                float4 color : COLOR; 
                 UNITY_VERTEX_INPUT_INSTANCE_ID
             };
 
@@ -170,6 +173,8 @@ Shader "Neverway/Resoulex Toon"
                 float4 shadowCoord : TEXCOORD6;
                 half3 vertexLighting : TEXCOORD7;
                 float3 viewDirTS : TEXCOORD8;
+                float4 vertexColor : TEXCOORD9;
+                DECLARE_LIGHTMAP_OR_SH(lightmapUV, vertexSH, 10);
                 UNITY_VERTEX_INPUT_INSTANCE_ID
                 UNITY_VERTEX_OUTPUT_STEREO
             };
@@ -202,6 +207,7 @@ Shader "Neverway/Resoulex Toon"
                 OUT.uv = TRANSFORM_TEX(IN.uv, _MainTex);
                 OUT.uvDetail = TRANSFORM_TEX(IN.uvDetail, _DetailAlbedoMap);
                 OUT.shadowCoord = GetShadowCoord(posInputs);
+                OUT.vertexColor = IN.color;
 
                 float3 bitangentWS = cross(nrmInputs.normalWS, nrmInputs.tangentWS)
                     * (IN.tangentOS.w * GetOddNegativeScale());
@@ -222,6 +228,8 @@ Shader "Neverway/Resoulex Toon"
                         OUT.vertexLighting += light.color * (pow(light.distanceAttenuation, _AttenuationPowerrr) * NdotL);
                     }
                 #endif
+                OUTPUT_LIGHTMAP_UV(IN.uvDetail, unity_LightmapST, OUT.lightmapUV);
+                OUTPUT_SH(OUT.normalWS.xyz, OUT.vertexSH);
 
                 return OUT;
             }
@@ -239,6 +247,7 @@ Shader "Neverway/Resoulex Toon"
                 half4 detailCol = SAMPLE_TEXTURE2D(_DetailAlbedoMap, sampler_DetailAlbedoMap, IN.uvDetail);
                 half detailMask = luminance(detailCol.rgb) * detailCol.a * _DetailProminence;
                 half3 albedo = lerp(col.rgb, detailCol.rgb * _DetailColor.rgb, detailMask);
+                albedo *= IN.vertexColor.rgb;
 
                 clip(col.a - _AlphaClip);
 
@@ -301,7 +310,7 @@ Shader "Neverway/Resoulex Toon"
                 float a = roughness * roughness;
                 float a2 = a * a;
 
-                half3 giDiffuse = SampleSH(normalWS) * occlusion;
+                half3 giDiffuse = SAMPLE_GI(IN.lightmapUV, IN.vertexSH, normalWS) * occlusion * _GIIntensity;
                 half3 reflDir = reflect(-normalize(IN.viewDirWS), normalWS);
                 half3 giSpecular = GlossyEnvironmentReflection(reflDir, perceptualRoughness, occlusion);
 

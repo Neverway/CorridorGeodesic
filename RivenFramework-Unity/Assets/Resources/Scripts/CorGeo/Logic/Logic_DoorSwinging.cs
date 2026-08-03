@@ -33,6 +33,7 @@ public class Logic_DoorSwinging : MonoBehaviour
     private bool isTraveling = false;
     private float travelTimer = 0f;
     private float jamCheckDelay = 0.1f;
+    private Vector3 storedStartingConnectedAnchor;
     
 
 
@@ -53,10 +54,17 @@ public class Logic_DoorSwinging : MonoBehaviour
         
         if (interactedSideA.HasLogicOutputSource) interactedSideA.CallOnSourceChanged(() => { Toggle(0); });
         if (interactedSideB.HasLogicOutputSource) interactedSideB.CallOnSourceChanged(() => { Toggle(1); });
+        
+        // Hinge joints are temperamental bastards
+        // and their connected anchor points tend to get really messed up when caught in a rift
+        // Storing the initial value of the CA and resetting it after rift restores should do the trick
+        storedStartingConnectedAnchor = hingeJoint.connectedAnchor;
     }
 
     private void FixedUpdate()
     {
+        hingeJoint.connectedAnchor = storedStartingConnectedAnchor;
+        
         if (!isTraveling) return;
 
         travelTimer += Time.fixedDeltaTime;

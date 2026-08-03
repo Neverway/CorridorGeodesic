@@ -177,6 +177,11 @@ public class RiftManager_SpaceController : ILoggable
         this.Log("RemoveObjectsFromSpaceContainers called");
         foreach (var mesh in spaceMeshes)
         {
+            if (!mesh.Key)
+            {
+                Debug.LogWarning("A mesh in spaceMeshes was already destroyed before it could be unparented! This shouldn't happen! FFS 3:<");
+                continue;
+            }
             mesh.Key.transform.parent = null;
         }
         /*foreach (var actor in spaceActors)

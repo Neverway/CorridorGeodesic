@@ -7,7 +7,10 @@
 //
 //====================================================================================================================//
 
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using DG.Tweening;
 using RivenFramework;
 using Unity.VisualScripting;
@@ -23,7 +26,14 @@ public class RiftManager : MonoBehaviour, ILoggable
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
     [field: SerializeField] public bool EnableRuntimeLogging { get; set; }
     
+    
+    
     [Header("RIFT SETTINGS")] 
+    
+    public List<RiftTestValues> riftTests;
+    public float delay = 1;
+    public bool loopTest;
+    
     [Tooltip("Creates a rift when the two marker transform variables are set")]
     [SerializeField] private bool createRiftOnMarkersPinned;
     [Tooltip("When a rift is created, this is the amount to inset the rift planes to avoid z-fighting")]
@@ -219,7 +229,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// </summary>
     private void OnSceneChanged(Scene current, Scene next)
     {
-        DestroyRiftExternal();
+        DestroyRiftImmediate();
     }
 
     /// <summary>
@@ -247,11 +257,12 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// <summary>
     /// Slice the world and assign all objects to space containers
     /// </summary>
-    public async void CreateRift(Transform _markerA, Transform _markerB)
+    public async Task CreateRift(Transform _markerA, Transform _markerB)
     {
         if (isCreatingRift) return;
         isCreatingRift = true;
-        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _markerA, _markerB });
+        markerA = _markerA;
+        markerB = _markerB;
         
         this.Log($"CreateRift called (_markerA: '{_markerA}', _markerB: '{_markerB}')");
         geometryHandler.SetRiftPlanesVisible(true);
@@ -268,16 +279,21 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// Unslice the world and remove objects from space containers
     /// This version is used by the rift gun controller so that it properly cleans up its markers
     /// </summary>
-    public void DestroyRiftExternal()
+    public void DestroyRiftImmediate()
     {
-        if (markerA)
+        if (createRiftOnMarkersPinned)
         {
-            Destroy(markerA.gameObject);
+            if (markerA)
+            {
+                Destroy(markerA.gameObject);
+            }
+            if (markerB)
+            {
+                Destroy(markerB.gameObject);
+            }
         }
-        if (markerB)
-        {
-            Destroy(markerB.gameObject);
-        }
+        markerA = null;
+        markerB = null;
         stateHandler.SetState<RiftState_Destroy>();
     }
 
@@ -393,6 +409,44 @@ public class RiftManager : MonoBehaviour, ILoggable
         linkedRiftController.OnExpandReleased += () => expandHeld = false;
     }
 
+    public async Task ForceCreateRiftImmediate(Transform _markerA, Transform _markerB, float _riftCollapsePercentage)
+    {
+        DestroyRiftImmediate();
+        await CreateRift(_markerA, _markerB);
+        SetRiftPercentage(_riftCollapsePercentage);
+    }
+
+    public IEnumerator TestRiftFast()
+    {
+        bool previousValue = createRiftOnMarkersPinned;
+        createRiftOnMarkersPinned = false;
+        
+        foreach (var riftTest in riftTests)
+        {
+            var task = ForceCreateRiftImmediate(riftTest.markerA, riftTest.markerB, riftTest.riftCollapsePercentage);
+            while (!task.IsCompleted) yield return null;
+            yield return new WaitForSeconds(delay);
+        }
+        if (!loopTest) DestroyRiftImmediate();
+        
+        createRiftOnMarkersPinned = previousValue;
+        
+        if (loopTest) StartCoroutine(TestRiftFast());
+    }
+
+    [ContextMenu("Test Rift Fast!!!")]
+    public void Test()
+    {
+        StartCoroutine(TestRiftFast());
+    }
+
+    [Serializable]
+    public struct RiftTestValues
+    {
+        public Transform markerA;
+        public Transform markerB;
+        public float riftCollapsePercentage;
+    }
     
     
     

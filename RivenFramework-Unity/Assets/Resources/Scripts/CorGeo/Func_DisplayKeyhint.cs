@@ -5,16 +5,18 @@
 //
 //=============================================================================
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
-public class Func_DisplayKeyhint : LogicComponent
+using GameInstance = RivenFramework.GameInstance;
+
+public class Func_DisplayKeyhint : MonoBehaviour
 {
     //=-----------------=
     // Public Variables
     //=-----------------=
-    [SerializeField, LogicComponentHandle] private LogicComponent inputSignal;
+    public LogicInput<bool> displayKeyhint = new(false);
     public float duration = 3f;
     public string keyhintText = "Lemon Milk";
     
@@ -40,16 +42,15 @@ public class Func_DisplayKeyhint : LogicComponent
     //=-----------------=
     // Mono Functions
     //=-----------------=
-    public override void SourcePowerStateChanged(bool powered)
+    public void Start()
     {
-        base.SourcePowerStateChanged(powered);
+        if (displayKeyhint.HasLogicOutputSource is false) return;
+        displayKeyhint.CallOnSourceChanged(TryDisplayKeyhint);
+    }
 
-        isPowered = powered;
-
-        if (isPowered)
-        {
-            DisplayKeyHint();
-        }
+    public void TryDisplayKeyhint()
+    {
+        if (displayKeyhint.Get()) DisplayKeyHint();
     }
 
     //=-----------------=
@@ -64,12 +65,11 @@ public class Func_DisplayKeyhint : LogicComponent
     {
         if (useManuelAssignment)
         {
-            FindObjectOfType<GameplayNotificationManager>().DisplayKeyHint(duration, keyhintText, keyhintImage);
+            GameInstance.Get<GameplayNotificationManager>().DisplayKeyHint(duration, keyhintText, keyhintImage);
         }
         else
         {
-            FindObjectOfType<GameplayNotificationManager>().DisplayKeyHint(duration, keyhintText, targetActionMap, targetAction);
+            GameInstance.Get<GameplayNotificationManager>().DisplayKeyHint(duration, keyhintText, targetActionMap, targetAction);
         }
     }
 }
-*/

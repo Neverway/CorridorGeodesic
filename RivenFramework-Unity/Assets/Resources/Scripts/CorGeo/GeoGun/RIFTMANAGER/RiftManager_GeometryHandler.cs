@@ -79,11 +79,37 @@ public class RiftManager_GeometryHandler : ILoggable
         visualPlaneA.name = "VisPlaneA";
         visualPlaneB.name = "VisPlaneB";
     }
-    
+
     /// <summary>
     /// Find and cut all sliceable meshes that are intersecting with the rift cut planes
     /// </summary>
     private IEnumerator SliceCutPlanes()
+    {
+        List<CorGeo_SliceableMesh> allMeshes = GameObject.FindObjectsOfType<CorGeo_SliceableMesh>().ToList();
+        List<Task> pendingSlices = new List<Task>();
+
+        foreach (var mesh in allMeshes)
+        {
+            if (CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneA, mesh) ||
+                CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneB, mesh))
+            {
+                pendingSlices.Add(mesh.ApplyCuts());
+            }
+            else
+            {
+                mesh.AssignMeshToSpaceLists();
+            }
+        }
+
+        var allSlicesTask = Task.WhenAll(pendingSlices);
+        while (!allSlicesTask.IsCompleted)
+        {
+            yield return null;
+        }
+
+        cutRoutine = null;
+    }
+    /*private IEnumerator SliceCutPlanes()
     {
         this.Log("sliceCutPlanes started");
         
@@ -114,7 +140,7 @@ public class RiftManager_GeometryHandler : ILoggable
         
         cutRoutine = null;
         this.Log("sliceCutPlanes finished");
-    }
+    }*/
 
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/

@@ -9,8 +9,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace Neverway.Framework.PawnManagement
-{
     [RequireComponent(typeof(Image))]
     public class UI_Image_PawnHealth : MonoBehaviour
     {
@@ -50,7 +48,7 @@ namespace Neverway.Framework.PawnManagement
                 if (targetPawn != null )
                 {
                     previousHealth = targetPawn.currentStats.health;
-                    image.fillAmount = (targetPawn.currentStats.health / targetPawn.defaultStats.stats.health) * 100 * 0.01f;
+                    image.fillAmount = (targetPawn.currentStats.health / targetPawn.defaultStats.health) * 100 * 0.01f;
                 }
             }
             if (targetPawn)
@@ -59,8 +57,8 @@ namespace Neverway.Framework.PawnManagement
                 if (targetPawn.currentStats.health != previousHealth)
                 {
                     image.DOKill();
-                    //image.DoFillAmount((targetPawn.currentState.health / targetPawn.defaultState.health) * 100 * 0.01f, 0.3f);
-                    image.fillAmount=((targetPawn.currentStats.health / targetPawn.defaultStats.stats.health) * 100 * 0.01f);
+                    image.DOFillAmount((targetPawn.currentStats.health / targetPawn.defaultStats.health) * 100 * 0.01f, 0.3f);
+                    //image.fillAmount=((targetPawn.currentStats.health / targetPawn.defaultStats.stats.health) * 100 * 0.01f);
                 }
                 previousHealth = targetPawn.currentStats.health;
             }
@@ -77,7 +75,7 @@ namespace Neverway.Framework.PawnManagement
         {
             foreach (var entity in FindObjectsByType<Pawn>(FindObjectsSortMode.None))
             {
-                if (entity.isPossessed) return entity;
+                if (entity.isPlayerControlled) return entity;
             }
             return null;
         }
@@ -87,5 +85,3 @@ namespace Neverway.Framework.PawnManagement
         // External Functions
         //=-----------------=
     }
-    
-}

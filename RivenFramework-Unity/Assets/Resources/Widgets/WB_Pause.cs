@@ -5,6 +5,7 @@
 //
 //=============================================================================
 
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -44,9 +45,22 @@ public class WB_Pause : WidgetBlueprint
         buttonRestart.onClick.AddListener(delegate { OnClick("buttonRestart"); });
     }
 
+    private void OnEnable()
+    {
+        foreach (var pawn in FindObjectsOfType<FPPawn>())
+        {
+            pawn.AddPauseLock(gameObject);
+        }
+    }
+
     private void OnDestroy()
     {
         Destroy(widgetManager.GetExistingWidget(settingsWidget.name));
+
+        foreach (var pawn in FindObjectsOfType<FPPawn>())
+        {
+            pawn.RemovePauseLock(gameObject);
+        }
     }
 
 

@@ -140148,8 +140148,8 @@ MonoBehaviour:
   chunkSize: {x: 32, y: 32, z: 32}
   useProgressiveChunkGeneration: 1
   generateAtRuntime: 0
-  minPosition: {x: -281, y: -70, z: -108}
-  maxPosition: {x: 88, y: 176, z: 359}
+  minPosition: {x: -100, y: -50, z: -100}
+  maxPosition: {x: 100, y: 50, z: 100}
   doNotSkipGeneratingAirBlocks: 0
   doNotSkipGeneratingBackfaces: 0
 --- !u!114 &333782023922437033
@@ -140159,7 +140159,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3207393151091331644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25a7f0380f15b1c88bf554f68197fe5a, type: 3}
   m_Name: 
@@ -140168,7 +140168,7 @@ MonoBehaviour:
   propsCheckedPerFrame: 25
   updateInterval: 0.1
   maxCullingDistance: 100
-  showDebugRays: 1
+  showDebugRays: 0
   showStatistics: 0
   riftContext: {fileID: 0}
 --- !u!1 &3241989616497585708

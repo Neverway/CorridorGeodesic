@@ -109,6 +109,7 @@ Material:
     - _DetailProminence: 0.6
     - _DstBlend: 0
     - _EmissionDivision: 1
+    - _GIIntensity: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.712
     - _GlossyReflections: 1
@@ -150,7 +151,7 @@ Material:
     - _SliceCenterTwo: {r: 0, g: 0, b: 0, a: 0}
     - _SliceNormalOne: {r: 0, g: 0, b: 0, a: 0}
     - _SliceNormalTwo: {r: 0, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 0.25, g: 0.25, b: 0, a: 0}
+    - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4762860752329641730
 MonoBehaviour:

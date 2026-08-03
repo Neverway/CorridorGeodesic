@@ -108,7 +108,7 @@ public static class CSGMeshCombinerTool
         {
             var groupedMesh = new Mesh
             {
-                //indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
+                indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
             };
             groupedMesh.CombineMeshes(materialEntry.Value.ToArray(), true, true);
             materialGroupedMeshes.Add(groupedMesh);
@@ -120,11 +120,13 @@ public static class CSGMeshCombinerTool
         combinedMesh = new Mesh
         {
             name = "CombinedLevelMesh",
-            //indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
+            indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
         };
 
         var combinedVertices = new List<Vector3>();
         var combinedUVs = new List<Vector2>();
+        var combinedUV2s = new List<Vector2>();
+        var combinedColors = new List<Color>();
         var combinedTangents = new List<Vector4>();
         var combinedSubmeshTriangles = new List<int[]>();
         int vertexOffset = 0;
@@ -133,6 +135,8 @@ public static class CSGMeshCombinerTool
         {
             Vector3[] vertices = groupedMesh.vertices;
             Vector2[] uvs = groupedMesh.uv;
+            Vector2[] uv2s = groupedMesh.uv2;
+            Color[] colors = groupedMesh.colors;
             Vector4[] tangents = groupedMesh.tangents;
             int[] triangles = groupedMesh.GetTriangles(0);
 
@@ -141,6 +145,17 @@ public static class CSGMeshCombinerTool
 
             combinedVertices.AddRange(vertices);
             combinedUVs.AddRange(uvs);
+            if (uv2s != null && uv2s.Length == vertices.Length) combinedUV2s.AddRange(uv2s);
+            else combinedUV2s.AddRange(new Vector2[vertices.Length]);
+            
+            if (colors != null && colors.Length == vertices.Length) combinedColors.AddRange(colors);
+            else
+            {
+                Color[] whiteFill = new Color[vertices.Length];
+                for (int i = 0; i < whiteFill.Length; i++) whiteFill[i] = Color.white;
+                combinedColors.AddRange(whiteFill);
+            }
+            
             combinedTangents.AddRange(tangents);
             combinedSubmeshTriangles.Add(triangles);
             vertexOffset += vertices.Length;
@@ -149,10 +164,12 @@ public static class CSGMeshCombinerTool
         combinedMesh.subMeshCount = combinedSubmeshTriangles.Count;
         combinedMesh.SetVertices(combinedVertices);
         combinedMesh.SetUVs(0, combinedUVs);
+        combinedMesh.SetUVs(1, combinedUV2s);
+        combinedMesh.SetColors(combinedColors); 
         for (int i = 0; i < combinedSubmeshTriangles.Count; i++)
             combinedMesh.SetTriangles(combinedSubmeshTriangles[i], i);
         combinedMesh.RecalculateNormals();
-        combinedMesh.SetTangents(combinedTangents);
+        combinedMesh.RecalculateTangents(); 
         combinedMesh.RecalculateBounds();
 
     }  

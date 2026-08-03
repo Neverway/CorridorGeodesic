@@ -32,6 +32,9 @@ GameObject:
   - component: {fileID: 6546828152794290419}
   - component: {fileID: 6086604189803334263}
   - component: {fileID: 7362436762694209870}
+  - component: {fileID: 3058450162802510616}
+  - component: {fileID: 8332599877842085584}
+  - component: {fileID: 7383025387538470032}
   m_Layer: 0
   m_Name: GameInstance
   m_TagString: Untagged
@@ -1143,6 +1146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EnableRuntimeLogging>k__BackingField: 0
+  riftTests: []
+  delay: 1
+  loopTest: 0
   createRiftOnMarkersPinned: 1
   maxRiftWidth: 30
   minRiftWidth: -30
@@ -1154,6 +1160,7 @@ MonoBehaviour:
   nullSpaceMaterial: {fileID: 2100000, guid: eb2aa8e528376ea4bad7b7dd63732b8f, type: 2}
   riftPreviewEffects: {fileID: 4942970576282025009}
   currentRiftMoveSpeed: 8
+  riftActive: 0
   stateHandler:
     previousState:
       rid: -2
@@ -1269,3 +1276,132 @@ MonoBehaviour:
   isPlaying: 0
   recordStartTime: 0
   replayEvents: []
+--- !u!114 &3058450162802510616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7753a6a5c7e2c91d4ac82daf0eff01ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - displayName: '[DoNotShow] Intro Sequence'
+    group: 0
+    targetScene: {fileID: 102900000, guid: 5c1b4e4f99031ef65819a091903f23d6, type: 3}
+    hideFromSelection: 1
+    locked: 0
+  - displayName: -------------------------------------------------
+    group: 1
+    targetScene: {fileID: 0}
+    hideFromSelection: 1
+    locked: 0
+  - displayName: Cube
+    group: 1
+    targetScene: {fileID: 102900000, guid: cd660b9af5e7dadb48ff15c7a0be7b3d, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Gun
+    group: 1
+    targetScene: {fileID: 102900000, guid: f0feeef2d909356eab11b59d5861322e, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Horizontal 1
+    group: 1
+    targetScene: {fileID: 102900000, guid: 4839362bff21568e8b2bea445db75ec0, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Horizontal 2
+    group: 1
+    targetScene: {fileID: 0}
+    hideFromSelection: 0
+    locked: 1
+  - displayName: Vertical 1
+    group: 1
+    targetScene: {fileID: 0}
+    hideFromSelection: 0
+    locked: 1
+  - displayName: Vertical 2
+    group: 1
+    targetScene: {fileID: 102900000, guid: 91f410f4f77a3145b9d2de050f70fa11, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Crossing Gaps
+    group: 1
+    targetScene: {fileID: 102900000, guid: 94ff3347ba67e532ab1fc63893cba422, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Through Walls
+    group: 1
+    targetScene: {fileID: 102900000, guid: eb523b61fdc1c3e4cb8e853816aa30da, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Backtrack
+    group: 1
+    targetScene: {fileID: 102900000, guid: 5ae213b2fb91640d1b0300bee2aaa792, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Coils
+    group: 1
+    targetScene: {fileID: 102900000, guid: 5e3a73061439b54248a7b30eaf9514f7, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Lasers
+    group: 1
+    targetScene: {fileID: 102900000, guid: 20b97a4127ef7a95ab26817a8de38a6b, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Oil
+    group: 1
+    targetScene: {fileID: 102900000, guid: 4d0273e7fd56818628bd9c54c9bb9bd4, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Bounce Back
+    group: 1
+    targetScene: {fileID: 102900000, guid: 57ed7c06176369e3eae535d2fd3a54d6, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Kinematic Camera
+    group: 1
+    targetScene: {fileID: 102900000, guid: 9de831ebc4a35563da85a1f2c5b39053, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: Turrets
+    group: 1
+    targetScene: {fileID: 102900000, guid: 46c69bbf858e7f0069a809573b0019af, type: 3}
+    hideFromSelection: 0
+    locked: 0
+  - displayName: -------------------------------------------------
+    group: 1
+    targetScene: {fileID: 0}
+    hideFromSelection: 1
+    locked: 0
+--- !u!114 &8332599877842085584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24d56ab7607180cbb7ff51ee3bd052e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationBoxWidget: {fileID: 8734877188125155707, guid: 0b1c9bd7257566a6abc19592203a7896,
+    type: 3}
+--- !u!114 &7383025387538470032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1331178d2f123109f1cad2bb58ae4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
