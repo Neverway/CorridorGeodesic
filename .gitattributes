@@ -22,3 +22,7 @@ RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_LizDemo/1_cube.unity filter=l
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/01-HGap.unity filter=lfs diff=lfs merge=lfs -text
 ivenFramework-Unity/Assets/Resources/Maps/CorGeo/_LizDemo/2_gun.unity filter=lfs diff=lfs merge=lfs -text
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_LizDemo/2_gun.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Liz/1_cube.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Liz/2_gun.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Minimals/ScreenRoomDirty.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/LinearMechanicsShowcase/05-Tesla.unity filter=lfs diff=lfs merge=lfs -text

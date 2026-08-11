@@ -81,9 +81,7 @@ public class VoxWorldManagerEditor : Editor
         
         if (GUILayout.Button("Clear All Voxels", GUILayout.Height(25)))
         {
-            if (EditorUtility.DisplayDialog("Clear Voxels", 
-                "Are you sure you want to clear all baked voxels?", 
-                "Yes", "Cancel"))
+            if (EditorUtility.DisplayDialog("Clear Voxels", "Are you sure you want to clear all baked voxels?", "Yes", "Cancel"))
             {
                 ClearVoxels();
             }
@@ -93,8 +91,7 @@ public class VoxWorldManagerEditor : Editor
         {
             EditorGUILayout.Space(5);
             EditorGUILayout.LabelField("Baking Status:", bakingStatus);
-            EditorGUI.ProgressBar(EditorGUILayout.GetControlRect(), bakingProgress, 
-                $"{Mathf.RoundToInt(bakingProgress * 100)}%");
+            EditorGUI.ProgressBar(EditorGUILayout.GetControlRect(), bakingProgress, $"{Mathf.RoundToInt(bakingProgress * 100)}%");
         }
         
         EditorGUILayout.Space(10);
@@ -136,6 +133,38 @@ public class VoxWorldManagerEditor : Editor
         }
     }
     
+    static void EnsureFolder(string folderPath)
+    {
+        if (AssetDatabase.IsValidFolder(folderPath)) return;
+
+        string[] parts = folderPath.Split('/');
+        string current = parts[0];
+
+        for (int i = 1; i < parts.Length; i++)
+        {
+            string next = current + "/" + parts[i];
+            if (!AssetDatabase.IsValidFolder(next))
+            {
+                AssetDatabase.CreateFolder(current, parts[i]);
+            }
+            current = next;
+        }
+    }
+
+    string GetSceneVoxelFolder()
+    {
+        string scenePath = manager.gameObject.scene.path;
+
+        if (string.IsNullOrEmpty(scenePath))
+        {
+            return "Assets/GeneratedVoxelData/UnsavedScene/Voxel";
+        }
+
+        string sceneDir = System.IO.Path.GetDirectoryName(scenePath).Replace("\\", "/");
+        string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+        return $"{sceneDir}/{sceneName}/Voxel";
+    }
+
     void BakeVoxels()
     {
         if (!EditorApplication.isPlaying)
@@ -144,8 +173,7 @@ public class VoxWorldManagerEditor : Editor
         }
         else
         {
-            EditorUtility.DisplayDialog("Cannot Bake", 
-                "Cannot bake voxels while in Play Mode. Exit Play Mode first.", "OK");
+            EditorUtility.DisplayDialog("Cannot Bake", "Cannot bake voxels while in Play Mode. Exit Play Mode first.", "OK");
         }
     }
     
@@ -157,6 +185,12 @@ public class VoxWorldManagerEditor : Editor
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
         
         ClearVoxels();
+
+        string sceneVoxelFolder = GetSceneVoxelFolder();
+        string meshFolder = $"{sceneVoxelFolder}/Meshes";
+        string prefabFolder = $"{sceneVoxelFolder}/Prefabs";
+        EnsureFolder(meshFolder);
+        EnsureFolder(prefabFolder);
         
         Transform chunksParentTransform = manager.transform.Find("VoxelChunks");
         GameObject chunksParent;
@@ -190,8 +224,7 @@ public class VoxWorldManagerEditor : Editor
         
         if (validColliders.Count == 0)
         {
-            EditorUtility.DisplayDialog("No Colliders Found", 
-                "No valid colliders found! Check your layer settings.", "OK");
+            EditorUtility.DisplayDialog("No Colliders Found", "No valid colliders found! Check your layer settings.", "OK");
             isBaking = false;
             yield break;
         }
@@ -315,6 +348,15 @@ public class VoxWorldManagerEditor : Editor
                         totalVoxelsDetected += chunkVoxelsDetected;
                         
                         chunk.SerializeVoxelData();
+
+                        Mesh bakedMesh = Object.Instantiate(chunk.GeneratedMesh);
+                        bakedMesh.name = chunkObject.name;
+                        string meshAssetPath = AssetDatabase.GenerateUniqueAssetPath($"{meshFolder}/{chunkObject.name}.asset");
+                        AssetDatabase.CreateAsset(bakedMesh, meshAssetPath);
+                        chunk.AssignExternalMesh(bakedMesh);
+
+                        string prefabPath = AssetDatabase.GenerateUniqueAssetPath($"{prefabFolder}/{chunkObject.name}.prefab");
+                        PrefabUtility.SaveAsPrefabAssetAndConnect(chunkObject, prefabPath, InteractionMode.AutomatedAction);
                         
                         EditorUtility.SetDirty(chunkObject);
                     }
@@ -333,6 +375,9 @@ public class VoxWorldManagerEditor : Editor
             }
         }
         
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+
         stopwatch.Stop();
         
         bakingProgress = 1f;
@@ -364,6 +409,20 @@ public class VoxWorldManagerEditor : Editor
             }
             
             Debug.Log("Cleared all voxel chunks");
+        }
+
+        string sceneVoxelFolder = GetSceneVoxelFolder();
+
+        bool deletedAny = false;
+        if (AssetDatabase.IsValidFolder(sceneVoxelFolder))
+        {
+            deletedAny = AssetDatabase.DeleteAsset(sceneVoxelFolder);
+        }
+
+        if (deletedAny)
+        {
+            AssetDatabase.Refresh();
+            Debug.Log("Deleted generated voxel mesh/prefab assets for this scene");
         }
         
         EditorUtility.SetDirty(manager);

@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21455d7ad184fd0f90c8e4499b6b1ab, type: 3}
+  m_Name: LevelOrganizer
+  m_EditorClassIdentifier: 
+  LevelSetGroups:
+  - name: Liz's Demo
+    description: Lizband's concept for what the first chapter of the game would play
+      like.
+    levelSets:
+    - name: Intro Sequence
+      description: 
+      levels: []
+    - name: 'Chapter 1 - Section 1: Test Track'
+      description: The team makes their way through separate testing tracks to obtain
+        their own spacial distorion devices to aid in their decent. They just have
+        to regroup at the end of their tracks to get to the level 2 station.
+      levels:
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+    - name: 'Chapter 1 - Section 2: Behind the scenes'
+      description: Escape! Escape! The Director has discovered the team's betrayl
+        and has sent security to take them out. With all safety protocols disabled,
+        Kellory, Jamiey, and Osiris must now exit the main testing track and B-Line
+        for the level 2 station earlier than intended while avoiding the Okami facilities
+        various security patrols.
+      levels:
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+      - sceneAsset: {fileID: 0}
+        sceneName: 
+  - name: Connorses
+    description: Pinned maps by Connorses
+    levelSets:
+    - name: 
+      description: 
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: 567d59cebc9288340ab448ed28ef6fe4, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: c2efccf5f42bfb045ba8322638840da0, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: b7da78c3d60deec4f82dc78e47ac4b3b, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: f5d99a3f4230da1469d2dd30578efca2, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 455f4f3b62a07de4495d674722387432, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: e5d28ef2953ac6e4793f348cc9e2bf1e, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: cf61aab3defe78b45a1f0d4bbc91de1b, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: d4690df80877c4347b8aa5aaba33988c, type: 3}
+        sceneName: 
+  - name: Errynei
+    description: Pinned maps by Errynei
+    levelSets:
+    - name: 
+      description: 
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: 16b9f84824833cc4ba598abe2522b2c8, type: 3}
+        sceneName: 
+    - name: 
+      description: 
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: 54810bf5b466f6d48a02fe2d879e4c01, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 2fef150f25dae244494b32a779bd1910, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 39a43d77619b43e409b9ef46a895fa5b, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 3239de863190aeb468d48cc4577efd26, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: aa1b461ebfad76649a34ce0978240db5, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 52880b11d11d9b7489ebf0339f3b610a, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: a056e626de11bf94e9e8a03561181e58, type: 3}
+        sceneName: 
+  - name: Linear Mechanics Showcase
+    description: This is every majour game mechanic presented one at a time in the
+      most barebones way. THESE ARE NOT ACTUAL PUZZLES, just a showcase of the mechanics
+      presented as straight forward as possible.
+    levelSets:
+    - name: 
+      description: 
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: b00720af71de27c1292de0b7252ef2a5, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 4839362bff21568e8b2bea445db75ec0, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 1874370b1d47058c8a0acb78d555199b, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 91f410f4f77a3145b9d2de050f70fa11, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: eb523b61fdc1c3e4cb8e853816aa30da, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 9f995d0b9e37967d29855644a6929496, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 5e3a73061439b54248a7b30eaf9514f7, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 20b97a4127ef7a95ab26817a8de38a6b, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 4d0273e7fd56818628bd9c54c9bb9bd4, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 57ed7c06176369e3eae535d2fd3a54d6, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 9de831ebc4a35563da85a1f2c5b39053, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 46c69bbf858e7f0069a809573b0019af, type: 3}
+        sceneName: 
+  - name: Minimal Examples
+    description: These are one off examples to showcase ideas for environments, mechanics,
+      or anything else.
+    levelSets:
+    - name: Envrionments
+      description: Pretty stuff
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: a10a2777d6f00fd66b6b6c8aa9264f1e, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 49eaed58d709e2ef6b0f191f327d8f2c, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 7d311493539074ffebd6024da9f6af39, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 268a92532423f738e900e646e668a56c, type: 3}
+        sceneName: 
+    - name: Mechanics
+      description: Fun stuff
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: d078b08ca669c928196cca7f8da6e6bc, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: b8bfec8f04578fd6e987dc40e04456c0, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 596204db1645b23aab9b67e1f4fd3003, type: 3}
+        sceneName: 
+    - name: Dev Tests and Asset Zoos
+      description: Techy stuff
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: 7cebf22c388d68509b5c87df3b1af8f4, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: f0a35444f31dcccae84cc7e8992a83be, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 7b607f3cbb75945f289fdee662fe770c, type: 3}
+        sceneName: 
+  - name: Original DevGamm Demo
+    description: The original demo levels that we presented at Dev Gamm 2024. These
+      are just for reference to compare against what we have now and are pretty borked.
+    levelSets:
+    - name: Chapter 1
+      description: 
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: bbf74bfcaf0bb844cb71a01bf3ce5f26, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 4de1c094e07d1682fb764ab9298ad243, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 644ce52db736b5f0e80f20b56e494dd0, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 1a8632cfcbf0383c0a78ba322ed52e4e, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 2049aa3c9cf9967189d61ba644c93598, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 9a17184c20db0e304becc8ffb03d3c8d, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: bea3dd9c72461c27595e23ae199e9734, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 846769e9271bd5e40bcb6aca981e61b4, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: f9161c4d535235847b5872c6a95d0222, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 5cac162164d5eba8ea309262c9cf2285, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 522a4d781f0b4f61aa36a917890fe4d4, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: a2ed32c96e699254e8d6800f7ce85956, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: a58450c15a627c8408bff46172b175b5, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 9f150491a294acc1bb009c37f838438d, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 630595910d9df0786bba0b379c30fe76, type: 3}
+        sceneName: 

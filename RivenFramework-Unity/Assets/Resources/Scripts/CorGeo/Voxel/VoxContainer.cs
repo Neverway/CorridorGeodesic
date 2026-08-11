@@ -70,6 +70,23 @@ public class VoxContainer : MonoBehaviour
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
+    /// 
+    /// </summary>
+    public Mesh GeneratedMesh => voxMeshData.mesh;
+ 
+    /// <summary>
+    /// 
+    /// </summary>
+    public void AssignExternalMesh(Mesh externalMesh)
+    {
+        if (meshFilter == null || meshRenderer == null || meshCollider == null) ConfigureComponents();
+ 
+        meshFilter.sharedMesh = externalMesh;
+        if (externalMesh.vertexCount > 3) meshCollider.sharedMesh = externalMesh;
+        voxMeshData.mesh = externalMesh;
+    }
+ 
+    /// <summary>
     /// Create a container object to store the voxel chunks
     /// </summary>
     /// <param name="material">The material to assign to the voxels by default</param>
@@ -101,25 +118,23 @@ public class VoxContainer : MonoBehaviour
     public void GenerateMesh()
     {
         voxMeshData.ClearData();
-
+ 
         if (containerData.Count == 0)
         {
             Debug.Log("No voxel data to generate mesh from since the container data was empty");
             return;
         }
-
+ 
         Vector3 blockPos;
         Voxel block;
-
-        int counter = 0;
+ 
         Vector3[] faceVertices = new Vector3[4];
         Vector2[] faceUVs = new Vector2[4];
         
         int estimatedFaces = containerData.Count * 3;
-        int estimatedVertices = estimatedFaces * 6;
-        voxMeshData.vertices.Capacity = estimatedVertices;
-        voxMeshData.triangles.Capacity = estimatedVertices;
-        voxMeshData.UVs.Capacity = estimatedVertices;
+        voxMeshData.vertices.Capacity = estimatedFaces * 4;
+        voxMeshData.UVs.Capacity = estimatedFaces * 4;
+        voxMeshData.triangles.Capacity = estimatedFaces * 6;
         
         // Iterate over each face direction
         foreach (KeyValuePair<Vector3, Voxel> kvp in containerData)
@@ -137,21 +152,26 @@ public class VoxContainer : MonoBehaviour
                 if (this[blockPos + voxelFaceChecks[i]].isSolid && !doNotSkipGeneratingBackfaces) continue;
                 
                 // Draw this face
-                // Collect the appropriate vertices from the default vertices and add the block position
                 int faceVerticesCount = 4;
                 for (int j = 0; j < faceVerticesCount; j++)
                 {
                     faceVertices[j] = (voxelVertices[voxelVertexIndex[i, j]] * voxelScale) + (blockPos * voxelScale);
                     faceUVs[j] = voxelUVs[j];
                 }
-
-                for (int j = 0; j < 6; j++)
+ 
+                int baseIndex = voxMeshData.vertices.Count;
+                for (int j = 0; j < 4; j++)
                 {
-                    voxMeshData.vertices.Add(faceVertices[voxelTris[i,j]]);
-                    voxMeshData.UVs.Add(faceUVs[voxelTris[i,j]]);
+                    voxMeshData.vertices.Add(faceVertices[j]);
+                    voxMeshData.UVs.Add(faceUVs[j]);
                     //voxMeshData.colors.Add(voxelColorAlpha);
                     //voxMeshData.UVs2.Add(voxelSmoothness);
-                    voxMeshData.triangles.Add(counter++);
+                }
+ 
+                // Reference the 4 shared corners via the index buffer for both triangles
+                for (int j = 0; j < 6; j++)
+                {
+                    voxMeshData.triangles.Add(baseIndex + voxelTris[i, j]);
                 }
             }
         }
@@ -163,13 +183,13 @@ public class VoxContainer : MonoBehaviour
     public void UploadMesh()
     {
         voxMeshData.UploadMesh();
-
+ 
         if (meshRenderer == null) ConfigureComponents();
-
+ 
         meshFilter.mesh = voxMeshData.mesh;
         if (voxMeshData.vertices.Count > 3) meshCollider.sharedMesh = voxMeshData.mesh;
     }
-
+ 
     #endregion
     
     
@@ -186,7 +206,7 @@ public class VoxContainer : MonoBehaviour
                 return emptyVoxel;
             }
         }
-
+ 
         set
         {
             if (containerData == null)
@@ -214,9 +234,9 @@ public class VoxContainer : MonoBehaviour
         public List<Vector2> UVs;
         //public List<Vector2> UVs2;
         //public List<Color> colors;
-
+ 
         public bool initialized;
-
+ 
         public void ClearData()
         {
             if (!initialized)
@@ -229,7 +249,6 @@ public class VoxContainer : MonoBehaviour
                 
                 initialized = true;
                 mesh = new Mesh();
-                mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
             }
             else
             {
@@ -247,6 +266,8 @@ public class VoxContainer : MonoBehaviour
         /// <param name="sharedVerticies"></param>
         public void UploadMesh(bool sharedVerticies = false)
         {
+            mesh.indexFormat = vertices.Count > 65535 ? UnityEngine.Rendering.IndexFormat.UInt32 : UnityEngine.Rendering.IndexFormat.UInt16;
+ 
             mesh.SetVertices(vertices);
             mesh.SetTriangles(triangles, 0, false);
             //mesh.SetColors(colors);
@@ -264,7 +285,7 @@ public class VoxContainer : MonoBehaviour
     #endregion
     
     #region Voxel Statics
-
+ 
     /// <summary>
     /// Defines the basic shape of a cubic voxel's vertex points
     /// </summary>
@@ -280,7 +301,7 @@ public class VoxContainer : MonoBehaviour
         new Vector3(0, 1, 1), // vertex 6 (top right)
         new Vector3(1, 1, 1), // vertex 7 (top left)
     };
-
+ 
     private static Vector3[] voxelFaceChecks = new Vector3[6]
     {
         new Vector3(0, 0, -1), // Back
@@ -290,7 +311,7 @@ public class VoxContainer : MonoBehaviour
         new Vector3(0, -1, 0), // Bottom
         new Vector3(0, 1, 0), // Top
     };
-
+ 
     /// <summary>
     /// I believe this defines the basic shape of a cubic voxel's vertex connections
     /// </summary>
@@ -303,7 +324,7 @@ public class VoxContainer : MonoBehaviour
         { 0, 1, 4, 5 },
         { 2, 3, 6, 7 },
     };
-
+ 
     private static readonly Vector2[] voxelUVs = new Vector2[4]
     {
         new Vector2(0, 0),
@@ -311,7 +332,7 @@ public class VoxContainer : MonoBehaviour
         new Vector2(1, 0),
         new Vector2(1, 1)
     };
-
+ 
     private static readonly int[,] voxelTris = new int[6, 6]
     {
         { 0, 2, 3, 0, 3, 1 },
@@ -323,7 +344,7 @@ public class VoxContainer : MonoBehaviour
     };
     
     public static Voxel emptyVoxel = new Voxel() { ID = 0 };
-
+ 
     #endregion
     
     #region Serialization
@@ -368,4 +389,5 @@ public class VoxContainer : MonoBehaviour
     }
     
     #endregion
+
 }
