@@ -1,0 +1,350 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2601399835927838546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7277070419275073935}
+  - component: {fileID: 6210475336562555281}
+  - component: {fileID: 906969103027845940}
+  - component: {fileID: 6777780014364907362}
+  - component: {fileID: 8413189436421919104}
+  m_Layer: 15
+  m_Name: Chunk_4_4_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7277070419275073935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601399835927838546}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6210475336562555281
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601399835927838546}
+  m_Mesh: {fileID: 4300000, guid: 047cdbdf8faca54d58aa45fc3282f31b, type: 2}
+--- !u!23 &906969103027845940
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601399835927838546}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bf91ebaa06ca1cb78b7bf024de51c809, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6777780014364907362
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601399835927838546}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 047cdbdf8faca54d58aa45fc3282f31b, type: 2}
+--- !u!114 &8413189436421919104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2601399835927838546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a18e089e87151e4809f1f4b67aea26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voxelScale: 0.25
+  doNotSkipGeneratingAirBlocks: 0
+  doNotSkipGeneratingBackfaces: 0
+  serializedVoxelPositions:
+  - {x: 21, y: 55, z: 124}
+  - {x: 21, y: 55, z: 125}
+  - {x: 21, y: 55, z: 126}
+  - {x: 21, y: 55, z: 127}
+  - {x: 21, y: 55, z: 128}
+  - {x: 21, y: 55, z: 129}
+  - {x: 21, y: 55, z: 130}
+  - {x: 21, y: 55, z: 131}
+  - {x: 21, y: 55, z: 132}
+  - {x: 21, y: 55, z: 133}
+  - {x: 21, y: 55, z: 134}
+  - {x: 21, y: 55, z: 135}
+  - {x: 21, y: 55, z: 136}
+  - {x: 21, y: 55, z: 137}
+  - {x: 21, y: 55, z: 138}
+  - {x: 21, y: 55, z: 139}
+  - {x: 21, y: 55, z: 140}
+  - {x: 21, y: 55, z: 141}
+  - {x: 21, y: 55, z: 142}
+  - {x: 21, y: 55, z: 143}
+  - {x: 21, y: 55, z: 144}
+  - {x: 21, y: 55, z: 145}
+  - {x: 21, y: 55, z: 146}
+  - {x: 21, y: 55, z: 147}
+  - {x: 21, y: 55, z: 148}
+  - {x: 21, y: 55, z: 149}
+  - {x: 21, y: 55, z: 150}
+  - {x: 21, y: 55, z: 151}
+  - {x: 21, y: 55, z: 152}
+  - {x: 21, y: 55, z: 153}
+  - {x: 21, y: 55, z: 154}
+  - {x: 21, y: 55, z: 155}
+  - {x: 22, y: 55, z: 124}
+  - {x: 22, y: 55, z: 125}
+  - {x: 22, y: 55, z: 126}
+  - {x: 22, y: 55, z: 127}
+  - {x: 22, y: 55, z: 128}
+  - {x: 22, y: 55, z: 129}
+  - {x: 22, y: 55, z: 130}
+  - {x: 22, y: 55, z: 131}
+  - {x: 22, y: 55, z: 132}
+  - {x: 22, y: 55, z: 133}
+  - {x: 22, y: 55, z: 134}
+  - {x: 22, y: 55, z: 135}
+  - {x: 22, y: 55, z: 136}
+  - {x: 22, y: 55, z: 137}
+  - {x: 22, y: 55, z: 138}
+  - {x: 22, y: 55, z: 139}
+  - {x: 22, y: 55, z: 140}
+  - {x: 22, y: 55, z: 141}
+  - {x: 22, y: 55, z: 142}
+  - {x: 22, y: 55, z: 143}
+  - {x: 22, y: 55, z: 144}
+  - {x: 22, y: 55, z: 145}
+  - {x: 22, y: 55, z: 146}
+  - {x: 22, y: 55, z: 147}
+  - {x: 22, y: 55, z: 148}
+  - {x: 22, y: 55, z: 149}
+  - {x: 22, y: 55, z: 150}
+  - {x: 22, y: 55, z: 151}
+  - {x: 22, y: 55, z: 152}
+  - {x: 22, y: 55, z: 153}
+  - {x: 22, y: 55, z: 154}
+  - {x: 22, y: 55, z: 155}
+  - {x: 23, y: 51, z: 124}
+  - {x: 23, y: 52, z: 124}
+  - {x: 23, y: 53, z: 124}
+  - {x: 23, y: 54, z: 124}
+  - {x: 23, y: 55, z: 124}
+  - {x: 23, y: 51, z: 125}
+  - {x: 23, y: 52, z: 125}
+  - {x: 23, y: 53, z: 125}
+  - {x: 23, y: 54, z: 125}
+  - {x: 23, y: 55, z: 125}
+  - {x: 23, y: 51, z: 126}
+  - {x: 23, y: 52, z: 126}
+  - {x: 23, y: 53, z: 126}
+  - {x: 23, y: 54, z: 126}
+  - {x: 23, y: 55, z: 126}
+  - {x: 23, y: 51, z: 127}
+  - {x: 23, y: 52, z: 127}
+  - {x: 23, y: 53, z: 127}
+  - {x: 23, y: 54, z: 127}
+  - {x: 23, y: 55, z: 127}
+  - {x: 23, y: 51, z: 128}
+  - {x: 23, y: 52, z: 128}
+  - {x: 23, y: 53, z: 128}
+  - {x: 23, y: 54, z: 128}
+  - {x: 23, y: 55, z: 128}
+  - {x: 23, y: 51, z: 129}
+  - {x: 23, y: 52, z: 129}
+  - {x: 23, y: 53, z: 129}
+  - {x: 23, y: 54, z: 129}
+  - {x: 23, y: 55, z: 129}
+  - {x: 23, y: 51, z: 130}
+  - {x: 23, y: 52, z: 130}
+  - {x: 23, y: 53, z: 130}
+  - {x: 23, y: 54, z: 130}
+  - {x: 23, y: 55, z: 130}
+  - {x: 23, y: 51, z: 131}
+  - {x: 23, y: 52, z: 131}
+  - {x: 23, y: 53, z: 131}
+  - {x: 23, y: 54, z: 131}
+  - {x: 23, y: 55, z: 131}
+  - {x: 23, y: 51, z: 132}
+  - {x: 23, y: 52, z: 132}
+  - {x: 23, y: 53, z: 132}
+  - {x: 23, y: 54, z: 132}
+  - {x: 23, y: 55, z: 132}
+  - {x: 23, y: 51, z: 133}
+  - {x: 23, y: 52, z: 133}
+  - {x: 23, y: 53, z: 133}
+  - {x: 23, y: 54, z: 133}
+  - {x: 23, y: 55, z: 133}
+  - {x: 23, y: 51, z: 134}
+  - {x: 23, y: 52, z: 134}
+  - {x: 23, y: 53, z: 134}
+  - {x: 23, y: 54, z: 134}
+  - {x: 23, y: 55, z: 134}
+  - {x: 23, y: 51, z: 135}
+  - {x: 23, y: 52, z: 135}
+  - {x: 23, y: 53, z: 135}
+  - {x: 23, y: 54, z: 135}
+  - {x: 23, y: 55, z: 135}
+  - {x: 23, y: 51, z: 136}
+  - {x: 23, y: 52, z: 136}
+  - {x: 23, y: 53, z: 136}
+  - {x: 23, y: 54, z: 136}
+  - {x: 23, y: 55, z: 136}
+  - {x: 23, y: 51, z: 137}
+  - {x: 23, y: 52, z: 137}
+  - {x: 23, y: 53, z: 137}
+  - {x: 23, y: 54, z: 137}
+  - {x: 23, y: 55, z: 137}
+  - {x: 23, y: 51, z: 138}
+  - {x: 23, y: 52, z: 138}
+  - {x: 23, y: 53, z: 138}
+  - {x: 23, y: 54, z: 138}
+  - {x: 23, y: 55, z: 138}
+  - {x: 23, y: 51, z: 139}
+  - {x: 23, y: 52, z: 139}
+  - {x: 23, y: 53, z: 139}
+  - {x: 23, y: 54, z: 139}
+  - {x: 23, y: 55, z: 139}
+  - {x: 23, y: 51, z: 140}
+  - {x: 23, y: 52, z: 140}
+  - {x: 23, y: 53, z: 140}
+  - {x: 23, y: 54, z: 140}
+  - {x: 23, y: 55, z: 140}
+  - {x: 23, y: 51, z: 141}
+  - {x: 23, y: 52, z: 141}
+  - {x: 23, y: 53, z: 141}
+  - {x: 23, y: 54, z: 141}
+  - {x: 23, y: 55, z: 141}
+  - {x: 23, y: 51, z: 142}
+  - {x: 23, y: 52, z: 142}
+  - {x: 23, y: 53, z: 142}
+  - {x: 23, y: 54, z: 142}
+  - {x: 23, y: 55, z: 142}
+  - {x: 23, y: 51, z: 143}
+  - {x: 23, y: 52, z: 143}
+  - {x: 23, y: 53, z: 143}
+  - {x: 23, y: 54, z: 143}
+  - {x: 23, y: 55, z: 143}
+  - {x: 23, y: 51, z: 144}
+  - {x: 23, y: 52, z: 144}
+  - {x: 23, y: 53, z: 144}
+  - {x: 23, y: 54, z: 144}
+  - {x: 23, y: 55, z: 144}
+  - {x: 23, y: 51, z: 145}
+  - {x: 23, y: 52, z: 145}
+  - {x: 23, y: 53, z: 145}
+  - {x: 23, y: 54, z: 145}
+  - {x: 23, y: 55, z: 145}
+  - {x: 23, y: 51, z: 146}
+  - {x: 23, y: 52, z: 146}
+  - {x: 23, y: 53, z: 146}
+  - {x: 23, y: 54, z: 146}
+  - {x: 23, y: 55, z: 146}
+  - {x: 23, y: 51, z: 147}
+  - {x: 23, y: 52, z: 147}
+  - {x: 23, y: 53, z: 147}
+  - {x: 23, y: 54, z: 147}
+  - {x: 23, y: 55, z: 147}
+  - {x: 23, y: 51, z: 148}
+  - {x: 23, y: 52, z: 148}
+  - {x: 23, y: 53, z: 148}
+  - {x: 23, y: 54, z: 148}
+  - {x: 23, y: 55, z: 148}
+  - {x: 23, y: 51, z: 149}
+  - {x: 23, y: 52, z: 149}
+  - {x: 23, y: 53, z: 149}
+  - {x: 23, y: 54, z: 149}
+  - {x: 23, y: 55, z: 149}
+  - {x: 23, y: 51, z: 150}
+  - {x: 23, y: 52, z: 150}
+  - {x: 23, y: 53, z: 150}
+  - {x: 23, y: 54, z: 150}
+  - {x: 23, y: 55, z: 150}
+  - {x: 23, y: 51, z: 151}
+  - {x: 23, y: 52, z: 151}
+  - {x: 23, y: 53, z: 151}
+  - {x: 23, y: 54, z: 151}
+  - {x: 23, y: 55, z: 151}
+  - {x: 23, y: 51, z: 152}
+  - {x: 23, y: 52, z: 152}
+  - {x: 23, y: 53, z: 152}
+  - {x: 23, y: 54, z: 152}
+  - {x: 23, y: 55, z: 152}
+  - {x: 23, y: 51, z: 153}
+  - {x: 23, y: 52, z: 153}
+  - {x: 23, y: 53, z: 153}
+  - {x: 23, y: 54, z: 153}
+  - {x: 23, y: 55, z: 153}
+  - {x: 23, y: 51, z: 154}
+  - {x: 23, y: 52, z: 154}
+  - {x: 23, y: 53, z: 154}
+  - {x: 23, y: 54, z: 154}
+  - {x: 23, y: 55, z: 154}
+  - {x: 23, y: 51, z: 155}
+  - {x: 23, y: 52, z: 155}
+  - {x: 23, y: 53, z: 155}
+  - {x: 23, y: 54, z: 155}
+  - {x: 23, y: 55, z: 155}
+  serializedVoxelIDs: 0101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101

@@ -1,0 +1,282 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7459219165360986104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7660595361193761496}
+  - component: {fileID: 8320341389355322536}
+  - component: {fileID: 1111458760403245493}
+  - component: {fileID: 6466445398537653767}
+  - component: {fileID: 2396835110791460921}
+  m_Layer: 15
+  m_Name: Chunk_10_3_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7660595361193761496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459219165360986104}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8320341389355322536
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459219165360986104}
+  m_Mesh: {fileID: 4300000, guid: c10dd9699054c71499c0acedc8d5477f, type: 2}
+--- !u!23 &1111458760403245493
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459219165360986104}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bf91ebaa06ca1cb78b7bf024de51c809, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6466445398537653767
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459219165360986104}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c10dd9699054c71499c0acedc8d5477f, type: 2}
+--- !u!114 &2396835110791460921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459219165360986104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a18e089e87151e4809f1f4b67aea26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voxelScale: 0.25
+  doNotSkipGeneratingAirBlocks: 0
+  doNotSkipGeneratingBackfaces: 0
+  serializedVoxelPositions:
+  - {x: 240, y: 44, z: 223}
+  - {x: 240, y: 45, z: 223}
+  - {x: 240, y: 46, z: 223}
+  - {x: 240, y: 47, z: 223}
+  - {x: 240, y: 48, z: 223}
+  - {x: 240, y: 49, z: 223}
+  - {x: 240, y: 50, z: 223}
+  - {x: 240, y: 44, z: 224}
+  - {x: 240, y: 45, z: 224}
+  - {x: 240, y: 46, z: 224}
+  - {x: 240, y: 47, z: 224}
+  - {x: 240, y: 48, z: 224}
+  - {x: 240, y: 49, z: 224}
+  - {x: 240, y: 50, z: 224}
+  - {x: 241, y: 43, z: 223}
+  - {x: 241, y: 44, z: 223}
+  - {x: 241, y: 45, z: 223}
+  - {x: 241, y: 46, z: 223}
+  - {x: 241, y: 47, z: 223}
+  - {x: 241, y: 48, z: 223}
+  - {x: 241, y: 49, z: 223}
+  - {x: 241, y: 50, z: 223}
+  - {x: 241, y: 43, z: 224}
+  - {x: 241, y: 44, z: 224}
+  - {x: 241, y: 45, z: 224}
+  - {x: 241, y: 46, z: 224}
+  - {x: 241, y: 47, z: 224}
+  - {x: 241, y: 48, z: 224}
+  - {x: 241, y: 49, z: 224}
+  - {x: 241, y: 50, z: 224}
+  - {x: 242, y: 43, z: 223}
+  - {x: 242, y: 44, z: 223}
+  - {x: 242, y: 45, z: 223}
+  - {x: 242, y: 46, z: 223}
+  - {x: 242, y: 47, z: 223}
+  - {x: 242, y: 48, z: 223}
+  - {x: 242, y: 49, z: 223}
+  - {x: 242, y: 50, z: 223}
+  - {x: 242, y: 43, z: 224}
+  - {x: 242, y: 44, z: 224}
+  - {x: 242, y: 45, z: 224}
+  - {x: 242, y: 46, z: 224}
+  - {x: 242, y: 47, z: 224}
+  - {x: 242, y: 48, z: 224}
+  - {x: 242, y: 49, z: 224}
+  - {x: 242, y: 50, z: 224}
+  - {x: 242, y: 23, z: 239}
+  - {x: 242, y: 24, z: 239}
+  - {x: 242, y: 23, z: 240}
+  - {x: 242, y: 24, z: 240}
+  - {x: 242, y: 23, z: 241}
+  - {x: 242, y: 24, z: 241}
+  - {x: 242, y: 23, z: 242}
+  - {x: 242, y: 24, z: 242}
+  - {x: 242, y: 23, z: 243}
+  - {x: 242, y: 24, z: 243}
+  - {x: 242, y: 23, z: 244}
+  - {x: 242, y: 24, z: 244}
+  - {x: 242, y: 23, z: 245}
+  - {x: 242, y: 24, z: 245}
+  - {x: 242, y: 23, z: 246}
+  - {x: 242, y: 24, z: 246}
+  - {x: 242, y: 23, z: 247}
+  - {x: 242, y: 24, z: 247}
+  - {x: 242, y: 23, z: 248}
+  - {x: 242, y: 24, z: 248}
+  - {x: 242, y: 23, z: 249}
+  - {x: 242, y: 24, z: 249}
+  - {x: 242, y: 23, z: 250}
+  - {x: 242, y: 24, z: 250}
+  - {x: 242, y: 23, z: 251}
+  - {x: 242, y: 24, z: 251}
+  - {x: 243, y: 43, z: 223}
+  - {x: 243, y: 44, z: 223}
+  - {x: 243, y: 45, z: 223}
+  - {x: 243, y: 46, z: 223}
+  - {x: 243, y: 47, z: 223}
+  - {x: 243, y: 48, z: 223}
+  - {x: 243, y: 49, z: 223}
+  - {x: 243, y: 50, z: 223}
+  - {x: 243, y: 43, z: 224}
+  - {x: 243, y: 44, z: 224}
+  - {x: 243, y: 45, z: 224}
+  - {x: 243, y: 46, z: 224}
+  - {x: 243, y: 47, z: 224}
+  - {x: 243, y: 48, z: 224}
+  - {x: 243, y: 49, z: 224}
+  - {x: 243, y: 50, z: 224}
+  - {x: 243, y: 23, z: 239}
+  - {x: 243, y: 24, z: 239}
+  - {x: 243, y: 23, z: 240}
+  - {x: 243, y: 24, z: 240}
+  - {x: 243, y: 23, z: 241}
+  - {x: 243, y: 24, z: 241}
+  - {x: 243, y: 23, z: 242}
+  - {x: 243, y: 24, z: 242}
+  - {x: 243, y: 23, z: 243}
+  - {x: 243, y: 24, z: 243}
+  - {x: 243, y: 23, z: 244}
+  - {x: 243, y: 24, z: 244}
+  - {x: 243, y: 23, z: 245}
+  - {x: 243, y: 24, z: 245}
+  - {x: 243, y: 23, z: 246}
+  - {x: 243, y: 24, z: 246}
+  - {x: 243, y: 23, z: 247}
+  - {x: 243, y: 24, z: 247}
+  - {x: 243, y: 23, z: 248}
+  - {x: 243, y: 24, z: 248}
+  - {x: 243, y: 23, z: 249}
+  - {x: 243, y: 24, z: 249}
+  - {x: 243, y: 23, z: 250}
+  - {x: 243, y: 24, z: 250}
+  - {x: 243, y: 23, z: 251}
+  - {x: 243, y: 24, z: 251}
+  - {x: 244, y: 43, z: 223}
+  - {x: 244, y: 44, z: 223}
+  - {x: 244, y: 45, z: 223}
+  - {x: 244, y: 46, z: 223}
+  - {x: 244, y: 47, z: 223}
+  - {x: 244, y: 48, z: 223}
+  - {x: 244, y: 49, z: 223}
+  - {x: 244, y: 50, z: 223}
+  - {x: 244, y: 43, z: 224}
+  - {x: 244, y: 44, z: 224}
+  - {x: 244, y: 45, z: 224}
+  - {x: 244, y: 46, z: 224}
+  - {x: 244, y: 47, z: 224}
+  - {x: 244, y: 48, z: 224}
+  - {x: 244, y: 49, z: 224}
+  - {x: 244, y: 50, z: 224}
+  - {x: 244, y: 23, z: 239}
+  - {x: 244, y: 24, z: 239}
+  - {x: 244, y: 23, z: 240}
+  - {x: 244, y: 24, z: 240}
+  - {x: 244, y: 23, z: 241}
+  - {x: 244, y: 24, z: 241}
+  - {x: 244, y: 23, z: 242}
+  - {x: 244, y: 24, z: 242}
+  - {x: 244, y: 23, z: 243}
+  - {x: 244, y: 24, z: 243}
+  - {x: 244, y: 23, z: 244}
+  - {x: 244, y: 24, z: 244}
+  - {x: 244, y: 23, z: 245}
+  - {x: 244, y: 24, z: 245}
+  - {x: 244, y: 23, z: 246}
+  - {x: 244, y: 24, z: 246}
+  - {x: 244, y: 23, z: 247}
+  - {x: 244, y: 24, z: 247}
+  - {x: 244, y: 23, z: 248}
+  - {x: 244, y: 24, z: 248}
+  - {x: 244, y: 23, z: 249}
+  - {x: 244, y: 24, z: 249}
+  - {x: 244, y: 23, z: 250}
+  - {x: 244, y: 24, z: 250}
+  - {x: 244, y: 23, z: 251}
+  - {x: 244, y: 24, z: 251}
+  serializedVoxelIDs: 010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
