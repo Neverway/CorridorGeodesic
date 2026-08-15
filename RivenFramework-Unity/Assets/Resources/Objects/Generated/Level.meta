@@ -1,10 +1,7 @@
 fileFormatVersion: 2
-guid: 088b9b5f0f8ae0ed3b25dc0cd5962b6c
-labels:
-- Actor3D
-- Framework
-- Pickup
-PrefabImporter:
+guid: 32502f86ee6216ed89ffb15cff66a3d0
+folderAsset: yes
+DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 

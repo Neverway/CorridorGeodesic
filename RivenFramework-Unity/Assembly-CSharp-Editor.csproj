@@ -51,6 +51,7 @@
      <Compile Include="Assets/_PoiyomiShaders/Translators/Editor/LiltoonToPoiyomiTranslation_Menus.cs" />
      <Compile Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Editor/ShaderGUI/Shaders/LCDDisplayLitShader.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolAssetManager.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/MappingTools/Editor/MappingTools.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Editor/Func_TextEventEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGModelInspector.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolStripVariant.cs" />
@@ -110,10 +111,12 @@
      <Folder Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor" />
      <Folder Include="Assets/RivenFramework-Revamp/Editor" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/Editor" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/MappingTools/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/Editor" />
      <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Editor/ShaderGUI" />
      <Folder Include="Assets/_PoiyomiShaders/Translators/Editor" />
+     <None Include="Assets/Resources/Scripts/CorGeo/MappingTools/Editor/MappingTools.uxml" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/LevelSelect/Editor" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/Editor" />
      <Folder Include="Assets/SimpleLightProbePlacer/Editor/Icons" />
@@ -122,6 +125,7 @@
      <Folder Include="Assets/RivenFramework/Scripts/Editor" />
      <Folder Include="Assets/Packages/DOTween/Editor" />
      <Folder Include="Assets/Packages/DOTween/Editor/Imgs" />
+     <None Include="Assets/Resources/Scripts/CorGeo/MappingTools/Editor/MappingTools.uss" />
      <Folder Include="Assets/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Utilities" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Voxel/Editor" />

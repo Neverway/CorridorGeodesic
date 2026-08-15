@@ -284,6 +284,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_Actor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Graphics_NixieBulbEffects.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/Item_Utility_DevGun.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/MappingTools/MappingToolsSettings.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/Dev_ActorCarousel.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dPolygon.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/LevelSelect/GI_LevelSelect.cs" />
@@ -491,6 +492,7 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiPanosphere.cginc" />
      <Folder Include="Assets/_REMOVE_/Integratables/IK" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/RockySoil" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/ScreenRoomDirty/Voxel/Meshes" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Light Data" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/Copper" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/PHResources/rusty_metal_grid" />
@@ -504,9 +506,11 @@
      <Folder Include="Assets/Packages/Samples/Folder Icons/0.1.3/Folder Textures" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/2_gun/Voxel" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/9.1/Toon" />
      <Folder Include="Assets/AddressableAssetsData/Windows" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Shaders" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/01-HGap/Voxel" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Spectrum/Freq Bands" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sound/Music" />
@@ -520,6 +524,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures" />
      <Folder Include="Assets/Resources/Objects/NotProperActors/IntroSequence" />
      <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayCommon.hlsl" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/01-HGap/Voxel/Prefabs" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Emission" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sound/Music" />
      <None Include="Packages/com.unity.render-pipelines.universal-config@14.0.9/package.json" />
@@ -530,6 +535,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sound" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/ExtensionMethods" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.3/Toon/Poiyomi Toon Grab Pass.shader" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/LinearMechanicsShowcase/05-Tesla/Voxel" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/7.3" />
      <Folder Include="Assets/Resources/Scripts/Audio" />
@@ -540,11 +546,14 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Blanks" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/PHResources" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Objects" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/0_intro/Voxel" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/01-HGap/Voxel/Meshes" />
      <Folder Include="Assets/Resources/Widgets/Notif" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/Widgets/Materials" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiData.cginc" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.2/Toon/Poiyomi Toon Early Outline.shader" />
+     <Folder Include="Assets/Resources/Objects/Generated/Level" />
      <None Include="Assets/Resources/Materials/Shaders/SX_SlicePreview.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/PBR/Gems" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/9.3" />
@@ -567,9 +576,11 @@
      <Folder Include="Assets/Resources/Maps/CorGeo/Liz/2_gun/Voxel" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/VeryImportantDoNotDelete" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Objects/Generated" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/3_horizontal/Voxel/Meshes" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated/OLD" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/LocalizationFiles" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1/Poiyomi Toon.shader" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/LinearMechanicsShowcase/05-Tesla/Voxel/Meshes" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Fur/Poiyomi Toon.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/8.1/Toon/Poiyomi Outline.shader" />
@@ -589,6 +600,7 @@
      <Folder Include="Assets/TextMesh Pro" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/Plywood" />
      <None Include="Assets/csc.rsp" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/ScreenRoomDirty" />
      <None Include="Assets/_PoiyomiShaders/ThirdPartyLicenses/UZUMORE_LICENSE.txt" />
      <None Include="Assets/_PoiyomiShaders/ThirdPartyLicenses/SILENT_LICENSE.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
@@ -627,6 +639,7 @@
      <Folder Include="Assets/AddressableAssetsData/AssetGroups/Schemas" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Connorses" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/01-HGap" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/VeryImportantDoNotDelete" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Core" />
      <None Include="Assets/Resources/Materials/Skyboxes/IMS/Scripts/LCDOverlay.hlsl" />
@@ -643,6 +656,7 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiPassShadow.cginc" />
      <Folder Include="Assets/TextMesh Pro/Shaders" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Switch" />
+     <Folder Include="Assets/Resources/Scripts/CorGeo/MappingTools" />
      <None Include="Assets/_PoiyomiShaders/Shaders/Extras/InvisStencil.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Misc" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Objects" />
@@ -675,9 +689,11 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack" />
      <Folder Include="Assets/Resources/Other" />
      <Folder Include="Assets/SimpleLightProbePlacer" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/LinearMechanicsShowcase/05-Tesla" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Planks" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Grass" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/0_intro/Voxel/Meshes" />
      <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayUnlitInput.hlsl" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Tools" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiWireframe.cginc" />
@@ -696,6 +712,7 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiGlitter.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Wood" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/WidgetSystem" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/1_cube/Voxel/Meshes" />
      <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/Scripts" />
      <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI/SOEventSystem" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Distortion" />
@@ -756,6 +773,7 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiDithering.cginc" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Spectrum" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Materials" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/Test_PerformancePressureCooker" />
      <Folder Include="Assets/AddressableAssetsData/Linux" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/Diffuse-VertexColored.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiParallax.cginc" />
@@ -765,8 +783,10 @@
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/LocalizationFiles" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Noise" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/Notes.txt" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/1_cube" />
      <Folder Include="Assets/Resources/Materials/Shaders/PostProcessing" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System/Animations" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/3_horizontal/Voxel/Prefabs" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Decal.shader" />
      <Folder Include="Assets/Resources/Sprites/Tilesets/Collision" />
      <Folder Include="Assets/TextMesh Pro/Resources/Fonts &amp; Materials" />
@@ -792,6 +812,7 @@
      <Folder Include="Assets/RivenFramework/Scripts/_Unknown" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/RockOne" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiDissolve.cginc" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/2_gun/Voxel/Meshes" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Body/Poiyomi Toon.shader" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardSurface.shader" />
      <Folder Include="Assets/RivenFramework/Objects/Customizables" />
@@ -799,6 +820,7 @@
      <Folder Include="Assets/Resources/Materials/Effects" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor" />
      <Folder Include="Assets/Resources/Models/Materials/DynamiclyFiltered" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/2_gun/Voxel/Prefabs" />
      <Folder Include="Assets/Resources/Maps/CorGeo/Liz" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.1/Toon/Poiyomi Toon Two Pass.shader" />
      <Folder Include="Assets/_REMOVE_/Integratables" />
@@ -828,14 +850,17 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/PHResources/wooden_panels_4k.blend" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/PhysicsVolume" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/3_horizontal" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Materials/Developer/DevMats" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiSubsurfaceScattering.cginc" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/RimLight/RimLight" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/1_cube" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Models/Materials/DevOrientation" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/Shading/Teeh&apos;s Quick Shading Models" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders" />
      <Folder Include="Assets/_PoiyomiShaders/Scripts/ThryEditor/Examples" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/3_horizontal/Voxel" />
      <Folder Include="Assets/Resources/Materials/Skyboxes/IMS" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <Folder Include="Assets/Resources/Materials/PhysicsMaterials" />
@@ -872,17 +897,20 @@
      <Folder Include="Assets/Resources/Sprites/Items" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/8.0/Poiyomi World.shader" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/1_cube/Voxel" />
      <Folder Include="Assets/Packages/Samples/Folder Icons/0.1.3" />
      <Folder Include="Assets/Resources/Scripts" />
      <None Include="Assets/Resources/Materials/Shaders/LIZ_BeginnerShader.shader" />
      <None Include="Assets/Packages/SabreCSG-master/Shaders/Preview.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Shaders/7PlusLabels.txt" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Ouya" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/1_cube/Voxel/Meshes" />
      <Folder Include="Assets/AddressableAssetsData/DataBuilders" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.3/Toon/Poiyomi Toon Lil Fur.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Colors&amp;Normals/AlphaOptions" />
      <None Include="Assets/_PoiyomiShaders/Shaders/PoiLabels.txt" />
      <Folder Include="Assets/Fantasy Skybox FREE" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/Test_PerformancePressureCooker/Voxel" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/RocksCopperOre" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Objects/Animations" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sound/Effects" />
@@ -923,6 +951,7 @@
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Textures/Developer" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Materials/Developer" />
      <None Include="Assets/Packages/Xelu_Prompts/Readme.txt" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/1_cube/Voxel/Prefabs" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiSpecular.cginc" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiMatcap.cginc" />
      <None Include="Assets/_PoiyomiShaders/ThirdPartyLicenses/LIL_LICENSE.txt" />
@@ -942,6 +971,7 @@
      <Folder Include="Assets/AddressableAssetsData" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Noise" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/LinearMechanicsShowcase/05-Tesla/Voxel/Prefabs" />
      <Folder Include="Assets/Resources/Models/Materials/DynamiclyFiltered/Liz" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/PBR" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Scripts" />
@@ -954,11 +984,13 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/9.1/Toon/Poiyomi Toon World.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/SpecialFX" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/1_cube/Voxel" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/Widgets" />
      <Folder Include="Assets/_REMOVE_/_Characters" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/PBR/Metal" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/Widgets/Materials" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/Test_PerformancePressureCooker/Voxel/Prefabs" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/Extras" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiTessellation.cginc" />
      <Folder Include="Assets/Resources/Sprites/Characters" />
@@ -983,6 +1015,7 @@
      <Folder Include="Assets/Resources/Sound" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Models/Materials/DevCharacter" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Materials/Developer/DevMats" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/ScreenRoomDirty/Voxel" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiPenetration.cginc" />
      <Folder Include="Assets/Packages/Samples" />
      <None Include="Assets/_PoiyomiShaders/Shaders/8.1/Toon/Poiyomi.shader" />
@@ -1019,6 +1052,7 @@
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Glitter" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/RimLight" />
      <Folder Include="Assets/Resources/Scripts/FirstPersonExample" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/1_cube/Voxel/Prefabs" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiOutlineFrag.cginc" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/PBR/Organic" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
@@ -1053,12 +1087,14 @@
      <None Include="Assets/_PoiyomiShaders/Shaders/9.1/Toon/Poiyomi Toon Grab Pass.shader" />
      <None Include="Assets/Packages/QuickOutline/Resources/Shaders/OutlineFill.shader" />
      <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/ScreenRoomDirty/Voxel/Prefabs" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Steam" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Body" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/9.1" />
      <None Include="Assets/RivenFramework-Revamp/Resources/LocalizationFiles/OLD/RVFR_Menu_EN.json" />
      <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/0_intro" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiMacros.cginc" />
      <None Include="Assets/Resources/Materials/Shaders/Unsorted/ScreenCutoutShader.shader" />
      <Folder Include="Assets/Packages/DOTween/Resources" />
@@ -1108,6 +1144,7 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/Soil" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Importers" />
      <Folder Include="Assets/Resources/Sprites/Characters/Portraits" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/0_intro/Voxel/Prefabs" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Decomposition" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiBlending.cginc" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Logic/BulbSockets" />
@@ -1118,6 +1155,7 @@
      <Folder Include="Assets/Packages/Xelu_Prompts/Others" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/VeryImportantDoNotDelete/Materials" />
      <None Include="Assets/_PoiyomiShaders/Scripts/ThryEditor/Examples/ThryPresetsExample.txt" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/Test_PerformancePressureCooker/Voxel/Meshes" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/AudioVolume" />
      <Folder Include="Assets/RivenFramework/Scripts" />
      <None Include="Assets/_PoiyomiShaders/Scripts/ThryEditor/Examples/ThryLabelExample.txt" />

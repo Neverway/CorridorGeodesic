@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250f0f2e54e20b85b9dc0fa817082347, type: 3}
+  m_Name: MappingToolsSettings
+  m_EditorClassIdentifier: 
+  m_RequiredLevelObjects:
+  - {fileID: 7560454803882681237, guid: 4c0a939a8f9294d1e8bf5ecd5846741c, type: 3}
+  - {fileID: 5744132214312706440, guid: 77ae9fbc79f76dbf98e2cc67468c42bb, type: 3}
+  - {fileID: 2988062248310786737, guid: 2da924ad3c8709b52922509f2659e2b4, type: 3}
+  - {fileID: 4298151654670827244, guid: 49441bef8d2256233a0f4f3fed7dfb2f, type: 3}
+  m_AssetLabels:
+  - m_Label: material
+    m_DisplayName: Materials
+  - m_Label: actor
+    m_DisplayName: All Actors
+  - m_Label: prop
+    m_DisplayName: Props
+  - m_Label: logic
+    m_DisplayName: Logic
+  - m_Label: fx
+    m_DisplayName: FXs
+  - m_Label: pickup
+    m_DisplayName: Pickups

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-guid: 088b9b5f0f8ae0ed3b25dc0cd5962b6c
-labels:
-- Actor3D
-- Framework
-- Pickup
+guid: 2da924ad3c8709b52922509f2659e2b4
 PrefabImporter:
   externalObjects: {}
   userData: 
