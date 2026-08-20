@@ -149,6 +149,10 @@ MonoBehaviour:
   isClone: 0
   riftSpace: 0
   meshRenderer: {fileID: 0}
+  sliceableMeshes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &6956118632047380180
 PrefabInstance:
   m_ObjectHideFlags: 0

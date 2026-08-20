@@ -433,6 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnabled: 0
   eventReference:
     Guid:
       Data1: 1847064061
@@ -440,6 +441,7 @@ MonoBehaviour:
       Data3: 1583056303
       Data4: 1153252115
     Path: event:/SFX/Components/DeploymentVentOpen
+  attached: {fileID: 0}
 --- !u!4 &8207734382395108404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,

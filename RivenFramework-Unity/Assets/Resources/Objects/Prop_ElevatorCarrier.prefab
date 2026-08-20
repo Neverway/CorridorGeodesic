@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnabled: 0
   eventReference:
     Guid:
       Data1: 550675275
@@ -83,6 +84,7 @@ MonoBehaviour:
       Data3: -2037904706
       Data4: 2066133922
     Path: event:/SFX/Components/ElevatorReady
+  attached: {fileID: 0}
 --- !u!1001 &2093662724185573359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -898,6 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnabled: 0
   eventReference:
     Guid:
       Data1: -1739242868
@@ -905,6 +908,7 @@ MonoBehaviour:
       Data3: 1904586926
       Data4: 26895712
     Path: event:/SFX/Components/ElevatorClose
+  attached: {fileID: 0}
 --- !u!114 &3890443481466655487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnabled: 0
   eventReference:
     Guid:
       Data1: -870487340
@@ -924,6 +929,7 @@ MonoBehaviour:
       Data3: 1562062241
       Data4: 941632284
     Path: event:/SFX/Components/ElevatorOpen
+  attached: {fileID: 0}
 --- !u!1 &6015995160919996835 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3232241740184920906, guid: 600e0b4b588f42e4ea2604ee1cc2ca91,

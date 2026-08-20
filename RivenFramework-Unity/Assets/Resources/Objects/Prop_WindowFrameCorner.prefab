@@ -243,6 +243,10 @@ MonoBehaviour:
   isClone: 0
   riftSpace: 0
   meshRenderer: {fileID: 0}
+  sliceableMeshes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &5367234039836069848 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 57a1d3a25e96755b98490463b5f120e3,

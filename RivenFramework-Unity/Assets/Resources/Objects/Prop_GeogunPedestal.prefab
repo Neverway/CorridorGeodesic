@@ -480,6 +480,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3743532953806444931, guid: d1d1529c789634288bee1e220ac3ebd3,
+        type: 3}
+      propertyPath: id
+      value: ItemPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3743532953806444931, guid: d1d1529c789634288bee1e220ac3ebd3,
+        type: 3}
+      propertyPath: displayName
+      value: Item Pickup
+      objectReference: {fileID: 0}
     - target: {fileID: 4706276813154512841, guid: d1d1529c789634288bee1e220ac3ebd3,
         type: 3}
       propertyPath: m_Enabled

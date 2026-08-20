@@ -216,7 +216,6 @@ public static class CSGMeshCombinerTool
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
 
-
     #endregion
     
     [MenuItem("Neverway/CorGeo/Combine and bake level mesh")]

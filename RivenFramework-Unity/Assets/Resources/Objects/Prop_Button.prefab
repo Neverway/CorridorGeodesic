@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnabled: 0
   eventReference:
     Guid:
       Data1: -1137120119
@@ -318,6 +319,7 @@ MonoBehaviour:
       Data3: -819410499
       Data4: 1939408553
     Path: event:/SFX/Components/ButtonPress
+  attached: {fileID: 0}
 --- !u!1001 &2696709269635003493
 PrefabInstance:
   m_ObjectHideFlags: 0

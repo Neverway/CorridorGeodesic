@@ -2007,12 +2007,12 @@ PrefabInstance:
     - target: {fileID: 3954347698123193828, guid: 9a4aef5a1bebd876db8d1e5811db7076,
         type: 3}
       propertyPath: id
-      value: PhysProp_LoudSpeaker
+      value: Prop_Camera2
       objectReference: {fileID: 0}
     - target: {fileID: 3954347698123193828, guid: 9a4aef5a1bebd876db8d1e5811db7076,
         type: 3}
       propertyPath: displayName
-      value: Loud Speaker
+      value: Camera2
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 9a4aef5a1bebd876db8d1e5811db7076,
         type: 3}

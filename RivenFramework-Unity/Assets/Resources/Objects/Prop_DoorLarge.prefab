@@ -1677,6 +1677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnabled: 0
   eventReference:
     Guid:
       Data1: 1837733599
@@ -1684,6 +1685,7 @@ MonoBehaviour:
       Data3: -1917897076
       Data4: -111282720
     Path: event:/SFX/Components/DoorClose
+  attached: {fileID: 0}
 --- !u!114 &961930537501246177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,6 +1698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnabled: 0
   eventReference:
     Guid:
       Data1: -494617115
@@ -1703,6 +1706,7 @@ MonoBehaviour:
       Data3: 1552551092
       Data4: -1128738772
     Path: event:/SFX/Components/DoorOpen
+  attached: {fileID: 0}
 --- !u!1 &7438446397510418998
 GameObject:
   m_ObjectHideFlags: 0

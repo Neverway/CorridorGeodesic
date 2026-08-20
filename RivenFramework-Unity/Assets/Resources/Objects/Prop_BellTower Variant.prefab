@@ -6450,6 +6450,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_PipeViewable
       objectReference: {fileID: 0}
+    - target: {fileID: 7105349272784102201, guid: 0e4f0a684dc7a872eb449267b2e7da6a,
+        type: 3}
+      propertyPath: id
+      value: Prop_Pipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105349272784102201, guid: 0e4f0a684dc7a872eb449267b2e7da6a,
+        type: 3}
+      propertyPath: displayName
+      value: Pipe
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7620,12 +7630,12 @@ PrefabInstance:
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: id
-      value: Prop_BellTower
+      value: Prop_BellTower Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: displayName
-      value: Bell Tower
+      value: Bell Tower Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}

@@ -18,6 +18,16 @@ PrefabInstance:
       propertyPath: breakableAnchorPin
       value: 
       objectReference: {fileID: 6011064326685111274}
+    - target: {fileID: 3474723513207560601, guid: 4bf4b865c08129825b4d20cdc1f26506,
+        type: 3}
+      propertyPath: id
+      value: PhysProp_LoudSpeaker
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474723513207560601, guid: 4bf4b865c08129825b4d20cdc1f26506,
+        type: 3}
+      propertyPath: displayName
+      value: Loud Speaker
+      objectReference: {fileID: 0}
     - target: {fileID: 6479683067326245369, guid: 4bf4b865c08129825b4d20cdc1f26506,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -172,6 +182,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183739459489464939, guid: 0b34460caee763278b0cdd84b2300d07,
+        type: 3}
+      propertyPath: id
+      value: PhysProp_Camera_SOCKETED
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183739459489464939, guid: 0b34460caee763278b0cdd84b2300d07,
+        type: 3}
+      propertyPath: displayName
+      value: Camera_SOCKETED
       objectReference: {fileID: 0}
     - target: {fileID: 7537235439714401158, guid: 0b34460caee763278b0cdd84b2300d07,
         type: 3}

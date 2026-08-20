@@ -1160,6 +1160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bootText: {fileID: 7186840795955960598}
   bootPanel: {fileID: 4094738603405731816}
+  maxVisibleLines: 20
   bootLines:
   - SOLSTICE-5100 SYSTEM INITIALIZATION
   - 'Warming filaments: tube bank 0-7... OK'

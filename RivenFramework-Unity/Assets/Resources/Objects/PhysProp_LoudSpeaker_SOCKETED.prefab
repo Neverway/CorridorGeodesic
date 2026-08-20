@@ -185,6 +185,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7183739459489464939, guid: 0b34460caee763278b0cdd84b2300d07,
+        type: 3}
+      propertyPath: id
+      value: PhysProp_LoudSpeaker_SOCKETED
+      objectReference: {fileID: 0}
+    - target: {fileID: 7183739459489464939, guid: 0b34460caee763278b0cdd84b2300d07,
+        type: 3}
+      propertyPath: displayName
+      value: Loud Speaker_SOCKETED
+      objectReference: {fileID: 0}
     - target: {fileID: 7537235439714401158, guid: 0b34460caee763278b0cdd84b2300d07,
         type: 3}
       propertyPath: connectedBody.sourceField.targetComponent
@@ -198,7 +208,7 @@ PrefabInstance:
     - target: {fileID: 8291952855912699197, guid: 0b34460caee763278b0cdd84b2300d07,
         type: 3}
       propertyPath: m_Name
-      value: LogicPhysSocket Variant
+      value: PhysProp_LoudSpeaker_SOCKETED
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

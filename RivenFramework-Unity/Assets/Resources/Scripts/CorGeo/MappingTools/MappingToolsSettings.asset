@@ -13,10 +13,21 @@ MonoBehaviour:
   m_Name: MappingToolsSettings
   m_EditorClassIdentifier: 
   m_RequiredLevelObjects:
-  - {fileID: 7560454803882681237, guid: 4c0a939a8f9294d1e8bf5ecd5846741c, type: 3}
-  - {fileID: 5744132214312706440, guid: 77ae9fbc79f76dbf98e2cc67468c42bb, type: 3}
-  - {fileID: 2988062248310786737, guid: 2da924ad3c8709b52922509f2659e2b4, type: 3}
-  - {fileID: 4298151654670827244, guid: 49441bef8d2256233a0f4f3fed7dfb2f, type: 3}
+  - m_Object: {fileID: 7560454803882681237, guid: 4c0a939a8f9294d1e8bf5ecd5846741c,
+      type: 3}
+    m_KeepAsPrefab: 1
+  - m_Object: {fileID: 3207393151091331644, guid: c5e7d65ce7234708b9fe7ef0c3894615,
+      type: 3}
+    m_KeepAsPrefab: 1
+  - m_Object: {fileID: 2988062248310786737, guid: 2da924ad3c8709b52922509f2659e2b4,
+      type: 3}
+    m_KeepAsPrefab: 0
+  - m_Object: {fileID: 5744132214312706440, guid: 77ae9fbc79f76dbf98e2cc67468c42bb,
+      type: 3}
+    m_KeepAsPrefab: 0
+  - m_Object: {fileID: 4298151654670827244, guid: 49441bef8d2256233a0f4f3fed7dfb2f,
+      type: 3}
+    m_KeepAsPrefab: 1
   m_AssetLabels:
   - m_Label: material
     m_DisplayName: Materials
