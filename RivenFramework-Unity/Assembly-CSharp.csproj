@@ -506,7 +506,6 @@
      <Folder Include="Assets/Packages/Samples/Folder Icons/0.1.3/Folder Textures" />
      <Folder Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/VR" />
-     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/2_gun/Voxel" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/9.1/Toon" />
      <Folder Include="Assets/AddressableAssetsData/Windows" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Shaders" />
@@ -579,6 +578,7 @@
      <Folder Include="Assets/RivenFramework/Objects/_OLD/Depreciated/OLD" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/LocalizationFiles" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Hat-T1/Poiyomi Toon.shader" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/lighttest/Voxel" />
      <Folder Include="Assets/Resources/Maps/CorGeo/LinearMechanicsShowcase/05-Tesla/Voxel/Meshes" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Fur/Poiyomi Toon.shader" />
@@ -637,6 +637,7 @@
      <Folder Include="Assets/Resources/Scripts/CorGeo" />
      <Folder Include="Assets/AddressableAssetsData/AssetGroups/Schemas" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Buddies/Connorses" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/lighttest/Voxel/Meshes" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
      <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/01-HGap" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/VeryImportantDoNotDelete" />
@@ -771,6 +772,7 @@
      <Folder Include="Assets/RivenFramework" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiDithering.cginc" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Spectrum" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/lighttest" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Materials" />
      <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/Test_PerformancePressureCooker" />
      <Folder Include="Assets/AddressableAssetsData/Linux" />
@@ -812,7 +814,6 @@
      <Folder Include="Assets/RivenFramework/Scripts/_Unknown" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/Generic/RockOne" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiDissolve.cginc" />
-     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/2_gun/Voxel/Meshes" />
      <None Include="Assets/Resources/Models/Materials/Kellory/OptimizedShaders/Kellory.Body/Poiyomi Toon.shader" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardSurface.shader" />
      <Folder Include="Assets/RivenFramework/Objects/Customizables" />
@@ -820,7 +821,6 @@
      <Folder Include="Assets/Resources/Materials/Effects" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor" />
      <Folder Include="Assets/Resources/Models/Materials/DynamiclyFiltered" />
-     <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/2_gun/Voxel/Prefabs" />
      <Folder Include="Assets/Resources/Maps/CorGeo/Liz" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.1/Toon/Poiyomi Toon Two Pass.shader" />
      <Folder Include="Assets/_REMOVE_/Integratables" />
@@ -1120,6 +1120,7 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/SoulexsMaterialPack/ConcreteWall" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiPassOutline.cginc" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/PHResources/rusty_corrugated_iron" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/lighttest/Voxel/Prefabs" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Ramps" />
      <Folder Include="Assets/RivenFramework-Revamp/Resources/Sprites/VeryImportantDoNotDelete/Materials" />
      <Folder Include="Assets/RivenFramework-Revamp/EasyEditorGUI" />
