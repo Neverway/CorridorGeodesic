@@ -17,5 +17,4 @@ RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Minimals/ScreenRoom[[:space:]]
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_LizDemo/1_cube.unity filter=lfs diff=lfs merge=lfs -text
 ivenFramework-Unity/Assets/Resources/Maps/CorGeo/_LizDemo/2_gun.unity filter=lfs diff=lfs merge=lfs -text
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_LizDemo/2_gun.unity filter=lfs diff=lfs merge=lfs -text
-RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Liz/2_gun.unity filter=lfs diff=lfs merge=lfs -text
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Liz/2_gun.unity !text !filter !merge !diff
