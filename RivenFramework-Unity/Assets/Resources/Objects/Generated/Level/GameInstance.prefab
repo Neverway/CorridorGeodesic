@@ -35,6 +35,7 @@ GameObject:
   - component: {fileID: 3058450162802510616}
   - component: {fileID: 8332599877842085584}
   - component: {fileID: 7383025387538470032}
+  - component: {fileID: 3337839422569503776}
   m_Layer: 0
   m_Name: GameInstance
   m_TagString: Untagged
@@ -226,9 +227,11 @@ MonoBehaviour:
     quality:
       resolutionScale: 3
       shadowQuality: 2
+      maxShadowCasters: 6
       effectsQuality: 2
       textureQuality: 4
       postprocessingQuality: 2
+      dynamicBones: 2
     antialiasing: 0
     motionBlur: 0
     ambientOcclusion: 2
@@ -268,33 +271,43 @@ MonoBehaviour:
   retroQuality:
     resolutionScale: 0
     shadowQuality: 0
+    maxShadowCasters: 0
     effectsQuality: 0
     textureQuality: 0
     postprocessingQuality: 0
+    dynamicBones: 0
   lowQuality:
     resolutionScale: 1
     shadowQuality: 1
+    maxShadowCasters: 3
     effectsQuality: 1
     textureQuality: 1
     postprocessingQuality: 1
+    dynamicBones: 1
   mediumQuality:
     resolutionScale: 2
     shadowQuality: 1
+    maxShadowCasters: 6
     effectsQuality: 2
     textureQuality: 3
     postprocessingQuality: 2
+    dynamicBones: 2
   highQuality:
     resolutionScale: 3
     shadowQuality: 3
+    maxShadowCasters: 12
     effectsQuality: 3
     textureQuality: 4
     postprocessingQuality: 3
+    dynamicBones: 2
   fantasticQuality:
     resolutionScale: 4
     shadowQuality: 4
+    maxShadowCasters: 25
     effectsQuality: 4
     textureQuality: 4
     postprocessingQuality: 4
+    dynamicBones: 2
   currentSettingsData:
     configurationFileCompatibilityVersion: 0
     targetResolution: 0
@@ -306,9 +319,11 @@ MonoBehaviour:
     quality:
       resolutionScale: 3
       shadowQuality: 2
+      maxShadowCasters: 6
       effectsQuality: 2
       textureQuality: 4
       postprocessingQuality: 2
+      dynamicBones: 2
     antialiasing: 0
     motionBlur: 0
     ambientOcclusion: 2
@@ -356,9 +371,11 @@ MonoBehaviour:
     quality:
       resolutionScale: 3
       shadowQuality: 2
+      maxShadowCasters: 6
       effectsQuality: 2
       textureQuality: 4
       postprocessingQuality: 2
+      dynamicBones: 2
     antialiasing: 0
     motionBlur: 0
     ambientOcclusion: 2
@@ -1405,3 +1422,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1331178d2f123109f1cad2bb58ae4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3337839422569503776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298151654670827244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba7cd4e22d847cea3b22390b168dc7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxShadowCasters: 6
+  autoAdjustBudget: 0
+  minShadowCasters: 0
+  maxShadowCastersCeiling: 100
+  targetFrameTimeMs: 16.6
+  reevaluateRankingInterval: 0.15
+  shadowFadeDuration: 0.25
+  rankSwapMargin: 1.15

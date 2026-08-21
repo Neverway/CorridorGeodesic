@@ -4,6 +4,7 @@
         <ui:Button text="Level Status" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LevelStatusButton" tooltip="The current levels status" />
         <ui:Button text="Mapper Assets" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MapperAssetsButton" tooltip="The assets used within the maps" />
         <ui:Button text="Project Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ProjectSettingsButton" tooltip="The mapping tools settings for the current project (Please don&apos;t edit unless you know what you are doing! )" />
+        <ui:Button text="Help" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HelpButton" tooltip="Hotkeys and hints" />
     </uie:Toolbar>
     <ui:VisualElement name="LevelStatusGroup" style="flex-grow: 1;">
         <ui:Label tabindex="-1" text="Level Status" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="white-space: normal; text-overflow: ellipsis; -unity-font-style: bold; font-size: 16px; align-items: center; align-self: center;" />
@@ -46,5 +47,14 @@
         <ui:Label tabindex="-1" text="Assets" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold;" />
         <ui:Label tabindex="-1" text="This is a list of label groups to sort what assets a mapper would need access to, like &quot;Materials&quot;, &quot;Props&quot;, &quot;FXs&quot; etc" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal; width: 263px;" />
         <ui:ListView focusable="true" binding-path="m_AssetLabels" header-title="Asset List Labels" reorderable="true" show-border="true" show-add-remove-footer="true" name="AssetLabelsList" virtualization-method="DynamicHeight" fixed-item-height="50" show-foldout-header="true" horizontal-scrolling="false" show-alternating-row-backgrounds="ContentOnly" style="min-height: auto; max-height: none; justify-content: space-around; align-self: stretch;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Help" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Help" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="white-space: normal; text-overflow: ellipsis; -unity-font-style: bold; font-size: 16px; align-items: center; align-self: center;" />
+        <ui:Label tabindex="-1" text="Hotkeys" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold;" />
+        <ui:Label tabindex="-1" text="[Tab] - Toggle CSG edit mode&#10;[L] - Toggle logic link edit mode&#10;[Shift] - While in logic link edit mode to delete connections&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal;" />
+        <ui:Label tabindex="-1" text="FAQ" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold;" />
+        <ui:Label tabindex="-1" text="Q: I can&apos;t select the yellow dots in CSG edit mode&#10;A: The selection sometimes glitches out, moving the scene view camera around to look at the faces other side tends to fix it&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal;" />
+        <ui:Label tabindex="-1" text="Q: How do I wire up logic components&#10;A: Use the logic link edit mode, which can be accessed by clicking the Gear Icon in the scene view, or hitting the [L] key on the scene view&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal;" />
+        <ui:Label tabindex="-1" text="Q: The baked voxels don&apos;t cover my entire level&#10;A: Select the [Voxel System] object in the hierarchy, make sure you have gizmos enabled, and use the handles on the blue box to adjust the size of the voxel grid&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal;" />
     </ui:VisualElement>
 </ui:UXML>

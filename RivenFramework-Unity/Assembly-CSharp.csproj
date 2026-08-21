@@ -870,6 +870,7 @@
      <Folder Include="Assets/TextMesh Pro/Resources/Style Sheets" />
      <Folder Include="Assets/Packages/DOTween" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/Aniso" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/2_gun/Voxel" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Particle" />
      <Folder Include="Assets/Resources" />
      <Folder Include="Assets/Resources/Maps/CorGeo/Liz/Test/Voxel" />
@@ -1005,6 +1006,7 @@
      <Folder Include="Assets/Resources/Scripts/ErryLib/ErryRoutine" />
      <None Include="Assets/Resources/Materials/Shaders/SX_Triplanar.shader" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiHelpers.cginc" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/2_gun/Voxel/Meshes" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/LizsMaterialPack/Dirt" />
      <Folder Include="Assets/_REMOVE_" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiEmission.cginc" />
@@ -1088,6 +1090,7 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/PHResources/rusty_metal_03" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.1/Toon/Poiyomi Toon Grab Pass.shader" />
      <None Include="Assets/Packages/QuickOutline/Resources/Shaders/OutlineFill.shader" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/2_gun/Voxel/Prefabs" />
      <Folder Include="Assets/TextMesh Pro/Resources/Sprite Assets" />
      <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/ScreenRoomDirty/Voxel/Prefabs" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Steam" />

@@ -844,6 +844,9 @@ MonoBehaviour:
   fadeLightWhenCulled: 1
   fadeSpeed: 0.2
   debugDrawCullRange: 0
+  neverCastShadows: 0
+  alwaysCastShadows: 0
+  shadowPriorityBias: 0
 --- !u!114 &6173793076869384101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,6 +983,9 @@ MonoBehaviour:
   fadeLightWhenCulled: 1
   fadeSpeed: 0.2
   debugDrawCullRange: 0
+  neverCastShadows: 0
+  alwaysCastShadows: 0
+  shadowPriorityBias: 0
 --- !u!114 &6168061581948058480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3288,6 +3294,9 @@ MonoBehaviour:
   fadeLightWhenCulled: 1
   fadeSpeed: 0.2
   debugDrawCullRange: 0
+  neverCastShadows: 0
+  alwaysCastShadows: 0
+  shadowPriorityBias: 0
 --- !u!114 &4287413257859763016
 MonoBehaviour:
   m_ObjectHideFlags: 0

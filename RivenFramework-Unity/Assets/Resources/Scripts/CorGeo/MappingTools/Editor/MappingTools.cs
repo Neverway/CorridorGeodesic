@@ -25,6 +25,7 @@ public class MappingTools : EditorWindow
     private VisualElement m_StatusSection;
     private VisualElement m_AssetsSection;
     private VisualElement m_SettingsSection;
+    private VisualElement m_HelpSection;
     
     // Issues tab
     private bool m_NeedsBake = true;
@@ -87,9 +88,11 @@ public class MappingTools : EditorWindow
         m_StatusSection = m_Root.Q<VisualElement>("LevelStatusGroup");
         m_AssetsSection = m_Root.Q<VisualElement>("MapperAssetsGroup");
         m_SettingsSection = m_Root.Q<VisualElement>("ProjectSettings");
+        m_HelpSection = m_Root.Q<VisualElement>("Help");
         m_Root.Q<Button>("LevelStatusButton").clicked += () => ShowSection(m_StatusSection);
         m_Root.Q<Button>("MapperAssetsButton").clicked += () => ShowSection(m_AssetsSection);
         m_Root.Q<Button>("ProjectSettingsButton").clicked += () => ShowSection(m_SettingsSection);
+        m_Root.Q<Button>("HelpButton").clicked += () => ShowSection(m_HelpSection);
         ShowSection(m_StatusSection);
 
         // Mapper settings
@@ -183,6 +186,7 @@ public class MappingTools : EditorWindow
         m_StatusSection.style.display = (m_StatusSection == _sectionToShow) ? DisplayStyle.Flex : DisplayStyle.None;
         m_AssetsSection.style.display = (m_AssetsSection == _sectionToShow) ? DisplayStyle.Flex : DisplayStyle.None;
         m_SettingsSection.style.display = (m_SettingsSection == _sectionToShow) ? DisplayStyle.Flex : DisplayStyle.None;
+        m_HelpSection.style.display = (m_HelpSection == _sectionToShow) ? DisplayStyle.Flex : DisplayStyle.None;
     }
 
     
