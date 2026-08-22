@@ -136,18 +136,18 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""Zoom"",
                     ""type"": ""Button"",
-                    ""id"": ""9e26e9e3-b627-4640-8876-e4e83a80a03d"",
+                    ""id"": ""3e64a1c0-9865-47fc-9290-b90bd4b3d512"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Zoom"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""3e64a1c0-9865-47fc-9290-b90bd4b3d512"",
+                    ""id"": ""9e26e9e3-b627-4640-8876-e4e83a80a03d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -656,7 +656,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/v"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -2800,8 +2800,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_FirstPerson_ItemAction3 = m_FirstPerson.FindAction("ItemAction3", throwIfNotFound: true);
         m_FirstPerson_ItemSwapPrevious = m_FirstPerson.FindAction("ItemSwapPrevious", throwIfNotFound: true);
         m_FirstPerson_ItemSwapNext = m_FirstPerson.FindAction("ItemSwapNext", throwIfNotFound: true);
-        m_FirstPerson_Pause = m_FirstPerson.FindAction("Pause", throwIfNotFound: true);
         m_FirstPerson_Zoom = m_FirstPerson.FindAction("Zoom", throwIfNotFound: true);
+        m_FirstPerson_Pause = m_FirstPerson.FindAction("Pause", throwIfNotFound: true);
         // FPS
         m_FPS = asset.FindActionMap("FPS", throwIfNotFound: true);
         m_FPS_Move = m_FPS.FindAction("Move", throwIfNotFound: true);
@@ -2926,8 +2926,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_FirstPerson_ItemAction3;
     private readonly InputAction m_FirstPerson_ItemSwapPrevious;
     private readonly InputAction m_FirstPerson_ItemSwapNext;
-    private readonly InputAction m_FirstPerson_Pause;
     private readonly InputAction m_FirstPerson_Zoom;
+    private readonly InputAction m_FirstPerson_Pause;
     public struct FirstPersonActions
     {
         private @InputActions m_Wrapper;
@@ -2944,8 +2944,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @ItemAction3 => m_Wrapper.m_FirstPerson_ItemAction3;
         public InputAction @ItemSwapPrevious => m_Wrapper.m_FirstPerson_ItemSwapPrevious;
         public InputAction @ItemSwapNext => m_Wrapper.m_FirstPerson_ItemSwapNext;
-        public InputAction @Pause => m_Wrapper.m_FirstPerson_Pause;
         public InputAction @Zoom => m_Wrapper.m_FirstPerson_Zoom;
+        public InputAction @Pause => m_Wrapper.m_FirstPerson_Pause;
         public InputActionMap Get() { return m_Wrapper.m_FirstPerson; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -2991,12 +2991,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ItemSwapNext.started += instance.OnItemSwapNext;
             @ItemSwapNext.performed += instance.OnItemSwapNext;
             @ItemSwapNext.canceled += instance.OnItemSwapNext;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
             @Zoom.started += instance.OnZoom;
             @Zoom.performed += instance.OnZoom;
             @Zoom.canceled += instance.OnZoom;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IFirstPersonActions instance)
@@ -3037,12 +3037,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ItemSwapNext.started -= instance.OnItemSwapNext;
             @ItemSwapNext.performed -= instance.OnItemSwapNext;
             @ItemSwapNext.canceled -= instance.OnItemSwapNext;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
             @Zoom.started -= instance.OnZoom;
             @Zoom.performed -= instance.OnZoom;
             @Zoom.canceled -= instance.OnZoom;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IFirstPersonActions instance)
@@ -3610,8 +3610,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnItemAction3(InputAction.CallbackContext context);
         void OnItemSwapPrevious(InputAction.CallbackContext context);
         void OnItemSwapNext(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IFPSActions
     {

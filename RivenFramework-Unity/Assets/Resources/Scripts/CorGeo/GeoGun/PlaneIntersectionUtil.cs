@@ -113,7 +113,10 @@ public class CorGeo_PlaneIntersectionUtil : MonoBehaviour
     public static bool IsMeshIntersectingPlane(Plane plane, CorGeo_SliceableMesh sliceableMesh)
     {
         var renderer = sliceableMesh.meshRenderer;
-        if (renderer == null) throw new Exception($"sliceableMesh '{sliceableMesh}' doesn't have renderer, this is... strange");
+        if (renderer == null) 
+        {
+            Debug.LogWarning($"sliceableMesh '{sliceableMesh}' doesn't have renderer, this is... strange");
+        }
             
         var bounds =  renderer.bounds;
 

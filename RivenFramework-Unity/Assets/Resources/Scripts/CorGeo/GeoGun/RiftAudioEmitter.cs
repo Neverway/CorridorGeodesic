@@ -237,7 +237,7 @@ public class RiftAudioEmitter : MonoBehaviour
     }
     private void OnRiftRemoved()
     {
-        Debug.Log ("Sound: rift removed");
+        //Debug.Log ("Sound: rift removed");
         //Put code here for when rift is cleared.
         Audio_FMODAudioManager.PlayOneShot(Audio_FMODEvents.Instance.riftKilled);
 

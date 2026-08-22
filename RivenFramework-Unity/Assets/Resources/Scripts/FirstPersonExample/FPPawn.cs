@@ -5,6 +5,7 @@
 //
 //=============================================================================
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,7 +53,15 @@ public class FPPawn : Pawn
         currentStats = (FPPawnStats)FPDefaultStats.Clone(); // Don't forget to clone so that you don't overwrite the pawns default values! ~Liz
         action = new FPPawnActions();
     }
-    
+/*
+    public void LateUpdate()
+    {
+        foreach (var pauseLock in pauseLocks)
+        {
+            if (pauseLock == null) pauseLocks.Remove(pauseLock);
+        }
+    }*/
+
 
     //=-----------------=
     // Internal Functions
@@ -71,11 +80,13 @@ public class FPPawn : Pawn
     {
         pauseLocks.Add(source);
         isPaused = pauseLocks.Count > 0;
+        Debug.Log($"[{gameObject.name}] AddPauseLock from {source.name}, count now {pauseLocks.Count}");
     }
 
     public void RemovePauseLock(GameObject source)
     {
         pauseLocks.Remove(source);
         isPaused = pauseLocks.Count > 0;
+        Debug.Log($"[{gameObject.name}] RemovePauseLock from {source.name}, count now {pauseLocks.Count}");
     }
 }

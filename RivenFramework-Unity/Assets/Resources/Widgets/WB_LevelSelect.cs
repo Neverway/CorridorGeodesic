@@ -31,7 +31,6 @@ public class WB_LevelSelect : MonoBehaviour
             // Tie in all the buttons to communicate to this level selector
             if (level.targetScene)
             {
-                Debug.Log($"Set button {i} to load level {level.targetScene.name}");
                 newEntry.button.onClick.AddListener(delegate { SelectLevel(level); });
             }
             
@@ -83,7 +82,7 @@ public class WB_LevelSelect : MonoBehaviour
     {
         foreach (var pawn in FindObjectsOfType<FPPawn>())
         {
-            pawn.AddPauseLock(gameObject);
+            //pawn.AddPauseLock(gameObject);
         }
     }
     

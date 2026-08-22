@@ -293,6 +293,7 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildMetrics.cs" />
      <Compile Include="Assets/Resources/Widgets/WB_LevelSelect_Entry.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Geometry/AdjacencyHelper.cs" />
+     <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/Graphics_Rewind_AfterImage.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/ISelectable.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreEditorGUI.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/ShapeEditor/Project.cs" />
@@ -1014,6 +1015,7 @@
      <None Include="Assets/Packages/SabreCSG-master/Example Materials/Textures/update.txt" />
      <None Include="Assets/Resources/Materials/Shaders/SX_StandardToonSurface.shader" />
      <Folder Include="Assets/_PoiyomiShaders/Textures" />
+     <Folder Include="Assets/Resources/Materials/CorGeo/Effects/New Folder" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiDebug.cginc" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/Graphics" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility" />

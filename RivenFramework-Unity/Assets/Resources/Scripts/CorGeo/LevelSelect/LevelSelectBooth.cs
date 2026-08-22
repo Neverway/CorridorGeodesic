@@ -13,7 +13,7 @@ public class LevelSelectBooth : MonoBehaviour
     {
         if (widgetManager == null) widgetManager = GameInstance.Get<GI_WidgetManager>();
 
-        widgetManager.AddWidget(levelSelectWidget);
+        //widgetManager.AddWidget(levelSelectWidget);
         
         triggerObject.SetActive(false);
     }

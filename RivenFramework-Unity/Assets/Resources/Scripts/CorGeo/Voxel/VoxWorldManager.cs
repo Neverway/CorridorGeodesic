@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VoxWorldManager : MonoBehaviour
 {
@@ -102,6 +103,11 @@ public class VoxWorldManager : MonoBehaviour
             {
                 return;
             }
+        }
+        // Don't generate if we have pre-baked chunks and runtime generation is disabled
+        if (!generateAtRuntime)
+        {
+            return;
         }
         
         // Generate voxels at runtime
@@ -334,6 +340,7 @@ public class VoxWorldManager : MonoBehaviour
 
     private IEnumerator CoGenerateTerrainChunked()
     {
+        Debug.Log($"Starting chunked generation while on scene {SceneManager.GetActiveScene().name}");
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
         foreach (var chunk in voxelChunks.Values)
