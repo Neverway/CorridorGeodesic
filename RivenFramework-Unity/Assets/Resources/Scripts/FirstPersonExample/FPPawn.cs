@@ -36,9 +36,6 @@ public class FPPawn : Pawn
     [HideInInspector] public Rigidbody physicsbody;
     [SerializeField] public GameObject interactionPrefab;
     [SerializeField] public GameObject bodyCollider;
-    [Tooltip("Every object that currently wants this pawn to be paused. If this hashset is empty, the pawn is free to be unpaused.")]
-    public HashSet<GameObject> pauseLocks = new HashSet<GameObject>();
-
 
     //=-----------------=
     // Mono Functions
@@ -74,19 +71,5 @@ public class FPPawn : Pawn
     public bool IsGrounded()
     {
         return FPaction.IsOnGround(this);
-    }
-    
-    public void AddPauseLock(GameObject source)
-    {
-        pauseLocks.Add(source);
-        isPaused = pauseLocks.Count > 0;
-        Debug.Log($"[{gameObject.name}] AddPauseLock from {source.name}, count now {pauseLocks.Count}");
-    }
-
-    public void RemovePauseLock(GameObject source)
-    {
-        pauseLocks.Remove(source);
-        isPaused = pauseLocks.Count > 0;
-        Debug.Log($"[{gameObject.name}] RemovePauseLock from {source.name}, count now {pauseLocks.Count}");
     }
 }

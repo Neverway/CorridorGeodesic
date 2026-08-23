@@ -37,6 +37,7 @@ public class WB_DevMenu : WidgetBlueprint
 
 
     #region=======================================( Functions )=======================================================//
+
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
@@ -53,23 +54,9 @@ public class WB_DevMenu : WidgetBlueprint
     	Cursor.visible = true;
 	}
 
-    private void OnEnable()
-    {
-        foreach (var pawn in FindObjectsOfType<FPPawn>())
-        {
-            pawn.AddPauseLock(gameObject);
-        }
-    }
-
-    private void OnDisable()
-    {
-        foreach (var pawn in FindObjectsOfType<FPPawn>())
-        {
-            pawn.RemovePauseLock(gameObject);
-        }
-    }
-
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    public override bool PausesPawns() => false;
+
     private void CreateButton(DevMenuItemInfo menuItemInfo)
     {
         DevMenuItem_Button newButton = Instantiate(prefab_button, container_menuItems);

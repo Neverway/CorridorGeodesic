@@ -11,6 +11,7 @@ using GameInstance = RivenFramework.GameInstance;
 /// </summary>
 public class Logic_CameraTarget : MonoBehaviour
 {
+    private object playerPauseToken;
     public void ActivateCameraTarget()
     {
         // Get references to pawn
@@ -18,7 +19,7 @@ public class Logic_CameraTarget : MonoBehaviour
         var localPlayerCharacter = pawnManager.localPlayerCharacter.GetComponent<FPPawn>();
         
         // Pause the player
-        localPlayerCharacter.AddPauseLock(gameObject);
+        localPlayerCharacter.Pause(out playerPauseToken);
         
         // Move the camera
         FPPawnActions action = (FPPawnActions)localPlayerCharacter.action;
@@ -32,7 +33,7 @@ public class Logic_CameraTarget : MonoBehaviour
         var localPlayerCharacter = pawnManager.localPlayerCharacter.GetComponent<FPPawn>();
         
         // Unpause the player
-        localPlayerCharacter.RemovePauseLock(gameObject);
+        localPlayerCharacter.Unpause(playerPauseToken);
             
         // Return the camera
         FPPawnActions action = (FPPawnActions)localPlayerCharacter.action;

@@ -66,7 +66,7 @@ public class FPPawn_Player : FPPawn
         }
         
         // Lock mouse when unpaused, unlock when paused
-        if (isPaused)
+        if (IsPaused)
         {
             if (Cursor.lockState == CursorLockMode.Locked)
             {
@@ -102,7 +102,7 @@ public class FPPawn_Player : FPPawn
         // Pausing
         UpdatePauseMenu();
         
-        if (isPaused || isDead) return;
+        if (IsPaused || isDead) return;
         UpdateMovement();
         UpdateRotation();
         
@@ -161,7 +161,7 @@ public class FPPawn_Player : FPPawn
 
     public void FixedUpdate()
     {
-        if (isPaused || isDead) return;
+        if (IsPaused || isDead) return;
         ApplyMovement();
         ApplyRotation();
     }
@@ -206,6 +206,7 @@ public class FPPawn_Player : FPPawn
         action.FaceTowardsDirection(this, viewPoint, lookRotation, platformYOffset);
     }
 
+    [Todo("This method might need some try/catch statements or more checks to ensure the death actually happens", TodoSeverity.Moderate)]
     private void OnDeath()
     {
         // Remove any rifts
@@ -213,7 +214,9 @@ public class FPPawn_Player : FPPawn
         riftManager.DestroyRiftImmediate();
         
         // Drop held props
-        if (physObjectAttachmentPoint) if (physObjectAttachmentPoint.attachedObject.TryGetComponent(out Object_PhysPickup physPickup)) physPickup.ToggleHeld();
+        if (physObjectAttachmentPoint != null && 
+            physObjectAttachmentPoint.attachedObject != null && 
+            physObjectAttachmentPoint.attachedObject.TryGetComponent(out Object_PhysPickup physPickup)) physPickup.ToggleHeld();
 
         // Remove the HUD
         Destroy(widgetManager.GetExistingWidget("WB_HUD"));
