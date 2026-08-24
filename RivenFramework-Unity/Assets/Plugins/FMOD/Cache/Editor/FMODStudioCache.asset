@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639156464649605962
+  lastModified: 639231317874518186
   FileSizes:
   - Name: Desktop
     Value: 1778
@@ -116,10 +116,10 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639156464666846254
+  lastModified: 639231317874965696
   FileSizes:
   - Name: Desktop
-    Value: 5420320
+    Value: 5420160
   Exists: 1
 --- !u!114 &-7326389465190571907
 MonoBehaviour:
@@ -163,7 +163,7 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 639156461740756075
+  lastModified: 639231317874457394
   FileSizes:
   - Name: Desktop
     Value: 1081408
@@ -481,7 +481,7 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Voices.bank
   Name: Voices
   StudioPath: bank:/Voices
-  lastModified: 639122341017406435
+  lastModified: 639231317875831884
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -685,7 +685,7 @@ MonoBehaviour:
   - {fileID: -8365824045608764663}
   StringsBanks:
   - {fileID: 9139697872510692804}
-  cacheTime: 639156464666846254
+  cacheTime: 639231317875831884
   cacheVersion: 131593
 --- !u!114 &227244039557351669
 MonoBehaviour:
@@ -837,10 +837,10 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639156461776276694
+  lastModified: 639231317875775753
   FileSizes:
   - Name: Desktop
-    Value: 1661440
+    Value: 1644000
   Exists: 1
 --- !u!114 &1195476631487230218
 MonoBehaviour:
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639156464649605962
+  lastModified: 639231317874528416
   FileSizes:
   - Name: Desktop
     Value: 2980

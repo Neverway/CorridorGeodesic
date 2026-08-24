@@ -148,7 +148,7 @@ public static class CSG_HotFix_Utility
             LastEditedCSGModel.EditMode ^= true; //Toggles
 
             //I have to do this when using TAB as the key so that you can easily get back in/out of edit mode
-            GUIUtility.keyboardControl = 0; 
+            GUIUtility.keyboardControl = 0;
         }
     }
     private static bool IsPressingKey(KeyCode key) =>
