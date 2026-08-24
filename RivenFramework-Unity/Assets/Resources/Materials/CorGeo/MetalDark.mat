@@ -170,7 +170,7 @@ Material:
     - _ToonLightSmoothness: 0
     - _ToonLightThreshold: 0.0001
     - _UVSec: 0
-    - _UseSlice: 1
+    - _UseSlice: 0
     - _ZTest: 4
     - _ZWrite: 1
     m_Colors:

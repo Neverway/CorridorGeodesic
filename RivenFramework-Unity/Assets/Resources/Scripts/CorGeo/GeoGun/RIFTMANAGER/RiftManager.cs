@@ -373,7 +373,10 @@ public class RiftManager : MonoBehaviour, ILoggable
         }
         
         // Some sort of fallback to avoid a bug... I know I added this here for some important reason, I'm sure ~Liz
-        if (!geometryHandler.visualPlaneB || !spaceController.spaceContainerNull)
+        // Okay, so this code is here to avoid throwing an error when the rift is cleared on player death, BUT
+        // only when the rift has NEVER been created before. It was missing a check for visualPlaneA which was causing a very rare bug
+        // if the player somehow died without ever creating a rift.
+        if (geometryHandler.VisualPlanesExist is false || spaceController.spaceContainerNull == null)
         {
             Debug.LogWarning($"Attempted to set rift percentage, but the space containers were missing! spn = {spaceController.spaceContainerNull}");
             return;

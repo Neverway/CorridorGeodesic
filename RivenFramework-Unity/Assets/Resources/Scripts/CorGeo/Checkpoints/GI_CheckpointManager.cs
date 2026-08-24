@@ -9,9 +9,11 @@ public class GI_CheckpointManager : MonoBehaviour
     [StringAsGUID] public string currentCheckpointGUID;
     private FPPawn_Player player;
     private bool playerDiedBeforeWorldLoad = false;
+    private GI_PawnManager pawnManager;
 
     public void Start()
     {
+        pawnManager = GameInstance.Get<GI_PawnManager>();
         Debug.Log("CheckpointManager Loaded!");
         GI_WorldLoader.OnWorldLoaded += OnWorldLoaded;
     }
@@ -31,7 +33,8 @@ public class GI_CheckpointManager : MonoBehaviour
     public void OnPlayerDeath() => playerDiedBeforeWorldLoad = true;
     public void OnWorldLoaded()
     {
-        Debug.Log("WorldLoaded, playerDiedState: " + playerDiedBeforeWorldLoad);
+        Debug.Log($"OnWorldLoaded has been called! {pawnManager.localPlayerCharacter}");
+        //Debug.Log("WorldLoaded, playerDiedState: " + playerDiedBeforeWorldLoad);
         if (playerDiedBeforeWorldLoad)
         {
             playerDiedBeforeWorldLoad = false;
@@ -68,7 +71,10 @@ public class GI_CheckpointManager : MonoBehaviour
         int tries = 0;
         while (player == null)
         {
-            player = FindObjectOfType<FPPawn_Player>();
+            if (pawnManager.localPlayerCharacter)
+            {
+                player = pawnManager.localPlayerCharacter.GetComponent<FPPawn_Player>();
+            }
             tries += 1;
             if (tries > 100)
             {

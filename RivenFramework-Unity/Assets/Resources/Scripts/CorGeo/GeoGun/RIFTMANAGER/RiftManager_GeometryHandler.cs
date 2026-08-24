@@ -31,6 +31,8 @@ public class RiftManager_GeometryHandler : ILoggable
         this.riftManager = riftManager;
         EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
         this.spaceController = spaceController;
+        
+        if (!VisualPlanesExist) CreateVisualPlanes();
     }
     
     
@@ -59,6 +61,8 @@ public class RiftManager_GeometryHandler : ILoggable
     [Tooltip("")]
     public HashSet<GameObject> cutMeshes = new HashSet<GameObject>();
 
+    public bool VisualPlanesExist => (visualPlaneA != null && visualPlaneB != null);
+
 
     #endregion
 
@@ -78,6 +82,9 @@ public class RiftManager_GeometryHandler : ILoggable
         visualPlaneB = MonoBehaviour.Instantiate(riftManager.visualPlanePrefab, null);
         visualPlaneA.name = "VisPlaneA";
         visualPlaneB.name = "VisPlaneB";
+        
+        visualPlaneA.SetActive(false);
+        visualPlaneB.SetActive(false);
     }
 
     /// <summary>
@@ -151,7 +158,7 @@ public class RiftManager_GeometryHandler : ILoggable
     {
         this.Log("SetRiftPlanesVisible called");
         // Do an initial check
-        if (!visualPlaneA && !visualPlaneB) CreateVisualPlanes();
+        if (!VisualPlanesExist) CreateVisualPlanes();
 
         visualPlaneA.SetActive(_isVisible);
         visualPlaneB.SetActive(_isVisible);

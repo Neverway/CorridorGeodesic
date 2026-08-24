@@ -109,7 +109,7 @@ public class CorGeo_Actor : MonoBehaviour
     private void FixedUpdate()
     {
         // Update phys props so they always know what rift-space they are currently in
-        if (!riftManager || !riftManager.riftActive || !scaleInNullSpace || !dynamic) return;
+        if (!riftManager.riftActive || !scaleInNullSpace || !dynamic) return;
 
         DetermineRiftSpace();
 
@@ -180,9 +180,17 @@ public class CorGeo_Actor : MonoBehaviour
     /// <summary>
     /// Finds which space (A/B/Null) the actor is in and sets the actor's space variable accordingly.
     /// </summary>
+    [Todo_PoorlyCoded("WTF DID I DO?! Visual plane A is null here on player death")]
     public void DetermineRiftSpace ()
     {
-        if (!riftManager) riftManager = FindObjectOfType<RiftManager>();
+        if (!riftManager)
+        {
+            riftManager = FindObjectOfType<RiftManager>();
+            if (!riftManager)
+            {
+                Debug.LogError($"Could not locate the rift manager when attempting to call DeterminRiftSpace on actor {gameObject.name}");
+            }
+        }
         // I am very bad at math, pls don't delete my helper example ~Liz
         /*
         // The plane

@@ -210,8 +210,16 @@ public class FPPawn_Player : FPPawn
     private void OnDeath()
     {
         // Remove any rifts
-        riftManager = GameInstance.Get<RiftManager>();
-        riftManager.DestroyRiftImmediate();
+        try
+        {
+            riftManager = GameInstance.Get<RiftManager>();
+            riftManager.DestroyRiftImmediate();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Could not clear rift on player death! This is going to result in some crazy crap!");
+            Debug.LogException(e);
+        }
         
         // Drop held props
         if (physObjectAttachmentPoint)
