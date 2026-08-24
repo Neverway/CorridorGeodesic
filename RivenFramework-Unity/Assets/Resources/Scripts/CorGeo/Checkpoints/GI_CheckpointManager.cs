@@ -14,7 +14,7 @@ public class GI_CheckpointManager : MonoBehaviour
     public void Start()
     {
         pawnManager = GameInstance.Get<GI_PawnManager>();
-        Debug.Log("CheckpointManager Loaded!");
+        GI_WorldLoader.OnWorldLoaded -= OnWorldLoaded;
         GI_WorldLoader.OnWorldLoaded += OnWorldLoaded;
     }
     public void Update()
@@ -33,7 +33,6 @@ public class GI_CheckpointManager : MonoBehaviour
     public void OnPlayerDeath() => playerDiedBeforeWorldLoad = true;
     public void OnWorldLoaded()
     {
-        Debug.Log($"OnWorldLoaded has been called! {pawnManager.localPlayerCharacter}");
         //Debug.Log("WorldLoaded, playerDiedState: " + playerDiedBeforeWorldLoad);
         if (playerDiedBeforeWorldLoad)
         {
@@ -58,15 +57,7 @@ public class GI_CheckpointManager : MonoBehaviour
 
     public IEnumerator TryTeleportPlayerToCurrentCheckpoint()
     {
-        Debug.Log("WE BALL");
         if (currentCheckpointGUID == null) yield break;
-        yield return null;
-        yield return null;
-        yield return null;
-        yield return null; //       >:(
-        yield return null;
-        yield return null;
-        yield return null;
         FPPawn_Player player = null;
         int tries = 0;
         while (player == null)
@@ -74,8 +65,10 @@ public class GI_CheckpointManager : MonoBehaviour
             if (pawnManager.localPlayerCharacter)
             {
                 player = pawnManager.localPlayerCharacter.GetComponent<FPPawn_Player>();
+                Debug.Log($"Found player after {tries} tries");
             }
             tries += 1;
+            yield return null;
             if (tries > 100)
             {
                 Debug.LogError("Could not find player to teleport checkpoint to, gave up after 100 tries");
@@ -83,19 +76,16 @@ public class GI_CheckpointManager : MonoBehaviour
             }
         }
         player.Pause(out object pauseToken);
-        yield return null;
 
         if (TryGetCurrentCheckpoint(out Checkpoint c))
         {
             player.transform.position = c.transform.position;
-            yield return null;
-            player.Unpause(pauseToken);
         }
         else
         {
             Debug.LogError("Could not find checkpoint to teleport to");
-            yield break;
         }
+        player.Unpause(pauseToken);
     }
 
 
