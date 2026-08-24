@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using RivenFramework;
 using UnityEngine;
 
-public class WB_LevelSelect : MonoBehaviour
+public class WB_LevelSelect : WidgetBlueprint
 {
     public Transform levelEntryListRoot;
     public GameObject levelEntryPrefab;
@@ -12,8 +12,8 @@ public class WB_LevelSelect : MonoBehaviour
 
     private int lastGroup;
     private int currentLevelNumber;
-    
-    
+
+    public override bool PausesPawns() => true;
     void Start()
     {
         levelSelectManager = GameInstance.Get<GI_LevelSelect>();
@@ -76,25 +76,12 @@ public class WB_LevelSelect : MonoBehaviour
         // LEVEL NAME----------------C #-##
         return finalDisplayName;
     }
-
-    private void OnEnable()
-    {
-        foreach (var pawn in FindObjectsOfType<FPPawn>())
-        {
-            //pawn.AddPauseLock(gameObject);
-        }
-    }
     
     public void OnDestroy()
     {
         foreach (var levelSelectBooth in FindObjectsOfType<LevelSelectBooth>())
         {
             levelSelectBooth.Reenable();
-        }
-        
-        foreach (var pawn in FindObjectsOfType<FPPawn>())
-        {
-            pawn.RemovePauseLock(gameObject);
         }
     }
 

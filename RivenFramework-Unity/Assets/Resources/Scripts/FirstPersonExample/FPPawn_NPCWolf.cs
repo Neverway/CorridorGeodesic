@@ -46,7 +46,7 @@ public class FPPawn_NPCWolf : FPPawn
 
     public void FixedUpdate()
     {
-        if (isPaused || isDead) return;
+        if (IsPaused || isDead) return;
         action.Look(this, ((FPPawnStats)currentStats).lookRange);
         closestAlly = action.GetClosest(this, visibleAllies);
         targetEnemy = action.GetClosest(this, visibleHostiles);

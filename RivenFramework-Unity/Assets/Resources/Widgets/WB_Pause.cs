@@ -30,6 +30,7 @@ public class WB_Pause : WidgetBlueprint
     [SerializeField] private Button buttonResume, buttonSettings, buttonTitle, buttonQuit, buttonRestart;
     [SerializeField] private GameObject settingsWidget;
 
+    private object playerPauseToken;
 
     //=-----------------=
     // Mono Functions
@@ -49,7 +50,7 @@ public class WB_Pause : WidgetBlueprint
     {
         foreach (var pawn in FindObjectsOfType<FPPawn>())
         {
-            pawn.AddPauseLock(gameObject);
+            pawn.Pause(out playerPauseToken);
         }
     }
 
@@ -59,7 +60,7 @@ public class WB_Pause : WidgetBlueprint
 
         foreach (var pawn in FindObjectsOfType<FPPawn>())
         {
-            pawn.RemovePauseLock(gameObject);
+            pawn.Unpause(playerPauseToken);
         }
     }
 
@@ -67,6 +68,8 @@ public class WB_Pause : WidgetBlueprint
     //=-----------------=
     // Internal Functions
     //=-----------------=
+    public override bool PausesPawns() => false;
+
     private void OnClick(string _button)
     {
         switch (_button)

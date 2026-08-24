@@ -28,7 +28,7 @@ public class FPPawnActions : PawnActions
     private bool hasJumped;
     private bool hasCoyoteGrace;
     private bool wasOnGroundLastFrame;
-    private bool wasPaused; // Used to track player pause state when starting camera sequences
+    private object pauseToken; // Used to track player pause state when starting camera sequences
     private Vector3 lastViewCamPos; // Used to store view pos when starting camera sequences
     private Vector3 lastViewCamRot; // Used to store view rot when starting camera sequences
     private Transform cameraParent;
@@ -470,9 +470,8 @@ public class FPPawnActions : PawnActions
         if (cameraSequenceInProgress) return;
         cameraSequenceInProgress = true;
         viewCamera =_pawn.GetComponentInChildren<Camera>(true).gameObject;
-        
-        wasPaused = _pawn.isPaused;
-        _pawn.isPaused = true;
+
+        _pawn.Unpause(pauseToken);
         
         cameraParent = viewCamera.transform.parent;
         lastViewCamPos = viewCamera.gameObject.transform.position;
@@ -492,8 +491,8 @@ public class FPPawnActions : PawnActions
     public void EndCameraSequence(FPPawn _pawn)
     {
         if (!cameraSequenceInProgress) return;
-        
-        _pawn.isPaused = wasPaused;
+
+        _pawn.Unpause(pauseToken);
         
         // Tween camera to stored
         cameraSequence?.Kill();

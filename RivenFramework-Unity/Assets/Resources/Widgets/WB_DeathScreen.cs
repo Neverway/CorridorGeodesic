@@ -65,6 +65,7 @@ public class WB_DeathScreen : WidgetBlueprint
     //=-----------------=
     // Internal Functions
     //=-----------------=
+    public override bool PausesPawns() => false;
     private IEnumerator InputDelay()
     {
         yield return new WaitForSeconds(0.2f);
