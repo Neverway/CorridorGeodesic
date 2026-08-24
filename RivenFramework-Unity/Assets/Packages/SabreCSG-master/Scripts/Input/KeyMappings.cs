@@ -32,7 +32,8 @@ namespace Sabresaurus.SabreCSG
         //[Header("See http://unity3d.com/support/documentation/ScriptReference/MenuItem.html for shortcut format")]
 
         //---------- CSG HOTFIX START : By Errynei
-        public string ToggleCSGEditMode = "Tab";
+        public KeyCode ToggleCSGEditMode = KeyCode.Tab;
+
         //---------- END OF HOTFIX
 
         [Header("Top Toolbar")]

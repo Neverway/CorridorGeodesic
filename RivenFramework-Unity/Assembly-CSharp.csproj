@@ -418,8 +418,8 @@
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\RIFTMANAGER\Migrating\Item_Utility_Geogun.cs" />
     <Compile Include="Assets\Resources\Scripts\InputActions.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\GameObject_Billboard.cs" />
-    <Compile Include="Assets\Resources\Scripts\CorGeo\WidgetSystem\TextboxSystem\Func_TextEvent.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\BuildEngine\Optimizer.cs" />
+    <Compile Include="Assets\Resources\Scripts\CorGeo\WidgetSystem\TextboxSystem\Func_TextEvent.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\MeshExtensions.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\ValveMapFormat2006\VmfSolid.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\UnrealGold\T3dVector3.cs" />
