@@ -243,19 +243,28 @@ public class RiftManager_SpaceController : ILoggable
     {
         foreach (CorGeo_Actor actor in RiftManager_ActorHandler.CorGeo_Actors)
         {
-            if (actor.dynamic && actor.isHeld == false)
+            if (!actor.dynamic) continue;
+            if (!actor.gameObject.activeSelf) continue;
+
+            actor.DetermineRiftSpace();
+
+            if (actor.riftSpace == RiftSpace.NULLSpace)
             {
-                actor.DetermineRiftSpace ();
-                if (actor.riftSpace == RiftSpace.NULLSpace)
+                riftManager.actorHandler.ApplyNullSpaceScale(actor, _newPercent);
+
+                if (!actor.isHeld)
                 {
-                    var newPosition = riftManager.actorHandler.MoveActorPositionWithNullSpace (actor.transform.position, _newPercent);
-                    //Debug.Log($"Attempting to move actor {actor.name} in NULLSpace from {actor.transform.position} to {newPosition} via a delta of {_newPercent}");
+                    var newPosition = riftManager.actorHandler.MoveActorPositionWithNullSpace(actor.transform.position, _newPercent);
                     actor.transform.position = newPosition;
                 }
-                else if (actor.riftSpace == RiftSpace.B)
+            }
+            else
+            {
+                riftManager.actorHandler.ResetActorScale(actor);
+
+                if (actor.riftSpace == RiftSpace.B && !actor.isHeld)
                 {
-                    var newPosition = riftManager.actorHandler.MoveActorPositionWithBSpace (actor.transform.position, _newPercent);
-                    //Debug.Log($"Attempting to move actor {actor.name} in BSpace from {actor.transform.position} to {newPosition} via a delta of {_newPercent}");
+                    var newPosition = riftManager.actorHandler.MoveActorPositionWithBSpace(actor.transform.position, _newPercent);
                     actor.transform.position = newPosition;
                 }
             }
@@ -267,21 +276,16 @@ public class RiftManager_SpaceController : ILoggable
         foreach (var mesh in spaceMeshes)
         {
             if (mesh.Value == RiftSpace.NULLSpace)
-            {
                 mesh.Key.gameObject.SetActive(false);
-            }
         }
         foreach (var actor in RiftManager_ActorHandler.CorGeo_Actors)
         {
-            //Debug.Log($"{actor.Key.gameObject.name}, {actor.Value}");
+            if (actor == null) continue;
+
+            actor.DetermineRiftSpace();
+
             if (actor.riftSpace == RiftSpace.NULLSpace)
             {
-                // Do a null check, so if the object was destroyed while the rift was still open, it doesn't hit a null ref exception
-                if (actor == null)
-                {
-                    Debug.LogWarning("Attempted to set the collapse state of a null object! Skipping...");
-                    continue;
-                }
                 actor.CollapseActor();
             }
         }
@@ -291,22 +295,30 @@ public class RiftManager_SpaceController : ILoggable
     {
         foreach (var mesh in spaceMeshes)
         {
-            if (mesh.Value == RiftSpace.NULLSpace)
+            if (!mesh.Key)
             {
-                mesh.Key.gameObject.SetActive(true);
+                Debug.LogWarning("A mesh in spaceMeshes was already destroyed! Skipping...");
+                continue;
             }
+            if (mesh.Value == RiftSpace.NULLSpace)
+                mesh.Key.gameObject.SetActive(true);
         }
         foreach (var actor in RiftManager_ActorHandler.CorGeo_Actors)
         {
+            if (actor == null) continue;
+            if (actor.gameObject.activeSelf)
+            {
+                actor.DetermineRiftSpace();
+            }
+            
+            actor.UnCollapseActor();
+           // Debug.Log($"[EnableCollapsedObject] {actor.name} riftSpace={actor.riftSpace} activeSelf={actor.gameObject.activeSelf}");
+
+
             if (actor.riftSpace == RiftSpace.NULLSpace)
             {
-                // Do a null check, so if the object was destroyed while the rift was still open, it doesn't hit a null ref exception
-                if (actor == null)
-                {
-                    Debug.LogWarning("Attempted to set the collapse state of a null object! Skipping...");
-                    continue;
-                }
                 actor.UnCollapseActor();
+             //   Debug.Log($"[EnableCollapsedObject] {actor.name} activeSelf AFTER UnCollapseActor={actor.gameObject.activeSelf}");
             }
         }
     }

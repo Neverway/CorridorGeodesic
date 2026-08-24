@@ -1644,13 +1644,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d1bbf2f6284adc0965e05ec9c64692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnInterval: 0.15
-  maxAfterImages: 12
+  spawnInterval: 0.02
+  maxAfterImages: 24
   afterImageMaterial: {fileID: 2100000, guid: 08a46c4b1f9f675fd98b8c03bfebb8f3, type: 2}
   startColor: {r: 0.4, g: 0.8, b: 1, a: 0}
   endColor: {r: 0, g: 1, b: 0.4771242, a: 0.050980393}
-  startEmissionIntensity: 0
-  endEmissionIntensity: 0.2
+  startEmissionIntensity: 0.2
+  endEmissionIntensity: 0
   ghostScaleMultiplier: 0.01
   isEmitting: 0
 --- !u!4 &8210976979692214249 stripped
@@ -3137,6 +3137,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8520652943849165454, guid: b4a8e17bc36b87116b4117e5d4609df1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 40242178518658773, guid: b4a8e17bc36b87116b4117e5d4609df1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3201,6 +3206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: logHome
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524392266858380924, guid: b4a8e17bc36b87116b4117e5d4609df1,
+        type: 3}
+      propertyPath: scaleInNullSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6550281976186192051, guid: b4a8e17bc36b87116b4117e5d4609df1,
         type: 3}

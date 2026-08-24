@@ -28,6 +28,7 @@ public class Graphics_StretchSmear : MonoBehaviour
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     private Rigidbody objectRigidbody;
     private Vector3 originalScale;
+    private CorGeo_Actor corGeoActor;
 
 
     #endregion
@@ -38,11 +39,15 @@ public class Graphics_StretchSmear : MonoBehaviour
     void Awake()
     {
         objectRigidbody = GetComponent<Rigidbody>();
+        corGeoActor = GetComponent<CorGeo_Actor>();
         originalScale = transform.localScale;
     }
+
     
     void LateUpdate()
     {
+        Vector3 baseScale = corGeoActor != null ? corGeoActor.CurrentRiftScale : originalScale;
+
         Vector3 velocity = objectRigidbody != null ? objectRigidbody.velocity : Vector3.zero;
         float speed = velocity.magnitude;
 
@@ -53,9 +58,9 @@ public class Graphics_StretchSmear : MonoBehaviour
 
             // squash in perpendicular axes
             transform.localScale = new Vector3(
-                originalScale.x * (1f / stretch),
-                originalScale.y * (1f / stretch),
-                originalScale.z * stretch
+                baseScale.x * (1f / stretch),
+                baseScale.y * (1f / stretch),
+                baseScale.z * stretch
             );
 
             // align with velocity
@@ -63,7 +68,7 @@ public class Graphics_StretchSmear : MonoBehaviour
         }
         else
         {
-            transform.localScale = originalScale;
+            transform.localScale = baseScale;
         }
     }
 

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using RivenFramework;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class WB_LevelSelect : MonoBehaviour
@@ -29,10 +28,10 @@ public class WB_LevelSelect : MonoBehaviour
             // Update all the buttons text
             newEntry.displayText.text = GetDecoratedDisplayName(level, i);
             // Tie in all the buttons to communicate to this level selector
-            if (level.targetScene)
-            {
-                newEntry.button.onClick.AddListener(delegate { SelectLevel(level); });
-            }
+            //if (level.targetScene)
+            //{
+            //    newEntry.button.onClick.AddListener(delegate { SelectLevel(level); });
+            //}
             
             // Update the entry to reflect it interactability
             if (level.hideFromSelection) newEntry.gameObject.SetActive(false);

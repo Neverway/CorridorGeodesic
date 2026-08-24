@@ -110,6 +110,7 @@ public class MappingTools : EditorWindow
         m_FixAllButton.clicked += FixAllIssues;
         m_BakeProgressBar = m_Root.Q<ProgressBar>("BakeProgressBar");
         m_Root.Q<Button>("BakeLevel").clicked += BakeLevel;
+        m_Root.Q<Button>("PartialBakeLevel").clicked += PartialBakeLevel;
         m_Root.Q<Button>("BackToEditMode").clicked += UnbakeLevel;
         EditorApplication.hierarchyChanged += HandleHierarchyChanged;
         EditorSceneManager.activeSceneChangedInEditMode += (_, __) => RefreshLevelStatus();
@@ -220,6 +221,14 @@ public class MappingTools : EditorWindow
 
         RebuildIssuesList();
 
+        if (EditorApplication.isPlayingOrWillChangePlaymode)
+        {
+            m_LevelStatusHelpBox.style.display = DisplayStyle.None;
+            m_LevelReadyLabel.style.display = DisplayStyle.Flex;
+            m_LevelReadyLabel.text = "Issue detection is disabled while game is in playmode";
+            return;
+        }
+        
         if (m_Issues.Count > 0)
         {
             m_LevelStatusHelpBox.style.display = DisplayStyle.Flex;
@@ -238,6 +247,7 @@ public class MappingTools : EditorWindow
         {
             m_LevelStatusHelpBox.style.display = DisplayStyle.None;
             m_LevelReadyLabel.style.display = DisplayStyle.Flex;
+            m_LevelReadyLabel.text = "Level is ready!";
         }
     }
     
@@ -439,6 +449,57 @@ public class MappingTools : EditorWindow
             });
     }
 
+    private void PartialBakeLevel()
+    {
+        if (m_IsBaking)
+        {
+            EditorUtility.DisplayDialog("Bake In Progress", "A bake is already in progress. Please wait for it to finish.", "OK");
+            return;
+        }
+
+        if (m_Issues.Count > 0)
+        {
+            EditorUtility.DisplayDialog("Cannot Bake", "There are unresolved issues. Please fix them before baking the level.", "OK");
+            return;
+        }
+
+        if (EditorApplication.isPlaying)
+        {
+            EditorUtility.DisplayDialog("Cannot Bake", "Cannot bake voxels while in Play Mode. Please exit Play Mode first.", "OK");
+            return;
+        }
+        
+        
+        m_IsBaking = true;
+
+        // Combine the CSG level mesh
+        CSGMeshCombinerTool.CombineLevelMeshes();
+        GameObject combinedMeshObject = GameObject.Find("CombinedLevelMesh");
+        if (combinedMeshObject == null)
+        {
+            EditorUtility.DisplayDialog("Bake Failed", "Couldn't find or create the combined level mesh. Please check the Console for errors from the mesh combiner.", "OK");
+            return;
+        }
+
+        // Assign it to the Voxel Occluder layer
+        int occluderLayer = LayerMask.NameToLayer(VoxelOccluderLayerName);
+        if (occluderLayer < 0)
+        {
+            EditorUtility.DisplayDialog("Bake Failed", $"The level geometry needs to be assigned to a layer named \"{VoxelOccluderLayerName}\" to be able to bake the level voxels correctly. Couldn't find a layer named \"{VoxelOccluderLayerName}\". Please check your project's Tags and Layers settings.", "OK");
+            return;
+        }
+        combinedMeshObject.layer = occluderLayer;
+        EditorUtility.SetDirty(combinedMeshObject);
+        
+        // Finish up
+        m_NeedsBake = false;
+        m_IsBaking = false;
+        RefreshLevelStatus();
+        
+        
+        EditorUtility.DisplayDialog("Partial Bake Completed", "The partial bake has completed. The level is ready to be played, but the Voxel Grid has not been rebuilt. You will need to do a full level bake if you want to update the voxels that represent the level geometry!", "OK");
+    }
+
     private void UnbakeLevel()
     {
         GameObject combinedMeshObject = GameObject.Find("CombinedLevelMesh");
@@ -457,6 +518,16 @@ public class MappingTools : EditorWindow
     private void RebuildIssuesList()
     {
         m_IssuesContainer.Clear();
+        
+        
+        if (EditorApplication.isPlayingOrWillChangePlaymode)
+        {
+            m_IssuesContainer.Add(new Label("Issue detection is disabled while game is in playmode")
+            {
+                style = { unityFontStyleAndWeight = FontStyle.Italic, opacity = 0.7f }
+            });
+            return;
+        }
 
         if (m_Issues.Count == 0)
         {
@@ -476,7 +547,7 @@ public class MappingTools : EditorWindow
 
             HelpBox issueBox = new HelpBox(issue.m_Message, issue.m_Severity)
             {
-                style = { flexGrow = 1, marginRight = 4 }
+                style = { flexGrow = 1, marginRight = 4, flexShrink = 1, minHeight = 0}
             };
             
             Button infoButton = new Button(() => ShowIssueDetails(issue)) { text = "i" };

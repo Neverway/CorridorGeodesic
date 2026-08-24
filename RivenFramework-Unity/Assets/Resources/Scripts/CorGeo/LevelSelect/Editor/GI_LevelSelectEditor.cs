@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
-
+/*
 [CustomEditor(typeof(GI_LevelSelect))]
 public class GI_LevelSelectEditor : Editor
 {
@@ -85,5 +85,5 @@ public class GI_LevelSelectEditor : Editor
 
         Debug.Log($"[GI_LevelSelect] Added/reordered {listedPaths.Count} level(s) in build settings");
     }
-}
+}*/
 #endif

@@ -697,6 +697,7 @@
      <Folder Include="Assets/Resources/Maps/CorGeo/_MainLevels/0_intro/Voxel/Meshes" />
      <None Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Shaders/LCDDisplayUnlitInput.hlsl" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Tools" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/3_cube_with_rift/Voxel/Prefabs" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiWireframe.cginc" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Brushes" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Xbox Series" />
@@ -834,6 +835,7 @@
      <Folder Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking" />
      <None Include="Assets/_PoiyomiShaders/ThirdPartyLicenses/LTCGI_LICENSE.txt" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/PHResources/marble_rock_03" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/3_cube_with_rift/Voxel" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Spectrum/Vol Bands" />
      <None Include="Assets/_PoiyomiShaders/Shaders/9.0/Toon/Poiyomi Toon World.shader" />
      <None Include="Assets/Resources/Materials/Shaders/ScreenCutoutShader.shader" />
@@ -928,6 +930,7 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Effects/Quicktex" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/MatCap" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Keyboard &amp; Mouse/Light" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/3_cube_with_rift" />
      <None Include="Assets/_PoiyomiShaders/Shaders/Extras/PoiyomiFakeShadow.shader" />
      <Folder Include="Assets/Resources/Maps/CorGeo/LinearMechanicsShowcase/01-HGap" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/Shading" />
@@ -1169,6 +1172,7 @@
      <None Include="Assets/_PoiyomiShaders/Scripts/ThryEditor/Examples/ThryLabelExample.txt" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Shading/Cubemap" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Liz/3_cube_with_rift/Voxel/Meshes" />
      <Folder Include="Assets/_PoiyomiShaders/Textures/Pixels" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Xbox One" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiMetal.cginc" />

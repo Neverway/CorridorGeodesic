@@ -17,3 +17,10 @@ RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_LizDemo/1_cube.unity filter=l
 ivenFramework-Unity/Assets/Resources/Maps/CorGeo/_LizDemo/2_gun.unity filter=lfs diff=lfs merge=lfs -text
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_LizDemo/2_gun.unity filter=lfs diff=lfs merge=lfs -text
 RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Liz/2_gun.unity !text !filter !merge !diff
+*.unity filter=lfs diff=lfs merge=lfs -text
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/0_intro.unity !text !filter !merge !diff
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/2_gun.unity !text !filter !merge !diff
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/_MainLevels/3_horizontal.unity !text !filter !merge !diff
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/LinearMechanicsShowcase/01-HGap.unity !text !filter !merge !diff
+RivenFramework-Unity/Assets/Resources/Maps/CorGeo/Minimals/ScreenRoom[[:space:]]1.unity !text !filter !merge !diff
+*.unity !text !filter !merge !diff

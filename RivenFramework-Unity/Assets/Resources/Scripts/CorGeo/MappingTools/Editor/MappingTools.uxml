@@ -15,14 +15,17 @@
         <ui:VisualElement name="Spacer" style="height: 10px;" />
         <ui:Foldout text="Issues" value="true" name="Issues">
             <ui:VisualElement name="IssuesContainer" style="min-height: 40px; border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-left-color: rgba(0, 0, 0, 0.34); border-right-color: rgba(0, 0, 0, 0.34); border-top-color: rgba(0, 0, 0, 0.34); border-bottom-color: rgba(0, 0, 0, 0.34); background-color: rgba(0, 0, 0, 0.34); padding-top: 4px; padding-bottom: 4px; padding-left: 4px; padding-right: 4px;" />
-            <ui:Button text="Fix All" parse-escape-sequences="true" display-tooltip-when-elided="true" name="FixAllButton" tooltip="Fix all of the issues that can be automatically resolved" />
+            <ui:Button text="Fix All" parse-escape-sequences="true" display-tooltip-when-elided="true" name="FixAllButton" tooltip="Fix all of the issues that can be automatically resolved" style="background-color: rgb(135, 121, 66);" />
         </ui:Foldout>
         <ui:VisualElement name="Spacer" style="height: 10px;" />
         <ui:Label tabindex="-1" text="Baking needs to be performed whenever the level geometry has been changed" name="BakingInfo" style="flex-wrap: nowrap; flex-direction: column; white-space: normal;" />
         <ui:ProgressBar value="0" name="BakeProgressBar" style="display: none; margin-top: 6px;" />
-        <ui:Button text="Bake Level" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BakeLevel" tooltip="Combine and bake the CSG level geometry into a single combined level mesh, then bake the level voxels that represent that level geometry within the voxel system." />
+        <uie:Toolbar style="justify-content: space-around; height: 39px;">
+            <ui:Button text="Partial Bake" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PartialBakeLevel" tooltip="Only combine and bake the CSG level geometry into a single combined level mesh. This does NOT bake the level Voxels, so the voxel grid will not be updated!" style="flex-shrink: 1; flex-grow: 1; background-color: rgb(66, 98, 135);" />
+            <ui:Button text="Bake Level" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BakeLevel" tooltip="Combine and bake the CSG level geometry into a single combined level mesh, then bake the level voxels that represent that level geometry within the voxel system." style="align-self: auto; flex-grow: 1; flex-shrink: 1; background-color: rgb(65, 135, 117);" />
+        </uie:Toolbar>
         <ui:Label tabindex="-1" text="After baking, the CSG level geometry can&apos;t be edited. Select this to unbake the level geometry so it can be edited again" name="BakingInfo" enable-rich-text="true" style="flex-wrap: nowrap; flex-direction: column; white-space: normal;" />
-        <ui:Button text="Back To Edit Mode" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackToEditMode" tooltip="Remove the baked level mesh and go back to editing the CSG blockout for the level geometry" />
+        <ui:Button text="Back To Edit Mode" parse-escape-sequences="true" display-tooltip-when-elided="true" name="BackToEditMode" tooltip="Remove the baked level mesh and go back to editing the CSG blockout for the level geometry" style="background-color: rgb(135, 96, 66); height: 36px;" />
     </ui:VisualElement>
     <ui:VisualElement name="MapperAssetsGroup" style="flex-grow: 1;">
         <ui:Label tabindex="-1" text="Mapper Assets" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="white-space: normal; text-overflow: ellipsis; -unity-font-style: bold; font-size: 16px; align-items: center; align-self: center;" />

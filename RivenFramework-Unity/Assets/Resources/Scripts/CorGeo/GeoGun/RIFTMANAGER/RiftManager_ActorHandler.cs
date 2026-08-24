@@ -149,5 +149,27 @@ public class RiftManager_ActorHandler : ILoggable
         return _actorPosition - (RiftManager.riftNormal * offset);
     }
 
+    /// <summary>
+    /// Applies a squish to a physics based actor while it's inside Null-Space
+    /// </summary>
+    public void ApplyNullSpaceScale(CorGeo_Actor actor, float _newRiftPercent)
+    {
+        Vector3 localNormal = actor.transform.InverseTransformDirection(RiftManager.riftNormal);
+        Vector3 axisWeight = new Vector3(Mathf.Abs(localNormal.x), Mathf.Abs(localNormal.y), Mathf.Abs(localNormal.z));
+        Vector3 scaleMultiplier = new Vector3(
+            Mathf.Lerp(1f, _newRiftPercent, axisWeight.x),
+            Mathf.Lerp(1f, _newRiftPercent, axisWeight.y),
+            Mathf.Lerp(1f, _newRiftPercent, axisWeight.z)
+        );
+        actor.SetRiftScale(Vector3.Scale(actor.HomeScale, scaleMultiplier));
+    }
+    /// <summary>
+    /// Restores a dynamic actor to its uncompressed scale
+    /// </summary>
+    public void ResetActorScale(CorGeo_Actor actor)
+    {
+        actor.SetRiftScale(actor.HomeScale);
+    }
+    
     #endregion
 }

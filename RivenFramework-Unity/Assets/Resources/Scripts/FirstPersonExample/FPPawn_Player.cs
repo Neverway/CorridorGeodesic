@@ -213,7 +213,16 @@ public class FPPawn_Player : FPPawn
         riftManager.DestroyRiftImmediate();
         
         // Drop held props
-        if (physObjectAttachmentPoint) if (physObjectAttachmentPoint.attachedObject.TryGetComponent(out Object_PhysPickup physPickup)) physPickup.ToggleHeld();
+        if (physObjectAttachmentPoint)
+        {
+            if (physObjectAttachmentPoint.attachedObject)
+            {
+                if (physObjectAttachmentPoint.attachedObject.TryGetComponent(out Object_PhysPickup physPickup))
+                {
+                    physPickup.ToggleHeld();
+                }
+            }
+        }
 
         // Remove the HUD
         Destroy(widgetManager.GetExistingWidget("WB_HUD"));
