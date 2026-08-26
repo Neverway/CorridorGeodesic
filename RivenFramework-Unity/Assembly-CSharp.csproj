@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>9.0</LangVersion>
@@ -566,6 +566,7 @@
      <Folder Include="Assets/Resources/Maps/CorGeo/Errynei/Old/ErryDemoLevels" />
      <None Include="Assets/_PoiyomiShaders/Shaders/7.3/Pro/Includes/CGI_PoiIridescence.cginc" />
      <None Include="Assets/SimpleLightProbePlacer/README.txt" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Errynei/_Level" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/PHResources/concrete_wall_008" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/System/NeverwayLogo" />
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/PHResources/granite_tile_04" />
@@ -1003,6 +1004,7 @@
      <Folder Include="Assets/_REMOVE_/_Characters" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/PBR/Metal" />
      <Folder Include="Assets/RivenFramework-Revamp/_Resources_/Sprites/Widgets/Materials" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Errynei/_Level/Voxel/Prefabs" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSG" />
      <Folder Include="Assets/Resources/Maps/CorGeo/Minimals/Test_PerformancePressureCooker/Voxel/Prefabs" />
      <Folder Include="Assets/_PoiyomiShaders/Shaders/Extras" />
@@ -1046,7 +1048,9 @@
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Geometry" />
      <Folder Include="Assets/Packages/SabreCSG-master/Example Materials/Audio" />
      <Folder Include="Assets/Resources/Scripts/ReplayEventSystem" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Errynei/_Level/Voxel/Meshes" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Input" />
+     <Folder Include="Assets/Resources/Maps/CorGeo/Errynei/_Level/Voxel" />
      <None Include="Assets/_PoiyomiShaders/Shaders/8.0/Poiyomi Outline.shader" />
      <Folder Include="Assets/RivenFramework-Revamp" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Globals" />
