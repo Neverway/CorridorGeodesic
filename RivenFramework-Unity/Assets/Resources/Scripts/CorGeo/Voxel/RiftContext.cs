@@ -24,11 +24,13 @@ public class RiftContext : MonoBehaviour
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
     public bool IsRiftActive = false;
 
+
     public Plane PlaneA;
     public Plane PlaneB;
 
     public float NSpaceScale = 1f;
     public Vector3 NSpaceScalePivot = Vector3.zero;
+    public Vector3 RiftScaleDirection => PlaneB.normal;
     public Vector3 BSpaceShift = Vector3.zero;
 
 
@@ -76,7 +78,8 @@ public class RiftContext : MonoBehaviour
         
         Gizmos.color = new Color(1, 0.4f, 0.1f, 1f);
         Vector3 planeBPoint = -PlaneB.normal * PlaneB.distance;
-        Gizmos.DrawLine(planeBPoint, planeBPoint+BSpaceShift);
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(planeBPoint, planeBPoint + BSpaceShift);
         Gizmos.DrawSphere(planeBPoint + BSpaceShift, 0.1f);
     }
 
