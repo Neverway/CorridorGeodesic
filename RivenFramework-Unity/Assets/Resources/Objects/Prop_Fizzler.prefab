@@ -120,11 +120,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48792f634091553c99acd754dc7cd7f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fizzlerStart: {fileID: 4982979965777198511}
-  fizzlerEnd: {fileID: 3202592605996592100}
-  fizzler: {fileID: 3023658838380390896}
-  offsetMultiplier: {x: 0, y: 4, z: 0}
-  thickness: 0.025
+  fizzlerHandle1: {fileID: 4982979965777198511}
+  fizzlerHandle2: {fileID: 3202592605996592100}
+  fizzlerVolume: {fileID: 3023658838380390896}
+  localFizzlerDirection: {x: 1, y: 0, z: 0}
+  autoAlignHandles: 1
+  fizzlerEulerRotationOffset: {x: 0, y: -90, z: 0}
+  fizzlerHeight: 4
+  volumeThickness: 0.05
+  volumeSizePadding: {x: 0.1, y: 0.05}
 --- !u!1 &6255710823389514319
 GameObject:
   m_ObjectHideFlags: 0
