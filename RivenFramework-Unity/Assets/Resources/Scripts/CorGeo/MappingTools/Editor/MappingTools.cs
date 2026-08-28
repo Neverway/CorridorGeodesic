@@ -64,6 +64,11 @@ public class MappingTools : EditorWindow
     // Settings tab
     private const string SettingsAssetPath = "Assets/Resources/Scripts/CorGeo/MappingTools/MappingToolsSettings.asset";
 
+    // Editor prefs keys
+    private const string EditorPrefsKey_Root = "Neverway_MappingTools_";
+    private const string EditorPrefsKey_NameDisplayMode = EditorPrefsKey_Root + "NameDisplayMode";
+    private const string EditorPrefsKey_AssetViewMode = EditorPrefsKey_Root + "AssetViewMode";
+
     private VisualElement m_Root;
     
     
@@ -144,8 +149,12 @@ public class MappingTools : EditorWindow
             ShowAssetsWithLabel(labelToLoad);
         }
 
-        AssetViewMode lastViewMode = (AssetViewMode)SessionState.GetInt(LastViewModeSessionKey, (int)AssetViewMode.Grid);
-        SetViewMode(lastViewMode);
+        //AssetViewMode lastViewMode = (AssetViewMode)SessionState.GetInt(LastViewModeSessionKey, (int)AssetViewMode.Grid);
+        //SetViewMode(lastViewMode);
+
+        // Load Editor Prefs Values
+        SetNameDisplayMode((AssetNameDisplayMode)EditorPrefs.GetInt(EditorPrefsKey_NameDisplayMode, (int)AssetNameDisplayMode.ID));
+        SetViewMode((AssetViewMode)EditorPrefs.GetInt(EditorPrefsKey_AssetViewMode, (int)AssetViewMode.Grid));
     }
     
     private static MappingToolsSettings LoadOrCreateSettings()
@@ -672,7 +681,8 @@ public class MappingTools : EditorWindow
     private void SetViewMode(AssetViewMode _mode)
     {
         m_ViewMode = _mode;
-        SessionState.SetInt(LastViewModeSessionKey, (int)_mode);
+        //SessionState.SetInt(LastViewModeSessionKey, (int)_mode);
+        EditorPrefs.SetInt(EditorPrefsKey_AssetViewMode, (int)_mode);
 
         m_AssetsResultsList.style.display = (_mode == AssetViewMode.List) ? DisplayStyle.Flex : DisplayStyle.None;
         m_AssetResultGridScroll.style.display = (_mode == AssetViewMode.Grid) ? DisplayStyle.Flex : DisplayStyle.None;
@@ -782,6 +792,8 @@ public class MappingTools : EditorWindow
     private void SetNameDisplayMode(AssetNameDisplayMode _mode)
     {
         m_NameDisplayMode = _mode;
+        EditorPrefs.SetInt(EditorPrefsKey_NameDisplayMode, (int)_mode);
+
         RefreshResultsView();
     }
 

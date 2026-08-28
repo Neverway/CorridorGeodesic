@@ -27,6 +27,7 @@ public class Graphics_RiftPreviewEffects : MonoBehaviour
     }
     private void OnDestroy()
     {
+        riftMaterial.SetVector("_BulbsCenter", Vector3.zero);
         riftMaterial.SetFloat("_EffectTime", 0);
         riftMaterial.SetFloat("_SphereSize", 0);
         riftMaterial.SetFloat("_EmissionStrength", collapseExpandEmissionStrength);
