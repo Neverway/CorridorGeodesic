@@ -93,7 +93,7 @@ Material:
     - _CullMode: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DetailProminence: 0.6
+    - _DetailProminence: 0.4
     - _DstBlend: 0
     - _EmissionDivision: 1
     - _GIIntensity: 0
