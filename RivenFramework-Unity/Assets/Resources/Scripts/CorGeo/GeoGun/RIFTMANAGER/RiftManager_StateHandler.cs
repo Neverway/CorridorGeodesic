@@ -323,6 +323,7 @@ public class RiftState_Destroy : N_RiftState
         handler.riftManager.actorHandler.RestoreActors();
         handler.riftManager.currentRiftMoveSpeed = handler.riftManager.minRiftSpeed;
         handler.riftManager.stateHandler.SetState<RiftState_None>();
+        RiftManager_StateHandler.OnRiftDestroyed?.Invoke ();
     }
 
     public override void OnUpdate()
