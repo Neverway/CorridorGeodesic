@@ -12,6 +12,7 @@ using System.Collections;
 using ErryLib.MonoTasks;
 using RivenFramework;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Handles what functions are actually called when a rift is in each state
@@ -52,6 +53,9 @@ public class RiftManager_StateHandler : ILoggable
     public delegate void StateChanged ();
     public static event StateChanged OnStateChanged;
 
+    public delegate void RiftEvent ();
+    public static RiftEvent OnRiftCreated;
+    public static RiftEvent OnRiftDestroyed;
 
     #endregion
 
