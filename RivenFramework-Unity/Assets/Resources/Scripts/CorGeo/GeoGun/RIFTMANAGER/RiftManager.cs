@@ -272,8 +272,6 @@ public class RiftManager : MonoBehaviour, ILoggable
         spaceController.ReparentActorsToSpaceContainers();
         stateHandler.SetState<RiftState_Preview> ();
 
-        RiftManager_StateHandler.OnRiftCreated?.Invoke ();
-
         isCreatingRift = false;
     }
 

@@ -53,9 +53,8 @@ public class RiftManager_StateHandler : ILoggable
     public delegate void StateChanged ();
     public static event StateChanged OnStateChanged;
 
-    public delegate void RiftEvent ();
-    public static RiftEvent OnRiftCreated;
-    public static RiftEvent OnRiftDestroyed;
+    public static UnityEvent OnRiftCreated = new UnityEvent();
+    public static UnityEvent OnRiftDestroyed = new UnityEvent();
 
     #endregion
 
@@ -93,7 +92,17 @@ public class RiftManager_StateHandler : ILoggable
         OnStateChanged?.Invoke ();
         return _riftState;
     }
-    
+
+    public static void InvokeRiftCreated ()
+    {
+        OnRiftCreated?.Invoke ();
+    }
+
+    public static void InvokeRiftDestroyed ()
+    {
+        OnRiftDestroyed?.Invoke ();
+    }
+
     public bool IsState<T>() where T: N_RiftState => currentState is T;
 
 
@@ -147,6 +156,7 @@ public class RiftState_Preview : N_RiftState
     public override void OnStateEnter()
     {
         _RiftManager.riftActive = true;
+        RiftManager_StateHandler.InvokeRiftCreated ();
     }
 
     public override void OnUpdate()
@@ -323,7 +333,7 @@ public class RiftState_Destroy : N_RiftState
         handler.riftManager.actorHandler.RestoreActors();
         handler.riftManager.currentRiftMoveSpeed = handler.riftManager.minRiftSpeed;
         handler.riftManager.stateHandler.SetState<RiftState_None>();
-        RiftManager_StateHandler.OnRiftDestroyed?.Invoke ();
+        RiftManager_StateHandler.InvokeRiftDestroyed ();
     }
 
     public override void OnUpdate()
