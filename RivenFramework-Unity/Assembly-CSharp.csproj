@@ -114,7 +114,6 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\Quake1\MapEntity.cs" />
     <Compile Include="Assets\Resources\Widgets\DevMenu\WB_DevMenu.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreGUILayout.cs" />
-    <Compile Include="Assets\Resources\Scripts\ErryLib\ReflectionUtils\OnGameStartAttribute.cs" />
     <Compile Include="Assets\Resources\Scripts\TESTTEST.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Importers\Quake1\MapWorldConverter.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\RiftTransformUtils.cs" />
@@ -151,11 +150,9 @@
     <Compile Include="Assets\Resources\Scripts\CorGeo\UnparentOnAwake.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Terminal\VirtualFileSystem.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\CompoundBrushes\StairBrush.cs" />
-    <Compile Include="Assets\Resources\Scripts\ErryLib\ReflectionUtils\AttributeInfo.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Checkpoints\Checkpoint.cs" />
     <Compile Include="Assets\Resources\Scripts\ErryLib\ModifierSystem\ModifierSystem\ApplyModifiersOnEnable.cs" />
     <Compile Include="Assets\Packages\DOTween\Modules\DOTweenModuleSprite.cs" />
-    <Compile Include="Assets\Resources\Scripts\ErryLib\CoreAttributes\BoxAttribute.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\Utilities\Vertex Weld Ops\VertexWeldOperation.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Graphics_SliceableSection.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\Volumes\AudioVolume\VolumetricAudioVolume.cs" />
@@ -185,13 +182,11 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Extensions\Extensions.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\Lasers\GameObject_Flicker.cs" />
     <Compile Include="Assets\SimpleLightProbePlacer\Scripts\LightProbeGroupControl.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\TestComponent.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\GroupBrush.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\PlaneIntersectionUtil.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\IK\IKTargetMatcher.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSGBuildSettings.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\UI\SabreMouse.cs" />
-    <Compile Include="Assets\Resources\Scripts\ErryLib\CoreAttributes\StringAsGUIDAttribute.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Graphics_ThreePartSliceableManager.cs" />
     <Compile Include="Assets\Packages\QuickOutline\Scripts\Outline.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSGBuildContext.cs" />
@@ -295,7 +290,6 @@
     <Compile Include="Assets\_REMOVE_\Integratables\CorGeo\Pawn_FallDamage.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\EditorTools\CSGTool_MaterialPaint.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\WidgetSystem\TextboxSystem\GI_TextboxManager.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\FetchComponentAttribute.cs" />
     <Compile Include="Assets\SimpleLightProbePlacer\Scripts\TransformVolume.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\_Depreciated\Volume2D_Force.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Graphics\Graphics_ColorQuantizationFilter.cs" />
@@ -377,7 +371,6 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\BuildEngine\TriangulationNode.cs" />
     <Compile Include="Assets\Resources\Scripts\FirstPersonExample\FPPawn.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Terminal\WB_Terminal.cs" />
-    <Compile Include="Assets\Resources\Scripts\ErryLib\GUIDComponent.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Tools\Utilities\BrushUtility.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Stats&amp;Achievments\Dev_LevelSelect.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Voxel\RiftContext.cs" />
@@ -408,7 +401,6 @@
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Brushes\Volumes\TriggerVolume\TriggerVolume.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSG\BrushChunk.cs" />
     <Compile Include="Assets\_REMOVE_\Integratables\UI_Text_EntityHealth.cs" />
-    <Compile Include="Assets\RivenFramework-Revamp\__ERRYNEI\SOEventSystem\SOEvent.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\SliceableSectionController.cs" />
     <Compile Include="Assets\Resources\Scripts\RenderScale.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\RIFTMANAGER\ILoggable.cs" />
@@ -449,6 +441,7 @@
     <Compile Include="Assets\Resources\Scripts\CorGeo\WidgetSystem\WidgetSelectable_TMPText.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\Logic\Lasers\Laser_Raycast.cs" />
     <Compile Include="Assets\Resources\Scripts\ErryLib\ReflectionUtils\InvokeOnReflectionCacheLoadAttribute.cs" />
+    <Compile Include="Assets\Resources\Scripts\ErryLib\CoreAttributes\ErryBoxAttribute.cs" />
     <Compile Include="Assets\Resources\Scripts\CorGeo\GeoGun\RIFTMANAGER\RiftManager_StateHandler.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Geometry\MeshHelper.cs" />
     <Compile Include="Assets\Packages\SabreCSG-master\Scripts\Core\CSG\VertexList.cs" />
@@ -1597,6 +1590,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="MarkupAttributes.Runtime">
+      <HintPath>Library\ScriptAssemblies\MarkupAttributes.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
       <Private>False</Private>
@@ -1683,6 +1680,10 @@
     </Reference>
     <Reference Include="Unity.Localization.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Localization.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MarkupAttributes.Editor">
+      <HintPath>Library\ScriptAssemblies\MarkupAttributes.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
@@ -1931,9 +1932,9 @@
       <Project>{762285EC-533D-47F7-E36F-C458A8895AC1}</Project>
       <Name>Dreamteck.Utilities.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="RivenFramework.Utils.Reflection.csproj">
-      <Project>{6C6FD30E-45A3-8E9B-2D92-E48D1C7AB0FC}</Project>
-      <Name>RivenFramework.Utils.Reflection</Name>
+    <ProjectReference Include="TodoWindow.csproj">
+      <Project>{BC02DD89-DF3C-A5E2-C2C4-BCC4FE7F55B6}</Project>
+      <Name>TodoWindow</Name>
     </ProjectReference>
     <ProjectReference Include="Neverway.Framework.LogicSystem.csproj">
       <Project>{95CF2BEC-BF64-5F12-D106-EC12A8016DB9}</Project>
@@ -1942,10 +1943,6 @@
     <ProjectReference Include="Neverway.Framework.PawnManagement.csproj">
       <Project>{FD490BC0-E584-B78B-74B4-255AFB71D1F6}</Project>
       <Name>Neverway.Framework.PawnManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="CoreAttributes.csproj">
-      <Project>{72123C6B-2D53-122E-FDB1-80CCCB741992}</Project>
-      <Name>CoreAttributes</Name>
     </ProjectReference>
     <ProjectReference Include="ThryExternal.csproj">
       <Project>{26736061-13C5-B2F3-F29D-767985258735}</Project>

@@ -88,13 +88,13 @@ public class RiftManager : MonoBehaviour, ILoggable
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Header("HELPER CLASSES")] 
     [Tooltip("Handles the rift states")]
-    [Box] public RiftManager_StateHandler stateHandler;
+    [ErryBox] public RiftManager_StateHandler stateHandler;
     [Tooltip("Controls space containers and rift movement")]
-    [Box] public RiftManager_SpaceController spaceController;
+    [ErryBox] public RiftManager_SpaceController spaceController;
     [Tooltip("Handles rift positioning and mesh slicing")]
-    [Box] public RiftManager_GeometryHandler geometryHandler;
+    [ErryBox] public RiftManager_GeometryHandler geometryHandler;
     [Tooltip("Handles actor restoring")]
-    [Box] public RiftManager_ActorHandler actorHandler;
+    [ErryBox] public RiftManager_ActorHandler actorHandler;
 
     [Header("RIFT EXTERNAL CONTEXT MANAGER")]
     [Tooltip(

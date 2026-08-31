@@ -16,7 +16,7 @@ public class Func_TextEvent : MonoBehaviour
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
     public bool overrideExistingEvents;
-    [Box] public TextEvent textEvent;
+    [ErryBox] public TextEvent textEvent;
     public UnityEvent OnCallFailed = new UnityEvent();
 
 

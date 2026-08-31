@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.gasgiant.markupattributes": "https://github.com/gasgiant/Markup-Attributes.git#upm",
     "com.unity.animation.rigging": "1.2.1",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.collab-proxy": "2.3.1",
