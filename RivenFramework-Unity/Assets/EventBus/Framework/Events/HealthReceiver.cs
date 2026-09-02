@@ -2,11 +2,8 @@
 using System;
 using System.Collections;
 using RivenFramework;
-using RivenFramework.EventBus;
 using UnityEngine;
 
-namespace NewRivenFramework.EventBus
-{
     public class HealthReceiver : MonoBehaviour
     {
         public Actor target;
@@ -76,4 +73,3 @@ namespace NewRivenFramework.EventBus
             else currentHealth += eventModifyHealth.DamageAmount;
         }
     }
-}

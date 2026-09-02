@@ -1,8 +1,6 @@
 using System;
 using UnityEngine;
 
-namespace RivenFramework.EventBus
-{
     public class EventBus<T> where T : BaseEvent
     {
         private static event Action<T> OnEvent;
@@ -38,4 +36,3 @@ namespace RivenFramework.EventBus
             return $"{GetType()} has been called. [No context available]";
         }
     }
-}

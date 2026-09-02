@@ -1157,9 +1157,9 @@
       <Project>{ec852276-3d53-f747-e36f-c458a8895ac1}</Project>
       <Name>Dreamteck.Utilities.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="RivenFramework.Utils.Reflection.csproj">
-      <Project>{0ed36f6c-a345-9b8e-2d92-e48d1c7ab0fc}</Project>
-      <Name>RivenFramework.Utils.Reflection</Name>
+    <ProjectReference Include="NewRivenFramework.Utils.Reflection.csproj">
+      <Project>{1170386e-0a22-3bed-4fa5-4cb3fe186005}</Project>
+      <Name>NewRivenFramework.Utils.Reflection</Name>
     </ProjectReference>
     <ProjectReference Include="Neverway.Framework.LogicSystem.csproj">
       <Project>{ec2bcf95-64bf-125f-d106-ec12a8016db9}</Project>
@@ -1169,9 +1169,9 @@
       <Project>{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}</Project>
       <Name>Neverway.Framework.PawnManagement</Name>
     </ProjectReference>
-    <ProjectReference Include="CoreAttributes.csproj">
-      <Project>{6b3c1272-532d-2e12-fdb1-80cccb741992}</Project>
-      <Name>CoreAttributes</Name>
+    <ProjectReference Include="NewCoreAttributes.csproj">
+      <Project>{a7eeff26-8f40-cb4d-02ba-0dd3710e597d}</Project>
+      <Name>NewCoreAttributes</Name>
     </ProjectReference>
     <ProjectReference Include="ThryExternal.csproj">
       <Project>{61607326-c513-f3b2-f29d-767985258735}</Project>

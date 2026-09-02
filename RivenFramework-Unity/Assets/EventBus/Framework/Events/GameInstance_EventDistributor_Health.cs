@@ -1,9 +1,6 @@
 using System.Collections.Generic;
-using RivenFramework.EventBus;
 using UnityEngine;
 
-namespace NewRivenFramework.EventBus
-{
     /// <summary>
     /// Distributes health events to the appropriate health receiver
     /// </summary>
@@ -58,4 +55,3 @@ namespace NewRivenFramework.EventBus
         public Actor Target;
         public Event_ModifyHealth CauseOfDeath;
     }
-}
