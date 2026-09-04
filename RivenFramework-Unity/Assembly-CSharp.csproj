@@ -117,8 +117,10 @@
      <Compile Include="Assets/Resources/Scripts/LB_World.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapWorld.cs" />
      <Compile Include="Assets/Resources/Scripts/GameEnums.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/NEW/Stuff2/PawnBehaviour.cs" />
      <Compile Include="Assets/Resources/Scripts/ErryLib/ErryRoutine/ErryRoutine.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/VertexUtility.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/NEW/Stuff2/PC_FirstPerson_Player.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/SurfaceUtility.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/Volumes/TriggerVolume/TriggerVolumeComponent.cs" />
      <Compile Include="Assets/Resources/Scripts/LPPVController.cs" />
@@ -159,6 +161,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaManager.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/Quake1/MapVector3.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/CSGGrid.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/NEW/Stuff2/ActorV2.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/Utilities/ClipUtility.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/BuildEngine/CSGFactory.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/Voxel.cs" />
@@ -188,6 +191,7 @@
      <Compile Include="Assets/Packages/QuickOutline/Scripts/Outline.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/NEW/GI_MapLoader.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Core/CSGBuildContext.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/NEW/Stuff2/PC_FirstPerson_StabbingThinker.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Importers/UnrealGold/T3dImporter.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/RIFTMANAGER/RiftController.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/_Depreciated/UI_Image_EntityItems.cs" />
@@ -269,6 +273,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Voxel/NotUsed/VoxComputeManager.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/UI/SabreCSGResources.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Graphics_Test_PlaneMask.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/NEW/Stuff2/PC_FirstPerson.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/WidgetSystem/TextboxSystem/WB_Textbox.cs" />
      <Compile Include="Assets/Resources/Scripts/Audio/Audio_FMODMusicManager.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/CorGeo_VolumeFizzler.cs" />
@@ -301,6 +306,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Graphics/Experimental/VisualFramerateLimiter.cs" />
      <Compile Include="Assets/EventBus/EBVolumes/Identifier.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/CorGeo_Actor.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/NEW/Stuff2/PawnV2.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Graphics_NixieBulbEffects.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/Item_Utility_DevGun.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/MappingTools/MappingToolsSettings.cs" />
@@ -371,6 +377,7 @@
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/TeslaCoils/TeslaConductor.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Logic/Logic_PhysSocket.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/PrimitiveBrush.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/NEW/Stuff2/PB_HealthHaver.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/Func_TerminalInteraction.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Tempoorary/OldMeshSliceable.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/EditorTools/CSGForceRebuildOnUndo.cs" />
@@ -437,6 +444,7 @@
      <Compile Include="Assets/_REMOVE_/Integratables/IK/IKFootSolver.cs" />
      <Compile Include="Assets/_REMOVE_/Integratables/CorGeo/EventSignal_Interactcs.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Tools/ClipEditor.cs" />
+     <Compile Include="Assets/RivenFramework-Revamp/NEW/Stuff2/PawnController.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalPrograms/Hacking/WB_HackIntersection.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/TerminalProgramBase.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/Terminal/CanvasAssignActiveCamera.cs" />
@@ -1094,6 +1102,7 @@
      <Folder Include="Assets/Resources/Materials/CorGeo/Textures/Skyboxes" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Rendering" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/Outlines" />
+     <Folder Include="Assets/RivenFramework-Revamp/NEW/Stuff2" />
      <Folder Include="Assets/RivenFramework/Objects/_OLD" />
      <Folder Include="Assets/Packages/Xelu_Prompts/Others/Positional Prompts" />
      <Folder Include="Assets/_PoiyomiShaders/Presets/SectionPresets/AudioLink/Glitter" />

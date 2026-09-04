@@ -11,18 +11,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Dummy : MonoBehaviour
+public class PC_FirstPerson_Player : PC_FirstPerson
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
-    [SerializeField] public GI_ApplicationSettings ApplicationSettings;
-    [SerializeField] public GI_MapLoader MapLoader;
-    [SerializeField] public GI_PawnHandler PawnHandler;
-    [SerializeField] public GI_WidgetHandler WidgetHandler;
-    [SerializeField] public GI_AudioHandler AudioHandler;
-    [SerializeField] public GI_TextboxHandler TextboxHandler;
-    [SerializeField] public GI_DeveloperMenu DeveloperMenu;
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
@@ -41,14 +33,19 @@ public class Dummy : MonoBehaviour
     #region=======================================( Functions )======================================================= //
 
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-    private void Start()
+    public override void OnActorUpdate()
     {
-    
-    }
-
-    private void Update()
-    {
-    
+        base.OnActorUpdate();
+        
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            StabSelf();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            UnstabSelf();
+        }
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/

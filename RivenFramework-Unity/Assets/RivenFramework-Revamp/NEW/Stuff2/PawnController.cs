@@ -1,34 +1,28 @@
 //==========================================( Neverway 2026 )=========================================================//
 // Author
-//
+//  Errynei
 //
 // Contributors
-//
+//  Liz M.
 //
 //====================================================================================================================//
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-
-public class Dummy : MonoBehaviour
+/// <summary>
+/// The class instance that controls a pawn and it's behaviours,
+/// like a first-person player, an npc with wolf AI, an npc with bird AI, a first-person network player, etc.
+/// </summary>
+public abstract class PawnController : IActorFunctions
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
-    [SerializeField] public GI_ApplicationSettings ApplicationSettings;
-    [SerializeField] public GI_MapLoader MapLoader;
-    [SerializeField] public GI_PawnHandler PawnHandler;
-    [SerializeField] public GI_WidgetHandler WidgetHandler;
-    [SerializeField] public GI_AudioHandler AudioHandler;
-    [SerializeField] public GI_TextboxHandler TextboxHandler;
-    [SerializeField] public GI_DeveloperMenu DeveloperMenu;
+    public PawnV2 ControlledPawn;
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -41,20 +35,50 @@ public class Dummy : MonoBehaviour
     #region=======================================( Functions )======================================================= //
 
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-    private void Start()
+
+    public virtual void OnActorCreated()
     {
-    
     }
 
-    private void Update()
+    public virtual void OnActorDestroyed()
     {
-    
     }
+
+    public virtual void OnActorEnabled()
+    {
+    }
+
+    public virtual void OnActorDisabled()
+    {
+    }
+
+    public virtual void OnActorUpdate()
+    {
+    }
+
+    public virtual void OnActorFixedUpdate()
+    {
+    }
+    
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+        
+    public virtual void OnStartControl() { }
+
+    public virtual void OnStopControl() { }
 
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
+        
+    public void StartControl(PawnV2 _pawn)
+    {
+        PawnBehaviourUtils.ControlPawnWithTargetPawnController(_pawn, this);
+    }
+        
+    public void StopControl()
+    {
+        PawnBehaviourUtils.RemoveControlFromPawn(ControlledPawn);
+    }
 
 
     #endregion
