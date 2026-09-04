@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>9.0</LangVersion>
@@ -56,7 +56,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGModelInspector.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/ToolStripVariant.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/ShapeEditorBrushInspector.cs" />
-     <Compile Include="Assets/Resources/Scripts/ErryLib/ReflectionUtils/Editor/MonoScriptReader.cs" />
      <Compile Include="Assets/RivenFramework-Revamp/Editor/SceneReferenceDrawer.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerItems.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/PreviewIcons.cs" />
@@ -73,7 +72,6 @@
      <Compile Include="Assets/_PoiyomiShaders/Translators/Editor/LiltoonToPoiyomiProTranslation.cs" />
      <Compile Include="Assets/Resources/Scripts/CorGeo/GeoGun/Editor/CSGMeshCombinerTool.cs" />
      <Compile Include="Assets/_PoiyomiShaders/Scripts/Editor/ButtonVector.cs" />
-     <Compile Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor/StringAsGUIDAttributePropertyDrawer.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Compatibility/Editor/UnityEventDrawer.cs" />
      <Compile Include="Assets/SimpleLightProbePlacer/Editor/LightProbeVolumeEditor.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CSGBuildContextInspector.cs" />
@@ -95,7 +93,6 @@
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Utilities/UtilityShortcuts.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors/CompoundBrushInspector.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Editor/ExpandPropertiesDrawer.cs" />
-     <Compile Include="Assets/RivenFramework-Revamp/__ERRYNEI/Editor/FetchComponentAttributeHandler.cs" />
      <Compile Include="Assets/RivenFramework/Scripts/Editor/ToolFrameworkManagerProps.cs" />
      <Compile Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Editor/ShaderGUI/LCDDisplayBaseShaderGUI.cs" />
      <Compile Include="Assets/Packages/SabreCSG-master/Scripts/Brushes/CompoundBrushes/Editor/CurvedStairBrushInspector.cs" />
@@ -105,7 +102,6 @@
      <Folder Include="Assets/_PoiyomiShaders/Scripts/Editor" />
      <Folder Include="Assets/Packages/SabreCSG-master/Scripts/Editor/Inspectors" />
      <Folder Include="Assets/SimpleLightProbePlacer/Editor" />
-     <Folder Include="Assets/RivenFramework-Revamp/__ERRYNEI/Editor" />
      <Folder Include="Assets/Resources/Materials/Skyboxes/IMS/LCD Display/Editor/ShaderGUI/Shaders" />
      <Folder Include="Assets/Resources/Scripts/CorGeo/EditorTools/Editor" />
      <Folder Include="Assets/Resources/Scripts/ErryLib/CoreAttributes/Editor" />
@@ -880,6 +876,9 @@
      <Reference Include="Unity.ProBuilder">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
      </Reference>
+     <Reference Include="MarkupAttributes.Runtime">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/MarkupAttributes.Runtime.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
@@ -948,6 +947,9 @@
      </Reference>
      <Reference Include="Unity.Localization.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.Localization.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="MarkupAttributes.Editor">
+     <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/MarkupAttributes.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.PixelPerfect.Editor">
      <HintPath>/home/lizband/Desktop/Repositories/CorridorGeodesic/RivenFramework-Unity/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
@@ -1157,9 +1159,9 @@
       <Project>{ec852276-3d53-f747-e36f-c458a8895ac1}</Project>
       <Name>Dreamteck.Utilities.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="NewRivenFramework.Utils.Reflection.csproj">
-      <Project>{1170386e-0a22-3bed-4fa5-4cb3fe186005}</Project>
-      <Name>NewRivenFramework.Utils.Reflection</Name>
+    <ProjectReference Include="TodoWindow.csproj">
+      <Project>{89dd02bc-3cdf-e2a5-c2c4-bcc4fe7f55b6}</Project>
+      <Name>TodoWindow</Name>
     </ProjectReference>
     <ProjectReference Include="Neverway.Framework.LogicSystem.csproj">
       <Project>{ec2bcf95-64bf-125f-d106-ec12a8016db9}</Project>
@@ -1168,10 +1170,6 @@
     <ProjectReference Include="Neverway.Framework.PawnManagement.csproj">
       <Project>{c00b49fd-84e5-8bb7-74b4-255afb71d1f6}</Project>
       <Name>Neverway.Framework.PawnManagement</Name>
-    </ProjectReference>
-    <ProjectReference Include="NewCoreAttributes.csproj">
-      <Project>{a7eeff26-8f40-cb4d-02ba-0dd3710e597d}</Project>
-      <Name>NewCoreAttributes</Name>
     </ProjectReference>
     <ProjectReference Include="ThryExternal.csproj">
       <Project>{61607326-c513-f3b2-f29d-767985258735}</Project>
