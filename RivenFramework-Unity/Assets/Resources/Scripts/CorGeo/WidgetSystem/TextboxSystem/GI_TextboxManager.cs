@@ -25,7 +25,7 @@ public class GI_TextboxManager : MonoBehaviour
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
-    [Box] public TextEvent currentTextEvent;
+    [ErryBox] public TextEvent currentTextEvent;
     public bool HasActiveTextEvent => textEventActive;
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/

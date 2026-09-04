@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using RivenFramework;
 
 [CustomPropertyDrawer(typeof(DebugDisplayListAsStringsAttribute), useForChildren: false)]
 public class DebugDisplayListAsStringsAttributeDrawer : PropertyDrawer
