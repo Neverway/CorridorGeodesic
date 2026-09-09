@@ -28,10 +28,7 @@ public class Logic_VolumeSliceable : MonoBehaviour
     [Tooltip ("This event will only fire when last one leaves")]
     public UnityEvent onFirstUnoccupied;
 
-    //todo: On rift create/destroy events, call GetAllMeshes on the sliceable, and then get VolumeTriggers from those.
-    // Then we can determine wether to send the OnFirstOccupied/OnFirstUnoccupied events from this script
-    // which will then trigger logic.
-    // Q: HOW do I trigger logic properly??
+    
 
     //=-----------------=
     // Private Variables
