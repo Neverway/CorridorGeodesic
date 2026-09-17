@@ -9,6 +9,7 @@ using UnityEngine;
 public class LevelOrganizer : ScriptableObject
 {
     public List<LevelSetGroup> LevelSetGroups;
+    public List<string> BuildListGroupIds = new List<string>();
 }
 
 /// <summary>
@@ -40,6 +41,7 @@ public class LevelSet
 public class LevelSetGroup
 {
     public string name;
+    public string id = Guid.NewGuid().ToString();
     [TextArea] public string description;
     public List<LevelSet> levelSets;
 }

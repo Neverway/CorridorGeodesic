@@ -13,7 +13,31 @@ MonoBehaviour:
   m_Name: LevelOrganizer
   m_EditorClassIdentifier: 
   LevelSetGroups:
+  - name: Application Startup
+    id: b603973c-a500-43d7-a6ad-fc47372bd15d
+    description: These are the core system levels required to be first in the load
+      order for the game to start up correctly.
+    levelSets:
+    - name: Initialization
+      description: 
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: f2b66097ac8552b7488e509da76d407f, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 6d54de344b112fe249c33640be011733, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 1bc387d3c6194ed07a958cc17c1d8f6f, type: 3}
+        sceneName: 
+    - name: Transitions And Fallbacks
+      description: 
+      levels:
+      - sceneAsset: {fileID: 102900000, guid: 14a02b9e90d5afbeba9f26630151b735, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 3d55e095c761fe63c840ee64713ab510, type: 3}
+        sceneName: 
+      - sceneAsset: {fileID: 102900000, guid: 1711274c2723a1632a3217b3d3d86e07, type: 3}
+        sceneName: 
   - name: Liz's Demo
+    id: 6ff81982-8fb7-4e3b-a6e0-2dd1c14fc74b
     description: Lizband's concept for what the first chapter of the game would play
       like.
     levelSets:
@@ -25,19 +49,19 @@ MonoBehaviour:
         their own spacial distorion devices to aid in their decent. They just have
         to regroup at the end of their tracks to get to the level 2 station.
       levels:
-      - sceneAsset: {fileID: 0}
+      - sceneAsset: {fileID: 102900000, guid: e4de16c657ad4d25cb0b0daa06735b5e, type: 3}
         sceneName: 
-      - sceneAsset: {fileID: 0}
+      - sceneAsset: {fileID: 102900000, guid: fe432255630ee6708961d4e2bd1b1e29, type: 3}
         sceneName: 
-      - sceneAsset: {fileID: 0}
+      - sceneAsset: {fileID: 102900000, guid: 6bf4f687f515393479c7f23ddcfac9a6, type: 3}
         sceneName: 
-      - sceneAsset: {fileID: 0}
+      - sceneAsset: {fileID: 102900000, guid: e0b41e36da85b390386471edc1e06cae, type: 3}
         sceneName: 
-      - sceneAsset: {fileID: 0}
+      - sceneAsset: {fileID: 102900000, guid: 1cc94a4f7c93ee91488cb04b351767df, type: 3}
         sceneName: 
-      - sceneAsset: {fileID: 0}
+      - sceneAsset: {fileID: 102900000, guid: fb3d83e78eed3a98f93d27c5accd1855, type: 3}
         sceneName: 
-      - sceneAsset: {fileID: 0}
+      - sceneAsset: {fileID: 102900000, guid: 6e425be59df78d7118636e0ac1fa1b1b, type: 3}
         sceneName: 
       - sceneAsset: {fileID: 0}
         sceneName: 
@@ -65,6 +89,7 @@ MonoBehaviour:
       - sceneAsset: {fileID: 0}
         sceneName: 
   - name: Connorses
+    id: 57246c3c-1de0-4395-be11-a5dbebed79d0
     description: Pinned maps by Connorses
     levelSets:
     - name: 
@@ -87,6 +112,7 @@ MonoBehaviour:
       - sceneAsset: {fileID: 102900000, guid: d4690df80877c4347b8aa5aaba33988c, type: 3}
         sceneName: 
   - name: Errynei
+    id: 709bdc5b-1a20-4d7d-8995-e5885829afef
     description: Pinned maps by Errynei
     levelSets:
     - name: 
@@ -112,6 +138,7 @@ MonoBehaviour:
       - sceneAsset: {fileID: 102900000, guid: a056e626de11bf94e9e8a03561181e58, type: 3}
         sceneName: 
   - name: Linear Mechanics Showcase
+    id: 2bd2144a-b444-4821-b311-4f5baf8e7244
     description: This is every majour game mechanic presented one at a time in the
       most barebones way. THESE ARE NOT ACTUAL PUZZLES, just a showcase of the mechanics
       presented as straight forward as possible.
@@ -144,6 +171,7 @@ MonoBehaviour:
       - sceneAsset: {fileID: 102900000, guid: 46c69bbf858e7f0069a809573b0019af, type: 3}
         sceneName: 
   - name: Minimal Examples
+    id: 57c47ab4-179c-4f54-99e7-fab5ee335cfc
     description: These are one off examples to showcase ideas for environments, mechanics,
       or anything else.
     levelSets:
@@ -177,6 +205,7 @@ MonoBehaviour:
       - sceneAsset: {fileID: 102900000, guid: 7b607f3cbb75945f289fdee662fe770c, type: 3}
         sceneName: 
   - name: Original DevGamm Demo
+    id: de9eecf9-886f-41db-a910-ac239c76c60b
     description: The original demo levels that we presented at Dev Gamm 2024. These
       are just for reference to compare against what we have now and are pretty borked.
     levelSets:
@@ -213,3 +242,6 @@ MonoBehaviour:
         sceneName: 
       - sceneAsset: {fileID: 102900000, guid: 630595910d9df0786bba0b379c30fe76, type: 3}
         sceneName: 
+  BuildListGroupIds:
+  - b603973c-a500-43d7-a6ad-fc47372bd15d
+  - 6ff81982-8fb7-4e3b-a6e0-2dd1c14fc74b

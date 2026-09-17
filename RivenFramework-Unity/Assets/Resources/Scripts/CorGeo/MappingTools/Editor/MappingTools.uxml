@@ -1,11 +1,23 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/Resources/Scripts/CorGeo/MappingTools/Editor/MappingTools.uss?fileID=7433441132597879392&amp;guid=be0095d4787790259b41d00f8e82f8e9&amp;type=3#MappingTools" />
     <uie:Toolbar style="height: 30px;">
+        <ui:Button text="Maps" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MapsButton" tooltip="The current levels status" />
         <ui:Button text="Level Status" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LevelStatusButton" tooltip="The current levels status" />
         <ui:Button text="Mapper Assets" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MapperAssetsButton" tooltip="The assets used within the maps" />
         <ui:Button text="Project Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ProjectSettingsButton" tooltip="The mapping tools settings for the current project (Please don&apos;t edit unless you know what you are doing! )" />
         <ui:Button text="Help" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HelpButton" tooltip="Hotkeys and hints" />
     </uie:Toolbar>
+    <ui:VisualElement name="MapsGroup" style="flex-grow: 1; flex-direction: row; display: none; min-height: auto; height: auto;">
+        <ui:VisualElement name="MapsSidebar" style="width: 200px; flex-shrink: 0; flex-grow: 0; border-right-width: 1px; border-right-color: rgba(0, 0, 0, 0.4); max-height: none; min-height: auto; height: auto;">
+            <ui:ScrollView name="MapsSidebarScroll" style="flex-grow: 1;">
+                <ui:VisualElement name="MapsSidebarContent" style="padding-top: 6px; padding-left: 6px; padding-right: 6px; padding-bottom: 6px;" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:VisualElement name="MapsSidebarSplitter" class="maps-sidebar-splitter" />
+        <ui:ScrollView name="MapsContentScroll" style="flex-grow: 1; min-height: auto; height: auto;">
+            <ui:VisualElement name="MapsContent" style="padding-top: 8px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px;" />
+        </ui:ScrollView>
+    </ui:VisualElement>
     <ui:VisualElement name="LevelStatusGroup" style="flex-grow: 1;">
         <ui:Label tabindex="-1" text="Level Status" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="white-space: normal; text-overflow: ellipsis; -unity-font-style: bold; font-size: 16px; align-items: center; align-self: center; visibility: visible; display: none;" />
         <ui:VisualElement name="Spacer" style="height: 10px;" />
@@ -44,9 +56,14 @@
     </ui:VisualElement>
     <ui:VisualElement name="ProjectSettings" style="flex-grow: 1;">
         <ui:Label tabindex="-1" text="Project Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="white-space: normal; text-overflow: ellipsis; -unity-font-style: bold; font-size: 16px; align-items: center; align-self: center; display: none;" />
+        <ui:Label tabindex="-1" text="Maps" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold;" />
+        <ui:Label tabindex="-1" text="This is the Scriptable Object that represents the scenes in this project. If one does not exist, you can create one in the Project window via the right click context menu Create&gt;Maps&gt;Level Organizer" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal;" />
+        <uie:ObjectField label="Level Organizer" name="LevelOrganizerField" binding-path="m_LevelOrganizer" style="margin-bottom: 4px; padding-bottom: 5px;" />
+        <ui:Label tabindex="-1" text="This is the scene that will be used as the template when creating new maps in the Maps tab" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal;" />
+        <uie:ObjectField label="Template Map Scene" name="TemplateMapSceneField" binding-path="m_TemplateMapScene" tooltip="Used by New Map From Template in the Maps tab." style="margin-bottom: 10px; padding-bottom: 25px;" />
         <ui:Label tabindex="-1" text="Required Level Objects" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold;" />
         <ui:Label tabindex="-1" text="This is a list of all objects that this project requires to be present in a level" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal;" />
-        <ui:ListView focusable="true" binding-path="m_RequiredLevelObjects" header-title="Required Level Objects" reorderable="true" show-border="true" show-add-remove-footer="true" name="RequiredLevelObjectsList" virtualization-method="DynamicHeight" horizontal-scrolling="false" show-foldout-header="true" show-alternating-row-backgrounds="ContentOnly" fixed-item-height="50" style="min-height: auto; max-height: none; flex-grow: 0; align-self: stretch; justify-content: space-around;" />
+        <ui:ListView focusable="true" binding-path="m_RequiredLevelObjects" header-title="Required Level Objects" reorderable="true" show-border="true" show-add-remove-footer="true" name="RequiredLevelObjectsList" virtualization-method="DynamicHeight" horizontal-scrolling="false" show-foldout-header="true" show-alternating-row-backgrounds="ContentOnly" fixed-item-height="50" style="min-height: auto; max-height: none; flex-grow: 0; align-self: stretch; justify-content: space-around; padding-bottom: 25px;" />
         <ui:Label tabindex="-1" text="Assets" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold;" />
         <ui:Label tabindex="-1" text="This is a list of label groups to sort what assets a mapper would need access to, like &quot;Materials&quot;, &quot;Props&quot;, &quot;FXs&quot; etc" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal; width: 263px;" />
         <ui:ListView focusable="true" binding-path="m_AssetLabels" header-title="Asset List Labels" reorderable="true" show-border="true" show-add-remove-footer="true" name="AssetLabelsList" virtualization-method="DynamicHeight" fixed-item-height="50" show-foldout-header="true" horizontal-scrolling="false" show-alternating-row-backgrounds="ContentOnly" style="min-height: auto; max-height: none; justify-content: space-around; align-self: stretch;" />
