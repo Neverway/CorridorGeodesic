@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8b9d576c-8117-4d7e-8fa7-0b8bfa847ac8}">
+		<property name="assetPath">
+			<value>SFX/Components/Turret/freesound_community-wind-up2-106350.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.67200000000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{63007b99-592d-4383-a7bc-2a8ac9b3b2e2}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -11,7 +11,7 @@ using RivenFramework;
 using System;
 using UnityEngine;
 
-public class GI_DevMenu : GameInstanceModule
+public class GI_DevMenu : MonoBehaviour
 {
     #region========================================( Variables )======================================================//
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/

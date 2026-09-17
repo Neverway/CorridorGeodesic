@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnabled: 0
   eventReference:
     Guid:
       Data1: 2103947958
@@ -386,6 +387,7 @@ MonoBehaviour:
       Data3: -1315997555
       Data4: 1272214290
     Path: event:/SFX/Components/FloorButtonOff
+  attached: {fileID: 0}
 --- !u!114 &3104058321805530059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71125d2527a7624aa21a6d5fbf0c7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnEnabled: 0
   eventReference:
     Guid:
       Data1: 1369429199
@@ -405,6 +408,7 @@ MonoBehaviour:
       Data3: 814966693
       Data4: -2074894290
     Path: event:/SFX/Components/FloorButtonOn
+  attached: {fileID: 0}
 --- !u!4 &7802911386279340665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7523103261031074282, guid: f373739b7ac0de4adab86f232ece16c9,

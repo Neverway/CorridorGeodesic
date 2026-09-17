@@ -26,6 +26,7 @@ public class Logic_PhysSocket : MonoBehaviour
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     private bool socketJointWasConnected;
+    public bool socketIsInvulnerable;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
@@ -65,6 +66,17 @@ public class Logic_PhysSocket : MonoBehaviour
             Destroy(brokenFX, destroyBrokenFXAfter);
             connectedBody = null;
         }
+
+        if (socketIsInvulnerable && socketJoint != null)
+        {
+            socketJoint.breakTorque = Single.PositiveInfinity;
+            socketJoint.breakForce = Single.PositiveInfinity;
+        }
+        else if (!socketIsInvulnerable && socketJoint != null)
+        {
+            socketJoint.breakTorque = referenceJoint.breakTorque;
+            socketJoint.breakForce = referenceJoint.breakForce;
+        }
     }
 
 
@@ -97,7 +109,10 @@ public class Logic_PhysSocket : MonoBehaviour
     
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
-
+    public void SetSocketInvulnerability(bool _socketInvulnerable)
+    {
+        socketIsInvulnerable = _socketInvulnerable;
+    }
 
     #endregion
 }

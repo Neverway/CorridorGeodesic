@@ -7,7 +7,10 @@
 //
 //====================================================================================================================//
 
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using DG.Tweening;
 using RivenFramework;
 using Unity.VisualScripting;
@@ -23,9 +26,18 @@ public class RiftManager : MonoBehaviour, ILoggable
     /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
     [field: SerializeField] public bool EnableRuntimeLogging { get; set; }
     
+    
+    
     [Header("RIFT SETTINGS")] 
+    
+    public List<RiftTestValues> riftTests;
+    public float delay = 1;
+    public bool loopTest;
+    
     [Tooltip("Creates a rift when the two marker transform variables are set")]
     [SerializeField] private bool createRiftOnMarkersPinned;
+    [Tooltip("When a rift is created, this is the amount to inset the rift planes to avoid z-fighting")]
+    public static float riftPlaneMarkerCreationOffset = 0.15f;
     [Header("Size")]
     [Tooltip("Max size a rift can *expand* to in worldspace units")]
     [SerializeField] private float maxRiftWidth = 30;
@@ -67,19 +79,28 @@ public class RiftManager : MonoBehaviour, ILoggable
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-    private bool riftActive;
+    [Tooltip("This flag is used to prevent the rift controller from changing the rift state until after the rift has finished being created")]
+    public bool riftActive;
+    [Tooltip("This flag is used when the rift is being created to avoid re-firing the creation process")]
+    private bool isCreatingRift;
 
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Header("HELPER CLASSES")] 
     [Tooltip("Handles the rift states")]
-    [Box] public RiftManager_StateHandler stateHandler;
+    [ErryBox] public RiftManager_StateHandler stateHandler;
     [Tooltip("Controls space containers and rift movement")]
-    [Box] public RiftManager_SpaceController spaceController;
+    [ErryBox] public RiftManager_SpaceController spaceController;
     [Tooltip("Handles rift positioning and mesh slicing")]
-    [Box] public RiftManager_GeometryHandler geometryHandler;
+    [ErryBox] public RiftManager_GeometryHandler geometryHandler;
     [Tooltip("Handles actor restoring")]
-    [Box] public RiftManager_ActorHandler actorHandler;
+    [ErryBox] public RiftManager_ActorHandler actorHandler;
+
+    [Header("RIFT EXTERNAL CONTEXT MANAGER")]
+    [Tooltip(
+        "The RiftContext is a component that holds references to all of the important information about the current rift. " +
+        "I originally created it to make it easier for me to latch the voxel system on to the rift")]
+    public RiftContext riftContext;
     
     [Header("REFERENCES")]
     [Tooltip("The positions where the rift planes will be created")]
@@ -110,13 +131,14 @@ public class RiftManager : MonoBehaviour, ILoggable
         geometryHandler = new RiftManager_GeometryHandler(this, spaceController);
         spaceController.geometryHandler = geometryHandler;
         actorHandler = new RiftManager_ActorHandler(this);
+        riftContext = GetComponent<RiftContext>();
         SceneManager.activeSceneChanged += OnSceneChanged;
     }
 
     private void FixedUpdate()
     {
         // Create rift when markers pinned
-        if (createRiftOnMarkersPinned && IsMarkersPinned() && stateHandler.IsState<RiftState_None>())
+        if (createRiftOnMarkersPinned && IsMarkersPinned() && stateHandler.IsState<RiftState_None>() && !isCreatingRift)
         {
             CreateRift(markerA, markerB);
         }
@@ -192,6 +214,12 @@ public class RiftManager : MonoBehaviour, ILoggable
         {
             stateHandler.SetState<RiftState_DestroyRestoring>();
         }
+        if (!riftContext)
+        {
+            this.Log("The rift context is missing from the rift manager! This will cause certain systems like the voxel system to fail!");
+            return;
+        }
+        riftContext.DeactivateRift();
     }
 
     /// <summary>
@@ -201,7 +229,27 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// </summary>
     private void OnSceneChanged(Scene current, Scene next)
     {
-        stateHandler.SetState<RiftState_Destroy>();
+        DestroyRiftImmediate();
+    }
+
+    /// <summary>
+    /// Update the rift context to reflect the current rift state
+    /// </summary>
+    private void UpdateRiftContext()
+    {
+        if (!riftContext)
+        {
+            this.Log("The rift context is missing from the rift manager! This will cause certain systems like the voxel system to fail!");
+            return;
+        }
+        
+        Plane currentPlaneB = new Plane(cutPlaneB.normal, geometryHandler.visualPlaneB.transform.position);
+        
+        Vector3 originalPlaneBPoint = -cutPlaneB.normal * cutPlaneB.distance;
+        // How far B-Space has moved from its stable-space position
+        Vector3 bSpaceShift = spaceController.spaceContainerB.transform.position - originalPlaneBPoint;
+        
+        riftContext.UpdateRift(_active: riftActive, _planeA: cutPlaneA, _planeB: currentPlaneB, _NSpaceScale: currentRiftPercent, _NSpaceScalePivot: riftNullSpaceStartingPosition, _BSpaceShift: bSpaceShift);
     }
     
 
@@ -209,34 +257,43 @@ public class RiftManager : MonoBehaviour, ILoggable
     /// <summary>
     /// Slice the world and assign all objects to space containers
     /// </summary>
-    public async void CreateRift(Transform _markerA, Transform _markerB)
+    public async Task CreateRift(Transform _markerA, Transform _markerB)
     {
-        //GameInstance.Get<GI_ReplayEventTimeline>().RecordThisEvent(this, new object[]{ _markerA, _markerB });
+        if (isCreatingRift) return;
+        isCreatingRift = true;
+        markerA = _markerA;
+        markerB = _markerB;
         
         this.Log($"CreateRift called (_markerA: '{_markerA}', _markerB: '{_markerB}')");
-        stateHandler.SetState<RiftState_Preview>();
         geometryHandler.SetRiftPlanesVisible(true);
         geometryHandler.PositionCutPlanes(_markerA, _markerB);
         await geometryHandler.PerformCutProcedure();
         spaceController.ReparentGeometryToSpaceContainers();
         spaceController.ReparentActorsToSpaceContainers();
-        riftActive = true;
+        stateHandler.SetState<RiftState_Preview> ();
+
+        isCreatingRift = false;
     }
 
     /// <summary>
     /// Unslice the world and remove objects from space containers
     /// This version is used by the rift gun controller so that it properly cleans up its markers
     /// </summary>
-    public void DestroyRiftExternal()
+    public void DestroyRiftImmediate()
     {
-        if (markerA)
+        if (createRiftOnMarkersPinned)
         {
-            Destroy(markerA.gameObject);
+            if (markerA)
+            {
+                Destroy(markerA.gameObject);
+            }
+            if (markerB)
+            {
+                Destroy(markerB.gameObject);
+            }
         }
-        if (markerB)
-        {
-            Destroy(markerB.gameObject);
-        }
+        markerA = null;
+        markerB = null;
         stateHandler.SetState<RiftState_Destroy>();
     }
 
@@ -316,7 +373,10 @@ public class RiftManager : MonoBehaviour, ILoggable
         }
         
         // Some sort of fallback to avoid a bug... I know I added this here for some important reason, I'm sure ~Liz
-        if (!geometryHandler.visualPlaneB || !spaceController.spaceContainerNull)
+        // Okay, so this code is here to avoid throwing an error when the rift is cleared on player death, BUT
+        // only when the rift has NEVER been created before. It was missing a check for visualPlaneA which was causing a very rare bug
+        // if the player somehow died without ever creating a rift.
+        if (geometryHandler.VisualPlanesExist is false || spaceController.spaceContainerNull == null)
         {
             Debug.LogWarning($"Attempted to set rift percentage, but the space containers were missing! spn = {spaceController.spaceContainerNull}");
             return;
@@ -334,6 +394,8 @@ public class RiftManager : MonoBehaviour, ILoggable
         // Actually, this line needs to be last to avoid the geometry being one step behind the actual rift percentage
         // That one-step delay is fine for the actors though, since it's nearly unnoticeable ~Liz
         spaceController.MoveGeometryWithRift();
+        
+        UpdateRiftContext();
     }
 
     /// <summary>
@@ -343,13 +405,51 @@ public class RiftManager : MonoBehaviour, ILoggable
     {
         this.Log($"RegisterRiftController called (_linkedRiftController: '{_linkedRiftController}')");
         linkedRiftController = _linkedRiftController;
-        //linkedRiftController.isLinkedToManager = true; 
+        linkedRiftController.isLinkedToManager = true; 
         linkedRiftController.OnCollapseHeld += () => collapseHeld = true;
         linkedRiftController.OnCollapseReleased += () => collapseHeld = false;
         linkedRiftController.OnExpandHeld += () => expandHeld = true;
         linkedRiftController.OnExpandReleased += () => expandHeld = false;
     }
 
+    public async Task ForceCreateRiftImmediate(Transform _markerA, Transform _markerB, float _riftCollapsePercentage)
+    {
+        DestroyRiftImmediate();
+        await CreateRift(_markerA, _markerB);
+        SetRiftPercentage(_riftCollapsePercentage);
+    }
+
+    public IEnumerator TestRiftFast()
+    {
+        bool previousValue = createRiftOnMarkersPinned;
+        createRiftOnMarkersPinned = false;
+        
+        foreach (var riftTest in riftTests)
+        {
+            var task = ForceCreateRiftImmediate(riftTest.markerA, riftTest.markerB, riftTest.riftCollapsePercentage);
+            while (!task.IsCompleted) yield return null;
+            yield return new WaitForSeconds(delay);
+        }
+        if (!loopTest) DestroyRiftImmediate();
+        
+        createRiftOnMarkersPinned = previousValue;
+        
+        if (loopTest) StartCoroutine(TestRiftFast());
+    }
+
+    [ContextMenu("Test Rift Fast!!!")]
+    public void Test()
+    {
+        StartCoroutine(TestRiftFast());
+    }
+
+    [Serializable]
+    public struct RiftTestValues
+    {
+        public Transform markerA;
+        public Transform markerB;
+        public float riftCollapsePercentage;
+    }
     
     
     

@@ -38,6 +38,11 @@ public abstract class RiftController : Item
     public abstract event Action OnExpandHeld;
     [Tooltip("Subscribed to by rift manager to tell when controller wants to stop expanding")]
     public abstract event Action OnExpandReleased;
+    
+    
+    [Tooltip("This is set by a rift manager when it has latched onto this gun, " +
+             "it's used to avoid multiple rift managers all trying to fight over the same gun link")]
+    public bool isLinkedToManager;
 
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/

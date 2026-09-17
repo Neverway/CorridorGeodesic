@@ -5,6 +5,7 @@
 //
 //=============================================================================
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,7 +35,7 @@ public class FPPawn : Pawn
     
     [HideInInspector] public Rigidbody physicsbody;
     [SerializeField] public GameObject interactionPrefab;
-
+    [SerializeField] public GameObject bodyCollider;
 
     //=-----------------=
     // Mono Functions
@@ -47,9 +48,17 @@ public class FPPawn : Pawn
 
         defaultStats = FPDefaultStats;
         currentStats = (FPPawnStats)FPDefaultStats.Clone(); // Don't forget to clone so that you don't overwrite the pawns default values! ~Liz
-        action = FPaction;
+        action = new FPPawnActions();
     }
-    
+/*
+    public void LateUpdate()
+    {
+        foreach (var pauseLock in pauseLocks)
+        {
+            if (pauseLock == null) pauseLocks.Remove(pauseLock);
+        }
+    }*/
+
 
     //=-----------------=
     // Internal Functions

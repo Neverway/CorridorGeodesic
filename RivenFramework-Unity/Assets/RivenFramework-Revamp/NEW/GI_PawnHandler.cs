@@ -1,0 +1,62 @@
+//==========================================( Neverway 2026 )=========================================================//
+// Author
+//  Liz M.
+//
+// Contributors
+// 
+//
+//====================================================================================================================//
+
+using System;
+using System.Collections.Generic;
+using RivenFramework;
+using UnityEngine;
+
+/// <summary>
+/// Handles the spawning and possession of controllable actors (Known as pawns) and main camera follow targets
+/// </summary>
+[Serializable]
+[GIModuleColor(_color: GIModuleColors.Blue)]
+public class GI_PawnHandler : GameInstanceModule
+{
+    #region========================================( Variables )======================================================//
+    /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+
+
+    /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+
+
+    /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+
+
+    /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
+    [Header("Project Configuration")]
+    [Tooltip("This is the prefab for the main view camera object that the game renders to. One should always be present while the game is running.")]
+    public GameObject viewCameraPrefab;
+    
+    [Header("Debugging")]
+    [Tooltip("This is a reference to the main camera the local player sees from. If this is currently null, a new viewCameraPrefab object will be created and fill in this field.")]
+    public Camera viewCamera;
+    [Tooltip("This is a reference to the pawn in the scene that is currently being controlled by the local player.")]
+    public Pawn localPlayerPawn;
+    [Tooltip("A list of all pawns that are currently loaded, and have registered themselves to the pawn handler (which should be all of them unless something broke)")]
+    public List<Pawn> cachedPawns;
+
+
+
+    #endregion
+
+
+    #region=======================================( Functions )======================================================= //
+
+    /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
+
+
+    /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+
+
+    /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
+
+
+    #endregion
+}

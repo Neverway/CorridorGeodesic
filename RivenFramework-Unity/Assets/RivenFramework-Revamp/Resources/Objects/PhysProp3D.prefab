@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 726477608101505362}
   - component: {fileID: 2239570212592696948}
   - component: {fileID: 6818695576328092640}
+  - component: {fileID: 5671819528097564015}
   - component: {fileID: 1934578342547201172}
   m_Layer: 13
   m_Name: PhysProp3D
@@ -40,6 +41,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5037712810517983477}
+  - {fileID: 7586129401834304995}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3954347698123193828
@@ -57,6 +59,7 @@ MonoBehaviour:
   id: PhysProp3D
   displayName: Phys Prop3D
   uniqueId: 
+  groups: []
 --- !u!54 &7267226283918966251
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -121,13 +124,14 @@ MonoBehaviour:
   isParentedIgnoreOffsets: 0
   activeInNullSpace: 0
   destroyedInKillTrigger: 1
+  scaleInNullSpace: 1
   debugLogSpaceData: 0
   homePosition: {x: 0, y: 0, z: 0}
   homeScale: {x: 0, y: 0, z: 0}
   homeParent: {fileID: 0}
   isHeld: 0
   wasActive: 0
-  space: 0
+  riftSpace: 0
 --- !u!114 &8039075810331489572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +296,29 @@ MonoBehaviour:
   - {x: 0, y: 9999}
   - {x: 8, y: 9999}
   - {x: 25, y: 24}
+--- !u!114 &5671819528097564015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2276721478425129573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f44c8fe24e20b6879cb09256dc6e86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactThreshold: 5
+  repeatDelay: 0.2
+  impactEffect: {fileID: 4490617955887191091, guid: 7a1c613770873d548bd785d3c2c2a54d,
+    type: 3}
+  impactSound:
+    Guid:
+      Data1: 1784229098
+      Data2: 1236084974
+      Data3: 197885845
+      Data4: 1037337918
+    Path: event:/SFX/Physics/MetalImpact
 --- !u!114 &1934578342547201172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +339,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   breakableAnchorPin: {fileID: 0}
+  allowGrabbingWhileStuck: 0
   isHeld: 0
   propRigidbody:
     editorHandles_showHandle: 0
@@ -324,6 +352,50 @@ MonoBehaviour:
   componentsDisabledOnHeld:
   - {fileID: 726477608101505362}
   - {fileID: 2239570212592696948}
+--- !u!1 &3549275580920456424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7586129401834304995}
+  - component: {fileID: 5043185530414128886}
+  m_Layer: 11
+  m_Name: ExternalLookAtTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7586129401834304995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549275580920456424}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.193, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6860228584438697348}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5043185530414128886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549275580920456424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e057e7262f1212683a849a0d82c13640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4783724821653919518
 PrefabInstance:
   m_ObjectHideFlags: 0

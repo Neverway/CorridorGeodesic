@@ -26,6 +26,7 @@ namespace Neverway.Framework
         // Reference Variables
         //=-----------------=
         private CameraManager cameraManager;
+        private Camera activeRenderingCamera;
 
 
         //=-----------------=
@@ -45,10 +46,14 @@ namespace Neverway.Framework
                 return;
             }
 
-            if (cameraManager.GetActiveRenderingCamera())
+            if (!activeRenderingCamera)
             {
-                transform.LookAt(cameraManager.GetActiveRenderingCamera().transform.position, cameraManager.GetActiveRenderingCamera().transform.up);
+                activeRenderingCamera = cameraManager.GetActiveRenderingCamera();
+                return;
             }
+            
+            
+            transform.LookAt(activeRenderingCamera.transform.position, activeRenderingCamera.transform.up);
         }
 
         //=-----------------=

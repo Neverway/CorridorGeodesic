@@ -72,17 +72,34 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0.5
+    - _AttenuationPowerrr: 0.24
     - _BumpScale: 1
     - _ColorOnly: 0
     - _CullMode: 2
     - _DetailProminence: 0.81
+    - _EmissionDivision: 1
+    - _GIIntensity: 0
     - _Glossiness: 1
     - _Metallic: 0.69
     - _Parallax: 0.025
+    - _ProbeBias: 0.1
+    - _ProbeLightingOn: 0
     - _RampSmoothness: 0.1
     - _SpecularMode: 0
     - _SpecularStrength: 0.5
+    - _StencilComp: 8
+    - _StencilFail: 0
+    - _StencilPass: 0
+    - _StencilReadMask: 255
+    - _StencilRef: 0
+    - _StencilWriteMask: 255
+    - _StencilZFail: 0
+    - _ToonLight: 0
+    - _ToonLightSmoothness: 0
+    - _ToonLightThreshold: 0.0001
     - _UseSlice: 0
+    - _ZTest: 4
+    - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0, g: 0, b: 0, a: 0}

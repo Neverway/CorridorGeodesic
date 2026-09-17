@@ -7,6 +7,7 @@
 
 using Sabresaurus.SabreCSG;
 using System;
+using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
@@ -45,7 +46,7 @@ public static class CSG_HotFix_Settings
         *--------------------------------------------------------------------------------------------------------------
      */
     // Changes the [Space] key to toggle between editmode for the last selected CSGMdoel instead of rotating CSGTools
-    public static readonly bool RebindSpaceKeyToToggleCSGEdit = true;
+    public static readonly bool PressTabToToggleEditMode = true;
 
     /* Detailed description of hotfix
         *--------------------------------------------------------------------------------------------------------------
@@ -117,6 +118,7 @@ public static class CSG_HotFix_Settings
 public static class CSG_HotFix_Utility
 {
     public static CSGModel LastEditedCSGModel;
+    public static bool IsCursorOverSceneView => EditorWindow.mouseOverWindow is SceneView;
 
     static CSG_HotFix_Utility()
     {
@@ -126,25 +128,33 @@ public static class CSG_HotFix_Utility
 
     private static void OnSceneGUI(SceneView sceneView)
     {
-        if (CSG_HotFix_Settings.RebindSpaceKeyToToggleCSGEdit)
-            OnHotfix_RebindSpaceKeyToToggleCSGEdit();
+        if (CSG_HotFix_Settings.PressTabToToggleEditMode)
+            OnHotfix_PressTabToToggleCSGEdit();
     }
 
-    private static void OnHotfix_RebindSpaceKeyToToggleCSGEdit()
+    private static void OnHotfix_PressTabToToggleCSGEdit()
     {
         if (LastEditedCSGModel == null)
-            return;
-
+        {
+            LastEditedCSGModel = GameObject.FindObjectOfType<CSGModel>();
+            if (LastEditedCSGModel == null)
+                return;
+        }
 
         //Toggle EditMode on the last edited CSGModel when pressing the toggle CSG edit mode button
         if (IsPressingKey(KeyMappings.Instance.ToggleCSGEditMode))
         {
+            Event.current.Use();
             LastEditedCSGModel.EditMode ^= true; //Toggles
+
+            //I have to do this when using TAB as the key so that you can easily get back in/out of edit mode
+            GUIUtility.keyboardControl = 0;
         }
-            
-
     }
-
+    private static bool IsPressingKey(KeyCode key) =>
+        Event.current.keyCode == key && Event.current.type == EventType.KeyDown;
+    private static bool IsHoldingKey(KeyCode key) =>
+        Event.current.keyCode == key;
     private static bool IsPressingKey(string keyString) =>
         KeyMappings.EventsMatch(Event.current, Event.KeyboardEvent(keyString)) && Event.current.type == EventType.KeyDown;
     private static bool IsHoldingKey(string keyString) =>

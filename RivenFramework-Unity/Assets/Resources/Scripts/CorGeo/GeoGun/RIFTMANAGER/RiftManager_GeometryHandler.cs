@@ -31,6 +31,8 @@ public class RiftManager_GeometryHandler : ILoggable
         this.riftManager = riftManager;
         EnableRuntimeLogging = riftManager.EnableRuntimeLogging;
         this.spaceController = spaceController;
+        
+        if (!VisualPlanesExist) CreateVisualPlanes();
     }
     
     
@@ -59,6 +61,8 @@ public class RiftManager_GeometryHandler : ILoggable
     [Tooltip("")]
     public HashSet<GameObject> cutMeshes = new HashSet<GameObject>();
 
+    public bool VisualPlanesExist => (visualPlaneA != null && visualPlaneB != null);
+
 
     #endregion
 
@@ -78,12 +82,41 @@ public class RiftManager_GeometryHandler : ILoggable
         visualPlaneB = MonoBehaviour.Instantiate(riftManager.visualPlanePrefab, null);
         visualPlaneA.name = "VisPlaneA";
         visualPlaneB.name = "VisPlaneB";
+        
+        visualPlaneA.SetActive(false);
+        visualPlaneB.SetActive(false);
     }
-    
+
     /// <summary>
     /// Find and cut all sliceable meshes that are intersecting with the rift cut planes
     /// </summary>
     private IEnumerator SliceCutPlanes()
+    {
+        List<CorGeo_SliceableMesh> allMeshes = GameObject.FindObjectsOfType<CorGeo_SliceableMesh>().ToList();
+        List<Task> pendingSlices = new List<Task>();
+
+        foreach (var mesh in allMeshes)
+        {
+            if (CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneA, mesh) ||
+                CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneB, mesh))
+            {
+                pendingSlices.Add(mesh.ApplyCuts());
+            }
+            else
+            {
+                mesh.AssignMeshToSpaceLists();
+            }
+        }
+
+        var allSlicesTask = Task.WhenAll(pendingSlices);
+        while (!allSlicesTask.IsCompleted)
+        {
+            yield return null;
+        }
+
+        cutRoutine = null;
+    }
+    /*private IEnumerator SliceCutPlanes()
     {
         this.Log("sliceCutPlanes started");
         
@@ -114,7 +147,7 @@ public class RiftManager_GeometryHandler : ILoggable
         
         cutRoutine = null;
         this.Log("sliceCutPlanes finished");
-    }
+    }*/
 
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
@@ -125,7 +158,7 @@ public class RiftManager_GeometryHandler : ILoggable
     {
         this.Log("SetRiftPlanesVisible called");
         // Do an initial check
-        if (!visualPlaneA && !visualPlaneB) CreateVisualPlanes();
+        if (!VisualPlanesExist) CreateVisualPlanes();
 
         visualPlaneA.SetActive(_isVisible);
         visualPlaneB.SetActive(_isVisible);
@@ -137,9 +170,15 @@ public class RiftManager_GeometryHandler : ILoggable
     public void PositionCutPlanes(Transform _markerA, Transform _markerB)
     {
         this.Log("PositionCutPlanes called");
+        // Inset the target anchor positions to avoid z fighting
+        var directionToB = (_markerB.transform.position - _markerA.transform.position).normalized;
+        var anchorPointA = _markerA.transform.position + directionToB * RiftManager.riftPlaneMarkerCreationOffset;
+        var directionToA = (_markerA.transform.position - _markerB.transform.position).normalized;
+        var anchorPointB = _markerB.transform.position + directionToA * RiftManager.riftPlaneMarkerCreationOffset;
+        
         // Set the positions and rotations of the cut plane objects
-        visualPlaneA.transform.position = _markerA.transform.position;
-        visualPlaneB.transform.position = _markerB.transform.position;
+        visualPlaneA.transform.position = anchorPointA;
+        visualPlaneB.transform.position = anchorPointB;
         
         visualPlaneA.transform.LookAt(_markerB.transform);
         visualPlaneB.transform.LookAt(_markerA.transform);

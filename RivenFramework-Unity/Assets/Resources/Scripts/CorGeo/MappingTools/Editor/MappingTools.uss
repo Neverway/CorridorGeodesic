@@ -1,0 +1,23 @@
+.custom-label {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(68, 138, 255);
+}
+
+.maps-sidebar-header {
+    -unity-font-style: bold;
+    height: 25px;
+}
+
+.maps-sidebar-row {
+    margin-bottom: 1px;
+}
+
+.maps-sidebar-item {
+    -unity-text-align: middle-left;
+    flex-grow: 1;
+}
+
+.maps-sidebar-selected {
+    background-color: rgba(58, 121, 187, 0.5);
+}

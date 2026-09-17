@@ -1,43 +1,33 @@
-//==========================================( Neverway 2025 )=========================================================//
-// Author
-//  Liz M.
-//
-// Contributors
-//
-//
-//====================================================================================================================//
-
-using System.Collections;
-using System.Collections.Generic;
+using MarkupAttributes;
+using System;
 using UnityEngine;
 
-public class TESTTEST : MonoBehaviour
+public class TESTEST : MonoBehaviour
 {
-    #region========================================( Variables )======================================================//
-    /*-----[ Inspector Variables ]------------------------------------------------------------------------------------*/
+
+    [SerializeReference, Polymorphic] public TestClass testClass;
+    [ReadOnly] public int someField;
+
+    [Box("Group")]
+    public int one;
+    [TitleGroup("Group/Nested Group 1")]
+    public int two;
+    public int three;
+    [TitleGroup("Group/Nested Group 2")]
+    public int four;
+    public int five;
 
 
-    /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+}
 
+[Serializable]
+public class TestClass
+{
+    public string test;
+}
 
-    /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
-
-
-    /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
-
-
-    #endregion
-
-
-    #region=======================================( Functions )=======================================================//
-    /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-
-
-    /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
-
-
-    /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
-
-
-    #endregion
+[Serializable]
+public class TestClass2 : TestClass
+{
+    public int testtest;
 }

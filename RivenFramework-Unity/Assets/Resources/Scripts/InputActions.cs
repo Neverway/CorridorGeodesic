@@ -136,6 +136,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Zoom"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e64a1c0-9865-47fc-9290-b90bd4b3d512"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""9e26e9e3-b627-4640-8876-e4e83a80a03d"",
@@ -411,6 +420,39 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""67cda919-373a-4e50-9e73-4dbbcff60113"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""237a7b08-5547-4344-a2fe-32f03637bb2a"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""2095ce88-8c49-475c-ba4f-68a6292c6c81"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""fc842cb0-450d-4369-9907-fcd8ab7047fc"",
                     ""path"": ""<Keyboard>/ctrl"",
@@ -605,6 +647,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dca9f5c8-30eb-4655-a689-7f5b439e3eaf"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Zoom"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b98ff3d9-2c61-4d20-8117-025252c33d5a"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -2736,6 +2800,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_FirstPerson_ItemAction3 = m_FirstPerson.FindAction("ItemAction3", throwIfNotFound: true);
         m_FirstPerson_ItemSwapPrevious = m_FirstPerson.FindAction("ItemSwapPrevious", throwIfNotFound: true);
         m_FirstPerson_ItemSwapNext = m_FirstPerson.FindAction("ItemSwapNext", throwIfNotFound: true);
+        m_FirstPerson_Zoom = m_FirstPerson.FindAction("Zoom", throwIfNotFound: true);
         m_FirstPerson_Pause = m_FirstPerson.FindAction("Pause", throwIfNotFound: true);
         // FPS
         m_FPS = asset.FindActionMap("FPS", throwIfNotFound: true);
@@ -2861,6 +2926,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_FirstPerson_ItemAction3;
     private readonly InputAction m_FirstPerson_ItemSwapPrevious;
     private readonly InputAction m_FirstPerson_ItemSwapNext;
+    private readonly InputAction m_FirstPerson_Zoom;
     private readonly InputAction m_FirstPerson_Pause;
     public struct FirstPersonActions
     {
@@ -2878,6 +2944,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @ItemAction3 => m_Wrapper.m_FirstPerson_ItemAction3;
         public InputAction @ItemSwapPrevious => m_Wrapper.m_FirstPerson_ItemSwapPrevious;
         public InputAction @ItemSwapNext => m_Wrapper.m_FirstPerson_ItemSwapNext;
+        public InputAction @Zoom => m_Wrapper.m_FirstPerson_Zoom;
         public InputAction @Pause => m_Wrapper.m_FirstPerson_Pause;
         public InputActionMap Get() { return m_Wrapper.m_FirstPerson; }
         public void Enable() { Get().Enable(); }
@@ -2924,6 +2991,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ItemSwapNext.started += instance.OnItemSwapNext;
             @ItemSwapNext.performed += instance.OnItemSwapNext;
             @ItemSwapNext.canceled += instance.OnItemSwapNext;
+            @Zoom.started += instance.OnZoom;
+            @Zoom.performed += instance.OnZoom;
+            @Zoom.canceled += instance.OnZoom;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
@@ -2967,6 +3037,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ItemSwapNext.started -= instance.OnItemSwapNext;
             @ItemSwapNext.performed -= instance.OnItemSwapNext;
             @ItemSwapNext.canceled -= instance.OnItemSwapNext;
+            @Zoom.started -= instance.OnZoom;
+            @Zoom.performed -= instance.OnZoom;
+            @Zoom.canceled -= instance.OnZoom;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
@@ -3537,6 +3610,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnItemAction3(InputAction.CallbackContext context);
         void OnItemSwapPrevious(InputAction.CallbackContext context);
         void OnItemSwapNext(InputAction.CallbackContext context);
+        void OnZoom(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
     public interface IFPSActions

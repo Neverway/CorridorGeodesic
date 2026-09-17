@@ -9,6 +9,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using RivenFramework;
 using Unity.Collections;
 using UnityEngine;

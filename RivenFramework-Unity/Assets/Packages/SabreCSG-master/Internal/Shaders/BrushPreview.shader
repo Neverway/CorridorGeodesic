@@ -1,87 +1,130 @@
-﻿// Based on "Legacy Shaders/Transparent/Diffuse"
-Shader "SabreCSG/BrushPreview"
+﻿Shader "SabreCSG/BrushPreview"
 {
-	Properties
-	{
-		_Color ("Main Color", Color) = (1,1,1,1)
-		_GridAlpha("Grid Alpha", Range(0,1)) = 0.3
-		[HideInInspector] _GridSize("Grid Size", float) = 1.0
-		[HideInInspector] _GridToggle("Grid Toggle", float) = 1.0
-		[HideInInspector] _FaceToggle("Face Toggle", float) = 1.0
-	}
+    Properties
+    {
+        _Color ("Main Color", Color) = (1,1,1,1)
+        _GridAlpha("Grid Alpha", Range(0,1)) = 0.3
+        [HideInInspector] _GridSize("Grid Size", float) = 1.0
+        [HideInInspector] _GridToggle("Grid Toggle", float) = 1.0
+        [HideInInspector] _FaceToggle("Face Toggle", float) = 1.0
+    }
 
-	SubShader
-	{
-		Fog { Mode Off }
-		Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
-		LOD 200
+    SubShader
+    {
+        Tags
+        {
+            "RenderPipeline" = "UniversalPipeline"
+            "Queue" = "Transparent"
+            "IgnoreProjector" = "True"
+            "RenderType" = "Transparent"
+        }
+        LOD 200
 
-		CGPROGRAM
-			#pragma surface surf Lambert alpha:blend nofog
+        Pass
+        {
+            Name "ForwardLit"
+            Tags { "LightMode" = "UniversalForward" }
 
-			fixed4 _Color;
-			float _GridAlpha;
-			float _GridSize;
-			half _GridToggle;
-			half _FaceToggle;
+            Blend SrcAlpha OneMinusSrcAlpha
+            ZWrite Off
+            Cull Back
+            Fog { Mode Off }
 
-			struct Input
-			{
-				float3 worldPos;
-				float3 worldNormal;
-			};
+            HLSLPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #pragma multi_compile_fog
 
-			float mod(float val, float mod) {
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
-				while (val < 0) {
-					val += mod*100;
-				}
+            CBUFFER_START(UnityPerMaterial)
+                float4 _Color;
+                float  _GridAlpha;
+                float  _GridSize;
+                float  _GridToggle;
+                float  _FaceToggle;
+            CBUFFER_END
 
-				return fmod(val, mod);
-			}
+            struct Attributes
+            {
+                float4 positionOS : POSITION;
+                float3 normalOS   : NORMAL;
+            };
 
-			void surf (Input IN, inout SurfaceOutput o)
-			{
-				_GridSize = max(0.01, _GridSize);
+            struct Varyings
+            {
+                float4 positionHCS : SV_POSITION;
+                float3 worldPos    : TEXCOORD0;
+                float3 worldNormal : TEXCOORD1;
+            };
 
-				float dist = max(0.01, distance(_WorldSpaceCameraPos, IN.worldPos));
-				float len = lerp(20, 140, min(1.0, _GridSize));
-				float m = smoothstep(0.0, 1.0, dist / len);
-				float gridThickness = max(0.03, m);
+            float modGrid(float val, float m)
+            {
+                // Equivalent of the Legacy while-loop mod, but branchless
+                val = val + m * 100.0 * ceil(max(0.0, -val) / m + 1.0);
+                return fmod(val, m);
+            }
 
-				// counteract subpixel grid lines on small grid sizes.
-				gridThickness += lerp(0.0, lerp(log2(1/_GridSize)*0.25, 0.0, min(1.0, _GridSize)), m);
+            Varyings vert(Attributes IN)
+            {
+                Varyings OUT;
+                VertexPositionInputs posInputs = GetVertexPositionInputs(IN.positionOS.xyz);
+                VertexNormalInputs   normInputs = GetVertexNormalInputs(IN.normalOS);
 
-				fixed4 c = _Color;
-				c.a *= _FaceToggle;
+                OUT.positionHCS = posInputs.positionCS;
+                OUT.worldPos    = posInputs.positionWS;
+                OUT.worldNormal = normInputs.normalWS;
+                return OUT;
+            }
 
-				float3 worldNormal = abs(IN.worldNormal);
-			
-				worldNormal.x = (worldNormal.x > worldNormal.y && worldNormal.x > worldNormal.z)?1:0;
-				worldNormal.y = (worldNormal.y > worldNormal.x && worldNormal.y > worldNormal.z)?1:0;
-				worldNormal.z = (worldNormal.z > worldNormal.y && worldNormal.z > worldNormal.x)?1:0;
+            half4 frag(Varyings IN) : SV_Target
+            {
+                float gridSize = max(0.01, _GridSize);
 
-				float3 worldspace = IN.worldPos;
-				worldspace -= (gridThickness * _GridSize) / 6.28;
+                float dist = max(0.01, distance(_WorldSpaceCameraPos, IN.worldPos));
+                float len  = lerp(20.0, 140.0, min(1.0, gridSize));
+                float m    = smoothstep(0.0, 1.0, dist / len);
+                float gridThickness = max(0.03, m);
 
-				float2 grid = float2(
-					(worldspace.z * worldNormal.x) + (worldspace.x * worldNormal.z) + (worldspace.x * worldNormal.y),
-					(worldspace.y * worldNormal.x) + (worldspace.y * worldNormal.z) + (worldspace.z * worldNormal.y)
-				);
+                gridThickness += lerp(
+                    0.0,
+                    lerp(log2(1.0 / gridSize) * 0.25, 0.0, min(1.0, gridSize)),
+                    m
+                );
 
-				grid.x = mod(grid.x,_GridSize);
-				grid.y = mod(grid.y,_GridSize);
+                float4 c = _Color;
+                c.a *= _FaceToggle;
 
-				grid.x = saturate(1.0 - sin(grid.x * ((3.14/_GridSize)+gridThickness/_GridSize)) * (30 * _GridSize));
-				grid.y = saturate(1.0 - sin(grid.y * ((3.14/_GridSize)+gridThickness/_GridSize)) * (30 * _GridSize));
+                float3 worldNormal = abs(IN.worldNormal);
 
-				float g = saturate(grid.x + grid.y);
+                worldNormal.x = (worldNormal.x > worldNormal.y && worldNormal.x > worldNormal.z) ? 1.0 : 0.0;
+                worldNormal.y = (worldNormal.y > worldNormal.x && worldNormal.y > worldNormal.z) ? 1.0 : 0.0;
+                worldNormal.z = (worldNormal.z > worldNormal.y && worldNormal.z > worldNormal.x) ? 1.0 : 0.0;
 
-				o.Emission = c.rgb + (g * _GridAlpha * _GridToggle);
-				o.Alpha = c.a + (g * _GridAlpha * _GridToggle);
-			}
-		ENDCG
-	}
+                float3 worldspace = IN.worldPos;
+                worldspace -= (gridThickness * gridSize) / 6.28;
 
-	Fallback "Legacy Shaders/Transparent/VertexLit"
+                float2 grid = float2(
+                    (worldspace.z * worldNormal.x) + (worldspace.x * worldNormal.z) + (worldspace.x * worldNormal.y),
+                    (worldspace.y * worldNormal.x) + (worldspace.y * worldNormal.z) + (worldspace.z * worldNormal.y)
+                );
+
+                grid.x = modGrid(grid.x, gridSize);
+                grid.y = modGrid(grid.y, gridSize);
+
+                grid.x = saturate(1.0 - sin(grid.x * ((3.14 / gridSize) + gridThickness / gridSize)) * (30.0 * gridSize));
+                grid.y = saturate(1.0 - sin(grid.y * ((3.14 / gridSize) + gridThickness / gridSize)) * (30.0 * gridSize));
+
+                float g = saturate(grid.x + grid.y);
+
+                float3 emission = c.rgb + (g * _GridAlpha * _GridToggle);
+                float  alpha    = c.a   + (g * _GridAlpha * _GridToggle);
+
+                return half4(emission, saturate(alpha));
+            }
+            ENDHLSL
+        }
+    }
+
+Fallback Off
 }

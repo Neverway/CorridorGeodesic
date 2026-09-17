@@ -24,38 +24,26 @@ EditorBuildSettings:
     path: Assets/RivenFramework-Revamp/Resources/Levels/_Error.unity
     guid: 1711274c2723a1632a3217b3d3d86e07
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/00-Cube.unity
-    guid: b00720af71de27c1292de0b7252ef2a5
+    path: Assets/Resources/Maps/CorGeo/Liz/1_cube.unity
+    guid: e4de16c657ad4d25cb0b0daa06735b5e
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/01-HGap.unity
-    guid: 4839362bff21568e8b2bea445db75ec0
+    path: Assets/Resources/Maps/CorGeo/Liz/2_gun.unity
+    guid: fe432255630ee6708961d4e2bd1b1e29
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/02-VGap.unity
-    guid: 1874370b1d47058c8a0acb78d555199b
+    path: Assets/Resources/Maps/CorGeo/Liz/3_cube_with_rift.unity
+    guid: 6bf4f687f515393479c7f23ddcfac9a6
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/02-VGapRework.unity
-    guid: 91f410f4f77a3145b9d2de050f70fa11
+    path: Assets/Resources/Maps/CorGeo/Liz/3_cube_with_rift 1.unity
+    guid: e0b41e36da85b390386471edc1e06cae
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/03-HideGeometry.unity
-    guid: eb523b61fdc1c3e4cb8e853816aa30da
+    path: Assets/Resources/Maps/CorGeo/Liz/4_crossing_gaps.unity
+    guid: 1cc94a4f7c93ee91488cb04b351767df
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/04-Backtrack.unity
-    guid: 9f995d0b9e37967d29855644a6929496
+    path: Assets/Resources/Maps/CorGeo/Liz/5_.unity
+    guid: fb3d83e78eed3a98f93d27c5accd1855
   - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/05-Tesla.unity
-    guid: 5e3a73061439b54248a7b30eaf9514f7
-  - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/06-Lasers.unity
-    guid: 20b97a4127ef7a95ab26817a8de38a6b
-  - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/07-Oil.unity
-    guid: 4d0273e7fd56818628bd9c54c9bb9bd4
-  - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/08-KineCams.unity
-    guid: 9de831ebc4a35563da85a1f2c5b39053
-  - enabled: 1
-    path: Assets/Resources/Maps/CorGeo/_DemoLinear/09-Turrets.unity
-    guid: 46c69bbf858e7f0069a809573b0019af
+    path: Assets/Resources/Maps/CorGeo/Liz/_TestAllElements.unity
+    guid: 6e425be59df78d7118636e0ac1fa1b1b
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f15e32241878d7bdda685b0a87c02c59,
       type: 2}

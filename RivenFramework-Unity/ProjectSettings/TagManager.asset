@@ -35,9 +35,9 @@ TagManager:
   - <( x )> Hidden No Pawn Collision
   - No Projectile Collision
   - SpecialFX
-  - 
-  - 
-  - 
+  - Portrait
+  - No Collision
+  - No Occluder (Level) Collision
   - 
   - 
   - 

@@ -320,11 +320,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08223b5fcde3724e8a782d7d4f8c0180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  worldCamera: {fileID: 0}
+  minScale: 0.5
+  maxScale: 1.25
+  scaleDistanceMin: 2
+  scaleDistanceMax: 20
+  floatingSpeechWidth: 600
   portrait: {fileID: 5351275065695286519}
   name: {fileID: 5033242325432782292}
   chat: {fileID: 3046057032054565396}
   displayMode: 0
   allowPlayerToAdvanceText: 1
+  textboxFrame: {fileID: 0}
+  animator: {fileID: 0}
+  rectTransform: {fileID: 0}
 --- !u!1 &6127354593643172297
 GameObject:
   m_ObjectHideFlags: 0

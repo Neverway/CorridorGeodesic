@@ -110,12 +110,12 @@ PrefabInstance:
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: id
-      value: Prop_Pipe
+      value: Prop_PipeViewable
       objectReference: {fileID: 0}
     - target: {fileID: 3954347698123193828, guid: 0691e5206c095094690805245502b274,
         type: 3}
       propertyPath: displayName
-      value: Pipe
+      value: Pipe Viewable
       objectReference: {fileID: 0}
     - target: {fileID: 6860228584438697348, guid: 0691e5206c095094690805245502b274,
         type: 3}

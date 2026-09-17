@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VoxWorldManager : MonoBehaviour
 {
@@ -103,6 +104,11 @@ public class VoxWorldManager : MonoBehaviour
                 return;
             }
         }
+        // Don't generate if we have pre-baked chunks and runtime generation is disabled
+        if (!generateAtRuntime)
+        {
+            return;
+        }
         
         // Generate voxels at runtime
         if (chunksParent == null)
@@ -133,13 +139,13 @@ public class VoxWorldManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Vector3 center = (minPosition.ConvertTo<Vector3>() + maxPosition.ConvertTo<Vector3>()) * (voxelScale / (int)2f);
+        /*Vector3 center = (minPosition.ConvertTo<Vector3>() + maxPosition.ConvertTo<Vector3>()) * (voxelScale / (int)2f);
         Vector3 size = (maxPosition.ConvertTo<Vector3>() - minPosition.ConvertTo<Vector3>())*voxelScale;
 
         Gizmos.color = new Color(1,  0, 0, 0.2f);
 
         Gizmos.DrawCube(center, size);
-        Gizmos.DrawWireCube(center, size);
+        Gizmos.DrawWireCube(center, size);*/
     }
 
     public VoxContainer GetChunk(Vector3Int chunkIndex)
@@ -334,6 +340,7 @@ public class VoxWorldManager : MonoBehaviour
 
     private IEnumerator CoGenerateTerrainChunked()
     {
+        Debug.Log($"Starting chunked generation while on scene {SceneManager.GetActiveScene().name}");
         System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
         foreach (var chunk in voxelChunks.Values)

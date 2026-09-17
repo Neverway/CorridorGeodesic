@@ -5,6 +5,7 @@
 //
 //=============================================================================
 
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -29,6 +30,7 @@ public class WB_Pause : WidgetBlueprint
     [SerializeField] private Button buttonResume, buttonSettings, buttonTitle, buttonQuit, buttonRestart;
     [SerializeField] private GameObject settingsWidget;
 
+    private object playerPauseToken;
 
     //=-----------------=
     // Mono Functions
@@ -44,15 +46,30 @@ public class WB_Pause : WidgetBlueprint
         buttonRestart.onClick.AddListener(delegate { OnClick("buttonRestart"); });
     }
 
+    private void OnEnable()
+    {
+        foreach (var pawn in FindObjectsOfType<FPPawn>())
+        {
+            pawn.Pause(out playerPauseToken);
+        }
+    }
+
     private void OnDestroy()
     {
         Destroy(widgetManager.GetExistingWidget(settingsWidget.name));
+
+        foreach (var pawn in FindObjectsOfType<FPPawn>())
+        {
+            pawn.Unpause(playerPauseToken);
+        }
     }
 
 
     //=-----------------=
     // Internal Functions
     //=-----------------=
+    public override bool PausesPawns() => false;
+
     private void OnClick(string _button)
     {
         switch (_button)

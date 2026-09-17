@@ -1,4 +1,5 @@
 using RivenFramework;
+using UnityEditor;
 using UnityEngine;
 
 [Todo("This is broken because of comments due to changes in rift manager. Need to remove or reuse this")]
@@ -61,12 +62,14 @@ public class Graphics_NixieBulbEffects : MonoBehaviour
 
         if (firstBulb == null) firstBulb = null;
 
-        //if (riftManager.riftActive is false)
-        //{
-            GameObject obj = Instantiate(destroyBulbEffect);
-            obj.transform.position = bulbGlowEffect.position;
-        //}
-
+        GameObject obj = Instantiate(destroyBulbEffect);
+        obj.transform.rotation = transform.rotation;
+        obj.transform.position = bulbGlowEffect.position;
+        if (!self.pinned)
+        {
+            foreach (Rigidbody rb in obj.GetComponentsInChildren<Rigidbody>())
+                rb.velocity += self.moveVector * self.moveSpeed * 2f;
+        }
 
         if (connectingLine != null) Destroy(connectingLine.gameObject);
     }

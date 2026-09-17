@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using RivenFramework;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -26,8 +27,7 @@ namespace Neverway.Framework.LogicSystem
 
         public float waypointsPerUnit; // How many waypoints should be created per unit of distance between the anchors
 
-        public int
-            extraWaypoints; //How many extra waypoints to be added after waypointsPerUnity calculation (Increases slack in cable)
+        public int extraWaypoints; //How many extra waypoints to be added after waypointsPerUnity calculation (Increases slack in cable)
 
         public bool updateOnMove;
         public bool anchorA = true, anchorB = true;
@@ -56,6 +56,7 @@ namespace Neverway.Framework.LogicSystem
 
         private LineRenderer lineRenderer;
         private GI_RiftManager riftManager;
+        private bool hasAwoken;
 
 
         //=-----------------=
@@ -78,6 +79,8 @@ namespace Neverway.Framework.LogicSystem
             {
                 input.CallOnSourceChanged(SetCablePowered);
             }
+
+            hasAwoken = true;
         }
 
         [Todo_Optimize("GenerateWaypoints and getComponent are stupid expensive here!")]
@@ -147,6 +150,14 @@ namespace Neverway.Framework.LogicSystem
                 lineRenderer.SetPosition(i, position);
             }
         }
+
+        private void OnValidate()
+        {
+            if (hasAwoken)
+            {
+                GenerateWaypoints();
+            }
+        }
 #endif
 
         //=-----------------=
@@ -198,8 +209,7 @@ namespace Neverway.Framework.LogicSystem
                 else if (oldWaypointPositions.Length > 0)
                     waypointPosition = oldWaypointPositions[oldWaypointPositions.Length - 1];
 
-                var newWaypoint = Instantiate(waypointReference, waypointPosition, Quaternion.identity,
-                    waypointsRoot.transform);
+                var newWaypoint = Instantiate(waypointReference, waypointPosition, Quaternion.identity, waypointsRoot.transform);
                 newWaypoint.SetActive(true);
                 //newWaypoint.GetComponent<ConfigurableJoint>().connectedBody = waypoints[waypoints.Count - 1].GetComponent<Rigidbody>();
                 SpringJoint newWaypointSpring = newWaypoint.GetComponent<SpringJoint>();

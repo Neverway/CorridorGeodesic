@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FMODUnity;
 using RivenFramework;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -43,9 +44,6 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     public int projectileMarkerSpeed = 50;
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
-    [Tooltip("This is set by a rift manager when it has latched onto this gun, " +
-             "it's used to avoid multiple rift managers all trying to fight over the same gun link")]
-    [HideInInspector] public bool isLinkedToManager;
     [Tooltip("Subscribed to by rift manager to tell when gun wants to collapse")]
     public override event Action OnCollapseHeld;
     [Tooltip("Subscribed to by rift manager to tell when gun wants to stop collapsing")]
@@ -83,6 +81,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     [SerializeField] private List<GameObject> previewPlanes = new List<GameObject>();
     [SerializeField] private RiftAudioEmitter riftAudioEmitter;
     private RiftAudioEmitter instanceOfRiftAudioEmitter;
+    [SerializeField] private EventReference fireSound;
 
 
     #endregion
@@ -101,6 +100,15 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         
         
         riftManager = GameInstance.Get<RiftManager>();
+
+        // If the rift manager already has a geogun link and it's not this, self destruct to avoid possible issues
+        if (riftManager.linkedRiftController)
+        {
+            return;
+            Destroy(gameObject);
+        }
+        
+        
         if (riftManager)
         {
             riftManager.RegisterRiftController(this);
@@ -142,7 +150,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
 
     private void OnDestroy ()
     {
-        Destroy (instanceOfRiftAudioEmitter.gameObject);
+        if (instanceOfRiftAudioEmitter) Destroy(instanceOfRiftAudioEmitter.gameObject);
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
@@ -226,6 +234,8 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         // Play the shoot anim for the gun and it's outline
         animator1.SetTrigger("Shoot");
         animator2.SetTrigger("Shoot");
+        
+        Audio_FMODAudioManager.PlayOneShot(fireSound, transform.position);
         
         // Spawn the projectile
         var projectile = Instantiate(projectilePrefab, playerViewPoint.position, playerViewPoint.rotation, null).GetComponent<Projectile_Marker>();
@@ -319,6 +329,7 @@ public class Item_Utility_Geogun : RiftController, ILoggable
     public void BreakRiftManagerLink()
     {
         isLinkedToManager = false;
+        riftManager.linkedRiftController = null;
     }
 
     /// <summary>

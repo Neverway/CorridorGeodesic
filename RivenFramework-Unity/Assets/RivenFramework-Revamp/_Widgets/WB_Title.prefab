@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecb2bdd77f7bb6879c1aed8e3da3822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLevelID: 00-Cube
+  targetLevelID: 1_cube
   buttonMainGame: {fileID: 9167164560954650841}
   buttonExtras: {fileID: 3379601913426810865}
   buttonRanking: {fileID: 5760448310754684988}
@@ -760,7 +760,7 @@ PrefabInstance:
     - target: {fileID: 4116690135669473716, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 191
+      value: 245.25
       objectReference: {fileID: 0}
     - target: {fileID: 4116690135669473716, guid: e939f13b17fb3bcb582ebe98d53fc04a,
         type: 3}
@@ -1422,7 +1422,7 @@ PrefabInstance:
     - target: {fileID: 7725483941229341800, guid: 4e7a5a1e976bf93479d3b0d181c8f757,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 7725483941229341800, guid: 4e7a5a1e976bf93479d3b0d181c8f757,
         type: 3}

@@ -5,6 +5,7 @@ using UnityEngine;
 // /*
 public class Graphics_DecayingParticles : MonoBehaviour
 {
+    public float forceAwayFromParentOnAwake = 0f;
     public float lifetime = 2f;
     private float currentLife;
     public Vector3 startingLocalScale;
@@ -16,6 +17,17 @@ public class Graphics_DecayingParticles : MonoBehaviour
         currentLife = lifetime;
         startingLocalScale = transform.localScale;
     }
+    private void Start()
+    {
+        if (forceAwayFromParentOnAwake != 0f)
+        {
+            var rb = GetComponent<Rigidbody>();
+            Vector3 dir = transform.position - transform.parent.position;
+            rb.velocity += dir * (forceAwayFromParentOnAwake + rb.velocity.magnitude);
+            //rb.AddExplosionForce(forceAwayFromParentOnAwake, transform.parent.position, forceExplosionRadius);
+        }
+    }
+
 
     private void Update()
     {

@@ -25,13 +25,17 @@ public class CorGeo_Actor : MonoBehaviour
     [SerializeField] public bool destroyedInKillTrigger = true;
     
     //todo: Either reimplement crushInNullSpace, or get rid of it. I'm considering replacing it with something like "dynamicCrushable" since it only applies to dynamic actors anyway.
-    //[Tooltip("If true, this actor gets distorted when inside nullspace, for example a cube that's not held by player")]
-    //[SerializeField] public bool crushInNullSpace = true;
+    [Tooltip("If true, this actor gets distorted when inside nullspace, for example a cube that's not held by player")]
+    [SerializeField] public bool scaleInNullSpace = true;
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
     public event Action OnRiftRestore;
     [Tooltip("If enabled, this object will print logs for which 'space' it's currently in when a rift is active")]
     public bool debugLogSpaceData;
+    [Tooltip("References the internal undistorted scale of an object (Used for rifting phys props)")]
+    public Vector3 HomeScale => homeScale;
+    [Tooltip("TODO")]
+    public Vector3 CurrentRiftScale { get; private set; }
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     [Header("Debugging")]
@@ -49,6 +53,10 @@ public class CorGeo_Actor : MonoBehaviour
     public RiftSpace riftSpace;
     [Tooltip("The velocity of the object before it was frozen by a rift movement")]
     private Vector3 previousVelocity;
+    [Tooltip("If the actor is in a streaming volume DO NOT LET GoHome() modify the transform of this actor")]
+    private bool isInStreamingVolume = false;
+    [Tooltip("Used to detect when a dynamic actor crosses a rift-space boundary")]
+    private RiftSpace previousRiftSpace = RiftSpace.none;
     
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     new private Rigidbody rigidbody;
@@ -69,6 +77,7 @@ public class CorGeo_Actor : MonoBehaviour
         wasActive = gameObject.activeInHierarchy;
         homePosition = transform.position;
         homeScale = transform.localScale;
+        CurrentRiftScale = homeScale;
         homeParent = transform.parent;
         RiftManager_ActorHandler.CorGeo_Actors.Add(this);
         // Automatically avoid hiding lights when a rift is collapsed
@@ -80,11 +89,46 @@ public class CorGeo_Actor : MonoBehaviour
     
     private void OnDestroy ()
     {
-        // Cleanly remove this from the list of tracked actors on the GeoGun when destoryed
+        // Cleanly remove this from the list of tracked actors on the rift manager when this is destroyed
         RiftManager_ActorHandler.CorGeo_Actors.Remove(this);
     }
 
+    private void OnTransformParentChanged()
+    {
+        // Keep track if this object is currently in a streaming volume, since if it is, the actor knows to ignore go home calls
+        if (transform.GetComponentInParent<VolumeLevelStreamContainer>())
+        {
+            isInStreamingVolume = true;
+        }
+        else
+        {
+            isInStreamingVolume = false;
+        }
+    }
     
+    private void FixedUpdate()
+    {
+        // Update phys props so they always know what rift-space they are currently in
+        if (!riftManager.riftActive || !scaleInNullSpace || !dynamic) return;
+
+        DetermineRiftSpace();
+
+        /*if (riftSpace != previousRiftSpace)
+        {*/
+            if (riftSpace == RiftSpace.NULLSpace)
+            {
+                riftManager.actorHandler.ApplyNullSpaceScale(this, RiftManager.currentRiftPercent);
+            }
+            else
+            {
+                riftManager.actorHandler.ResetActorScale(this);
+            }
+        //}
+
+        previousRiftSpace = riftSpace;
+    }
+
+
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
     /// 
@@ -118,9 +162,11 @@ public class CorGeo_Actor : MonoBehaviour
     public void GoHome ()
     {
         OnRiftRestore?.Invoke();
+        previousRiftSpace = RiftSpace.none;
         if (isParentedIgnoreOffsets) return;
+        if (isInStreamingVolume) return;
         transform.SetParent (homeParent);
-        transform.localScale = homeScale;
+        SetRiftScale(homeScale);
         if (dynamic)
         {
             riftSpace = RiftSpace.none;
@@ -134,9 +180,17 @@ public class CorGeo_Actor : MonoBehaviour
     /// <summary>
     /// Finds which space (A/B/Null) the actor is in and sets the actor's space variable accordingly.
     /// </summary>
+    [Todo_PoorlyCoded("WTF DID I DO?! Visual plane A is null here on player death")]
     public void DetermineRiftSpace ()
     {
-        if (!riftManager) riftManager = FindObjectOfType<RiftManager>();
+        if (!riftManager)
+        {
+            riftManager = FindObjectOfType<RiftManager>();
+            if (!riftManager)
+            {
+                Debug.LogError($"Could not locate the rift manager when attempting to call DeterminRiftSpace on actor {gameObject.name}");
+            }
+        }
         // I am very bad at math, pls don't delete my helper example ~Liz
         /*
         // The plane
@@ -215,10 +269,14 @@ public class CorGeo_Actor : MonoBehaviour
     /// </summary>
     public virtual void UnCollapseActor ()
     {
-        if (activeInNullSpace == false)
-        {
-            gameObject.SetActive (true);
-        }
+        gameObject.SetActive (true);
+    }
+    
+    public void SetRiftScale(Vector3 scale)
+    {
+        if (!scaleInNullSpace) return;
+        CurrentRiftScale = scale;
+        transform.localScale = scale;
     }
     
     #endregion

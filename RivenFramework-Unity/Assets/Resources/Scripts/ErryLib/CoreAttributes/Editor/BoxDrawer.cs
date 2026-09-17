@@ -7,9 +7,10 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using RivenFramework;
 
-[CustomPropertyDrawer(typeof(UnboxAttribute))]
-[CustomPropertyDrawer(typeof(BoxAttribute))]
+[CustomPropertyDrawer(typeof(ErryUnboxAttribute))]
+[CustomPropertyDrawer(typeof(ErryBoxAttribute))]
 public class BoxDrawer : PropertyDrawer
 {
     public static Stack<VisualElement> highlightStack = new Stack<VisualElement>();
@@ -26,7 +27,7 @@ public class BoxDrawer : PropertyDrawer
         }
         catch { propertyID = ""; }
 
-        BoxAttribute attributeInfo = (BoxAttribute)attribute;
+        ErryBoxAttribute attributeInfo = (ErryBoxAttribute)attribute;
         // Root container, with label at the top
         var fullDrawer = GetContainer(attributeInfo);
         VisualElement divider = null;
@@ -145,7 +146,7 @@ public class BoxDrawer : PropertyDrawer
 
         return fullDrawer;
     }
-    public VisualElement GetContainer(BoxAttribute attributeInfo)
+    public VisualElement GetContainer(ErryBoxAttribute attributeInfo)
     {
         var container = new VisualElement();
 

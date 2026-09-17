@@ -11,37 +11,38 @@ using UnityEngine;
 
 namespace RivenFramework
 {
-public class GI_PawnManager : MonoBehaviour
-{
-    //=-----------------=
-    // Public Variables
-    //=-----------------=
-    public GameObject defaultPawn;
-    public GameObject localPlayerCharacter;
+    public class GI_PawnManager : MonoBehaviour
+    {
+        //=-----------------=
+        // Public Variables
+        //=-----------------=
+        public static GI_PawnManager Instance => GameInstance.Get<GI_PawnManager>();
+        public GameObject defaultPawn;
+        public GameObject localPlayerCharacter;
 
 
-    //=-----------------=
-    // Private Variables
-    //=-----------------=
+        //=-----------------=
+        // Private Variables
+        //=-----------------=
 
 
-    //=-----------------=
-    // Reference Variables
-    //=-----------------=
+        //=-----------------=
+        // Reference Variables
+        //=-----------------=
 
 
-    //=-----------------=
-    // Mono Functions
-    //=-----------------=
+        //=-----------------=
+        // Mono Functions
+        //=-----------------=
 
 
-    //=-----------------=
-    // Internal Functions
-    //=-----------------=
+        //=-----------------=
+        // Internal Functions
+        //=-----------------=
 
 
-    //=-----------------=
-    // External Functions
-    //=-----------------=
-}
+        //=-----------------=
+        // External Functions
+        //=-----------------=
+    }
 }

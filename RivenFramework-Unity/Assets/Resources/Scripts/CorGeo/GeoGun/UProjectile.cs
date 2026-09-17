@@ -26,7 +26,7 @@ public class UProjectile : MonoBehaviour
     [Tooltip("The size of the projectile")]
     [SerializeField] protected float radius;
     [Tooltip("How fast the projectile moves")]
-    [SerializeField] protected float moveSpeed;
+    [SerializeField] public float moveSpeed;
     [Tooltip("The direction the projectile is moving in (used for detecting raycast collisions and handling movement)")]
     [SerializeField] public Vector3 moveVector;
     [Tooltip("Optional field that is used for a motion tween to fake the projectile being shot from the gun barrel")]

@@ -49,7 +49,7 @@ namespace Sabresaurus.SabreCSG
 				CSGModel[] csgModels = FindObjectsOfType<CSGModel>();
 
 				// Build the first csg model that is currently being edited
-				for (int i = 0; i < csgModels.Length; i++) 
+				for (int i = 0; i < csgModels.Length; i++)
 				{
 					if(csgModels[i].EditMode)
 					{
@@ -80,12 +80,12 @@ namespace Sabresaurus.SabreCSG
 
 			// Preset color buttons
 			GUILayout.BeginHorizontal();
-			for (int i = 0; i < PRESET_COLORS.Length; i++) 
+			for (int i = 0; i < PRESET_COLORS.Length; i++)
 			{
 				if(SabreGUILayout.ColorButton(PRESET_COLORS[i]))
 				{
 					surfaceEditor.SetSelectionColor(PRESET_COLORS[i]);
-				}	
+				}
 			}
 			GUILayout.EndHorizontal();
 		}

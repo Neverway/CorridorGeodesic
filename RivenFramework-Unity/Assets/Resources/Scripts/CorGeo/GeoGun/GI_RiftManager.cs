@@ -75,7 +75,7 @@ public class GI_RiftManager : MonoBehaviour
     [HideInInspector] public static float currentRiftWidth; //current width after applying percent scale
     [HideInInspector] public static float riftStartingWidth; //width of the rift when it was first placed
     private bool collapseHeld = false;
-    private bool expandHeld = false;
+    private bool expandHeld = false; 
 
     //Waits for you to release collapse so that the player has to press it again to collapse rift.
     //Prevents player from clicking to place the rift and holding the mouse causing it to collapse right away.

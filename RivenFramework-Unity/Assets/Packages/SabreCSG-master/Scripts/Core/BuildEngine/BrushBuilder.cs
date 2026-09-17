@@ -312,8 +312,8 @@ namespace Sabresaurus.SabreCSG
 			vertex.UV = vertex1.UV * a1 + vertex2.UV * a2 + vertex3.UV * a3;
 			// Interpolate the color, slightly more complex as need to implicit cast from Color32 to Color and back for interpolation
 			Color color1 = vertex1.Color;
-			Color color2 = vertex1.Color;
-			Color color3 = vertex1.Color;
+			Color color2 = vertex2.Color;
+			Color color3 = vertex3.Color;
 			vertex.Color = color1 * a1 + color2 * a2 + color3 * a3;
 
 			return vertex;

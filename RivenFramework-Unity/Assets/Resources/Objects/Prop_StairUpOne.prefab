@@ -533,6 +533,10 @@ MonoBehaviour:
   isClone: 0
   riftSpace: 0
   meshRenderer: {fileID: 0}
+  sliceableMeshes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &3709319751128075405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -660,6 +664,10 @@ MonoBehaviour:
   isClone: 0
   riftSpace: 0
   meshRenderer: {fileID: 0}
+  sliceableMeshes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &6702913061946922363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +680,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f48aa475351df3deaa739e9411eb4283, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manuallyAssignCullableRenderers: 0
+  cullableRenderers: []
 --- !u!1001 &6697855486564730040
 PrefabInstance:
   m_ObjectHideFlags: 0

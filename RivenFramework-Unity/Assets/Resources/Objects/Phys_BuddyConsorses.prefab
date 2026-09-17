@@ -207,6 +207,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1026485967076556381}
+    - targetCorrespondingSourceObject: {fileID: 2276721478425129573, guid: 9a4aef5a1bebd876db8d1e5811db7076,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1823655210448516869}
   m_SourcePrefab: {fileID: 100100000, guid: 9a4aef5a1bebd876db8d1e5811db7076, type: 3}
 --- !u!4 &2724229485465045974 stripped
 Transform:
@@ -233,3 +237,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearBuddiesOnAwake: 0
+--- !u!114 &1823655210448516869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305559717864092727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1237243664
+      Data2: 1239986861
+      Data3: -306230358
+      Data4: -1353176015
+    Path: event:/SFX/Components/LemonBuddy
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

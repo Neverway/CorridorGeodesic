@@ -8,6 +8,8 @@
 //====================================================================================================================//
 
 using System;
+using System.Collections.Generic;
+using DG.Tweening;
 using RivenFramework;
 using UnityEngine;
 
@@ -30,6 +32,7 @@ public class FPPawn_Player : FPPawn
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     /*----------------------------------------------------------------------------------------------------------------*/
     private GI_WidgetManager widgetManager;
+    private Camera viewCamera;
     private new FPPawnActions action = new FPPawnActions();
     private InputActions.FirstPersonActions inputActions;
     [SerializeField] private GameObject DeathScreenWidget;
@@ -50,16 +53,20 @@ public class FPPawn_Player : FPPawn
             widgetManager = GameInstance.Get<GI_WidgetManager>();
             if (!widgetManager) return;
         }
-        isPaused = widgetManager.GetExistingWidget("WB_Pause");
         
         // Pause Game
         if (inputActions.Pause.WasPressedThisFrame())
-        {
-            widgetManager.ToggleWidget("WB_Pause");
+        { 
+            // Close the level select widget
+            var existingLevelSelectWidget = widgetManager.GetExistingWidget("WB_LevelSelect");
+            if (existingLevelSelectWidget) Destroy(existingLevelSelectWidget);
+            
+            // Or open the pause menu
+            else widgetManager.ToggleWidget("WB_Pause");
         }
         
         // Lock mouse when unpaused, unlock when paused
-        if (isPaused)
+        if (IsPaused)
         {
             if (Cursor.lockState == CursorLockMode.Locked)
             {
@@ -87,16 +94,15 @@ public class FPPawn_Player : FPPawn
         
         // Enable the view camera
         action.EnableViewCamera(this, true);
+        viewCamera = viewPoint.GetComponentInChildren<Camera>();
     }
 
-    [Todo("Are you able to remove GetComponentInChildren call on Update? ~erry", Owner = "liz")]
     public void Update()
     {
         // Pausing
         UpdatePauseMenu();
         
-        
-        if (isPaused || isDead) return;
+        if (IsPaused || isDead) return;
         UpdateMovement();
         UpdateRotation();
         
@@ -107,26 +113,14 @@ public class FPPawn_Player : FPPawn
         if (inputActions.Jump.WasPressedThisFrame()) action.Jump(this);
         
         // Crouching
-        if (inputActions.Crouch.IsPressed())
-        {
-            action.Crouch(this, true);
-        }
-        else
-        {
-            action.Crouch(this, false);
-        }
+        if (inputActions.Crouch.IsPressed()) action.Crouch(this, true);
+        else action.Crouch(this, false);
         
         // Interact 
         if (inputActions.Interact.WasPressedThisFrame())
         {
-            if (physObjectAttachmentPoint.attachedObject)
-            {
-                action.DropPhysProp(this);
-            }
-            else
-            {
-                action.Interact(this, interactionPrefab, viewPoint.transform);
-            }
+            if (physObjectAttachmentPoint.attachedObject) action.DropPhysProp(this);
+            else action.Interact(this, interactionPrefab, viewPoint.transform);
         }
         
         // Switch item
@@ -134,40 +128,46 @@ public class FPPawn_Player : FPPawn
         if (inputActions.ItemSwapPrevious.WasPressedThisFrame()) action.ItemSwapPrevious(this);
         
         // Use Item
-        if (!playerInventory)
-        {
-            throw new Exception("playerInventory reference has not been set in the inspector! The inventory should be on one of the child objects under the player prefab, please manually assign it!");
-        }
+        if (!playerInventory) throw new Exception("playerInventory reference has not been set in the inspector! The inventory should be on one of the child objects under the player prefab, please manually assign it!");
+        
         if (inputActions.ItemAction1.WasPressedThisFrame())
         {
             // Throw held object, or Item Use Action 0
-            if (physObjectAttachmentPoint.attachedObject)
-            {
-                action.ThrowPhysProp(this);
-            }
-            else
-            {
-                action.ItemUseAction(playerInventory, 0);
-            }
+            if (physObjectAttachmentPoint.attachedObject) action.ThrowPhysProp(this);
+            else action.ItemUseAction(playerInventory, 0);
         }
         if (inputActions.ItemAction2.WasPressedThisFrame()) action.ItemUseAction(playerInventory, 1);
         if (inputActions.ItemAction3.WasPressedThisFrame()) action.ItemUseAction(playerInventory, 2);
         if (inputActions.ItemAction1.WasReleasedThisFrame()) action.ItemUseAction(playerInventory, 0, "release");
         if (inputActions.ItemAction2.WasReleasedThisFrame()) action.ItemUseAction(playerInventory, 1, "release");
         if (inputActions.ItemAction3.WasReleasedThisFrame()) action.ItemUseAction(playerInventory, 2, "release");
+
+        var zoomAmount = 60;
+        var zoomDuration = 0.5f;
+        
+        // Zooming
+        if (inputActions.Zoom.WasPressedThisFrame())
+        {
+            viewCamera.DOKill();
+            viewCamera.DOFieldOfView(applicationSettings.currentSettingsData.cameraFov - zoomAmount, zoomDuration).SetEase(Ease.OutQuad);
+        }
+
+        if (inputActions.Zoom.WasReleasedThisFrame())
+        {
+            viewCamera.DOKill();
+            viewCamera.DOFieldOfView(applicationSettings.currentSettingsData.cameraFov, zoomDuration).SetEase(Ease.OutQuad);
+        }
     }
 
     public void FixedUpdate()
     {
-        if (isPaused || isDead) return;
+        if (IsPaused || isDead) return;
         ApplyMovement();
         ApplyRotation();
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
     /*----------------------------------------------------------------------------------------------------------------*/
-
-    
     private void UpdateMovement()
     {
         moveDirection = new Vector3(inputActions.Move.ReadValue<Vector2>().x, 0, inputActions.Move.ReadValue<Vector2>().y);
@@ -191,15 +191,9 @@ public class FPPawn_Player : FPPawn
 
         // Determine the input method (mouse or joystick)
         bool isUsingMouse = false;
-        if (inputActions.LookAxis.IsInProgress())
-        {
-            if (inputActions.LookAxis.activeControl.device.name == "Mouse")
-            {
-                isUsingMouse = true;
-            }
-        }
+        if (inputActions.LookAxis.IsInProgress()) if (inputActions.LookAxis.activeControl.device.name == "Mouse") isUsingMouse = true;
 
-        // Apply the appropriate multiplier
+        // Apply the appropriate look speed multiplier
         var multiplier = isUsingMouse ? mouseMultiplier : joystickMultiplier;
         
         // Store the rotation values
@@ -209,15 +203,23 @@ public class FPPawn_Player : FPPawn
     }
     private void ApplyRotation()
     {
-        action.FaceTowardsDirection(this, viewPoint, lookRotation);
+        action.FaceTowardsDirection(this, viewPoint, lookRotation, platformYOffset);
     }
 
-
+    [Todo("This method might need some try/catch statements or more checks to ensure the death actually happens", TodoSeverity.Moderate)]
     private void OnDeath()
     {
         // Remove any rifts
-        riftManager = GameInstance.Get<RiftManager>();
-        riftManager.DestroyRiftExternal();
+        try
+        {
+            riftManager = GameInstance.Get<RiftManager>();
+            riftManager.DestroyRiftImmediate();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Could not clear rift on player death! This is going to result in some crazy crap!");
+            Debug.LogException(e);
+        }
         
         // Drop held props
         if (physObjectAttachmentPoint)
@@ -233,6 +235,7 @@ public class FPPawn_Player : FPPawn
 
         // Remove the HUD
         Destroy(widgetManager.GetExistingWidget("WB_HUD"));
+        
         // Add the respawn HUD
         widgetManager.AddWidget(DeathScreenWidget);
 

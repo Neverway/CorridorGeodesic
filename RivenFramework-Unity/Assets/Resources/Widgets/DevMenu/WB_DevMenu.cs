@@ -7,6 +7,7 @@
 //
 //====================================================================================================================//
 
+using System;
 using RivenFramework;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ public class WB_DevMenu : WidgetBlueprint
 
 
     #region=======================================( Functions )=======================================================//
+
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
@@ -53,6 +55,8 @@ public class WB_DevMenu : WidgetBlueprint
 	}
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
+    public override bool PausesPawns() => false;
+
     private void CreateButton(DevMenuItemInfo menuItemInfo)
     {
         DevMenuItem_Button newButton = Instantiate(prefab_button, container_menuItems);

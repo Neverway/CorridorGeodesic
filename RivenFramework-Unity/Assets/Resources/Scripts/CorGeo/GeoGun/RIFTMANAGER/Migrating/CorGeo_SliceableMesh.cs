@@ -57,6 +57,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
     
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
+    private bool hasFinishedSlice;
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Tooltip("The BZSlicer script that actually cuts the mesh")]
@@ -71,6 +72,10 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
     private Stack<UndoSliceState> sliceHistory = new();
     [Tooltip("Reference to the original object that contains the slice history")]
     private CorGeo_SliceableMesh originalSliceableObject;
+
+    [Tooltip("Array containing the original sliceable, and any meshes generated when it was sliced.")]
+    public CorGeo_SliceableMesh[] sliceableMeshes = new CorGeo_SliceableMesh[3];
+    private int sliceableMeshCount = 1;
     
     public struct SliceResultChunks
     {
@@ -109,6 +114,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         {
             slicer.defaultSliceMaterial = riftManager.nullSpaceMaterial;
         }
+        //Store this as the first slice.
+        sliceableMeshes[0] = this;
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
@@ -181,7 +188,98 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
     /// <summary>
     /// Attempts to cut this mesh, and any of its subsequent slice chunks, across the rift planes
     /// </summary>
-    private async void AttemptSliceRiftPlanes()
+    private async Task AttemptSliceRiftPlanes()
+    {
+        isSliceInProgress = true;
+        var originalObject = this;
+
+        var sliceResultOfAPlane = await AttemptSlice(RiftManager.cutPlaneA);
+        await For.NextFrame;
+        var sliceResultOfBPlane = await sliceResultOfAPlane.negativeChunk.AttemptSlice(RiftManager.cutPlaneB);
+        
+        // Assign spaces based on slice results, not geometry testing
+        if (sliceResultOfAPlane.isSliced)
+        {
+            sliceResultOfAPlane.positiveChunk.riftSpace = RiftSpace.A;
+
+            if (sliceResultOfBPlane.isSliced)
+            {
+                sliceResultOfBPlane.positiveChunk.riftSpace = RiftSpace.B;
+                sliceResultOfBPlane.negativeChunk.riftSpace = RiftSpace.NULLSpace;
+            }
+            else
+            {
+                sliceResultOfAPlane.negativeChunk.riftSpace = RiftSpace.NULLSpace;
+            }
+        }
+        else if (sliceResultOfBPlane.isSliced)
+        {
+            sliceResultOfBPlane.positiveChunk.riftSpace = RiftSpace.B;
+            sliceResultOfBPlane.negativeChunk.riftSpace = RiftSpace.NULLSpace;
+        }
+        else
+        {
+            Debug.LogWarning($"[CRIT] {gameObject.name} was determined to be intersecting with a rift plane, but all slices failed so rift space could not be determined!!!! <=(Oh crap that's bad!)");
+        }
+
+        // Find the actual original object
+        CorGeo_SliceableMesh nonClone = null;
+
+        if (sliceResultOfAPlane.isSliced)
+        {
+            if (sliceResultOfAPlane.positiveChunk == originalObject)
+            {
+                nonClone = sliceResultOfAPlane.positiveChunk;
+            }
+            else if (sliceResultOfBPlane.isSliced)
+            {
+                if (sliceResultOfBPlane.positiveChunk == originalObject)
+                    nonClone = sliceResultOfBPlane.positiveChunk;
+                else if (sliceResultOfBPlane.negativeChunk == originalObject)
+                    nonClone = sliceResultOfBPlane.negativeChunk;
+            }
+            else
+            {
+                if (sliceResultOfAPlane.negativeChunk == originalObject)
+                    nonClone = sliceResultOfAPlane.negativeChunk;
+            }
+        }
+        else if (sliceResultOfBPlane.isSliced)
+        {
+            if (sliceResultOfBPlane.positiveChunk == originalObject)
+                nonClone = sliceResultOfBPlane.positiveChunk;
+            else if (sliceResultOfBPlane.negativeChunk == originalObject)
+                nonClone = sliceResultOfBPlane.negativeChunk;
+        }
+        else
+        {
+            nonClone = originalObject;
+        }
+
+        // Mark everything else as clones
+        if (sliceResultOfAPlane.isSliced)
+        {
+            sliceResultOfAPlane.positiveChunk.isClone = (sliceResultOfAPlane.positiveChunk != nonClone);
+            sliceResultOfAPlane.negativeChunk.isClone = (sliceResultOfAPlane.negativeChunk != nonClone);
+        }
+        if (sliceResultOfBPlane.isSliced)
+        {
+            sliceResultOfBPlane.positiveChunk.isClone = (sliceResultOfBPlane.positiveChunk != nonClone);
+            sliceResultOfBPlane.negativeChunk.isClone = (sliceResultOfBPlane.negativeChunk != nonClone);
+        }
+
+        // Remove the non-clone from cut meshes list
+        if (nonClone != null && riftManager.geometryHandler.cutMeshes.Contains(nonClone.gameObject))
+        {
+            riftManager.geometryHandler.cutMeshes.Remove(nonClone.gameObject);
+        }
+        
+        sliceResultOfAPlane.FinalizeResult();
+        sliceResultOfBPlane.FinalizeResult();
+
+        isSliceInProgress = false;
+    }
+    /*private async void AttemptSliceRiftPlanes()
     {
         // Mark the start of a slice operation (this will get set false when we are done
         // (unless there is a critical failure (which happens a lot (sry)))) ~Liz
@@ -312,7 +410,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         sliceResultOfAPlane.FinalizeResult();
         DebugConsole.Log(this, $"[FINALIZE] Calling FinalizeResult on plane B");
         sliceResultOfBPlane.FinalizeResult();
-    }
+    }*/
      
     /// <summary>
     /// Attempts to cut this mesh across a single plane
@@ -321,9 +419,12 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
     /// <returns>Returns result of the mesh slice</returns>
     public async Task<SliceResultChunks> AttemptSlice(Plane _cutPlane)
     {
-        // Clones get AttemptSlice called before start or awake, so we have to force get components here
-        //slicer = GetComponent<BzSliceableObject>();
-        //sliceData = GetComponent<IBzMeshSlicer>();
+        // Clones can sometimes get AttemptSlice called before start or awake
+        // These checks here are essentially safegaurds to stop the slicer or riftManager from being null under some
+        // admittedly strange and hard to reproduce situations
+        // For the love of dogs, PLEASE DO NOT TRY TO MINDLESSLY CALL GETCOMPONENT IN UPDATE!
+        // LOOKING AT YOU PAST ME!!! ~Liz
+        if (!slicer) slicer = GetComponent<BzSliceableObject>();
         if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
 
         slicer.asynchronously = true;
@@ -356,7 +457,8 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
             riftManager.geometryHandler.cutMeshes.Add(cutChunk.gameObject);
             
             var chunkSliceable = cutChunk.gameObject.GetComponent<CorGeo_SliceableMesh>();
-            
+            // pre-assign so AttemptSlice never needs to fetch BzSliceableObject
+            chunkSliceable.slicer = cutChunk.gameObject.GetComponent<BzSliceableObject>();
             chunkSliceable.originalSliceableObject = this.originalSliceableObject ?? this;
             
             // .side returns true if the chunk is on the positive side of the plane (which in this case means that we haven't cut it yet)
@@ -379,6 +481,43 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
     private void FinishSlice()
     {
         // Ensures this function is only fired once per mesh chunk
+        if (hasFinishedSlice) return;
+        hasFinishedSlice = true;
+
+        if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
+        var originalScript = originalSliceableObject ?? this;
+        if (this != originalScript) originalScript.AddSliceableMeshToList(this);
+        
+        // !Temporary! Mesh collider state fix
+        var meshColliders = GetComponents<MeshCollider>();
+        if (meshColliders.Length > 0)
+        {
+            // Find the original object's collider settings 
+            if (originalScript.sliceHistory.Count > 0)
+            {
+                var lastState = originalScript.sliceHistory.Peek();
+                foreach (var savedCollider in lastState.colliders)
+                {
+                    // If original had a trigger collider, make new mesh colliders triggers too
+                    if (!savedCollider.isTrigger) continue;
+                    foreach (var meshCollider in meshColliders)
+                    {
+                        meshCollider.convex = true;
+                        meshCollider.isTrigger = true;
+                    }
+                }
+            }
+        }
+
+        // Store in space meshes list (Or throww a warning if some spooky crap is going on)
+        if (!riftManager.spaceController.spaceMeshes.TryAdd(this, riftSpace))
+        {
+            Debug.LogWarning($"{gameObject.name} was already present in spaceMeshes! This indicates FinishSlice ran twice for the same object! GOD DAMNIT 3:<");
+        }
+    }
+    /*private void FinishSlice()
+    {
+        // Ensures this function is only fired once per mesh chunk
         if (!isSliceInProgress) return;
         
         isSliceInProgress = false;
@@ -388,12 +527,19 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
             riftManager = GameInstance.Get<RiftManager>();
         }
         
+        var originalScript = originalSliceableObject ?? this;
+
+        if (this != originalScript)
+        {
+            originalScript.AddSliceableMeshToList(this);
+        }
+        
         // !Temporary! Mesh collider state fix
         var meshColliders = GetComponents<MeshCollider>();
+
         if (meshColliders.Length > 0)
         {
-            // Find the original object's collider settings
-            var originalScript = originalSliceableObject ?? this;
+            // Find the original object's collider settings 
             if (originalScript.sliceHistory.Count > 0)
             {
                 var lastState = originalScript.sliceHistory.Peek();
@@ -415,7 +561,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         // Store in space meshes list
         riftManager.spaceController.spaceMeshes.Add(this, riftSpace);
         //AssignMeshToSpaceLists();
-    }
+    }*/
     
     private CorGeo_SliceableMesh FindOriginalObject()
     {
@@ -435,7 +581,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
     /// <summary>
     /// Saves the starting mesh state and attempts to cut the mesh across the rift planes
     /// </summary>
-    public void ApplyCuts()
+    public Task ApplyCuts()
     {
         if (isSliceInProgress)
         {
@@ -444,7 +590,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         
         isSlicedByPlane = true;
         SaveUndoSnapshot();
-        AttemptSliceRiftPlanes();
+        return AttemptSliceRiftPlanes();
     }
 
     /// <summary>
@@ -464,6 +610,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         
         // Mark the object as no longer being cut
         isSlicedByPlane = false;
+        hasFinishedSlice = false;
 
         // Load the saved information of the mesh prior to the cut
         UndoSliceState state = sliceHistory.Pop();
@@ -511,7 +658,7 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         {
             foreach (var clone in riftManager.geometryHandler.cutMeshes)
             {
-                Destroy(clone);
+                DestroyImmediate(clone);
             }
             riftManager.geometryHandler.cutMeshes.Clear();
         }
@@ -551,6 +698,32 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         
         // Store in space meshes list
         riftManager.spaceController.spaceMeshes.Add(this, riftSpace);
+    }
+
+    private void AddSliceableMeshToList (CorGeo_SliceableMesh _mesh)
+    {
+        for (int i = 0; i < sliceableMeshes.Length; i++) {
+            if (sliceableMeshes[i] == null)
+            {
+                sliceableMeshes[i] = _mesh;
+                return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Returns all valid meshes in the sliceableMeshes array.
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerable<CorGeo_SliceableMesh> GetAllMeshes ()
+    {
+        foreach (CorGeo_SliceableMesh mesh in sliceableMeshes)
+        {
+            if (mesh != null)
+            {
+                yield return mesh;
+            }
+        }
     }
 
     #endregion

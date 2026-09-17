@@ -25,7 +25,7 @@ public class GI_TextboxManager : MonoBehaviour
 
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
-    [Box] public TextEvent currentTextEvent;
+    [ErryBox] public TextEvent currentTextEvent;
     public bool HasActiveTextEvent => textEventActive;
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
@@ -147,14 +147,18 @@ public class GI_TextboxManager : MonoBehaviour
         if (MoveNext())
         {
             var currentEventFrame = currentTextEvent.frames[currentFrame];
-            StartCoroutine(TypeText(currentEventFrame.chatContent, currentEventFrame.OnFrameCompleted));
+            StartCoroutine(TypeText(currentEventFrame.chatContent, currentEventFrame.OnFrameCompleted, currentEventFrame.speechEmissionPoint));
         }
     }
 
-    private IEnumerator TypeText(string _fullTextContent, UnityEvent _onFrameCompleted)
+    private IEnumerator TypeText(string _fullTextContent, UnityEvent _onFrameCompleted, Transform _emissionPoint = null)
     {
         // Set Displaymode
         textbox.displayMode = currentTextEvent.frames[currentFrame].displayMode;
+        
+        // Set anchor and speech style
+        textbox.speechEmissionPoint = _emissionPoint;
+        textbox.SetSpeechStyle(currentTextEvent.frames[currentFrame].SpeechStyle);
         
         // Get voice override, if there is one
         var characterVoice = currentTextEvent.frames[currentFrame].chatterVoice;
@@ -193,8 +197,12 @@ public class GI_TextboxManager : MonoBehaviour
         currentlyPrinting = false;
 
         _onFrameCompleted.Invoke();
-        
-        if (currentTextEvent.frames[currentFrame].autoProgressOnComplete) PrintNextFrame();
+
+        if (currentTextEvent.frames[currentFrame].autoProgressOnComplete)
+        {
+            yield return new WaitForSeconds(currentTextEvent.frames[currentFrame].autoProgressDelay);
+            PrintNextFrame();
+        }
     }
 
     /// <returns>True if currently inside a special markup</returns>
@@ -346,7 +354,7 @@ public class GI_TextboxManager : MonoBehaviour
                 chatterAudioSource.pitch = Random.Range(chatterPitchMin, chatterPitchMax);
             }
             // Play
-            chatterAudioSource.PlayOneShot(currentTextChatter);
+            if (currentTextChatter) chatterAudioSource.PlayOneShot(currentTextChatter);
         }
     }
     
@@ -425,6 +433,7 @@ public class TextFrames
     public string name;
     [TextArea] public string chatContent;
     public Sprite portrait;
+    public SpeechStyle SpeechStyle;
     public Char_ChatterVoice chatterVoice;
     public UnityEvent OnFrameCompleted = new UnityEvent();
     [Header("Frame Settings")] 
@@ -432,6 +441,8 @@ public class TextFrames
     public bool preventTextSkipping;
     public bool preventTextContinuing;
     public bool autoProgressOnComplete;
+    public float autoProgressDelay = 2f;
+    public Transform speechEmissionPoint;
 }
 
 
@@ -459,4 +470,14 @@ public enum TextboxDisplayMode
     shopMono,
     shopDia,
     centered,
+}
+
+public enum SpeechStyle
+{
+    normal,
+    yelling,
+    announcement,
+    whispering,
+    thought,
+    radio
 }
