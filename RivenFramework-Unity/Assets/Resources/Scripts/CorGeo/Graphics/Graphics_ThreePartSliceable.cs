@@ -60,9 +60,9 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
         sectionB.StartSlicing ();
         sectionNull.StartSlicing ();
 
-        sectionA.transform.SetParent(riftManager.spaceController.spaceContainerA.transform, true);
-        sectionB.transform.SetParent (riftManager.spaceController.spaceContainerB.transform, true);
-        sectionNull.transform.SetParent(riftManager.spaceController.spaceContainerNull.transform, true);
+        sectionA.transform.SetParent(riftManager.spaceController.spaceContainerA.transform);
+        sectionB.transform.SetParent (riftManager.spaceController.spaceContainerB.transform);
+        sectionNull.transform.SetParent(riftManager.spaceController.spaceContainerNull.transform);
     }
     public void StopSlicing()
     {
@@ -70,6 +70,9 @@ public class Graphics_ThreePartSliceable : MonoBehaviour
         sectionB.StopSlicing ();
         sectionNull.StopSlicing ();
 
+        sectionA.ResetParent ();
+        sectionB.ResetParent ();
+        sectionNull.ResetParent ();
     }
     public void SetBool (string _name, bool _isPowered)
     {
