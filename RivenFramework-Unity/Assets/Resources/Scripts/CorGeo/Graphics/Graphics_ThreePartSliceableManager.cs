@@ -54,15 +54,14 @@ public class Graphics_ThreePartSliceableManager : MonoBehaviour
         // Still didn't find it? Okay, stop everything else
         if (riftManager is null) return;
         var state = riftManager.stateHandler.currentState.GetType ();
-
-        if (riftManager.stateHandler.IsState<RiftState_None> ())
-        {
-            StopSlicing ();
-        }
-        else
+        if (state != typeof (RiftState_None))
         {
             //If the rift is real
             SliceObjects ();
+        }
+        else
+        {
+            StopSlicing ();
         }
     }
 
