@@ -72,10 +72,10 @@ public class Graphics_SliceableSection : MonoBehaviour
         Vector3 normalA = RiftManager.cutPlaneB.normal;
         Vector3 planePosA = riftManager.geometryHandler.visualPlaneA.transform.position;
         Vector3 planePosB = riftManager.geometryHandler.visualPlaneB.transform.position;
-        Debug.Log ("normalA " + normalA);
-        Debug.Log ("normalB " + normalB);
+        //Debug.Log ("normalA " + normalA);
+        //Debug.Log ("normalB " + normalB);
 
-        Debug.Log ("Setting " + name);
+        //Debug.Log ("Setting " + name);
         switch (space)
         {
 
@@ -118,7 +118,7 @@ public class Graphics_SliceableSection : MonoBehaviour
         if (rend.sharedMaterials.Length == 0)
             return;
 
-        Debug.Log ("Slice()");
+        //Debug.Log ("Slice()");
         foreach (Material mat in rend.sharedMaterials)
         {
             mat.SetFloat ("_UseSlice", 1);
