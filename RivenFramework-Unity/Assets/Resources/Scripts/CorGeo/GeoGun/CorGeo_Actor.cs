@@ -217,40 +217,13 @@ public class CorGeo_Actor : MonoBehaviour
             print("Equal");
         }
         */
-        
+
         // Sanity checks
         //if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
         //riftManager.spaceController.spaceActors.Remove(this);
 
-        // We ABSOLUTELY NEED to reference the distance using the VISUAL planes since the CUT planes never move, and this function is called while the rift is in motion
-        // This doesn't need to be done with the meshes since that calculation is only performed when the rift is created
-        // I am embarrassed to admit how long it took me to find this oversight ~Liz
-        // ( PS Don't ask me to explain this "toOther" stuff, it was just in the Unity docs and the function doesn't work correctly without it)
-        Vector3 toOther = Vector3.Normalize(transform.position - riftManager.geometryHandler.visualPlaneA.transform.position); 
-        var distanceToPlaneA = Vector3.Dot(-riftManager.geometryHandler.visualPlaneA.transform.forward, toOther);
-        toOther = Vector3.Normalize(transform.position - riftManager.geometryHandler.visualPlaneB.transform.position);
-        var distanceToPlaneB = Vector3.Dot(-riftManager.geometryHandler.visualPlaneB.transform.forward, toOther);
-        
-        if (distanceToPlaneA > 0)
-        {
-            riftSpace = RiftSpace.A;
-            
-            if (debugLogSpaceData) { Debug.Log ("A Space"); }
-        }
-        else if (distanceToPlaneB > 0)
-        {
-            riftSpace = RiftSpace.B;
-            if (debugLogSpaceData) { Debug.Log ("B Space"); }
-        }
-        else
-        {
-            riftSpace = RiftSpace.NULLSpace;
-            if (debugLogSpaceData) { Debug.Log ("Null Space"); }
-        }
-        
-        
-        // Store in space actors list
-        //riftManager.spaceController.spaceActors.Add(this, riftSpace);
+        // I replaced this with a reuseable function on RiftManager. ~ Connors
+        riftSpace = riftManager.GetRiftSpaceOfPoint (transform.position);
     }
 
     /// <summary>

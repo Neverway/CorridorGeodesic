@@ -89,52 +89,6 @@ public class RiftAudioEmitter : MonoBehaviour
         // Still didn't find it? Okay, stop everything else
         if (riftManager is null) return;
 
-        if (false)
-        {
-            //horrendous if statements for debugging the state machine:
-            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_None))
-            {
-                Debug.Log ("$$ RiftState_None");
-            }
-            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Collapsing))
-            {
-                Debug.Log ("$$ RiftState_Collapsing");
-            }
-            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Expanding))
-            {
-                Debug.Log ("$$ RiftState_Expanding");
-            }
-            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Destroy))
-            {
-                Debug.Log ("$$ RiftState_Destroy");
-            }
-            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Idle))
-            {
-                Debug.Log ("$$ RiftState_Idle");
-            }
-            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_None))
-            {
-                Debug.Log ("$$ RiftState_None");
-            }
-            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_DestroyRestoring))
-            {
-                Debug.Log ("$$ RiftState_DestroyRestoring");
-            }
-            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_ExpandingFromCrush))
-            {
-                Debug.Log ("$$ RiftState_ExpandingFromCrush");
-            }
-            if (riftManager.stateHandler.currentState.GetType () == typeof (RiftState_Closed))
-            {
-                Debug.Log ("$$ RiftState_Closed");
-            }
-
-            if (riftManager.stateHandler.currentState.GetType () != typeof (RiftState_None) && riftManager.stateHandler.previousState.GetType () == typeof (RiftState_None))
-            {
-                OnRiftCreated ();
-            }
-        }
-
         bool collapseStart = false;
         bool expandStart = false;
 
@@ -181,6 +135,8 @@ public class RiftAudioEmitter : MonoBehaviour
             riftExpandInstance.stop (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
+
+    //Determines the position rift sound effects should come from.
     private Vector3 GetAudioClosestPosition()
     {
         if (playerActorData == null)
@@ -196,29 +152,29 @@ public class RiftAudioEmitter : MonoBehaviour
                 return GetCameraPosition ();
             }
         }
-        playerActorData.DetermineRiftSpace ();
-        if (playerActorData.riftSpace == RiftSpace.NULLSpace)
-        {
-            return GetCameraPosition ();
-        }
 
         Vector3 camPos = GetCameraPosition ();
 
-        Vector3 closestPoint = camPos;
+        //places audio on nearest part of rift plane, unless we are inside the rift
+        //in which case it places audio on the camera.
+        RiftSpace space = riftManager.GetRiftSpaceOfPoint(camPos);
 
-        if(playerActorData.riftSpace == RiftSpace.NULLSpace)
-            return closestPoint;
-
-        Vector3 planeAAlignment = RiftManager.cutPlaneA.ClosestPointOnPlane(camPos);
-        Vector3 planeBAlignment = RiftManager.cutPlaneB.ClosestPointOnPlane(camPos);
-
-        if ((planeAAlignment - camPos).sqrMagnitude < (planeBAlignment - camPos).sqrMagnitude)
-            closestPoint = planeAAlignment;
-        else
-            closestPoint = planeBAlignment;
-
-        return closestPoint;
+        if (space == RiftSpace.A)
+        {
+            return RiftManager.cutPlaneA.ClosestPointOnPlane (camPos);
+        }
+        if (space == RiftSpace.B)
+        {
+            return RiftManager.cutPlaneB.ClosestPointOnPlane(camPos);
+        }
+        if (space == RiftSpace.NULLSpace)
+        {
+            return camPos;
+        }
+        //fallback
+        return camPos;
     }
+
     private void Update3DAttributes()
     {
         FMOD.ATTRIBUTES_3D attributes = FMODUnity.RuntimeUtils.To3DAttributes(transform.position);

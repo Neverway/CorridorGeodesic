@@ -443,6 +443,30 @@ public class RiftManager : MonoBehaviour, ILoggable
         StartCoroutine(TestRiftFast());
     }
 
+    //Returns the RiftSpace of a point in space. (A/B/NULLSpace). Returns RiftSpace.none if there is no rift.
+    public RiftSpace GetRiftSpaceOfPoint(Vector3 _pos)
+    {
+        //Note: This uses the visualPlaneA/B objects because they get their position updated in real time. The cutPlaneA/B fields do not update.
+        if (!riftActive)
+        {
+            return RiftSpace.none;
+        }
+        var distanceToPlane = Vector3.Dot (geometryHandler.visualPlaneA.transform.forward, _pos - geometryHandler.visualPlaneA.transform.position);
+        if (distanceToPlane < 0)
+        {
+            return RiftSpace.A;
+        }
+        else
+        {
+            distanceToPlane = Vector3.Dot (geometryHandler.visualPlaneB.transform.forward, _pos - geometryHandler.visualPlaneB.transform.position);
+            if (distanceToPlane < 0)
+            {
+                return RiftSpace.B;
+            }
+        }
+        return RiftSpace.NULLSpace;
+    }
+
     [Serializable]
     public struct RiftTestValues
     {
