@@ -7,6 +7,16 @@
       "dependencies": {},
       "hash": "0cc6036815eadab678a378cbee731c47357907cb"
     },
+    "com.neverway.riven": {
+      "version": "file:com.neverway.riven",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.inputsystem": "1.7.0",
+        "com.unity.textmeshpro": "3.0.9",
+        "com.unity.ugui": "1.0.0"
+      }
+    },
     "com.unity.2d.animation": {
       "version": "9.0.4",
       "depth": 1,
