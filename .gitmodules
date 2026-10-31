@@ -1,0 +1,3 @@
+[submodule "RivenFramework-Unity/Packages/com.neverway.riven"]
+	path = RivenFramework-Unity/Packages/com.neverway.riven
+	url = https://github.com/Neverway/RivenFramework-UnityPackage.git
