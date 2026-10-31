@@ -83,7 +83,7 @@ public class Prop_Respawner : MonoBehaviour
         yield return new WaitForSeconds(spawnDelay);
         spawnedObject = Instantiate(propPrefab, transform.position, transform.rotation);
         var actor = spawnedObject.GetComponent<Actor>();
-        if (actor) actor.uniqueId = propUniqueID;
+        if (actor) actor.SetGUID(propUniqueID);
         spawnWorker = null;
         if (autoRespawn == false)
         {
@@ -155,10 +155,10 @@ public class Prop_Respawner : MonoBehaviour
         
         foreach (Actor actor in allActors)
         {
-            if (actor.uniqueId == "") continue;
+            if (actor.GetGUID() == "") continue;
             
-            print($"Found matching object {actor.name} with {actor.uniqueId} to {_uuid}");
-            if (actor.uniqueId == _uuid) return actor;
+            print($"Found matching object {actor.name} with {actor.GetGUID()} to {_uuid}");
+            if (actor.GetGUID() == _uuid) return actor;
         }
 
         return null;

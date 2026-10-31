@@ -88,7 +88,7 @@ public class DevMenuButtonAttribute : DevMenuItemAttribute
             throw new InvalidAttributeUsageException<DevMenuButtonAttribute>(memberAttachedTo,
                 "Method attached to must be static");
 
-        if (!methodInfo.HasParametersNone())
+        if (!methodInfo.HasNoParams())
             throw new InvalidAttributeUsageException<DevMenuButtonAttribute>(memberAttachedTo,
                 "Method must have no parameters");
     }
