@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RivenFramework;
 
 public class LogicDebugIndicator : Logic
 {

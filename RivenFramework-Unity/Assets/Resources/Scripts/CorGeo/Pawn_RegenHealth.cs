@@ -10,6 +10,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RivenFramework;
 
 public class Pawn_RegenHealth : MonoBehaviour
 {

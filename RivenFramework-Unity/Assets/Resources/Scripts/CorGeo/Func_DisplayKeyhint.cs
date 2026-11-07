@@ -9,7 +9,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GameInstance = RivenFramework.GameInstance;
+using RivenFramework;
 
 public class Func_DisplayKeyhint : MonoBehaviour
 {

@@ -8,6 +8,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using RivenFramework;
 
     [RequireComponent(typeof(Image))]
     public class UI_Image_PawnHealth : MonoBehaviour

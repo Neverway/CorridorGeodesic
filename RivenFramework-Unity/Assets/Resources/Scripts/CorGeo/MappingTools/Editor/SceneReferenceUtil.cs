@@ -2,6 +2,7 @@ using System.IO;
 using System.Reflection;
 using UnityEditor;
 using Object = UnityEngine.Object;
+using RivenFramework;
 
 
 public static class SceneReferenceUtil

@@ -9,6 +9,7 @@
 
 using System;
 using UnityEngine;
+using RivenFramework;
 
     public class Pawn_WallRun : MonoBehaviour
     {

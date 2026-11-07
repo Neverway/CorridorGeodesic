@@ -10,6 +10,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using RivenFramework;
 
 public class Logic_VolumeSliceable : MonoBehaviour
 {

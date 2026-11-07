@@ -1,7 +1,10 @@
 using System.Collections.Generic;
+using NewRivenFramework.Core;
 using UnityEngine;
+using RivenFramework;
+using Actor = RivenFramework.Actor;
 
-    /// <summary>
+/// <summary>
     /// Distributes health events to the appropriate health receiver
     /// </summary>
     public class GameInstance_EventDistributor_Health : MonoBehaviour
