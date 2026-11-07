@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639231317874518186
+  lastModified: 639251948904129894
   FileSizes:
   - Name: Desktop
     Value: 1778
@@ -116,10 +116,10 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 639231317874965696
+  lastModified: 639251999132240431
   FileSizes:
   - Name: Desktop
-    Value: 5420160
+    Value: 5420320
   Exists: 1
 --- !u!114 &-7326389465190571907
 MonoBehaviour:
@@ -163,7 +163,7 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 639231317874457394
+  lastModified: 639251999131400397
   FileSizes:
   - Name: Desktop
     Value: 1081408
@@ -481,7 +481,7 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Voices.bank
   Name: Voices
   StudioPath: bank:/Voices
-  lastModified: 639231317875831884
+  lastModified: 639251331969462338
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -513,6 +513,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-1665472204697375672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/TurretCharge 2
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/TurretCharge 2
+  Guid:
+    Data1: 434308420
+    Data2: 1096867329
+    Data3: -1195197824
+    Data4: -1763550349
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5612
 --- !u!114 &-1077559806537691205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,12 +707,14 @@ MonoBehaviour:
   - {fileID: -1077559806537691205}
   - {fileID: 332758758205202512}
   - {fileID: 3462897690490209296}
+  - {fileID: -1665472204697375672}
+  - {fileID: 426793120856737197}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8365824045608764663}
   StringsBanks:
   - {fileID: 9139697872510692804}
-  cacheTime: 639231317875831884
+  cacheTime: 639251999133320473
   cacheVersion: 131593
 --- !u!114 &227244039557351669
 MonoBehaviour:
@@ -795,6 +824,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &426793120856737197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Components/TurretCharge
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Components/TurretCharge
+  Guid:
+    Data1: 2116791801
+    Data2: 1102946081
+    Data3: 1984280224
+    Data4: -1082248689
+  Banks:
+  - {fileID: 1077751589926075214}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8852
 --- !u!114 &1027626865564472709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,10 +893,10 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639231317875775753
+  lastModified: 639251999133320473
   FileSizes:
   - Name: Desktop
-    Value: 1644000
+    Value: 2171296
   Exists: 1
 --- !u!114 &1195476631487230218
 MonoBehaviour:
@@ -1261,10 +1317,10 @@ MonoBehaviour:
   Path: ../ProjectFiles/CorGeoFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639231317874528416
+  lastModified: 639251948904129894
   FileSizes:
   - Name: Desktop
-    Value: 2980
+    Value: 3066
   Exists: 1
 --- !u!114 &9179940745280179003
 MonoBehaviour:

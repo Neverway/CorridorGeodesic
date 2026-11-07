@@ -9,6 +9,7 @@
 
 using System.Collections;
 using UnityEngine;
+using RivenFramework;
 
 /// <summary>
 /// A puzzle element that creates teleportation bubbles

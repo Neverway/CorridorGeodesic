@@ -11,6 +11,7 @@ using Object = UnityEngine.Object;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
+using RivenFramework;
 
 public class MappingTools : EditorWindow
 {

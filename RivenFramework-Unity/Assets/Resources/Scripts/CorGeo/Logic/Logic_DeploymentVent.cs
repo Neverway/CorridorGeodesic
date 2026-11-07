@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
+using RivenFramework;
 
 public class Logic_DeploymentVent : Prop_Respawner
 {

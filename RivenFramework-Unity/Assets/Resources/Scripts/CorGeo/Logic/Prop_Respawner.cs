@@ -11,6 +11,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RivenFramework;
 
 /// <summary>
 /// Spawns a prefab object on a timer, and spawns it again if it is destroyed.
