@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RivenFramework;
 
 [DefaultExecutionOrder(1)]
 public class Logic_ElevatorFloor : MonoBehaviour

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using RivenFramework;
 
 public class BulbPowerSocket : MonoBehaviour, BulbCollisionBehaviour
 {

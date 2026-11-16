@@ -5,6 +5,7 @@ using System.Linq;
 using FMOD.Studio;
 using UnityEngine;
 using UnityEngine.Events;
+using RivenFramework;
 
 public class Logic_Elevator : MonoBehaviour
 {

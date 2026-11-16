@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Neverway.Framework.LogicSystem;
+using RivenFramework;
 
 public class Laser_Detector : MonoBehaviour
 {

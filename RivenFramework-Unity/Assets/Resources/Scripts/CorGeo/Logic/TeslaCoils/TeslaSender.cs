@@ -8,7 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Neverway.Framework.LogicSystem;
+using RivenFramework;
 
 //todo: make a manager that Lists senders and receivers and calls them accordionly
 [RequireComponent(typeof(TeslaConductor))]

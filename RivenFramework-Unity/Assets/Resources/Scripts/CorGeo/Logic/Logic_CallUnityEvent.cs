@@ -12,6 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using RivenFramework;
 
 /// <summary>
 /// Disables or enables a target actor when powered

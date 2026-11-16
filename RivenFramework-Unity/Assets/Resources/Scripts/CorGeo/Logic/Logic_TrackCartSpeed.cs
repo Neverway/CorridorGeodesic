@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using DG.Tweening;
 using UnityEngine;
+using RivenFramework;
 
 public class Logic_TrackCartSpeed : MonoBehaviour
 {

@@ -10,6 +10,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using RivenFramework;
 
 public class Logic_DoorSwinging : MonoBehaviour
 {
