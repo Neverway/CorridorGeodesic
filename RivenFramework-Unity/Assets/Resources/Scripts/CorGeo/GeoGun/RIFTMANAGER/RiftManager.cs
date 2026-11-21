@@ -11,6 +11,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using ErryLib.MonoTasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -274,6 +275,13 @@ public class RiftManager : MonoBehaviour, ILoggable
             await geometryHandler.PerformCutProcedure();
             spaceController.ReparentGeometryToSpaceContainers();
             spaceController.ReparentActorsToSpaceContainers();
+            
+            var nullContainer = spaceController.spaceContainerNull.transform;
+            nullContainer.localScale = new Vector3(1f, 1f, 0.999f);
+            await For.NextFixedUpdate;
+            nullContainer.localScale = Vector3.one;
+            await For.NextFixedUpdate;
+            
             stateHandler.SetState<RiftState_Preview>();
         }
         catch (System.Exception e)
@@ -457,7 +465,8 @@ public class RiftManager : MonoBehaviour, ILoggable
     public RiftSpace GetRiftSpaceOfPoint(Vector3 _pos)
     {
         //Note: This uses the visualPlaneA/B objects because they get their position updated in real time. The cutPlaneA/B fields do not update.
-        if (!riftActive && !isCreatingRift)
+        bool isWindingBack = stateHandler.IsState<RiftState_DestroyRestoring>() || stateHandler.IsState<RiftState_Destroy>();
+        if (!riftActive && !isCreatingRift && !isWindingBack)
         {
             return RiftSpace.none;
         }

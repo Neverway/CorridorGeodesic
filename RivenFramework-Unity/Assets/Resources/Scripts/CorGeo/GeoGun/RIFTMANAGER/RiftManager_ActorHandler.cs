@@ -169,11 +169,10 @@ public class RiftManager_ActorHandler : ILoggable
     public void ApplyNullSpaceScale(CorGeo_Actor actor, float _newRiftPercent)
     {
         Vector3 localNormal = actor.transform.InverseTransformDirection(RiftManager.riftNormal);
-        Vector3 axisWeight = new Vector3(Mathf.Abs(localNormal.x), Mathf.Abs(localNormal.y), Mathf.Abs(localNormal.z));
         Vector3 scaleMultiplier = new Vector3(
-            Mathf.Lerp(1f, _newRiftPercent, axisWeight.x),
-            Mathf.Lerp(1f, _newRiftPercent, axisWeight.y),
-            Mathf.Lerp(1f, _newRiftPercent, axisWeight.z)
+            Mathf.Lerp(1f, _newRiftPercent, localNormal.x * localNormal.x),
+            Mathf.Lerp(1f, _newRiftPercent, localNormal.y * localNormal.y),
+            Mathf.Lerp(1f, _newRiftPercent, localNormal.z * localNormal.z)
         );
         actor.SetRiftScale(Vector3.Scale(actor.HomeScale, scaleMultiplier));
     }
