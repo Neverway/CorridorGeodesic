@@ -11,10 +11,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DG.Tweening;
-using RivenFramework;
-using Unity.VisualScripting;
-using RivenFramework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -141,7 +137,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         // Create rift when markers pinned
         if (createRiftOnMarkersPinned && IsMarkersPinned() && stateHandler.IsState<RiftState_None>() && !isCreatingRift)
         {
-            CreateRift(markerA, markerB);
+            _ = CreateRift(markerA, markerB);
         }
         
         // Erase rift when marker transforms are destroyed
@@ -262,20 +258,28 @@ public class RiftManager : MonoBehaviour, ILoggable
     {
         if (isCreatingRift) return;
         isCreatingRift = true;
-        markerA = _markerA;
-        markerB = _markerB;
-        
-        this.Log($"CreateRift called (_markerA: '{_markerA}', _markerB: '{_markerB}')");
-        geometryHandler.SetRiftPlanesVisible(true);
-        geometryHandler.PositionCutPlanes(_markerA, _markerB);
-        await geometryHandler.PerformCutProcedure();
-        spaceController.ReparentGeometryToSpaceContainers();
-        spaceController.ReparentActorsToSpaceContainers();
-        stateHandler.SetState<RiftState_Preview> ();
+        try
+        {
+            markerA = _markerA;
+            markerB = _markerB;
 
-        isCreatingRift = false;
+            this.Log($"CreateRift called (_markerA: '{_markerA}', _markerB: '{_markerB}')");
+            geometryHandler.SetRiftPlanesVisible(true);
+            geometryHandler.PositionCutPlanes(_markerA, _markerB);
+            await geometryHandler.PerformCutProcedure();
+            spaceController.ReparentGeometryToSpaceContainers();
+            spaceController.ReparentActorsToSpaceContainers();
+            stateHandler.SetState<RiftState_Preview>();
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogException(e);
+        }
+        finally
+        {
+            isCreatingRift = false;
+        }
     }
-
     /// <summary>
     /// Unslice the world and remove objects from space containers
     /// This version is used by the rift gun controller so that it properly cleans up its markers

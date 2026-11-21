@@ -14,5 +14,5 @@ using UnityEngine;
 
 public interface ILoggable
 {
-    [field: SerializeField] public bool EnableRuntimeLogging { get; set; }
+    public bool EnableRuntimeLogging { get; set; }
 }

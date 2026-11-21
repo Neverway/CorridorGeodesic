@@ -47,7 +47,7 @@ public class VisualFramerateLimiter : MonoBehaviour
     [Tooltip("")]
     private Transform visualTransform;
 
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
 
     #endregion

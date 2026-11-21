@@ -42,7 +42,7 @@ public class Logic_DoorSwinging : MonoBehaviour
     // Reference Variables
     //=-----------------=
     public Rigidbody doorRigidbody;
-    public HingeJoint hingeJoint;
+    public new HingeJoint hingeJoint;
     public GameObject doorHandle;
 
 

@@ -89,8 +89,9 @@ public class Item_Utility_Geogun : RiftController, ILoggable
 
     #region=======================================( Functions )======================================================= //
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         /*
         var riftManager = GameInstance.Get<GI_RiftManager>();
         if (riftManager)
@@ -104,8 +105,8 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         // If the rift manager already has a geogun link and it's not this, self destruct to avoid possible issues
         if (riftManager.linkedRiftController)
         {
-            return;
             Destroy(gameObject);
+            return;
         }
         
         
@@ -117,8 +118,9 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         instanceOfRiftAudioEmitter = Instantiate (riftAudioEmitter);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         // Process the wants to BLANK requests from item actions
         // (I'm doing it this way for now since we want to be able to hold collapse or expand before a rift might be active)
         if (spawnedProjectiles.Count >= maxProjectiles)
@@ -148,8 +150,9 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         PlacePreviewPlanes ();
     }
 
-    private void OnDestroy ()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if (instanceOfRiftAudioEmitter) Destroy(instanceOfRiftAudioEmitter.gameObject);
     }
 
@@ -212,8 +215,9 @@ public class Item_Utility_Geogun : RiftController, ILoggable
         }
     }
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         // Moving this here to hopefully reduce its performance impact
         // Get a reference to the player view point
         if (!playerViewPoint)

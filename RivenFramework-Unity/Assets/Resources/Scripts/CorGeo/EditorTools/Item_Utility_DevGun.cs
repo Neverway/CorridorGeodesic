@@ -55,14 +55,16 @@ public class Item_Utility_DevGun : Item
 
     #region=======================================( Functions )=======================================================//
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         UpdateToolDisplay();
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (attachedObject) attachedObject.transform.position = transform.position + transform.forward * attachedObjectDistance;
         
         switch (currentToolMode)

@@ -20,7 +20,7 @@ public class Graphics_Test_PlaneMask : MonoBehaviour
     // Private Variables
     //=-----------------=
 
-    private Renderer renderer;
+    private new Renderer renderer;
     private List<Material> materials = new List<Material> ();
 
     //=-----------------=

@@ -4,7 +4,7 @@ using UnityEngine;
 [ExecuteAlways]
 public class RenderScale : MonoBehaviour
 {
-    public bool enabled = true;
+    public bool scaleEnabled = true;
     [Range(0.1f, 1f)] public float scale = 0.5f;
     public FilterMode filterMode = FilterMode.Bilinear;
 
@@ -23,13 +23,13 @@ public class RenderScale : MonoBehaviour
 
     void LateUpdate()
     {
-        if (!enabled) return;
+        if (!scaleEnabled) return;
         int w = Mathf.Max(1, Mathf.RoundToInt(Screen.width  * scale));
         int h = Mathf.Max(1, Mathf.RoundToInt(Screen.height * scale));
         if (_rt == null || _rt.width != w || _rt.height != h) UpdateRT();
 
-        _blitCam.enabled = enabled;
-        _cam.targetTexture = enabled ? _rt : null;
+        _blitCam.enabled = scaleEnabled;
+        _cam.targetTexture = scaleEnabled ? _rt : null;
     }
 
     void CreateBlitCamera()

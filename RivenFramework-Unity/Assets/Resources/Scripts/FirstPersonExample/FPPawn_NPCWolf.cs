@@ -44,8 +44,9 @@ public class FPPawn_NPCWolf : FPPawn
         viewPoint = transform.Find("ViewPoint");
     }
 
-    public void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (IsPaused || isDead) return;
         action.Look(this, ((FPPawnStats)currentStats).lookRange);
         closestAlly = action.GetClosest(this, visibleAllies);

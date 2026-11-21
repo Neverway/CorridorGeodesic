@@ -97,8 +97,9 @@ public class FPPawn_Player : FPPawn
         viewCamera = viewPoint.GetComponentInChildren<Camera>();
     }
 
-    public void Update()
+    protected override void Update()
     {
+        base.Update();
         // Pausing
         UpdatePauseMenu();
         
@@ -159,8 +160,9 @@ public class FPPawn_Player : FPPawn
         }
     }
 
-    public void FixedUpdate()
+    protected override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (IsPaused || isDead) return;
         ApplyMovement();
         ApplyRotation();

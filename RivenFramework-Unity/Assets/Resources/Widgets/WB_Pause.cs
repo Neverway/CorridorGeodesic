@@ -46,8 +46,9 @@ public class WB_Pause : WidgetBlueprint
         buttonRestart.onClick.AddListener(delegate { OnClick("buttonRestart"); });
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         foreach (var pawn in FindObjectsOfType<FPPawn>())
         {
             pawn.Pause(out playerPauseToken);

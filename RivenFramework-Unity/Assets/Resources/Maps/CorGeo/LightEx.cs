@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LightEx : MonoBehaviour
 {
-    public Light light;
+    public new Light light;
     // Start is called before the first frame update
     
     

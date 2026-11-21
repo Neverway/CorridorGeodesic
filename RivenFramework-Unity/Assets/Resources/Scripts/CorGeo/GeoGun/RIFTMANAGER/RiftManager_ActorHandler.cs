@@ -142,11 +142,6 @@ public class RiftManager_ActorHandler : ILoggable
                                $"Delta: {deltaWidth:F3} | NewPos: {newActorPosition}");
 
         return newActorPosition;
-        
-        float offset = Mathf.Abs(RiftManager.riftStartingWidth*RiftManager.currentRiftPercent)-Mathf.Abs(RiftManager.riftStartingWidth * _newRiftPercent);
-
-        Debug.Log($"Pos {_actorPosition}, NPer {_newRiftPercent}, CRW {RiftManager.currentRiftWidth}");
-        return _actorPosition - (RiftManager.riftNormal * offset);
     }
 
     /// <summary>

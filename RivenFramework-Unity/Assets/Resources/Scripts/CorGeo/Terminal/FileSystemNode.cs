@@ -33,7 +33,7 @@ public class FileSystemNode
     public bool accessDenied;
     public string accessDeniedReason;
 
-    public FileSystemNode parent;
+    [System.NonSerialized] public FileSystemNode parent;
     
     public bool IsDirectory => nodeType == FSNodeType.Directory;
 

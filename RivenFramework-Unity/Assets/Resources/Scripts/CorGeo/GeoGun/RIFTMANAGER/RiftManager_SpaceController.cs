@@ -44,7 +44,7 @@ public class RiftManager_SpaceController : ILoggable
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Tooltip("Link to parent class for logging")]
     private RiftManager riftManager;
-    public RiftManager_GeometryHandler geometryHandler;
+    [System.NonSerialized] public RiftManager_GeometryHandler geometryHandler;
     public Dictionary<CorGeo_SliceableMesh, RiftSpace> spaceMeshes =  new ();
     [Todo("This variable is very inconsistently used. It's supposed to be populated by CorGeoActor, but that function was hijacked for the dynamic actor space assignment")]
     public Dictionary<CorGeo_Actor, RiftSpace> spaceActors =  new ();
