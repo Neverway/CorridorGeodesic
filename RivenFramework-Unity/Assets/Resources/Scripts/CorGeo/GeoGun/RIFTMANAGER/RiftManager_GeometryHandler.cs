@@ -53,7 +53,7 @@ public class RiftManager_GeometryHandler : ILoggable
     private RiftManager riftManager;
     
     [Tooltip("Coroutine used to keep multiple cut operations from being called at the same time")]
-    private Coroutine cutRoutine;
+    private bool cutInProgress;
 
     [Tooltip("The visuals that represent the rift cut planes")]
     public GameObject visualPlaneA, visualPlaneB;
@@ -92,33 +92,26 @@ public class RiftManager_GeometryHandler : ILoggable
     /// </summary>
     private IEnumerator SliceCutPlanes()
     {
-        try
+        List<CorGeo_SliceableMesh> allMeshes = GameObject.FindObjectsOfType<CorGeo_SliceableMesh>().ToList();
+        List<Task> pendingSlices = new List<Task>();
+
+        foreach (var mesh in allMeshes)
         {
-            List<CorGeo_SliceableMesh> allMeshes = GameObject.FindObjectsOfType<CorGeo_SliceableMesh>().ToList();
-            List<Task> pendingSlices = new List<Task>();
-
-            foreach (var mesh in allMeshes)
+            if (CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneA, mesh) ||
+                CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneB, mesh))
             {
-                if (CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneA, mesh) ||
-                    CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneB, mesh))
-                {
-                    pendingSlices.Add(mesh.ApplyCuts());
-                }
-                else
-                {
-                    mesh.AssignMeshToSpaceLists();
-                }
+                pendingSlices.Add(mesh.ApplyCuts());
             }
-
-            var allSlicesTask = Task.WhenAll(pendingSlices);
-            while (!allSlicesTask.IsCompleted)
+            else
             {
-                yield return null;
+                mesh.AssignMeshToSpaceLists();
             }
         }
-        finally
+
+        var allSlicesTask = Task.WhenAll(pendingSlices);
+        while (!allSlicesTask.IsCompleted)
         {
-            cutRoutine = null;
+            yield return null;
         }
     }
 
@@ -182,11 +175,19 @@ public class RiftManager_GeometryHandler : ILoggable
     public async Task PerformCutProcedure()
     {
         this.Log("PerformCutProcedure called");
-        if (cutRoutine != null)
+        if (cutInProgress)
         {
             throw new InvalidOperationException("Attempted to perform cut while one is already running! This is bad!?");
         }
-        await For.Coroutine(SliceCutPlanes(), out cutRoutine);
+        cutInProgress = true;
+        try
+        {
+            await For.Coroutine(SliceCutPlanes());
+        }
+        finally
+        {
+            cutInProgress = false;
+        }
     }
 
     /// <summary>

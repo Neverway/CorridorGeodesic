@@ -457,7 +457,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     public RiftSpace GetRiftSpaceOfPoint(Vector3 _pos)
     {
         //Note: This uses the visualPlaneA/B objects because they get their position updated in real time. The cutPlaneA/B fields do not update.
-        if (!riftActive)
+        if (!riftActive && !isCreatingRift)
         {
             return RiftSpace.none;
         }

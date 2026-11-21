@@ -118,6 +118,25 @@ public class RiftManager_ActorHandler : ILoggable
         
         return newActorPosition;
     }
+    
+    /// <summary>
+    /// How far across null-space a point is, from 0 (on plane A) to 1 (on plane B)
+    /// </summary>
+    public float GetNullSpaceT(Vector3 _position)
+    {
+        if (RiftManager.currentRiftWidth <= 0) return 0f;
+        float distanceAlongRift = Vector3.Dot(_position - RiftManager.riftNullSpaceStartingPosition, RiftManager.riftNormal);
+        return Mathf.Clamp01(distanceAlongRift / RiftManager.currentRiftWidth);
+    }
+
+    /// <summary>
+    /// Moves a point along the rift normal so it sits at _t across a null-space of the given width, Sideways and vertical offsets are left alone
+    /// </summary>
+    public Vector3 PlaceAtNullSpaceT(Vector3 _position, float _t, float _width)
+    {
+        float distanceAlongRift = Vector3.Dot(_position - RiftManager.riftNullSpaceStartingPosition, RiftManager.riftNormal);
+        return _position + RiftManager.riftNormal * (_t * _width - distanceAlongRift);
+    }
 
     /// <summary>
     /// Calculate where an object in B-Space should move to if the rift scales to the given percent.

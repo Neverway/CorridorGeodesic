@@ -245,6 +245,21 @@ public class RiftManager_SpaceController : ILoggable
         foreach (CorGeo_Actor actor in RiftManager_ActorHandler.CorGeo_Actors)
         {
             if (!actor) continue;
+            
+            // The actor was just renabled by the rift opening so move it back to where it should be in null space
+            if (actor.collapsedByRift && actor.gameObject.activeSelf)
+            {
+                actor.collapsedByRift = false;
+
+                if (actor.dynamic)
+                {
+                    float newWidth = RiftManager.riftStartingWidth * _newPercent;
+                    actor.transform.position = riftManager.actorHandler.PlaceAtNullSpaceT(actor.transform.position, actor.nullSpaceT, newWidth);
+                    riftManager.actorHandler.ApplyNullSpaceScale(actor, _newPercent);
+                }
+                continue;
+            }
+            
             if (!actor.dynamic) continue;
             if (!actor.gameObject.activeSelf) continue;
 
@@ -282,13 +297,20 @@ public class RiftManager_SpaceController : ILoggable
         }
         foreach (var actor in RiftManager_ActorHandler.CorGeo_Actors)
         {
-            if (actor == null) continue;
+            if (!actor) continue;
+            // If its alreadt collapsed, leave it alone since rechecking its space while the planes are together scrambles its riftspace value
+            if (actor.collapsedByRift) continue;
 
             actor.DetermineRiftSpace();
 
             if (actor.riftSpace == RiftSpace.NULLSpace)
             {
+                // Remember where the actor was in null-space before it gets disabled
+                actor.nullSpaceT = riftManager.actorHandler.GetNullSpaceT(actor.transform.position);
                 actor.CollapseActor();
+
+                // only flip the flag for the actors that actually got disabled since some can be marked to not get hidden
+                if (!actor.gameObject.activeSelf) actor.collapsedByRift = true;
             }
         }
     }
@@ -307,22 +329,13 @@ public class RiftManager_SpaceController : ILoggable
         }
         foreach (var actor in RiftManager_ActorHandler.CorGeo_Actors)
         {
-            if (actor == null) continue;
-            if (actor.gameObject.activeSelf)
-            {
-                actor.DetermineRiftSpace();
-            }
-            
-            // TODO Why was this uncollapse call here isn't this supposed to just be for nullspace actors?
-            //actor.UnCollapseActor();
-           // Debug.Log($"[EnableCollapsedObject] {actor.name} riftSpace={actor.riftSpace} activeSelf={actor.gameObject.activeSelf}");
+            if (!actor) continue;
 
+            // Only enable actors the rift disabled
+            if (!actor.collapsedByRift) continue;
 
-            if (actor.riftSpace == RiftSpace.NULLSpace)
-            {
-                actor.UnCollapseActor();
-             //   Debug.Log($"[EnableCollapsedObject] {actor.name} activeSelf AFTER UnCollapseActor={actor.gameObject.activeSelf}");
-            }
+            actor.UnCollapseActor();
+            actor.riftSpace = RiftSpace.NULLSpace;
         }
     }
 

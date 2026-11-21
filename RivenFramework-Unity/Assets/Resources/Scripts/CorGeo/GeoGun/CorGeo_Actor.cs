@@ -36,6 +36,10 @@ public class CorGeo_Actor : MonoBehaviour
     public Vector3 HomeScale => homeScale;
     [Tooltip("TODO")]
     public Vector3 CurrentRiftScale { get; private set; }
+    [Tooltip("True while the rift has this actor switched off in a fully collapsed null-space")]
+    [HideInInspector] public bool collapsedByRift;
+    [Tooltip("How far across null-space this actor was (0 = plane A, 1 = plane B) when it was collapsed")]
+    [HideInInspector] public float nullSpaceT;
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     [Header("Debugging")]
@@ -163,6 +167,19 @@ public class CorGeo_Actor : MonoBehaviour
     {
         OnRiftRestore?.Invoke();
         previousRiftSpace = RiftSpace.none;
+        
+        // If the actor was disabled by the rift, renable it and go to the correct offset within null space that it was at previously
+        if (collapsedByRift)
+        {
+            collapsedByRift = false;
+            gameObject.SetActive(true);
+
+            if (dynamic && riftManager)
+            {
+                transform.position = riftManager.actorHandler.PlaceAtNullSpaceT(transform.position, nullSpaceT, RiftManager.riftStartingWidth);
+            }
+        }
+        
         if (isParentedIgnoreOffsets) return;
         if (isInStreamingVolume) return;
         transform.SetParent (homeParent);
