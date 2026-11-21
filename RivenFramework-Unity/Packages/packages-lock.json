@@ -456,11 +456,10 @@
       "url": "https://packages.unity.com"
     },
     "com.wooshii.foldericons": {
-      "version": "https://github.com/WooshiiDev/Unity-Folder-Icons.git",
+      "version": "file:com.wooshii.foldericons",
       "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "4511fb04fe561618780f0b35569e92a171713e95"
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.yasirkula.simplefilebrowser": {
       "version": "https://github.com/yasirkula/UnitySimpleFileBrowser.git",

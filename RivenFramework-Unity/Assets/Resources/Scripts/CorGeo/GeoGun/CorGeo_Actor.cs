@@ -96,7 +96,7 @@ public class CorGeo_Actor : MonoBehaviour
     private void OnTransformParentChanged()
     {
         // Keep track if this object is currently in a streaming volume, since if it is, the actor knows to ignore go home calls
-        if (transform.GetComponentInParent<VolumeLevelStreamContainer>())
+        if (transform.GetComponentInParent<VolumeLevelStream_Container>())
         {
             isInStreamingVolume = true;
         }

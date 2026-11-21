@@ -41,13 +41,14 @@ using Actor = RivenFramework.Actor;
         public override bool LogEventCalls() => true;
 
         public int DamageAmount;
-        [Polymorphic, SerializeReference] public List<ActorFilter> AffectedActorsFilters;
+        //[Polymorphic, SerializeReference] public List<ActorFilter> AffectedActorsFilters;
         public Actor Target;
         public Actor Source;
         
         public override string GetEventDescription()
         {
-            return $"DamageAmount:{DamageAmount}, AffectedActorsFilters:{AffectedActorsFilters}, Target:{Target}, Source:{Source}";
+            //return $"DamageAmount:{DamageAmount}, AffectedActorsFilters:{AffectedActorsFilters}, Target:{Target}, Source:{Source}";
+            return "";
         }
 
     }
