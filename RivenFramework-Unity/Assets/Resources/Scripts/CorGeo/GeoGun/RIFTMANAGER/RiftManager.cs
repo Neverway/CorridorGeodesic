@@ -41,7 +41,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     [Tooltip("Max size an *inverted* rift can expand to in the negative direction")]
     [SerializeField] private float minRiftWidth = -30;
     [Tooltip("This is to prevent physics bugs if nullspace scales too close to 0 without being 0")]
-    [SerializeField] public static float minAbsoluteRiftWidth = 0.15f;
+    public static float minAbsoluteRiftWidth = 0.15f;
     [Header("Speed")]
     [Tooltip("The speed of the rift when it starts moving")]
     [SerializeField] public float minRiftSpeed = 0.5f;
@@ -156,6 +156,11 @@ public class RiftManager : MonoBehaviour, ILoggable
             return;
         }
         UpdateState();
+    }
+    
+    private void OnDestroy()
+    {
+        SceneManager.activeSceneChanged -= OnSceneChanged;
     }
 
 

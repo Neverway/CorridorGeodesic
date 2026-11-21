@@ -92,62 +92,35 @@ public class RiftManager_GeometryHandler : ILoggable
     /// </summary>
     private IEnumerator SliceCutPlanes()
     {
-        List<CorGeo_SliceableMesh> allMeshes = GameObject.FindObjectsOfType<CorGeo_SliceableMesh>().ToList();
-        List<Task> pendingSlices = new List<Task>();
-
-        foreach (var mesh in allMeshes)
+        try
         {
-            if (CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneA, mesh) ||
-                CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneB, mesh))
+            List<CorGeo_SliceableMesh> allMeshes = GameObject.FindObjectsOfType<CorGeo_SliceableMesh>().ToList();
+            List<Task> pendingSlices = new List<Task>();
+
+            foreach (var mesh in allMeshes)
             {
-                pendingSlices.Add(mesh.ApplyCuts());
+                if (CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneA, mesh) ||
+                    CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneB, mesh))
+                {
+                    pendingSlices.Add(mesh.ApplyCuts());
+                }
+                else
+                {
+                    mesh.AssignMeshToSpaceLists();
+                }
             }
-            else
+
+            var allSlicesTask = Task.WhenAll(pendingSlices);
+            while (!allSlicesTask.IsCompleted)
             {
-                mesh.AssignMeshToSpaceLists();
+                yield return null;
             }
         }
-
-        var allSlicesTask = Task.WhenAll(pendingSlices);
-        while (!allSlicesTask.IsCompleted)
+        finally
         {
-            yield return null;
+            cutRoutine = null;
         }
-
-        cutRoutine = null;
     }
-    /*private IEnumerator SliceCutPlanes()
-    {
-        this.Log("sliceCutPlanes started");
-        
-        // Separate and slice intersected meshes, sort the unintersected
-        List<CorGeo_SliceableMesh> allMeshes = GameObject.FindObjectsOfType<CorGeo_SliceableMesh>().ToList();
-        HashSet<CorGeo_SliceableMesh> intersectedMeshes = new HashSet<CorGeo_SliceableMesh>();
-
-        foreach (var mesh in allMeshes)
-        {
-            if (CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneA, mesh) ||
-                CorGeo_PlaneIntersectionUtil.IsMeshIntersectingPlane(RiftManager.cutPlaneB, mesh))
-            {
-                mesh.ApplyCuts();
-                intersectedMeshes.Add(mesh);
-            }
-            else
-            {
-                //Debug.Log($"{mesh.name} Object wasn't intersecting");
-                mesh.AssignMeshToSpaceLists();
-            }
-        }
-        
-        while (intersectedMeshes.Any((intersectedMesh) => intersectedMesh.isSliceInProgress))
-        {
-            yield return null;
-        }
-        
-        
-        cutRoutine = null;
-        this.Log("sliceCutPlanes finished");
-    }*/
 
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
@@ -211,8 +184,7 @@ public class RiftManager_GeometryHandler : ILoggable
         this.Log("PerformCutProcedure called");
         if (cutRoutine != null)
         {
-            Debug.LogError("Attempted to perform cut while one is already running! This is bad!?");
-            return;
+            throw new InvalidOperationException("Attempted to perform cut while one is already running! This is bad!?");
         }
         await For.Coroutine(SliceCutPlanes(), out cutRoutine);
     }

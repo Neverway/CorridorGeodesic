@@ -34,12 +34,12 @@ public class Graphics_NixieBulbEffects : MonoBehaviour
     private TrailRenderer bulbTrailToDisable;
     private LineRenderer connectingLine;
     private bool isQuitting = false;
-    private GI_RiftManager riftManager;
+    private RiftManager riftManager;
 
     public void Start()
     {
         
-        riftManager = GameInstance.Get<GI_RiftManager>();
+        riftManager = GameInstance.Get<RiftManager>();
         
         startLightIntensity = bulbGlowLight.intensity;
         glowFactor = 0f;
@@ -76,6 +76,7 @@ public class Graphics_NixieBulbEffects : MonoBehaviour
 
     public void Update()
     {
+        if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
         if (connectingLine == null && firstBulb != null && this != firstBulb)
         {
             if (firstBulb.self.pinned && self.pinned)
@@ -102,13 +103,13 @@ public class Graphics_NixieBulbEffects : MonoBehaviour
             targetFactor = 0f;
             glowFactor = 0f;
         }
-        else if (GI_RiftManager.riftActive is false)
+        else if (riftManager.riftActive is false)
         {
             hasDonePreviewBurst = false;
             previewBurstTimer = startPreviewTime;
             targetFactor = noRiftFactor;
         }
-        else if (!hasDonePreviewBurst &&  GI_RiftManager.riftActive)
+        else if (!hasDonePreviewBurst &&  riftManager.riftActive)
         {
             hasDonePreviewBurst = true;
             glowFactor = startPreviewFactor;

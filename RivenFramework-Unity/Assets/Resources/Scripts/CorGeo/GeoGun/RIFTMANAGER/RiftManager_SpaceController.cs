@@ -147,6 +147,7 @@ public class RiftManager_SpaceController : ILoggable
         this.Log("ReparentActorsToSpaceContainers called");
         foreach (CorGeo_Actor actor in RiftManager_ActorHandler.CorGeo_Actors)
         { 
+            if (!actor) continue;
             actor.DetermineRiftSpace();
             
             // Don't parent dynamic actors to the space-containers
@@ -200,7 +201,7 @@ public class RiftManager_SpaceController : ILoggable
         if (!spaceContainerNull) return;
 
         // If the rift collapsed, ignore minimum size rule so that we don't have a gap.
-        if (riftManager.linkedRiftController.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default && RiftManager.currentRiftPercent == 0)
+        if (riftManager.linkedRiftController && riftManager.linkedRiftController.collapseBehavior == Item_Utility_Geogun.CollapseBehavior.Default && RiftManager.currentRiftPercent == 0)
         {
             spaceContainerB.transform.position = RiftManager.riftNullSpaceStartingPosition;
             geometryHandler.visualPlaneB.transform.position = spaceContainerB.transform.position;
@@ -243,6 +244,7 @@ public class RiftManager_SpaceController : ILoggable
     {
         foreach (CorGeo_Actor actor in RiftManager_ActorHandler.CorGeo_Actors)
         {
+            if (!actor) continue;
             if (!actor.dynamic) continue;
             if (!actor.gameObject.activeSelf) continue;
 
@@ -311,7 +313,8 @@ public class RiftManager_SpaceController : ILoggable
                 actor.DetermineRiftSpace();
             }
             
-            actor.UnCollapseActor();
+            // TODO Why was this uncollapse call here isn't this supposed to just be for nullspace actors?
+            //actor.UnCollapseActor();
            // Debug.Log($"[EnableCollapsedObject] {actor.name} riftSpace={actor.riftSpace} activeSelf={actor.gameObject.activeSelf}");
 
 
