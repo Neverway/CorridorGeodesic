@@ -122,6 +122,7 @@ public class RiftManager : MonoBehaviour, ILoggable
     /*-----[ Mono Functions ]-----------------------------------------------------------------------------------------*/
     private void Start()
     {
+        Debug.Log("Riftmanager has started its start function");
         // Due to a circular dependency between geometryHandler and spaceController I have to wait to pass the reference here.
         // This is terrible and I hate it, but I suck at coding, so for now I guess it can stay ~Liz
         stateHandler = new RiftManager_StateHandler(this);
@@ -131,6 +132,7 @@ public class RiftManager : MonoBehaviour, ILoggable
         actorHandler = new RiftManager_ActorHandler(this);
         riftContext = GetComponent<RiftContext>();
         SceneManager.activeSceneChanged += OnSceneChanged;
+        Debug.Log("Riftmanager has completed its start function");
     }
 
     private void FixedUpdate()
@@ -275,12 +277,6 @@ public class RiftManager : MonoBehaviour, ILoggable
             await geometryHandler.PerformCutProcedure();
             spaceController.ReparentGeometryToSpaceContainers();
             spaceController.ReparentActorsToSpaceContainers();
-            
-            var nullContainer = spaceController.spaceContainerNull.transform;
-            nullContainer.localScale = new Vector3(1f, 1f, 0.999f);
-            await For.NextFixedUpdate;
-            nullContainer.localScale = Vector3.one;
-            await For.NextFixedUpdate;
             
             stateHandler.SetState<RiftState_Preview>();
         }
