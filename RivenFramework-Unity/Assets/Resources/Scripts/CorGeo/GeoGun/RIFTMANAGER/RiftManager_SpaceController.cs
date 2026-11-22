@@ -107,7 +107,11 @@ public class RiftManager_SpaceController : ILoggable
                     mesh.Key.transform.parent = spaceContainerA.transform;
                     break;
                 case RiftSpace.NULLSpace:
-                    mesh.Key.transform.parent = spaceContainerNull.transform;
+                    // Fall back to parenting if we cant bake the new collider axis
+                    if (!mesh.Key.BakeIntoSpace(spaceContainerNull.transform))
+                    {
+                        mesh.Key.transform.parent = spaceContainerNull.transform;
+                    }
                     break;
                 case RiftSpace.B:
                     mesh.Key.transform.parent = spaceContainerB.transform;
@@ -183,6 +187,7 @@ public class RiftManager_SpaceController : ILoggable
                 Debug.LogWarning("A mesh in spaceMeshes was already destroyed before it could be unparented! This shouldn't happen! FFS 3:<");
                 continue;
             }
+            mesh.Key.RestoreFromBake();
             mesh.Key.transform.parent = null;
         }
         /*foreach (var actor in spaceActors)

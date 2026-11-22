@@ -43,9 +43,15 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
     
 
     /*-----[ External Variables ]-------------------------------------------------------------------------------------*/
+    [Header("Slicing Settings")]
     [Tooltip("If enabled, lasers are reflected off this mesh")]
     public bool isReflective;
     
+    [Header("Rift baking")]
+    [Tooltip("Rotates this piece's mesh into the null-space container so its collider stays aligned while squashed (This should only be enabled for large meshes where the axis collider accuracy drift is noticeable)")]
+    public bool bakeIntoNullSpace = false;
+    
+    [Header("Debugging")]
     [Tooltip("Used to identify when a slice operation is being performed")]
     public bool isSliceInProgress;
     [Tooltip("Used by the rift manager's geometry handler to identify which meshes are ones that were cut by a rift plane")]
@@ -58,6 +64,16 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
 
     /*-----[ Internal Variables ]-------------------------------------------------------------------------------------*/
     private bool hasFinishedSlice;
+    
+    [NonSerialized] private bool isBakedIntoSpace;
+    [NonSerialized] private Mesh preBakeRenderMesh;
+    [NonSerialized] private Mesh[] preBakeColliderMeshes;
+    [NonSerialized] private Mesh bakedRenderMesh;
+    [NonSerialized] private Mesh[] bakedColliderMeshes;
+    [NonSerialized] private Transform preBakeParent;
+    [NonSerialized] private Vector3 preBakeLocalPosition;
+    [NonSerialized] private Quaternion preBakeLocalRotation;
+    [NonSerialized] private Vector3 preBakeLocalScale;
 
     /*-----[ Reference Variables ]------------------------------------------------------------------------------------*/
     [Tooltip("The BZSlicer script that actually cuts the mesh")]
@@ -110,12 +126,17 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         meshRenderer = GetComponent<MeshRenderer>();
         
         // If no slicing material was defined, assign the null space material from the rift manager
-        if (!slicer.defaultSliceMaterial)
+        if (!slicer.defaultSliceMaterial && riftManager != null)
         {
             slicer.defaultSliceMaterial = riftManager.nullSpaceMaterial;
         }
         //Store this as the first slice.
         sliceableMeshes[0] = this;
+    }
+    
+    private void OnDestroy()
+    {
+        ReleaseBakedMeshes();
     }
 
     /*-----[ Internal Functions ]-------------------------------------------------------------------------------------*/
@@ -426,6 +447,10 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         // LOOKING AT YOU PAST ME!!! ~Liz
         if (!slicer) slicer = GetComponent<BzSliceableObject>();
         if (!riftManager) riftManager = GameInstance.Get<RiftManager>();
+        if (!slicer.defaultSliceMaterial && riftManager)
+        {
+            slicer.defaultSliceMaterial = riftManager.nullSpaceMaterial;
+        }
 
         slicer.asynchronously = true;
         
@@ -576,6 +601,26 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
         }
         return null;
     }
+    
+    /// <summary>
+    /// Cleanup the axis aligned versions of the mesh
+    /// </summary>
+    private void ReleaseBakedMeshes()
+    {
+        if (bakedRenderMesh) Destroy(bakedRenderMesh);
+        if (bakedColliderMeshes != null)
+        {
+            foreach (Mesh m in bakedColliderMeshes)
+            {
+                if (m) Destroy(m);
+            }
+        }
+        bakedRenderMesh = null;
+        bakedColliderMeshes = null;
+        preBakeRenderMesh = null;
+        preBakeColliderMeshes = null;
+        isBakedIntoSpace = false;
+    }
 
     /*-----[ External Functions ]-------------------------------------------------------------------------------------*/
     /// <summary>
@@ -724,6 +769,113 @@ public class CorGeo_SliceableMesh : MonoBehaviour, ILoggable
                 yield return mesh;
             }
         }
+    }
+    
+    /// <summary>
+    /// Align the axis of the mesh to the world axis to fix collider drift
+    /// </summary>
+    public bool BakeIntoSpace(Transform _container)
+    {
+        if (!bakeIntoNullSpace || isBakedIntoSpace) return false;
+
+        // If there's no twist, there should be a need to realign since it should be lined up
+        Quaternion twist = Quaternion.Inverse(_container.rotation) * transform.rotation;
+        if (Quaternion.Angle(twist, Quaternion.identity) < 0.5f) return false;
+
+        if (transform.childCount > 0)
+        {
+            Debug.LogWarning($"{name}: has children, skipping rift bake", this);
+            return false;
+        }
+
+        foreach (Collider c in GetComponents<Collider>())
+        {
+            if (c is MeshCollider) continue;
+            Debug.LogWarning($"{name}: has a non-mesh collider, skipping rift bake", this);
+            return false;
+        }
+
+        MeshFilter filter = GetComponent<MeshFilter>();
+        MeshCollider[] meshColliders = GetComponents<MeshCollider>();
+
+        if (filter && filter.sharedMesh && !filter.sharedMesh.isReadable)
+        {
+            Debug.LogWarning($"{name}: render mesh is not readable, skipping rift bake", this);
+            return false;
+        }
+        foreach (MeshCollider mc in meshColliders)
+        {
+            if (mc.sharedMesh && !mc.sharedMesh.isReadable)
+            {
+                Debug.LogWarning($"{name}: collider mesh is not readable, skipping rift bake", this);
+                return false;
+            }
+        }
+
+        Matrix4x4 toContainer = _container.worldToLocalMatrix * transform.localToWorldMatrix;
+
+        preBakeParent = transform.parent;
+        preBakeLocalPosition = transform.localPosition;
+        preBakeLocalRotation = transform.localRotation;
+        preBakeLocalScale = transform.localScale;
+
+        if (filter && filter.sharedMesh)
+        {
+            preBakeRenderMesh = filter.sharedMesh;
+            bakedRenderMesh = RiftMeshBaker.BakeToSpace(preBakeRenderMesh, toContainer);
+            filter.sharedMesh = bakedRenderMesh;
+        }
+
+        preBakeColliderMeshes = new Mesh[meshColliders.Length];
+        bakedColliderMeshes = new Mesh[meshColliders.Length];
+        for (int i = 0; i < meshColliders.Length; i++)
+        {
+            preBakeColliderMeshes[i] = meshColliders[i].sharedMesh;
+            if (!preBakeColliderMeshes[i]) continue;
+
+            if (preBakeColliderMeshes[i] == preBakeRenderMesh)
+            {
+                meshColliders[i].sharedMesh = bakedRenderMesh;
+            }
+            else
+            {
+                bakedColliderMeshes[i] = RiftMeshBaker.BakeToSpace(preBakeColliderMeshes[i], toContainer);
+                meshColliders[i].sharedMesh = bakedColliderMeshes[i];
+            }
+        }
+
+        transform.SetParent(_container, false);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
+        transform.localScale = Vector3.one;
+
+        isBakedIntoSpace = true;
+        return true;
+    }
+
+    
+    /// <summary>
+    /// Undo the collider drift axis adjustment
+    /// </summary>
+    public void RestoreFromBake()
+    {
+        if (!isBakedIntoSpace) return;
+
+        MeshFilter filter = GetComponent<MeshFilter>();
+        if (filter && preBakeRenderMesh) filter.sharedMesh = preBakeRenderMesh;
+
+        MeshCollider[] meshColliders = GetComponents<MeshCollider>();
+        for (int i = 0; i < meshColliders.Length && i < preBakeColliderMeshes.Length; i++)
+        {
+            meshColliders[i].sharedMesh = preBakeColliderMeshes[i];
+        }
+
+        transform.SetParent(preBakeParent, false);
+        transform.localPosition = preBakeLocalPosition;
+        transform.localRotation = preBakeLocalRotation;
+        transform.localScale = preBakeLocalScale;
+
+        ReleaseBakedMeshes();
     }
 
     #endregion
