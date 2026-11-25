@@ -66,16 +66,34 @@ using UnityEngine;
             
             private void LateUpdate()
             {
-                if (!sliceStarted || followers == null) return;
+                if (!sliceStarted || followers == null || riftManager == null) return;
 
-                Matrix4x4 root = transform.localToWorldMatrix;
-                foreach (SectionFollow follower in followers)
+                // What space the objects transform is in (a = 0, b= 1, 2 = null)
+                int home = 0;
+                switch (riftManager.GetRiftSpaceOfPoint(transform.position))
                 {
-                    Matrix4x4 local = follower.containerRestWorldToLocal * root * follower.rootToSection;
-                    Transform trans = follower.section.transform;
-                    trans.localPosition = local.GetColumn(3);
-                    trans.localRotation = local.rotation;
-                    trans.localScale = local.lossyScale;
+                    case RiftSpace.B: 
+                        home = 1; break;
+                    case RiftSpace.NULLSpace: 
+                        home = 2; break;
+                }
+
+                SectionFollow h = followers[home];
+                Matrix4x4 curWorldToLocalHome = h.section.transform.parent.worldToLocalMatrix;
+                if (Mathf.Abs(curWorldToLocalHome.determinant) < 1e-6f) return;
+
+                // Undo POSITION compression so we can calculate POSITION shtuff in world-space
+                Vector3 restPosition = h.containerRestWorldToLocal.inverse.MultiplyPoint3x4(
+                    curWorldToLocalHome.MultiplyPoint3x4(transform.position));
+                Matrix4x4 restPose = Matrix4x4.TRS(restPosition, transform.rotation, transform.lossyScale);
+
+                foreach (SectionFollow f in followers)
+                {
+                    Matrix4x4 local = f.containerRestWorldToLocal * restPose * f.rootToSection;
+                    Transform t = f.section.transform;
+                    t.localPosition = local.GetColumn(3);
+                    t.localRotation = local.rotation;
+                    t.localScale = local.lossyScale;
                 }
             }
 
